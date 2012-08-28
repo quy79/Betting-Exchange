@@ -1,0 +1,1797 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NopSolutionsNopCommerceBusinessLogicDataStoreContainer" CdmEntityContainer="NopEntities">
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Language">
+        <MappingFragment StoreEntitySet="Nop_Language">
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageCulture" ColumnName="LanguageCulture" />
+          <ScalarProperty Name="FlagImageFileName" ColumnName="FlagImageFileName" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Country">
+        <MappingFragment StoreEntitySet="Nop_Country">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="SubjectToVAT" ColumnName="SubjectToVAT" />
+          <ScalarProperty Name="NumericIsoCode" ColumnName="NumericISOCode" />
+          <ScalarProperty Name="ThreeLetterIsoCode" ColumnName="ThreeLetterISOCode" />
+          <ScalarProperty Name="TwoLetterIsoCode" ColumnName="TwoLetterISOCode" />
+          <ScalarProperty Name="AllowsShipping" ColumnName="AllowsShipping" />
+          <ScalarProperty Name="AllowsBilling" ColumnName="AllowsBilling" />
+          <ScalarProperty Name="AllowsRegistration" ColumnName="AllowsRegistration" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateProvinces">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.StateProvince">
+        <MappingFragment StoreEntitySet="Nop_StateProvince">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryID" />
+          <ScalarProperty Name="StateProvinceId" ColumnName="StateProvinceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Topics">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Topic">
+        <MappingFragment StoreEntitySet="Nop_Topic">
+          <ScalarProperty Name="IncludeInSitemap" ColumnName="IncludeInSitemap" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsPasswordProtected" ColumnName="IsPasswordProtected" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocalizedTopics">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.LocalizedTopic">
+        <MappingFragment StoreEntitySet="Nop_TopicLocalized">
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicID" />
+          <ScalarProperty Name="TopicLocalizedId" ColumnName="TopicLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QueuedEmails">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.QueuedEmail">
+        <MappingFragment StoreEntitySet="Nop_QueuedEmail">
+          <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
+          <ScalarProperty Name="SentOn" ColumnName="SentOn" />
+          <ScalarProperty Name="SendTries" ColumnName="SendTries" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Bcc" ColumnName="Bcc" />
+          <ScalarProperty Name="CC" ColumnName="Cc" />
+          <ScalarProperty Name="ToName" ColumnName="ToName" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="FromName" ColumnName="FromName" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="QueuedEmailId" ColumnName="QueuedEmailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BannedIpAddresses">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.BannedIpAddress">
+        <MappingFragment StoreEntitySet="Nop_BannedIpAddress">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="BannedIpAddressId" ColumnName="BannedIpAddressID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BannedIpNetworks">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.BannedIpNetwork">
+        <MappingFragment StoreEntitySet="Nop_BannedIpNetwork">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IpException" ColumnName="IpException" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="EndAddress" ColumnName="EndAddress" />
+          <ScalarProperty Name="StartAddress" ColumnName="StartAddress" />
+          <ScalarProperty Name="BannedIpNetworkId" ColumnName="BannedIpNetworkID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MessageTemplates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.MessageTemplate">
+        <MappingFragment StoreEntitySet="Nop_MessageTemplate">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MessageTemplateId" ColumnName="MessageTemplateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocalizedMessageTemplates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.LocalizedMessageTemplate">
+        <MappingFragment StoreEntitySet="Nop_MessageTemplateLocalized">
+          <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="BccEmailAddresses" ColumnName="BCCEmailAddresses" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="MessageTemplateId" ColumnName="MessageTemplateID" />
+          <ScalarProperty Name="MessageTemplateLocalizedId" ColumnName="MessageTemplateLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeasureDimensions">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.MeasureDimension">
+        <MappingFragment StoreEntitySet="Nop_MeasureDimension">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Ratio" ColumnName="Ratio" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MeasureDimensionId" ColumnName="MeasureDimensionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MeasureWeights">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.MeasureWeight">
+        <MappingFragment StoreEntitySet="Nop_MeasureWeight">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Ratio" ColumnName="Ratio" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MeasureWeightId" ColumnName="MeasureWeightID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Affiliates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Affiliate">
+        <MappingFragment StoreEntitySet="Nop_Affiliate">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ZipPostalCode" ColumnName="ZipPostalCode" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="AffiliateId" ColumnName="AffiliateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryTemplates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CategoryTemplate">
+        <MappingFragment StoreEntitySet="Nop_CategoryTemplate">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TemplatePath" ColumnName="TemplatePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryTemplateId" ColumnName="CategoryTemplateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CreditCardTypes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CreditCardType">
+        <MappingFragment StoreEntitySet="Nop_CreditCardType">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CreditCardTypeId" ColumnName="CreditCardTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerActions">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CustomerAction">
+        <MappingFragment StoreEntitySet="Nop_CustomerAction">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CustomerActionId" ColumnName="CustomerActionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManufacturerTemplates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ManufacturerTemplate">
+        <MappingFragment StoreEntitySet="Nop_ManufacturerTemplate">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TemplatePath" ColumnName="TemplatePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManufacturerTemplateId" ColumnName="ManufacturerTemplateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTemplates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductTemplate">
+        <MappingFragment StoreEntitySet="Nop_ProductTemplate">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TemplatePath" ColumnName="TemplatePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductTemplateId" ColumnName="ProductTemplateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Warehouse">
+        <MappingFragment StoreEntitySet="Nop_Warehouse">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="ZipPostalCode" ColumnName="ZipPostalCode" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Campaigns">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Campaign">
+        <MappingFragment StoreEntitySet="Nop_Campaign">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CampaignId" ColumnName="CampaignID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Currency">
+        <MappingFragment StoreEntitySet="Nop_Currency">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="CustomFormatting" ColumnName="CustomFormatting" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="DisplayLocale" ColumnName="DisplayLocale" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Downloads">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Download">
+        <MappingFragment StoreEntitySet="Nop_Download">
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="Filename" ColumnName="Filename" />
+          <ScalarProperty Name="ContentType" ColumnName="ContentType" />
+          <ScalarProperty Name="DownloadBinary" ColumnName="DownloadBinary" />
+          <ScalarProperty Name="DownloadUrl" ColumnName="DownloadURL" />
+          <ScalarProperty Name="UseDownloadUrl" ColumnName="UseDownloadURL" />
+          <ScalarProperty Name="DownloadId" ColumnName="DownloadID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.PaymentMethod">
+        <MappingFragment StoreEntitySet="Nop_PaymentMethod">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="UserTemplatePath" ColumnName="UserTemplatePath" />
+          <ScalarProperty Name="ConfigureTemplatePath" ColumnName="ConfigureTemplatePath" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="VisibleName" ColumnName="VisibleName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingRateComputationMethods">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ShippingRateComputationMethod">
+        <MappingFragment StoreEntitySet="Nop_ShippingRateComputationMethod">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ConfigureTemplatePath" ColumnName="ConfigureTemplatePath" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShippingRateComputationMethodId" ColumnName="ShippingRateComputationMethodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxCategories">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.TaxCategory">
+        <MappingFragment StoreEntitySet="Nop_TaxCategory">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaxCategoryId" ColumnName="TaxCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxProviders">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.TaxProvider">
+        <MappingFragment StoreEntitySet="Nop_TaxProvider">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ConfigureTemplatePath" ColumnName="ConfigureTemplatePath" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TaxProviderId" ColumnName="TaxProviderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocaleStringResources">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.LocaleStringResource">
+        <MappingFragment StoreEntitySet="Nop_LocaleStringResource">
+          <ScalarProperty Name="ResourceValue" ColumnName="ResourceValue" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="LocaleStringResourceId" ColumnName="LocaleStringResourceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settings">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Setting">
+        <MappingFragment StoreEntitySet="Nop_Setting">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SettingId" ColumnName="SettingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pictures">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Picture">
+        <MappingFragment StoreEntitySet="Nop_Picture">
+          <ScalarProperty Name="IsNew" ColumnName="IsNew" />
+          <ScalarProperty Name="MimeType" ColumnName="MimeType" />
+          <ScalarProperty Name="PictureBinary" ColumnName="PictureBinary" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingByTotal">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ShippingByTotal">
+        <MappingFragment StoreEntitySet="Nop_ShippingByTotal">
+          <ScalarProperty Name="ShippingChargeAmount" ColumnName="ShippingChargeAmount" />
+          <ScalarProperty Name="ShippingChargePercentage" ColumnName="ShippingChargePercentage" />
+          <ScalarProperty Name="UsePercentage" ColumnName="UsePercentage" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="ShippingMethodId" ColumnName="ShippingMethodID" />
+          <ScalarProperty Name="ShippingByTotalId" ColumnName="ShippingByTotalID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingByWeight">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ShippingByWeight">
+        <MappingFragment StoreEntitySet="Nop_ShippingByWeight">
+          <ScalarProperty Name="ShippingChargeAmount" ColumnName="ShippingChargeAmount" />
+          <ScalarProperty Name="ShippingChargePercentage" ColumnName="ShippingChargePercentage" />
+          <ScalarProperty Name="UsePercentage" ColumnName="UsePercentage" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="ShippingMethodId" ColumnName="ShippingMethodID" />
+          <ScalarProperty Name="ShippingByWeightId" ColumnName="ShippingByWeightID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingByWeightAndCountry">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ShippingByWeightAndCountry">
+        <MappingFragment StoreEntitySet="Nop_ShippingByWeightAndCountry">
+          <ScalarProperty Name="ShippingChargeAmount" ColumnName="ShippingChargeAmount" />
+          <ScalarProperty Name="ShippingChargePercentage" ColumnName="ShippingChargePercentage" />
+          <ScalarProperty Name="UsePercentage" ColumnName="UsePercentage" />
+          <ScalarProperty Name="To" ColumnName="To" />
+          <ScalarProperty Name="From" ColumnName="From" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryID" />
+          <ScalarProperty Name="ShippingMethodId" ColumnName="ShippingMethodID" />
+          <ScalarProperty Name="ShippingByWeightAndCountryId" ColumnName="ShippingByWeightAndCountryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShippingMethods">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ShippingMethod">
+        <MappingFragment StoreEntitySet="Nop_ShippingMethod">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShippingMethodId" ColumnName="ShippingMethodID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Customer">
+        <MappingFragment StoreEntitySet="Nop_Customer">
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="AvatarId" ColumnName="AvatarID" />
+          <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneID" />
+          <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="TotalForumPosts" ColumnName="TotalForumPosts" />
+          <ScalarProperty Name="IsForumModerator" ColumnName="IsForumModerator" />
+          <ScalarProperty Name="IsGuest" ColumnName="IsGuest" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+          <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+          <ScalarProperty Name="TaxDisplayTypeId" ColumnName="TaxDisplayTypeID" />
+          <ScalarProperty Name="CurrencyId" ColumnName="CurrencyID" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="CheckoutAttributes" ColumnName="CheckoutAttributes" />
+          <ScalarProperty Name="GiftCardCouponCodes" ColumnName="GiftCardCouponCodes" />
+          <ScalarProperty Name="LastAppliedCouponCode" ColumnName="LastAppliedCouponCode" />
+          <ScalarProperty Name="LastPaymentMethodId" ColumnName="LastPaymentMethodID" />
+          <ScalarProperty Name="ShippingAddressId" ColumnName="ShippingAddressID" />
+          <ScalarProperty Name="BillingAddressId" ColumnName="BillingAddressID" />
+          <ScalarProperty Name="AffiliateId" ColumnName="AffiliateID" />
+          <ScalarProperty Name="SaltKey" ColumnName="SaltKey" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CustomerGuid" ColumnName="CustomerGUID" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxRates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.TaxRate">
+        <MappingFragment StoreEntitySet="Nop_TaxRate">
+          <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="StateProvinceId" ColumnName="StateProvinceID" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryID" />
+          <ScalarProperty Name="TaxCategoryId" ColumnName="TaxCategoryID" />
+          <ScalarProperty Name="TaxRateId" ColumnName="TaxRateID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerRoles">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CustomerRole">
+        <MappingFragment StoreEntitySet="Nop_CustomerRole">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="TaxExempt" ColumnName="TaxExempt" />
+          <ScalarProperty Name="FreeShipping" ColumnName="FreeShipping" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CustomerRoleId" ColumnName="CustomerRoleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Nop_Customer_CustomerRole_Mapping" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_Customer_CustomerRole_Mapping" StoreEntitySet="Nop_Customer_CustomerRole_Mapping">
+      <EndProperty Name="Nop_CustomerRole">
+        <ScalarProperty Name="CustomerRoleId" ColumnName="CustomerRoleID" />
+      </EndProperty>
+      <EndProperty Name="Customer">
+        <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ACL">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ACL">
+        <MappingFragment StoreEntitySet="Nop_ACL">
+          <ScalarProperty Name="Allow" ColumnName="Allow" />
+          <ScalarProperty Name="CustomerRoleId" ColumnName="CustomerRoleID" />
+          <ScalarProperty Name="CustomerActionId" ColumnName="CustomerActionID" />
+          <ScalarProperty Name="AclId" ColumnName="ACLID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityLog">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ActivityLog">
+        <MappingFragment StoreEntitySet="Nop_ActivityLog">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="ActivityLogTypeId" ColumnName="ActivityLogTypeID" />
+          <ScalarProperty Name="ActivityLogId" ColumnName="ActivityLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ActivityLogTypes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ActivityLogType">
+        <MappingFragment StoreEntitySet="Nop_ActivityLogType">
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="ActivityLogTypeId" ColumnName="ActivityLogTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Address">
+        <MappingFragment StoreEntitySet="Nop_Address">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryID" />
+          <ScalarProperty Name="ZipPostalCode" ColumnName="ZipPostalCode" />
+          <ScalarProperty Name="StateProvinceId" ColumnName="StateProvinceID" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="IsBillingAddress" ColumnName="IsBillingAddress" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogComments">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.BlogComment">
+        <MappingFragment StoreEntitySet="Nop_BlogComment">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CommentText" ColumnName="CommentText" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="BlogPostId" ColumnName="BlogPostID" />
+          <ScalarProperty Name="BlogCommentId" ColumnName="BlogCommentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BlogPosts">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.BlogPost">
+        <MappingFragment StoreEntitySet="Nop_BlogPost">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedByID" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="BlogPostAllowComments" ColumnName="BlogPostAllowComments" />
+          <ScalarProperty Name="BlogPostBody" ColumnName="BlogPostBody" />
+          <ScalarProperty Name="BlogPostTitle" ColumnName="BlogPostTitle" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="BlogPostId" ColumnName="BlogPostID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerAttributes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CustomerAttribute">
+        <MappingFragment StoreEntitySet="Nop_CustomerAttribute">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerAttributeId" ColumnName="CustomerAttributeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerSessions">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CustomerSession">
+        <MappingFragment StoreEntitySet="Nop_CustomerSession">
+          <ScalarProperty Name="IsExpired" ColumnName="IsExpired" />
+          <ScalarProperty Name="LastAccessed" ColumnName="LastAccessed" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="CustomerSessionGuid" ColumnName="CustomerSessionGUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forums">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Forum">
+        <MappingFragment StoreEntitySet="Nop_Forums_Forum">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="LastPostTime" ColumnName="LastPostTime" />
+          <ScalarProperty Name="LastPostUserId" ColumnName="LastPostUserID" />
+          <ScalarProperty Name="LastPostId" ColumnName="LastPostID" />
+          <ScalarProperty Name="LastTopicId" ColumnName="LastTopicID" />
+          <ScalarProperty Name="NumPosts" ColumnName="NumPosts" />
+          <ScalarProperty Name="NumTopics" ColumnName="NumTopics" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ForumGroupId" ColumnName="ForumGroupID" />
+          <ScalarProperty Name="ForumId" ColumnName="ForumID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumGroups">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ForumGroup">
+        <MappingFragment StoreEntitySet="Nop_Forums_Group">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ForumGroupId" ColumnName="ForumGroupID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumPosts">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ForumPost">
+        <MappingFragment StoreEntitySet="Nop_Forums_Post">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="UserId" ColumnName="UserID" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicID" />
+          <ScalarProperty Name="ForumPostId" ColumnName="PostID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrivateMessages">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.PrivateMessage">
+        <MappingFragment StoreEntitySet="Nop_Forums_PrivateMessage">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeletedByRecipient" ColumnName="IsDeletedByRecipient" />
+          <ScalarProperty Name="IsDeletedByAuthor" ColumnName="IsDeletedByAuthor" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="ToUserId" ColumnName="ToUserID" />
+          <ScalarProperty Name="FromUserId" ColumnName="FromUserID" />
+          <ScalarProperty Name="PrivateMessageId" ColumnName="PrivateMessageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumSubscriptions">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ForumSubscription">
+        <MappingFragment StoreEntitySet="Nop_Forums_Subscription">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="TopicId" ColumnName="TopicID" />
+          <ScalarProperty Name="ForumId" ColumnName="ForumID" />
+          <ScalarProperty Name="UserId" ColumnName="UserID" />
+          <ScalarProperty Name="SubscriptionGuid" ColumnName="SubscriptionGUID" />
+          <ScalarProperty Name="ForumSubscriptionId" ColumnName="SubscriptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ForumTopics">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ForumTopic">
+        <MappingFragment StoreEntitySet="Nop_Forums_Topic">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="LastPostTime" ColumnName="LastPostTime" />
+          <ScalarProperty Name="LastPostUserId" ColumnName="LastPostUserID" />
+          <ScalarProperty Name="LastPostId" ColumnName="LastPostID" />
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="NumPosts" ColumnName="NumPosts" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="TopicTypeId" ColumnName="TopicTypeID" />
+          <ScalarProperty Name="UserId" ColumnName="UserID" />
+          <ScalarProperty Name="ForumId" ColumnName="ForumID" />
+          <ScalarProperty Name="ForumTopicId" ColumnName="TopicID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.News">
+        <MappingFragment StoreEntitySet="Nop_News">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="AllowComments" ColumnName="AllowComments" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Full" ColumnName="Full" />
+          <ScalarProperty Name="Short" ColumnName="Short" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="NewsId" ColumnName="NewsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsComments">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.NewsComment">
+        <MappingFragment StoreEntitySet="Nop_NewsComment">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="NewsId" ColumnName="NewsID" />
+          <ScalarProperty Name="NewsCommentId" ColumnName="NewsCommentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchLog">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.SearchLog">
+        <MappingFragment StoreEntitySet="Nop_SearchLog">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="SearchTerm" ColumnName="SearchTerm" />
+          <ScalarProperty Name="SearchLogId" ColumnName="SearchLogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Log">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Log">
+        <MappingFragment StoreEntitySet="Nop_Log">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ReferrerUrl" ColumnName="ReferrerURL" />
+          <ScalarProperty Name="PageUrl" ColumnName="PageURL" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="Exception" ColumnName="Exception" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Severity" ColumnName="Severity" />
+          <ScalarProperty Name="LogTypeId" ColumnName="LogTypeID" />
+          <ScalarProperty Name="LogId" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Polls">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Poll">
+        <MappingFragment StoreEntitySet="Nop_Poll">
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="PollId" ColumnName="PollID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PollAnswers">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.PollAnswer">
+        <MappingFragment StoreEntitySet="Nop_PollAnswer">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PollId" ColumnName="PollID" />
+          <ScalarProperty Name="PollAnswerId" ColumnName="PollAnswerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PollVotingRecords">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.PollVotingRecord">
+        <MappingFragment StoreEntitySet="Nop_PollVotingRecord">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="PollAnswerId" ColumnName="PollAnswerID" />
+          <ScalarProperty Name="PollVotingRecordId" ColumnName="PollVotingRecordID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Discounts">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Discount">
+        <MappingFragment StoreEntitySet="Nop_Discount">
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CouponCode" ColumnName="CouponCode" />
+          <ScalarProperty Name="RequiresCouponCode" ColumnName="RequiresCouponCode" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="DiscountAmount" ColumnName="DiscountAmount" />
+          <ScalarProperty Name="DiscountPercentage" ColumnName="DiscountPercentage" />
+          <ScalarProperty Name="UsePercentage" ColumnName="UsePercentage" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LimitationTimes" ColumnName="LimitationTimes" />
+          <ScalarProperty Name="DiscountLimitationId" ColumnName="DiscountLimitationID" />
+          <ScalarProperty Name="RequirementShippingCountryIs" ColumnName="RequirementShippingCountryIs" />
+          <ScalarProperty Name="RequirementBillingCountryIs" ColumnName="RequirementBillingCountryIs" />
+          <ScalarProperty Name="RequirementSpentAmount" ColumnName="RequirementSpentAmount" />
+          <ScalarProperty Name="DiscountRequirementId" ColumnName="DiscountRequirementID" />
+          <ScalarProperty Name="DiscountTypeId" ColumnName="DiscountTypeID" />
+          <ScalarProperty Name="DiscountId" ColumnName="DiscountID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NewsLetterSubscriptions">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.NewsLetterSubscription">
+        <MappingFragment StoreEntitySet="Nop_NewsLetterSubscription">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NewsLetterSubscriptionGuid" ColumnName="NewsLetterSubscriptionGuid" />
+          <ScalarProperty Name="NewsLetterSubscriptionId" ColumnName="NewsLetterSubscriptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pricelists">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Pricelist">
+        <MappingFragment StoreEntitySet="Nop_Pricelist">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="OverrideIndivAdjustment" ColumnName="OverrideIndivAdjustment" />
+          <ScalarProperty Name="PriceAdjustment" ColumnName="PriceAdjustment" />
+          <ScalarProperty Name="PriceAdjustmentTypeId" ColumnName="PriceAdjustmentTypeID" />
+          <ScalarProperty Name="Footer" ColumnName="Footer" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Header" ColumnName="Header" />
+          <ScalarProperty Name="AdminNotes" ColumnName="AdminNotes" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FormatLocalization" ColumnName="FormatLocalization" />
+          <ScalarProperty Name="CacheTime" ColumnName="CacheTime" />
+          <ScalarProperty Name="PricelistGuid" ColumnName="PricelistGuid" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="AffiliateId" ColumnName="AffiliateID" />
+          <ScalarProperty Name="ExportTypeId" ColumnName="ExportTypeID" />
+          <ScalarProperty Name="ExportModeId" ColumnName="ExportModeID" />
+          <ScalarProperty Name="PricelistId" ColumnName="PricelistID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Nop_PaymentMethod_RestrictedCountries" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_PaymentMethod_RestrictedCountries" StoreEntitySet="Nop_PaymentMethod_RestrictedCountries">
+      <EndProperty Name="PaymentMethod">
+        <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodID" />
+      </EndProperty>
+      <EndProperty Name="Country">
+        <ScalarProperty Name="CountryId" ColumnName="CountryID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Nop_ShippingMethod_RestrictedCountries" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_ShippingMethod_RestrictedCountries" StoreEntitySet="Nop_ShippingMethod_RestrictedCountries">
+      <EndProperty Name="ShippingMethod">
+        <ScalarProperty Name="ShippingMethodId" ColumnName="ShippingMethodID" />
+      </EndProperty>
+      <EndProperty Name="Country">
+        <ScalarProperty Name="CountryId" ColumnName="CountryID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Product">
+        <MappingFragment StoreEntitySet="Nop_Product">
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="TotalRatingVotes" ColumnName="TotalRatingVotes" />
+          <ScalarProperty Name="RatingSum" ColumnName="RatingSum" />
+          <ScalarProperty Name="AllowCustomerRatings" ColumnName="AllowCustomerRatings" />
+          <ScalarProperty Name="AllowCustomerReviews" ColumnName="AllowCustomerReviews" />
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateID" />
+          <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductLocalized">
+        <MappingFragment StoreEntitySet="Nop_ProductLocalized">
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductLocalizedId" ColumnName="ProductLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVariants">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductVariant">
+        <MappingFragment StoreEntitySet="Nop_ProductVariant">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="AvailableEndDateTime" ColumnName="AvailableEndDateTime" />
+          <ScalarProperty Name="AvailableStartDateTime" ColumnName="AvailableStartDateTime" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureID" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Width" ColumnName="Width" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="MaximumCustomerEnteredPrice" ColumnName="MaximumCustomerEnteredPrice" />
+          <ScalarProperty Name="MinimumCustomerEnteredPrice" ColumnName="MinimumCustomerEnteredPrice" />
+          <ScalarProperty Name="CustomerEntersPrice" ColumnName="CustomerEntersPrice" />
+          <ScalarProperty Name="ProductCost" ColumnName="ProductCost" />
+          <ScalarProperty Name="OldPrice" ColumnName="OldPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="CallForPrice" ColumnName="CallForPrice" />
+          <ScalarProperty Name="DisableBuyButton" ColumnName="DisableBuyButton" />
+          <ScalarProperty Name="WarehouseId" ColumnName="WarehouseID" />
+          <ScalarProperty Name="OrderMaximumQuantity" ColumnName="OrderMaximumQuantity" />
+          <ScalarProperty Name="OrderMinimumQuantity" ColumnName="OrderMinimumQuantity" />
+          <ScalarProperty Name="Backorders" ColumnName="Backorders" />
+          <ScalarProperty Name="NotifyAdminForQuantityBelow" ColumnName="NotifyAdminForQuantityBelow" />
+          <ScalarProperty Name="LowStockActivityId" ColumnName="LowStockActivityID" />
+          <ScalarProperty Name="MinStockQuantity" ColumnName="MinStockQuantity" />
+          <ScalarProperty Name="DisplayStockQuantity" ColumnName="DisplayStockQuantity" />
+          <ScalarProperty Name="DisplayStockAvailability" ColumnName="DisplayStockAvailability" />
+          <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
+          <ScalarProperty Name="ManageInventory" ColumnName="ManageInventory" />
+          <ScalarProperty Name="TaxCategoryId" ColumnName="TaxCategoryID" />
+          <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+          <ScalarProperty Name="AdditionalShippingCharge" ColumnName="AdditionalShippingCharge" />
+          <ScalarProperty Name="IsFreeShipping" ColumnName="IsFreeShipping" />
+          <ScalarProperty Name="IsShipEnabled" ColumnName="IsShipEnabled" />
+          <ScalarProperty Name="TotalCycles" ColumnName="TotalCycles" />
+          <ScalarProperty Name="CyclePeriod" ColumnName="CyclePeriod" />
+          <ScalarProperty Name="CycleLength" ColumnName="CycleLength" />
+          <ScalarProperty Name="IsRecurring" ColumnName="IsRecurring" />
+          <ScalarProperty Name="UserAgreementText" ColumnName="UserAgreementText" />
+          <ScalarProperty Name="HasUserAgreement" ColumnName="HasUserAgreement" />
+          <ScalarProperty Name="SampleDownloadId" ColumnName="SampleDownloadID" />
+          <ScalarProperty Name="HasSampleDownload" ColumnName="HasSampleDownload" />
+          <ScalarProperty Name="DownloadActivationType" ColumnName="DownloadActivationType" />
+          <ScalarProperty Name="DownloadExpirationDays" ColumnName="DownloadExpirationDays" />
+          <ScalarProperty Name="MaxNumberOfDownloads" ColumnName="MaxNumberOfDownloads" />
+          <ScalarProperty Name="UnlimitedDownloads" ColumnName="UnlimitedDownloads" />
+          <ScalarProperty Name="DownloadId" ColumnName="DownloadID" />
+          <ScalarProperty Name="IsDownload" ColumnName="IsDownload" />
+          <ScalarProperty Name="GiftCardType" ColumnName="GiftCardType" />
+          <ScalarProperty Name="IsGiftCard" ColumnName="IsGiftCard" />
+          <ScalarProperty Name="ManufacturerPartNumber" ColumnName="ManufacturerPartNumber" />
+          <ScalarProperty Name="AdminComment" ColumnName="AdminComment" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="SKU" ColumnName="SKU" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVariantLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductVariantLocalized">
+        <MappingFragment StoreEntitySet="Nop_ProductVariantLocalized">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="ProductVariantLocalizedId" ColumnName="ProductVariantLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckoutAttributes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CheckoutAttribute">
+        <MappingFragment StoreEntitySet="Nop_CheckoutAttribute">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="AttributeControlTypeId" ColumnName="AttributeControlTypeID" />
+          <ScalarProperty Name="TaxCategoryId" ColumnName="TaxCategoryID" />
+          <ScalarProperty Name="IsTaxExempt" ColumnName="IsTaxExempt" />
+          <ScalarProperty Name="ShippableProductRequired" ColumnName="ShippableProductRequired" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="TextPrompt" ColumnName="TextPrompt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CheckoutAttributeId" ColumnName="CheckoutAttributeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckoutAttributeLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CheckoutAttributeLocalized">
+        <MappingFragment StoreEntitySet="Nop_CheckoutAttributeLocalized">
+          <ScalarProperty Name="TextPrompt" ColumnName="TextPrompt" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="CheckoutAttributeId" ColumnName="CheckoutAttributeID" />
+          <ScalarProperty Name="CheckoutAttributeLocalizedId" ColumnName="CheckoutAttributeLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckoutAttributeValues">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CheckoutAttributeValue">
+        <MappingFragment StoreEntitySet="Nop_CheckoutAttributeValue">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsPreSelected" ColumnName="IsPreSelected" />
+          <ScalarProperty Name="WeightAdjustment" ColumnName="WeightAdjustment" />
+          <ScalarProperty Name="PriceAdjustment" ColumnName="PriceAdjustment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CheckoutAttributeId" ColumnName="CheckoutAttributeID" />
+          <ScalarProperty Name="CheckoutAttributeValueId" ColumnName="CheckoutAttributeValueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CheckoutAttributeValueLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CheckoutAttributeValueLocalized">
+        <MappingFragment StoreEntitySet="Nop_CheckoutAttributeValueLocalized">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="CheckoutAttributeValueId" ColumnName="CheckoutAttributeValueID" />
+          <ScalarProperty Name="CheckoutAttributeValueLocalizedId" ColumnName="CheckoutAttributeValueLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Category">
+        <MappingFragment StoreEntitySet="Nop_Category">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+          <ScalarProperty Name="PriceRanges" ColumnName="PriceRanges" />
+          <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureID" />
+          <ScalarProperty Name="ParentCategoryId" ColumnName="ParentCategoryID" />
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CategoryLocalized">
+        <MappingFragment StoreEntitySet="Nop_CategoryLocalized">
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryID" />
+          <ScalarProperty Name="CategoryLocalizedId" ColumnName="CategoryLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Manufacturer">
+        <MappingFragment StoreEntitySet="Nop_Manufacturer">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="PriceRanges" ColumnName="PriceRanges" />
+          <ScalarProperty Name="PageSize" ColumnName="PageSize" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureID" />
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="TemplateId" ColumnName="TemplateID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ManufacturerLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ManufacturerLocalized">
+        <MappingFragment StoreEntitySet="Nop_ManufacturerLocalized">
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerID" />
+          <ScalarProperty Name="ManufacturerLocalizedId" ColumnName="ManufacturerLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecificationAttributes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.SpecificationAttribute">
+        <MappingFragment StoreEntitySet="Nop_SpecificationAttribute">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SpecificationAttributeId" ColumnName="SpecificationAttributeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecificationAttributeLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.SpecificationAttributeLocalized">
+        <MappingFragment StoreEntitySet="Nop_SpecificationAttributeLocalized">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="SpecificationAttributeId" ColumnName="SpecificationAttributeID" />
+          <ScalarProperty Name="SpecificationAttributeLocalizedId" ColumnName="SpecificationAttributeLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecificationAttributeOptions">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.SpecificationAttributeOption">
+        <MappingFragment StoreEntitySet="Nop_SpecificationAttributeOption">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SpecificationAttributeId" ColumnName="SpecificationAttributeID" />
+          <ScalarProperty Name="SpecificationAttributeOptionId" ColumnName="SpecificationAttributeOptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecificationAttributeOptionLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.SpecificationAttributeOptionLocalized">
+        <MappingFragment StoreEntitySet="Nop_SpecificationAttributeOptionLocalized">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="SpecificationAttributeOptionId" ColumnName="SpecificationAttributeOptionID" />
+          <ScalarProperty Name="SpecificationAttributeOptionLocalizedId" ColumnName="SpecificationAttributeOptionLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductAttributes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductAttribute">
+        <MappingFragment StoreEntitySet="Nop_ProductAttribute">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductAttributeId" ColumnName="ProductAttributeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductAttributeLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductAttributeLocalized">
+        <MappingFragment StoreEntitySet="Nop_ProductAttributeLocalized">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="ProductAttributeId" ColumnName="ProductAttributeID" />
+          <ScalarProperty Name="ProductAttributeLocalizedId" ColumnName="ProductAttributeLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerRoleProductPrices">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CustomerRoleProductPrice">
+        <MappingFragment StoreEntitySet="Nop_CustomerRole_ProductPrice">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="CustomerRoleId" ColumnName="CustomerRoleID" />
+          <ScalarProperty Name="CustomerRoleProductPriceId" ColumnName="CustomerRoleProductPriceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RelatedProducts">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.RelatedProduct">
+        <MappingFragment StoreEntitySet="Nop_RelatedProduct">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ProductId2" ColumnName="ProductID2" />
+          <ScalarProperty Name="ProductId1" ColumnName="ProductID1" />
+          <ScalarProperty Name="RelatedProductId" ColumnName="RelatedProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShoppingCartItems">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ShoppingCartItem">
+        <MappingFragment StoreEntitySet="Nop_ShoppingCartItem">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="CustomerEnteredPrice" ColumnName="CustomerEnteredPrice" />
+          <ScalarProperty Name="AttributesXml" ColumnName="AttributesXML" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="CustomerSessionGuid" ColumnName="CustomerSessionGUID" />
+          <ScalarProperty Name="ShoppingCartTypeId" ColumnName="ShoppingCartTypeID" />
+          <ScalarProperty Name="ShoppingCartItemId" ColumnName="ShoppingCartItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TierPrices">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.TierPrice">
+        <MappingFragment StoreEntitySet="Nop_TierPrice">
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="TierPriceId" ColumnName="TierPriceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Nop_Category_Discount_Mapping" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_Category_Discount_Mapping" StoreEntitySet="Nop_Category_Discount_Mapping">
+      <EndProperty Name="Discount">
+        <ScalarProperty Name="DiscountId" ColumnName="DiscountID" />
+      </EndProperty>
+      <EndProperty Name="Category">
+        <ScalarProperty Name="CategoryId" ColumnName="CategoryID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Nop_CustomerRole_Discount_Mapping" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_CustomerRole_Discount_Mapping" StoreEntitySet="Nop_CustomerRole_Discount_Mapping">
+      <EndProperty Name="Discount">
+        <ScalarProperty Name="DiscountId" ColumnName="DiscountID" />
+      </EndProperty>
+      <EndProperty Name="CustomerRole">
+        <ScalarProperty Name="CustomerRoleId" ColumnName="CustomerRoleID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Nop_DiscountRestriction" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_DiscountRestriction" StoreEntitySet="Nop_DiscountRestriction">
+      <EndProperty Name="ProductVariant">
+        <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+      </EndProperty>
+      <EndProperty Name="Discount">
+        <ScalarProperty Name="DiscountId" ColumnName="DiscountID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductCategory">
+        <MappingFragment StoreEntitySet="Nop_Product_Category_Mapping">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsFeaturedProduct" ColumnName="IsFeaturedProduct" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductCategoryId" ColumnName="ProductCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductManufacturers">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductManufacturer">
+        <MappingFragment StoreEntitySet="Nop_Product_Manufacturer_Mapping">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsFeaturedProduct" ColumnName="IsFeaturedProduct" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductManufacturerId" ColumnName="ProductManufacturerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSpecificationAttributes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductSpecificationAttribute">
+        <MappingFragment StoreEntitySet="Nop_Product_SpecificationAttribute_Mapping">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="ShowOnProductPage" ColumnName="ShowOnProductPage" />
+          <ScalarProperty Name="AllowFiltering" ColumnName="AllowFiltering" />
+          <ScalarProperty Name="SpecificationAttributeOptionId" ColumnName="SpecificationAttributeOptionID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductSpecificationAttributeId" ColumnName="ProductSpecificationAttributeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductPictures">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductPicture">
+        <MappingFragment StoreEntitySet="Nop_ProductPicture">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="PictureId" ColumnName="PictureID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductPictureId" ColumnName="ProductPictureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductRatings">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductRating">
+        <MappingFragment StoreEntitySet="Nop_ProductRating">
+          <ScalarProperty Name="RatedOn" ColumnName="RatedOn" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductRatingId" ColumnName="ProductRatingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductReviews">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductReview">
+        <MappingFragment StoreEntitySet="Nop_ProductReview">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="HelpfulNoTotal" ColumnName="HelpfulNoTotal" />
+          <ScalarProperty Name="HelpfulYesTotal" ColumnName="HelpfulYesTotal" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="ReviewText" ColumnName="ReviewText" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+          <ScalarProperty Name="ProductReviewId" ColumnName="ProductReviewID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductReviewHelpfulness">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductReviewHelpfulness">
+        <MappingFragment StoreEntitySet="Nop_ProductReviewHelpfulness">
+          <ScalarProperty Name="WasHelpful" ColumnName="WasHelpful" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="ProductReviewId" ColumnName="ProductReviewID" />
+          <ScalarProperty Name="ProductReviewHelpfulnessId" ColumnName="ProductReviewHelpfulnessID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTags">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductTag">
+        <MappingFragment StoreEntitySet="Nop_ProductTag">
+          <ScalarProperty Name="ProductCount" ColumnName="ProductCount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductTagId" ColumnName="ProductTagID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Nop_ProductTag_Product_Mapping" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_ProductTag_Product_Mapping" StoreEntitySet="Nop_ProductTag_Product_Mapping">
+      <EndProperty Name="Nop_ProductTag">
+        <ScalarProperty Name="ProductTagId" ColumnName="ProductTagID" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="ProductId" ColumnName="ProductID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ProductVariantPricelists">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductVariantPricelist">
+        <MappingFragment StoreEntitySet="Nop_ProductVariant_Pricelist_Mapping">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="PriceAdjustment" ColumnName="PriceAdjustment" />
+          <ScalarProperty Name="PriceAdjustmentTypeId" ColumnName="PriceAdjustmentTypeID" />
+          <ScalarProperty Name="PricelistId" ColumnName="PricelistID" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="ProductVariantPricelistId" ColumnName="ProductVariantPricelistID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVariantAttributes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductVariantAttribute">
+        <MappingFragment StoreEntitySet="Nop_ProductVariant_ProductAttribute_Mapping">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="AttributeControlTypeId" ColumnName="AttributeControlTypeID" />
+          <ScalarProperty Name="IsRequired" ColumnName="IsRequired" />
+          <ScalarProperty Name="TextPrompt" ColumnName="TextPrompt" />
+          <ScalarProperty Name="ProductAttributeId" ColumnName="ProductAttributeID" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="ProductVariantAttributeId" ColumnName="ProductVariantAttributeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVariantAttributeCombinations">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductVariantAttributeCombination">
+        <MappingFragment StoreEntitySet="Nop_ProductVariantAttributeCombination">
+          <ScalarProperty Name="AllowOutOfStockOrders" ColumnName="AllowOutOfStockOrders" />
+          <ScalarProperty Name="StockQuantity" ColumnName="StockQuantity" />
+          <ScalarProperty Name="AttributesXml" ColumnName="AttributesXML" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="ProductVariantAttributeCombinationId" ColumnName="ProductVariantAttributeCombinationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVariantAttributeValues">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductVariantAttributeValue">
+        <MappingFragment StoreEntitySet="Nop_ProductVariantAttributeValue">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsPreSelected" ColumnName="IsPreSelected" />
+          <ScalarProperty Name="WeightAdjustment" ColumnName="WeightAdjustment" />
+          <ScalarProperty Name="PriceAdjustment" ColumnName="PriceAdjustment" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductVariantAttributeId" ColumnName="ProductVariantAttributeID" />
+          <ScalarProperty Name="ProductVariantAttributeValueId" ColumnName="ProductVariantAttributeValueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVariantAttributeValueLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductVariantAttributeValueLocalized">
+        <MappingFragment StoreEntitySet="Nop_ProductVariantAttributeValueLocalized">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageID" />
+          <ScalarProperty Name="ProductVariantAttributeValueId" ColumnName="ProductVariantAttributeValueID" />
+          <ScalarProperty Name="ProductVariantAttributeValueLocalizedId" ColumnName="ProductVariantAttributeValueLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Nop_ProductVariant_Discount_Mapping" TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Nop_ProductVariant_Discount_Mapping" StoreEntitySet="Nop_ProductVariant_Discount_Mapping">
+      <EndProperty Name="ProductVariant">
+        <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+      </EndProperty>
+      <EndProperty Name="Discount">
+        <ScalarProperty Name="DiscountId" ColumnName="DiscountID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Order">
+        <MappingFragment StoreEntitySet="Nop_Order">
+          <ScalarProperty Name="OrderSubTotalDiscountInclTaxInCustomerCurrency" ColumnName="OrderSubTotalDiscountInclTaxInCustomerCurrency" />
+          <ScalarProperty Name="OrderSubTotalDiscountInclTax" ColumnName="OrderSubTotalDiscountInclTax" />
+          <ScalarProperty Name="OrderSubTotalDiscountExclTaxInCustomerCurrency" ColumnName="OrderSubTotalDiscountExclTaxInCustomerCurrency" />
+          <ScalarProperty Name="OrderSubTotalDiscountExclTax" ColumnName="OrderSubTotalDiscountExclTax" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="VatNumber" ColumnName="VatNumber" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+          <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+          <ScalarProperty Name="ShippingRateComputationMethodId" ColumnName="ShippingRateComputationMethodID" />
+          <ScalarProperty Name="ShippingMethod" ColumnName="ShippingMethod" />
+          <ScalarProperty Name="ShippingCountryId" ColumnName="ShippingCountryID" />
+          <ScalarProperty Name="ShippingCountry" ColumnName="ShippingCountry" />
+          <ScalarProperty Name="ShippingZipPostalCode" ColumnName="ShippingZipPostalCode" />
+          <ScalarProperty Name="ShippingStateProvinceId" ColumnName="ShippingStateProvinceID" />
+          <ScalarProperty Name="ShippingStateProvince" ColumnName="ShippingStateProvince" />
+          <ScalarProperty Name="ShippingCity" ColumnName="ShippingCity" />
+          <ScalarProperty Name="ShippingAddress2" ColumnName="ShippingAddress2" />
+          <ScalarProperty Name="ShippingAddress1" ColumnName="ShippingAddress1" />
+          <ScalarProperty Name="ShippingCompany" ColumnName="ShippingCompany" />
+          <ScalarProperty Name="ShippingFaxNumber" ColumnName="ShippingFaxNumber" />
+          <ScalarProperty Name="ShippingEmail" ColumnName="ShippingEmail" />
+          <ScalarProperty Name="ShippingPhoneNumber" ColumnName="ShippingPhoneNumber" />
+          <ScalarProperty Name="ShippingLastName" ColumnName="ShippingLastName" />
+          <ScalarProperty Name="ShippingFirstName" ColumnName="ShippingFirstName" />
+          <ScalarProperty Name="ShippingStatusId" ColumnName="ShippingStatusID" />
+          <ScalarProperty Name="BillingCountryId" ColumnName="BillingCountryID" />
+          <ScalarProperty Name="BillingCountry" ColumnName="BillingCountry" />
+          <ScalarProperty Name="BillingZipPostalCode" ColumnName="BillingZipPostalCode" />
+          <ScalarProperty Name="BillingStateProvinceId" ColumnName="BillingStateProvinceID" />
+          <ScalarProperty Name="BillingStateProvince" ColumnName="BillingStateProvince" />
+          <ScalarProperty Name="BillingCity" ColumnName="BillingCity" />
+          <ScalarProperty Name="BillingAddress2" ColumnName="BillingAddress2" />
+          <ScalarProperty Name="BillingAddress1" ColumnName="BillingAddress1" />
+          <ScalarProperty Name="BillingCompany" ColumnName="BillingCompany" />
+          <ScalarProperty Name="BillingFaxNumber" ColumnName="BillingFaxNumber" />
+          <ScalarProperty Name="BillingEmail" ColumnName="BillingEmail" />
+          <ScalarProperty Name="BillingPhoneNumber" ColumnName="BillingPhoneNumber" />
+          <ScalarProperty Name="BillingLastName" ColumnName="BillingLastName" />
+          <ScalarProperty Name="BillingFirstName" ColumnName="BillingFirstName" />
+          <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+          <ScalarProperty Name="PaymentStatusId" ColumnName="PaymentStatusID" />
+          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+          <ScalarProperty Name="SubscriptionTransactionId" ColumnName="SubscriptionTransactionID" />
+          <ScalarProperty Name="CaptureTransactionResult" ColumnName="CaptureTransactionResult" />
+          <ScalarProperty Name="CaptureTransactionId" ColumnName="CaptureTransactionID" />
+          <ScalarProperty Name="AuthorizationTransactionResult" ColumnName="AuthorizationTransactionResult" />
+          <ScalarProperty Name="AuthorizationTransactionCode" ColumnName="AuthorizationTransactionCode" />
+          <ScalarProperty Name="AuthorizationTransactionId" ColumnName="AuthorizationTransactionID" />
+          <ScalarProperty Name="PaymentMethodName" ColumnName="PaymentMethodName" />
+          <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="CardExpirationYear" ColumnName="CardExpirationYear" />
+          <ScalarProperty Name="CardExpirationMonth" ColumnName="CardExpirationMonth" />
+          <ScalarProperty Name="CardCvv2" ColumnName="CardCVV2" />
+          <ScalarProperty Name="MaskedCreditCardNumber" ColumnName="MaskedCreditCardNumber" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CardName" ColumnName="CardName" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
+          <ScalarProperty Name="AllowStoringCreditCardNumber" ColumnName="AllowStoringCreditCardNumber" />
+          <ScalarProperty Name="OrderStatusId" ColumnName="OrderStatusID" />
+          <ScalarProperty Name="AffiliateId" ColumnName="AffiliateID" />
+          <ScalarProperty Name="OrderWeight" ColumnName="OrderWeight" />
+          <ScalarProperty Name="CheckoutAttributesXml" ColumnName="CheckoutAttributesXML" />
+          <ScalarProperty Name="CheckoutAttributeDescription" ColumnName="CheckoutAttributeDescription" />
+          <ScalarProperty Name="CustomerCurrencyCode" ColumnName="CustomerCurrencyCode" />
+          <ScalarProperty Name="OrderDiscountInCustomerCurrency" ColumnName="OrderDiscountInCustomerCurrency" />
+          <ScalarProperty Name="OrderTotalInCustomerCurrency" ColumnName="OrderTotalInCustomerCurrency" />
+          <ScalarProperty Name="OrderTaxInCustomerCurrency" ColumnName="OrderTaxInCustomerCurrency" />
+          <ScalarProperty Name="TaxRatesInCustomerCurrency" ColumnName="TaxRatesInCustomerCurrency" />
+          <ScalarProperty Name="PaymentMethodAdditionalFeeExclTaxInCustomerCurrency" ColumnName="PaymentMethodAdditionalFeeExclTaxInCustomerCurrency" />
+          <ScalarProperty Name="PaymentMethodAdditionalFeeInclTaxInCustomerCurrency" ColumnName="PaymentMethodAdditionalFeeInclTaxInCustomerCurrency" />
+          <ScalarProperty Name="OrderShippingExclTaxInCustomerCurrency" ColumnName="OrderShippingExclTaxInCustomerCurrency" />
+          <ScalarProperty Name="OrderShippingInclTaxInCustomerCurrency" ColumnName="OrderShippingInclTaxInCustomerCurrency" />
+          <ScalarProperty Name="OrderSubtotalExclTaxInCustomerCurrency" ColumnName="OrderSubtotalExclTaxInCustomerCurrency" />
+          <ScalarProperty Name="OrderSubtotalInclTaxInCustomerCurrency" ColumnName="OrderSubtotalInclTaxInCustomerCurrency" />
+          <ScalarProperty Name="OrderDiscount" ColumnName="OrderDiscount" />
+          <ScalarProperty Name="RefundedAmount" ColumnName="RefundedAmount" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+          <ScalarProperty Name="OrderTax" ColumnName="OrderTax" />
+          <ScalarProperty Name="TaxRates" ColumnName="TaxRates" />
+          <ScalarProperty Name="PaymentMethodAdditionalFeeExclTax" ColumnName="PaymentMethodAdditionalFeeExclTax" />
+          <ScalarProperty Name="PaymentMethodAdditionalFeeInclTax" ColumnName="PaymentMethodAdditionalFeeInclTax" />
+          <ScalarProperty Name="OrderShippingExclTax" ColumnName="OrderShippingExclTax" />
+          <ScalarProperty Name="OrderShippingInclTax" ColumnName="OrderShippingInclTax" />
+          <ScalarProperty Name="OrderSubtotalExclTax" ColumnName="OrderSubtotalExclTax" />
+          <ScalarProperty Name="OrderSubtotalInclTax" ColumnName="OrderSubtotalInclTax" />
+          <ScalarProperty Name="CustomerIP" ColumnName="CustomerIP" />
+          <ScalarProperty Name="CustomerTaxDisplayTypeId" ColumnName="CustomerTaxDisplayTypeID" />
+          <ScalarProperty Name="CustomerLanguageId" ColumnName="CustomerLanguageID" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="OrderGuid" ColumnName="OrderGUID" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderNotes">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.OrderNote">
+        <MappingFragment StoreEntitySet="Nop_OrderNote">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayToCustomer" ColumnName="DisplayToCustomer" />
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderNoteId" ColumnName="OrderNoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderProductVariants">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.OrderProductVariant">
+        <MappingFragment StoreEntitySet="Nop_OrderProductVariant">
+          <ScalarProperty Name="LicenseDownloadId" ColumnName="LicenseDownloadID" />
+          <ScalarProperty Name="IsDownloadActivated" ColumnName="IsDownloadActivated" />
+          <ScalarProperty Name="OrderProductVariantGuid" ColumnName="OrderProductVariantGUID" />
+          <ScalarProperty Name="DownloadCount" ColumnName="DownloadCount" />
+          <ScalarProperty Name="DiscountAmountExclTax" ColumnName="DiscountAmountExclTax" />
+          <ScalarProperty Name="DiscountAmountInclTax" ColumnName="DiscountAmountInclTax" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="AttributesXml" ColumnName="AttributesXML" />
+          <ScalarProperty Name="AttributeDescription" ColumnName="AttributeDescription" />
+          <ScalarProperty Name="PriceExclTaxInCustomerCurrency" ColumnName="PriceExclTaxInCustomerCurrency" />
+          <ScalarProperty Name="PriceInclTaxInCustomerCurrency" ColumnName="PriceInclTaxInCustomerCurrency" />
+          <ScalarProperty Name="UnitPriceExclTaxInCustomerCurrency" ColumnName="UnitPriceExclTaxInCustomerCurrency" />
+          <ScalarProperty Name="UnitPriceInclTaxInCustomerCurrency" ColumnName="UnitPriceInclTaxInCustomerCurrency" />
+          <ScalarProperty Name="PriceExclTax" ColumnName="PriceExclTax" />
+          <ScalarProperty Name="PriceInclTax" ColumnName="PriceInclTax" />
+          <ScalarProperty Name="UnitPriceExclTax" ColumnName="UnitPriceExclTax" />
+          <ScalarProperty Name="UnitPriceInclTax" ColumnName="UnitPriceInclTax" />
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantID" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderProductVariantId" ColumnName="OrderProductVariantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiscountUsageHistory">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.DiscountUsageHistory">
+        <MappingFragment StoreEntitySet="Nop_DiscountUsageHistory">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="DiscountId" ColumnName="DiscountID" />
+          <ScalarProperty Name="DiscountUsageHistoryId" ColumnName="DiscountUsageHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftCards">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.GiftCard">
+        <MappingFragment StoreEntitySet="Nop_GiftCard">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsRecipientNotified" ColumnName="IsRecipientNotified" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="SenderEmail" ColumnName="SenderEmail" />
+          <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+          <ScalarProperty Name="RecipientEmail" ColumnName="RecipientEmail" />
+          <ScalarProperty Name="RecipientName" ColumnName="RecipientName" />
+          <ScalarProperty Name="GiftCardCouponCode" ColumnName="GiftCardCouponCode" />
+          <ScalarProperty Name="IsGiftCardActivated" ColumnName="IsGiftCardActivated" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PurchasedOrderProductVariantId" ColumnName="PurchasedOrderProductVariantID" />
+          <ScalarProperty Name="GiftCardId" ColumnName="GiftCardID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GiftCardUsageHistory">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.GiftCardUsageHistory">
+        <MappingFragment StoreEntitySet="Nop_GiftCardUsageHistory">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UsedValueInCustomerCurrency" ColumnName="UsedValueInCustomerCurrency" />
+          <ScalarProperty Name="UsedValue" ColumnName="UsedValue" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="GiftCardId" ColumnName="GiftCardID" />
+          <ScalarProperty Name="GiftCardUsageHistoryId" ColumnName="GiftCardUsageHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecurringPayments">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.RecurringPayment">
+        <MappingFragment StoreEntitySet="Nop_RecurringPayment">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="TotalCycles" ColumnName="TotalCycles" />
+          <ScalarProperty Name="CyclePeriod" ColumnName="CyclePeriod" />
+          <ScalarProperty Name="CycleLength" ColumnName="CycleLength" />
+          <ScalarProperty Name="InitialOrderId" ColumnName="InitialOrderID" />
+          <ScalarProperty Name="RecurringPaymentId" ColumnName="RecurringPaymentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RecurringPaymentHistory">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.RecurringPaymentHistory">
+        <MappingFragment StoreEntitySet="Nop_RecurringPaymentHistory">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+          <ScalarProperty Name="RecurringPaymentId" ColumnName="RecurringPaymentID" />
+          <ScalarProperty Name="RecurringPaymentHistoryId" ColumnName="RecurringPaymentHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RewardPointsHistory">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.RewardPointsHistory">
+        <MappingFragment StoreEntitySet="Nop_RewardPointsHistory">
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="CustomerCurrencyCode" ColumnName="CustomerCurrencyCode" />
+          <ScalarProperty Name="UsedAmountInCustomerCurrency" ColumnName="UsedAmountInCustomerCurrency" />
+          <ScalarProperty Name="UsedAmount" ColumnName="UsedAmount" />
+          <ScalarProperty Name="PointsBalance" ColumnName="PointsBalance" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderID" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerID" />
+          <ScalarProperty Name="RewardPointsHistoryId" ColumnName="RewardPointsHistoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Sp_CustomerBestReport" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_CustomerBestReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CustomerBestReportLine">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+          <ScalarProperty Name="OrderCount" ColumnName="OrderCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_CustomerReportByAttributeKey" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_CustomerReportByAttributeKey">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CustomerReportByAttributeKeyLine">
+          <ScalarProperty Name="AttributeKey" ColumnName="AttributeKey" />
+          <ScalarProperty Name="CustomerCount" ColumnName="CustomerCount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_LanguagePackExport" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_LanguagePackExport" />
+    <FunctionImportMapping FunctionImportName="Sp_LanguagePackImport" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_LanguagePackImport" />
+    <FunctionImportMapping FunctionImportName="Sp_Maintenance_ReindexTables" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_Maintenance_ReindexTables" />
+    <FunctionImportMapping FunctionImportName="Sp_OrderProductVariantReport" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_OrderProductVariantReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.OrderProductVariantReportLine">
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantId" />
+          <ScalarProperty Name="PriceExclTax" ColumnName="PriceExclTax" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_ProductAlsoPurchasedLoadByProductID" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_ProductAlsoPurchasedLoadByProductID" />
+    <FunctionImportMapping FunctionImportName="Sp_ProductLoadAllPaged" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_ProductLoadAllPaged" />
+    <FunctionImportMapping FunctionImportName="Sp_ProductVariantLoadAll" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_ProductVariantLoadAll" />
+    <FunctionImportMapping FunctionImportName="Sp_SalesBestSellersReport" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_SalesBestSellersReport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.BestSellersReportLine">
+          <ScalarProperty Name="ProductVariantId" ColumnName="ProductVariantId" />
+          <ScalarProperty Name="SalesTotalCount" ColumnName="SalesTotalCount" />
+          <ScalarProperty Name="SalesTotalAmount" ColumnName="SalesTotalAmount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_SpecificationAttributeOptionFilter_LoadByFilter" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_SpecificationAttributeOptionFilter_LoadByFilter">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.SpecificationAttributeOptionFilter">
+          <ScalarProperty Name="SpecificationAttributeId" ColumnName="SpecificationAttributeId" />
+          <ScalarProperty Name="SpecificationAttributeName" ColumnName="SpecificationAttributeName" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="SpecificationAttributeOptionId" ColumnName="SpecificationAttributeOptionId" />
+          <ScalarProperty Name="SpecificationAttributeOptionName" ColumnName="SpecificationAttributeOptionName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="QBEntities">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.QBEntity">
+        <MappingFragment StoreEntitySet="Nop_QBEntity">
+          <ScalarProperty Name="SynStateId" ColumnName="SynStateId" />
+          <ScalarProperty Name="EntityTypeId" ColumnName="EntityTypeId" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="SeqNum" ColumnName="SeqNum" />
+          <ScalarProperty Name="NopEntityId" ColumnName="NopEntityId" />
+          <ScalarProperty Name="QBEntityId" ColumnName="QBEntityId" />
+          <ScalarProperty Name="EntityId" ColumnName="EntityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMSProviders">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.SMSProvider">
+        <MappingFragment StoreEntitySet="Nop_SMSProvider">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="SystemKeyword" ColumnName="SystemKeyword" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SMSProviderId" ColumnName="SMSProviderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ReturnRequests">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ReturnRequest">
+        <MappingFragment StoreEntitySet="Nop_ReturnRequest">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="ReturnStatusId" ColumnName="ReturnStatusId" />
+          <ScalarProperty Name="StaffNotes" ColumnName="StaffNotes" />
+          <ScalarProperty Name="CustomerComments" ColumnName="CustomerComments" />
+          <ScalarProperty Name="RequestedAction" ColumnName="RequestedAction" />
+          <ScalarProperty Name="ReasonForReturn" ColumnName="ReasonForReturn" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="OrderProductVariantId" ColumnName="OrderProductVariantId" />
+          <ScalarProperty Name="ReturnRequestId" ColumnName="ReturnRequestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CrossSellProducts">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.CrossSellProduct">
+        <MappingFragment StoreEntitySet="Nop_CrossSellProduct">
+          <ScalarProperty Name="ProductId2" ColumnName="ProductId2" />
+          <ScalarProperty Name="ProductId1" ColumnName="ProductId1" />
+          <ScalarProperty Name="CrossSellProductId" ColumnName="CrossSellProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmailAccounts">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.EmailAccount">
+        <MappingFragment StoreEntitySet="Nop_EmailAccount">
+          <ScalarProperty Name="UseDefaultCredentials" ColumnName="UseDefaultCredentials" />
+          <ScalarProperty Name="EnableSSL" ColumnName="EnableSSL" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Port" ColumnName="Port" />
+          <ScalarProperty Name="Host" ColumnName="Host" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailAccountId" ColumnName="EmailAccountId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACLPerObject">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ACLPerObject">
+        <MappingFragment StoreEntitySet="Nop_ACLPerObject">
+          <ScalarProperty Name="Deny" ColumnName="Deny" />
+          <ScalarProperty Name="CustomerRoleId" ColumnName="CustomerRoleId" />
+          <ScalarProperty Name="ObjectTypeId" ColumnName="ObjectTypeId" />
+          <ScalarProperty Name="ObjectId" ColumnName="ObjectId" />
+          <ScalarProperty Name="ACLPerObjectId" ColumnName="ACLPerObjectId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stores">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.Store">
+        <MappingFragment StoreEntitySet="Nop_Store">
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="UpdateOn" ColumnName="UpdateOn" />
+          <ScalarProperty Name="CreateOn" ColumnName="CreateOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="PictureID" ColumnName="PictureID" />
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="TemplateID" ColumnName="TemplateID" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StoreId" ColumnName="StoreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductStores">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.ProductStore">
+        <MappingFragment StoreEntitySet="Nop_Product_Store_Mapping">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsFeaturedProduct" ColumnName="IsFeaturedProduct" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="ProductStoreID" ColumnName="ProductStoreID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoreLocalized">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.StoreLocalized">
+        <MappingFragment StoreEntitySet="Nop_StoreLocalized">
+          <ScalarProperty Name="SEName" ColumnName="SEName" />
+          <ScalarProperty Name="MetaTitle" ColumnName="MetaTitle" />
+          <ScalarProperty Name="MetaDescription" ColumnName="MetaDescription" />
+          <ScalarProperty Name="MetaKeywords" ColumnName="MetaKeywords" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+          <ScalarProperty Name="StoreID" ColumnName="StoreID" />
+          <ScalarProperty Name="StoreLocalizedID" ColumnName="StoreLocalizedID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StoreTemplates">
+      <EntityTypeMapping TypeName="NopSolutions.NopCommerce.BusinessLogic.Data.StoreTemplate">
+        <MappingFragment StoreEntitySet="Nop_StoreTemplate">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TemplatePath" ColumnName="TemplatePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="StoreTemplateId" ColumnName="StoreTemplateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Nop_ProductLoadAllPaged1" FunctionName="NopSolutions.NopCommerce.BusinessLogic.Data.Store.Nop_ProductLoadAllPaged1" />
+  </EntityContainerMapping>
+</Mapping>

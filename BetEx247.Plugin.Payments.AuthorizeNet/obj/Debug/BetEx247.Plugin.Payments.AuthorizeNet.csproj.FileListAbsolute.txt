@@ -1,0 +1,8 @@
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\BetEx247.Plugin.Payments.AuthorizeNet.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll.config
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Core.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Core.pdb

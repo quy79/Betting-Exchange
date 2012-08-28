@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="BetEXData" />
+  <Alias Key="Target" Value="BetEXData.Store" />
+  <EntityContainerMapping CdmEntityContainer="BetEXDataContainer" StorageEntityContainer="BetEXDataTargetContainer" />
+</Mapping>

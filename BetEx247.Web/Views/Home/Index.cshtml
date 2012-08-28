@@ -1,0 +1,159 @@
+﻿@using BetEx247.Core.XML;
+@model IEnumerable<BetEx247.Core.XML.Sport>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<Event> lstEvent = ViewBag.lstEvent;
+    List<Match> lstMatch = ViewBag.lstMatch;
+    List<Bet> lstBet = ViewBag.lstBet;
+    List<Choice> lstChoice = ViewBag.lstChoice;
+}
+<h2>@ViewBag.Message</h2>
+<p>
+    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">
+        http://asp.net/mvc</a>.
+</p>
+<table>
+    <tr>
+        <th>
+            Sport ID
+        </th>
+        <th>
+            Sport Name
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.Raw(item.sportId.ToString())
+            </td>
+            <td>
+                @item.sportName
+            </td>
+        </tr>
+    }
+</table>
+<table>
+    <tr>
+        <th>
+            Sport Id
+        </th>
+        <th>
+            Event Id
+        </th>
+        <th>
+            Event Name
+        </th>
+    </tr>
+    @foreach (var item in lstEvent)
+    {
+        <tr>
+            <td>
+                @item.sportId
+            </td>
+            <td>
+                @item.eventId
+            </td>
+            <td>
+                @item.eventName
+            </td>
+        </tr>
+    }
+</table>
+<table>
+    <tr>
+        <th>
+            Event Id
+        </th>
+        <th>
+            Match Id
+        </th>
+        <th>
+            Home Team
+        </th><th>
+            Away Team
+        </th>
+        <th>
+            Start Time
+        </th>
+    </tr>
+    @foreach (var item in lstMatch)
+    {
+        <tr>
+            <td>
+                @item.eventId
+            </td>
+            <td>
+                @item.matchId
+            </td>
+            <td>
+                @item.homeTeam  
+            </td>  <td>
+                @item.awayTeam  
+            </td>
+            <td>
+                @item.startTime
+            </td>
+        </tr>
+    }
+</table>
+<table>
+    <tr>
+        <th>Match Id
+        </th>
+        <th>Bet Id
+        </th>
+        <th>Bet Name
+        </th>
+        <th>Bet Code
+        </th>
+    </tr>
+    @foreach (var item in lstBet)
+    {
+        <tr>
+            <td>
+                @item.matchId
+            </td>
+            <td>
+                @item.betId
+            </td>
+            <td>
+                @item.betName
+            </td>
+            <td>
+                @item.betCode
+            </td>
+        </tr>
+    }
+</table>
+<table>
+    <tr>
+        <th>Bet Id
+        </th>
+        <th>Choice Id
+        </th>
+        <th>Choice Name
+        </th>
+        <th>Odd
+        </th>
+    </tr>
+    @foreach (var item in lstChoice)
+    {
+        <tr>
+            <td>
+                @item.betId
+            </td>
+            <td>
+                @item.choiceId
+            </td>
+            <td>
+                @item.choiceName
+            </td>
+            <td>
+                @item.odd
+            </td>           
+        </tr>
+    }
+</table>

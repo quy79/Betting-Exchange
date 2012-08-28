@@ -1,0 +1,5 @@
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.pdb
