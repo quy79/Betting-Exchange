@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Core.CustomerManagement
 {
     public partial class Order
     {
+        private Customer _customer;
+
         #region Properties
         /// <summary>
         /// Gets or sets the order identifier
@@ -474,5 +477,18 @@ namespace BetEx247.Core.CustomerManagement
         public DateTime CreatedOn { get; set; }
 
         #endregion
+
+        /// <summary>
+        /// Gets the customer
+        /// </summary>
+        public Customer Customer
+        {
+            get
+            {
+                if (_customer == null)
+                    _customer = IoC.Resolve<ICustomerService>().GetCustomerById(this.CustomerId);
+                return _customer;
+            }
+        }
     }
 }

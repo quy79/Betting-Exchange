@@ -9,6 +9,7 @@ using BetEx247.Plugin.Payments.AuthorizeNet.net.authorize.api;
 using BetEx247.Core.Payment;
 using BetEx247.Core.Infrastructure;
 using BetEx247.Core.CustomerManagement;
+using BetEx247.Core;
 
 namespace BetEx247.Plugin.Payments.AuthorizeNet
 {
@@ -33,9 +34,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// </summary>
         private void InitSettings()
         {
-            useSandBox = true;
-            transactionKey = "359ccj9fM2FC5XLc";
-            loginID = "97U9wFsx62";
+            useSandBox = Constant.Payment.AUTHORIZESANBOX;
+            transactionKey = Constant.Payment.AUTHORIZENETTRANSACTION;
+            loginID = Constant.Payment.AUTHORIZENETLOGINID;
 
             if (string.IsNullOrEmpty(transactionKey))
                 throw new Exception("Authorize.NET API transaction key is not set");
@@ -129,7 +130,7 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
             form.Add("x_version", APIVersion);
             form.Add("x_relay_response", "FALSE");
             form.Add("x_method", "CC");
-            form.Add("x_currency_code", "USD");//IoC.Resolve<ICurrencyService>().PrimaryStoreCurrency.CurrencyCode);
+            form.Add("x_currency_code", Constant.Payment.CURRENCYCODE);
             if (transactionMode == TransactMode.Authorize)
                 form.Add("x_type", "AUTH_ONLY");
             else if (transactionMode == TransactMode.AuthorizeAndCapture)
@@ -231,7 +232,7 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
             form.Add("x_version", APIVersion);
             form.Add("x_relay_response", "FALSE");
             form.Add("x_method", "CC");
-            form.Add("x_currency_code", "USD");//IoC.Resolve<ICurrencyService>().PrimaryStoreCurrency.CurrencyCode);
+            form.Add("x_currency_code", Constant.Payment.CURRENCYCODE);
             form.Add("x_type", "PRIOR_AUTH_CAPTURE");
 
             form.Add("x_amount", order.OrderTotal.ToString("0.00", CultureInfo.InvariantCulture));
@@ -349,7 +350,7 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
                 subscription.customer.phoneNumber = "0975777973";// customer.BillingAddress.PhoneNumber;
 
                 subscription.order = new OrderType();
-                subscription.order.description = "Recurring payment";// string.Format("{0} {1}", IoC.Resolve<ISettingManager>().StoreName, "Recurring payment");
+                subscription.order.description =Constant.Payment.STORENAME+" "+ "Recurring payment";
 
                 // Create a subscription that is leng of specified occurrences and interval is amount of days ad runs
 

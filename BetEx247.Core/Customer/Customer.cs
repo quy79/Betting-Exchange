@@ -88,16 +88,6 @@ namespace BetEx247.Core.CustomerManagement
         public int CurrencyId { get; set; }
 
         /// <summary>
-        /// Gets or sets the tax display type identifier
-        /// </summary>
-        public int TaxDisplayTypeId { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the customer is tax exempt
-        /// </summary>
-        public bool IsTaxExempt { get; set; }
-
-        /// <summary>
         /// Gets or sets a value indicating whether the customer is administrator
         /// </summary>
         public bool IsAdmin { get; set; }

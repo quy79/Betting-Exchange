@@ -7,6 +7,7 @@ using BetEx247.Core.CustomerManagement;
 using BetEx247.Core.Common.Utils;
 using BetEx247.Core.Infrastructure;
 using System.Globalization;
+using BetEx247.Core;
 
 namespace BetEx247.Plugin.Payments.MoneyBooker
 {
@@ -22,7 +23,7 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// </summary>
         public MoneybookersPaymentProcessor()
         {
-            payToEmail = "chantinh2204@gmail.com";// IoC.Resolve<ISettingManager>().GetSettingValue("PaymentMethod.Moneybookers.PayToEmail");
+            payToEmail =Constant.Payment.MONEYBOOKERPAYMENTEMAIL;
         }
         #endregion
 
@@ -61,14 +62,14 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
             remotePostHelper.Url = GetMoneybookersUrl();
 
             remotePostHelper.Add("pay_to_email", payToEmail);
-            remotePostHelper.Add("recipient_description", "Test");// IoC.Resolve<ISettingManager>().StoreName);
+            remotePostHelper.Add("recipient_description",Constant.Payment.STORENAME);
             remotePostHelper.Add("transaction_id", order.OrderId.ToString());
             remotePostHelper.Add("cancel_url", CommonHelper.GetStoreLocation(false));
             remotePostHelper.Add("status_url", CommonHelper.GetStoreLocation(false) + "MoneybookersReturn.aspx");
             //supported moneybookers languages (EN, DE, ES, FR, IT, PL, GR, RO, RU, TR, CN, CZ or NL)
             remotePostHelper.Add("language", "EN");
             remotePostHelper.Add("amount", order.OrderTotal.ToString(new CultureInfo("en-US", false).NumberFormat));
-            remotePostHelper.Add("currency", "USD");//IoC.Resolve<ICurrencyService>().PrimaryStoreCurrency.CurrencyCode);
+            remotePostHelper.Add("currency", Constant.Payment.CURRENCYCODE);
             remotePostHelper.Add("detail1_description", "Order ID:");
             remotePostHelper.Add("detail1_text", order.OrderId.ToString());
 
