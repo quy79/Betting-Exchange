@@ -27,32 +27,31 @@ namespace BetEx247.Plugin.XMLParser
                     parser = new CachefeedsParser();
                     break;
             }
-            parser =new CachefeedsParser();
         }
        
-        public List<Sport> getAllSport()
+        public List<Sport> AllSport
         {
-            return parser.getAllSport();
+            get { return parser.getAllSport(); }
         }
             
-        public List<Event> getAllEvent()
+        public List<Event> AllEvent
         {
-            return parser.getAllEvent();
+            get { return parser.getAllEvent(); }
         }
 
-        public List<Match> getAllMatch()
+        public List<Match> AllMatch
         {
-            return parser.getAllMatch();
+           get{ return parser.getAllMatch();}
         }
     
-        public  List<Bet> getAllBet()
+        public  List<Bet> AllBet
         {
-            return parser.getAllBet();
+            get{return parser.getAllBet();}
         }
 
-        public List<Choice> getAllChoice()
+        public List<Choice> AllChoice
         {
-            return parser.getAllChoice();
+            get { return parser.getAllChoice(); }
         } 
     }
 }

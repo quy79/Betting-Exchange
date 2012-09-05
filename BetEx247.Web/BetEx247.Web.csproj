@@ -71,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\app_settings.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\odds_en.xml" />
     <Content Include="App_Data\pinnacleFeed.xml">
       <SubType>Designer</SubType>
@@ -113,7 +116,9 @@
     <Content Include="Content\Scripts\jquery.validate.min.js" />
     <Content Include="Content\Scripts\modernizr-1.7.js" />
     <Content Include="Content\Scripts\modernizr-1.7.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -140,9 +145,14 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\XMLFEED\BETCLICK\" />
+    <Folder Include="App_Data\XMLFEED\PINNACLE\" />
+    <Folder Include="App_Data\XMLFEED\TITANBET\" />
     <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +162,10 @@
     <ProjectReference Include="..\BetEx247.Core\BetEx247.Core.csproj">
       <Project>{AFD770A1-3E4A-4103-8CBE-F3426559CBA0}</Project>
       <Name>BetEx247.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BetEx247.Plugin.DownloadFeed\BetEx247.Plugin.DownloadFeed.csproj">
+      <Project>{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}</Project>
+      <Name>BetEx247.Plugin.DownloadFeed</Name>
     </ProjectReference>
     <ProjectReference Include="..\BetEx247.Plugin.XMLParser\BetEx247.Plugin.XMLParser.csproj">
       <Project>{45726546-A06F-442B-A6FA-B0AA81B38AB3}</Project>

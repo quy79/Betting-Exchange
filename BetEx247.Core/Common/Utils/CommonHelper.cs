@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Collections.Specialized;
 using System.Xml;
 using System.IO;
+using System.Net;
 
 namespace BetEx247.Core.Common.Utils
 {
@@ -471,6 +472,11 @@ namespace BetEx247.Core.Common.Utils
             return result.ToLowerInvariant();
         }
 
+
+        public static string getLocalPath()
+        {
+            return ConfigurationManager.AppSettings["ServerPath"];
+        }
         /// <summary>
         /// Reloads current page
         /// </summary>
@@ -895,6 +901,80 @@ namespace BetEx247.Core.Common.Utils
             }
         }
 
+        public static void DownloadXML(string sUrl, string sSource, int? level)
+        {
+            string pathLocal = string.Empty;
+            long downloadTime = DateTime.Now.Ticks;
+            switch (sSource)
+            {
+                case Constant.SourceXML.BETCLICK:
+                    pathLocal = Constant.PlaceFolder.BETCLICK_FOLDER;
+                    break;
+                case Constant.SourceXML.TITANBET:
+                    pathLocal = Constant.PlaceFolder.TITABET_FOLDER;
+                    break;
+                case Constant.SourceXML.PINNACLESPORTS:
+                    pathLocal = Constant.PlaceFolder.PINNACLESPORTS_FOLDER;
+                    break;
+            }
+            XmlTextReader rssReader = new XmlTextReader(sUrl.ToString());
+            XmlDocument rssDoc = new XmlDocument();
+
+            WebRequest wrGETURL;
+            wrGETURL = WebRequest.Create(sUrl);
+
+            Stream objStream;
+            objStream = wrGETURL.GetResponse().GetResponseStream();
+            StreamReader objReader = new StreamReader(objStream, Encoding.UTF8);
+            WebResponse wr = wrGETURL.GetResponse();
+            Stream receiveStream = wr.GetResponseStream();
+            StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
+            string content = reader.ReadToEnd();
+            XmlDocument contentSave = new XmlDocument();
+
+            contentSave.LoadXml(content);
+            string fileName = string.Empty;
+            switch (sSource)
+            {
+                case Constant.SourceXML.BETCLICK:
+                case Constant.SourceXML.TITANBET:
+                    fileName = string.Format("{0}_{1}.xml", sSource, downloadTime);
+                    break;
+                case Constant.SourceXML.PINNACLESPORTS:
+                    if (level != null)
+                    {
+                        switch (level.Value)
+                        {
+                            case 1:
+                                fileName = string.Format("{0}_sport_{1}.xml", sSource, downloadTime);
+                                break;
+                            case 2:
+                                string leagueId = sUrl.Split('=')[1];
+                                fileName = string.Format("{0}_league_{1}_{2}.xml", sSource, leagueId, downloadTime);
+                                break;
+                            case 3:
+                                string[] arrUrl = sUrl.Split('=');
+                                string sportid = arrUrl[1].Split('&')[0];
+                                string leagueid = arrUrl[2].Split('&')[0];
+                                fileName = string.Format("{0}_{feed}_{1}_{2}_{3}.xml", sSource, sportid, leagueid, downloadTime);
+                                break;
+                            default:
+                                fileName = string.Format("{0}_sport_{1}.xml", sSource, downloadTime);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        fileName = string.Format("{0}_sport_{1}.xml", sSource, downloadTime);
+                    }
+                    break;
+            }
+
+            string folderPath = CommonHelper.CreateDirectory(pathLocal, "FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString());
+            string sFullPath = string.Format("{0}/{1}/{2}", CommonHelper.getLocalPath(), folderPath, fileName);
+            contentSave.Save(sFullPath);
+        }
+
         /// <summary>
         /// Generate random digit code
         /// </summary>
@@ -924,6 +1004,16 @@ namespace BetEx247.Core.Common.Utils
                 else
                     result += c.ToString();
             return result;
+        }
+
+        public static string CreateDirectory(string sPathFolder, string sfolderName)
+        {
+            string sfullPath = string.Format("{0}/{1}/{2}", getLocalPath(), sPathFolder, sfolderName);
+            if (!Directory.Exists(sfullPath))
+            {
+                Directory.CreateDirectory(sfullPath);
+            }
+            return string.Format("{0}/{1}",sPathFolder,sfolderName);
         }
 
         /// <summary>

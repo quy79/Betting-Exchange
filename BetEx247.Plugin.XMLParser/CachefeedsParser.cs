@@ -5,6 +5,8 @@ using System.Text;
 using BetEx247.Core.XML;
 using System.Xml;
 using System.Xml.XPath;
+using BetEx247.Core;
+using BetEx247.Core.Common.Extensions;
 
 namespace BetEx247.Plugin.XMLParser
 {
@@ -23,7 +25,7 @@ namespace BetEx247.Plugin.XMLParser
 
         public virtual void ReadXML()
         {
-            string urlPath = "D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";
+            string urlPath = Constant.SourceXML.TITABETURL;
             _lstSport = new List<Sport>();
             _lstEvent = new List<Event>();
             _lstMatch = new List<Match>();
@@ -109,7 +111,106 @@ namespace BetEx247.Plugin.XMLParser
                                             _bet.betId = _betId;
                                             _bet.matchId = _matchId;
                                             _bet.betName = _betNameNavigator.GetAttribute("name", "");
-                                            _bet.betCode = _betNameNavigator.GetAttribute("tid", "");
+                                            //_bet.betCodeName = _betNameNavigator.GetAttribute("tid", "");   
+                                            long siteCodeId = _betNameNavigator.GetAttribute("tid", "").ToInt64();
+
+                                            int[] vals = (int[])Enum.GetValues(typeof(Constant.BetType));
+                                            string[] names = Enum.GetNames(typeof(Constant.BetType));
+
+                                            switch (siteCodeId)
+                                            {
+                                                case 154:
+                                                    _bet.betCodeID = vals[0];
+                                                    _bet.betCodeName = names[0];
+                                                    break;
+                                                case 1:
+                                                    _bet.betCodeID = vals[1];
+                                                    _bet.betCodeName = names[1];
+                                                    break;
+                                                case 67:
+                                                    _bet.betCodeID = vals[2];
+                                                    _bet.betCodeName = names[2];
+                                                    break;
+                                                case 120:
+                                                    _bet.betCodeID = vals[3];
+                                                    _bet.betCodeName = names[3];
+                                                    break;
+                                                case 5:
+                                                    _bet.betCodeID = vals[4];
+                                                    _bet.betCodeName = names[4];
+                                                    break;
+                                                case 2:
+                                                    _bet.betCodeID = vals[5];
+                                                    _bet.betCodeName = names[5];
+                                                    break;
+                                                case 6:
+                                                    _bet.betCodeID = vals[6];
+                                                    _bet.betCodeName = names[6];
+                                                    break;
+                                                case 277:
+                                                    _bet.betCodeID = vals[7];
+                                                    _bet.betCodeName = names[7];
+                                                    break;
+                                                case 278:
+                                                    _bet.betCodeID = vals[8];
+                                                    _bet.betCodeName = names[8];
+                                                    break;
+                                                case 28:
+                                                    _bet.betCodeID = vals[9];
+                                                    _bet.betCodeName = names[9];
+                                                    break;
+                                                case 78:
+                                                    _bet.betCodeID = vals[10];
+                                                    _bet.betCodeName = names[10];
+                                                    break;
+                                                case 39:
+                                                    _bet.betCodeID = vals[11];
+                                                    _bet.betCodeName = names[11];
+                                                    break;
+                                                case 269:
+                                                    _bet.betCodeID = vals[12];
+                                                    _bet.betCodeName = names[12];
+                                                    break;
+                                                case 439:
+                                                    _bet.betCodeID = vals[13];
+                                                    _bet.betCodeName = names[13];
+                                                    break;
+                                                case 155:
+                                                    _bet.betCodeID = vals[14];
+                                                    _bet.betCodeName = names[14];
+                                                    break;
+                                                case 433:
+                                                    _bet.betCodeID = vals[15];
+                                                    _bet.betCodeName = names[15];
+                                                    break;
+                                                case 434:
+                                                    _bet.betCodeID = vals[16];
+                                                    _bet.betCodeName = names[16];
+                                                    break;
+                                                case 463:
+                                                    _bet.betCodeID = vals[17];
+                                                    _bet.betCodeName = names[17];
+                                                    break;
+                                                case 464:
+                                                    _bet.betCodeID = vals[18];
+                                                    _bet.betCodeName = names[18];
+                                                    break;
+                                                case 37:
+                                                    _bet.betCodeID = vals[19];
+                                                    _bet.betCodeName = names[19];
+                                                    break;
+                                                case 5000:
+                                                    _bet.betCodeID = vals[20];
+                                                    _bet.betCodeName = names[20];
+                                                    break;
+                                                case 5001:
+                                                    _bet.betCodeID = vals[21];
+                                                    _bet.betCodeName = names[21];
+                                                    break;
+                                                default:
+                                                    break;
+                                            }    
+                                            
                                             _lstBet.Add(_bet);
 
                                             if (_betNameNavigator.HasChildren)
@@ -124,6 +225,8 @@ namespace BetEx247.Plugin.XMLParser
                                                     Choice _choice = new Choice();
                                                     _choice.choiceId = _choiceId;
                                                     _choice.betId = _betId;
+                                                    _choice.choiceCodeId = _bet.betCodeID;
+                                                    _choice.choiceCodeName = _bet.betCodeName;
                                                     _choice.choiceName = _choiceNameNavigator.GetAttribute("name", "");
                                                     _choice.odd = _choiceNameNavigator.GetAttribute("odd", "");
                                                     _choice.american_odd = _choiceNameNavigator.GetAttribute("american_odds", "");

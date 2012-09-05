@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using BetEx247.Core.XML;
 using BetEx247.Plugin.XMLParser;
 using BetEx247.Core;
+using BetEx247.Plugin.DownloadFeed;
 
 namespace BetEx247.Web.Controllers
 {
@@ -20,12 +21,13 @@ namespace BetEx247.Web.Controllers
             List<Bet> lstBet = new List<Bet>();
             List<Choice> lstChoice = new List<Choice>();
 
+            //DownloadXMLFeed.DownloadXML("http://cachefeeds.titanbet.com/feed.xml", Constant.SourceXML.TITANBET,null);
             XMLParser parser = new XMLParser(Constant.SourceXML.TITANBET);
-            lstSport = parser.getAllSport();
-            lstEvent = parser.getAllEvent();
-            lstMatch = parser.getAllMatch();
-            lstBet = parser.getAllBet();
-            lstChoice = parser.getAllChoice();
+            lstSport = parser.AllSport;
+            lstEvent = parser.AllEvent;
+            lstMatch = parser.AllMatch;
+            lstBet = parser.AllBet;
+            lstChoice = parser.AllChoice;
 
             ViewBag.lstEvent = lstEvent;
             ViewBag.lstMatch = lstMatch;
