@@ -36,7 +36,10 @@ namespace BetEx247.Plugin.XMLParser
             }
             else
             {
-                
+                string[] arrPlitUrl = urlPathSport.Split('_');
+                string timetick = arrPlitUrl[2].Replace(".xml", "");
+                urlPathLeague = arrPlitUrl[0] + "_league_{0}_"+timetick+".xml";
+                urlPathFeed = arrPlitUrl[0] + "_feed_{0}_{1}_" + timetick + ".xml";
             }
 
             _lstSport = new List<Sport>();
