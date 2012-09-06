@@ -36,7 +36,7 @@ namespace BetEx247.Plugin.XMLParser
             }
             else
             {
-
+                
             }
 
             _lstSport = new List<Sport>();

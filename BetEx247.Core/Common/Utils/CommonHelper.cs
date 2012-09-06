@@ -955,7 +955,7 @@ namespace BetEx247.Core.Common.Utils
                                 string[] arrUrl = sUrl.Split('=');
                                 string sportid = arrUrl[1].Split('&')[0];
                                 string leagueid = arrUrl[2].Split('&')[0];
-                                fileName = string.Format("{0}_{feed}_{1}_{2}_{3}.xml", sSource, sportid, leagueid, downloadTime);
+                                fileName = string.Format("{0}_feed_{1}_{2}_{3}.xml", sSource, sportid, leagueid, downloadTime);
                                 break;
                             default:
                                 fileName = string.Format("{0}_sport_{1}.xml", sSource, downloadTime);
