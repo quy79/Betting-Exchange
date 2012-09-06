@@ -1,4 +1,1033 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="BetEXData" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
-  <EntityContainer Name="BetEXDataContainer" annotation:LazyLoadingEnabled="true" />
+  <EntityContainer Name="BetEXDataContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BetStatusMSTs" EntityType="BetEXData.BetStatusMST" />
+    <EntitySet Name="CardsInfoes" EntityType="BetEXData.CardsInfo" />
+    <EntitySet Name="Countries" EntityType="BetEXData.Country" />
+    <EntitySet Name="DiscountRateMSTs" EntityType="BetEXData.DiscountRateMST" />
+    <EntitySet Name="Leagues" EntityType="BetEXData.League" />
+    <EntitySet Name="LoginHistories" EntityType="BetEXData.LoginHistory" />
+    <EntitySet Name="MatchStatus" EntityType="BetEXData.MatchStatu" />
+    <EntitySet Name="Members" EntityType="BetEXData.Member" />
+    <EntitySet Name="Messages" EntityType="BetEXData.Message" />
+    <EntitySet Name="MyBets" EntityType="BetEXData.MyBet" />
+    <EntitySet Name="MyCards" EntityType="BetEXData.MyCard" />
+    <EntitySet Name="MyWallets" EntityType="BetEXData.MyWallet" />
+    <EntitySet Name="PaymentMethods" EntityType="BetEXData.PaymentMethod" />
+    <EntitySet Name="Players" EntityType="BetEXData.Player" />
+    <EntitySet Name="ScoreInfoes" EntityType="BetEXData.ScoreInfo" />
+    <EntitySet Name="ScoreTypeMSTs" EntityType="BetEXData.ScoreTypeMST" />
+    <EntitySet Name="Soccer_AsianHandicap" EntityType="BetEXData.Soccer_AsianHandicap" />
+    <EntitySet Name="Soccer_CorrectScores" EntityType="BetEXData.Soccer_CorrectScores" />
+    <EntitySet Name="Soccer_DrawNoBet" EntityType="BetEXData.Soccer_DrawNoBet" />
+    <EntitySet Name="Soccer_MatchedBets" EntityType="BetEXData.Soccer_MatchedBets" />
+    <EntitySet Name="Soccer_MatchOdds" EntityType="BetEXData.Soccer_MatchOdds" />
+    <EntitySet Name="Soccer_TotalGoalsOE" EntityType="BetEXData.Soccer_TotalGoalsOE" />
+    <EntitySet Name="Soccer_TotalGoalsOU" EntityType="BetEXData.Soccer_TotalGoalsOU" />
+    <EntitySet Name="Soccer_WinningMargin" EntityType="BetEXData.Soccer_WinningMargin" />
+    <EntitySet Name="SoccerMatches" EntityType="BetEXData.SoccerMatch" />
+    <EntitySet Name="Sports" EntityType="BetEXData.Sport" />
+    <EntitySet Name="Sports_AsianHandicap" EntityType="BetEXData.Sports_AsianHandicap" />
+    <EntitySet Name="Sports_MatchedBets" EntityType="BetEXData.Sports_MatchedBets" />
+    <EntitySet Name="Sports_MoneyLine" EntityType="BetEXData.Sports_MoneyLine" />
+    <EntitySet Name="Sports_Outright" EntityType="BetEXData.Sports_Outright" />
+    <EntitySet Name="Sports_TotalOU" EntityType="BetEXData.Sports_TotalOU" />
+    <EntitySet Name="SportsMatches" EntityType="BetEXData.SportsMatch" />
+    <EntitySet Name="Statements" EntityType="BetEXData.Statement" />
+    <EntitySet Name="Teams" EntityType="BetEXData.Team" />
+    <EntitySet Name="Transactions" EntityType="BetEXData.Transaction" />
+    <AssociationSet Name="FK_CardsInfo_SoccerMatches" Association="BetEXData.FK_CardsInfo_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="CardsInfo" EntitySet="CardsInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Leagues_Sports" Association="BetEXData.FK_Leagues_Sports">
+      <End Role="Sport" EntitySet="Sports" />
+      <End Role="League" EntitySet="Leagues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SoccerMatches_Leagues" Association="BetEXData.FK_SoccerMatches_Leagues">
+      <End Role="League" EntitySet="Leagues" />
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_Leagues" Association="BetEXData.FK_Team_Leagues">
+      <End Role="League" EntitySet="Leagues" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistory_Members" Association="BetEXData.FK_LoginHistory_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="LoginHistory" EntitySet="LoginHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_Members" Association="BetEXData.FK_Messages_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyBets_Members" Association="BetEXData.FK_MyBets_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="MyBet" EntitySet="MyBets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyCards_Members" Association="BetEXData.FK_MyCards_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="MyCard" EntitySet="MyCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyWallet_Members" Association="BetEXData.FK_MyWallet_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="MyWallet" EntitySet="MyWallets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Statements_Members" Association="BetEXData.FK_Statements_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Statement" EntitySet="Statements" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Transactions_Members" Association="BetEXData.FK_Transactions_Members">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Transaction" EntitySet="Transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyBets_Soccer_AsianHandicap" Association="BetEXData.FK_MyBets_Soccer_AsianHandicap">
+      <End Role="Soccer_AsianHandicap" EntitySet="Soccer_AsianHandicap" />
+      <End Role="MyBet" EntitySet="MyBets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyBets_Soccer_CorrectScores" Association="BetEXData.FK_MyBets_Soccer_CorrectScores">
+      <End Role="Soccer_CorrectScores" EntitySet="Soccer_CorrectScores" />
+      <End Role="MyBet" EntitySet="MyBets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MyCards_PaymentMethods" Association="BetEXData.FK_MyCards_PaymentMethods">
+      <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+      <End Role="MyCard" EntitySet="MyCards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ScoreInfo_SoccerMatches" Association="BetEXData.FK_ScoreInfo_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="ScoreInfo" EntitySet="ScoreInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Soccer_AsianHandicap_SoccerMatches" Association="BetEXData.FK_Soccer_AsianHandicap_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Soccer_AsianHandicap" EntitySet="Soccer_AsianHandicap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Soccer_CorrectScores_SoccerMatches" Association="BetEXData.FK_Soccer_CorrectScores_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Soccer_CorrectScores" EntitySet="Soccer_CorrectScores" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Soccer_DrawNoBet_SoccerMatches" Association="BetEXData.FK_Soccer_DrawNoBet_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Soccer_DrawNoBet" EntitySet="Soccer_DrawNoBet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Soccer_MatchOdds_SoccerMatches" Association="BetEXData.FK_Soccer_MatchOdds_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Soccer_MatchOdds" EntitySet="Soccer_MatchOdds" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Soccer_TotalGoalsOE_SoccerMatches" Association="BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Soccer_TotalGoalsOE" EntitySet="Soccer_TotalGoalsOE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Soccer_TotalGoalsOU_SoccerMatches" Association="BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Soccer_TotalGoalsOU" EntitySet="Soccer_TotalGoalsOU" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Soccer_WinningMargin_SoccerMatches" Association="BetEXData.FK_Soccer_WinningMargin_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Soccer_WinningMargin" EntitySet="Soccer_WinningMargin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sports_AsianHandicap_SoccerMatches" Association="BetEXData.FK_Sports_AsianHandicap_SoccerMatches">
+      <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+      <End Role="Sports_AsianHandicap" EntitySet="Sports_AsianHandicap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sports_MoneyLine_SportsMatches" Association="BetEXData.FK_Sports_MoneyLine_SportsMatches">
+      <End Role="SportsMatch" EntitySet="SportsMatches" />
+      <End Role="Sports_MoneyLine" EntitySet="Sports_MoneyLine" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sports_Outright_SportsMatches" Association="BetEXData.FK_Sports_Outright_SportsMatches">
+      <End Role="SportsMatch" EntitySet="SportsMatches" />
+      <End Role="Sports_Outright" EntitySet="Sports_Outright" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sports_TotalOU_SportsMatches" Association="BetEXData.FK_Sports_TotalOU_SportsMatches">
+      <End Role="SportsMatch" EntitySet="SportsMatches" />
+      <End Role="Sports_TotalOU" EntitySet="Sports_TotalOU" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="BetStatusMST">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int16" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CardsInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" />
+    <Property Type="Int32" Name="YellowCardTime" />
+    <Property Type="Int32" Name="RedCardTime" />
+    <Property Type="String" Name="Player" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_CardsInfo_SoccerMatches" FromRole="CardsInfo" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Country1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="DiscountRateMST">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="Points" Nullable="false" />
+    <Property Type="Int16" Name="DiscountRate" Nullable="false" />
+  </EntityType>
+  <EntityType Name="League">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="SportID" />
+    <Property Type="String" Name="LeagueName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="StartDate" />
+    <Property Type="DateTime" Name="EndDate" />
+    <Property Type="String" Name="ChampionTitle" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="TotalTeams" />
+    <Property Type="Int64" Name="TotalPlayers" />
+    <NavigationProperty Name="Sport" Relationship="BetEXData.FK_Leagues_Sports" FromRole="League" ToRole="Sport" />
+    <NavigationProperty Name="SoccerMatches" Relationship="BetEXData.FK_SoccerMatches_Leagues" FromRole="League" ToRole="SoccerMatch" />
+    <NavigationProperty Name="Teams" Relationship="BetEXData.FK_Team_Leagues" FromRole="League" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="LoginHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MemberID" />
+    <Property Type="DateTime" Name="LoginTime" Nullable="false" />
+    <Property Type="DateTime" Name="LogoutTime" Nullable="false" />
+    <Property Type="Byte" Name="Status" />
+    <Property Type="String" Name="IP" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LoginFrom" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Member" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="LoginHistory" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="MatchStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int16" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Type="Int64" Name="MemberID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NickName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SecurityQuestion1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SecurityQuestion2" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SecurityAnswer1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SecurityAnswer2" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MiddleName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Country" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PostalCode" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Telephone" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Cellphone" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email2" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Gender" Nullable="false" />
+    <Property Type="String" Name="Suffix" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="TotalPoints" />
+    <Property Type="Int32" Name="DiscountRate" />
+    <Property Type="DateTime" Name="LastUpdate" />
+    <Property Type="String" Name="Language" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BettingRegion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Timezone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Currency" />
+    <Property Type="Int32" Name="AutoLogout" />
+    <Property Type="String" Name="EmailFormat" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="ExposureLimit" />
+    <Property Type="DateTime" Name="PointsLastUpdateTime" />
+    <NavigationProperty Name="LoginHistories" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
+    <NavigationProperty Name="Messages" Relationship="BetEXData.FK_Messages_Members" FromRole="Member" ToRole="Message" />
+    <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Members" FromRole="Member" ToRole="MyBet" />
+    <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_Members" FromRole="Member" ToRole="MyCard" />
+    <NavigationProperty Name="MyWallets" Relationship="BetEXData.FK_MyWallet_Members" FromRole="Member" ToRole="MyWallet" />
+    <NavigationProperty Name="Statements" Relationship="BetEXData.FK_Statements_Members" FromRole="Member" ToRole="Statement" />
+    <NavigationProperty Name="Transactions" Relationship="BetEXData.FK_Transactions_Members" FromRole="Member" ToRole="Transaction" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Sender" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Reciepient" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Subject" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Header" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Footer" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MimeType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateSent" />
+    <Property Type="DateTime" Name="DateReceived" />
+    <Property Type="Int16" Name="Status" />
+    <Property Type="Int16" Name="Type" />
+    <Property Type="Int64" Name="MemberID" />
+    <NavigationProperty Name="Member" Relationship="BetEXData.FK_Messages_Members" FromRole="Message" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="MyBet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MemberID" />
+    <Property Type="Int64" Name="MarketID" />
+    <Property Type="Boolean" Name="BL" />
+    <Property Type="Boolean" Name="IsWon" Nullable="false" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="Stake" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="GrossProfit" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="NetProfit" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Exposure" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Liability" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Payouts" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="GrossWinning" Precision="19" Scale="4" />
+    <Property Type="DateTime" Name="SubmitedTime" />
+    <Property Type="DateTime" Name="CancelledTime" />
+    <Property Type="DateTime" Name="SettledTime" />
+    <Property Type="Decimal" Name="Commission" Precision="19" Scale="4" />
+    <Property Type="Int16" Name="BetStatusID" />
+    <Property Type="Boolean" Name="InPlayBet" />
+    <Property Type="Int32" Name="PointsRefunded" />
+    <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyBets_Members" FromRole="MyBet" ToRole="Member" />
+    <NavigationProperty Name="Soccer_AsianHandicap" Relationship="BetEXData.FK_MyBets_Soccer_AsianHandicap" FromRole="MyBet" ToRole="Soccer_AsianHandicap" />
+    <NavigationProperty Name="Soccer_CorrectScores" Relationship="BetEXData.FK_MyBets_Soccer_CorrectScores" FromRole="MyBet" ToRole="Soccer_CorrectScores" />
+  </EntityType>
+  <EntityType Name="MyCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="NickName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="DepositOnly" />
+    <Property Type="Boolean" Name="WithdrawOnly" />
+    <Property Type="Boolean" Name="DepositAndWithdraw" />
+    <Property Type="Int16" Name="PaymentMethodId" Nullable="false" />
+    <Property Type="Int64" Name="MemberID" />
+    <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyCards_Members" FromRole="MyCard" ToRole="Member" />
+    <NavigationProperty Name="PaymentMethod" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="MyCard" ToRole="PaymentMethod" />
+  </EntityType>
+  <EntityType Name="MyWallet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MemberID" />
+    <Property Type="Decimal" Name="Available" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Exposure" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Balance" Precision="19" Scale="4" />
+    <Property Type="DateTime" Name="UpdatedTime" />
+    <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyWallet_Members" FromRole="MyWallet" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int16" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CreditCardNumber" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameOnCard" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ValidFrom" />
+    <Property Type="DateTime" Name="ValidTo" />
+    <Property Type="DateTime" Name="ExpirationDate" />
+    <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Zipcode" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Bank" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Branch" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BranchCode" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SwiftCode" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="IBAN" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AccountHolder" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AccountNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="PaymentMethod" ToRole="MyCard" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PlayerName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Age" />
+    <Property Type="Double" Name="Height" />
+    <Property Type="Double" Name="Weight" />
+    <Property Type="String" Name="Position" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Nationality" Nullable="false" />
+    <Property Type="String" Name="Porfolio" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ThumbnailPhoto" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="TeamID" />
+  </EntityType>
+  <EntityType Name="ScoreInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="Int16" Name="ScoreTypeID" />
+    <Property Type="String" Name="Scorer" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ScoreTime" Nullable="false" />
+    <Property Type="String" Name="Team" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_ScoreInfo_SoccerMatches" FromRole="ScoreInfo" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="ScoreTypeMST">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int16" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ScoreType" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Soccer_AsianHandicap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="String" Name="HomeHandicap" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AwayHandicap" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="HomePrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AwayPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="DateTime" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Byte" Name="Period" Nullable="false" />
+    <Property Type="Boolean" Name="IsBestPrice" Nullable="false" />
+    <Property Type="String" Name="XMLFeedsFile" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" />
+    <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Soccer_AsianHandicap" FromRole="Soccer_AsianHandicap" ToRole="MyBet" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Soccer_AsianHandicap_SoccerMatches" FromRole="Soccer_AsianHandicap" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Soccer_CorrectScores">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="String" Name="CorrectScore" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" Nullable="false" />
+    <Property Type="Boolean" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="Byte" Name="Period" Nullable="false" />
+    <Property Type="String" Name="XMLFeedsFile" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" />
+    <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Soccer_CorrectScores" FromRole="Soccer_CorrectScores" ToRole="MyBet" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Soccer_CorrectScores_SoccerMatches" FromRole="Soccer_CorrectScores" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Soccer_DrawNoBet">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="Decimal" Name="HomePrice" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AwayPrice" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="Boolean" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="String" Name="Period" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="XMLFeedsFile" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Soccer_DrawNoBet_SoccerMatches" FromRole="Soccer_DrawNoBet" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Soccer_MatchedBets">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="BackBetID" Nullable="false" />
+    <Property Type="Int64" Name="LayBetID" Nullable="false" />
+    <Property Type="Decimal" Name="MatchedPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="MatchedStake" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="CommissionCharged" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="DateTime" Name="MatchedTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Soccer_MatchOdds">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="Decimal" Name="HomePrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AwayPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DrawPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="Boolean" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="Byte" Name="Period" Nullable="false" />
+    <Property Type="String" Name="XMLFeedsFile" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" Nullable="false" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Soccer_MatchOdds_SoccerMatches" FromRole="Soccer_MatchOdds" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Soccer_TotalGoalsOE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="Decimal" Name="OddPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="EvenPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="Boolean" Name="InPlay" Nullable="false" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="Byte" Name="Period" Nullable="false" />
+    <Property Type="String" Name="XMLFeedsFile" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Entrants" Nullable="false" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches" FromRole="Soccer_TotalGoalsOE" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Soccer_TotalGoalsOU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="String" Name="OU" Nullable="false" MaxLength="8" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="OverPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="UnderPrice" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="Boolean" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="Byte" Name="Period" />
+    <Property Type="String" Name="XMLFeedsFile" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Entrants" Nullable="false" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches" FromRole="Soccer_TotalGoalsOU" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Soccer_WinningMargin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="Int16" Name="WinningMargin" Nullable="false" />
+    <Property Type="String" Name="WinningTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="Boolean" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketClosingTime" />
+    <Property Type="Int16" Name="Period" Nullable="false" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="String" Name="XMLFeedsFile" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" Nullable="false" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Soccer_WinningMargin_SoccerMatches" FromRole="Soccer_WinningMargin" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="SoccerMatch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="MatchName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_1stHalfScore" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_2ndHalfScore" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_FTScore" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_ET1Score" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_ET2Score" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_PenaltyScore" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WinningTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDraw" />
+    <Property Type="String" Name="HomeTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AwayTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Soccer_MatchStats_XMLFile" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="MatchStatusID" />
+    <Property Type="Int64" Name="LeagueID" />
+    <NavigationProperty Name="CardsInfoes" Relationship="BetEXData.FK_CardsInfo_SoccerMatches" FromRole="SoccerMatch" ToRole="CardsInfo" />
+    <NavigationProperty Name="League" Relationship="BetEXData.FK_SoccerMatches_Leagues" FromRole="SoccerMatch" ToRole="League" />
+    <NavigationProperty Name="ScoreInfoes" Relationship="BetEXData.FK_ScoreInfo_SoccerMatches" FromRole="SoccerMatch" ToRole="ScoreInfo" />
+    <NavigationProperty Name="Soccer_AsianHandicap" Relationship="BetEXData.FK_Soccer_AsianHandicap_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_AsianHandicap" />
+    <NavigationProperty Name="Soccer_CorrectScores" Relationship="BetEXData.FK_Soccer_CorrectScores_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_CorrectScores" />
+    <NavigationProperty Name="Soccer_DrawNoBet" Relationship="BetEXData.FK_Soccer_DrawNoBet_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_DrawNoBet" />
+    <NavigationProperty Name="Soccer_MatchOdds" Relationship="BetEXData.FK_Soccer_MatchOdds_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_MatchOdds" />
+    <NavigationProperty Name="Soccer_TotalGoalsOE" Relationship="BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_TotalGoalsOE" />
+    <NavigationProperty Name="Soccer_TotalGoalsOU" Relationship="BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_TotalGoalsOU" />
+    <NavigationProperty Name="Soccer_WinningMargin" Relationship="BetEXData.FK_Soccer_WinningMargin_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_WinningMargin" />
+    <NavigationProperty Name="Sports_AsianHandicap" Relationship="BetEXData.FK_Sports_AsianHandicap_SoccerMatches" FromRole="SoccerMatch" ToRole="Sports_AsianHandicap" />
+  </EntityType>
+  <EntityType Name="Sport">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SportName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="SportRules" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Leagues" Relationship="BetEXData.FK_Leagues_Sports" FromRole="Sport" ToRole="League" />
+  </EntityType>
+  <EntityType Name="Sports_AsianHandicap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" />
+    <Property Type="String" Name="HomeHandicap" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AwayHandicap" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="HomePrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AwayPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="Boolean" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="Int16" Name="Period" />
+    <Property Type="String" Name="XMLFeedsFile" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" />
+    <NavigationProperty Name="SoccerMatch" Relationship="BetEXData.FK_Sports_AsianHandicap_SoccerMatches" FromRole="Sports_AsianHandicap" ToRole="SoccerMatch" />
+  </EntityType>
+  <EntityType Name="Sports_MatchedBets">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="BackBetID" Nullable="false" />
+    <Property Type="Int64" Name="LayBetID" Nullable="false" />
+    <Property Type="Decimal" Name="MatchedPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="MatchedStake" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="CommissionCharged" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MatchedTime" Nullable="false" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Sports_MoneyLine">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="Decimal" Name="HomePrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="AwayPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="DrawPrice" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" Nullable="false" />
+    <Property Type="Boolean" Name="InPlay" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" Nullable="false" />
+    <Property Type="String" Name="Period" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="XMLFeedsFile" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" />
+    <NavigationProperty Name="SportsMatch" Relationship="BetEXData.FK_Sports_MoneyLine_SportsMatches" FromRole="Sports_MoneyLine" ToRole="SportsMatch" />
+  </EntityType>
+  <EntityType Name="Sports_Outright">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="String" Name="OutRightWinner" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" />
+    <Property Type="DateTime" Name="MarketCloseTime" />
+    <Property Type="Boolean" Name="IsBestPrice" />
+    <Property Type="Int16" Name="Period" Nullable="false" />
+    <Property Type="String" Name="XMLFeedsFile" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" Nullable="false" />
+    <NavigationProperty Name="SportsMatch" Relationship="BetEXData.FK_Sports_Outright_SportsMatches" FromRole="Sports_Outright" ToRole="SportsMatch" />
+  </EntityType>
+  <EntityType Name="Sports_TotalOU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MatchID" Nullable="false" />
+    <Property Type="String" Name="UnderOver" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="OverPrice" Precision="18" Scale="2" />
+    <Property Type="Decimal" Name="UnderPrice" Precision="18" Scale="2" />
+    <Property Type="DateTime" Name="LastUpdated" Nullable="false" />
+    <Property Type="Boolean" Name="InPlay" Nullable="false" />
+    <Property Type="DateTime" Name="MarketCloseTime" Nullable="false" />
+    <Property Type="Boolean" Name="IsBestPrice" Nullable="false" />
+    <Property Type="Int16" Name="Period" Nullable="false" />
+    <Property Type="String" Name="XMLFeedsFile" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="Entrants" Nullable="false" />
+    <NavigationProperty Name="SportsMatch" Relationship="BetEXData.FK_Sports_TotalOU_SportsMatches" FromRole="Sports_TotalOU" ToRole="SportsMatch" />
+  </EntityType>
+  <EntityType Name="SportsMatch">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="MatchName" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="DateTime" Name="StartTime" Nullable="false" />
+    <Property Type="DateTime" Name="EndTime" Nullable="false" />
+    <Property Type="String" Name="HomeTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AwayTeam" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_1stPeriodScore" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_2ndPeriodScore" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="C_MatchScore" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="WinningTeam" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsDraw" />
+    <Property Type="String" Name="MatchStats_XMLFile" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int16" Name="StatusID" />
+    <Property Type="Int64" Name="LeagueID" />
+    <NavigationProperty Name="Sports_MoneyLine" Relationship="BetEXData.FK_Sports_MoneyLine_SportsMatches" FromRole="SportsMatch" ToRole="Sports_MoneyLine" />
+    <NavigationProperty Name="Sports_Outright" Relationship="BetEXData.FK_Sports_Outright_SportsMatches" FromRole="SportsMatch" ToRole="Sports_Outright" />
+    <NavigationProperty Name="Sports_TotalOU" Relationship="BetEXData.FK_Sports_TotalOU_SportsMatches" FromRole="SportsMatch" ToRole="Sports_TotalOU" />
+  </EntityType>
+  <EntityType Name="Statement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MemberId" Nullable="false" />
+    <Property Type="Int64" Name="BetId" />
+    <Property Type="DateTime" Name="StatementTime" Nullable="false" />
+    <Property Type="String" Name="Selection" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Byte" Name="BackOrLay" />
+    <Property Type="Decimal" Name="Stake" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Odds" Precision="18" Scale="2" />
+    <Property Type="String" Name="Type_Result" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="GrossProfit" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="NetProfit" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="Commission" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="AmountDeposit" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="AmountWithdrawal" Precision="19" Scale="4" />
+    <Property Type="Int32" Name="CardId" />
+    <Property Type="Decimal" Name="FeeCharged" Precision="19" Scale="4" />
+    <Property Type="Decimal" Name="MarketAmountRefund" Precision="19" Scale="4" />
+    <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Member" Relationship="BetEXData.FK_Statements_Members" FromRole="Statement" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="TeamName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Coach" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Ranking" />
+    <Property Type="Int64" Name="LeagueID" />
+    <NavigationProperty Name="League" Relationship="BetEXData.FK_Team_Leagues" FromRole="Team" ToRole="League" />
+  </EntityType>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Byte" Name="Type" Nullable="false" />
+    <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
+    <Property Type="String" Name="CardId" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Int64" Name="MemberId" />
+    <NavigationProperty Name="Member" Relationship="BetEXData.FK_Transactions_Members" FromRole="Transaction" ToRole="Member" />
+  </EntityType>
+  <Association Name="FK_CardsInfo_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="0..1" />
+    <End Type="BetEXData.CardsInfo" Role="CardsInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CardsInfo">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Leagues_Sports">
+    <End Type="BetEXData.Sport" Role="Sport" Multiplicity="0..1" />
+    <End Type="BetEXData.League" Role="League" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sport">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="League">
+        <PropertyRef Name="SportID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SoccerMatches_Leagues">
+    <End Type="BetEXData.League" Role="League" Multiplicity="0..1" />
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="League">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="SoccerMatch">
+        <PropertyRef Name="LeagueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_Leagues">
+    <End Type="BetEXData.League" Role="League" Multiplicity="0..1" />
+    <End Type="BetEXData.Team" Role="Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="League">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="LeagueID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginHistory_Members">
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="BetEXData.LoginHistory" Role="LoginHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="LoginHistory">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_Members">
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="BetEXData.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyBets_Members">
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="BetEXData.MyBet" Role="MyBet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="MyBet">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyCards_Members">
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="BetEXData.MyCard" Role="MyCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="MyCard">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyWallet_Members">
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="BetEXData.MyWallet" Role="MyWallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="MyWallet">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Statements_Members">
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
+    <End Type="BetEXData.Statement" Role="Statement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="Statement">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Transactions_Members">
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="BetEXData.Transaction" Role="Transaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="Transaction">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyBets_Soccer_AsianHandicap">
+    <End Type="BetEXData.Soccer_AsianHandicap" Role="Soccer_AsianHandicap" Multiplicity="0..1" />
+    <End Type="BetEXData.MyBet" Role="MyBet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Soccer_AsianHandicap">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MyBet">
+        <PropertyRef Name="MarketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyBets_Soccer_CorrectScores">
+    <End Type="BetEXData.Soccer_CorrectScores" Role="Soccer_CorrectScores" Multiplicity="0..1" />
+    <End Type="BetEXData.MyBet" Role="MyBet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Soccer_CorrectScores">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MyBet">
+        <PropertyRef Name="MarketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MyCards_PaymentMethods">
+    <End Type="BetEXData.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+    <End Type="BetEXData.MyCard" Role="MyCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentMethod">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MyCard">
+        <PropertyRef Name="PaymentMethodId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ScoreInfo_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.ScoreInfo" Role="ScoreInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ScoreInfo">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Soccer_AsianHandicap_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.Soccer_AsianHandicap" Role="Soccer_AsianHandicap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Soccer_AsianHandicap">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Soccer_CorrectScores_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.Soccer_CorrectScores" Role="Soccer_CorrectScores" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Soccer_CorrectScores">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Soccer_DrawNoBet_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.Soccer_DrawNoBet" Role="Soccer_DrawNoBet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Soccer_DrawNoBet">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Soccer_MatchOdds_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.Soccer_MatchOdds" Role="Soccer_MatchOdds" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Soccer_MatchOdds">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Soccer_TotalGoalsOE_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.Soccer_TotalGoalsOE" Role="Soccer_TotalGoalsOE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Soccer_TotalGoalsOE">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Soccer_TotalGoalsOU_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.Soccer_TotalGoalsOU" Role="Soccer_TotalGoalsOU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Soccer_TotalGoalsOU">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Soccer_WinningMargin_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
+    <End Type="BetEXData.Soccer_WinningMargin" Role="Soccer_WinningMargin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Soccer_WinningMargin">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sports_AsianHandicap_SoccerMatches">
+    <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="0..1" />
+    <End Type="BetEXData.Sports_AsianHandicap" Role="Sports_AsianHandicap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SoccerMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sports_AsianHandicap">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sports_MoneyLine_SportsMatches">
+    <End Type="BetEXData.SportsMatch" Role="SportsMatch" Multiplicity="1" />
+    <End Type="BetEXData.Sports_MoneyLine" Role="Sports_MoneyLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SportsMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sports_MoneyLine">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sports_Outright_SportsMatches">
+    <End Type="BetEXData.SportsMatch" Role="SportsMatch" Multiplicity="1" />
+    <End Type="BetEXData.Sports_Outright" Role="Sports_Outright" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SportsMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sports_Outright">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sports_TotalOU_SportsMatches">
+    <End Type="BetEXData.SportsMatch" Role="SportsMatch" Multiplicity="1" />
+    <End Type="BetEXData.Sports_TotalOU" Role="Sports_TotalOU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SportsMatch">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sports_TotalOU">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

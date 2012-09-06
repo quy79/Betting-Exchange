@@ -110,7 +110,7 @@ namespace BetEx247.Plugin.XMLParser
                                             _bet.betId = _betId;
                                             _bet.matchId = _matchId;
                                             _bet.betName = _betNameNavigator.GetAttribute("name", "");
-                                            _bet.betCodeName = _betNameNavigator.GetAttribute("code", "");
+                                            _bet.betCodeID = _betNameNavigator.GetAttribute("code", "");
                                             _lstBet.Add(_bet);
 
                                             if (_betNameNavigator.HasChildren)

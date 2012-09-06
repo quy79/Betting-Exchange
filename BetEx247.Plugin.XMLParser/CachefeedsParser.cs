@@ -7,12 +7,13 @@ using System.Xml;
 using System.Xml.XPath;
 using BetEx247.Core;
 using BetEx247.Core.Common.Extensions;
+using System.Configuration;
 
 namespace BetEx247.Plugin.XMLParser
 {
-    public class CachefeedsParser:IXMLParser
+    public class CachefeedsParser : IXMLParser
     {
-         public static List<Sport> _lstSport;
+        public static List<Sport> _lstSport;
         public static List<Event> _lstEvent;
         public static List<Match> _lstMatch;
         public static List<Bet> _lstBet;
@@ -26,6 +27,7 @@ namespace BetEx247.Plugin.XMLParser
         public virtual void ReadXML()
         {
             string urlPath = Constant.SourceXML.TITABETURL;
+            string mainSport = ConfigurationManager.AppSettings["TITANBETMAINSPORT"].ToString();
             _lstSport = new List<Sport>();
             _lstEvent = new List<Event>();
             _lstMatch = new List<Match>();
@@ -38,9 +40,7 @@ namespace BetEx247.Plugin.XMLParser
             XPathDocument doc = new XPathDocument(reader, XmlSpace.Preserve);
             XPathNavigator nav = doc.CreateNavigator();
 
-            XPathExpression exprSport;
-            exprSport = nav.Compile("/bookmaker/sport");
-            XPathNodeIterator iteratorSport = nav.Select(exprSport);
+            string[] arrMainSportId = mainSport.Split(',');
             try
             {
                 int _sportId = 0;
@@ -48,190 +48,129 @@ namespace BetEx247.Plugin.XMLParser
                 long _matchId = 0;
                 long _betId = 0;
                 long _choiceId = 0;
-
-                while (iteratorSport.MoveNext())
+                foreach (string sportid in arrMainSportId)
                 {
-                    _sportId++;
-                    XPathNavigator _sportNameNavigator = iteratorSport.Current.Clone();
-                    Sport _sport = new Sport();
-                    _sport.sportId = _sportId;
-                    _sport.sportName = _sportNameNavigator.GetAttribute("name", "");
-                    _lstSport.Add(_sport);
-
-                    if (_sportNameNavigator.HasChildren)
+                    XPathExpression exprSport;
+                    exprSport = nav.Compile("/bookmaker/sport[@id='" + sportid + "']");
+                    XPathNodeIterator iteratorSport = nav.Select(exprSport);
+                    while (iteratorSport.MoveNext())
                     {
-                        XPathExpression exprevent;
-                        exprevent = _sportNameNavigator.Compile("group");
-                        XPathNodeIterator iteratorEvent = _sportNameNavigator.Select(exprevent);
-                        while (iteratorEvent.MoveNext())
+                        XPathNavigator _sportNameNavigator = iteratorSport.Current.Clone();
+                        _sportId++;
+                        Sport _sport = new Sport();
+                        _sport.sportId = _sportId;
+                        _sport.sportName = _sportNameNavigator.GetAttribute("name", "");
+                        _lstSport.Add(_sport);
+
+                        if (_sportNameNavigator.HasChildren)
                         {
-                            _eventId++;
-                            XPathNavigator _eventNameNavigator = iteratorEvent.Current.Clone();
-                            Event _event = new Event();
-                            _event.eventId = _eventId;
-                            _event.sportId = _sportId;
-                            _event.eventName = _eventNameNavigator.GetAttribute("name", "");
-                            _lstEvent.Add(_event);
-
-                            if (_eventNameNavigator.HasChildren)
+                            XPathExpression exprevent;
+                            exprevent = _sportNameNavigator.Compile("group");
+                            XPathNodeIterator iteratorEvent = _sportNameNavigator.Select(exprevent);
+                            while (iteratorEvent.MoveNext())
                             {
-                                XPathExpression exprematch;
-                                exprematch = _eventNameNavigator.Compile("event");
-                                XPathNodeIterator iteratorMatch = _eventNameNavigator.Select(exprematch);
-                                while (iteratorMatch.MoveNext())
+                                _eventId++;
+                                XPathNavigator _eventNameNavigator = iteratorEvent.Current.Clone();
+                                Event _event = new Event();
+                                _event.eventId = _eventId;
+                                _event.sportId = _sportId;
+                                _event.eventName = _eventNameNavigator.GetAttribute("name", "");
+                                _lstEvent.Add(_event);
+
+                                if (_eventNameNavigator.HasChildren)
                                 {
-                                    _matchId++;
-                                    XPathNavigator _matchNameNavigator = iteratorMatch.Current.Clone();
-                                    Match _match = new Match();
-                                    _match.matchId = _matchId;
-                                    _match.eventId = _eventId;
-                                    string[] league = _matchNameNavigator.GetAttribute("name", "").Split('-');
-                                    if (league.Length > 1)
+                                    XPathExpression exprematch;
+                                    exprematch = _eventNameNavigator.Compile("event");
+                                    XPathNodeIterator iteratorMatch = _eventNameNavigator.Select(exprematch);
+                                    while (iteratorMatch.MoveNext())
                                     {
-                                        _match.homeTeam = league[0].Trim();
-                                        _match.awayTeam = league[1].Trim();
-                                    }
-                                    else
-                                    {
-                                        _match.homeTeam = _matchNameNavigator.GetAttribute("name", "");
-                                    }
-                                    _match.startTime = Convert.ToDateTime(_matchNameNavigator.GetAttribute("date", ""));
-                                    _lstMatch.Add(_match);
-
-                                    if (_matchNameNavigator.HasChildren)
-                                    {
-                                        XPathExpression exprebet;
-                                        exprebet = _matchNameNavigator.Compile("market");
-                                        XPathNodeIterator iteratorBet = _matchNameNavigator.Select(exprebet);
-                                        while (iteratorBet.MoveNext())
+                                        _matchId++;
+                                        XPathNavigator _matchNameNavigator = iteratorMatch.Current.Clone();
+                                        Match _match = new Match();
+                                        _match.matchId = _matchId;
+                                        _match.eventId = _eventId;
+                                        string[] league = _matchNameNavigator.GetAttribute("name", "").Split('-');
+                                        if (league.Length > 1)
                                         {
-                                            _betId++;
-                                            XPathNavigator _betNameNavigator = iteratorBet.Current.Clone();
-                                            Bet _bet = new Bet();
-                                            _bet.betId = _betId;
-                                            _bet.matchId = _matchId;
-                                            _bet.betName = _betNameNavigator.GetAttribute("name", "");
-                                            //_bet.betCodeName = _betNameNavigator.GetAttribute("tid", "");   
-                                            long siteCodeId = _betNameNavigator.GetAttribute("tid", "").ToInt64();
+                                            _match.homeTeam = league[0].Trim();
+                                            _match.awayTeam = league[1].Trim();
+                                        }
+                                        else
+                                        {
+                                            _match.homeTeam = _matchNameNavigator.GetAttribute("name", "");
+                                        }
+                                        _match.startTime = Convert.ToDateTime(_matchNameNavigator.GetAttribute("date", ""));
+                                        _lstMatch.Add(_match);
 
-                                            int[] vals = (int[])Enum.GetValues(typeof(Constant.BetType));
-                                            string[] names = Enum.GetNames(typeof(Constant.BetType));
-
-                                            switch (siteCodeId)
+                                        if (_matchNameNavigator.HasChildren)
+                                        {
+                                            string OddTypeString = string.Empty;
+                                            switch (_sportId)
                                             {
-                                                case 154:
-                                                    _bet.betCodeID = vals[0];
-                                                    _bet.betCodeName = names[0];
-                                                    break;
                                                 case 1:
-                                                    _bet.betCodeID = vals[1];
-                                                    _bet.betCodeName = names[1];
-                                                    break;
-                                                case 67:
-                                                    _bet.betCodeID = vals[2];
-                                                    _bet.betCodeName = names[2];
-                                                    break;
-                                                case 120:
-                                                    _bet.betCodeID = vals[3];
-                                                    _bet.betCodeName = names[3];
-                                                    break;
-                                                case 5:
-                                                    _bet.betCodeID = vals[4];
-                                                    _bet.betCodeName = names[4];
+                                                    OddTypeString = Constant.TitanBetOddTypeID.CRICKET;
                                                     break;
                                                 case 2:
-                                                    _bet.betCodeID = vals[5];
-                                                    _bet.betCodeName = names[5];
+                                                    OddTypeString = Constant.TitanBetOddTypeID.HANDBALL;
+                                                    break;
+                                                case 3:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.HORSERACING;
+                                                    break;
+                                                case 4:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.MOTORSPORTS;
+                                                    break;
+                                                case 5:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.BOXING;
                                                     break;
                                                 case 6:
-                                                    _bet.betCodeID = vals[6];
-                                                    _bet.betCodeName = names[6];
+                                                    OddTypeString = Constant.TitanBetOddTypeID.GOLF;
                                                     break;
-                                                case 277:
-                                                    _bet.betCodeID = vals[7];
-                                                    _bet.betCodeName = names[7];
+                                                case 7:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.TENNIS;
                                                     break;
-                                                case 278:
-                                                    _bet.betCodeID = vals[8];
-                                                    _bet.betCodeName = names[8];
+                                                case 8:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.FOOTBALL;
                                                     break;
-                                                case 28:
-                                                    _bet.betCodeID = vals[9];
-                                                    _bet.betCodeName = names[9];
-                                                    break;
-                                                case 78:
-                                                    _bet.betCodeID = vals[10];
-                                                    _bet.betCodeName = names[10];
-                                                    break;
-                                                case 39:
-                                                    _bet.betCodeID = vals[11];
-                                                    _bet.betCodeName = names[11];
-                                                    break;
-                                                case 269:
-                                                    _bet.betCodeID = vals[12];
-                                                    _bet.betCodeName = names[12];
-                                                    break;
-                                                case 439:
-                                                    _bet.betCodeID = vals[13];
-                                                    _bet.betCodeName = names[13];
-                                                    break;
-                                                case 155:
-                                                    _bet.betCodeID = vals[14];
-                                                    _bet.betCodeName = names[14];
-                                                    break;
-                                                case 433:
-                                                    _bet.betCodeID = vals[15];
-                                                    _bet.betCodeName = names[15];
-                                                    break;
-                                                case 434:
-                                                    _bet.betCodeID = vals[16];
-                                                    _bet.betCodeName = names[16];
-                                                    break;
-                                                case 463:
-                                                    _bet.betCodeID = vals[17];
-                                                    _bet.betCodeName = names[17];
-                                                    break;
-                                                case 464:
-                                                    _bet.betCodeID = vals[18];
-                                                    _bet.betCodeName = names[18];
-                                                    break;
-                                                case 37:
-                                                    _bet.betCodeID = vals[19];
-                                                    _bet.betCodeName = names[19];
-                                                    break;
-                                                case 5000:
-                                                    _bet.betCodeID = vals[20];
-                                                    _bet.betCodeName = names[20];
-                                                    break;
-                                                case 5001:
-                                                    _bet.betCodeID = vals[21];
-                                                    _bet.betCodeName = names[21];
-                                                    break;
-                                                default:
-                                                    break;
-                                            }    
-                                            
-                                            _lstBet.Add(_bet);
-
-                                            if (_betNameNavigator.HasChildren)
+                                            }
+                                            string[] arrOddTypeId = OddTypeString.Split(',');
+                                            foreach (string oddTypeId in arrOddTypeId)
                                             {
-                                                XPathExpression exprechoice;
-                                                exprechoice = _betNameNavigator.Compile("outcome");
-                                                XPathNodeIterator iteratorChoice = _betNameNavigator.Select(exprechoice);
-                                                while (iteratorChoice.MoveNext())
+                                                XPathExpression exprebet;
+                                                exprebet = _matchNameNavigator.Compile("market[@tid='"+oddTypeId+"']");
+                                                XPathNodeIterator iteratorBet = _matchNameNavigator.Select(exprebet);
+                                                while (iteratorBet.MoveNext())
                                                 {
-                                                    _choiceId++;
-                                                    XPathNavigator _choiceNameNavigator = iteratorChoice.Current.Clone();
-                                                    Choice _choice = new Choice();
-                                                    _choice.choiceId = _choiceId;
-                                                    _choice.betId = _betId;
-                                                    _choice.choiceCodeId = _bet.betCodeID;
-                                                    _choice.choiceCodeName = _bet.betCodeName;
-                                                    _choice.choiceName = _choiceNameNavigator.GetAttribute("name", "");
-                                                    _choice.odd = _choiceNameNavigator.GetAttribute("odd", "");
-                                                    _choice.american_odd = _choiceNameNavigator.GetAttribute("american_odds", "");
-                                                    _choice.fra_odd = _choiceNameNavigator.GetAttribute("fra_odds", "");
-                                                    _lstChoice.Add(_choice);
+                                                    _betId++;
+                                                    XPathNavigator _betNameNavigator = iteratorBet.Current.Clone();
+                                                    Bet _bet = new Bet();
+                                                    _bet.betId = _betId;
+                                                    _bet.matchId = _matchId;
+                                                    _bet.betName = _betNameNavigator.GetAttribute("name", "");
+                                                    _bet.betCodeID = _betNameNavigator.GetAttribute("tid", "");
+                                                                                                         
+                                                    _lstBet.Add(_bet);
+
+                                                    if (_betNameNavigator.HasChildren)
+                                                    {
+                                                        XPathExpression exprechoice;
+                                                        exprechoice = _betNameNavigator.Compile("outcome");
+                                                        XPathNodeIterator iteratorChoice = _betNameNavigator.Select(exprechoice);
+                                                        while (iteratorChoice.MoveNext())
+                                                        {
+                                                            _choiceId++;
+                                                            XPathNavigator _choiceNameNavigator = iteratorChoice.Current.Clone();
+                                                            Choice _choice = new Choice();
+                                                            _choice.choiceId = _choiceId;
+                                                            _choice.betId = _betId;
+                                                            _choice.choiceCodeId = (long)Constant.ChoiceType.OTHER;
+                                                            _choice.choiceCodeName = "OTHER";
+                                                            _choice.choiceName = _choiceNameNavigator.GetAttribute("name", "");
+                                                            _choice.odd = _choiceNameNavigator.GetAttribute("odds", "");
+                                                            _choice.american_odd = _choiceNameNavigator.GetAttribute("american_odds", "");
+                                                            _choice.fra_odd = _choiceNameNavigator.GetAttribute("fra_odds", "");
+                                                            _lstChoice.Add(_choice);
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -250,7 +189,7 @@ namespace BetEx247.Plugin.XMLParser
 
         public List<Sport> getAllSport()
         {
-            return _lstSport; 
+            return _lstSport;
         }
 
         public List<Event> getAllEvent()

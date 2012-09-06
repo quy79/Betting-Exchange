@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Configuration;
 
 namespace BetEx247.Core
 {
@@ -13,11 +14,83 @@ namespace BetEx247.Core
             public const string PINNACLESPORTS = "pinnaclesports";
             public const string TITANBET = "titanbet";
 
-            public const string BETCLICKURL = "http://xml.betclick.com/odds_en.xml";//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/odds_en.xml";
-            public const string PINNACLESPORTSURL = "http://api.pinnaclesports.com/v1/sports";
-            public const string PINNACLELEAGUEURL = "http://api.pinnaclesports.com/v1/leagues?sportid={0}";
-            public const string PINNACLEFEEDURL = "http://api.pinnaclesports.com/v1/feed?sportid={0}&leagueid={1}&clientid=PN514368&apikey=4235dc98-c16d-45f7-a74d-d68861e80a47&islive=0&currencycode=usd";
-            public const string TITABETURL = "http://cachefeeds.titanbet.com/feed.xml";//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";
+            public static string BETCLICKURL = ConfigurationManager.AppSettings["BETCLICKURL"];//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/odds_en.xml";
+            public static string PINNACLESPORTSURL = ConfigurationManager.AppSettings["PINNACLESPORTSURL"].ToString();
+            public static string PINNACLELEAGUEURL = ConfigurationManager.AppSettings["PINNACLELEAGUEURL"].ToString();
+            public static string PINNACLEFEEDURL = ConfigurationManager.AppSettings["PINNACLEFEEDURL"].ToString();
+            public static string TITABETURL = "D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";// ConfigurationManager.AppSettings["TITABETURL"].ToString();//
+        }
+
+        public static class TitanBetOddTypeID
+        {
+            public static string CRICKET = ConfigurationManager.AppSettings["TITANBETMAINSPORT_CRICKET"];
+            public static string HANDBALL = ConfigurationManager.AppSettings["TITANBETMAINSPORT_HANDBALL"];
+            public static string HORSERACING = ConfigurationManager.AppSettings["TITANBETMAINSPORT_HORSERACING"];
+            public static string MOTORSPORTS = ConfigurationManager.AppSettings["TITANBETMAINSPORT_MOTORSPORTS"];
+            public static string BOXING = ConfigurationManager.AppSettings["TITANBETMAINSPORT_BOXING"];
+            public static string GOLF = ConfigurationManager.AppSettings["TITANBETMAINSPORT_GOLF"];
+            public static string TENNIS = ConfigurationManager.AppSettings["TITANBETMAINSPORT_TENNIS"];
+            public static string FOOTBALL = ConfigurationManager.AppSettings["TITANBETMAINSPORT_FOOTBALL"];
+        }
+
+        public static class TitanBetOddType
+        {
+            public enum Cricket
+            {
+                _2WayMatchBetting = 120,
+                TotalRunOuts = 272
+            }
+
+            public enum Handball
+            {
+                _3Way = 1
+            }
+
+            public enum HorseRacing
+            {
+                RaceWinner = 396
+            }
+
+            public enum MotorSports
+            {
+                Outright = 67
+            }
+
+            public enum Boxing
+            {
+                _2WayMatchBetting = 67,
+                Total_Rounds = 107
+            }
+
+            public enum Golf
+            {
+                OutrightWinner = 148
+            }
+
+            public enum Tennis
+            {
+                MatchWinner = 120,
+                Set1Winner = 121,
+                TotalGames = 268,
+                GameHandicap = 255
+            }
+
+            public enum Football
+            {
+                MatchResult = 1,
+                DrawNoBet = 120,
+                TotalGoals_O_U = 2,
+                Additional_O_U = 451,
+                AsianHandicap = 277,
+                CorrectScore = 28,
+                _1stHalfResult = 5,
+                _1stHalfGoals_O_U = 6,
+                _1stHalfAsianHandicap = 278,
+                _1stHalfCorrectScore = 78,
+                WinningMargin = 155,
+                Odd_Even_GoalsTotal = 269,
+                _1stHalfGoals_O_E = 439
+            }
         }
 
         public static class PlaceFolder

@@ -81,8 +81,7 @@ namespace BetEx247.Core.XML
     {
         private long _betId = 0;
         private long _matchId = 0;
-        private long _betCodeID = 0;
-        private string _betCodeName = string.Empty;
+        private string _betCodeID = string.Empty;
         private string _betName = string.Empty;
 
         public long betId
@@ -95,15 +94,11 @@ namespace BetEx247.Core.XML
             get { return _matchId; }
             set { _matchId = value; }
         }
-        public long betCodeID {
+        public string betCodeID
+        {
             get { return _betCodeID;}
             set { _betCodeID=value;} 
-        }
-        public string betCodeName
-        {
-            get { return _betCodeName; }
-            set { _betCodeName = value; }
-        }
+        }             
         public string betName
         {
             get { return _betName; }

@@ -901,10 +901,9 @@ namespace BetEx247.Core.Common.Utils
             }
         }
 
-        public static void DownloadXML(string sUrl, string sSource, int? level)
+        public static void DownloadXML(string sUrl, string sSource, int? level, string downloadTime)
         {
-            string pathLocal = string.Empty;
-            long downloadTime = DateTime.Now.Ticks;
+            string pathLocal = string.Empty;               
             switch (sSource)
             {
                 case Constant.SourceXML.BETCLICK:
