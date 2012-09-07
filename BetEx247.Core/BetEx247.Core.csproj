@@ -53,6 +53,7 @@
     <Compile Include="Common\Utils\RemotePost.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="Customer\Address.cs" />
+    <Compile Include="Customer\BettingStatusEnum.cs" />
     <Compile Include="Customer\Country.cs" />
     <Compile Include="Customer\Currency.cs" />
     <Compile Include="Customer\Customer.cs" />
@@ -85,12 +86,6 @@
     <Compile Include="Payment\ReturnStatusEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XML\Data.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BetEx247.Data\BetEx247.Data.csproj">
-      <Project>{4031A72F-824E-409D-AF7D-D1695C288D18}</Project>
-      <Name>BetEx247.Data</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

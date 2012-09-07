@@ -163,6 +163,10 @@
       <Project>{AFD770A1-3E4A-4103-8CBE-F3426559CBA0}</Project>
       <Name>BetEx247.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BetEx247.Data\BetEx247.Data.csproj">
+      <Project>{4031A72F-824E-409D-AF7D-D1695C288D18}</Project>
+      <Name>BetEx247.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BetEx247.Plugin.DownloadFeed\BetEx247.Plugin.DownloadFeed.csproj">
       <Project>{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}</Project>
       <Name>BetEx247.Plugin.DownloadFeed</Name>
