@@ -21,7 +21,8 @@ namespace BetEx247.Web.Controllers
             List<Bet> lstBet = new List<Bet>();
             List<Choice> lstChoice = new List<Choice>();
 
-            //DownloadXMLFeed.DownloadXML("http://cachefeeds.titanbet.com/feed.xml", Constant.SourceXML.TITANBET,null);
+            DownloadXMLFeed downloadfeed = new DownloadXMLFeed(Constant.SourceXML.PINNACLESPORTS);
+            downloadfeed.DownloadXML();
             XMLParser parser = new XMLParser(Constant.SourceXML.TITANBET);
             lstSport = parser.AllSport;
             lstEvent = parser.AllEvent;

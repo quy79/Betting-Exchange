@@ -39,25 +39,33 @@ namespace BetEx247.Plugin.DownloadFeed
                     while (iteratorSport.MoveNext())
                     {
                         XPathNavigator _sportNameNavigator = iteratorSport.Current.Clone();
-                        _sportId = Convert.ToInt32(_sportNameNavigator.GetAttribute("id", ""));
-                        //download league
-                        CommonHelper.DownloadXML(string.Format(urlPathLeague, _sportId), Constant.SourceXML.PINNACLESPORTS, 2,downloadTime);
-                        //league- event
-                        XmlTextReader readerLeague = new XmlTextReader(string.Format(urlPathLeague, _sportId));
-                        readerLeague.WhitespaceHandling = WhitespaceHandling.Significant;
-                        XPathDocument docLeague = new XPathDocument(readerLeague, XmlSpace.Preserve);
-                        XPathNavigator navLeague = docLeague.CreateNavigator();
-
-                        XPathExpression exprLeague;
-                        exprLeague = navLeague.Compile("/rsp/leagues/league");
-                        XPathNodeIterator iteratorLeague = navLeague.Select(exprLeague);
-
-                        while (iteratorLeague.MoveNext())
+                        int feedContentSport = Convert.ToInt32(_sportNameNavigator.GetAttribute("feedContents", ""));
+                        if (feedContentSport > 0)
                         {
-                            XPathNavigator _eventNameNavigator = iteratorLeague.Current.Clone();
-                            _leagueId = Convert.ToInt32(_eventNameNavigator.GetAttribute("id", ""));
-                            //download feed
-                            CommonHelper.DownloadXML(string.Format(urlPathFeed, _sportId, _leagueId), Constant.SourceXML.PINNACLESPORTS, 3,downloadTime);
+                            _sportId = Convert.ToInt32(_sportNameNavigator.GetAttribute("id", ""));
+                            //download league
+                            CommonHelper.DownloadXML(string.Format(urlPathLeague, _sportId), Constant.SourceXML.PINNACLESPORTS, 2, downloadTime);
+                            //league- event
+                            XmlTextReader readerLeague = new XmlTextReader(string.Format(urlPathLeague, _sportId));
+                            readerLeague.WhitespaceHandling = WhitespaceHandling.Significant;
+                            XPathDocument docLeague = new XPathDocument(readerLeague, XmlSpace.Preserve);
+                            XPathNavigator navLeague = docLeague.CreateNavigator();
+
+                            XPathExpression exprLeague;
+                            exprLeague = navLeague.Compile("/rsp/leagues/league");
+                            XPathNodeIterator iteratorLeague = navLeague.Select(exprLeague);
+
+                            while (iteratorLeague.MoveNext())
+                            {
+                                XPathNavigator _eventNameNavigator = iteratorLeague.Current.Clone();
+                                int feedContentLeague = Convert.ToInt32(_sportNameNavigator.GetAttribute("feedContents", ""));
+                                if (feedContentLeague > 0)
+                                {
+                                    _leagueId = Convert.ToInt32(_eventNameNavigator.GetAttribute("id", ""));
+                                    //download feed
+                                    CommonHelper.DownloadXML(string.Format(urlPathFeed, _sportId, _leagueId), Constant.SourceXML.PINNACLESPORTS, 3, downloadTime);
+                                }
+                            }
                         }
                     }
                 }
