@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetEx247.Plugin.Discount", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetEx247.Plugin.XMLParser", "BetEx247.Plugin.XMLParser\BetEx247.Plugin.XMLParser.csproj", "{45726546-A06F-442B-A6FA-B0AA81B38AB3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetEx247.Plugin.DownloadFeed", "BetEx247.Plugin.DownloadFeed\BetEx247.Plugin.DownloadFeed.csproj", "{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{45726546-A06F-442B-A6FA-B0AA81B38AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45726546-A06F-442B-A6FA-B0AA81B38AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45726546-A06F-442B-A6FA-B0AA81B38AB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,5 +80,6 @@ Global
 		{8A70F85F-F9C0-4D2F-8F74-529E0A70B310} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
 		{C8EC9985-2A31-4843-9C20-F537147592B4} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
 		{45726546-A06F-442B-A6FA-B0AA81B38AB3} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
+		{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
 	EndGlobalSection
 EndGlobal

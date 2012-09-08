@@ -9,3 +9,7 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.XMLParser.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Core.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.XMLParser.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.DownloadFeed.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.DownloadFeed.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Data.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Data.pdb

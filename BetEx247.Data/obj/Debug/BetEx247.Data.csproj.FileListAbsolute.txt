@@ -3,3 +3,8 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Data.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\ResolveAssemblyReference.cache
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Data.dll.config
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.xml

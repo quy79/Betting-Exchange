@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<appSettings>
+  <add key="webpages:Version" value="1.0.0.0"/>
+  <add key="ClientValidationEnabled" value="true"/>
+  <add key="UnobtrusiveJavaScriptEnabled" value="true"/> 
+  <!--server path-->
+  <add key="ServerPath" value="D:/Project/PN Technologies/BetEx247/BetEx247.Web"/>
+  <!--end server path-->
+  <!--source xml-->
+  <add key="BETCLICKURL" value="http://xml.betclick.com/odds_en.xml"/>
+  <add key="PINNACLESPORTSURL" value="http://api.pinnaclesports.com/v1/sports"/>
+  <add key="PINNACLELEAGUEURL" value="http://api.pinnaclesports.com/v1/leagues?sportid={0}"/>
+  <add key="PINNACLEFEEDURL" value="http://api.pinnaclesports.com/v1/feed?sportid={0}&amp;leagueid={1}&amp;clientid=PN514368&amp;apikey=4235dc98-c16d-45f7-a74d-d68861e80a47&amp;islive=0&amp;currencycode=usd"/>
+  <add key="TITABETURL" value="http://cachefeeds.titanbet.com/feed.xml"/>
+
+  <add key="TITANBETMAINSPORT" value="33948,33945,55882,34010,6638,33818,2490,6"/>
+  <add key="TITANBETMAINSPORT_CRICKET" value="120,272"/>
+  <add key="TITANBETMAINSPORT_HANDBALL" value="1"/>
+  <add key="TITANBETMAINSPORT_HORSERACING" value="396"/>
+  <add key="TITANBETMAINSPORT_MOTORSPORTS" value="67"/>
+  <add key="TITANBETMAINSPORT_BOXING" value="67,107"/>
+  <add key="TITANBETMAINSPORT_GOLF" value="148"/>
+  <add key="TITANBETMAINSPORT_TENNIS" value="120,121,268,255"/>
+  <add key="TITANBETMAINSPORT_FOOTBALL" value="1,120,2,,451,277,28,5,6,278,78,155,269,439"/>
+  <!--end source xml-->
+</appSettings>

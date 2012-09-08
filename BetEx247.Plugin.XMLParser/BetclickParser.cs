@@ -5,6 +5,7 @@ using System.Text;
 using BetEx247.Core.XML;
 using System.Xml;
 using System.Xml.XPath;
+using BetEx247.Core;
 
 namespace BetEx247.Plugin.XMLParser
 {
@@ -23,7 +24,7 @@ namespace BetEx247.Plugin.XMLParser
 
         public virtual void ReadXML()
         {
-            string urlPath = "D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/odds_en.xml";
+            string urlPath = Constant.SourceXML.BETCLICKURL;
             _lstSport = new List<Sport>();
             _lstEvent = new List<Event>();
             _lstMatch = new List<Match>();
@@ -109,7 +110,7 @@ namespace BetEx247.Plugin.XMLParser
                                             _bet.betId = _betId;
                                             _bet.matchId = _matchId;
                                             _bet.betName = _betNameNavigator.GetAttribute("name", "");
-                                            _bet.betCode = _betNameNavigator.GetAttribute("code", "");
+                                            _bet.betCodeID = _betNameNavigator.GetAttribute("code", "");
                                             _lstBet.Add(_bet);
 
                                             if (_betNameNavigator.HasChildren)

@@ -71,6 +71,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\app_settings.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Data\odds_en.xml" />
     <Content Include="App_Data\pinnacleFeed.xml">
       <SubType>Designer</SubType>
@@ -103,34 +106,36 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.5.1.js" />
-    <Content Include="Scripts\jquery-1.5.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.11.js" />
-    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\modernizr-1.7.js" />
-    <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Content\Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery-1.5.1.js" />
+    <Content Include="Content\Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Content\Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Content\Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery.validate.js" />
+    <Content Include="Content\Scripts\jquery.validate.min.js" />
+    <Content Include="Content\Scripts\modernizr-1.7.js" />
+    <Content Include="Content\Scripts\modernizr-1.7.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\MicrosoftAjax.js" />
-    <Content Include="Scripts\MicrosoftAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcValidation.js" />
-    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Content\Css\Site.css" />
+    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Scripts\MicrosoftAjax.js" />
+    <Content Include="Content\Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Content\Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Content\Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Content\Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Content\Scripts\MicrosoftMvcValidation.debug.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
@@ -140,9 +145,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LogOnPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\XMLFEED\BETCLICK\" />
+    <Folder Include="App_Data\XMLFEED\PINNACLE\" />
+    <Folder Include="App_Data\XMLFEED\TITANBET\" />
+    <Folder Include="Content\Images\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -150,6 +162,14 @@
     <ProjectReference Include="..\BetEx247.Core\BetEx247.Core.csproj">
       <Project>{AFD770A1-3E4A-4103-8CBE-F3426559CBA0}</Project>
       <Name>BetEx247.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BetEx247.Data\BetEx247.Data.csproj">
+      <Project>{4031A72F-824E-409D-AF7D-D1695C288D18}</Project>
+      <Name>BetEx247.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BetEx247.Plugin.DownloadFeed\BetEx247.Plugin.DownloadFeed.csproj">
+      <Project>{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78}</Project>
+      <Name>BetEx247.Plugin.DownloadFeed</Name>
     </ProjectReference>
     <ProjectReference Include="..\BetEx247.Plugin.XMLParser\BetEx247.Plugin.XMLParser.csproj">
       <Project>{45726546-A06F-442B-A6FA-B0AA81B38AB3}</Project>

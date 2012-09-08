@@ -1,0 +1,7 @@
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Plugin.DownloadFeed.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Plugin.DownloadFeed.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\obj\Debug\BetEx247.Plugin.DownloadFeed.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\obj\Debug\BetEx247.Plugin.DownloadFeed.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Core.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Core.pdb

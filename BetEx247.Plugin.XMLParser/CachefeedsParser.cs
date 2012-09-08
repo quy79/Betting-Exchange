@@ -5,12 +5,15 @@ using System.Text;
 using BetEx247.Core.XML;
 using System.Xml;
 using System.Xml.XPath;
+using BetEx247.Core;
+using BetEx247.Core.Common.Extensions;
+using System.Configuration;
 
 namespace BetEx247.Plugin.XMLParser
 {
-    public class CachefeedsParser:IXMLParser
+    public class CachefeedsParser : IXMLParser
     {
-         public static List<Sport> _lstSport;
+        public static List<Sport> _lstSport;
         public static List<Event> _lstEvent;
         public static List<Match> _lstMatch;
         public static List<Bet> _lstBet;
@@ -23,7 +26,8 @@ namespace BetEx247.Plugin.XMLParser
 
         public virtual void ReadXML()
         {
-            string urlPath = "D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";
+            string urlPath = Constant.SourceXML.TITABETURL;
+            string mainSport = ConfigurationManager.AppSettings["TITANBETMAINSPORT"].ToString();
             _lstSport = new List<Sport>();
             _lstEvent = new List<Event>();
             _lstMatch = new List<Match>();
@@ -36,9 +40,7 @@ namespace BetEx247.Plugin.XMLParser
             XPathDocument doc = new XPathDocument(reader, XmlSpace.Preserve);
             XPathNavigator nav = doc.CreateNavigator();
 
-            XPathExpression exprSport;
-            exprSport = nav.Compile("/bookmaker/sport");
-            XPathNodeIterator iteratorSport = nav.Select(exprSport);
+            string[] arrMainSportId = mainSport.Split(',');
             try
             {
                 int _sportId = 0;
@@ -46,89 +48,129 @@ namespace BetEx247.Plugin.XMLParser
                 long _matchId = 0;
                 long _betId = 0;
                 long _choiceId = 0;
-
-                while (iteratorSport.MoveNext())
+                foreach (string sportid in arrMainSportId)
                 {
-                    _sportId++;
-                    XPathNavigator _sportNameNavigator = iteratorSport.Current.Clone();
-                    Sport _sport = new Sport();
-                    _sport.sportId = _sportId;
-                    _sport.sportName = _sportNameNavigator.GetAttribute("name", "");
-                    _lstSport.Add(_sport);
-
-                    if (_sportNameNavigator.HasChildren)
+                    XPathExpression exprSport;
+                    exprSport = nav.Compile("/bookmaker/sport[@id='" + sportid + "']");
+                    XPathNodeIterator iteratorSport = nav.Select(exprSport);
+                    while (iteratorSport.MoveNext())
                     {
-                        XPathExpression exprevent;
-                        exprevent = _sportNameNavigator.Compile("group");
-                        XPathNodeIterator iteratorEvent = _sportNameNavigator.Select(exprevent);
-                        while (iteratorEvent.MoveNext())
+                        XPathNavigator _sportNameNavigator = iteratorSport.Current.Clone();
+                        _sportId++;
+                        Sport _sport = new Sport();
+                        _sport.sportId = _sportId;
+                        _sport.sportName = _sportNameNavigator.GetAttribute("name", "");
+                        _lstSport.Add(_sport);
+
+                        if (_sportNameNavigator.HasChildren)
                         {
-                            _eventId++;
-                            XPathNavigator _eventNameNavigator = iteratorEvent.Current.Clone();
-                            Event _event = new Event();
-                            _event.eventId = _eventId;
-                            _event.sportId = _sportId;
-                            _event.eventName = _eventNameNavigator.GetAttribute("name", "");
-                            _lstEvent.Add(_event);
-
-                            if (_eventNameNavigator.HasChildren)
+                            XPathExpression exprevent;
+                            exprevent = _sportNameNavigator.Compile("group");
+                            XPathNodeIterator iteratorEvent = _sportNameNavigator.Select(exprevent);
+                            while (iteratorEvent.MoveNext())
                             {
-                                XPathExpression exprematch;
-                                exprematch = _eventNameNavigator.Compile("event");
-                                XPathNodeIterator iteratorMatch = _eventNameNavigator.Select(exprematch);
-                                while (iteratorMatch.MoveNext())
+                                _eventId++;
+                                XPathNavigator _eventNameNavigator = iteratorEvent.Current.Clone();
+                                Event _event = new Event();
+                                _event.eventId = _eventId;
+                                _event.sportId = _sportId;
+                                _event.eventName = _eventNameNavigator.GetAttribute("name", "");
+                                _lstEvent.Add(_event);
+
+                                if (_eventNameNavigator.HasChildren)
                                 {
-                                    _matchId++;
-                                    XPathNavigator _matchNameNavigator = iteratorMatch.Current.Clone();
-                                    Match _match = new Match();
-                                    _match.matchId = _matchId;
-                                    _match.eventId = _eventId;
-                                    string[] league = _matchNameNavigator.GetAttribute("name", "").Split('-');
-                                    if (league.Length > 1)
+                                    XPathExpression exprematch;
+                                    exprematch = _eventNameNavigator.Compile("event");
+                                    XPathNodeIterator iteratorMatch = _eventNameNavigator.Select(exprematch);
+                                    while (iteratorMatch.MoveNext())
                                     {
-                                        _match.homeTeam = league[0].Trim();
-                                        _match.awayTeam = league[1].Trim();
-                                    }
-                                    else
-                                    {
-                                        _match.homeTeam = _matchNameNavigator.GetAttribute("name", "");
-                                    }
-                                    _match.startTime = Convert.ToDateTime(_matchNameNavigator.GetAttribute("date", ""));
-                                    _lstMatch.Add(_match);
-
-                                    if (_matchNameNavigator.HasChildren)
-                                    {
-                                        XPathExpression exprebet;
-                                        exprebet = _matchNameNavigator.Compile("market");
-                                        XPathNodeIterator iteratorBet = _matchNameNavigator.Select(exprebet);
-                                        while (iteratorBet.MoveNext())
+                                        _matchId++;
+                                        XPathNavigator _matchNameNavigator = iteratorMatch.Current.Clone();
+                                        Match _match = new Match();
+                                        _match.matchId = _matchId;
+                                        _match.eventId = _eventId;
+                                        string[] league = _matchNameNavigator.GetAttribute("name", "").Split('-');
+                                        if (league.Length > 1)
                                         {
-                                            _betId++;
-                                            XPathNavigator _betNameNavigator = iteratorBet.Current.Clone();
-                                            Bet _bet = new Bet();
-                                            _bet.betId = _betId;
-                                            _bet.matchId = _matchId;
-                                            _bet.betName = _betNameNavigator.GetAttribute("name", "");
-                                            _bet.betCode = _betNameNavigator.GetAttribute("tid", "");
-                                            _lstBet.Add(_bet);
+                                            _match.homeTeam = league[0].Trim();
+                                            _match.awayTeam = league[1].Trim();
+                                        }
+                                        else
+                                        {
+                                            _match.homeTeam = _matchNameNavigator.GetAttribute("name", "");
+                                        }
+                                        _match.startTime = Convert.ToDateTime(_matchNameNavigator.GetAttribute("date", ""));
+                                        _lstMatch.Add(_match);
 
-                                            if (_betNameNavigator.HasChildren)
+                                        if (_matchNameNavigator.HasChildren)
+                                        {
+                                            string OddTypeString = string.Empty;
+                                            switch (_sportId)
                                             {
-                                                XPathExpression exprechoice;
-                                                exprechoice = _betNameNavigator.Compile("outcome");
-                                                XPathNodeIterator iteratorChoice = _betNameNavigator.Select(exprechoice);
-                                                while (iteratorChoice.MoveNext())
+                                                case 1:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.CRICKET;
+                                                    break;
+                                                case 2:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.HANDBALL;
+                                                    break;
+                                                case 3:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.HORSERACING;
+                                                    break;
+                                                case 4:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.MOTORSPORTS;
+                                                    break;
+                                                case 5:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.BOXING;
+                                                    break;
+                                                case 6:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.GOLF;
+                                                    break;
+                                                case 7:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.TENNIS;
+                                                    break;
+                                                case 8:
+                                                    OddTypeString = Constant.TitanBetOddTypeID.FOOTBALL;
+                                                    break;
+                                            }
+                                            string[] arrOddTypeId = OddTypeString.Split(',');
+                                            foreach (string oddTypeId in arrOddTypeId)
+                                            {
+                                                XPathExpression exprebet;
+                                                exprebet = _matchNameNavigator.Compile("market[@tid='"+oddTypeId+"']");
+                                                XPathNodeIterator iteratorBet = _matchNameNavigator.Select(exprebet);
+                                                while (iteratorBet.MoveNext())
                                                 {
-                                                    _choiceId++;
-                                                    XPathNavigator _choiceNameNavigator = iteratorChoice.Current.Clone();
-                                                    Choice _choice = new Choice();
-                                                    _choice.choiceId = _choiceId;
-                                                    _choice.betId = _betId;
-                                                    _choice.choiceName = _choiceNameNavigator.GetAttribute("name", "");
-                                                    _choice.odd = _choiceNameNavigator.GetAttribute("odd", "");
-                                                    _choice.american_odd = _choiceNameNavigator.GetAttribute("american_odds", "");
-                                                    _choice.fra_odd = _choiceNameNavigator.GetAttribute("fra_odds", "");
-                                                    _lstChoice.Add(_choice);
+                                                    _betId++;
+                                                    XPathNavigator _betNameNavigator = iteratorBet.Current.Clone();
+                                                    Bet _bet = new Bet();
+                                                    _bet.betId = _betId;
+                                                    _bet.matchId = _matchId;
+                                                    _bet.betName = _betNameNavigator.GetAttribute("name", "");
+                                                    _bet.betCodeID = _betNameNavigator.GetAttribute("tid", "");
+                                                                                                         
+                                                    _lstBet.Add(_bet);
+
+                                                    if (_betNameNavigator.HasChildren)
+                                                    {
+                                                        XPathExpression exprechoice;
+                                                        exprechoice = _betNameNavigator.Compile("outcome");
+                                                        XPathNodeIterator iteratorChoice = _betNameNavigator.Select(exprechoice);
+                                                        while (iteratorChoice.MoveNext())
+                                                        {
+                                                            _choiceId++;
+                                                            XPathNavigator _choiceNameNavigator = iteratorChoice.Current.Clone();
+                                                            Choice _choice = new Choice();
+                                                            _choice.choiceId = _choiceId;
+                                                            _choice.betId = _betId;
+                                                            _choice.choiceCodeId = (long)Constant.ChoiceType.OTHER;
+                                                            _choice.choiceCodeName = "OTHER";
+                                                            _choice.choiceName = _choiceNameNavigator.GetAttribute("name", "");
+                                                            _choice.odd = _choiceNameNavigator.GetAttribute("odds", "");
+                                                            _choice.american_odd = _choiceNameNavigator.GetAttribute("american_odds", "");
+                                                            _choice.fra_odd = _choiceNameNavigator.GetAttribute("fra_odds", "");
+                                                            _lstChoice.Add(_choice);
+                                                        }
+                                                    }
                                                 }
                                             }
                                         }
@@ -147,7 +189,7 @@ namespace BetEx247.Plugin.XMLParser
 
         public List<Sport> getAllSport()
         {
-            return _lstSport; 
+            return _lstSport;
         }
 
         public List<Event> getAllEvent()
