@@ -16,11 +16,11 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Process payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an betting processing</param>
+        /// <param name="transactionPayment">Payment info required for an betting processing</param>
         /// <param name="member">member</param>
         /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessPayment(PaymentInfo paymentInfo, Member member,
+        void ProcessPayment(TransactionPayment transactionPayment, Member member,
             Guid bettingGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
@@ -28,45 +28,45 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="betting">betting</param>
         /// <returns>The error status, or String.Empty if no errors</returns>
-        string PostProcessPayment(Betting betting);
+        string PostProcessPayment(TransactionPayment transactionPayment);
 
         /// <summary>
         /// Captures payment
         /// </summary>
-        /// <param name="betting">betting</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void Capture(Betting betting, ref ProcessPaymentResult processPaymentResult);
+        void Capture(TransactionPayment transactionPayment, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
         /// Refunds payment
         /// </summary>
-        /// <param name="betting">betting</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>
-        void Refund(Betting betting, ref CancelPaymentResult cancelPaymentResult);
+        void Refund(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult);
 
         /// <summary>
         /// Voids paymen
         /// </summary>
-        /// <param name="betting">betting</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>
-        void Void(Betting betting, ref CancelPaymentResult cancelPaymentResult);
+        void Void(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult);
 
         /// <summary>
         /// Process recurring payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an betting processing</param>
+        /// <param name="transactionPayment">Payment info required for an payment processing</param>
         /// <param name="member">member</param>
         /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessRecurringPayment(PaymentInfo paymentInfo, Member member,
+        void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member,
             Guid bettingGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
         /// Cancels recurring payment
         /// </summary>
-        /// <param name="betting">betting</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>
-        void CancelRecurringPayment(Betting betting, ref CancelPaymentResult cancelPaymentResult);
+        void CancelRecurringPayment(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult);
 
         #endregion
 

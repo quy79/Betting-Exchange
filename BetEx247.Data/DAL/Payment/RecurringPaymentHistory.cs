@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BetEx247.Core.CustomerManagement;
 using BetEx247.Core.Infrastructure;
+using BetEx247.Core;
 
-namespace BetEx247.Core.Payment
+namespace BetEx247.Data.DAL
 {
     /// <summary>
     /// Represents a recurring payment history
@@ -25,9 +25,9 @@ namespace BetEx247.Core.Payment
         public int RecurringPaymentId { get; set; }
 
         /// <summary>
-        /// Gets or sets the order identifier
+        /// Gets or sets the TransactionPayment identifier
         /// </summary>
-        public int OrderId { get; set; }
+        public int TransactionPaymentId { get; set; }
 
         /// <summary>
         /// Gets or sets the date and time of entity creation
@@ -38,13 +38,13 @@ namespace BetEx247.Core.Payment
 
         #region Custom Properties
         /// <summary>
-        /// Gets the initial order
+        /// Gets the initial TransactionPayment
         /// </summary>
-        public Order Order
+        public TransactionPayment PaymentTransaction
         {
             get
             {
-                return IoC.Resolve<IOrderService>().GetOrderById(this.OrderId);
+                return IoC.Resolve<ITransactionPaymentService>().GetTransactionPaymentById(this.TransactionPaymentId);
             }
         }
 

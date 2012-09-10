@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BetEx247.Core.CustomerManagement;
+using BetEx247.Core.Payment;
 using BetEx247.Core.Infrastructure;
+using BetEx247.Core;
+using BetEx247.Data.Model;
 
-namespace BetEx247.Core.Payment
+namespace BetEx247.Data.DAL
 {
     /// <summary>
     /// Represents a recurring payment
@@ -20,9 +22,9 @@ namespace BetEx247.Core.Payment
         public int RecurringPaymentId { get; set; }
 
         /// <summary>
-        /// Gets or sets the initial order identifier
+        /// Gets or sets the initial transactionPayment identifier
         /// </summary>
-        public int InitialOrderId { get; set; }
+        public int InitialTransactionPaymentId { get; set; }
 
         /// <summary>
         /// Gets or sets the cycle length
@@ -63,30 +65,30 @@ namespace BetEx247.Core.Payment
 
         #region Custom Properties
         /// <summary>
-        /// Gets the initial order
+        /// Gets the initial transactionPayment
         /// </summary>
-        public Order InitialOrder
+        public TransactionPayment InitialTransactionPayment
         {
             get
             {
-                return IoC.Resolve<IOrderService>().GetOrderById(this.InitialOrderId);
+                return IoC.Resolve<ITransactionPaymentService>().GetTransactionPaymentById(this.InitialTransactionPaymentId);
             }
         }
 
         /// <summary>
-        /// Gets the initial customer
+        /// Gets the initial Member
         /// </summary>
-        public Customer Customer
+        public Member Member
         {
             get
             {
-                Customer customer = null;
-                Order initialOrder = this.InitialOrder;
-                if (initialOrder != null)
+                Member member = null;
+                TransactionPayment initialTransactionPayment = this.InitialTransactionPayment;
+                if (initialTransactionPayment != null)
                 {
-                    customer = initialOrder.Customer;
+                    member = initialTransactionPayment.Customer;
                 }
-                return customer;
+                return member;
             }
         }
 
@@ -97,7 +99,7 @@ namespace BetEx247.Core.Payment
         {
             get
             {
-                return IoC.Resolve<IOrderService>().SearchRecurringPaymentHistory(this.RecurringPaymentId, 0);
+                return IoC.Resolve<ITransactionPaymentService>().SearchRecurringPaymentHistory(this.RecurringPaymentId, 0);
             }
         }
 
@@ -226,11 +228,11 @@ namespace BetEx247.Core.Payment
         {
             get
             {
-                Order order = this.InitialOrder;
-                if (order == null)
+                TransactionPayment transactionPayment = this.InitialTransactionPayment;
+                if (transactionPayment == null)
                     return RecurringPaymentTypeEnum.NotSupported;
 
-                return IoC.Resolve<IPaymentService>().SupportRecurringPayments(order.PaymentMethodId);
+                return IoC.Resolve<IPaymentService>().SupportRecurringPayments(transactionPayment.PaymentMethodId);
             }
         }
 

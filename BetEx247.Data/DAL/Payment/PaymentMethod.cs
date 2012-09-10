@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BetEx247.Core.CustomerManagement;
+using BetEx247.Core.Payment;
 using BetEx247.Core.Infrastructure;
+using BetEx247.Data.Model;
+using BetEx247.Core;
 
-namespace BetEx247.Core.Payment
+namespace BetEx247.Data.DAL
 {
     /// <summary>
     /// Represents a payment method

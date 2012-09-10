@@ -46,16 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="DAL\Betting.cs" />
-    <Compile Include="DAL\BettingService.cs" />
-    <Compile Include="DAL\CustomerService.cs" />
+    <Compile Include="DAL\Betting\BettingService.cs" />
+    <Compile Include="DAL\Betting\IBettingService.cs" />
+    <Compile Include="DAL\Payment\IPaymentService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Payment\PaymentService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Payment\TransactionPayment.cs" />
+    <Compile Include="DAL\Payment\TransactionPaymentService.cs" />
+    <Compile Include="DAL\Customer\CustomerService.cs" />
     <Compile Include="DAL\IBase.cs" />
-    <Compile Include="DAL\IBettingService.cs" />
-    <Compile Include="DAL\ICustomerService.cs" />
-    <Compile Include="DAL\IPaymentMethod.cs" />
-    <Compile Include="DAL\IPaymentService.cs" />
-    <Compile Include="DAL\PaymentService.cs" />
+    <Compile Include="DAL\Payment\ITransactionPaymentService.cs" />
+    <Compile Include="DAL\Customer\ICustomerService.cs" />
+    <Compile Include="DAL\Payment\IPaymentMethod.cs" />
+    <Compile Include="DAL\Payment\RecurringPayment.cs" />
+    <Compile Include="DAL\Payment\RecurringPaymentHistory.cs" />
+    <Compile Include="DAL\Payment\ReturnRequest.cs" />
     <Compile Include="Model\BetEXData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,7 +86,9 @@
       <Name>BetEx247.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DAL\GUI\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

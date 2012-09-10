@@ -43,47 +43,47 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public BetEx247.Data.Model.PaymentMethod GetPaymentMethodById(int paymentMethodId)
+        public PaymentMethod GetPaymentMethodById(int paymentMethodId)
         {
             throw new NotImplementedException();
         }
 
-        public BetEx247.Data.Model.PaymentMethod GetPaymentMethodBySystemKeyword(string systemKeyword)
+        public PaymentMethod GetPaymentMethodBySystemKeyword(string systemKeyword)
         {
             throw new NotImplementedException();
         }
 
-        public List<BetEx247.Data.Model.PaymentMethod> GetAllPaymentMethods()
+        public List<PaymentMethod> GetAllPaymentMethods()
         {
             throw new NotImplementedException();
         }
 
-        public List<BetEx247.Data.Model.PaymentMethod> GetAllPaymentMethods(int? filterByCountryId)
+        public List<PaymentMethod> GetAllPaymentMethods(int? filterByCountryId)
         {
             throw new NotImplementedException();
         }
 
-        public List<BetEx247.Data.Model.PaymentMethod> GetAllPaymentMethods(int? filterByCountryId, bool showHidden)
+        public List<PaymentMethod> GetAllPaymentMethods(int? filterByCountryId, bool showHidden)
         {
             throw new NotImplementedException();
         }
 
-        public void InsertPaymentMethod(BetEx247.Data.Model.PaymentMethod paymentMethod)
+        public void InsertPaymentMethod(PaymentMethod paymentMethod)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdatePaymentMethod(BetEx247.Data.Model.PaymentMethod paymentMethod)
+        public void UpdatePaymentMethod(PaymentMethod paymentMethod)
         {
             throw new NotImplementedException();
         }
 
-        public void ProcessPayment(PaymentInfo paymentInfo, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessPayment(TransactionPayment transactionPayment, Member member, Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult)
         {
             throw new NotImplementedException();
         }
 
-        public string PostProcessPayment(Betting betting)
+        public string PostProcessPayment(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
@@ -98,7 +98,7 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public void Capture(Betting betting, ref ProcessPaymentResult processPaymentResult)
+        public void Capture(TransactionPayment transactionPayment, ref ProcessPaymentResult processPaymentResult)
         {
             throw new NotImplementedException();
         }
@@ -113,7 +113,7 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public void Refund(Betting betting, ref CancelPaymentResult cancelPaymentResult)
+        public void Refund(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             throw new NotImplementedException();
         }
@@ -123,7 +123,7 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public void Void(Betting betting, ref CancelPaymentResult cancelPaymentResult)
+        public void Void(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             throw new NotImplementedException();
         }
@@ -138,12 +138,12 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public void ProcessRecurringPayment(PaymentInfo paymentInfo, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member, Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult)
         {
             throw new NotImplementedException();
         }
 
-        public void CancelRecurringPayment(Betting betting, ref CancelPaymentResult cancelPaymentResult)
+        public void CancelRecurringPayment(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             throw new NotImplementedException();
         }

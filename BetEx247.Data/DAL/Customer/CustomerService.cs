@@ -20,12 +20,18 @@ namespace BetEx247.Data.DAL
 
         public Member GetCustomerByEmail(string email)
         {
-            throw new NotImplementedException();
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.Members.Where(w => w.Email1 == email || w.Email2 == email).SingleOrDefault();
+            }
         }
 
         public Member GetCustomerByUsername(string username)
         {
-            throw new NotImplementedException();
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.Members.Where(w => w.NickName == username).SingleOrDefault();
+            }
         }
 
         public Member GetCustomerById(long customerId)
@@ -36,9 +42,15 @@ namespace BetEx247.Data.DAL
             }
         }
 
-        public bool Login(string email, string password)
+        public bool Login(string nickname, string password)
         {
-            throw new NotImplementedException();
+            using (var dba = new BetEXDataContainer())
+            {
+                var profile = dba.Members.Where(w => w.NickName == nickname && w.Password==password).SingleOrDefault();
+                if (profile != null)
+                    return true;
+            }
+            return false;
         }
 
         public void Logout()
@@ -56,7 +68,11 @@ namespace BetEx247.Data.DAL
 
         public void Insert(Member entity)
         {
-            throw new NotImplementedException();
+            using (var dba = new BetEXDataContainer())
+            {
+                dba.AddToMembers(entity);
+                dba.SaveChanges();
+            }
         }
 
         public void Update(Member entity)

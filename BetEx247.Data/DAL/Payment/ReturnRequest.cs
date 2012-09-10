@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BetEx247.Core.CustomerManagement;
+using BetEx247.Core;
+using BetEx247.Data.Model;
+using BetEx247.Core.Payment;
 using BetEx247.Core.Infrastructure;
 
-namespace BetEx247.Core.Payment
+namespace BetEx247.Data.DAL
 {
     /// <summary>
     /// Represents a return request
@@ -13,7 +15,7 @@ namespace BetEx247.Core.Payment
     public partial class ReturnRequest : BaseEntity
     {
         #region Fields
-        private Customer _customer;
+        private Member _member;
         #endregion
 
         #region Properties
@@ -21,8 +23,8 @@ namespace BetEx247.Core.Payment
         /// <summary>
         /// Gets or sets the return request identifier
         /// </summary>
-        public int ReturnRequestId { get; set; }   
-     
+        public int ReturnRequestId { get; set; }
+
         /// <summary>
         /// Gets or sets the quantity
         /// </summary>
@@ -85,18 +87,18 @@ namespace BetEx247.Core.Payment
             {
                 this.ReturnStatusId = (int)value;
             }
-        }              
-       
+        }
+
         /// <summary>
         /// Gets the customer
         /// </summary>
-        public Customer Customer
+        public Member member
         {
             get
             {
-                if (_customer == null)
-                    _customer = IoC.Resolve<ICustomerService>().GetCustomerById(this.CustomerId);
-                return _customer;
+                if (_member == null)
+                    _member = IoC.Resolve<ICustomerService>().GetCustomerById(this.CustomerId);
+                return _member;
             }
         }
 

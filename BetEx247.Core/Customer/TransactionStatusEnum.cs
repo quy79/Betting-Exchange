@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BetEx247.Core.CustomerManagement
 {
-    public enum BettingStatusEnum
+    public enum TransactionStatusEnum
     {
         /// <summary>
         /// Pending

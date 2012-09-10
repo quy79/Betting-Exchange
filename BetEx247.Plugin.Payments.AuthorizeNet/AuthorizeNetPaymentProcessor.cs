@@ -10,6 +10,8 @@ using BetEx247.Core.Payment;
 using BetEx247.Core.Infrastructure;
 using BetEx247.Core.CustomerManagement;
 using BetEx247.Core;
+using BetEx247.Data.DAL;
+using BetEx247.Data.Model;
 
 namespace BetEx247.Plugin.Payments.AuthorizeNet
 {
@@ -106,11 +108,11 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// <summary>
         /// Process payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an order processing</param>
-        /// <param name="customer">Customer</param>
+        /// <param name="paymentInfo">Payment info required for an betting processing</param>
+        /// <param name="Member">Member</param>
         /// <param name="orderGuid">Unique order identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessPayment(PaymentInfo paymentInfo, Customer customer, Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessPayment(TransactionPayment betting, Member member, Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
         {
             InitSettings();
             TransactMode transactionMode = GetCurrentTransactionMode();
@@ -138,19 +140,17 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
             else
                 throw new Exception("Not supported transaction mode");
 
-            form.Add("x_amount", paymentInfo.OrderTotal.ToString("0.00", CultureInfo.InvariantCulture));
-            form.Add("x_card_num", paymentInfo.CreditCardNumber);
-            form.Add("x_exp_date", paymentInfo.CreditCardExpireMonth.ToString("D2") + paymentInfo.CreditCardExpireYear.ToString());
-            form.Add("x_card_code", paymentInfo.CreditCardCvv2);
-            form.Add("x_first_name", paymentInfo.BillingAddress.FirstName);
-            form.Add("x_last_name", paymentInfo.BillingAddress.LastName);
-            if (string.IsNullOrEmpty(paymentInfo.BillingAddress.Company))
-                form.Add("x_company", paymentInfo.BillingAddress.Company);
-            form.Add("x_address", paymentInfo.BillingAddress.Address1);
-            form.Add("x_city", paymentInfo.BillingAddress.City);
+            form.Add("x_amount",betting.TransactionPaymentTotal.ToString("0.00", CultureInfo.InvariantCulture));
+            form.Add("x_card_num", betting.CardNumber);
+            form.Add("x_exp_date",betting.CardExpirationMonth.ToString() +betting.CardExpirationYear.ToString());
+            form.Add("x_card_code", betting.CardCvv2);
+            form.Add("x_first_name", betting.Customer.FirstName);
+            form.Add("x_last_name", betting.Customer.LastName);
+            form.Add("x_address", betting.Customer.Address);
+            form.Add("x_city", betting.Customer.City);
             //if (paymentInfo.BillingAddress.StateProvince != null)
             //    form.Add("x_state", paymentInfo.BillingAddress.StateProvince.Abbreviation);
-            form.Add("x_zip", paymentInfo.BillingAddress.ZipPostalCode);
+            form.Add("x_zip", betting.Customer.PostalCode);
             //if (paymentInfo.BillingAddress.Country != null)
             //    form.Add("x_country", paymentInfo.BillingAddress.Country.TwoLetterIsoCode);
             //20 chars maximum
@@ -201,9 +201,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// <summary>
         /// Post process payment (payment gateways that require redirecting)
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="betting">betting</param>
         /// <returns>The error status, or String.Empty if no errors</returns>
-        public string PostProcessPayment(Order order)
+        public string PostProcessPayment(TransactionPayment transaction)
         {
             return string.Empty;
         }
@@ -211,9 +211,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// <summary>
         /// Captures payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="betting">betting</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void Capture(Order order, ref ProcessPaymentResult processPaymentResult)
+        public void Capture(TransactionPayment transactionPayment, ref ProcessPaymentResult processPaymentResult)
         {
             InitSettings();
 
@@ -235,7 +235,7 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
             form.Add("x_currency_code", Constant.Payment.CURRENCYCODE);
             form.Add("x_type", "PRIOR_AUTH_CAPTURE");
 
-            form.Add("x_amount", order.OrderTotal.ToString("0.00", CultureInfo.InvariantCulture));
+            form.Add("x_amount", transactionPayment.TransactionPaymentTotal.ToString("0.00", CultureInfo.InvariantCulture));
             string[] codes = processPaymentResult.AuthorizationTransactionCode.Split(',');
             //x_trans_id. When x_test_request (sandbox) is set to a positive response, 
             //or when Test mode is enabled on the payment gateway, this value will be "0".
@@ -277,9 +277,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// <summary>
         /// Refunds payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="betting">betting</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>        
-        public void Refund(Order order, ref CancelPaymentResult cancelPaymentResult)
+        public void Refund(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             throw new Exception("Refund method not supported");
         }
@@ -287,9 +287,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// <summary>
         /// Voids payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="betting">betting</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>        
-        public void Void(Order order, ref CancelPaymentResult cancelPaymentResult)
+        public void Void(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             throw new Exception("Void method not supported");
         }
@@ -297,58 +297,35 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// <summary>
         /// Process recurring payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an order processing</param>
-        /// <param name="customer">Customer</param>
-        /// <param name="orderGuid">Unique order identifier</param>
+        /// <param name="paymentInfo">Payment info required for an betting processing</param>
+        /// <param name="member">member</param>
+        /// <param name="bettingGuid">Unique order identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessRecurringPayment(PaymentInfo paymentInfo, Customer customer, Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
             InitSettings();
             MerchantAuthenticationType authentication = PopulateMerchantAuthentication();
-            if (!paymentInfo.IsRecurringPayment)
+            if (!transactionPayment.IsRecurringPayment)
             {
                 ARBSubscriptionType subscription = new ARBSubscriptionType();
                 AuthorizeNet.net.authorize.api.CreditCardType creditCard = new AuthorizeNet.net.authorize.api.CreditCardType();
 
-                subscription.name = orderGuid.ToString();
-
-                creditCard.cardNumber = paymentInfo.CreditCardNumber;
-                creditCard.expirationDate = paymentInfo.CreditCardExpireYear + "-" + paymentInfo.CreditCardExpireMonth; // required format for API is YYYY-MM
-                creditCard.cardCode = paymentInfo.CreditCardCvv2;
+                subscription.name = bettingGuid.ToString();
+                creditCard.cardNumber = transactionPayment.CardNumber;
+                creditCard.expirationDate = transactionPayment.CardExpirationYear + "-" + transactionPayment.CardExpirationMonth; // required format for API is YYYY-MM
+                creditCard.cardCode = transactionPayment.CardCvv2;
 
                 subscription.payment = new PaymentType();
-                subscription.payment.Item = creditCard;
-
+                subscription.payment.Item = creditCard;      
                 subscription.billTo = new NameAndAddressType();
-                subscription.billTo.firstName = paymentInfo.BillingAddress.FirstName;
-                subscription.billTo.lastName = paymentInfo.BillingAddress.LastName;
-                subscription.billTo.address = paymentInfo.BillingAddress.Address1 + " " + paymentInfo.BillingAddress.Address2;
-                subscription.billTo.city = paymentInfo.BillingAddress.City;
-                //if (paymentInfo.BillingAddress.StateProvince != null)
-                //{
-                //    subscription.billTo.state = paymentInfo.BillingAddress.StateProvince.Abbreviation;
-                //}
-                subscription.billTo.zip = paymentInfo.BillingAddress.ZipPostalCode;
-
-                if (paymentInfo.ShippingAddress != null)
-                {
-                    subscription.shipTo = new NameAndAddressType();
-                    subscription.shipTo.firstName = paymentInfo.ShippingAddress.FirstName;
-                    subscription.shipTo.lastName = paymentInfo.ShippingAddress.LastName;
-                    subscription.shipTo.address = paymentInfo.ShippingAddress.Address1 + " " + paymentInfo.ShippingAddress.Address2;
-                    subscription.shipTo.city = paymentInfo.ShippingAddress.City;
-                    //if (paymentInfo.ShippingAddress.StateProvince != null)
-                    //{
-                    //    subscription.shipTo.state = paymentInfo.ShippingAddress.StateProvince.Abbreviation;
-                    //}
-                    subscription.shipTo.zip = paymentInfo.ShippingAddress.ZipPostalCode;
-
-                }
-
+                subscription.billTo.firstName = transactionPayment.Customer.FirstName;
+                subscription.billTo.lastName = transactionPayment.Customer.LastName;
+                subscription.billTo.address = transactionPayment.Customer.Address;
+                subscription.billTo.city = transactionPayment.Customer.City;
+                subscription.billTo.zip = transactionPayment.Customer.PostalCode;   
                 subscription.customer = new CustomerType();
-                subscription.customer.email = "chantinh22047@gmail.com";// customer.BillingAddress.Email;
-                subscription.customer.phoneNumber = "0975777973";// customer.BillingAddress.PhoneNumber;
-
+                subscription.customer.email = transactionPayment.Customer.Email1;
+                subscription.customer.phoneNumber = transactionPayment.Customer.Telephone;   
                 subscription.order = new OrderType();
                 subscription.order.description =Constant.Payment.STORENAME+" "+ "Recurring payment";
 
@@ -359,30 +336,30 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
                 subscription.paymentSchedule.startDate = new DateTime(dtNow.Year, dtNow.Month, dtNow.Day);
                 subscription.paymentSchedule.startDateSpecified = true;
 
-                subscription.paymentSchedule.totalOccurrences = Convert.ToInt16(paymentInfo.RecurringTotalCycles);
+                subscription.paymentSchedule.totalOccurrences = Convert.ToInt16(transactionPayment.RecurringTotalCycles);
                 subscription.paymentSchedule.totalOccurrencesSpecified = true;
 
-                subscription.amount = paymentInfo.OrderTotal;
+                subscription.amount = transactionPayment.TransactionPaymentTotal;
                 subscription.amountSpecified = true;
 
                 // Interval can't be updated once a subscription is created.
                 subscription.paymentSchedule.interval = new PaymentScheduleTypeInterval();
-                switch (paymentInfo.RecurringCyclePeriod)
+                switch (transactionPayment.RecurringCyclePeriod)
                 {
                     case (int)RecurringProductCyclePeriodEnum.Days:
-                        subscription.paymentSchedule.interval.length = Convert.ToInt16(paymentInfo.RecurringCycleLength);
+                        subscription.paymentSchedule.interval.length = Convert.ToInt16(transactionPayment.RecurringCycleLength);
                         subscription.paymentSchedule.interval.unit = ARBSubscriptionUnitEnum.days;
                         break;
                     case (int)RecurringProductCyclePeriodEnum.Weeks:
-                        subscription.paymentSchedule.interval.length = Convert.ToInt16(paymentInfo.RecurringCycleLength * 7);
+                        subscription.paymentSchedule.interval.length = Convert.ToInt16(transactionPayment.RecurringCycleLength * 7);
                         subscription.paymentSchedule.interval.unit = ARBSubscriptionUnitEnum.days;
                         break;
                     case (int)RecurringProductCyclePeriodEnum.Months:
-                        subscription.paymentSchedule.interval.length = Convert.ToInt16(paymentInfo.RecurringCycleLength);
+                        subscription.paymentSchedule.interval.length = Convert.ToInt16(transactionPayment.RecurringCycleLength);
                         subscription.paymentSchedule.interval.unit = ARBSubscriptionUnitEnum.months;
                         break;
                     case (int)RecurringProductCyclePeriodEnum.Years:
-                        subscription.paymentSchedule.interval.length = Convert.ToInt16(paymentInfo.RecurringCycleLength * 12);
+                        subscription.paymentSchedule.interval.length = Convert.ToInt16(transactionPayment.RecurringCycleLength * 12);
                         subscription.paymentSchedule.interval.unit = ARBSubscriptionUnitEnum.months;
                         break;
                     default:
@@ -409,9 +386,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// <summary>
         /// Cancels recurring payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>        
-        public void CancelRecurringPayment(Order order, ref CancelPaymentResult cancelPaymentResult)
+        public void CancelRecurringPayment(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             InitSettings();
             MerchantAuthenticationType authentication = PopulateMerchantAuthentication();

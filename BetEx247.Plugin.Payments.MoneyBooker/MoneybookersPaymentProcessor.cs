@@ -8,6 +8,8 @@ using BetEx247.Core.Common.Utils;
 using BetEx247.Core.Infrastructure;
 using System.Globalization;
 using BetEx247.Core;
+using BetEx247.Data.DAL;
+using BetEx247.Data.Model;
 
 namespace BetEx247.Plugin.Payments.MoneyBooker
 {
@@ -41,11 +43,11 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// <summary>
         /// Process payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an order processing</param>
-        /// <param name="customer">Customer</param>
-        /// <param name="orderGuid">Unique order identifier</param>
+        /// <param name="transactionPayment">transactionPayment required for an betting processing</param>
+        /// <param name="member">member</param>
+        /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessPayment(PaymentInfo paymentInfo, Customer customer, Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessPayment(TransactionPayment transactionPayment, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
             processPaymentResult.PaymentStatus = PaymentStatusEnum.Pending;
         }
@@ -53,9 +55,9 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// <summary>
         /// Post process payment (payment gateways that require redirecting)
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="betting">betting</param>
         /// <returns>The error status, or String.Empty if no errors</returns>
-        public string PostProcessPayment(Order order)
+        public string PostProcessPayment(TransactionPayment transactionPayment)
         {
             RemotePost remotePostHelper = new RemotePost();
             remotePostHelper.FormName = "MoneybookersForm";
@@ -63,32 +65,28 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
 
             remotePostHelper.Add("pay_to_email", payToEmail);
             remotePostHelper.Add("recipient_description",Constant.Payment.STORENAME);
-            remotePostHelper.Add("transaction_id", order.OrderId.ToString());
+            remotePostHelper.Add("transaction_id", transactionPayment.TransactionPaymentId.ToString());
             remotePostHelper.Add("cancel_url", CommonHelper.GetStoreLocation(false));
             remotePostHelper.Add("status_url", CommonHelper.GetStoreLocation(false) + "MoneybookersReturn.aspx");
             //supported moneybookers languages (EN, DE, ES, FR, IT, PL, GR, RO, RU, TR, CN, CZ or NL)
             remotePostHelper.Add("language", "EN");
-            remotePostHelper.Add("amount", order.OrderTotal.ToString(new CultureInfo("en-US", false).NumberFormat));
+            remotePostHelper.Add("amount", transactionPayment.TransactionPaymentTotal.ToString(new CultureInfo("en-US", false).NumberFormat));
             remotePostHelper.Add("currency", Constant.Payment.CURRENCYCODE);
-            remotePostHelper.Add("detail1_description", "Order ID:");
-            remotePostHelper.Add("detail1_text", order.OrderId.ToString());
+            remotePostHelper.Add("detail1_description", "TransactionPayment ID:");
+            remotePostHelper.Add("detail1_text", transactionPayment.TransactionPaymentId.ToString());
 
-            remotePostHelper.Add("firstname", order.BillingFirstName);
-            remotePostHelper.Add("lastname", order.BillingLastName);
-            remotePostHelper.Add("address", order.BillingAddress1);
-            remotePostHelper.Add("phone_number", order.BillingPhoneNumber);
-            remotePostHelper.Add("postal_code", order.BillingZipPostalCode);
-            remotePostHelper.Add("city", order.BillingCity);
-            //StateProvince billingStateProvince = IoC.Resolve<IStateProvinceService>().GetStateProvinceById(order.BillingStateProvinceId);
-            //if (billingStateProvince != null)
-            //    remotePostHelper.Add("state", billingStateProvince.Abbreviation);
-            //else
-                remotePostHelper.Add("state", order.BillingStateProvince);
+            remotePostHelper.Add("firstname", transactionPayment.Customer.FirstName);
+            remotePostHelper.Add("lastname", transactionPayment.Customer.Language);
+            remotePostHelper.Add("address", transactionPayment.Customer.Address);
+            remotePostHelper.Add("phone_number", transactionPayment.Customer.Telephone);
+            remotePostHelper.Add("postal_code", transactionPayment.Customer.PostalCode);
+            remotePostHelper.Add("city", transactionPayment.Customer.City);     
+            //review later
             //Country billingCountry = IoC.Resolve<ICountryService>().GetCountryById(order.BillingCountryId);
             //if (billingCountry != null)
             //    remotePostHelper.Add("country", billingCountry.ThreeLetterIsoCode);
             //else
-                remotePostHelper.Add("country", order.BillingCountry);
+            remotePostHelper.Add("country", transactionPayment.Customer.Country.ToString());
             remotePostHelper.Post();
             return string.Empty;
         }           
@@ -96,9 +94,9 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// <summary>
         /// Captures payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void Capture(Order order, ref ProcessPaymentResult processPaymentResult)
+        public void Capture(TransactionPayment transactionPayment, ref ProcessPaymentResult processPaymentResult)
         {
             throw new Exception("Capture method not supported");
         }
@@ -106,9 +104,9 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// <summary>
         /// Refunds payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>        
-        public void Refund(Order order, ref CancelPaymentResult cancelPaymentResult)
+        public void Refund(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             throw new Exception("Refund method not supported");
         }
@@ -116,9 +114,9 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// <summary>
         /// Voids payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>        
-        public void Void(Order order, ref CancelPaymentResult cancelPaymentResult)
+        public void Void(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
             throw new Exception("Void method not supported");
         }
@@ -126,11 +124,11 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// <summary>
         /// Process recurring payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an order processing</param>
-        /// <param name="customer">Customer</param>
-        /// <param name="orderGuid">Unique order identifier</param>
+        /// <param name="transactionPayment">transactionPayment required for an betting processing</param>
+        /// <param name="member">member</param>
+        /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessRecurringPayment(PaymentInfo paymentInfo, Customer customer, Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
             throw new Exception("Recurring payments not supported");
         }
@@ -138,9 +136,9 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// <summary>
         /// Cancels recurring payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>        
-        public void CancelRecurringPayment(Order order, ref CancelPaymentResult cancelPaymentResult)
+        public void CancelRecurringPayment(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult)
         {
         }
         #endregion

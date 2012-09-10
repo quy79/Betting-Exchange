@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BetEx247.Core.CustomerManagement;
+using BetEx247.Core.Payment;
+using BetEx247.Data.Model;
 
-namespace BetEx247.Core.Payment
+namespace BetEx247.Data.DAL
 {
     /// <summary>
     /// Payment service interface
@@ -106,19 +107,19 @@ namespace BetEx247.Core.Payment
         /// <summary>
         /// Process payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an order processing</param>
-        /// <param name="customer">Customer</param>
-        /// <param name="orderGuid">Unique order identifier</param>
+        /// <param name="paymentInfo">Payment info required for an transactionPayment processing</param>
+        /// <param name="member">member</param>
+        /// <param name="transactionPaymentGuid">Unique transactionPayment identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessPayment(PaymentInfo paymentInfo, Customer customer,
-            Guid orderGuid, ref ProcessPaymentResult processPaymentResult);
+        void ProcessPayment(TransactionPayment transactionPayment, Member member,
+            Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
         /// Post process payment (payment gateways that require redirecting)
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <returns>The error status, or String.Empty if no errors</returns>
-        string PostProcessPayment(Order order);
+        string PostProcessPayment(TransactionPayment transactionPayment);
 
         /// <summary>
         /// Gets additional handling fee
@@ -137,9 +138,9 @@ namespace BetEx247.Core.Payment
         /// <summary>
         /// Captures payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void Capture(Order order, ref ProcessPaymentResult processPaymentResult);
+        void Capture(TransactionPayment transactionPayment, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
         /// Gets a value indicating whether partial refund is supported by payment method
@@ -158,9 +159,9 @@ namespace BetEx247.Core.Payment
         /// <summary>
         /// Refunds payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>
-        void Refund(Order order, ref CancelPaymentResult cancelPaymentResult);
+        void Refund(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult);
 
         /// <summary>
         /// Gets a value indicating whether void is supported by payment method
@@ -172,9 +173,9 @@ namespace BetEx247.Core.Payment
         /// <summary>
         /// Voids payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>
-        void Void(Order order, ref CancelPaymentResult cancelPaymentResult);
+        void Void(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult);
 
         /// <summary>
         /// Gets a recurring payment type of payment method
@@ -193,19 +194,19 @@ namespace BetEx247.Core.Payment
         /// <summary>
         /// Process recurring payments
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an order processing</param>
-        /// <param name="customer">Customer</param>
-        /// <param name="orderGuid">Unique order identifier</param>
+        /// <param name="paymentInfo">Payment info required for an transactionPayment processing</param>
+        /// <param name="member">member</param>
+        /// <param name="transactionPaymentGuid">Unique transactionPayment identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessRecurringPayment(PaymentInfo paymentInfo, Customer customer,
-            Guid orderGuid, ref ProcessPaymentResult processPaymentResult);
+        void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member,
+            Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
         /// Cancels recurring payment
         /// </summary>
-        /// <param name="order">Order</param>
+        /// <param name="transactionPayment">transactionPayment</param>
         /// <param name="cancelPaymentResult">Cancel payment result</param>
-        void CancelRecurringPayment(Order order, ref CancelPaymentResult cancelPaymentResult);
+        void CancelRecurringPayment(TransactionPayment transactionPayment, ref CancelPaymentResult cancelPaymentResult);
 
         /// <summary>
         /// Gets masked credit card number

@@ -8,69 +8,72 @@ using BetEx247.Core.CustomerManagement;
 
 namespace BetEx247.Data.DAL
 {
-    public partial interface IBettingService
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial interface ITransactionPaymentService
     {
-        #region Bettings
+        #region TransactionPayments
 
         /// <summary>
-        /// Gets an Betting
+        /// Gets an TransactionPayment
         /// </summary>
-        /// <param name="BettingId">The Betting identifier</param>
-        /// <returns>Betting</returns>
-        Betting GetBettingById(long bettingId);   
+        /// <param name="TransactionPaymentId">The TransactionPayment identifier</param>
+        /// <returns>TransactionPayment</returns>
+        TransactionPayment GetTransactionPaymentById(long transactionPaymentId);   
         
         /// <summary>
-        /// Marks an Betting as deleted
+        /// Marks an TransactionPayment as deleted
         /// </summary>
-        /// <param name="BettingId">The Betting identifier</param>
-        void MarkBettingAsDeleted(long bettingId);
+        /// <param name="TransactionPaymentId">The TransactionPayment identifier</param>
+        void MarkTransactionPaymentAsDeleted(long transactionPaymentId);
 
         /// <summary>
-        /// Search Bettings
+        /// Search TransactionPayments
         /// </summary>
-        /// <param name="startTime">Betting start time; null to load all Bettings</param>
-        /// <param name="endTime">Betting end time; null to load all Bettings</param>
+        /// <param name="startTime">TransactionPayment start time; null to load all TransactionPayments</param>
+        /// <param name="endTime">TransactionPayment end time; null to load all TransactionPayments</param>
         /// <param name="MemberEmail">Member email</param>
-        /// <param name="os">Betting status; null to load all Bettings</param>
-        /// <param name="ps">Betting payment status; null to load all Bettings</param>
-        /// <param name="ss">Betting shippment status; null to load all Bettings</param>
-        /// <returns>Betting collection</returns>
-        List<Betting> SearchBettings(DateTime? startTime, DateTime? endTime,
-            string memberEmail, BettingStatusEnum? os, PaymentStatusEnum? ps);    
+        /// <param name="os">TransactionPayment status; null to load all TransactionPayments</param>
+        /// <param name="ps">TransactionPayment payment status; null to load all TransactionPayments</param>
+        /// <param name="ss">TransactionPayment shippment status; null to load all TransactionPayments</param>
+        /// <returns>TransactionPayment collection</returns>
+        List<TransactionPayment> SearchTransactionPayments(DateTime? startTime, DateTime? endTime,
+            string memberEmail, TransactionStatusEnum? os, PaymentStatusEnum? ps);    
         
         /// <summary>
-        /// Load all Bettings
+        /// Load all TransactionPayments
         /// </summary>
-        /// <returns>Betting collection</returns>
-        List<Betting> LoadAllBettings();
+        /// <returns>TransactionPayment collection</returns>
+        List<TransactionPayment> LoadAllTransactionPayments();
 
         /// <summary>
-        /// Gets all Bettings by Member identifier
+        /// Gets all TransactionPayments by Member identifier
         /// </summary>
         /// <param name="MemberId">Member identifier</param>
-        /// <returns>Betting collection</returns>
-        List<Betting> GetBettingsByMemberId(long memberId);
+        /// <returns>TransactionPayment collection</returns>
+        List<TransactionPayment> GetTransactionPaymentsByMemberId(long memberId);
 
         /// <summary>
-        /// Gets an Betting by authorization transaction identifier
+        /// Gets an TransactionPayment by authorization transaction identifier
         /// </summary>
         /// <param name="authorizationTransactionId">Authorization transaction identifier</param>
         /// <param name="paymentMethodId">Payment method identifier</param>
-        /// <returns>Betting</returns>
-        Betting GetBettingByAuthorizationTransactionIdAndPaymentMethodId(string authorizationTransactionId,
+        /// <returns>TransactionPayment</returns>
+        TransactionPayment GetTransactionPaymentByAuthorizationTransactionIdAndPaymentMethodId(string authorizationTransactionId,
             int paymentMethodId);           
        
         /// <summary>
-        /// Inserts an Betting
+        /// Inserts an TransactionPayment
         /// </summary>
-        /// <param name="Betting">Betting</param>
-        void InsertBetting(Betting betting);
+        /// <param name="TransactionPayment">TransactionPayment</param>
+        void InsertTransactionPayment(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Updates the Betting
+        /// Updates the TransactionPayment
         /// </summary>
-        /// <param name="Betting">The Betting</param>
-        void UpdateBetting(Betting betting);
+        /// <param name="TransactionPayment">The TransactionPayment</param>
+        void UpdateTransactionPayment(TransactionPayment transactionPayment);
 
         #endregion
 
@@ -106,22 +109,22 @@ namespace BetEx247.Data.DAL
         /// Search recurring payments
         /// </summary>
         /// <param name="MemberId">The Member identifier; 0 to load all records</param>
-        /// <param name="initialBettingId">The initial Betting identifier; 0 to load all records</param>
-        /// <param name="initialBettingStatus">Initial Betting status identifier; null to load all records</param>
+        /// <param name="initialTransactionPaymentId">The initial TransactionPayment identifier; 0 to load all records</param>
+        /// <param name="initialTransactionPaymentStatus">Initial TransactionPayment status identifier; null to load all records</param>
         /// <returns>Recurring payment collection</returns>
         List<RecurringPayment> SearchRecurringPayments(long memberId,
-            long initialBettingId, BettingStatusEnum? initialBettingStatus);
+            long initialTransactionPaymentId, TransactionStatusEnum? initialTransactionPaymentStatus);
 
         /// <summary>
         /// Search recurring payments
         /// </summary>
         /// <param name="showHidden">A value indicating whether to show hidden records</param>
         /// <param name="MemberId">The Member identifier; 0 to load all records</param>
-        /// <param name="initialBettingId">The initial Betting identifier; 0 to load all records</param>
-        /// <param name="initialBettingStatus">Initial Betting status identifier; null to load all records</param>
+        /// <param name="initialTransactionPaymentId">The initial TransactionPayment identifier; 0 to load all records</param>
+        /// <param name="initialTransactionPaymentStatus">Initial TransactionPayment status identifier; null to load all records</param>
         /// <returns>Recurring payment collection</returns>
         List<RecurringPayment> SearchRecurringPayments(bool showHidden,
-            long memberId, long initialBettingId, BettingStatusEnum? initialBettingStatus);
+            long memberId, long initialTransactionPaymentId, TransactionStatusEnum? initialTransactionPaymentStatus);
 
         /// <summary>
         /// Deletes a recurring payment history
@@ -152,10 +155,10 @@ namespace BetEx247.Data.DAL
         /// Search recurring payment history
         /// </summary>
         /// <param name="recurringPaymentId">The recurring payment identifier; 0 to load all records</param>
-        /// <param name="BettingId">The Betting identifier; 0 to load all records</param>
+        /// <param name="TransactionPaymentId">The TransactionPayment identifier; 0 to load all records</param>
         /// <returns>Recurring payment history collection</returns>
         List<RecurringPaymentHistory> SearchRecurringPaymentHistory(int recurringPaymentId,
-            long BettingId);
+            long TransactionPaymentId);
 
         #endregion
 
@@ -171,9 +174,9 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Check whether return request is allowed
         /// </summary>
-        /// <param name="Betting">Betting</param>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         /// <returns>Result</returns>
-        bool IsReturnRequestAllowed(Betting betting);
+        bool IsReturnRequestAllowed(TransactionPayment transactionPayment);
 
         /// <summary>
         /// Gets a return request
@@ -205,20 +208,20 @@ namespace BetEx247.Data.DAL
 
         #region Etc
         /// <summary>
-        /// Places an Betting
+        /// Places an TransactionPayment
         /// </summary>
         /// <param name="paymentInfo">Payment info</param>
         /// <param name="Member">Member</param>
-        /// <param name="BettingId">Betting identifier</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <returns>The error status, or String.Empty if no errors</returns>
-        string PlaceBetting(PaymentInfo paymentInfo, Member Member,
-            out long BettingId); 
+        string PlaceTransactionPayment(TransactionPayment transactionPayment, Member Member,
+            out long TransactionPaymentId); 
       
         /// <summary>
-        /// Place Betting items in current user shopping cart.
+        /// Place TransactionPayment items in current user shopping cart.
         /// </summary>
-        /// <param name="BettingId">The Betting identifier</param>
-        void ReBetting(long BettingId);
+        /// <param name="TransactionPaymentId">The TransactionPayment identifier</param>
+        void ReTransactionPayment(long TransactionPaymentId);
 
         /// <summary>
         /// Process next recurring psayment
@@ -251,151 +254,151 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Gets a value indicating whether cancel is allowed
         /// </summary>
-        /// <param name="Betting">Betting</param>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         /// <returns>A value indicating whether cancel is allowed</returns>
-        bool CanCancelBetting(Betting betting);
+        bool CanCancelTransactionPayment(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Cancels Betting
+        /// Cancels TransactionPayment
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <param name="notifyMember">True to notify Member</param>
-        /// <returns>Cancelled Betting</returns>
-        Betting CancelBetting(long bettingId, bool notifyMember);
+        /// <returns>Cancelled TransactionPayment</returns>
+        TransactionPayment CancelTransactionPayment(long transactionPaymentId, bool notifyMember);
 
         /// <summary>
-        /// Gets a value indicating whether Betting can be marked as authorized
+        /// Gets a value indicating whether TransactionPayment can be marked as authorized
         /// </summary>
-        /// <param name="Betting">Betting</param>
-        /// <returns>A value indicating whether Betting can be marked as authorized</returns>
-        bool CanMarkBettingAsAuthorized(Betting betting);
+        /// <param name="TransactionPayment">TransactionPayment</param>
+        /// <returns>A value indicating whether TransactionPayment can be marked as authorized</returns>
+        bool CanMarkTransactionPaymentAsAuthorized(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Marks Betting as authorized
+        /// Marks TransactionPayment as authorized
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
-        /// <returns>Authorized Betting</returns>
-        Betting MarkAsAuthorized(long bettingId);
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
+        /// <returns>Authorized TransactionPayment</returns>
+        TransactionPayment MarkAsAuthorized(long transactionPaymentId);
 
         /// <summary>
         /// Gets a value indicating whether capture from admin panel is allowed
         /// </summary>
-        /// <param name="Betting">Betting</param>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         /// <returns>A value indicating whether capture from admin panel is allowed</returns>
-        bool CanCapture(Betting betting);
+        bool CanCapture(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Captures Betting (from admin panel)
+        /// Captures TransactionPayment (from admin panel)
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <param name="error">Error</param>
-        /// <returns>Captured Betting</returns>
-        Betting Capture(long bettingId, ref string error);
+        /// <returns>Captured TransactionPayment</returns>
+        TransactionPayment Capture(long transactionPaymentId, ref string error);
 
         /// <summary>
-        /// Gets a value indicating whether Betting can be marked as paid
+        /// Gets a value indicating whether TransactionPayment can be marked as paid
         /// </summary>
-        /// <param name="Betting">Betting</param>
-        /// <returns>A value indicating whether Betting can be marked as paid</returns>
-        bool CanMarkBettingAsPaid(Betting betting);
+        /// <param name="TransactionPayment">TransactionPayment</param>
+        /// <returns>A value indicating whether TransactionPayment can be marked as paid</returns>
+        bool CanMarkTransactionPaymentAsPaid(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Marks Betting as paid
+        /// Marks TransactionPayment as paid
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
-        /// <returns>Updated Betting</returns>
-        Betting MarkBettingAsPaid(long bettingId);
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
+        /// <returns>Updated TransactionPayment</returns>
+        TransactionPayment MarkTransactionPaymentAsPaid(long transactionPaymentId);
 
         /// <summary>
         /// Gets a value indicating whether refund from admin panel is allowed
         /// </summary>
-        /// <param name="Betting">Betting</param>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         /// <returns>A value indicating whether refund from admin panel is allowed</returns>
-        bool CanRefund(Betting betting);
+        bool CanRefund(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Refunds an Betting (from admin panel)
+        /// Refunds an TransactionPayment (from admin panel)
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <param name="error">Error</param>
-        /// <returns>Refunded Betting</returns>
-        Betting Refund(long bettingId, ref string error);
+        /// <returns>Refunded TransactionPayment</returns>
+        TransactionPayment Refund(long transactionPaymentId, ref string error);
 
         /// <summary>
-        /// Gets a value indicating whether Betting can be marked as refunded
+        /// Gets a value indicating whether TransactionPayment can be marked as refunded
         /// </summary>
-        /// <param name="Betting">Betting</param>
-        /// <returns>A value indicating whether Betting can be marked as refunded</returns>
-        bool CanRefundOffline(Betting betting);
+        /// <param name="TransactionPayment">TransactionPayment</param>
+        /// <returns>A value indicating whether TransactionPayment can be marked as refunded</returns>
+        bool CanRefundOffline(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Refunds an Betting (offline)
+        /// Refunds an TransactionPayment (offline)
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
-        /// <returns>Updated Betting</returns>
-        Betting RefundOffline(long bettingId);
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
+        /// <returns>Updated TransactionPayment</returns>
+        TransactionPayment RefundOffline(long transactionPaymentId);
 
         /// <summary>
         /// Gets a value indicating whether partial refund from admin panel is allowed
         /// </summary>
-        /// <param name="Betting">Betting</param>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         /// <param name="amountToRefund">Amount to refund</param>
         /// <returns>A value indicating whether refund from admin panel is allowed</returns>
-        bool CanPartiallyRefund(Betting betting, decimal amountToRefund);
+        bool CanPartiallyRefund(TransactionPayment transactionPayment, decimal amountToRefund);
 
         /// <summary>
-        /// Partially refunds an Betting (from admin panel)
+        /// Partially refunds an TransactionPayment (from admin panel)
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <param name="amountToRefund">Amount to refund</param>
         /// <param name="error">Error</param>
-        /// <returns>Refunded Betting</returns>
-        Betting PartiallyRefund(long bettingId, decimal amountToRefund, ref string error);
+        /// <returns>Refunded TransactionPayment</returns>
+        TransactionPayment PartiallyRefund(long transactionPaymentId, decimal amountToRefund, ref string error);
 
         /// <summary>
-        /// Gets a value indicating whether Betting can be marked as partially refunded
+        /// Gets a value indicating whether TransactionPayment can be marked as partially refunded
         /// </summary>
-        /// <param name="Betting">Betting</param>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         /// <param name="amountToRefund">Amount to refund</param>
-        /// <returns>A value indicating whether Betting can be marked as partially refunded</returns>
-        bool CanPartiallyRefundOffline(Betting betting, decimal amountToRefund);
+        /// <returns>A value indicating whether TransactionPayment can be marked as partially refunded</returns>
+        bool CanPartiallyRefundOffline(TransactionPayment transactionPayment, decimal amountToRefund);
 
         /// <summary>
-        /// Partially refunds an Betting (offline)
+        /// Partially refunds an TransactionPayment (offline)
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <param name="amountToRefund">Amount to refund</param>
-        /// <returns>Updated Betting</returns>
-        Betting PartiallyRefundOffline(long bettingId, decimal amountToRefund);
+        /// <returns>Updated TransactionPayment</returns>
+        TransactionPayment PartiallyRefundOffline(long transactionPaymentId, decimal amountToRefund);
 
         /// <summary>
         /// Gets a value indicating whether void from admin panel is allowed
         /// </summary>
-        /// <param name="Betting">Betting</param>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         /// <returns>A value indicating whether void from admin panel is allowed</returns>
-        bool CanVoid(Betting betting);
+        bool CanVoid(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Voids Betting (from admin panel)
+        /// Voids TransactionPayment (from admin panel)
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <param name="error">Error</param>
-        /// <returns>Voided Betting</returns>
-        Betting Void(long bettingId, ref string error);
+        /// <returns>Voided TransactionPayment</returns>
+        TransactionPayment Void(long transactionPaymentId, ref string error);
 
         /// <summary>
-        /// Gets a value indicating whether Betting can be marked as voided
+        /// Gets a value indicating whether TransactionPayment can be marked as voided
         /// </summary>
-        /// <param name="Betting">Betting</param>
-        /// <returns>A value indicating whether Betting can be marked as voided</returns>
-        bool CanVoidOffline(Betting betting);
+        /// <param name="TransactionPayment">TransactionPayment</param>
+        /// <returns>A value indicating whether TransactionPayment can be marked as voided</returns>
+        bool CanVoidOffline(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Voids Betting (offline)
+        /// Voids TransactionPayment (offline)
         /// </summary>
-        /// <param name="BettingId">Betting identifier</param>
-        /// <returns>Updated Betting</returns>
-        Betting VoidOffline(long bettingId);
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
+        /// <returns>Updated TransactionPayment</returns>
+        TransactionPayment VoidOffline(long transactionPaymentId);
 
         /// <summary>
         /// Converts reward points to amount primary store currency

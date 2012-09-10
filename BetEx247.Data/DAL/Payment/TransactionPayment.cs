@@ -7,15 +7,15 @@ using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Data.DAL
 {
-    public partial class Betting
+    public partial class TransactionPayment
     {
         private Member _customer;
 
         #region Properties
         /// <summary>
-        /// Gets or sets the Betting identifier
+        /// Gets or sets the TransactionPayment identifier
         /// </summary>
-        public long BettingId { get; set; } 
+        public long TransactionPaymentId { get; set; } 
         
         /// <summary>
         /// Gets or sets the customer identifier
@@ -28,9 +28,9 @@ namespace BetEx247.Data.DAL
         public string MemberIP { get; set; }
         
         /// <summary>
-        /// Gets or sets the Betting total
+        /// Gets or sets the TransactionPayment total
         /// </summary>
-        public decimal BettingTotal { get; set; }
+        public decimal TransactionPaymentTotal { get; set; }
 
         /// <summary>
         /// Gets or sets the refunded amount
@@ -38,29 +38,14 @@ namespace BetEx247.Data.DAL
         public decimal RefundedAmount { get; set; }
 
         /// <summary>
-        /// Gets or sets the Betting discount (applied to Betting total)
+        /// Gets or sets the TransactionPayment discount (applied to TransactionPayment total)
         /// </summary>
-        public decimal BettingDiscount { get; set; }  
-       
+        public decimal TransactionPaymentDiscount { get; set; } 
+    
         /// <summary>
-        /// Gets or sets the Betting total (Member currency)
+        /// Gets or sets an TransactionPayment status identifer
         /// </summary>
-        public decimal BettingTotalInMemberCurrency { get; set; }
-
-        /// <summary>
-        /// Gets or sets the Betting discount (Member currency) (applied to Betting total)
-        /// </summary>
-        public decimal BettingDiscountInMemberCurrency { get; set; } 
-        
-        /// <summary>
-        /// Gets or sets the Member currency code
-        /// </summary>
-        public string MemberCurrencyCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets an Betting status identifer
-        /// </summary>
-        public int BettingStatusId { get; set; }
+        public int TransactionPaymentStatusId { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether storing of credit card number is allowed
@@ -153,15 +138,34 @@ namespace BetEx247.Data.DAL
         public DateTime? PaidDate { get; set; }   
        
         /// <summary>
-        /// Gets or sets the tracking number of current Betting
+        /// Gets or sets the tracking number of current TransactionPayment
         /// </summary>
         public string TrackingNumber { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the entity has been deleted
         /// </summary>
-        public bool Deleted { get; set; }   
-     
+        public bool Deleted { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value idicating whether it's a recurring payment (initial payment was already processed)
+        /// </summary>
+        public bool IsRecurringPayment { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cycle length
+        /// </summary>
+        public int RecurringCycleLength { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cycle period
+        /// </summary>
+        public int RecurringCyclePeriod { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total cycles
+        /// </summary>
+        public int RecurringTotalCycles { get; set; }
         #endregion
 
         /// <summary>

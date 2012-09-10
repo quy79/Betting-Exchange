@@ -4,47 +4,59 @@ using System.Linq;
 using System.Text;
 using BetEx247.Core.CustomerManagement;
 using BetEx247.Core.Payment;
+using BetEx247.Data.Model;
 
 namespace BetEx247.Data.DAL
 {
-    public partial class BettingService:IBettingService
+    public partial class TransactionPaymentService : ITransactionPaymentService
     {
-        public Betting GetBettingById(long bettingId)
+        public TransactionPayment GetTransactionPaymentById(long transactionPaymentId)
+        {
+            TransactionPayment transactionPayment = new TransactionPayment();
+            MyBet mybet;
+            using (var dba = new BetEXDataContainer())
+            {
+                mybet = dba.MyBets.Where(w => w.ID == transactionPaymentId).SingleOrDefault();
+            }
+            if (mybet != null)
+            {
+                transactionPayment.TransactionPaymentId = transactionPaymentId;
+                transactionPayment.MemberId = mybet.MemberID.Value;
+            }
+            return transactionPayment;
+        }
+
+        public void MarkTransactionPaymentAsDeleted(long transactionPaymentId)
         {
             throw new NotImplementedException();
         }
 
-        public void MarkBettingAsDeleted(long bettingId)
+        public List<TransactionPayment> SearchTransactionPayments(DateTime? startTime, DateTime? endTime, string memberEmail, TransactionStatusEnum? os, PaymentStatusEnum? ps)
         {
             throw new NotImplementedException();
         }
 
-        public List<Betting> SearchBettings(DateTime? startTime, DateTime? endTime, string memberEmail, BettingStatusEnum? os, PaymentStatusEnum? ps)
+        public List<TransactionPayment> LoadAllTransactionPayments()
         {
             throw new NotImplementedException();
         }
 
-        public List<Betting> LoadAllBettings()
+        public List<TransactionPayment> GetTransactionPaymentsByMemberId(long memberId)
         {
             throw new NotImplementedException();
         }
 
-        public List<Betting> GetBettingsByMemberId(long memberId)
+        public TransactionPayment GetTransactionPaymentByAuthorizationTransactionIdAndPaymentMethodId(string authorizationTransactionId, int paymentMethodId)
         {
             throw new NotImplementedException();
         }
 
-        public Betting GetBettingByAuthorizationTransactionIdAndPaymentMethodId(string authorizationTransactionId, int paymentMethodId)
+        public void InsertTransactionPayment(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public void InsertBetting(Betting betting)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateBetting(Betting betting)
+        public void UpdateTransactionPayment(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
@@ -69,12 +81,12 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public List<RecurringPayment> SearchRecurringPayments(long memberId, long initialBettingId, BettingStatusEnum? initialBettingStatus)
+        public List<RecurringPayment> SearchRecurringPayments(long memberId, long initialTransactionPaymentId, TransactionStatusEnum? initialTransactionPaymentStatus)
         {
             throw new NotImplementedException();
         }
 
-        public List<RecurringPayment> SearchRecurringPayments(bool showHidden, long memberId, long initialBettingId, BettingStatusEnum? initialBettingStatus)
+        public List<RecurringPayment> SearchRecurringPayments(bool showHidden, long memberId, long initialTransactionPaymentId, TransactionStatusEnum? initialTransactionPaymentStatus)
         {
             throw new NotImplementedException();
         }
@@ -99,7 +111,7 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public List<RecurringPaymentHistory> SearchRecurringPaymentHistory(int recurringPaymentId, long BettingId)
+        public List<RecurringPaymentHistory> SearchRecurringPaymentHistory(int recurringPaymentId, long TransactionPaymentId)
         {
             throw new NotImplementedException();
         }
@@ -109,7 +121,7 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public bool IsReturnRequestAllowed(Betting betting)
+        public bool IsReturnRequestAllowed(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
@@ -134,12 +146,12 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public string PlaceBetting(PaymentInfo paymentInfo, Model.Member Member, out long BettingId)
+        public string PlaceTransactionPayment(TransactionPayment transactionPayment, Model.Member Member, out long TransactionPaymentId)
         {
             throw new NotImplementedException();
         }
 
-        public void ReBetting(long BettingId)
+        public void ReTransactionPayment(long TransactionPaymentId)
         {
             throw new NotImplementedException();
         }
@@ -164,102 +176,102 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public bool CanCancelBetting(Betting betting)
+        public bool CanCancelTransactionPayment(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting CancelBetting(long bettingId, bool notifyMember)
+        public TransactionPayment CancelTransactionPayment(long transactionPaymentId, bool notifyMember)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanMarkBettingAsAuthorized(Betting betting)
+        public bool CanMarkTransactionPaymentAsAuthorized(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting MarkAsAuthorized(long bettingId)
+        public TransactionPayment MarkAsAuthorized(long transactionPaymentId)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanCapture(Betting betting)
+        public bool CanCapture(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting Capture(long bettingId, ref string error)
+        public TransactionPayment Capture(long transactionPaymentId, ref string error)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanMarkBettingAsPaid(Betting betting)
+        public bool CanMarkTransactionPaymentAsPaid(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting MarkBettingAsPaid(long bettingId)
+        public TransactionPayment MarkTransactionPaymentAsPaid(long transactionPaymentId)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanRefund(Betting betting)
+        public bool CanRefund(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting Refund(long bettingId, ref string error)
+        public TransactionPayment Refund(long transactionPaymentId, ref string error)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanRefundOffline(Betting betting)
+        public bool CanRefundOffline(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting RefundOffline(long bettingId)
+        public TransactionPayment RefundOffline(long transactionPaymentId)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanPartiallyRefund(Betting betting, decimal amountToRefund)
+        public bool CanPartiallyRefund(TransactionPayment transactionPayment, decimal amountToRefund)
         {
             throw new NotImplementedException();
         }
 
-        public Betting PartiallyRefund(long bettingId, decimal amountToRefund, ref string error)
+        public TransactionPayment PartiallyRefund(long transactionPaymentId, decimal amountToRefund, ref string error)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanPartiallyRefundOffline(Betting betting, decimal amountToRefund)
+        public bool CanPartiallyRefundOffline(TransactionPayment transactionPayment, decimal amountToRefund)
         {
             throw new NotImplementedException();
         }
 
-        public Betting PartiallyRefundOffline(long bettingId, decimal amountToRefund)
+        public TransactionPayment PartiallyRefundOffline(long transactionPaymentId, decimal amountToRefund)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanVoid(Betting betting)
+        public bool CanVoid(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting Void(long bettingId, ref string error)
+        public TransactionPayment Void(long transactionPaymentId, ref string error)
         {
             throw new NotImplementedException();
         }
 
-        public bool CanVoidOffline(Betting betting)
+        public bool CanVoidOffline(TransactionPayment transactionPayment)
         {
             throw new NotImplementedException();
         }
 
-        public Betting VoidOffline(long bettingId)
+        public TransactionPayment VoidOffline(long transactionPaymentId)
         {
             throw new NotImplementedException();
         }
