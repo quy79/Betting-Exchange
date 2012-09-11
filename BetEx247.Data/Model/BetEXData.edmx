@@ -247,6 +247,10 @@
           <Property Name="EmailFormat" Type="nvarchar" MaxLength="50" />
           <Property Name="ExposureLimit" Type="float" />
           <Property Name="PointsLastUpdateTime" Type="datetime" />
+          <Property Name="Status" Type="nvarchar" MaxLength="10" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="Updatedate" Type="datetime" />
         </EntityType>
         <EntityType Name="Messages">
           <Key>
@@ -300,7 +304,7 @@
           <Property Name="DepositOnly" Type="bit" />
           <Property Name="WithdrawOnly" Type="bit" />
           <Property Name="DepositAndWithdraw" Type="bit" />
-          <Property Name="PaymentMethodId" Type="smallint" Nullable="false" />
+          <Property Name="PaymentMethodId" Type="bigint" Nullable="false" />
           <Property Name="MemberID" Type="bigint" />
         </EntityType>
         <EntityType Name="MyWallet">
@@ -318,14 +322,18 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
           <Property Name="Description" Type="ntext" />
-          <Property Name="CreditCardNumber" Type="nvarchar" MaxLength="30" />
-          <Property Name="NameOnCard" Type="nvarchar" MaxLength="100" />
-          <Property Name="ValidFrom" Type="datetime" />
-          <Property Name="ValidTo" Type="datetime" />
-          <Property Name="ExpirationDate" Type="datetime" />
+          <Property Name="CardType" Type="nvarchar(max)" />
+          <Property Name="CreditCardNumber" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="NameOnCard" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MaskedCreditCardNumber" Type="nvarchar(max)" />
+          <Property Name="CardCvv2" Type="nvarchar(max)" />
+          <Property Name="ValidFrom" Type="datetime" Nullable="false" />
+          <Property Name="ValidTo" Type="datetime" Nullable="false" />
+          <Property Name="CardExpirationMonth" Type="nvarchar(max)" />
+          <Property Name="CardExpirationYear" Type="nvarchar(max)" />
           <Property Name="Address" Type="nvarchar" MaxLength="500" />
           <Property Name="Country" Type="nvarchar" MaxLength="100" />
           <Property Name="Zipcode" Type="nvarchar" MaxLength="20" />
@@ -337,6 +345,9 @@
           <Property Name="IBAN" Type="nvarchar" MaxLength="50" />
           <Property Name="AccountHolder" Type="nvarchar" MaxLength="100" />
           <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="ClassName" Type="nvarchar" MaxLength="500" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Players">
           <Key>
@@ -668,8 +679,13 @@
           <Property Name="Type" Type="tinyint" Nullable="false" />
           <Property Name="Amount" Type="money" Nullable="false" />
           <Property Name="CardId" Type="nchar" MaxLength="10" />
-          <Property Name="Status" Type="nchar" Nullable="false" MaxLength="10" />
-          <Property Name="MemberId" Type="bigint" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="MemberId" Type="bigint" Nullable="false" />
+          <Property Name="PaymentMenthodID" Type="bigint" Nullable="false" />
+          <Property Name="MemberEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="MemberIP" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="ModifyDate" Type="datetime" />
         </EntityType>
         <Association Name="FK_CardsInfo_SoccerMatches">
           <End Role="SoccerMatches" Type="BetEXData.Store.SoccerMatches" Multiplicity="0..1" />
@@ -972,7 +988,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Transactions_Members">
-          <End Role="Members" Type="BetEXData.Store.Members" Multiplicity="0..1" />
+          <End Role="Members" Type="BetEXData.Store.Members" Multiplicity="1" />
           <End Role="Transactions" Type="BetEXData.Store.Transactions" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Members">
@@ -1234,6 +1250,10 @@
           <Property Type="String" Name="EmailFormat" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Double" Name="ExposureLimit" />
           <Property Type="DateTime" Name="PointsLastUpdateTime" />
+          <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="DateTime" Name="Updatedate" />
           <NavigationProperty Name="LoginHistories" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
           <NavigationProperty Name="Messages" Relationship="BetEXData.FK_Messages_Members" FromRole="Member" ToRole="Message" />
           <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Members" FromRole="Member" ToRole="MyBet" />
@@ -1298,7 +1318,7 @@
           <Property Type="Boolean" Name="DepositOnly" />
           <Property Type="Boolean" Name="WithdrawOnly" />
           <Property Type="Boolean" Name="DepositAndWithdraw" />
-          <Property Type="Int16" Name="PaymentMethodId" Nullable="false" />
+          <Property Type="Int64" Name="PaymentMethodId" Nullable="false" />
           <Property Type="Int64" Name="MemberID" />
           <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyCards_Members" FromRole="MyCard" ToRole="Member" />
           <NavigationProperty Name="PaymentMethod" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="MyCard" ToRole="PaymentMethod" />
@@ -1319,14 +1339,18 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int16" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CreditCardNumber" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="NameOnCard" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="ValidFrom" />
-          <Property Type="DateTime" Name="ValidTo" />
-          <Property Type="DateTime" Name="ExpirationDate" />
+          <Property Type="String" Name="CardType" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreditCardNumber" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NameOnCard" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MaskedCreditCardNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardCvv2" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ValidFrom" Nullable="false" />
+          <Property Type="DateTime" Name="ValidTo" Nullable="false" />
+          <Property Type="String" Name="CardExpirationMonth" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardExpirationYear" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Zipcode" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -1338,6 +1362,9 @@
           <Property Type="String" Name="IBAN" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="AccountHolder" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="AccountNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ClassName" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="DateTime" Name="ModifyDate" />
           <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="PaymentMethod" ToRole="MyCard" />
         </EntityType>
         <EntityType Name="Player">
@@ -1701,8 +1728,13 @@
           <Property Type="Byte" Name="Type" Nullable="false" />
           <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
           <Property Type="String" Name="CardId" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="String" Name="Status" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Int64" Name="MemberId" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Int64" Name="MemberId" Nullable="false" />
+          <Property Type="Int64" Name="PaymentMenthodID" Nullable="false" />
+          <Property Type="String" Name="MemberEmail" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MemberIP" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="DateTime" Name="ModifyDate" />
           <NavigationProperty Name="Member" Relationship="BetEXData.FK_Transactions_Members" FromRole="Transaction" ToRole="Member" />
         </EntityType>
         <Association Name="FK_CardsInfo_SoccerMatches">
@@ -1826,7 +1858,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Transactions_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
           <End Type="BetEXData.Transaction" Role="Transaction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Member">
@@ -2017,7 +2049,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -2101,6 +2133,10 @@
           <EntitySetMapping Name="Members">
             <EntityTypeMapping TypeName="BetEXData.Member">
               <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="Updatedate" ColumnName="Updatedate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="PointsLastUpdateTime" ColumnName="PointsLastUpdateTime" />
                 <ScalarProperty Name="ExposureLimit" ColumnName="ExposureLimit" />
                 <ScalarProperty Name="EmailFormat" ColumnName="EmailFormat" />
@@ -2208,6 +2244,9 @@
           <EntitySetMapping Name="PaymentMethods">
             <EntityTypeMapping TypeName="BetEXData.PaymentMethod">
               <MappingFragment StoreEntitySet="PaymentMethods">
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
                 <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
                 <ScalarProperty Name="AccountHolder" ColumnName="AccountHolder" />
                 <ScalarProperty Name="IBAN" ColumnName="IBAN" />
@@ -2219,11 +2258,15 @@
                 <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="CardExpirationYear" ColumnName="CardExpirationYear" />
+                <ScalarProperty Name="CardExpirationMonth" ColumnName="CardExpirationMonth" />
                 <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
                 <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="CardCvv2" ColumnName="CardCvv2" />
+                <ScalarProperty Name="MaskedCreditCardNumber" ColumnName="MaskedCreditCardNumber" />
                 <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
                 <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -2576,6 +2619,11 @@
           <EntitySetMapping Name="Transactions">
             <EntityTypeMapping TypeName="BetEXData.Transaction">
               <MappingFragment StoreEntitySet="Transactions">
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="MemberIP" ColumnName="MemberIP" />
+                <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+                <ScalarProperty Name="PaymentMenthodID" ColumnName="PaymentMenthodID" />
                 <ScalarProperty Name="MemberId" ColumnName="MemberId" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="CardId" ColumnName="CardId" />
@@ -2605,108 +2653,108 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="BetEXData" >
-        <EntityTypeShape EntityType="BetEXData.BetStatusMST" Width="1.5" PointX="5.75" PointY="0.75" Height="1.4033821614583333" />
-        <EntityTypeShape EntityType="BetEXData.CardsInfo" Width="1.5" PointX="7.5" PointY="3.75" Height="2.1725878906249996" />
-        <EntityTypeShape EntityType="BetEXData.Country" Width="1.5" PointX="7.75" PointY="0.75" Height="1.4033821614583326" />
-        <EntityTypeShape EntityType="BetEXData.DiscountRateMST" Width="1.5" PointX="9.75" PointY="0.75" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="BetEXData.League" Width="1.5" PointX="3" PointY="23.375" Height="3.3263964843750031" />
-        <EntityTypeShape EntityType="BetEXData.LoginHistory" Width="1.5" PointX="9.75" PointY="39.5" Height="2.5571907552083246" />
-        <EntityTypeShape EntityType="BetEXData.MatchStatu" Width="1.5" PointX="9.75" PointY="3.75" Height="1.5956835937499996" />
-        <EntityTypeShape EntityType="BetEXData.Member" Width="1.5" PointX="7.5" PointY="44.75" Height="8.3262337239583246" />
-        <EntityTypeShape EntityType="BetEXData.Message" Width="1.5" PointX="9.75" PointY="42.75" Height="3.7109993489583246" />
-        <EntityTypeShape EntityType="BetEXData.MyBet" Width="1.5" PointX="9.75" PointY="11.25" Height="5.4417122395833317" />
-        <EntityTypeShape EntityType="BetEXData.MyCard" Width="1.5" PointX="12.75" PointY="47.5" Height="2.7494921875000102" />
-        <EntityTypeShape EntityType="BetEXData.MyWallet" Width="1.5" PointX="9.75" PointY="50.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BetEXData.PaymentMethod" Width="1.5" PointX="10.5" PointY="33.5" Height="4.8648079427083246" />
+      <Diagram Name="BetEXData" ZoomLevel="86" >
+        <EntityTypeShape EntityType="BetEXData.BetStatusMST" Width="1.5" PointX="5.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BetEXData.CardsInfo" Width="1.5" PointX="7.5" PointY="3.75" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="BetEXData.Country" Width="1.5" PointX="7.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BetEXData.DiscountRateMST" Width="1.5" PointX="9.75" PointY="0.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="BetEXData.League" Width="1.5" PointX="3" PointY="23.375" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="BetEXData.LoginHistory" Width="1.5" PointX="9.75" PointY="39" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="BetEXData.MatchStatu" Width="1.5" PointX="9.75" PointY="3.75" Height="1.5956835937500102" />
+        <EntityTypeShape EntityType="BetEXData.Member" Width="1.5" PointX="7.5" PointY="44.375" Height="9.09543945312501" />
+        <EntityTypeShape EntityType="BetEXData.Message" Width="1.5" PointX="9.75" PointY="42.375" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="BetEXData.MyBet" Width="1.5" PointX="9.75" PointY="11.25" Height="5.4417122395833246" />
+        <EntityTypeShape EntityType="BetEXData.MyCard" Width="1.5" PointX="12.75" PointY="47.5" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="BetEXData.MyWallet" Width="1.5" PointX="9.75" PointY="50.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BetEXData.PaymentMethod" Width="1.5" PointX="10.5" PointY="31.875" Height="6.2109179687499818" />
         <EntityTypeShape EntityType="BetEXData.Player" Width="1.5" PointX="9.75" PointY="6.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="BetEXData.ScoreInfo" Width="1.5" PointX="7.5" PointY="6.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BetEXData.ScoreTypeMST" Width="1.5" PointX="11.75" PointY="0.75" Height="1.4033821614583388" />
-        <EntityTypeShape EntityType="BetEXData.Soccer_AsianHandicap" Width="1.5" PointX="7.5" PointY="9.875" Height="3.903300781249996" />
+        <EntityTypeShape EntityType="BetEXData.ScoreTypeMST" Width="1.5" PointX="11.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BetEXData.Soccer_AsianHandicap" Width="1.5" PointX="7.5" PointY="9.875" Height="3.9033007812499818" />
         <EntityTypeShape EntityType="BetEXData.Soccer_CorrectScores" Width="1.5" PointX="7.5" PointY="14.5" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="BetEXData.Soccer_DrawNoBet" Width="1.5" PointX="7.5" PointY="18.75" Height="3.3263964843750031" />
+        <EntityTypeShape EntityType="BetEXData.Soccer_DrawNoBet" Width="1.5" PointX="7.5" PointY="18.75" Height="3.3263964843749818" />
         <EntityTypeShape EntityType="BetEXData.Soccer_MatchedBets" Width="1.5" PointX="11.75" PointY="3.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BetEXData.Soccer_MatchOdds" Width="1.5" PointX="7.5" PointY="22.875" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="BetEXData.Soccer_TotalGoalsOE" Width="1.5" PointX="7.5" PointY="27.125" Height="3.326396484374996" />
+        <EntityTypeShape EntityType="BetEXData.Soccer_TotalGoalsOE" Width="1.5" PointX="7.5" PointY="27.125" Height="3.3263964843749818" />
         <EntityTypeShape EntityType="BetEXData.Soccer_TotalGoalsOU" Width="1.5" PointX="7.5" PointY="31.125" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="BetEXData.Soccer_WinningMargin" Width="1.5" PointX="7.5" PointY="35.5" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="BetEXData.SoccerMatch" Width="1.5" PointX="5.25" PointY="20.625" Height="6.0186165364583388" />
+        <EntityTypeShape EntityType="BetEXData.SoccerMatch" Width="1.5" PointX="5.25" PointY="20.625" Height="6.0186165364583246" />
         <EntityTypeShape EntityType="BetEXData.Sport" Width="1.5" PointX="0.75" PointY="24.125" Height="1.7879850260416674" />
-        <EntityTypeShape EntityType="BetEXData.Sports_AsianHandicap" Width="1.5" PointX="7.5" PointY="39.75" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="BetEXData.Sports_AsianHandicap" Width="1.5" PointX="7.5" PointY="39.75" Height="3.710999348958353" />
         <EntityTypeShape EntityType="BetEXData.Sports_MatchedBets" Width="1.5" PointX="11.75" PointY="7.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BetEXData.Sports_MoneyLine" Width="1.5" PointX="3" PointY="1.375" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="BetEXData.Sports_Outright" Width="1.5" PointX="3" PointY="5.625" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="BetEXData.Sports_Outright" Width="1.5" PointX="3" PointY="5.625" Height="3.134095052083353" />
         <EntityTypeShape EntityType="BetEXData.Sports_TotalOU" Width="1.5" PointX="3" PointY="9.5" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="BetEXData.SportsMatch" Width="1.5" PointX="0.75" PointY="5.125" Height="4.2879036458333255" />
-        <EntityTypeShape EntityType="BetEXData.Statement" Width="1.5" PointX="9.75" PointY="53.875" Height="4.8648079427083246" />
-        <EntityTypeShape EntityType="BetEXData.Team" Width="1.5" PointX="5.25" PointY="44.125" Height="2.172587890624996" />
-        <EntityTypeShape EntityType="BetEXData.Transaction" Width="1.5" PointX="9.75" PointY="59.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BetEXData.SportsMatch" Width="1.5" PointX="0.75" PointY="5.125" Height="4.2879036458333237" />
+        <EntityTypeShape EntityType="BetEXData.Statement" Width="1.5" PointX="9.75" PointY="53.375" Height="4.864807942708353" />
+        <EntityTypeShape EntityType="BetEXData.Team" Width="1.5" PointX="5.25" PointY="44.125" Height="2.1725878906249818" />
+        <EntityTypeShape EntityType="BetEXData.Transaction" Width="1.5" PointX="9.75" PointY="59" Height="3.3263964843749818" />
         <AssociationConnector Association="BetEXData.FK_CardsInfo_SoccerMatches" >
           <ConnectorPoint PointX="6" PointY="20.625" />
-          <ConnectorPoint PointX="6" PointY="4.8362939453125" />
-          <ConnectorPoint PointX="7.5" PointY="4.8362939453125" />
+          <ConnectorPoint PointX="6" PointY="4.836293945312498" />
+          <ConnectorPoint PointX="7.5" PointY="4.836293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Leagues_Sports" >
           <ConnectorPoint PointX="2.25" PointY="25.018992513020834" />
           <ConnectorPoint PointX="3" PointY="25.018992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_SoccerMatches_Leagues" >
-          <ConnectorPoint PointX="4.5" PointY="25.009308268229169" />
-          <ConnectorPoint PointX="5.25" PointY="25.009308268229169" />
+          <ConnectorPoint PointX="4.5" PointY="25.009308268229162" />
+          <ConnectorPoint PointX="5.25" PointY="25.009308268229162" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Team_Leagues" >
-          <ConnectorPoint PointX="3.75" PointY="26.701396484375003" />
-          <ConnectorPoint PointX="3.75" PointY="45.2112939453125" />
-          <ConnectorPoint PointX="5.25" PointY="45.2112939453125" />
+          <ConnectorPoint PointX="3.75" PointY="26.70139648437501" />
+          <ConnectorPoint PointX="3.75" PointY="45.211293945312491" />
+          <ConnectorPoint PointX="5.25" PointY="45.211293945312491" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_LoginHistory_Members" >
-          <ConnectorPoint PointX="9" PointY="44.806537461538461" />
-          <ConnectorPoint PointX="9.53125" PointY="44.275287461538461" />
-          <ConnectorPoint PointX="9.53125" PointY="40.778595377604162" />
-          <ConnectorPoint PointX="9.75" PointY="40.778595377604162" />
+          <ConnectorPoint PointX="9" PointY="44.431537461538461" />
+          <ConnectorPoint PointX="9.53125" PointY="43.900287461538461" />
+          <ConnectorPoint PointX="9.53125" PointY="40.278595377604162" />
+          <ConnectorPoint PointX="9.75" PointY="40.278595377604162" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Messages_Members" >
-          <ConnectorPoint PointX="9" PointY="45.636752174479156" />
-          <ConnectorPoint PointX="9.75" PointY="45.636752174479156" />
+          <ConnectorPoint PointX="9" PointY="45.261752174479213" />
+          <ConnectorPoint PointX="9.75" PointY="45.261752174479213" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Members" >
-          <ConnectorPoint PointX="8.9757692307692327" PointY="44.75" />
-          <ConnectorPoint PointX="9.375" PointY="44.350769230769231" />
-          <ConnectorPoint PointX="9.375" PointY="13.970856119791666" />
-          <ConnectorPoint PointX="9.75" PointY="13.970856119791666" />
+          <ConnectorPoint PointX="8.9757692307692327" PointY="44.375" />
+          <ConnectorPoint PointX="9.375" PointY="43.975769230769231" />
+          <ConnectorPoint PointX="9.375" PointY="13.970856119791662" />
+          <ConnectorPoint PointX="9.75" PointY="13.970856119791662" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyCards_Members" >
-          <ConnectorPoint PointX="9" PointY="48.874746093750005" />
-          <ConnectorPoint PointX="12.75" PointY="48.874746093750005" />
+          <ConnectorPoint PointX="9" PointY="48.874746093749991" />
+          <ConnectorPoint PointX="12.75" PointY="48.874746093749991" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyWallet_Members" >
-          <ConnectorPoint PointX="9" PointY="51.913116861979162" />
-          <ConnectorPoint PointX="9.75" PointY="51.913116861979162" />
+          <ConnectorPoint PointX="9" PointY="51.432444661458334" />
+          <ConnectorPoint PointX="9.75" PointY="51.432444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Statements_Members" >
-          <ConnectorPoint PointX="8.25" PointY="53.076233723958325" />
-          <ConnectorPoint PointX="8.25" PointY="56.307403971354162" />
-          <ConnectorPoint PointX="8.5729191666666669" PointY="56.307403971354162" />
-          <ConnectorPoint PointX="8.7395858333333347" PointY="56.307403971354162" />
-          <ConnectorPoint PointX="9.75" PointY="56.307403971354162" />
+          <ConnectorPoint PointX="8.25" PointY="53.47043945312501" />
+          <ConnectorPoint PointX="8.25" PointY="55.85512419791668" />
+          <ConnectorPoint PointX="8.5729191666666669" PointY="55.85512419791668" />
+          <ConnectorPoint PointX="8.7395858333333347" PointY="55.85512419791668" />
+          <ConnectorPoint PointX="9.75" PointY="55.85512419791668" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Transactions_Members" >
-          <ConnectorPoint PointX="8.6562525" PointY="53.076233723958325" />
-          <ConnectorPoint PointX="8.6562525" PointY="60.682444661458334" />
-          <ConnectorPoint PointX="9.75" PointY="60.682444661458334" />
+          <ConnectorPoint PointX="8.6562525" PointY="53.47043945312501" />
+          <ConnectorPoint PointX="8.6562525" PointY="60.663198242187491" />
+          <ConnectorPoint PointX="9.75" PointY="60.663198242187491" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_AsianHandicap" >
-          <ConnectorPoint PointX="9" PointY="12.514150390624998" />
-          <ConnectorPoint PointX="9.75" PointY="12.514150390624998" />
+          <ConnectorPoint PointX="9" PointY="12.514150390624991" />
+          <ConnectorPoint PointX="9.75" PointY="12.514150390624991" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_CorrectScores" >
-          <ConnectorPoint PointX="9" PointY="15.595856119791666" />
-          <ConnectorPoint PointX="9.2916666666666661" PointY="15.595856119791666" />
-          <ConnectorPoint PointX="9.4583333333333339" PointY="15.595856119791666" />
-          <ConnectorPoint PointX="9.75" PointY="15.595856119791666" />
+          <ConnectorPoint PointX="9" PointY="15.595856119791662" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="15.595856119791662" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="15.595856119791662" />
+          <ConnectorPoint PointX="9.75" PointY="15.595856119791662" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyCards_PaymentMethods" >
-          <ConnectorPoint PointX="11.65625" PointY="38.364807942708325" />
+          <ConnectorPoint PointX="11.65625" PointY="38.085917968749982" />
           <ConnectorPoint PointX="11.65625" PointY="48.156120546875" />
           <ConnectorPoint PointX="12.75" PointY="48.156120546875" />
         </AssociationConnector>
@@ -2717,12 +2765,12 @@
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Soccer_AsianHandicap_SoccerMatches" >
           <ConnectorPoint PointX="5.5937475" PointY="20.625" />
-          <ConnectorPoint PointX="5.5937475" PointY="11.826650390624998" />
-          <ConnectorPoint PointX="5.916666666666667" PointY="11.826650390624998" />
-          <ConnectorPoint PointX="6.083333333333333" PointY="11.826650390624998" />
-          <ConnectorPoint PointX="6.3229191666666669" PointY="11.826650390624998" />
-          <ConnectorPoint PointX="6.4895858333333329" PointY="11.826650390624998" />
-          <ConnectorPoint PointX="7.5" PointY="11.826650390624998" />
+          <ConnectorPoint PointX="5.5937475" PointY="11.826650390624991" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="11.826650390624991" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="11.826650390624991" />
+          <ConnectorPoint PointX="6.3229191666666669" PointY="11.826650390624991" />
+          <ConnectorPoint PointX="6.4895858333333329" PointY="11.826650390624991" />
+          <ConnectorPoint PointX="7.5" PointY="11.826650390624991" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Soccer_CorrectScores_SoccerMatches" >
           <ConnectorPoint PointX="6.6093787499999994" PointY="20.625" />
@@ -2730,40 +2778,40 @@
           <ConnectorPoint PointX="7.5" PointY="16.259348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Soccer_DrawNoBet_SoccerMatches" >
-          <ConnectorPoint PointX="6.75" PointY="21.3506982421875" />
-          <ConnectorPoint PointX="7.5" PointY="21.3506982421875" />
+          <ConnectorPoint PointX="6.75" PointY="21.350698242187491" />
+          <ConnectorPoint PointX="7.5" PointY="21.350698242187491" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Soccer_MatchOdds_SoccerMatches" >
           <ConnectorPoint PointX="6.75" PointY="24.634348958333334" />
           <ConnectorPoint PointX="7.5" PointY="24.634348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches" >
-          <ConnectorPoint PointX="6" PointY="26.643616536458339" />
-          <ConnectorPoint PointX="6" PointY="28.788198242187498" />
-          <ConnectorPoint PointX="6.3229191666666669" PointY="28.788198242187498" />
-          <ConnectorPoint PointX="6.4895858333333329" PointY="28.788198242187498" />
-          <ConnectorPoint PointX="6.5260454166666664" PointY="28.788198242187498" />
-          <ConnectorPoint PointX="6.6927120833333325" PointY="28.788198242187498" />
-          <ConnectorPoint PointX="7.5" PointY="28.788198242187498" />
+          <ConnectorPoint PointX="6" PointY="26.643616536458325" />
+          <ConnectorPoint PointX="6" PointY="28.788198242187491" />
+          <ConnectorPoint PointX="6.3229191666666669" PointY="28.788198242187491" />
+          <ConnectorPoint PointX="6.4895858333333329" PointY="28.788198242187491" />
+          <ConnectorPoint PointX="6.5260454166666664" PointY="28.788198242187491" />
+          <ConnectorPoint PointX="6.6927120833333325" PointY="28.788198242187491" />
+          <ConnectorPoint PointX="7.5" PointY="28.788198242187491" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches" >
-          <ConnectorPoint PointX="6.4062525" PointY="26.643616536458339" />
+          <ConnectorPoint PointX="6.4062525" PointY="26.643616536458325" />
           <ConnectorPoint PointX="6.4062525" PointY="32.884348958333334" />
           <ConnectorPoint PointX="6.5260454166666664" PointY="32.884348958333334" />
           <ConnectorPoint PointX="6.6927120833333325" PointY="32.884348958333334" />
           <ConnectorPoint PointX="7.5" PointY="32.884348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Soccer_WinningMargin_SoccerMatches" >
-          <ConnectorPoint PointX="5.5937475" PointY="26.643616536458339" />
+          <ConnectorPoint PointX="5.5937475" PointY="26.643616536458325" />
           <ConnectorPoint PointX="5.5937475" PointY="37.259348958333334" />
           <ConnectorPoint PointX="6.5260454166666664" PointY="37.259348958333334" />
           <ConnectorPoint PointX="6.6927120833333325" PointY="37.259348958333334" />
           <ConnectorPoint PointX="7.5" PointY="37.259348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Sports_AsianHandicap_SoccerMatches" >
-          <ConnectorPoint PointX="6.6093787499999994" PointY="26.643616536458339" />
-          <ConnectorPoint PointX="6.6093787499999994" PointY="41.605499674479162" />
-          <ConnectorPoint PointX="7.5" PointY="41.605499674479162" />
+          <ConnectorPoint PointX="6.6093787499999994" PointY="26.643616536458325" />
+          <ConnectorPoint PointX="6.6093787499999994" PointY="41.605499674479177" />
+          <ConnectorPoint PointX="7.5" PointY="41.605499674479177" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Sports_MoneyLine_SportsMatches" >
           <ConnectorPoint PointX="1.5" PointY="5.125" />
@@ -2771,8 +2819,8 @@
           <ConnectorPoint PointX="3" PointY="3.1343489583333337" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Sports_Outright_SportsMatches" >
-          <ConnectorPoint PointX="2.25" PointY="7.1920475260416623" />
-          <ConnectorPoint PointX="3" PointY="7.1920475260416623" />
+          <ConnectorPoint PointX="2.25" PointY="7.1920475260416765" />
+          <ConnectorPoint PointX="3" PointY="7.1920475260416765" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Sports_TotalOU_SportsMatches" >
           <ConnectorPoint PointX="1.5" PointY="9.4129036458333246" />

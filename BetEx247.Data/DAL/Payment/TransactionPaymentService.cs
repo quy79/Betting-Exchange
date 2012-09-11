@@ -10,25 +10,31 @@ namespace BetEx247.Data.DAL
 {
     public partial class TransactionPaymentService : ITransactionPaymentService
     {
+        /// <summary>
+        /// Gets an TransactionPayment
+        /// </summary>
+        /// <param name="TransactionPaymentId">The TransactionPayment identifier</param>
+        /// <returns>TransactionPayment</returns>
         public TransactionPayment GetTransactionPaymentById(long transactionPaymentId)
         {
             TransactionPayment transactionPayment = new TransactionPayment();
-            MyBet mybet;
+            Transaction transaction;
             using (var dba = new BetEXDataContainer())
             {
-                mybet = dba.MyBets.Where(w => w.ID == transactionPaymentId).SingleOrDefault();
+                transaction = dba.Transactions.Where(w => w.ID == transactionPaymentId).SingleOrDefault();
             }
-            if (mybet != null)
+            if (transaction != null)
             {
                 transactionPayment.TransactionPaymentId = transactionPaymentId;
-                transactionPayment.MemberId = mybet.MemberID.Value;
+                transactionPayment.TransactionPaymentType = transaction.Type;
+                transactionPayment.MemberId = transaction.MemberId;
+                transactionPayment.MemberIP = transaction.MemberIP;
+                transactionPayment.TransactionPaymentTotal = transaction.Amount;
+                transactionPayment.TransactionPaymentStatusId = transaction.Status;
+                transactionPayment.PaymentMethodId = transaction.PaymentMenthodID;
+                transactionPayment.MemberEmail = transaction.MemberEmail;
             }
             return transactionPayment;
-        }
-
-        public void MarkTransactionPaymentAsDeleted(long transactionPaymentId)
-        {
-            throw new NotImplementedException();
         }
 
         public List<TransactionPayment> SearchTransactionPayments(DateTime? startTime, DateTime? endTime, string memberEmail, TransactionStatusEnum? os, PaymentStatusEnum? ps)
@@ -41,15 +47,38 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Gets all TransactionPayments by Member identifier
+        /// </summary>
+        /// <param name="MemberId">Member identifier</param>
+        /// <returns>TransactionPayment collection</returns>
         public List<TransactionPayment> GetTransactionPaymentsByMemberId(long memberId)
         {
-            throw new NotImplementedException();
+            List<TransactionPayment> lstTransactionPayment = new List<TransactionPayment>();
+            List<Transaction> lstTransaction;
+            using (var dba = new BetEXDataContainer())
+            {
+                lstTransaction = dba.Transactions.Where(w => w.MemberId == memberId).ToList();
+            }
+            if (lstTransaction != null && lstTransaction.Count > 0)
+            {
+                foreach (var transaction in lstTransaction)
+                {
+                    TransactionPayment transactionPayment = new TransactionPayment();
+                    transactionPayment.TransactionPaymentId = transaction.ID;
+                    transactionPayment.TransactionPaymentType = transaction.Type;
+                    transactionPayment.MemberId = transaction.MemberId;
+                    transactionPayment.MemberIP = transaction.MemberIP;
+                    transactionPayment.TransactionPaymentTotal = transaction.Amount;
+                    transactionPayment.TransactionPaymentStatusId = transaction.Status;
+                    transactionPayment.PaymentMethodId = transaction.PaymentMenthodID;
+                    transactionPayment.MemberEmail = transaction.MemberEmail;
+                    lstTransactionPayment.Add(transactionPayment);
+                }
+            }
+            return lstTransactionPayment;
         }
 
-        public TransactionPayment GetTransactionPaymentByAuthorizationTransactionIdAndPaymentMethodId(string authorizationTransactionId, int paymentMethodId)
-        {
-            throw new NotImplementedException();
-        }
 
         public void InsertTransactionPayment(TransactionPayment transactionPayment)
         {
@@ -146,7 +175,7 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public string PlaceTransactionPayment(TransactionPayment transactionPayment, Model.Member Member, out long TransactionPaymentId)
+        public string PlaceTransactionPayment(TransactionPayment transactionPayment, Member Member, out long TransactionPaymentId)
         {
             throw new NotImplementedException();
         }
@@ -171,7 +200,7 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public bool CanCancelRecurringPayment(Model.Member memberToValidate, RecurringPayment recurringPayment)
+        public bool CanCancelRecurringPayment(Member memberToValidate, RecurringPayment recurringPayment)
         {
             throw new NotImplementedException();
         }

@@ -141,9 +141,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
                 throw new Exception("Not supported transaction mode");
 
             form.Add("x_amount",betting.TransactionPaymentTotal.ToString("0.00", CultureInfo.InvariantCulture));
-            form.Add("x_card_num", betting.CardNumber);
-            form.Add("x_exp_date",betting.CardExpirationMonth.ToString() +betting.CardExpirationYear.ToString());
-            form.Add("x_card_code", betting.CardCvv2);
+            form.Add("x_card_num", betting.PaymentMenthod.CreditCardNumber);
+            form.Add("x_exp_date", betting.PaymentMenthod.CardExpirationMonth +"/"+ betting.PaymentMenthod.CardExpirationYear);
+            form.Add("x_card_code", betting.PaymentMenthod.CardCvv2);
             form.Add("x_first_name", betting.Customer.FirstName);
             form.Add("x_last_name", betting.Customer.LastName);
             form.Add("x_address", betting.Customer.Address);
@@ -311,9 +311,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
                 AuthorizeNet.net.authorize.api.CreditCardType creditCard = new AuthorizeNet.net.authorize.api.CreditCardType();
 
                 subscription.name = bettingGuid.ToString();
-                creditCard.cardNumber = transactionPayment.CardNumber;
-                creditCard.expirationDate = transactionPayment.CardExpirationYear + "-" + transactionPayment.CardExpirationMonth; // required format for API is YYYY-MM
-                creditCard.cardCode = transactionPayment.CardCvv2;
+                creditCard.cardNumber = transactionPayment.PaymentMenthod.CreditCardNumber;
+                creditCard.expirationDate = transactionPayment.PaymentMenthod.CardExpirationYear + "-" + transactionPayment.PaymentMenthod.CardExpirationMonth; // required format for API is YYYY-MM
+                creditCard.cardCode = transactionPayment.PaymentMenthod.CardCvv2;
 
                 subscription.payment = new PaymentType();
                 subscription.payment.Item = creditCard;      

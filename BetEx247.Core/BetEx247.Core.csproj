@@ -63,7 +63,6 @@
     <Compile Include="Infrastructure\IDependencyResolverFactory.cs" />
     <Compile Include="Infrastructure\IoC.cs" />
     <Compile Include="Payment\CancelPaymentResult.cs" />
-    <Compile Include="Payment\CreditCardType.cs" />
     <Compile Include="Payment\PaymentMethodTypeEnum.cs" />
     <Compile Include="Payment\PaymentStatusEnum.cs" />
     <Compile Include="Payment\ProcessPaymentResult.cs" />

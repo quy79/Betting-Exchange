@@ -20,14 +20,8 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="TransactionPaymentId">The TransactionPayment identifier</param>
         /// <returns>TransactionPayment</returns>
-        TransactionPayment GetTransactionPaymentById(long transactionPaymentId);   
+        TransactionPayment GetTransactionPaymentById(long transactionPaymentId);           
         
-        /// <summary>
-        /// Marks an TransactionPayment as deleted
-        /// </summary>
-        /// <param name="TransactionPaymentId">The TransactionPayment identifier</param>
-        void MarkTransactionPaymentAsDeleted(long transactionPaymentId);
-
         /// <summary>
         /// Search TransactionPayments
         /// </summary>
@@ -52,16 +46,7 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="MemberId">Member identifier</param>
         /// <returns>TransactionPayment collection</returns>
-        List<TransactionPayment> GetTransactionPaymentsByMemberId(long memberId);
-
-        /// <summary>
-        /// Gets an TransactionPayment by authorization transaction identifier
-        /// </summary>
-        /// <param name="authorizationTransactionId">Authorization transaction identifier</param>
-        /// <param name="paymentMethodId">Payment method identifier</param>
-        /// <returns>TransactionPayment</returns>
-        TransactionPayment GetTransactionPaymentByAuthorizationTransactionIdAndPaymentMethodId(string authorizationTransactionId,
-            int paymentMethodId);           
+        List<TransactionPayment> GetTransactionPaymentsByMemberId(long memberId);      
        
         /// <summary>
         /// Inserts an TransactionPayment

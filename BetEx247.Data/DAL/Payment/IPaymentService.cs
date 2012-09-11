@@ -12,83 +12,27 @@ namespace BetEx247.Data.DAL
     /// </summary>
     public partial interface IPaymentService
     {
-        #region Credit cards
-        /// <summary>
-        /// Gets a credit card type
-        /// </summary>
-        /// <param name="creditCardTypeId">Credit card type identifier</param>
-        /// <returns>Credit card type</returns>
-        CreditCardType GetCreditCardTypeById(int creditCardTypeId);
-
-        /// <summary>
-        /// Marks a credit card type as deleted
-        /// </summary>
-        /// <param name="creditCardTypeId">Credit card type identifier</param>
-        void MarkCreditCardTypeAsDeleted(int creditCardTypeId);
-
-        /// <summary>
-        /// Gets all credit card types
-        /// </summary>
-        /// <returns>Credit card type collection</returns>
-        List<CreditCardType> GetAllCreditCardTypes();
-
-        /// <summary>
-        /// Inserts a credit card type
-        /// </summary>
-        /// <param name="creditCardType">Credit card type</param>
-        void InsertCreditCardType(CreditCardType creditCardType);
-
-        /// <summary>
-        /// Updates the credit card type
-        /// </summary>
-        /// <param name="creditCardType">Credit card type</param>
-        void UpdateCreditCardType(CreditCardType creditCardType);
-
-        #endregion
-
         #region Payment methods
 
         /// <summary>
         /// Deletes a payment method
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
-        void DeletePaymentMethod(int paymentMethodId);
+        void DeletePaymentMethod(long paymentMethodId);
 
         /// <summary>
         /// Gets a payment method
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
         /// <returns>Payment method</returns>
-        PaymentMethod GetPaymentMethodById(int paymentMethodId);
-
-        /// <summary>
-        /// Gets a payment method
-        /// </summary>
-        /// <param name="systemKeyword">Payment method system keyword</param>
-        /// <returns>Payment method</returns>
-        PaymentMethod GetPaymentMethodBySystemKeyword(string systemKeyword);
-
+        PaymentMethod GetPaymentMethodById(long paymentMethodId);   
+        
         /// <summary>
         /// Gets all payment methods
         /// </summary>
         /// <returns>Payment method collection</returns>
         List<PaymentMethod> GetAllPaymentMethods();
-
-        /// <summary>
-        /// Gets all payment methods
-        /// </summary>
-        /// <param name="filterByCountryId">The country indentifier</param>
-        /// <returns>Payment method collection</returns>
-        List<PaymentMethod> GetAllPaymentMethods(int? filterByCountryId);
-
-        /// <summary>
-        /// Gets all payment methods
-        /// </summary>
-        /// <param name="filterByCountryId">The country indentifier</param>
-        /// <param name="showHidden">A value indicating whether the not active payment methods should be load</param>
-        /// <returns>Payment method collection</returns>
-        List<PaymentMethod> GetAllPaymentMethods(int? filterByCountryId, bool showHidden);
-
+        
         /// <summary>
         /// Inserts a payment method
         /// </summary>
@@ -122,18 +66,11 @@ namespace BetEx247.Data.DAL
         string PostProcessPayment(TransactionPayment transactionPayment);
 
         /// <summary>
-        /// Gets additional handling fee
-        /// </summary>
-        /// <param name="paymentMethodId">Payment method identifier</param>
-        /// <returns>Additional handling fee</returns>
-        decimal GetAdditionalHandlingFee(int paymentMethodId);
-
-        /// <summary>
         /// Gets a value indicating whether capture is supported by payment method
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
         /// <returns>A value indicating whether capture is supported</returns>
-        bool CanCapture(int paymentMethodId);
+        bool CanCapture(long paymentMethodId);
 
         /// <summary>
         /// Captures payment
@@ -147,14 +84,14 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
         /// <returns>A value indicating whether partial refund is supported</returns>
-        bool CanPartiallyRefund(int paymentMethodId);
+        bool CanPartiallyRefund(long paymentMethodId);
 
         /// <summary>
         /// Gets a value indicating whether refund is supported by payment method
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
         /// <returns>A value indicating whether refund is supported</returns>
-        bool CanRefund(int paymentMethodId);
+        bool CanRefund(long paymentMethodId);
 
         /// <summary>
         /// Refunds payment
@@ -168,7 +105,7 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
         /// <returns>A value indicating whether void is supported</returns>
-        bool CanVoid(int paymentMethodId);
+        bool CanVoid(long paymentMethodId);
 
         /// <summary>
         /// Voids payment
@@ -182,14 +119,14 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
         /// <returns>A recurring payment type of payment method</returns>
-        RecurringPaymentTypeEnum SupportRecurringPayments(int paymentMethodId);
+        RecurringPaymentTypeEnum SupportRecurringPayments(long paymentMethodId);
 
         /// <summary>
         /// Gets a payment method type
         /// </summary>
         /// <param name="paymentMethodId">Payment method identifier</param>
         /// <returns>A payment method type</returns>
-        PaymentMethodTypeEnum GetPaymentMethodType(int paymentMethodId);
+        PaymentMethodTypeEnum GetPaymentMethodType(long paymentMethodId);
 
         /// <summary>
         /// Process recurring payments

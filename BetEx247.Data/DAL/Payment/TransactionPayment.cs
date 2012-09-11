@@ -10,13 +10,21 @@ namespace BetEx247.Data.DAL
     public partial class TransactionPayment
     {
         private Member _customer;
+        private PaymentMethod _paymentMenthod;
 
         #region Properties
         /// <summary>
         /// Gets or sets the TransactionPayment identifier
         /// </summary>
-        public long TransactionPaymentId { get; set; } 
-        
+        public long TransactionPaymentId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the TransactionPayment Type identifier
+        /// 1 : Deposit
+        /// 2 : Withdraw
+        /// </summary>
+        public Int16 TransactionPaymentType { get; set; }
+
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
@@ -30,122 +38,22 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Gets or sets the TransactionPayment total
         /// </summary>
-        public decimal TransactionPaymentTotal { get; set; }
-
-        /// <summary>
-        /// Gets or sets the refunded amount
-        /// </summary>
-        public decimal RefundedAmount { get; set; }
-
-        /// <summary>
-        /// Gets or sets the TransactionPayment discount (applied to TransactionPayment total)
-        /// </summary>
-        public decimal TransactionPaymentDiscount { get; set; } 
-    
+        public decimal TransactionPaymentTotal { get; set; } 
+        
         /// <summary>
         /// Gets or sets an TransactionPayment status identifer
         /// </summary>
         public int TransactionPaymentStatusId { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether storing of credit card number is allowed
-        /// </summary>
-        public bool AllowStoringCreditCardNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets the card type
-        /// </summary>
-        public string CardType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the card name
-        /// </summary>
-        public string CardName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the card number
-        /// </summary>
-        public string CardNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets the masked credit card number
-        /// </summary>
-        public string MaskedCreditCardNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets the card CVV2
-        /// </summary>
-        public string CardCvv2 { get; set; }
-
-        /// <summary>
-        /// Gets or sets the card expiration month
-        /// </summary>
-        public string CardExpirationMonth { get; set; }
-
-        /// <summary>
-        /// Gets or sets the card expiration year
-        /// </summary>
-        public string CardExpirationYear { get; set; }
-
-        /// <summary>
         /// Gets or sets the payment method identifier
         /// </summary>
-        public int PaymentMethodId { get; set; }
+        public long PaymentMethodId { get; set; }
 
         /// <summary>
-        /// Gets or sets the payment method name
+        /// Gets or sets the member email
         /// </summary>
-        public string PaymentMethodName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the authorization transaction identifier
-        /// </summary>
-        public string AuthorizationTransactionId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the authorization transaction code
-        /// </summary>
-        public string AuthorizationTransactionCode { get; set; }
-
-        /// <summary>
-        /// Gets or sets the authorization transaction result
-        /// </summary>
-        public string AuthorizationTransactionResult { get; set; }
-
-        /// <summary>
-        /// Gets or sets the capture transaction identifier
-        /// </summary>
-        public string CaptureTransactionId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the capture transaction result
-        /// </summary>
-        public string CaptureTransactionResult { get; set; }
-
-        /// <summary>
-        /// Gets or sets the subscription transaction identifier
-        /// </summary>
-        public string SubscriptionTransactionId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the payment status identifier
-        /// </summary>
-        public int PaymentStatusId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the paid date and time
-        /// </summary>
-        public DateTime? PaidDate { get; set; }   
-       
-        /// <summary>
-        /// Gets or sets the tracking number of current TransactionPayment
-        /// </summary>
-        public string TrackingNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the entity has been deleted
-        /// </summary>
-        public bool Deleted { get; set; }
+        public string MemberEmail { get; set; }
 
         /// <summary>
         /// Gets or sets a value idicating whether it's a recurring payment (initial payment was already processed)
@@ -178,6 +86,16 @@ namespace BetEx247.Data.DAL
                 if (_customer == null)
                     _customer = IoC.Resolve<ICustomerService>().GetCustomerById(this.MemberId);
                 return _customer;
+            }
+        }
+
+        public PaymentMethod PaymentMenthod
+        {
+            get
+            {
+                if (_paymentMenthod == null)
+                    _paymentMenthod = IoC.Resolve<IPaymentService>().GetPaymentMethodById(this.PaymentMethodId);
+                return _paymentMenthod;
             }
         }
     }
