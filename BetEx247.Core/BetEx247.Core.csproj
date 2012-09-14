@@ -31,12 +31,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
@@ -62,6 +78,8 @@
     <Compile Include="Infrastructure\IDependencyResolver.cs" />
     <Compile Include="Infrastructure\IDependencyResolverFactory.cs" />
     <Compile Include="Infrastructure\IoC.cs" />
+    <Compile Include="Infrastructure\UnityDependencyResolver.cs" />
+    <Compile Include="Infrastructure\UnityPerExecutionContextLifetimeManager.cs" />
     <Compile Include="Payment\CancelPaymentResult.cs" />
     <Compile Include="Payment\PaymentMethodTypeEnum.cs" />
     <Compile Include="Payment\PaymentStatusEnum.cs" />

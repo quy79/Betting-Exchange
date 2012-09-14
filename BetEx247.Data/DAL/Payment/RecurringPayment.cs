@@ -24,7 +24,7 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Gets or sets the initial transactionPayment identifier
         /// </summary>
-        public int InitialTransactionPaymentId { get; set; }
+        public long InitialTransactionPaymentId { get; set; }
 
         /// <summary>
         /// Gets or sets the cycle length

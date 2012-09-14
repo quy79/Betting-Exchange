@@ -17,10 +17,9 @@ namespace BetEx247.Data.DAL
         /// Process payment
         /// </summary>
         /// <param name="transactionPayment">Payment info required for an betting processing</param>
-        /// <param name="member">member</param>
         /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessPayment(TransactionPayment transactionPayment, Member member,
+        void ProcessPayment(TransactionPayment transactionPayment,
             Guid bettingGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
@@ -58,7 +57,7 @@ namespace BetEx247.Data.DAL
         /// <param name="member">member</param>
         /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member,
+        void ProcessRecurringPayment(TransactionPayment transactionPayment,
             Guid bettingGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>

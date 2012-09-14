@@ -52,10 +52,9 @@ namespace BetEx247.Data.DAL
         /// Process payment
         /// </summary>
         /// <param name="paymentInfo">Payment info required for an transactionPayment processing</param>
-        /// <param name="member">member</param>
         /// <param name="transactionPaymentGuid">Unique transactionPayment identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessPayment(TransactionPayment transactionPayment, Member member,
+        void ProcessPayment(TransactionPayment transactionPayment, 
             Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>
@@ -132,10 +131,9 @@ namespace BetEx247.Data.DAL
         /// Process recurring payments
         /// </summary>
         /// <param name="paymentInfo">Payment info required for an transactionPayment processing</param>
-        /// <param name="member">member</param>
         /// <param name="transactionPaymentGuid">Unique transactionPayment identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member,
+        void ProcessRecurringPayment(TransactionPayment transactionPayment,
             Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult);
 
         /// <summary>

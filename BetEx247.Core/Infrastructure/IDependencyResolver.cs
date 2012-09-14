@@ -9,21 +9,7 @@ namespace BetEx247.Core.Infrastructure
     /// Dependency resolver
     /// </summary>
     public interface IDependencyResolver
-    {
-        /// <summary>
-        /// Register instance
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="instance">Instance</param>
-        void Register<T>(T instance);
-
-        /// <summary>
-        /// Inject
-        /// </summary>
-        /// <typeparam name="T">Type</typeparam>
-        /// <param name="existing">Type</param>
-        void Inject<T>(T existing);
-
+    {     
         /// <summary>
         /// Resolve
         /// </summary>

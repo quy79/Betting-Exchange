@@ -109,21 +109,19 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// Process payment
         /// </summary>
         /// <param name="paymentInfo">Payment info required for an betting processing</param>
-        /// <param name="Member">Member</param>
         /// <param name="orderGuid">Unique order identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessPayment(TransactionPayment betting, Member member, Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessPayment(TransactionPayment betting, Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
         {
             InitSettings();
-            TransactMode transactionMode = GetCurrentTransactionMode();
-
+            TransactMode transactionMode = GetCurrentTransactionMode();           
             WebClient webClient = new WebClient();
             NameValueCollection form = new NameValueCollection();
             form.Add("x_login", loginID);
             form.Add("x_tran_key", transactionKey);
-            if (useSandBox)
-                form.Add("x_test_request", "TRUE");
-            else
+            //if (useSandBox)
+            //    form.Add("x_test_request", "TRUE");
+            //else
                 form.Add("x_test_request", "FALSE");
 
             form.Add("x_delim_data", "TRUE");
@@ -148,6 +146,7 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
             form.Add("x_last_name", betting.Customer.LastName);
             form.Add("x_address", betting.Customer.Address);
             form.Add("x_city", betting.Customer.City);
+            form.Add("x_email_customer ", betting.Customer.Email1);
             //if (paymentInfo.BillingAddress.StateProvince != null)
             //    form.Add("x_state", paymentInfo.BillingAddress.StateProvince.Abbreviation);
             form.Add("x_zip", betting.Customer.PostalCode);
@@ -155,7 +154,7 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
             //    form.Add("x_country", paymentInfo.BillingAddress.Country.TwoLetterIsoCode);
             //20 chars maximum
             form.Add("x_invoice_num", orderGuid.ToString().Substring(0, 20));
-            //form.Add("x_customer_ip",Request.Current.UserHostAddress);
+            //form.Add("x_customer_ip", Request.UserHostAddress);
 
             string reply = null;
             Byte[] responseData = webClient.UploadValues(GetAuthorizeNETUrl(), form);
@@ -298,10 +297,9 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         /// Process recurring payment
         /// </summary>
         /// <param name="paymentInfo">Payment info required for an betting processing</param>
-        /// <param name="member">member</param>
         /// <param name="bettingGuid">Unique order identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
             InitSettings();
             MerchantAuthenticationType authentication = PopulateMerchantAuthentication();

@@ -199,15 +199,19 @@ namespace BetEx247.Data.DAL
         /// <param name="Member">Member</param>
         /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
         /// <returns>The error status, or String.Empty if no errors</returns>
-        string PlaceTransactionPayment(TransactionPayment transactionPayment, Member Member,
-            out long TransactionPaymentId); 
-      
-        /// <summary>
-        /// Place TransactionPayment items in current user shopping cart.
-        /// </summary>
-        /// <param name="TransactionPaymentId">The TransactionPayment identifier</param>
-        void ReTransactionPayment(long TransactionPaymentId);
+        string PlaceTransactionPayment(TransactionPayment transactionPayment, out long TransactionPaymentId);
 
+        /// <summary>
+        /// Places an order
+        /// </summary>
+        /// <param name="transactionPayment">transactionPayment</param>
+        /// <param name="member">Member</param>
+        /// <param name="transactionPaymentGuid">transactionPayment GUID to use</param>
+        /// <param name="transactionPaymentId">transactionPayment identifier</param>
+        /// <returns>The error status, or String.Empty if no errors</returns>
+        string PlaceTransactionPayment(TransactionPayment transactionPayment,
+            Guid transactionPaymentGuid, out long TransactionPaymentId); 
+        
         /// <summary>
         /// Process next recurring psayment
         /// </summary>
@@ -370,20 +374,6 @@ namespace BetEx247.Data.DAL
         /// <param name="error">Error</param>
         /// <returns>Voided TransactionPayment</returns>
         TransactionPayment Void(long transactionPaymentId, ref string error);
-
-        /// <summary>
-        /// Gets a value indicating whether TransactionPayment can be marked as voided
-        /// </summary>
-        /// <param name="TransactionPayment">TransactionPayment</param>
-        /// <returns>A value indicating whether TransactionPayment can be marked as voided</returns>
-        bool CanVoidOffline(TransactionPayment transactionPayment);
-
-        /// <summary>
-        /// Voids TransactionPayment (offline)
-        /// </summary>
-        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
-        /// <returns>Updated TransactionPayment</returns>
-        TransactionPayment VoidOffline(long transactionPaymentId);
 
         /// <summary>
         /// Converts reward points to amount primary store currency

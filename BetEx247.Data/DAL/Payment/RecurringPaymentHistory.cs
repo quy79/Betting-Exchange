@@ -27,7 +27,7 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Gets or sets the TransactionPayment identifier
         /// </summary>
-        public int TransactionPaymentId { get; set; }
+        public long TransactionPaymentId { get; set; }
 
         /// <summary>
         /// Gets or sets the date and time of entity creation

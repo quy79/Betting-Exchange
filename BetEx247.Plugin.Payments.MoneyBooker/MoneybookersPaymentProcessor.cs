@@ -44,10 +44,9 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// Process payment
         /// </summary>
         /// <param name="transactionPayment">transactionPayment required for an betting processing</param>
-        /// <param name="member">member</param>
         /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessPayment(TransactionPayment transactionPayment, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessPayment(TransactionPayment transactionPayment,Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
             processPaymentResult.PaymentStatus = PaymentStatusEnum.Pending;
         }
@@ -125,10 +124,9 @@ namespace BetEx247.Plugin.Payments.MoneyBooker
         /// Process recurring payment
         /// </summary>
         /// <param name="transactionPayment">transactionPayment required for an betting processing</param>
-        /// <param name="member">member</param>
         /// <param name="bettingGuid">Unique betting identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
             throw new Exception("Recurring payments not supported");
         }

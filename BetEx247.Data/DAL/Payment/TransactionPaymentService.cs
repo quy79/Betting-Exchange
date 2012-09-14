@@ -5,11 +5,23 @@ using System.Text;
 using BetEx247.Core.CustomerManagement;
 using BetEx247.Core.Payment;
 using BetEx247.Data.Model;
+using BetEx247.Core.Common.Utils;
+using BetEx247.Core.Common.Extensions;
+using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Data.DAL
 {
     public partial class TransactionPaymentService : ITransactionPaymentService
     {
+        #region Fields
+
+        /// <summary>
+        /// Object context
+        /// </summary>
+        private readonly BetEXDataContainer _context = new BetEXDataContainer();
+        #endregion
+
+        #region TransactionPayments
         /// <summary>
         /// Gets an TransactionPayment
         /// </summary>
@@ -79,17 +91,58 @@ namespace BetEx247.Data.DAL
             return lstTransactionPayment;
         }
 
-
+        /// <summary>
+        /// Inserts an TransactionPayment
+        /// </summary>
+        /// <param name="TransactionPayment">TransactionPayment</param>
         public void InsertTransactionPayment(TransactionPayment transactionPayment)
         {
-            throw new NotImplementedException();
+            if (transactionPayment == null)
+                throw new ArgumentNullException("transactionPayment");
+
+            Transaction transaction = new Transaction();
+            transaction.Type = transactionPayment.TransactionPaymentType;
+            transaction.Amount = transactionPayment.TransactionPaymentTotal;
+            transaction.Status = transactionPayment.TransactionPaymentStatusId;
+            transaction.MemberId = transactionPayment.MemberId;
+            transaction.MemberIP = transactionPayment.MemberIP;
+            transaction.MemberEmail = transactionPayment.MemberEmail;
+            transaction.PaymentMenthodID = transactionPayment.PaymentMethodId;
+            transaction.AddedDate = DateTime.Now;
+            transaction.ModifyDate = DateTime.Now;
+
+            _context.AddToTransactions(transaction);
+            _context.SaveChanges();
         }
 
+        /// <summary>
+        /// Updates the TransactionPayment
+        /// </summary>
+        /// <param name="TransactionPayment">The TransactionPayment</param>
         public void UpdateTransactionPayment(TransactionPayment transactionPayment)
         {
-            throw new NotImplementedException();
-        }
+            if (transactionPayment == null)
+                throw new ArgumentNullException("transactionPayment");
 
+            Transaction transaction = new Transaction();
+            transaction = _context.Transactions.Where(w => w.ID == transactionPayment.TransactionPaymentId).SingleOrDefault();
+            if (transaction != null)
+            {
+                transaction.ID = transactionPayment.TransactionPaymentId;
+                transaction.Type = transactionPayment.TransactionPaymentType;
+                transaction.Amount = transactionPayment.TransactionPaymentTotal;
+                transaction.Status = transactionPayment.TransactionPaymentStatusId;
+                transaction.MemberId = transactionPayment.MemberId;
+                transaction.MemberIP = transactionPayment.MemberIP;
+                transaction.MemberEmail = transactionPayment.MemberEmail;
+                transaction.PaymentMenthodID = transactionPayment.PaymentMethodId;
+                transaction.ModifyDate = DateTime.Now;
+                _context.SaveChanges();
+            }
+        }
+        #endregion
+
+        #region Recurring payments
         public RecurringPayment GetRecurringPaymentById(int recurringPaymentId)
         {
             throw new NotImplementedException();
@@ -144,10 +197,40 @@ namespace BetEx247.Data.DAL
         {
             throw new NotImplementedException();
         }
+        #endregion
 
+        #region Return requests (RMA)
         public string GetReturnRequestStatusName(ReturnStatusEnum rs)
         {
-            throw new NotImplementedException();
+            string name = string.Empty;
+            switch (rs)
+            {
+                case ReturnStatusEnum.Pending:
+                    name = "Pending";
+                    break;
+                case ReturnStatusEnum.Received:
+                    name = "Received";
+                    break;
+                case ReturnStatusEnum.ReturnAuthorized:
+                    name = "ReturnAuthorized";
+                    break;
+                case ReturnStatusEnum.ItemsRepaired:
+                    name = "ItemsRepaired";
+                    break;
+                case ReturnStatusEnum.ItemsRefunded:
+                    name = "ItemsRefunded";
+                    break;
+                case ReturnStatusEnum.RequestRejected:
+                    name = "RequestRejected";
+                    break;
+                case ReturnStatusEnum.Cancelled:
+                    name = "Cancelled";
+                    break;
+                default:
+                    name = CommonHelper.ConvertEnum(rs.ToString());
+                    break;
+            }
+            return name;
         }
 
         public bool IsReturnRequestAllowed(TransactionPayment transactionPayment)
@@ -174,15 +257,170 @@ namespace BetEx247.Data.DAL
         {
             throw new NotImplementedException();
         }
+        #endregion
 
-        public string PlaceTransactionPayment(TransactionPayment transactionPayment, Member Member, out long TransactionPaymentId)
+        #region Etc
+        /// <summary>
+        /// Places an TransactionPayment
+        /// </summary>
+        /// <param name="transactionPayment">Payment info</param>
+        /// <param name="Member">Member</param>
+        /// <param name="TransactionPaymentId">TransactionPayment identifier</param>
+        /// <returns>The error status, or String.Empty if no errors</returns>
+        public string PlaceTransactionPayment(TransactionPayment transactionPayment, out long TransactionPaymentId)
         {
-            throw new NotImplementedException();
+            var TransactionGuid = Guid.NewGuid();
+            return PlaceTransactionPayment(transactionPayment, TransactionGuid, out TransactionPaymentId);
         }
 
-        public void ReTransactionPayment(long TransactionPaymentId)
+        /// <summary>
+        /// Places an order
+        /// </summary>
+        /// <param name="transactionPayment">Payment info</param>
+        /// <param name="customer">Customer</param>
+        /// <param name="orderGuid">Order GUID to use</param>
+        /// <param name="orderId">Order identifier</param>
+        /// <returns>The error status, or String.Empty if no errors</returns>
+        public string PlaceTransactionPayment(TransactionPayment transactionPayment,
+            Guid transactionPaymentGuid, out long TransactionPaymentId)
         {
-            throw new NotImplementedException();
+            TransactionPaymentId = 0;
+            string outMessage = string.Empty;
+            var processPaymentResult = new ProcessPaymentResult();
+            var customerService = IoC.Resolve<ICustomerService>();           
+            var paymentService = IoC.Resolve<IPaymentService>();
+
+            try
+            {       
+                if (!CommonHelper.IsValidEmail(transactionPayment.Customer.Email1))
+                {
+                    throw new Exception("Email is not valid");
+                }
+
+                if (transactionPayment == null)
+                    throw new ArgumentNullException("transactionPayment");
+
+                //skip payment workflow if order total equals zero                  
+                PaymentMethod paymentMethod = null;
+                string paymentMethodName = string.Empty;
+                paymentMethod = paymentService.GetPaymentMethodById(transactionPayment.PaymentMethodId);
+                if (paymentMethod == null)
+                    throw new Exception("Payment method couldn't be loaded");
+                paymentMethodName = paymentMethod.Name;
+
+                //recurring or standard 
+                bool isRecurring = false;
+                if (transactionPayment.TransactionPaymentType == 2)
+                    isRecurring = true;
+                //process payment
+                if (!transactionPayment.IsRecurringPayment)
+                {
+                    if (isRecurring)
+                    {
+                        //recurring cart
+                        var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
+                        switch (recurringPaymentType)
+                        {
+                            case RecurringPaymentTypeEnum.NotSupported:
+                                throw new Exception("Recurring payments are not supported by selected payment method");
+                            case RecurringPaymentTypeEnum.Manual:
+                            case RecurringPaymentTypeEnum.Automatic:
+                                paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                                break;
+                            default:
+                                throw new Exception("Not supported recurring payment type");
+                        }
+                    }
+                    else
+                    {
+                        //standard cart
+                        paymentService.ProcessPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                    }
+                }
+                else
+                {
+                    if (isRecurring)
+                    {
+                        var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
+                        switch (recurringPaymentType)
+                        {
+                            case RecurringPaymentTypeEnum.NotSupported:
+                                throw new Exception("Recurring payments are not supported by selected payment method");
+                            case RecurringPaymentTypeEnum.Manual:
+                                paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                                break;
+                            case RecurringPaymentTypeEnum.Automatic:
+                                //payment is processed on payment gateway site
+                                break;
+                            default:
+                                throw new Exception("Not supported recurring payment type");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("No recurring products");
+                    }
+                }
+
+
+                //process transaction
+                if (String.IsNullOrEmpty(processPaymentResult.Error))
+                {
+                    InsertTransactionPayment(transactionPayment);
+                    //recurring orders
+                    if (!transactionPayment.IsRecurringPayment)
+                    {
+                        if (isRecurring)
+                        {
+                            //create recurring payment
+                            var rp = new RecurringPayment()
+                            {
+                                InitialTransactionPaymentId = transactionPayment.TransactionPaymentId,
+                                CycleLength = transactionPayment.RecurringCycleLength,
+                                CyclePeriod = transactionPayment.RecurringCyclePeriod,
+                                TotalCycles = transactionPayment.RecurringTotalCycles,
+                                StartDate = DateTime.UtcNow,
+                                IsActive = true,
+                                Deleted = false,
+                                CreatedOn = DateTime.UtcNow
+                            };
+                            InsertRecurringPayment(rp);   
+                            var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
+                            switch (recurringPaymentType)
+                            {
+                                case RecurringPaymentTypeEnum.NotSupported:
+                                    //not supported                                              
+                                    break;
+                                case RecurringPaymentTypeEnum.Manual:
+                                    //first payment
+                                    var rph = new RecurringPaymentHistory()
+                                    {
+                                        RecurringPaymentId = rp.RecurringPaymentId,
+                                        TransactionPaymentId = transactionPayment.TransactionPaymentId,
+                                        CreatedOn = DateTime.UtcNow
+                                    };
+                                    InsertRecurringPaymentHistory(rph);
+                                    break;
+                                case RecurringPaymentTypeEnum.Automatic:
+                                    //will be created later (process is automated)
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                processPaymentResult.Error = exc.Message;
+                processPaymentResult.FullError = exc.ToString();
+            }
+            if (!string.IsNullOrEmpty(processPaymentResult.Error))
+                outMessage = processPaymentResult.Error;
+            else
+                outMessage = processPaymentResult.AuthorizationTransactionResult;
+            return outMessage;
         }
 
         public void ProcessNextRecurringPayment(int recurringPaymentId)
@@ -295,16 +533,6 @@ namespace BetEx247.Data.DAL
             throw new NotImplementedException();
         }
 
-        public bool CanVoidOffline(TransactionPayment transactionPayment)
-        {
-            throw new NotImplementedException();
-        }
-
-        public TransactionPayment VoidOffline(long transactionPaymentId)
-        {
-            throw new NotImplementedException();
-        }
-
         public decimal ConvertRewardPointsToAmount(int rewardPoints)
         {
             throw new NotImplementedException();
@@ -314,5 +542,6 @@ namespace BetEx247.Data.DAL
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }

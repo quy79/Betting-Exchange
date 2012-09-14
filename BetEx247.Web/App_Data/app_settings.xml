@@ -23,4 +23,6 @@
   <add key="TITANBETMAINSPORT_TENNIS" value="120,121,268,255"/>
   <add key="TITANBETMAINSPORT_FOOTBALL" value="1,120,2,,451,277,28,5,6,278,78,155,269,439"/>
   <!--end source xml-->
+
+  <add key="dependencyResolverTypeName" value="BetEx247.Data.UnityDependencyResolver, BetEx247.Data" />
 </appSettings>

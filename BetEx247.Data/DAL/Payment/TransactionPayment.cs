@@ -23,7 +23,7 @@ namespace BetEx247.Data.DAL
         /// 1 : Deposit
         /// 2 : Withdraw
         /// </summary>
-        public Int16 TransactionPaymentType { get; set; }
+        public byte TransactionPaymentType { get; set; }
 
         /// <summary>
         /// Gets or sets the customer identifier
@@ -84,7 +84,10 @@ namespace BetEx247.Data.DAL
             get
             {
                 if (_customer == null)
+                {
+                    IoC.Initialize(new UnityDependencyResolver());
                     _customer = IoC.Resolve<ICustomerService>().GetCustomerById(this.MemberId);
+                }
                 return _customer;
             }
         }

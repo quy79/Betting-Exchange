@@ -136,9 +136,9 @@ namespace BetEx247.Core
 
         public static class Payment
         {
-            public const string AUTHORIZENETLOGINID = "97U9wFsx62";
-            public const string AUTHORIZENETTRANSACTION = "359ccj9fM2FC5XLc";
-            public const bool AUTHORIZESANBOX = false;
+            public const string AUTHORIZENETLOGINID = "2qUkC7bY4T";
+            public const string AUTHORIZENETTRANSACTION = "7ZhN9L987Peb6WHm";
+            public const bool AUTHORIZESANBOX = true;
 
             public const string MONEYBOOKERPAYMENTEMAIL = "chantinh2204@gmail.com";
 

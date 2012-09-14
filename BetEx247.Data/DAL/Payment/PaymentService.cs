@@ -5,6 +5,7 @@ using System.Text;
 using BetEx247.Core.Payment;
 using BetEx247.Data.Model;
 using BetEx247.Core.Common.Utils;
+using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Data.DAL
 {
@@ -16,14 +17,7 @@ namespace BetEx247.Data.DAL
         #region Constants
         private const string PAYMENTMETHODS_BY_ID_KEY = "paymentmethod.id-{0}";
         private const string PAYMENTMETHODS_PATTERN_KEY = "paymentmethod.";
-        private readonly BetEXDataContainer _context;
-        #endregion
-
-        #region Ctor
-        public PaymentService()
-        {
-            _context = new BetEXDataContainer();
-        }
+        private readonly BetEXDataContainer _context = new BetEXDataContainer();
         #endregion
 
         #region Menthod
@@ -117,11 +111,10 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Process payment
         /// </summary>
-        /// <param name="paymentInfo">Payment info required for an order processing</param>
-        /// <param name="customer">Customer</param>
+        /// <param name="paymentInfo">Payment info required for an order processing</param>      
         /// <param name="orderGuid">Unique order identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessPayment(TransactionPayment paymentInfo, Member customer,
+        public void ProcessPayment(TransactionPayment paymentInfo,
             Guid orderGuid, ref ProcessPaymentResult processPaymentResult)
         {
             if (paymentInfo.TransactionPaymentTotal == decimal.Zero)
@@ -136,7 +129,7 @@ namespace BetEx247.Data.DAL
                 if (paymentMethod == null)
                     throw new Exception("Payment method couldn't be loaded");
                 var iPaymentMethod = Activator.CreateInstance(Type.GetType(paymentMethod.ClassName)) as IPaymentMethod;
-                iPaymentMethod.ProcessPayment(paymentInfo, customer, orderGuid, ref processPaymentResult);
+                iPaymentMethod.ProcessPayment(paymentInfo, orderGuid, ref processPaymentResult);
             }
         }
 
@@ -287,7 +280,7 @@ namespace BetEx247.Data.DAL
         /// <param name="customer">Customer</param>
         /// <param name="orderGuid">Unique order identifier</param>
         /// <param name="processPaymentResult">Process payment result</param>
-        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Member member, Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult)
+        public void ProcessRecurringPayment(TransactionPayment transactionPayment, Guid transactionPaymentGuid, ref ProcessPaymentResult processPaymentResult)
         {
             if (transactionPayment.TransactionPaymentTotal == decimal.Zero)
             {
@@ -301,7 +294,7 @@ namespace BetEx247.Data.DAL
                 if (paymentMethod == null)
                     throw new Exception("Payment method couldn't be loaded");
                 var iPaymentMethod = Activator.CreateInstance(Type.GetType(paymentMethod.ClassName)) as IPaymentMethod;
-                iPaymentMethod.ProcessRecurringPayment(transactionPayment, member, transactionPaymentGuid, ref processPaymentResult);
+                iPaymentMethod.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
             }
         }
 

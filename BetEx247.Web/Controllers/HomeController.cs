@@ -6,9 +6,12 @@ using System.Web.Mvc;
 using BetEx247.Core.XML;
 using BetEx247.Plugin.XMLParser;
 using BetEx247.Core;
-using BetEx247.Plugin.DownloadFeed; 
+using BetEx247.Plugin.DownloadFeed;
 using BetEx247.Data.Model;
 using BetEx247.Data.DAL;
+using BetEx247.Core.Common.Extensions;
+using BetEx247.Core.Payment;
+using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Web.Controllers
 {
@@ -27,7 +30,7 @@ namespace BetEx247.Web.Controllers
             //downloadfeed.DownloadXML();
 
             ICustomerService customer = new CustomerService();
-            IList<Member> listCus=  customer.GetAll();
+            //IList<Member> listCus=  customer.GetAll();
 
             XMLParser parser = new XMLParser(Constant.SourceXML.TITANBET);
             lstSport = parser.AllSport;
@@ -46,6 +49,31 @@ namespace BetEx247.Web.Controllers
 
         public ActionResult About()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult About(FormCollection collection, byte id)
+        {
+            string message = string.Empty;
+            long transactionPaymentId = 0;
+            TransactionPayment transactionPayment = new TransactionPayment();
+            transactionPayment.TransactionPaymentType = id;
+            transactionPayment.MemberId = 1;
+            transactionPayment.MemberIP = Request.UserHostAddress;
+            transactionPayment.MemberEmail = transactionPayment.Customer.Email1;
+            transactionPayment.TransactionPaymentTotal = collection["Amount"].ToDecimal();
+            transactionPayment.TransactionPaymentStatusId = (int)PaymentStatusEnum.Authorized;
+            transactionPayment.PaymentMethodId = 1;
+            if (id != 1)
+            {
+                transactionPayment.RecurringTotalCycles = 1;
+                transactionPayment.RecurringCycleLength = 7;
+            }
+
+            message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);
+
+            ViewBag.Message = message;
             return View();
         }
     }
