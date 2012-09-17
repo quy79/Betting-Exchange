@@ -50,6 +50,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
@@ -63,17 +64,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Caching\CacheExtensions.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\MemoryCacheManager.cs" />
+    <Compile Include="Caching\PerRequestCacheManager.cs" />
     <Compile Include="Common\Extensions\DecimalExtensions.cs" />
     <Compile Include="Common\Extensions\StringExtensions.cs" />
+    <Compile Include="Common\Utils\BBCodeHelper.cs" />
     <Compile Include="Common\Utils\CommonHelper.cs" />
     <Compile Include="Common\Utils\CookieHelper.cs" />
+    <Compile Include="Common\Utils\IWebHelper.cs" />
     <Compile Include="Common\Utils\JSONObject.cs" />
     <Compile Include="Common\Utils\RemotePost.cs" />
+    <Compile Include="Common\Utils\WebHelper.cs" />
     <Compile Include="Constant.cs" />
-    <Compile Include="Customer\TransactionStatusEnum.cs" />
-    <Compile Include="Customer\Currency.cs" />
-    <Compile Include="Customer\Customer.cs" />
-    <Compile Include="Customer\Language.cs" />
     <Compile Include="Infrastructure\DependencyResolverFactory.cs" />
     <Compile Include="Infrastructure\IDependencyResolver.cs" />
     <Compile Include="Infrastructure\IDependencyResolverFactory.cs" />
@@ -87,6 +91,7 @@
     <Compile Include="Payment\RecurringPaymentTypeEnum.cs" />
     <Compile Include="Payment\RecurringProductCyclePeriodEnum.cs" />
     <Compile Include="Payment\ReturnStatusEnum.cs" />
+    <Compile Include="Payment\TransactionStatusEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XML\Data.cs" />
   </ItemGroup>
