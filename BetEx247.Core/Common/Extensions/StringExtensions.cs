@@ -47,6 +47,23 @@ namespace BetEx247.Core.Common.Extensions
         }
 
         /// <summary>
+        /// Get string Value from object in safe mode
+        /// </summary>
+        /// <param name="pvObj"></param>
+        /// <returns></returns>
+        public static string ToPString(this string pvObj)
+        {
+            if (pvObj == null || pvObj.ToString().Trim() == String.Empty)
+            {
+                return "";
+            }
+            else
+            {
+                return Convert.ToString(pvObj);
+            }
+        }
+
+        /// <summary>
         /// Create a copy of this string, convert to titlecase, and return to the caller
         /// </summary>
         /// <param name="value"></param>

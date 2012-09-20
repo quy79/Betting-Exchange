@@ -72,7 +72,9 @@
     <Compile Include="Common\Extensions\StringExtensions.cs" />
     <Compile Include="Common\Utils\BBCodeHelper.cs" />
     <Compile Include="Common\Utils\CommonHelper.cs" />
-    <Compile Include="Common\Utils\CookieHelper.cs" />
+    <Compile Include="Common\Utils\Crypter.cs" />
+    <Compile Include="Common\Utils\CSafeDataHelper.cs" />
+    <Compile Include="Common\Utils\HttpHelper.cs" />
     <Compile Include="Common\Utils\IWebHelper.cs" />
     <Compile Include="Common\Utils\JSONObject.cs" />
     <Compile Include="Common\Utils\RemotePost.cs" />

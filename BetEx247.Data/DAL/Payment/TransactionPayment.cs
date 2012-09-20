@@ -84,8 +84,7 @@ namespace BetEx247.Data.DAL
             get
             {
                 if (_customer == null)
-                {
-                    IoC.Initialize(new UnityDependencyResolver());
+                {                             
                     _customer = IoC.Resolve<ICustomerService>().GetCustomerById(this.MemberId);
                 }
                 return _customer;
