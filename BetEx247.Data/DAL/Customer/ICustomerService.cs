@@ -63,6 +63,22 @@ namespace BetEx247.Data.DAL
         /// </summary>
         void Logout();
 
-        #endregion     
+        #endregion 
+    
+        #region Check Data
+        /// <summary>
+        /// Check email is exist in database
+        /// </summary>
+        /// <param name="email">email to check</param>
+        /// <returns>true, false</returns>
+        bool checkExistEmail(string email);
+
+        /// <summary>
+        /// Check nickname is exist in database
+        /// </summary>
+        /// <param name="email">nickname to check</param>
+        /// <returns>true, false</returns>
+        bool checkExistNickName(string nickName);
+        #endregion
     }
 }

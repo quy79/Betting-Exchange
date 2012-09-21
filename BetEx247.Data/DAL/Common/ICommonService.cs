@@ -13,7 +13,7 @@ namespace BetEx247.Data.DAL
     public partial interface ICommonService
     {
         //get all country in database
-        List<Country> getAllCountry();
+        SelectList getAllCountry();
 
         /// <summary>
         /// Get list gender

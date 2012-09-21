@@ -15,13 +15,22 @@ namespace BetEx247.Data.DAL
         /// get all country in database
         /// </summary>
         /// <returns></returns>
-        public List<Country> getAllCountry()
+        public SelectList getAllCountry()
         {
             using (var dba = new BetEXDataContainer())
             {
                 var listCountry = dba.Countries.ToList();
+                List<SelectListItem> Items = new List<SelectListItem>();
+                foreach (Country item in listCountry)
+                {                             
+                    SelectListItem AddItem = new SelectListItem();
+                    AddItem.Value = item.ID.ToString();
+                    AddItem.Text = item.Country1;
+                    Items.Add(AddItem);
+                }
 
-                return listCountry;
+                SelectList Res = new SelectList(Items, "Value", "Text");
+                return Res;
             }
         }
 

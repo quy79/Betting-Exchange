@@ -11,6 +11,7 @@ namespace BetEx247.Data.DAL
 {
     public partial class CustomerService : ICustomerService
     {
+        #region Customer
         /// <summary>
         /// Sets a customer email
         /// </summary>
@@ -214,5 +215,40 @@ namespace BetEx247.Data.DAL
         {
             get { throw new NotImplementedException(); }
         }
+        #endregion
+
+        #region Check Data
+        /// <summary>
+        /// Check email is exist in database
+        /// </summary>
+        /// <param name="email">email to check</param>
+        /// <returns>true, false</returns>
+        public bool checkExistEmail(string email)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var member = dba.Members.Where(w => w.Email1 == email || w.Email2 == email).SingleOrDefault();
+                if (member != null)
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Check nickname is exist in database
+        /// </summary>
+        /// <param name="email">nickname to check</param>
+        /// <returns>true, false</returns>
+        public bool checkExistNickName(string nickName)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var member = dba.Members.Where(w => w.NickName == nickName).SingleOrDefault();
+                if (member != null)
+                    return true;
+            }
+            return false;
+        }
+        #endregion
     }
 }
