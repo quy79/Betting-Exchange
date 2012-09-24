@@ -230,4 +230,16 @@ namespace BetEx247.Core
         //    MOTOR_SPORTS = "Motor Sports"
         //}
     }
+	 public static class Status
+        {
+            public const string ACTIVE = "ACTIVE";
+            public const string INACTIVE = "INACTIVE";
+            public const string DELETED = "DELETED";
+            public const string NEW = "NEW";
+        }
+
+        public static class SEOLinkPage
+        {
+            public static string MEMBER_LOGIN { get { return ""; } }
+        }
 }

@@ -1,61 +1,174 @@
-﻿@model BetEx247.Web.Models.RegisterModel
-
+﻿@model BetEx247.Data.Model.Member
 @{
     ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Create a New Account</h2>
-<p>
-    Use the form below to create a new account. 
-</p>
-<p>
-    Passwords are required to be a minimum of @Membership.MinRequiredPasswordLength characters in length.
-</p>
-
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true, "Account creation was unsuccessful. Please correct the errors and try again.")
-    <div>
-        <fieldset>
-            <legend>Account Information</legend>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.UserName)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.Email)
-            </div>
-            <div class="editor-field">
-                @Html.TextBoxFor(m => m.Email)
-                @Html.ValidationMessageFor(m => m.Email)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.Password)
-            </div>
-            <div class="editor-field">
-                @Html.PasswordFor(m => m.Password)
-                @Html.ValidationMessageFor(m => m.Password)
-            </div>
-
-            <div class="editor-label">
-                @Html.LabelFor(m => m.ConfirmPassword)
-            </div>
-            <div class="editor-field">
-                @Html.PasswordFor(m => m.ConfirmPassword)
-                @Html.ValidationMessageFor(m => m.ConfirmPassword)
-            </div>
-
-            <p>
-                <input type="submit" value="Register" />
-            </p>
-        </fieldset>
-    </div>
+<h2>
+    Register</h2>
+<script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "RegisterAccount" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Member</legend>
+        <div class="editor-label">
+            Nick Name:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NickName)
+        </div>
+        <div class="editor-label">
+            Password:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+        </div>
+        <div class="editor-label">
+            Comfirm Password:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Password)
+        </div>
+        <div class="editor-label">
+            Security Question 1:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityQuestion1)
+        </div>
+        <div class="editor-label">
+            Security Answer 1:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityAnswer1)
+        </div>
+        <div class="editor-label">
+            Security Question 2:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityQuestion2)
+        </div>
+        <div class="editor-label">
+            Security Answer 2:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SecurityAnswer2)
+        </div>
+        <div class="editor-label">
+            Currency:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Currency", (IEnumerable<SelectListItem>)ViewBag.Currency, new { id = "Currency" })
+        </div>
+        <div class="editor-label">
+            First Name:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FirstName)
+        </div>
+        <div class="editor-label">
+            Middle Name:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MiddleName)
+        </div>
+        <div class="editor-label">
+            Last Name:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.LastName)
+        </div>
+        <div class="editor-label">
+            Address:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+        </div>
+        <div class="editor-label">
+            City:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.City)
+        </div>
+        <div class="editor-label">
+            Postal Code:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PostalCode)
+        </div>
+        <div class="editor-label">
+            Telephone:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telephone)
+        </div>
+        <div class="editor-label">
+            Cellphone:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Cellphone)
+        </div>
+        <div class="editor-label">
+            Country:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.ListCountry, new { id = "Country" })
+        </div>
+        <div class="editor-label">
+            Email:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email1)
+        </div>
+        <div class="editor-label">
+            Email 2:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email2)
+        </div>
+        <div class="editor-label">
+            Gender:
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("Gender", (IEnumerable<SelectListItem>)ViewBag.Gender, new { id = "Gender" })
+        </div>
+        <div class="editor-label">
+            Suffix:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Suffix)
+        </div>
+        <div class="editor-label">
+            Betting Region:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BettingRegion)
+        </div>
+        <div class="editor-label">
+            Timezone:
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Timezone)
+        </div>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
 }
+<script type="text/javascript"> 
+    $(document).ready(function () {
+        $("#RegisterAccount").validate({
+            rules: {
+                FirstName: { required: true, maxlength: 64 },
+                LastName: { required: true, maxlength: 64 },
+                Email: { maxlength: 32,email:true, }
+            },
+            messages:{
+                FirstName:{required:'Please enter first name',maxlength:'You must input less than 64 charactor.'}
+            }
+        });
+    });
+</script>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

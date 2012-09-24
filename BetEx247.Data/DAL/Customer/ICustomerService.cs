@@ -21,7 +21,13 @@ namespace BetEx247.Data.DAL
         /// Marks customer as deleted
         /// </summary>
         /// <param name="customerId">Customer identifier</param>
-        void MarkCustomerAsDeleted(long customerId);
+        bool MarkCustomerAsDeleted(long customerId);
+
+        /// <summary>
+        /// Marks customer as active the first time throught active email
+        /// </summary>
+        /// <param name="customerId">Customer identifier</param>
+        bool UpdateFirstActive(long customerId);
 
         /// <summary>
         /// Gets a customer by email
@@ -31,7 +37,7 @@ namespace BetEx247.Data.DAL
         Member GetCustomerByEmail(string email);
 
         /// <summary>
-        /// Gets a customer by email
+        /// Gets a customer by username
         /// </summary>
         /// <param name="username">Customer username</param>
         /// <returns>A customer</returns>
@@ -45,12 +51,12 @@ namespace BetEx247.Data.DAL
         Member GetCustomerById(long customerId); 
        
         /// <summary>
-        /// Login a customer
+        /// Authenticate a customer
         /// </summary>
         /// <param name="email">A customer email</param>
         /// <param name="password">Password</param>
         /// <returns>Result</returns>
-        bool Login(string email, string password);
+        bool Authenticate(string email, string password);
 
         /// <summary>
         /// Logout customer
