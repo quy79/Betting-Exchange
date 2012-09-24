@@ -8,7 +8,6 @@ using System.Net;
 using BetEx247.Plugin.Payments.AuthorizeNet.net.authorize.api; 
 using BetEx247.Core.Payment;
 using BetEx247.Core.Infrastructure;
-using BetEx247.Core.CustomerManagement;
 using BetEx247.Core;
 using BetEx247.Data.DAL;
 using BetEx247.Data.Model;

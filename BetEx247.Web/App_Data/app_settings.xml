@@ -6,6 +6,9 @@
   <!--server path-->
   <add key="ServerPath" value="D:/Project/PN Technologies/BetEx247/BetEx247.Web"/>
   <!--end server path-->
+  <!--currency-->
+  <add key="CurrencyList" value="USD,Euro,JPY,GBP,AUD"/>
+  <!--end currency-->
   <!--source xml-->
   <add key="BETCLICKURL" value="http://xml.betclick.com/odds_en.xml"/>
   <add key="PINNACLESPORTSURL" value="http://api.pinnaclesports.com/v1/sports"/>

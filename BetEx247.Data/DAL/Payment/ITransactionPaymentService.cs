@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using BetEx247.Data.Model;
 using BetEx247.Core.Payment;
-using BetEx247.Core.CustomerManagement;
 
 namespace BetEx247.Data.DAL
 {

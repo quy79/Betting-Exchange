@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using BetEx247.Data.Model;
 using BetEx247.Web.Models;
+using BetEx247.Core.Infrastructure;
+using BetEx247.Data.DAL;
 
 namespace BetEx247.Web.Controllers
 {
@@ -66,6 +71,10 @@ namespace BetEx247.Web.Controllers
 
         public ActionResult Register()
         {
+            var listCountry =IoC.Resolve<ICommonService>().getAllCountry();
+            ViewBag.ListCountry = new SelectList(listCountry, "ID", "Country1");
+            ViewBag.Gender = IoC.Resolve<ICommonService>().MakeSelectListGender();
+            ViewBag.Currency = IoC.Resolve<ICommonService>().MakeSelectListCurrency();
             return View();
         }
 
@@ -73,17 +82,42 @@ namespace BetEx247.Web.Controllers
         // POST: /Account/Register
 
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(FormCollection collection)
         {
+            var member = new Member();
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                Membership.CreateUser(member.NickName, member.Password, member.Email1, null, null, true, null, out createStatus);
+
+                member.NickName = collection["NickName"].ToString();
+                member.Password = collection["Password"].ToString();
+                member.SecurityQuestion1 = collection["SecurityQuestion1"].ToString();
+                member.SecurityAnswer1 = collection["SecurityAnswer1"].ToString();
+                member.SecurityQuestion2 = collection["SecurityQuestion2"].ToString();
+                member.SecurityAnswer2 = collection["SecurityAnswer2"].ToString();
+                member.Currency = 1;
+                member.FirstName = collection["FirstName"].ToString();
+                member.MiddleName = collection["MiddleName"].ToString();
+                member.LastName = collection["LastName"].ToString();
+                member.Address = collection["Address"].ToString();
+                member.City = collection["City"].ToString();
+                member.PostalCode = collection["PostalCode"].ToString();
+                member.Telephone = collection["Telephone"].ToString();
+                member.Cellphone = collection["Cellphone"].ToString();
+                member.Country = 1;
+                member.Email1 = collection["Email1"].ToString();
+                member.Email2 = collection["Email2"].ToString();
+                member.Gender = true;
+                member.BettingRegion = collection["BettingRegion"].ToString();
+                member.Timezone = collection["Timezone"].ToString();
+                member.AddedDate = DateTime.UtcNow;
+                member.Updatedate = DateTime.UtcNow;
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
+                    FormsAuthentication.SetAuthCookie(member.NickName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -93,7 +127,7 @@ namespace BetEx247.Web.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View(member);
         }
 
         //

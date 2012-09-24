@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BetEx247.Core.Payment;
-using BetEx247.Core.CustomerManagement;
 using BetEx247.Core.Common.Utils;
 using BetEx247.Core.Infrastructure;
 using System.Globalization;

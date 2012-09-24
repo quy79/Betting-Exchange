@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Web
 {
@@ -32,7 +33,7 @@ namespace BetEx247.Web
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-
+            IoC.Initialize(new UnityDependencyResolver());
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
         }
