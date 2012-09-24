@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BetEx247.Core.XML;
+//using BetEx247.Core.XML;
 using BetEx247.Plugin.XMLParser;
 using BetEx247.Core;
 using BetEx247.Plugin.DownloadFeed;
@@ -12,6 +12,9 @@ using BetEx247.Data.DAL;
 using BetEx247.Core.Common.Extensions;
 using BetEx247.Core.Payment;
 using BetEx247.Core.Infrastructure;
+using BetEx247.Plugin.XMLParser;
+using BetEx247.Core.XMLObjects.Sport.Interface;
+using System.Diagnostics;
 
 namespace BetEx247.Web.Controllers
 {
@@ -19,7 +22,7 @@ namespace BetEx247.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Welcome to ASP.NET MVC!";
+           /* ViewBag.Message = "Welcome to ASP.NET MVC!";
             //List<BetEx247.Core.XML.Sport> lstSport = new List<BetEx247.Core.XML.Sport>();
             //List<Event> lstEvent = new List<Event>();
             //List<Match> lstMatch = new List<Match>();
@@ -44,7 +47,13 @@ namespace BetEx247.Web.Controllers
             //ViewBag.lstBet = lstBet;
             //ViewBag.lstChoice = lstChoice;
 
-            //return View(lstSport);
+            return View(lstSport);*/
+            //Debug.WriteLine("Init XMLParserObjectManager");
+            //XMLParserObjectManager obj = new XMLParserObjectManager();
+            //obj.Parse();                         
+            //Debug.WriteLine("End XMLParserObjectManager ");
+
+
             return View();
         }
 

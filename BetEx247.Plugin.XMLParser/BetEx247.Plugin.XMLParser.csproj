@@ -41,12 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BetclickParser.cs" />
-    <Compile Include="CachefeedsParser.cs" />
-    <Compile Include="IXMLParser.cs" />
-    <Compile Include="PinnacleSportsParser.cs" />
+    <Compile Include="IGeneric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XMLParser.cs" />
+    <Compile Include="XMLParserObjectManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BetEx247.Core\BetEx247.Core.csproj">
