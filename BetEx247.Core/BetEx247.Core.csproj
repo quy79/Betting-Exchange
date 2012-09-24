@@ -88,9 +88,29 @@
     <Compile Include="Payment\RecurringProductCyclePeriodEnum.cs" />
     <Compile Include="Payment\ReturnStatusEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XML\Data.cs" />
+    <Compile Include="XMLObjects\Data.cs" />
+    <Compile Include="XMLObjects\League\Interface\ILeague.cs" />
+    <Compile Include="XMLObjects\League\League.cs" />
+    <Compile Include="XMLObjects\Market\Interface\IMarket.cs" />
+    <Compile Include="XMLObjects\Market\Market.cs" />
+    <Compile Include="XMLObjects\Market\Outcome\Interface\IOutcome.cs" />
+    <Compile Include="XMLObjects\Market\Outcome\Outcome.cs" />
+    <Compile Include="XMLObjects\Match\Interface\IMatch.cs" />
+    <Compile Include="XMLObjects\Match\Match.cs" />
+    <Compile Include="XMLObjects\Match\Period\Interface\IPeriod.cs" />
+    <Compile Include="XMLObjects\Match\Period\MoneyLine\Interface\IMoneyLine.cs" />
+    <Compile Include="XMLObjects\Match\Period\MoneyLine\MoneyLine.cs" />
+    <Compile Include="XMLObjects\Match\Period\Period.cs" />
+    <Compile Include="XMLObjects\Match\Period\Spread\Interface\ISpread.cs" />
+    <Compile Include="XMLObjects\Match\Period\Spread\Spread.cs" />
+    <Compile Include="XMLObjects\Match\Period\Total\Interface\ITotal.cs" />
+    <Compile Include="XMLObjects\Match\Period\Total\Total.cs" />
+    <Compile Include="XMLObjects\Sport\Interface\ISport.cs" />
+    <Compile Include="XMLObjects\Sport\Sport.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="XML\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

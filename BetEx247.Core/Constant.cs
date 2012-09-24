@@ -18,7 +18,7 @@ namespace BetEx247.Core
             public static string PINNACLESPORTSURL = ConfigurationManager.AppSettings["PINNACLESPORTSURL"].ToString();
             public static string PINNACLELEAGUEURL = ConfigurationManager.AppSettings["PINNACLELEAGUEURL"].ToString();
             public static string PINNACLEFEEDURL = ConfigurationManager.AppSettings["PINNACLEFEEDURL"].ToString();
-            public static string TITABETURL = "D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";// ConfigurationManager.AppSettings["TITABETURL"].ToString();//
+            public static string TITABETURL = ConfigurationManager.AppSettings["TITABETURL"].ToString();//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";// 
         }
 
         public static class TitanBetOddTypeID
@@ -136,14 +136,98 @@ namespace BetEx247.Core
 
         public static class Payment
         {
-            public const string AUTHORIZENETLOGINID = "2qUkC7bY4T";
-            public const string AUTHORIZENETTRANSACTION = "7ZhN9L987Peb6WHm";
-            public const bool AUTHORIZESANBOX = true;
+            public const string AUTHORIZENETLOGINID = "97U9wFsx62";
+            public const string AUTHORIZENETTRANSACTION = "359ccj9fM2FC5XLc";
+            public const bool AUTHORIZESANBOX = false;
 
             public const string MONEYBOOKERPAYMENTEMAIL = "chantinh2204@gmail.com";
 
             public const string STORENAME = "BetEx247";
             public const string CURRENCYCODE = "USD";
         }
+
+        public enum SourceFeedType
+        {
+            BETCLICK = 1,
+            PINNACLESPORTS = 2,
+            TITANBET = 3
+        }
+        /// <summary>
+        /// Selelct sport type
+        /// </summary>
+        public enum SportType
+        {
+            EMPTY = 0,
+            BADMINTON = 1,
+            BASEBALL = 3,
+            BASKETBALL = 4,
+            BOXING = 6,
+            CRICKET = 8,
+            CURLING = 9,
+            DARTS = 10,
+            DARTS_LEGS = 11,
+            E_SPORTS = 12,
+            FLOORBALL = 14,
+            FOOTBALL = 15,
+            FUTSAL = 16,
+            GOLF = 17,
+            HANDBALL = 18,
+            HOCKEY = 19,
+            HORSE_RACING = 20,
+            MIXED_MARTIAL_ARTS = 22,
+            OTHER_SPORTS = 23,
+            POLITICS = 24,
+            RUGBY_LEAGUE = 26,
+            RUGBY_UNION = 27,
+            SNOOKER = 28,
+            SOCCER = 29,
+            SOFTBALL = 30,
+            SQUASH = 31,
+            TABLE_TENNIS = 32,
+            TENNIS = 33,
+            VOLLEYBALL = 34,
+            VOLLEYBALL_POINTS = 35,
+            WATER_POLO = 36,
+            AUSSIE_RULES = 39,
+            MOTOR_SPORTS = 41
+
+
+        }
+        //public enum SportName
+        //{
+        //    [StringValue("Cordless Power Drill")]
+        //    BADMINTON = Badminton,
+        //    BASEBALL = "Baseball",
+        //    BASKETBALL = "Basketball",
+        //    BOXING = "Boxing",
+        //    CRICKET = "Cricket",
+        //    CURLING = "Curling",
+        //    DARTS = "Darts",
+        //    DARTS_LEGS = "Darts (Legs)",
+        //    E_SPORTS = "E Sports ",
+        //    FLOORBALL = "Floorball",
+        //    FOOTBALL = "Football",
+        //    FUTSAL = "Futsal",
+        //    GOLF = "Golf",
+        //    HANDBALL = "Handball",
+        //    HOCKEY = "Hockey",
+        //    HORSE_RACING = "Horse Racing",
+        //    MIXED_MARTIAL_ARTS = "Mixed Martial Arts",
+        //    OTHER_SPORTS = "Other Sports",
+        //    POLITICS = "Politics",
+        //    RUGBY_LEAGUE = "Rugby League",
+        //    RUGBY_UNION = "Rugby Union",
+        //    SNOOKER = "Snooker",
+        //    SOCCER = "Soccer",
+        //    SOFTBALL = "Softball",
+        //    SQUASH = "Squash",
+        //    TABLE_TENNIS = "Table Tennis ",
+        //    TENNIS = "Tennis",
+        //    VOLLEYBALL = "Volleyball",
+        //    VOLLEYBALL_POINTS = "Volleyball (Points)",
+        //    WATER_POLO = "Water Polo",
+        //    AUSSIE_RULES = "Aussie Rules",
+        //    MOTOR_SPORTS = "Motor Sports"
+        //}
     }
 }

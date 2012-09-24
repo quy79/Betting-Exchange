@@ -5,3 +5,23 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.XMLParser\obj\Debug\BetEx247
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.XMLParser\obj\Debug\BetEx247.Plugin.XMLParser.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Core.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Plugin.XMLParser.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Plugin.XMLParser.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Core.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\Microsoft.Practices.Unity.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Core.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\obj\Debug\ResolveAssemblyReference.cache
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\obj\Debug\BetEx247.Plugin.XMLParser.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\obj\Debug\BetEx247.Plugin.XMLParser.pdb
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Plugin.XMLParser.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Plugin.XMLParser.pdb
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Core.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\Microsoft.Practices.Unity.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\bin\Debug\BetEx247.Core.pdb
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\obj\Debug\BetEx247.Plugin.XMLParser.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.XMLParser\obj\Debug\BetEx247.Plugin.XMLParser.pdb
