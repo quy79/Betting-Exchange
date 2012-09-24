@@ -3,3 +3,13 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\bin\Debug\BetEx247.
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\obj\Debug\ResolveAssemblyReference.cache
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.pdb
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.pdb
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\ResolveAssemblyReference.cache
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.pdb

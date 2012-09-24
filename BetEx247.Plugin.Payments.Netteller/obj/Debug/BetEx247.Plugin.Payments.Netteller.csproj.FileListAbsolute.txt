@@ -3,3 +3,13 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.Netteller\bin\Debug
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.Netteller\obj\Debug\ResolveAssemblyReference.cache
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.pdb
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\bin\Debug\BetEx247.Plugin.Payments.Netteller.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\bin\Debug\BetEx247.Plugin.Payments.Netteller.pdb
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\ResolveAssemblyReference.cache
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.dll
+E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\bin\Debug\BetEx247.Plugin.Payments.Netteller.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\bin\Debug\BetEx247.Plugin.Payments.Netteller.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\ResolveAssemblyReference.cache
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.dll
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.pdb

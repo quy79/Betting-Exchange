@@ -4,12 +4,12 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Data.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Data.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.dll
-D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.pdb
-D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.xml
-D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.dll
-D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\Microsoft.Practices.ServiceLocation.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\Microsoft.Practices.Unity.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.xml
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.pdb
