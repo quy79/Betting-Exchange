@@ -20,31 +20,32 @@ namespace BetEx247.Web.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Welcome to ASP.NET MVC!";
-            List<BetEx247.Core.XML.Sport> lstSport = new List<BetEx247.Core.XML.Sport>();
-            List<Event> lstEvent = new List<Event>();
-            List<Match> lstMatch = new List<Match>();
-            List<Bet> lstBet = new List<Bet>();
-            List<Choice> lstChoice = new List<Choice>();
+            //List<BetEx247.Core.XML.Sport> lstSport = new List<BetEx247.Core.XML.Sport>();
+            //List<Event> lstEvent = new List<Event>();
+            //List<Match> lstMatch = new List<Match>();
+            //List<Bet> lstBet = new List<Bet>();
+            //List<Choice> lstChoice = new List<Choice>();
 
-            //DownloadXMLFeed downloadfeed = new DownloadXMLFeed(Constant.SourceXML.PINNACLESPORTS);
-            //downloadfeed.DownloadXML();
+            ////DownloadXMLFeed downloadfeed = new DownloadXMLFeed(Constant.SourceXML.PINNACLESPORTS);
+            ////downloadfeed.DownloadXML();
 
-            ICustomerService customer = new CustomerService();
-            //IList<Member> listCus=  customer.GetAll();
+            //ICustomerService customer = new CustomerService();
+            ////IList<Member> listCus=  customer.GetAll();
 
-            XMLParser parser = new XMLParser(Constant.SourceXML.TITANBET);
-            lstSport = parser.AllSport;
-            lstEvent = parser.AllEvent;
-            lstMatch = parser.AllMatch;
-            lstBet = parser.AllBet;
-            lstChoice = parser.AllChoice;
+            //XMLParser parser = new XMLParser(Constant.SourceXML.TITANBET);
+            //lstSport = parser.AllSport;
+            //lstEvent = parser.AllEvent;
+            //lstMatch = parser.AllMatch;
+            //lstBet = parser.AllBet;
+            //lstChoice = parser.AllChoice;
 
-            ViewBag.lstEvent = lstEvent;
-            ViewBag.lstMatch = lstMatch;
-            ViewBag.lstBet = lstBet;
-            ViewBag.lstChoice = lstChoice;
+            //ViewBag.lstEvent = lstEvent;
+            //ViewBag.lstMatch = lstMatch;
+            //ViewBag.lstBet = lstBet;
+            //ViewBag.lstChoice = lstChoice;
 
-            return View(lstSport);
+            //return View(lstSport);
+            return View();
         }
 
         public ActionResult About()

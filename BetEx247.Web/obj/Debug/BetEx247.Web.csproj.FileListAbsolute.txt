@@ -13,3 +13,10 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.DownloadFee
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.DownloadFeed.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Data.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Data.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.Payments.AuthorizeNet.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.Payments.AuthorizeNet.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\Microsoft.Practices.ServiceLocation.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\Microsoft.Practices.Unity.Configuration.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\Microsoft.Practices.Unity.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\Microsoft.Practices.Unity.Interception.Configuration.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\Microsoft.Practices.Unity.Interception.dll

@@ -1,13 +1,18 @@
-﻿<div id="title">
-    <h1>
-        My MVC Application</h1>
+﻿<div class="header_upper clearfix">
+    <div class="grid_20">
+	    <h1 class="b_logo"><a href="." title="24/7 Betting Exchange" rel="home">24/7 Betting Exchange</a></h1>
+    </div>
+    <div id="userpanel" class="b_loginButtons clearfix">
+    <!--start_hideonlogin_UserPanel-->
+    <form action="/Member/loginController" id="userFormLogin" method="post" class="regFormTop">
+        <ul>
+            <li class="reg_link"><a href="/Member/registerController">Register Now!</a></li>
+            <li><a href="/forgot-password.html">Forgot Your Password?</a></li>
+            <li><label for="loginUser">Username:</label><input tabindex="1" id="loginUser" name="LoginName" type="text" title="Username:" autocomplete="off" /></li>
+            <li><label for="pswd">Password:</label><input tabindex="2" id="pswd" name="Password" type="password" title="Password:" autocomplete="off" /><input class="formsubmit" type="submit" /></li>
+            <li><a id="loginform_submit" href="#" class="b_button smallButton smallButtonGrey">Log In</a></li>
+        </ul>
+    </form>
+    <!--end_hideonlogin_UserPanel-->
+    </div>            
 </div>
-<div id="logindisplay">
-    @Html.Partial("_LogOnPartial")
-</div>
-<nav>
-    <ul id="menu">
-        <li>@Html.ActionLink("Home", "Index", "Home")</li>
-        <li>@Html.ActionLink("About", "About", "Home")</li>
-    </ul>
-</nav>

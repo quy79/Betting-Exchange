@@ -247,6 +247,10 @@
     <Property Type="String" Name="EmailFormat" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Double" Name="ExposureLimit" />
     <Property Type="DateTime" Name="PointsLastUpdateTime" />
+    <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsActive" />
+    <Property Type="DateTime" Name="AddedDate" />
+    <Property Type="DateTime" Name="Updatedate" />
     <NavigationProperty Name="LoginHistories" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
     <NavigationProperty Name="Messages" Relationship="BetEXData.FK_Messages_Members" FromRole="Member" ToRole="Message" />
     <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Members" FromRole="Member" ToRole="MyBet" />
@@ -311,7 +315,7 @@
     <Property Type="Boolean" Name="DepositOnly" />
     <Property Type="Boolean" Name="WithdrawOnly" />
     <Property Type="Boolean" Name="DepositAndWithdraw" />
-    <Property Type="Int16" Name="PaymentMethodId" Nullable="false" />
+    <Property Type="Int64" Name="PaymentMethodId" Nullable="false" />
     <Property Type="Int64" Name="MemberID" />
     <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyCards_Members" FromRole="MyCard" ToRole="Member" />
     <NavigationProperty Name="PaymentMethod" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="MyCard" ToRole="PaymentMethod" />
@@ -332,14 +336,18 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Type="Int16" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="CreditCardNumber" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="NameOnCard" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="ValidFrom" />
-    <Property Type="DateTime" Name="ValidTo" />
-    <Property Type="DateTime" Name="ExpirationDate" />
+    <Property Type="String" Name="CardType" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CreditCardNumber" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="NameOnCard" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MaskedCreditCardNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CardCvv2" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="ValidFrom" Nullable="false" />
+    <Property Type="DateTime" Name="ValidTo" Nullable="false" />
+    <Property Type="String" Name="CardExpirationMonth" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CardExpirationYear" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Zipcode" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -351,6 +359,9 @@
     <Property Type="String" Name="IBAN" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="AccountHolder" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="AccountNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ClassName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddedDate" />
+    <Property Type="DateTime" Name="ModifyDate" />
     <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="PaymentMethod" ToRole="MyCard" />
   </EntityType>
   <EntityType Name="Player">
@@ -714,8 +725,13 @@
     <Property Type="Byte" Name="Type" Nullable="false" />
     <Property Type="Decimal" Name="Amount" Nullable="false" Precision="19" Scale="4" />
     <Property Type="String" Name="CardId" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="String" Name="Status" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Type="Int64" Name="MemberId" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <Property Type="Int64" Name="MemberId" Nullable="false" />
+    <Property Type="Int64" Name="PaymentMenthodID" Nullable="false" />
+    <Property Type="String" Name="MemberEmail" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MemberIP" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AddedDate" />
+    <Property Type="DateTime" Name="ModifyDate" />
     <NavigationProperty Name="Member" Relationship="BetEXData.FK_Transactions_Members" FromRole="Transaction" ToRole="Member" />
   </EntityType>
   <Association Name="FK_CardsInfo_SoccerMatches">
@@ -839,7 +855,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Transactions_Members">
-    <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+    <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
     <End Type="BetEXData.Transaction" Role="Transaction" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Member">

@@ -9,151 +9,922 @@
     List<Bet> lstBet = ViewBag.lstBet;
     List<Choice> lstChoice = ViewBag.lstChoice;
 }
-<h2>@ViewBag.Message</h2>
-<p>
-    To learn more about ASP.NET MVC visit <a href="http://asp.net/mvc" title="ASP.NET MVC Website">
-        http://asp.net/mvc</a>.
-</p>
-<table>
-    <tr>
-        <th>
-            Sport ID
-        </th>
-        <th>
-            Sport Name
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.Raw(item.sportId.ToString())
-            </td>
-            <td>
-                @item.sportName
-            </td>
-        </tr>
-    }
-</table>
-<table>
-    <tr>
-        <th>
-            Sport Id
-        </th>
-        <th>
-            Event Id
-        </th>
-        <th>
-            Event Name
-        </th>
-    </tr>
-    @foreach (var item in lstEvent)
-    {
-        <tr>
-            <td>
-                @item.sportId
-            </td>
-            <td>
-                @item.eventId
-            </td>
-            <td>
-                @item.eventName
-            </td>
-        </tr>
-    }
-</table>
-<table>
-    <tr>
-        <th>
-            Event Id
-        </th>
-        <th>
-            Match Id
-        </th>
-        <th>
-            Home Team
-        </th><th>
-            Away Team
-        </th>
-        <th>
-            Start Time
-        </th>
-    </tr>
-    @foreach (var item in lstMatch)
-    {
-        <tr>
-            <td>
-                @item.eventId
-            </td>
-            <td>
-                @item.matchId
-            </td>
-            <td>
-                @item.homeTeam  
-            </td>  <td>
-                @item.awayTeam  
-            </td>
-            <td>
-                @item.startTime
-            </td>
-        </tr>
-    }
-</table>
-<table>
-    <tr>
-        <th>Match Id
-        </th>
-        <th>Bet Id
-        </th>
-        <th>Bet Name
-        </th>
-        <th>Bet Code
-        </th>
-    </tr>
-    @foreach (var item in lstBet)
-    {
-        <tr>
-            <td>
-                @item.matchId
-            </td>
-            <td>
-                @item.betId
-            </td>
-            <td>
-                @item.betName
-            </td>
-            <td>
-                @item.betCodeID
-            </td>
-        </tr>
-    }
-</table>
-<table>
-    <tr>
-        <th>Bet Id
-        </th>
-        <th>Choice Id
-        </th>
-        <th>Choice Name
-        </th>
-        <th>Odd
-        </th>
-    </tr>
-    @foreach (var item in lstChoice)
-    {
-        <tr>
-            <td>
-                @item.betId
-            </td>
-            <td>
-                @item.choiceId
-            </td>
-            <td>
-                @item.choiceName
-            </td>
-            <td>
-                @item.odd
-            </td>           
-        </tr>
-    }
-</table>
+<div id="left_column">
+    <div>
+        <div class="ChooseSportsHeader">
+            <span class="orange">Sports offer</span>
+        </div>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-soccer"></span>Soccer <span style="float: right; margin-right: 4px;">
+                    4353</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    Worldcup 2012 Qualification - Europe</div>
+            </a></li>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    Worldcup 2012 Qualification - Asian</div>
+            </a></li>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    Worldcup 2012 Qualification - Caribe</div>
+            </a></li>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    Worldcup 2012 Qualification - South America</div>
+            </a></li>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    Uefa Champions League</div>
+            </a></li>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    English Premier League</div>
+            </a></li>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    La Liga</div>
+            </a></li>
+            <li><a href="byLeague.html">
+                <div style="padding: 3px 0px 3px 4px;">
+                    Bundesliga</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-baseball"></span>Baseball <span style="float: right; margin-right: 4px;">
+                    18</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    WTA - Tours</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Women Doubles</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-tennis"></span>Tennis <span style="float: right; margin-right: 4px;">
+                    18</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    NBA</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    EuroLeague</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Rus.Basket PBL</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-horse"></span>Horse Racing <span style="float: right; margin-right: 4px;">
+                    7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Australia Horse Racing</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    UK Horse Racing</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    US Horse Racings</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-usfootball"></span>American Football <span style="float: right;
+                    margin-right: 4px;">7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    NCAA</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    NFL</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Canada - CFL</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    USA - NFL Conferences 2012/2013</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-cricket"></span>Cricket <span style="float: right; margin-right: 4px;">
+                    7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    ECB 40 League</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Sheffield Shield</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-hockey"></span>Ice Hockey <span style="float: right; margin-right: 4px;">
+                    7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    NHL 2012/13</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Russia KHL</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-handball"></span>Handball <span style="float: right; margin-right: 4px;">
+                    7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Motor GP - World Championship 2012</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    F-1 Constructor Championship 2012</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-volleyball"></span>Volleyball <span style="float: right; margin-right: 4px;">
+                    7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Motor GP - World Championship 2012</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    F-1 Constructor Championship 2012</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-rugby"></span>Rugby League <span style="float: right; margin-right: 4px;">
+                    7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    US. League-1</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Canada Open League 2012</div>
+            </a></li>
+        </ul>
+    </div>
+    <div class="sport-heading">
+        <a href="#" class="sportlnk">
+            <div style="padding: 6px 0px">
+                <span class="sports-rugby"></span>Rugby Union <span style="float: right; margin-right: 4px;">
+                    7</span>
+            </div>
+        </a>
+    </div>
+    <div class="navsports">
+        <ul>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    US. League-1</div>
+            </a></li>
+            <li><a href=".">
+                <div style="padding: 3px 10px">
+                    Canada Open League 2012</div>
+            </a></li>
+        </ul>
+    </div>
+</div>
+<div id="middle_column">
+    <!--             	
+					<div id="slides">
+                        <div class="slides_container">
+                            <div class="slide">
+                                <a href="http://www.flickr.com/photos/jliba/4665625073/" title="145.365 - Happy Bokeh Thursday! | Flickr - Photo Sharing!" target="_blank"><img src="slides/slide-1.jpg" width="508" height="210" alt="Slide 1"></a>
+                                <div class="caption" style="bottom:0">
+                                    <p>Happy Bokeh Thursday!</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <a href="http://www.flickr.com/photos/stephangeyer/3020487807/" title="Taxi | Flickr - Photo Sharing!" target="_blank"><img src="slides/slide-2.jpg" width="508" height="210" alt="Slide 2"></a>
+                                <div class="caption">
+                                    <p>Taxi</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <a href="http://www.flickr.com/photos/childofwar/2984345060/" title="Happy Bokeh raining Day | Flickr - Photo Sharing!" target="_blank"><img src="slides/slide-3.jpg" width="508" height="210" alt="Slide 3"></a>
+                                <div class="caption">
+                                    <p>Happy Bokeh raining Day</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <a href="http://www.flickr.com/photos/b-tal/117037943/" title="We Eat Light | Flickr - Photo Sharing!" target="_blank"><img src="slides/slide-4.jpg" width="508" height="210" alt="Slide 4"></a>
+                                <div class="caption">
+                                    <p>We Eat Light</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <a href="http://www.flickr.com/photos/bu7amd/3447416780/" title="&ldquo;I must go down to the sea again, to the lonely sea and the sky; and all I ask is a tall ship and a star to steer her by.&rdquo; | Flickr - Photo Sharing!" target="_blank"><img src="slides/slide-5.jpg" width="508" height="210" alt="Slide 5"></a>
+                                <div class="caption">
+                                    <p>&ldquo;I must go down to the sea again, to the lonely sea and the sky...&rdquo;</p>
+                                </div>
+                            </div>
+                            <div class="slide">
+                                <a href="http://www.flickr.com/photos/streetpreacher/2078765853/" title="twelve.inch | Flickr - Photo Sharing!" target="_blank"><img src="slides/slide-6.jpg" width="508" height="210" alt="Slide 6"></a>
+                                <div class="caption">
+                                    <p>twelve.inch</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--
+                        <a href="#" class="prev"><img src="img/arrow-prev.png" width="24" height="43" alt="Arrow Prev"></a>
+                        <a href="#" class="next"><img src="img/arrow-next.png" width="24" height="43" alt="Arrow Next"></a>
+                        
+                        
+                        
+					</div>
+                    -->
+    <div class="highlights">
+        <span>BETTING HIGHLIGHTS</span>
+    </div>
+    <div class="highlights-content">
+        <div class="sports-cat-heading-underline">
+            <div class="title">
+                Soccer
+            </div>
+            <div class="all">
+                <table style="border-spacing: 2px; border-collapse: separate; width: 100%;">
+                    <tr>
+                        <td height="26" width="33%">
+                            <table width="100%" cellpadding="1" cellspacing="1" border="1" bgcolor="#000000">
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        Home
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" align="center">
+                                        Back
+                                    </td>
+                                    <td width="50%" align="center">
+                                        Lay
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td height="26" width="34%">
+                            <table width="100%" cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        Draw
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" align="center">
+                                        Back
+                                    </td>
+                                    <td width="50%" align="center">
+                                        Lay
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td height="26" width="33%">
+                            <table width="100%" cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        Away
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" align="center">
+                                        Back
+                                    </td>
+                                    <td width="50%" align="center">
+                                        Lay
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="sports-cat-content">
+            <table class="sports-cat-tbl">
+                <tr>
+                    <td width="50">
+                        21:00<br />
+                        18 Sep
+                    </td>
+                    <td width="200">
+                        <a href="." class="sports-cat-lnk">
+                            <div>
+                                UEFA Champions League<br />
+                                <span class="match-title-bigger">Barca - Manchester Utd</span></div>
+                        </a>
+                    </td>
+                    <td width="250" style="vertical-align: top;" align="center">
+                        <table style="border-spacing: 2px; border-collapse: separate; width: 100%;">
+                            <tr>
+                                <td height="30" width="33%">
+                                    <table width="100%" cellpadding="2" cellspacing="2">
+                                        <tr>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">1.87</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td height="30" width="34%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">44/27</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td height="30" width="33%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">&nbsp;</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">1.87</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!--
+                                        <td width="20%"  style="vertical-align: middle; text-align: center;">
+                                        <div style="display: inline-block; margin: 0 0; padding: 2px 2px;  width: 80px;">
+                                            <a href="mysegments.html" class="common-button">more odds...</a>
+                                        </div>
+                                        </td>
+                                        -->
+                </tr>
+                <tr>
+                    <td width="50">
+                        21:00
+                    </td>
+                    <td width="200">
+                        <a href="." class="sports-cat-lnk">
+                            <div>
+                                UEFA Champions League<br />
+                                <span class="match-title-bigger">Real Madrid - Manchester City</span></div>
+                        </a>
+                    </td>
+                    <td width="250" style="vertical-align: top;" align="center">
+                        <table style="border-spacing: 2px; border-collapse: separate; width: 100%;">
+                            <tr>
+                                <td height="30" width="33%">
+                                    <table width="100%" cellpadding="2" cellspacing="2">
+                                        <tr>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">1.87</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td height="30" width="34%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">44/27</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td height="30" width="33%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">&nbsp;</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">1.87</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="50">
+                        21:00<br />
+                        18 Sep
+                    </td>
+                    <td width="200">
+                        <a href="." class="sports-cat-lnk">
+                            <div>
+                                UEFA Champions League<br />
+                                <span class="match-title-bigger">Bayer Munchen - PSG</span></div>
+                        </a>
+                    </td>
+                    <td width="250" style="vertical-align: top;" align="center">
+                        <table style="border-spacing: 2px; border-collapse: separate; width: 100%;">
+                            <tr>
+                                <td height="30" width="33%">
+                                    <table width="100%" cellpadding="2" cellspacing="2">
+                                        <tr>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">1.87</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td height="30" width="34%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">44/27</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td height="30" width="33%">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">&nbsp;</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">1.87</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="sports-cat-heading-underline">
+            <div class="title">
+                Tennis
+            </div>
+            <div class="all">
+                <table style="border-spacing: 2px; border-collapse: separate; width: 100%;">
+                    <tr>
+                        <td height="26" width="50%">
+                            <table width="100%" cellpadding="1" cellspacing="1" border="1" bgcolor="#000000">
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        1
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" align="center">
+                                        Back
+                                    </td>
+                                    <td width="50%" align="center">
+                                        Lay
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td height="26" width="50%">
+                            <table width="100%" cellpadding="2" cellspacing="2">
+                                <tr>
+                                    <td colspan="2" align="center">
+                                        2
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="50%" align="center">
+                                        Back
+                                    </td>
+                                    <td width="50%" align="center">
+                                        Lay
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="sports-cat-content">
+            <table class="sports-cat-tbl">
+                <tr>
+                    <td width="50">
+                        21:00<br />
+                        18 Sep
+                    </td>
+                    <td width="200">
+                        <a href="." class="sports-cat-lnk">
+                            <div>
+                                US.Open 2012 (Qualification)<br />
+                                <span class="match-title-bigger">Andy Murray - Rafael Nadal</span></div>
+                        </a>
+                    </td>
+                    <td width="250" style="vertical-align: top;" align="center">
+                        <table style="border-spacing: 2px; border-collapse: separate; width: 100%;">
+                            <tr>
+                                <td height="30" width="50%" align="center">
+                                    <table width="80%">
+                                        <tr>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%" align="center">
+                                                <div style="margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">1.87</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td height="30" width="50%" align="center">
+                                    <table width="80%">
+                                        <tr>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-back">1.87</a>
+                                                </div>
+                                            </td>
+                                            <td width="50%">
+                                                <div style="display: block; margin: 0 auto; padding: 0px 0px; width: auto;">
+                                                    <a href="mysegments.html" class="odds-button-lay">44/27</a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <!--
+                                        <td width="20%"  style="vertical-align: middle; text-align: center;">
+                                        <div style="display: inline-block; margin: 0 0; padding: 2px 2px;  width: 80px;">
+                                            <a href="mysegments.html" class="common-button">more odds...</a>
+                                        </div>
+                                        </td>
+                                        -->
+                </tr>
+            </table>
+            @*<table>
+                <tr>
+                    <th>
+                        Sport ID
+                    </th>
+                    <th>
+                        Sport Name
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.Raw(item.sportId.ToString())
+                        </td>
+                        <td>
+                            @item.sportName
+                        </td>
+                    </tr>
+                }
+            </table>
+            <table>
+                <tr>
+                    <th>
+                        Sport Id
+                    </th>
+                    <th>
+                        Event Id
+                    </th>
+                    <th>
+                        Event Name
+                    </th>
+                </tr>
+                @foreach (var item in lstEvent)
+                {
+                    <tr>
+                        <td>
+                            @item.sportId
+                        </td>
+                        <td>
+                            @item.eventId
+                        </td>
+                        <td>
+                            @item.eventName
+                        </td>
+                    </tr>
+                }
+            </table>
+            <table>
+                <tr>
+                    <th>
+                        Event Id
+                    </th>
+                    <th>
+                        Match Id
+                    </th>
+                    <th>
+                        Home Team
+                    </th>
+                    <th>
+                        Away Team
+                    </th>
+                    <th>
+                        Start Time
+                    </th>
+                </tr>
+                @foreach (var item in lstMatch)
+                {
+                    <tr>
+                        <td>
+                            @item.eventId
+                        </td>
+                        <td>
+                            @item.matchId
+                        </td>
+                        <td>
+                            @item.homeTeam
+                        </td>
+                        <td>
+                            @item.awayTeam
+                        </td>
+                        <td>
+                            @item.startTime
+                        </td>
+                    </tr>
+                }
+            </table>
+            <table>
+                <tr>
+                    <th>
+                        Match Id
+                    </th>
+                    <th>
+                        Bet Id
+                    </th>
+                    <th>
+                        Bet Name
+                    </th>
+                    <th>
+                        Bet Code
+                    </th>
+                </tr>
+                @foreach (var item in lstBet)
+                {
+                    <tr>
+                        <td>
+                            @item.matchId
+                        </td>
+                        <td>
+                            @item.betId
+                        </td>
+                        <td>
+                            @item.betName
+                        </td>
+                        <td>
+                            @item.betCodeID
+                        </td>
+                    </tr>
+                }
+            </table>
+            <table>
+                <tr>
+                    <th>
+                        Bet Id
+                    </th>
+                    <th>
+                        Choice Id
+                    </th>
+                    <th>
+                        Choice Name
+                    </th>
+                    <th>
+                        Odd
+                    </th>
+                </tr>
+                @foreach (var item in lstChoice)
+                {
+                    <tr>
+                        <td>
+                            @item.betId
+                        </td>
+                        <td>
+                            @item.choiceId
+                        </td>
+                        <td>
+                            @item.choiceName
+                        </td>
+                        <td>
+                            @item.odd
+                        </td>
+                    </tr>
+                }
+            </table>*@
+        </div>
+    </div>
+</div>
+<div id="right_column">
+    <ul class="css-tabs skin2">
+        <li><a href="#">Betslip</a></li>
+        <li><a href="#">My Account</a></li>
+    </ul>
+    <div class="css-panes skin2">
+        <div>
+            <h2>
+                Lorsfsdfsafsafem ipsum dolor sit amet</h2>
+            <p>
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text
+            </p>
+            <p>
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text
+            </p>
+        </div>
+        <div>
+            <p>
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text
+            </p>
+            <p>
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text
+            </p>
+        </div>
+        <div>
+            <p>
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text
+            </p>
+            <p>
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text text text text text text text text text text text text text text text
+                text text
+            </p>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("ul.skin2").tabs("div.skin2 > div");
+        });
+    </script>
+</div>

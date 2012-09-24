@@ -5,3 +5,8 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\obj\Deb
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\obj\Debug\BetEx247.Plugin.Payments.MoneyBooker.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\bin\Debug\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\bin\Debug\BetEx247.Core.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\bin\Debug\BetEx247.Data.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\bin\Debug\BetEx247.Data.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.MoneyBooker\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
