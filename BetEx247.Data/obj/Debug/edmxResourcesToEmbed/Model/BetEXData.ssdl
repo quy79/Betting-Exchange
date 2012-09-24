@@ -242,6 +242,10 @@
     <Property Name="EmailFormat" Type="nvarchar" MaxLength="50" />
     <Property Name="ExposureLimit" Type="float" />
     <Property Name="PointsLastUpdateTime" Type="datetime" />
+    <Property Name="Status" Type="nvarchar" MaxLength="10" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="Updatedate" Type="datetime" />
   </EntityType>
   <EntityType Name="Messages">
     <Key>
@@ -295,7 +299,7 @@
     <Property Name="DepositOnly" Type="bit" />
     <Property Name="WithdrawOnly" Type="bit" />
     <Property Name="DepositAndWithdraw" Type="bit" />
-    <Property Name="PaymentMethodId" Type="smallint" Nullable="false" />
+    <Property Name="PaymentMethodId" Type="bigint" Nullable="false" />
     <Property Name="MemberID" Type="bigint" />
   </EntityType>
   <EntityType Name="MyWallet">
@@ -313,14 +317,18 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="smallint" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="Description" Type="ntext" />
-    <Property Name="CreditCardNumber" Type="nvarchar" MaxLength="30" />
-    <Property Name="NameOnCard" Type="nvarchar" MaxLength="100" />
-    <Property Name="ValidFrom" Type="datetime" />
-    <Property Name="ValidTo" Type="datetime" />
-    <Property Name="ExpirationDate" Type="datetime" />
+    <Property Name="CardType" Type="nvarchar(max)" />
+    <Property Name="CreditCardNumber" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="NameOnCard" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="MaskedCreditCardNumber" Type="nvarchar(max)" />
+    <Property Name="CardCvv2" Type="nvarchar(max)" />
+    <Property Name="ValidFrom" Type="datetime" Nullable="false" />
+    <Property Name="ValidTo" Type="datetime" Nullable="false" />
+    <Property Name="CardExpirationMonth" Type="nvarchar(max)" />
+    <Property Name="CardExpirationYear" Type="nvarchar(max)" />
     <Property Name="Address" Type="nvarchar" MaxLength="500" />
     <Property Name="Country" Type="nvarchar" MaxLength="100" />
     <Property Name="Zipcode" Type="nvarchar" MaxLength="20" />
@@ -332,6 +340,9 @@
     <Property Name="IBAN" Type="nvarchar" MaxLength="50" />
     <Property Name="AccountHolder" Type="nvarchar" MaxLength="100" />
     <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="ClassName" Type="nvarchar" MaxLength="500" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" />
   </EntityType>
   <EntityType Name="Players">
     <Key>
@@ -663,8 +674,13 @@
     <Property Name="Type" Type="tinyint" Nullable="false" />
     <Property Name="Amount" Type="money" Nullable="false" />
     <Property Name="CardId" Type="nchar" MaxLength="10" />
-    <Property Name="Status" Type="nchar" Nullable="false" MaxLength="10" />
-    <Property Name="MemberId" Type="bigint" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="MemberId" Type="bigint" Nullable="false" />
+    <Property Name="PaymentMenthodID" Type="bigint" Nullable="false" />
+    <Property Name="MemberEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="MemberIP" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddedDate" Type="datetime" />
+    <Property Name="ModifyDate" Type="datetime" />
   </EntityType>
   <Association Name="FK_CardsInfo_SoccerMatches">
     <End Role="SoccerMatches" Type="BetEXData.Store.SoccerMatches" Multiplicity="0..1" />
@@ -967,7 +983,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Transactions_Members">
-    <End Role="Members" Type="BetEXData.Store.Members" Multiplicity="0..1" />
+    <End Role="Members" Type="BetEXData.Store.Members" Multiplicity="1" />
     <End Role="Transactions" Type="BetEXData.Store.Transactions" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Members">

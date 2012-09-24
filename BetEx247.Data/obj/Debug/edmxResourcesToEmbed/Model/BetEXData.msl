@@ -79,6 +79,10 @@
     <EntitySetMapping Name="Members">
       <EntityTypeMapping TypeName="BetEXData.Member">
         <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="Updatedate" ColumnName="Updatedate" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="PointsLastUpdateTime" ColumnName="PointsLastUpdateTime" />
           <ScalarProperty Name="ExposureLimit" ColumnName="ExposureLimit" />
           <ScalarProperty Name="EmailFormat" ColumnName="EmailFormat" />
@@ -186,6 +190,9 @@
     <EntitySetMapping Name="PaymentMethods">
       <EntityTypeMapping TypeName="BetEXData.PaymentMethod">
         <MappingFragment StoreEntitySet="PaymentMethods">
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
           <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
           <ScalarProperty Name="AccountHolder" ColumnName="AccountHolder" />
           <ScalarProperty Name="IBAN" ColumnName="IBAN" />
@@ -197,11 +204,15 @@
           <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+          <ScalarProperty Name="CardExpirationYear" ColumnName="CardExpirationYear" />
+          <ScalarProperty Name="CardExpirationMonth" ColumnName="CardExpirationMonth" />
           <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
           <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+          <ScalarProperty Name="CardCvv2" ColumnName="CardCvv2" />
+          <ScalarProperty Name="MaskedCreditCardNumber" ColumnName="MaskedCreditCardNumber" />
           <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
           <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+          <ScalarProperty Name="CardType" ColumnName="CardType" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -554,6 +565,11 @@
     <EntitySetMapping Name="Transactions">
       <EntityTypeMapping TypeName="BetEXData.Transaction">
         <MappingFragment StoreEntitySet="Transactions">
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="MemberIP" ColumnName="MemberIP" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="PaymentMenthodID" ColumnName="PaymentMenthodID" />
           <ScalarProperty Name="MemberId" ColumnName="MemberId" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="CardId" ColumnName="CardId" />

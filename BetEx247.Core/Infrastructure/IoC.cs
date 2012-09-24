@@ -18,28 +18,20 @@ namespace BetEx247.Core.Infrastructure
 
         #region Methods
 
-        public static void InitializeWith(IDependencyResolverFactory factory)
+        //public static void InitializeWith(IDependencyResolverFactory factory)
+        //{
+        //    if (factory == null)
+        //        throw new ArgumentNullException("factory");
+
+        //    _resolver = factory.CreateInstance();
+        //}
+
+        public static void Initialize(IDependencyResolver resolver)
         {
-            if (factory == null)
+            if (resolver == null)
                 throw new ArgumentNullException("factory");
 
-            _resolver = factory.CreateInstance();
-        }
-
-        public static void Register<T>(T instance)
-        {
-            if (instance == null)
-                throw new ArgumentNullException("instance");
-
-            _resolver.Register(instance);
-        }
-
-        public static void Inject<T>(T existing)
-        {
-            if (existing == null)
-                throw new ArgumentNullException("existing");
-
-            _resolver.Inject(existing);
+            _resolver = resolver;
         }
 
         public static T Resolve<T>(Type type)

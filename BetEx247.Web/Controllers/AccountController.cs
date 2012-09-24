@@ -2,16 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.Entity;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
+using BetEx247.Data.Model;
 using BetEx247.Web.Models;
+using BetEx247.Core.Infrastructure;
+using BetEx247.Data.DAL;
+using BetEx247.Core.Common.Extensions;
+using BetEx247.Core.Common.Utils;
+using BetEx247.Core;
 
 namespace BetEx247.Web.Controllers
 {
     public class AccountController : Controller
     {
-
         //
         // GET: /Account/LogOn
 
@@ -28,7 +35,7 @@ namespace BetEx247.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.UserName, model.Password))
+                if (IoC.Resolve<ICustomerService>().Authenticate(model.UserName, FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password.Trim(), "sha1")))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
@@ -57,7 +64,6 @@ namespace BetEx247.Web.Controllers
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
-
             return RedirectToAction("Index", "Home");
         }
 
@@ -66,7 +72,11 @@ namespace BetEx247.Web.Controllers
 
         public ActionResult Register()
         {
-            return View();
+            ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
+            ViewBag.Gender = IoC.Resolve<ICommonService>().MakeSelectListGender();
+            ViewBag.CurrencyList = IoC.Resolve<ICommonService>().MakeSelectListCurrency();
+            RegisterModel model = new RegisterModel();
+            return View(model);
         }
 
         //
@@ -75,21 +85,61 @@ namespace BetEx247.Web.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            MembershipCreateStatus createStatus = new MembershipCreateStatus();
+            var member = new Member();
+            if (IoC.Resolve<ICustomerService>().checkExistEmail(model.Email))
+            {
+                createStatus = MembershipCreateStatus.DuplicateEmail;
+            }
+            else if (model.Email2 != null && IoC.Resolve<ICustomerService>().checkExistEmail(model.Email2))
+            {
+                createStatus = MembershipCreateStatus.DuplicateEmail;
+            }
+            else if (IoC.Resolve<ICustomerService>().checkExistNickName(model.NickName))
+            {
+                createStatus = MembershipCreateStatus.DuplicateUserName;
+            }
+            else
             {
                 // Attempt to register the user
-                MembershipCreateStatus createStatus;
-                Membership.CreateUser(model.UserName, model.Password, model.Email, null, null, true, null, out createStatus);
+                member.NickName = CommonHelper.EnsureNotNull(model.NickName);
+                member.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password.Trim(), "sha1");
+                member.SecurityQuestion1 = CommonHelper.EnsureNotNull(model.SecurityQuestion1);
+                member.SecurityAnswer1 = CommonHelper.EnsureNotNull(model.SecurityAnswer1);
+                member.SecurityQuestion2 = CommonHelper.EnsureNotNull(model.SecurityQuestion2);
+                member.SecurityAnswer2 = CommonHelper.EnsureNotNull(model.SecurityAnswer2);
+                member.Currency = short.Parse(Request.Form["Currency"].ToString());
+                member.FirstName = CommonHelper.EnsureNotNull(model.FirstName);
+                member.MiddleName = CommonHelper.EnsureNotNull(model.MiddleName);
+                member.LastName = CommonHelper.EnsureNotNull(model.LastName);
+                member.Address = CommonHelper.EnsureNotNull(model.Address);
+                member.City = CommonHelper.EnsureNotNull(model.City);
+                member.PostalCode = CommonHelper.EnsureNotNull(model.PostalCode);
+                member.Telephone = CommonHelper.EnsureNotNull(model.Telephone);
+                member.Cellphone = CommonHelper.EnsureNotNull(model.Cellphone);
+                member.Country = Request.Form["Country"].ToInt64();
+                member.Email1 = CommonHelper.EnsureNotNull(model.Email);
+                member.Email2 = CommonHelper.EnsureNotNull(model.Email2);
+                member.Gender = Request.Form["Gender"] == "M" ? true : false;
+                member.BettingRegion = CommonHelper.EnsureNotNull(model.BettingRegion);
+                member.Timezone = CommonHelper.EnsureNotNull(model.Timezone);
+                member.AddedDate = DateTime.UtcNow;
+                member.Updatedate = DateTime.UtcNow;
+                member.Status = Constant.Status.INACTIVE;
+                member.IsActive = false;
 
-                if (createStatus == MembershipCreateStatus.Success)
-                {
-                    FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
-                }
+                IoC.Resolve<ICustomerService>().Insert(member);
+                createStatus = MembershipCreateStatus.Success;
+            }
+
+            if (createStatus == MembershipCreateStatus.Success)
+            {
+                //FormsAuthentication.SetAuthCookie(member.NickName, false /* createPersistentCookie */);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("", ErrorCodeToString(createStatus));
             }
 
             // If we got this far, something failed, redisplay form

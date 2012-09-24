@@ -6,6 +6,9 @@
   <!--server path-->
   <add key="ServerPath" value="D:/Project/PN Technologies/BetEx247/BetEx247.Web"/>
   <!--end server path-->
+  <!--currency-->
+  <add key="CurrencyList" value="USD,Euro,JPY,GBP,AUD"/>
+  <!--end currency-->
   <!--source xml-->
   <add key="BETCLICKURL" value="http://xml.betclick.com/odds_en.xml"/>
   <add key="PINNACLESPORTSURL" value="http://api.pinnaclesports.com/v1/sports"/>
@@ -23,4 +26,6 @@
   <add key="TITANBETMAINSPORT_TENNIS" value="120,121,268,255"/>
   <add key="TITANBETMAINSPORT_FOOTBALL" value="1,120,2,,451,277,28,5,6,278,78,155,269,439"/>
   <!--end source xml-->
+
+  <add key="dependencyResolverTypeName" value="BetEx247.Data.UnityDependencyResolver, BetEx247.Data" />
 </appSettings>

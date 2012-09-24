@@ -31,13 +31,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration">
+      <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,48 +64,59 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseEntity.cs" />
+    <Compile Include="Caching\CacheExtensions.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\MemoryCacheManager.cs" />
+    <Compile Include="Caching\PerRequestCacheManager.cs" />
     <Compile Include="Common\Extensions\DecimalExtensions.cs" />
     <Compile Include="Common\Extensions\StringExtensions.cs" />
+    <Compile Include="Common\Utils\BBCodeHelper.cs" />
     <Compile Include="Common\Utils\CommonHelper.cs" />
-    <Compile Include="Common\Utils\CookieHelper.cs" />
+    <Compile Include="Common\Utils\Crypter.cs" />
+    <Compile Include="Common\Utils\CSafeDataHelper.cs" />
+    <Compile Include="Common\Utils\HttpHelper.cs" />
+    <Compile Include="Common\Utils\IWebHelper.cs" />
+    <Compile Include="Common\Utils\JSONObject.cs" />
     <Compile Include="Common\Utils\RemotePost.cs" />
+    <Compile Include="Common\Utils\WebHelper.cs" />
     <Compile Include="Constant.cs" />
-    <Compile Include="Customer\Address.cs" />
-    <Compile Include="Customer\BettingStatusEnum.cs" />
-    <Compile Include="Customer\Country.cs" />
-    <Compile Include="Customer\Currency.cs" />
-    <Compile Include="Customer\Customer.cs" />
-    <Compile Include="Customer\CustomerService.cs" />
-    <Compile Include="Customer\ICustomerService.cs" />
-    <Compile Include="Customer\IOrderService.cs" />
-    <Compile Include="Customer\Language.cs" />
-    <Compile Include="Customer\Order.cs" />
-    <Compile Include="Customer\OrderService.cs" />
-    <Compile Include="Customer\OrderStatusEnum.cs" />
     <Compile Include="Infrastructure\DependencyResolverFactory.cs" />
     <Compile Include="Infrastructure\IDependencyResolver.cs" />
     <Compile Include="Infrastructure\IDependencyResolverFactory.cs" />
     <Compile Include="Infrastructure\IoC.cs" />
+    <Compile Include="Infrastructure\UnityDependencyResolver.cs" />
+    <Compile Include="Infrastructure\UnityPerExecutionContextLifetimeManager.cs" />
     <Compile Include="Payment\CancelPaymentResult.cs" />
-    <Compile Include="Payment\CreditCardType.cs" />
-    <Compile Include="Payment\IPaymentMethod.cs" />
-    <Compile Include="Payment\IPaymentService.cs" />
-    <Compile Include="Payment\PaymentInfo.cs" />
-    <Compile Include="Payment\PaymentMethod.cs" />
     <Compile Include="Payment\PaymentMethodTypeEnum.cs" />
-    <Compile Include="Payment\PaymentService.cs" />
     <Compile Include="Payment\PaymentStatusEnum.cs" />
     <Compile Include="Payment\ProcessPaymentResult.cs" />
-    <Compile Include="Payment\RecurringPayment.cs" />
-    <Compile Include="Payment\RecurringPaymentHistory.cs" />
     <Compile Include="Payment\RecurringPaymentTypeEnum.cs" />
     <Compile Include="Payment\RecurringProductCyclePeriodEnum.cs" />
-    <Compile Include="Payment\ReturnRequest.cs" />
     <Compile Include="Payment\ReturnStatusEnum.cs" />
+    <Compile Include="Payment\TransactionStatusEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XML\Data.cs" />
+    <Compile Include="XMLObjects\League\Interface\ILeague.cs" />
+    <Compile Include="XMLObjects\League\League.cs" />
+    <Compile Include="XMLObjects\Market\Interface\IMarket.cs" />
+    <Compile Include="XMLObjects\Market\Market.cs" />
+    <Compile Include="XMLObjects\Market\Outcome\Interface\IOutcome.cs" />
+    <Compile Include="XMLObjects\Market\Outcome\Outcome.cs" />
+    <Compile Include="XMLObjects\Match\Interface\IMatch.cs" />
+    <Compile Include="XMLObjects\Match\Match.cs" />
+    <Compile Include="XMLObjects\Match\Period\Interface\IPeriod.cs" />
+    <Compile Include="XMLObjects\Match\Period\MoneyLine\Interface\IMoneyLine.cs" />
+    <Compile Include="XMLObjects\Match\Period\MoneyLine\MoneyLine.cs" />
+    <Compile Include="XMLObjects\Match\Period\Period.cs" />
+    <Compile Include="XMLObjects\Match\Period\Spread\Interface\ISpread.cs" />
+    <Compile Include="XMLObjects\Match\Period\Spread\Spread.cs" />
+    <Compile Include="XMLObjects\Match\Period\Total\Interface\ITotal.cs" />
+    <Compile Include="XMLObjects\Match\Period\Total\Total.cs" />
+    <Compile Include="XMLObjects\Sport\Interface\ISport.cs" />
+    <Compile Include="XMLObjects\Sport\Sport.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="XML\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

@@ -1,5 +1,10 @@
 D:\Project\PN Technologies\BetEx247\BetEx247.Core\bin\Debug\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Core\bin\Debug\BetEx247.Core.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Core\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Core\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Core\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Core\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Core\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Core\obj\Debug\ResolveAssemblyReference.cache
 D:\Project\PN Technologies\BetEx247\BetEx247.Core\obj\Debug\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Core\obj\Debug\BetEx247.Core.pdb
