@@ -8,14 +8,6 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.xml
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Data.dll.config
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Data.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Data.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Core.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Core.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\obj\Debug\ResolveAssemblyReference.cache
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\obj\Debug\BetEx247.Data.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\obj\Debug\BetEx247.Data.pdb
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Data.dll.config
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Data.dll
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Debug\BetEx247.Data.pdb
@@ -24,3 +16,4 @@ E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\bin\Deb
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\obj\Debug\ResolveAssemblyReference.cache
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\obj\Debug\BetEx247.Data.dll
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\obj\Debug\BetEx247.Data.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Data\obj\Debug\ResolveAssemblyReference.cache

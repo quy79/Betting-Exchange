@@ -6,19 +6,6 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\obj\De
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll.config
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Core.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Core.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll.config
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Core.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Data.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\Microsoft.Practices.Unity.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Core.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Data.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\ResolveAssemblyReference.cache
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\BetEx247.Plugin.Payments.AuthorizeNet.pdb
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll.config
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\bin\Debug\BetEx247.Plugin.Payments.AuthorizeNet.pdb
@@ -32,3 +19,4 @@ E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payme
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\ResolveAssemblyReference.cache
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\BetEx247.Plugin.Payments.AuthorizeNet.dll
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\BetEx247.Plugin.Payments.AuthorizeNet.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.AuthorizeNet\obj\Debug\ResolveAssemblyReference.cache

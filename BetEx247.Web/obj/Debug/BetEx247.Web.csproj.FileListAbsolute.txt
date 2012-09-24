@@ -13,28 +13,6 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.DownloadFee
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.DownloadFeed.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Data.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Data.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Web.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Web.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Core.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Data.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Plugin.DownloadFeed.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Plugin.Payments.AuthorizeNet.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Plugin.XMLParser.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\EntityFramework.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\Microsoft.Practices.ServiceLocation.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\Microsoft.Practices.Unity.Configuration.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\Microsoft.Practices.Unity.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\Microsoft.Practices.Unity.Interception.Configuration.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\Microsoft.Practices.Unity.Interception.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Core.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Data.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Plugin.DownloadFeed.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Plugin.Payments.AuthorizeNet.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Plugin.XMLParser.pdb
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\EntityFramework.xml
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\obj\Debug\ResolveAssemblyReference.cache
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\obj\Debug\BetEx247.Web.dll
-E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\obj\Debug\BetEx247.Web.pdb
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Web.dll
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Web.pdb
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\BetEx247.Core.dll
@@ -57,3 +35,4 @@ E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\bin\Enti
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\obj\Debug\ResolveAssemblyReference.cache
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\obj\Debug\BetEx247.Web.dll
 E:\Projects\modiface\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\obj\Debug\BetEx247.Web.pdb
+E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Web\obj\Debug\ResolveAssemblyReference.cache
