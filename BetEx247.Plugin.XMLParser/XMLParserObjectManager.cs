@@ -125,14 +125,14 @@ namespace BetEx247.Plugin.XMLParser
         public void Parse()
         {
             Debug.WriteLine("Check if Serialized?");
-            List<ISport> _sports = this.DeSerializeObject("d:\\outputFile.txt");
+            List<ISport> _sports = this.DeSerializeObject("c:\\git\\outputFile.txt");
             if (_sports == null)
             {
                 Debug.WriteLine("Not Sirialized");
                 Debug.WriteLine("Begin Parse XML");
-                this.XMLParse();
+               sports= this.XMLParse();
                 Debug.WriteLine("End Parse XML");
-                this.SerializeObject("d:\\outputFile.txt", this.Sports);
+                this.SerializeObject("c:\\git\\outputFile.txt", this.Sports);
                 Debug.WriteLine("Serialized after Parsed");
             }
             else
@@ -378,10 +378,7 @@ namespace BetEx247.Plugin.XMLParser
             int test = 0;
             while (iteratorSport.MoveNext())
             {
-                test++;
-                if (test ==3){
-                    return _sports;
-                }
+                
                 XPathNavigator _sportNameNavigator = iteratorSport.Current.Clone();
                 int feedContentSport = Convert.ToInt32(_sportNameNavigator.GetAttribute("feedContents", ""));
                 int sportID = int.Parse(_sportNameNavigator.GetAttribute("id", ""));
@@ -529,10 +526,13 @@ namespace BetEx247.Plugin.XMLParser
         }
         public void SerializeObject(string filename, List<ISport> objectToSerialize)
         {
-            Stream stream = File.Open(filename, FileMode.Create);
-            BinaryFormatter bFormatter = new BinaryFormatter();
-            bFormatter.Serialize(stream, objectToSerialize);
-            stream.Close();
+            if (objectToSerialize != null)
+            {
+                Stream stream = File.Open(filename, FileMode.Create);
+                BinaryFormatter bFormatter = new BinaryFormatter();
+                bFormatter.Serialize(stream, objectToSerialize);
+                stream.Close();
+            }
         }
 
         public List<ISport> DeSerializeObject(string filename)
