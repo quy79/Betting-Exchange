@@ -48,10 +48,10 @@ namespace BetEx247.Web.Controllers
             //ViewBag.lstChoice = lstChoice;
 
             return View(lstSport);*/
-            //Debug.WriteLine("Init XMLParserObjectManager");
-            //XMLParserObjectManager obj = new XMLParserObjectManager();
-            //obj.Parse();                         
-            //Debug.WriteLine("End XMLParserObjectManager ");
+            Debug.WriteLine("Init XMLParserObjectManager");
+            XMLParserObjectManager obj = new XMLParserObjectManager();
+            obj.Parse();
+            Debug.WriteLine("End XMLParserObjectManager ");
 
 
             return View();

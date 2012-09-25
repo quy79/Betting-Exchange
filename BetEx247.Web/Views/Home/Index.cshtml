@@ -1,13 +1,7 @@
-﻿@using BetEx247.Core.XML;
-@model IEnumerable<BetEx247.Core.XML.Sport>
+﻿@using BetEx247.Core; 
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    List<Event> lstEvent = ViewBag.lstEvent;
-    List<Match> lstMatch = ViewBag.lstMatch;
-    List<Bet> lstBet = ViewBag.lstBet;
-    List<Choice> lstChoice = ViewBag.lstChoice;
 }
 <div id="left_column">
     <div>
