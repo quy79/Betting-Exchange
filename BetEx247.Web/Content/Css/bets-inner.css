@@ -205,7 +205,7 @@
     margin-bottom: 10px;
 }
 #general_inner_page ul li, #account .tcHolder ul li{
-    background: transparent url(/tpl/bets/shared/images/square.gif) left 5px no-repeat;
+    background: transparent url(../images/themes/square.gif) left 5px no-repeat;
     line-height: 150%;
     padding-left: 12px;
 }
@@ -306,7 +306,7 @@ dl.expandable dt .dd_toggler{
     width: 20px;
     height: 20px;
     overflow: hidden;
-    background-image: url(/tpl/bets/shared/images/tbsprite.png);
+    background-image: url(../images/themes/tbsprite.png);
     background-repeat: no-repeat;
     text-indent: -9999px;
     background-position: left -426px;
@@ -474,7 +474,7 @@ dl.expandable dd.hidden{
     vertical-align: middle;
     text-align: center;
     width: 20%;
-    background: url(/tpl/bets/shared/images/methods_bg.gif) left top repeat-x;
+    background: url(../images/themes/methods_bg.gif) left top repeat-x;
     height: 47px;
     padding: 0;
     line-height: 14px;
@@ -537,7 +537,7 @@ dl.expandable dd.hidden{
     display:none;
 }
 #waiting{
-    background:url(/tpl/bets/shared/images/ajax-loader-long.gif) no-repeat 50% 0;
+    background:url(../images/themes/ajax-loader-long.gif) no-repeat 50% 0;
     display:none;
     left:50%;
     margin-left:-250px;
@@ -590,7 +590,7 @@ dl.expandable dd.hidden{
 }
 .b_registration_right_content ul li{
     margin-bottom:5px;
-    background: url(/tpl/bets/shared/images/greenV.png) left 0 no-repeat;
+    background: url(../images/themes/greenV.png) left 0 no-repeat;
     text-indent: 30px;
     line-height: 150%;
     color: #656565;
@@ -706,7 +706,7 @@ dl.expandable dd.hidden{
 }
 #regform .errorSign{
     display: none;
-    background: url("/tpl/bets/shared/images/redX.png") no-repeat scroll 0 0 transparent;
+    background: url("../images/themes/redX.png") no-repeat scroll 0 0 transparent;
     height: 18px;
     right: -165px;
     position: relative;
@@ -811,7 +811,7 @@ ul.b_myAccountTabs li a{
     text-align:center;
     border:1px solid #b1b1b1;
     position:relative;
-    background:url(/tpl/bets/shared/images/account_tabs.png) left bottom no-repeat;
+    background:url(../images/themes/account_tabs.png) left bottom no-repeat;
     background:-o-linear-gradient(top , #ebebeb,#cfcfcf);
     background:-moz-linear-gradient(center top , #ebebeb,#cfcfcf);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #ebebeb),color-stop(1, #cfcfcf));
@@ -824,7 +824,7 @@ ul.b_myAccountTabs li a{
     color:#656565;
 }
 ul.b_myAccountTabs li.current_tab a,ul.b_myAccountTabs li a:hover{
-    background:url(/tpl/bets/shared/images/account_tabs.png) left top no-repeat;
+    background:url(../images/themes/account_tabs.png) left top no-repeat;
     background:-o-linear-gradient(top , #95BE23,#688F04);
     background:-moz-linear-gradient(center top , #95BE23,#688F04);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #95BE23),color-stop(1, #688F04));
@@ -835,11 +835,11 @@ ul.b_myAccountTabs li.current_tab a,ul.b_myAccountTabs li a:hover{
 #cashierButton,#cashierButton:hover{
     color:#656565;
     text-indent:6px;
-    background:url(/tpl/bets/shared/images/outgoing.gif) 5px 7px no-repeat,-o-linear-gradient(top,#ebebeb,#cfcfcf);
-    background:url(/tpl/bets/shared/images/outgoing.gif) 5px 7px no-repeat,-moz-linear-gradient(top,#ebebeb,#cfcfcf);
-    background:url(/tpl/bets/shared/images/outgoing.gif) 5px 7px no-repeat,-webkit-gradient(linear,left top,left bottom,color-stop(0, #ebebeb),color-stop(1, #cfcfcf));
-    background:url(/tpl/bets/shared/images/outgoing.gif) 5px 7px no-repeat,-webkit-linear-gradient(#ebebeb, #cfcfcf); /* Chrome 10+, Saf5.1+ */
-    background:url(/tpl/bets/shared/images/outgoing.gif) 5px 7px no-repeat,linear-gradient(top, #ebebeb, #cfcfcf);
+    background:url(../images/themes/outgoing.gif) 5px 7px no-repeat,-o-linear-gradient(top,#ebebeb,#cfcfcf);
+    background:url(../images/themes/outgoing.gif) 5px 7px no-repeat,-moz-linear-gradient(top,#ebebeb,#cfcfcf);
+    background:url(../images/themes/outgoing.gif) 5px 7px no-repeat,-webkit-gradient(linear,left top,left bottom,color-stop(0, #ebebeb),color-stop(1, #cfcfcf));
+    background:url(../images/themes/outgoing.gif) 5px 7px no-repeat,-webkit-linear-gradient(#ebebeb, #cfcfcf); /* Chrome 10+, Saf5.1+ */
+    background:url(../images/themes/outgoing.gif) 5px 7px no-repeat,linear-gradient(top, #ebebeb, #cfcfcf);
 }
 #account #cashierButton,#cashierButton:hover{
     float:left;
@@ -852,11 +852,11 @@ ul.b_myAccountTabs li.current_tab a,ul.b_myAccountTabs li a:hover{
     text-decoration:none;
     text-align:center;
     border:1px solid #f4c505;
-    background:url(/tpl/bets/shared/images/outgoing.png) 3px 7px no-repeat, -o-linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%);
-    background:url(/tpl/bets/shared/images/outgoing.png) 3px 7px no-repeat, -moz-linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%);
-    background:url(/tpl/bets/shared/images/outgoing.png) 3px 7px no-repeat, -webkit-gradient(linear,left top,left bottom,color-stop(0, #fafadd),color-stop(0.60, #fee150),color-stop(0.80, #ecc300),color-stop(1, #ceb607));
-    background:url(/tpl/bets/shared/images/outgoing.png) 3px 7px no-repeat, -webkit-linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%); /* Chrome 10+, Saf5.1+ latest */
-    background:url(/tpl/bets/shared/images/outgoing.png) 3px 7px no-repeat, linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%);
+    background:url(../images/themes/outgoing.png) 3px 7px no-repeat, -o-linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%);
+    background:url(../images/themes/outgoing.png) 3px 7px no-repeat, -moz-linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%);
+    background:url(../images/themes/outgoing.png) 3px 7px no-repeat, -webkit-gradient(linear,left top,left bottom,color-stop(0, #fafadd),color-stop(0.60, #fee150),color-stop(0.80, #ecc300),color-stop(1, #ceb607));
+    background:url(../images/themes/outgoing.png) 3px 7px no-repeat, -webkit-linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%); /* Chrome 10+, Saf5.1+ latest */
+    background:url(../images/themes/outgoing.png) 3px 7px no-repeat, linear-gradient(top, #fafadd 0%, #fee150 60%, #ecc300 80%, #ceb607 100%);
     text-indent: 10px;
     position:absolute;
     -moz-border-radius:5px;
@@ -968,7 +968,7 @@ ul.b_myAccountTabs li.last{
     /*OPEN BET TAB*/
 #b_openBetsContainer.loading,
 #b_historyBetsContainer.loading{
-    background:url(/tpl/bets/shared/images/ajax-loader-black.gif) no-repeat center center;
+    background:url(../images/themes/ajax-loader-black.gif) no-repeat center center;
     height:150px;
 }
 .b_BetContentWrapper{
@@ -1023,7 +1023,7 @@ ul.b_myAccountTabs li.last{
 .b_BetContentTable .betContentHeader th{
     vertical-align:middle;
     padding:5px 0;
-    background:url(/tpl/bets/shared/images/myaccount_table_borders.png) left 50% no-repeat;
+    background:url(../images/themes/myaccount_table_borders.png) left 50% no-repeat;
 }
 .b_BetContentTable .betContentHeader .bet_info {
     width:240px;padding-left:15px;
@@ -1033,11 +1033,11 @@ ul.b_myAccountTabs li.last{
 }
 .b_BetContentTable .bet_opener{
     width:25px;
-    background:url(/tpl/bets/shared/images/myaccount_table_arrows.gif) 12px 50% no-repeat !important;
+    background:url(../images/themes/myaccount_table_arrows.gif) 12px 50% no-repeat !important;
 }
 .open .b_BetContentTable .bet_opener{
     width:25px;
-    background:url(/tpl/bets/shared/images/myaccount_table_arrows.gif) -62px 50% no-repeat !important;
+    background:url(../images/themes/myaccount_table_arrows.gif) -62px 50% no-repeat !important;
 }
 .b_BetContentTable .bet_time  {width:40px;}
 
@@ -1145,7 +1145,7 @@ ul.b_myAccountTabs li.last{
     padding:3px 0;
 }
 .b_bonusWrapper table td{
-    background: url("/tpl/bets/shared/images/myaccount_table_borders.png") no-repeat scroll left 50% transparent;
+    background: url("../images/themes/myaccount_table_borders.png") no-repeat scroll left 50% transparent;
     border-top:1px solid #bfbfbf;
     padding:5px;
     text-align:center;
@@ -1214,7 +1214,7 @@ ul.b_myAccountTabs li.last{
     position: relative;
 }
 .form_holder div.valid .fooclassname{
-    background: url(/tpl/bets/shared/images/greenV.png) 0 0 no-repeat;
+    background: url(../images/themes/greenV.png) 0 0 no-repeat;
 }
 .form_holder div.invalid .fooclassname{
     display: none;
@@ -1373,7 +1373,7 @@ ul.b_myAccountTabs li.last{
     margin-top: 4px;
     width: 17px;
     height: 17px;
-    background: url(/tpl/bets/shared/images/greenV.png) 0 0 no-repeat;
+    background: url(../images/themes/greenV.png) 0 0 no-repeat;
 }
 .form_holder .datebox label.fooclassname{
     left: 276px;
@@ -1523,7 +1523,7 @@ ul.b_myAccountTabs li.last{
 /*My accunt modal - END*/
 
 .betDetailsTbl .singleBetTbl .bet_info a.accountViewResults{
-    background: url("/tpl/bets/shared/images/tbsprite.png") no-repeat scroll 0 -1746px transparent;
+    background: url("../images/themes/tbsprite.png") no-repeat scroll 0 -1746px transparent;
     text-decoration: none;
     color: #7cb800;
     text-align: left;
@@ -1684,7 +1684,7 @@ ul.b_myAccountTabs li.last{
     margin-left:0;
 }
 .top_leagues_title,.all_leagues_title{
-    background:url(/tpl/bets/shared/images/sports_page_icons_sprite.gif) left -25px no-repeat;
+    background:url(../images/themes/sports_page_icons_sprite.gif) left -25px no-repeat;
     margin:0 8px;
     border-bottom:1px dotted #C1C1C1;
     clear:both;
@@ -1930,7 +1930,7 @@ ul.b_myAccountTabs li.last{
     margin-bottom:13px !important;
 }
 #live #scoreboard_bg{
-    background:url(/tpl/bets/shared/images/score_boards/default.jpg) left top no-repeat;
+    background:url(../images/themes/score_boards/default.jpg) left top no-repeat;
     width:940px;
     height:179px;
     -moz-border-radius:5px;
@@ -1941,41 +1941,41 @@ ul.b_myAccountTabs li.last{
     z-index:1;
 }
 /* body_$sportalias is a class added to body on new sport to load up it's spesific sport background */
-#live.body_soccer #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/soccer.jpg)}
-#live.body_basketball #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/basketball.jpg)}
-#live.body_tennis #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/tennis.jpg)}
-#live.body_baseball #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/baseball.jpg)}
-#live.body_football #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/football.jpg)}
-#live.body_boxing #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/boxing.jpg)}
-#live.body_darts #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/darts.jpg)}
-#live.body_handball #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/handball.jpg)}
-#live.body_cricket #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/cricket.jpg)}
-#live.body_rugby_league #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/rugby_league.jpg)}
-#live.body_rugby_union #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/rugby_union.jpg)}
-#live.body_volleyball #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/volleyball.jpg)}
-#live.body_winter_olympics #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/winter_olympics.jpg)}
-#live.body_golf #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/golf.jpg)}
-#live.body_cycling #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/cycling.jpg)}
-#live.body_waterpolo #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/waterpolo.jpg)}
-#live.body_beach_soccer #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/beach_soccer.jpg)}
-#live.body_motor_racing #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/motor_racing.jpg)}
-#live.body_snooker #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/snooker.jpg)}
-#live.body_summer_olympics #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/summer_olympics.jpg)}
-#live.body_mma #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/mma.jpg)}
-#live.body_bowls #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/bowls.jpg)}
-#live.body_floorball #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/floorball.jpg)}
-#live.body_yachting #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/yachting.jpg)}
-#live.body_athletics #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/athletics.jpg)}
-#live.body_swimming #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/swimming.jpg)}
-#live.body_rink_hockey #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/rink_hockey.jpg)}
-#live.body_politics #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/politics.jpg)}
-#live.body_lacrosse #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/lacrosse.jpg)}
-#live.body_australian_rules #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/australian_rules.jpg)}
-#live.body_beach_volleyball #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/beach_volleyball.jpg)}
-#live.body_entertainment #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/entertainment.jpg)}
-#live.body_hockey #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/hockey.jpg)}
-#live.body_ice_hockey #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/ice_hockey.jpg)}
-#live.body_table_tennis #scoreboard_bg{background-image:url(/tpl/bets/shared/images/score_boards/table_tennis.jpg)}
+#live.body_soccer #scoreboard_bg{background-image:url(../images/themes/score_boards/soccer.jpg)}
+#live.body_basketball #scoreboard_bg{background-image:url(../images/themes/score_boards/basketball.jpg)}
+#live.body_tennis #scoreboard_bg{background-image:url(../images/themes/score_boards/tennis.jpg)}
+#live.body_baseball #scoreboard_bg{background-image:url(../images/themes/score_boards/baseball.jpg)}
+#live.body_football #scoreboard_bg{background-image:url(../images/themes/score_boards/football.jpg)}
+#live.body_boxing #scoreboard_bg{background-image:url(../images/themes/score_boards/boxing.jpg)}
+#live.body_darts #scoreboard_bg{background-image:url(../images/themes/score_boards/darts.jpg)}
+#live.body_handball #scoreboard_bg{background-image:url(../images/themes/score_boards/handball.jpg)}
+#live.body_cricket #scoreboard_bg{background-image:url(../images/themes/score_boards/cricket.jpg)}
+#live.body_rugby_league #scoreboard_bg{background-image:url(../images/themes/score_boards/rugby_league.jpg)}
+#live.body_rugby_union #scoreboard_bg{background-image:url(../images/themes/score_boards/rugby_union.jpg)}
+#live.body_volleyball #scoreboard_bg{background-image:url(../images/themes/score_boards/volleyball.jpg)}
+#live.body_winter_olympics #scoreboard_bg{background-image:url(../images/themes/score_boards/winter_olympics.jpg)}
+#live.body_golf #scoreboard_bg{background-image:url(../images/themes/score_boards/golf.jpg)}
+#live.body_cycling #scoreboard_bg{background-image:url(../images/themes/score_boards/cycling.jpg)}
+#live.body_waterpolo #scoreboard_bg{background-image:url(../images/themes/score_boards/waterpolo.jpg)}
+#live.body_beach_soccer #scoreboard_bg{background-image:url(../images/themes/score_boards/beach_soccer.jpg)}
+#live.body_motor_racing #scoreboard_bg{background-image:url(../images/themes/score_boards/motor_racing.jpg)}
+#live.body_snooker #scoreboard_bg{background-image:url(../images/themes/score_boards/snooker.jpg)}
+#live.body_summer_olympics #scoreboard_bg{background-image:url(../images/themes/score_boards/summer_olympics.jpg)}
+#live.body_mma #scoreboard_bg{background-image:url(../images/themes/score_boards/mma.jpg)}
+#live.body_bowls #scoreboard_bg{background-image:url(../images/themes/score_boards/bowls.jpg)}
+#live.body_floorball #scoreboard_bg{background-image:url(../images/themes/score_boards/floorball.jpg)}
+#live.body_yachting #scoreboard_bg{background-image:url(../images/themes/score_boards/yachting.jpg)}
+#live.body_athletics #scoreboard_bg{background-image:url(../images/themes/score_boards/athletics.jpg)}
+#live.body_swimming #scoreboard_bg{background-image:url(../images/themes/score_boards/swimming.jpg)}
+#live.body_rink_hockey #scoreboard_bg{background-image:url(../images/themes/score_boards/rink_hockey.jpg)}
+#live.body_politics #scoreboard_bg{background-image:url(../images/themes/score_boards/politics.jpg)}
+#live.body_lacrosse #scoreboard_bg{background-image:url(../images/themes/score_boards/lacrosse.jpg)}
+#live.body_australian_rules #scoreboard_bg{background-image:url(../images/themes/score_boards/australian_rules.jpg)}
+#live.body_beach_volleyball #scoreboard_bg{background-image:url(../images/themes/score_boards/beach_volleyball.jpg)}
+#live.body_entertainment #scoreboard_bg{background-image:url(../images/themes/score_boards/entertainment.jpg)}
+#live.body_hockey #scoreboard_bg{background-image:url(../images/themes/score_boards/hockey.jpg)}
+#live.body_ice_hockey #scoreboard_bg{background-image:url(../images/themes/score_boards/ice_hockey.jpg)}
+#live.body_table_tennis #scoreboard_bg{background-image:url(../images/themes/score_boards/table_tennis.jpg)}
 
 /*scoreboards */
 #sb, #sb2 {
@@ -2012,7 +2012,7 @@ ul.b_myAccountTabs li.last{
     visibility:visible;
 }
 #event_time span{
-    background:url(/tpl/bets/shared/images/liveAction.gif) right 50%  no-repeat;
+    background:url(../images/themes/liveAction.gif) right 50%  no-repeat;
     padding-right:15px;
 }
 #sb{
@@ -2183,7 +2183,7 @@ ul.b_myAccountTabs li.last{
 /*soccer scoreboard*/
 #sb2.sb_soccer .st li.first,#sb2.sb_soccer .sc li.first{
     text-indent:-999px;
-    background:url(/tpl/bets/shared/images/livesprite.png) no-repeat 12px 4px;
+    background:url(../images/themes/livesprite.png) no-repeat 12px 4px;
 }
 #sb2.sb_soccer .card_yel li.nm{
     background-position:13px -27px !important;
@@ -2261,7 +2261,7 @@ ul.b_myAccountTabs li.last{
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
 }
 #live_event_content.loading{
-    background:url("/tpl/bets/shared/images/ajax-loader-long.gif") no-repeat scroll 50% 76px transparent;
+    background:url("../images/themes/ajax-loader-long.gif") no-repeat scroll 50% 76px transparent;
     height:151px;
 }
 #live_noevent_content{
@@ -2349,12 +2349,12 @@ ul.b_myAccountTabs li.last{
 /* No Markets on live */
 .noLiveMarkets{
     background-color:#fff;
-    background: url(/tpl/bets/shared/images/live_pending.png) 330px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0, #ececec), color-stop(1, #cecece));
-    background: url(/tpl/bets/shared/images/live_pending.png) 330px 50% no-repeat, -o-linear-gradient(top, #ececec 0%, #cecece 100%);
-    background: url(/tpl/bets/shared/images/live_pending.png) 330px 50% no-repeat, -moz-linear-gradient(center top, #ececec 0%, #cecece 100%);
-    background: url(/tpl/bets/shared/images/live_pending.png) 330px 50% no-repeat, -webkit-linear-gradient(#ececec 0%, #cecece 100%); /* Chrome 10+, Saf5.1+ latest */
-    background: url(/tpl/bets/shared/images/live_pending.png) 330px 50% no-repeat, linear-gradient(top, #ececec 0%, #cecece 100%);
-    -pie-background: url(/tpl/bets/shared/images/live_pending.png) 330px 50% no-repeat, linear-gradient(center top , #ececec, #cecece 100%);
+    background: url(../images/themes/live_pending.png) 330px 50% no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0, #ececec), color-stop(1, #cecece));
+    background: url(../images/themes/live_pending.png) 330px 50% no-repeat, -o-linear-gradient(top, #ececec 0%, #cecece 100%);
+    background: url(../images/themes/live_pending.png) 330px 50% no-repeat, -moz-linear-gradient(center top, #ececec 0%, #cecece 100%);
+    background: url(../images/themes/live_pending.png) 330px 50% no-repeat, -webkit-linear-gradient(#ececec 0%, #cecece 100%); /* Chrome 10+, Saf5.1+ latest */
+    background: url(../images/themes/live_pending.png) 330px 50% no-repeat, linear-gradient(top, #ececec 0%, #cecece 100%);
+    -pie-background: url(../images/themes/live_pending.png) 330px 50% no-repeat, linear-gradient(center top , #ececec, #cecece 100%);
             border-radius:5px;
        -moz-border-radius:5px;
     -webkit-border-radius:5px;
@@ -2373,7 +2373,7 @@ ul.b_myAccountTabs li.last{
     overflow:hidden;
 }
 .lm .trigger{
-    background:url(/tpl/bets/shared/images/tbsprite.png) 5px -801px no-repeat;
+    background:url(../images/themes/tbsprite.png) 5px -801px no-repeat;
     width:100%;
     height:100%;
     position:absolute;
@@ -2385,7 +2385,7 @@ ul.b_myAccountTabs li.last{
     background-position:5px -829px;
 }
 .lm h4{
-    background: url(/tpl/bets/shared/images/bonusheader.gif) left top;
+    background: url(../images/themes/bonusheader.gif) left top;
     background: -o-linear-gradient(top,rgb(255,255,255) 0%,rgb(184,184,184) 47%,rgb(171,169,171) 0%);
     background: -moz-linear-gradient(center top,rgb(255,255,255) 0%,rgb(184,184,184) 47%,rgb(171,169,171) 0%);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0, rgb(255,255,255)),color-stop(0.47, rgb(184,184,184)),color-stop(1, rgb(171,169,171)));
@@ -2498,7 +2498,7 @@ ul.b_myAccountTabs li.last{
     position:relative;
 }
 .suspended span{
-    background:url(/tpl/bets/shared/images/livesprite.png) no-repeat 12px -128px;
+    background:url(../images/themes/livesprite.png) no-repeat 12px -128px;
     float:right;
     padding-left:15px;
     padding-right:15px;
@@ -2551,7 +2551,7 @@ a.suspended b{
     padding-left:22px!important;
     padding-right: 5px;
     line-height:15px!important;
-	background: url(/tpl/bets/shared/images/tbsprite.png) left -955px no-repeat !important;
+	background: url(../images/themes/tbsprite.png) left -955px no-repeat !important;
     white-space:nowrap;
 }
 .breadcrumbs a {
@@ -2568,7 +2568,7 @@ a.suspended b{
     margin-left:0 !important;
 }
 .breadcrumbs .first {
-	background: url(/tpl/bets/shared/images/tbsprite.png) 4px -932px  no-repeat !important;
+	background: url(../images/themes/tbsprite.png) 4px -932px  no-repeat !important;
 	padding-left: 22px;
 }
 .breadcrumbs strong {
@@ -2621,7 +2621,7 @@ ul.b_DynamicCalendarTabs li .DynamicCalendarTabs{
     color:#717171;
     font-weight:bold;
     font-size:12px;
-    background:url(/tpl/bets/shared/images/account_tabs.png) left bottom no-repeat;
+    background:url(../images/themes/account_tabs.png) left bottom no-repeat;
     background:-o-linear-gradient(top , #ebebeb,#cfcfcf 80%);
     background:-moz-linear-gradient(center top , #ebebeb,#cfcfcf 80%);
     background:-webkit-gradient(linear, 0 0, 0 bottom, color-stop(0, #ebebeb), color-stop(0.80, #cfcfcf));
@@ -2636,7 +2636,7 @@ ul.b_DynamicCalendarTabs li .DynamicCalendarTabs{
 
 ul.b_DynamicCalendarTabs li.current .DynamicCalendarTabs,ul.b_DynamicCalendarTabs li .DynamicCalendarTabs:hover{
     color:#fff;
-    background:url(/tpl/bets/shared/images/account_tabs.png) left top no-repeat;
+    background:url(../images/themes/account_tabs.png) left top no-repeat;
     background:-o-linear-gradient(top , #95BE23,#688F04);
     background:-moz-linear-gradient(center top , #95BE23,#688F04);
     background:-webkit-gradient(linear,left top,left bottom,color-stop(0, #95BE23),color-stop(1, #688F04));
@@ -2687,10 +2687,10 @@ ul.b_DynamicCalendarTabs li.last .DynamicCalendarTabs{width:174px;}
 .b_DynamicCalendarSportList a.toggler{
     position:relative;
     background:#E8E8E8;
-    background:url(/tpl/bets/shared/images/tbsprite.png) 122px -173px no-repeat,-webkit-gradient(linear,left top,left bottom,color-stop(0, #C9C9C9),color-stop(1, #FEFEFE));
-    background:url(/tpl/bets/shared/images/tbsprite.png) 122px -173px no-repeat,-o-linear-gradient(top , #C9C9C9 1%, #FEFEFE 49%);
-    background:url(/tpl/bets/shared/images/tbsprite.png) 122px -173px no-repeat,-moz-linear-gradient(center top , #C9C9C9 1%, #FEFEFE 49%);
-    background:url(/tpl/bets/shared/images/tbsprite.png) 122px -173px no-repeat,-webkit-linear-gradient(#C9C9C9 1%, #FEFEFE 49%); /* Chrome 10+, Saf5.1+ */
+    background:url(../images/themes/tbsprite.png) 122px -173px no-repeat,-webkit-gradient(linear,left top,left bottom,color-stop(0, #C9C9C9),color-stop(1, #FEFEFE));
+    background:url(../images/themes/tbsprite.png) 122px -173px no-repeat,-o-linear-gradient(top , #C9C9C9 1%, #FEFEFE 49%);
+    background:url(../images/themes/tbsprite.png) 122px -173px no-repeat,-moz-linear-gradient(center top , #C9C9C9 1%, #FEFEFE 49%);
+    background:url(../images/themes/tbsprite.png) 122px -173px no-repeat,-webkit-linear-gradient(#C9C9C9 1%, #FEFEFE 49%); /* Chrome 10+, Saf5.1+ */
     background: linear-gradient(top, #C9C9C9 1%, #FEFEFE 49%);
 }
 .b_DynamicCalendarSportList .select_all,.b_DynamicCalendarSportList .select_all .sport_icon{
@@ -2725,7 +2725,7 @@ ul.b_DynamicCalendarTabs li.last .DynamicCalendarTabs{width:174px;}
     display:block;
     width:19px;
     height:19px;
-    background:transparent url(/tpl/bets/shared/images/calendar_mini_cal_icon.png) no-repeat left top;
+    background:transparent url(../images/themes/calendar_mini_cal_icon.png) no-repeat left top;
     text-indent:-7777px;
 }
 #cal_content{
@@ -2735,7 +2735,7 @@ ul.b_DynamicCalendarTabs li.last .DynamicCalendarTabs{width:174px;}
 #cal_content.loading{
     min-height:380px;
     height:100%;
-    background:#EEE url(/tpl/bets/shared/images/ajax-loader-long.gif) no-repeat center center!important;
+    background:#EEE url(../images/themes/ajax-loader-long.gif) no-repeat center center!important;
 }
 #cal_content .time_block{
     position:relative;
@@ -2853,7 +2853,7 @@ ul.b_DynamicCalendarTabs li.last .DynamicCalendarTabs{width:174px;}
 #mini_cal_container{
     display:none;
     position: absolute;
-	background: url(/tpl/bets/shared/images/mini_calendar_bg.gif) left top no-repeat;
+	background: url(../images/themes/mini_calendar_bg.gif) left top no-repeat;
 	font-size: 10px;
 	width: 185px;
 	height: 175px;
@@ -2923,10 +2923,10 @@ ul.b_DynamicCalendarTabs li.last .DynamicCalendarTabs{width:174px;}
     text-indent:-7777px;
 }
 #MiniCalendarNav a.prev{
-    background:transparent url(/tpl/bets/shared/images/month_nav_left_tbd.gif) center center no-repeat;
+    background:transparent url(../images/themes/month_nav_left_tbd.gif) center center no-repeat;
 }
 #MiniCalendarNav a.next{
-    background:transparent url(/tpl/bets/shared/images/month_nav_right_tbd.gif) center center no-repeat;
+    background:transparent url(../images/themes/month_nav_right_tbd.gif) center center no-repeat;
 }
 #MiniCalendarNav span.prev{
     background:none;
@@ -2943,7 +2943,7 @@ ul.b_DynamicCalendarTabs li.last .DynamicCalendarTabs{width:174px;}
     text-align:center;
 }
 #cal_content #sport_list_tooltip{
-    background:url(/tpl/bets/shared/images/tbsprite.png) left -576px no-repeat;
+    background:url(../images/themes/tbsprite.png) left -576px no-repeat;
     height:22px;
     width:23px;
     position:absolute;
@@ -2965,7 +2965,7 @@ div.jqmDialog {
 
 /* [[[ Title / Top Classes ]]] */
 div.jqmdTC {
-    background: #000 url(/tpl/bets/shared/images/modal/modal_title_sprite.gif) repeat-x 0px -100px;
+    background: #000 url(../images/themes/modal/modal_title_sprite.gif) repeat-x 0px -100px;
     color: #FFF;
     padding: 7px 22px 5px 110px;
     font-weight: bold;
@@ -2974,11 +2974,11 @@ div.jqmdTC {
     font-size:12px;
 }
 div.jqmdTL {
-    background: url(/tpl/bets/shared/images/modal/modal_title_sprite.gif) no-repeat 0px -50px;
+    background: url(../images/themes/modal/modal_title_sprite.gif) no-repeat 0px -50px;
     padding-left: 5px;
 }
 div.jqmdTR {
-    background: url(/tpl/bets/shared/images/modal/modal_title_sprite.gif) no-repeat right 0px;
+    background: url(../images/themes/modal/modal_title_sprite.gif) no-repeat right 0px;
     padding-right: 5px;
 }
 img.jqmLogo{
@@ -2993,7 +2993,7 @@ input.jqmdX{
 }
 /* [[[ Body / Message Classes ]]] */
 div.jqmdBC {
-    background: url(/tpl/bets/shared/images/modal/modal_bc_bg.gif) repeat-x center bottom;
+    background: url(../images/themes/modal/modal_bc_bg.gif) repeat-x center bottom;
     padding: 7px 5px 7px;
     height: 530px;
     overflow: auto;
@@ -3006,13 +3006,13 @@ div.jqmdBR {
 }
 #modal_content.loading{
     height:100%;
-    background:#EEE url(/tpl/bets/shared/images/ajax-loader-long.gif) no-repeat center center!important;
+    background:#EEE url(../images/themes/ajax-loader-long.gif) no-repeat center center!important;
 }
 #calendar_modal .close_btn, #account_modal .close_btn{
     position:absolute;
     right:5px;
     top:5px;
-    background:#EEE url(/tpl/bets/shared/images/modal/close.gif) no-repeat top left;
+    background:#EEE url(../images/themes/modal/close.gif) no-repeat top left;
     width:22px;
     height:21px;
     display:block;
@@ -3025,7 +3025,7 @@ div.jqmdBR {
     position:absolute;
     left:1px;
     top:13px;
-    background:#EEE url(/tpl/bets/shared/images/modal/modal_logo.gif) no-repeat top left;
+    background:#EEE url(../images/themes/modal/modal_logo.gif) no-repeat top left;
     text-indent:-7777px;
 }
 /*MODAL - END*/
@@ -3059,7 +3059,7 @@ div.jqmdBR {
     z-index: 9;
     width: 686px;
     height: 288px;
-    background: url(/tpl/bets/shared/images/successPromo.jpg) left top no-repeat;
+    background: url(../images/themes/successPromo.jpg) left top no-repeat;
     padding-top: 100px!important;
     margin-top: -60px!important;
     margin-bottom: 0!important;
@@ -3133,7 +3133,7 @@ a.successDeposit:hover {
 /*Begin Skins*/
 /*.b_deposit_bonus_banner {*/
     /*text-align:center;*/
-    /*background: url(/tpl/bets/shared/images/sidebarSkin.png) left top no-repeat;*/
+    /*background: url(../images/themes/sidebarSkin.png) left top no-repeat;*/
     /*position: relative;*/
     /*height: auto;*/
     /*padding-left:0;*/
@@ -3432,7 +3432,7 @@ a.successDeposit:hover {
     color:#656565;
 }
 #mobile_link{
-    background-image:url(/tpl/bets/shared/images/mobile/drogba.jpg);
+    background-image:url(../images/themes/mobile/drogba.jpg);
     background-position:right bottom;
     background-repeat:no-repeat;
 }
@@ -3577,7 +3577,7 @@ CASINO - GAMES INNER PAGES
     right:10px;
 }
 .cg_inpage_slider #promo_slider_controls li{
-    background:url(/tpl/bets/shared/images/tbsprite.png) no-repeat left -360px ;
+    background:url(../images/themes/tbsprite.png) no-repeat left -360px ;
     height:13px;
     width:13px;
     float:left;
@@ -3585,7 +3585,7 @@ CASINO - GAMES INNER PAGES
     cursor:pointer;
 }
 .cg_inpage_slider #promo_slider_controls li.active{
-    background:url(/tpl/bets/shared/images/games/active_blue_trans_tbd.gif) no-repeat left top;
+    background:url(../images/themes/games/active_blue_trans_tbd.gif) no-repeat left top;
 }
 /*
 END CASINO - GAMES INNER PAGES
@@ -3675,7 +3675,7 @@ END CASINO - GAMES INNER PAGES
     width: 20px;
     height: 20px;
     overflow: hidden;
-    background-image: url(/tpl/bets/shared/images/tbsprite.png);
+    background-image: url(../images/themes/tbsprite.png);
     background-repeat: no-repeat;
     text-indent: -9999px;
     cursor:pointer;
@@ -3795,7 +3795,7 @@ END CASINO - GAMES INNER PAGES
 .hrurNavigation .hrurNavigationPrev,.hrurNavigation .hrurNavigationNext{
     width:25px;
     height:17px;
-    background:transparent url(/tpl/bets/shared/images/horse_racing_sprite.gif) left top no-repeat;
+    background:transparent url(../images/themes/horse_racing_sprite.gif) left top no-repeat;
     text-indent:7777px;
     overflow:hidden;
     display:block;
@@ -3824,7 +3824,7 @@ END CASINO - GAMES INNER PAGES
     display:none;
 }
 #hrurRaces .hrurRaceTitle{
-    background:transparent url(/tpl/bets/shared/images/horse_racing_sprite.gif) -50px 9px no-repeat;
+    background:transparent url(../images/themes/horse_racing_sprite.gif) -50px 9px no-repeat;
     padding-left:20px;
     margin-left:10px;
     height:30px;
@@ -3917,7 +3917,7 @@ END CASINO - GAMES INNER PAGES
     top:6px;
     display:block;
     overflow:hidden;
-    background:transparent url(/tpl/bets/shared/images/horse_racing_info_icon.gif) -16px 0 no-repeat;
+    background:transparent url(../images/themes/horse_racing_info_icon.gif) -16px 0 no-repeat;
     text-indent:7777px;
     z-index:4;
 }
@@ -3936,7 +3936,7 @@ END CASINO - GAMES INNER PAGES
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
-    background:transparent url(/tpl/bets/shared/images/horse_racing_submit_sprite.gif) left top repeat-x;
+    background:transparent url(../images/themes/horse_racing_submit_sprite.gif) left top repeat-x;
     border:1px solid #aba7a7;
     height:21px;
     line-height:21px;
@@ -3959,7 +3959,7 @@ END CASINO - GAMES INNER PAGES
     cursor:pointer;
 }
 .HorseRacingEventsByDate .hrebdViewRaceCard:first-letter, .HorseRacingEventsByDate .hrebdViewRaceCardBottom:first-letter{
-    background:transparent url(/tpl/bets/shared/images/horse_racing_submit_sprite.gif) 0 -21px no-repeat;
+    background:transparent url(../images/themes/horse_racing_submit_sprite.gif) 0 -21px no-repeat;
     padding: 3px 0 3px 30px;
     line-height:15px;
 }
@@ -3983,7 +3983,7 @@ END CASINO - GAMES INNER PAGES
     color:#4f7001;
     text-decoration:none;
     padding-left:30px;
-    background:transparent url(/tpl/bets/shared/images/horse_racing_eye_sprite.gif) left top no-repeat;
+    background:transparent url(../images/themes/horse_racing_eye_sprite.gif) left top no-repeat;
     float:left;
     height:17px;
     line-height:17px;
@@ -4055,7 +4055,7 @@ END CASINO - GAMES INNER PAGES
 }
 .hrepEvent .hrepEventTitle{
     position: relative;
-    background:url(/tpl/bets/shared/images/horce_gradient_sprite_ie.png) 0 0;
+    background:url(../images/themes/horce_gradient_sprite_ie.png) 0 0;
     background:-o-linear-gradient(top , #efefef,#dbdbdb 50%);
     background:-moz-linear-gradient(center top , #efefef,#dbdbdb 50%);
     background:-webkit-gradient(linear, 0 0, 0 bottom, color-stop(0, #efefef), color-stop(0.50, #dbdbdb));
@@ -4072,7 +4072,7 @@ END CASINO - GAMES INNER PAGES
     width: 11px;
     height: 11px;
     overflow: hidden;
-    background-image: url(/tpl/bets/shared/images/horse_racing_toggler_small.gif);
+    background-image: url(../images/themes/horse_racing_toggler_small.gif);
     background-repeat: no-repeat;
     text-indent: -9999px;
     cursor:pointer;
@@ -4081,7 +4081,7 @@ END CASINO - GAMES INNER PAGES
     background-position:0 -11px;
 }
 .hrepEvent .hrepEventTitle .hrepEventTitleTime{
-    background: url(/tpl/bets/shared/images/horse_racing_sprite.gif) no-repeat -50px 8px transparent;
+    background: url(../images/themes/horse_racing_sprite.gif) no-repeat -50px 8px transparent;
     color:#686868;
     padding-left:17px;
     font-size:16px;
@@ -4127,7 +4127,7 @@ END CASINO - GAMES INNER PAGES
     padding:0 10px;
 }
 .hrepEventBody #hrepNavigationShowHideTrigger{
-    background: url(/tpl/bets/shared/images/horse_racing_eye_sprite.gif) no-repeat scroll left top transparent;
+    background: url(../images/themes/horse_racing_eye_sprite.gif) no-repeat scroll left top transparent;
     color: #4F7001;
     display: block;
     float: left;
@@ -4142,7 +4142,7 @@ END CASINO - GAMES INNER PAGES
     background-position:0 -17px;
 }
 .hrepEventBody .hrepNavigationRefreshPrices{
-    background:transparent url(/tpl/bets/shared/images/horse_racing_refresh.gif) no-repeat right top;
+    background:transparent url(../images/themes/horse_racing_refresh.gif) no-repeat right top;
     color: #4F7001;
     display: block;
     float: right;
@@ -4174,7 +4174,7 @@ END CASINO - GAMES INNER PAGES
     line-height:20px;
 }
 .hrepEventHorsesHeading .hrepHeadingTooltipTrigger{
-    background:url(/tpl/bets/shared/images/hreptooltipicon.png) left center no-repeat;
+    background:url(../images/themes/hreptooltipicon.png) left center no-repeat;
     float: left;
     height: 20px;
     width: 20px;
@@ -4209,7 +4209,7 @@ END CASINO - GAMES INNER PAGES
 .hrepHorseInfo td{
     border-top:1px solid #fff;
     position: relative;
-    background:url(/tpl/bets/shared/images/horce_gradient_sprite_ie.png) left -31px repeat-x;
+    background:url(../images/themes/horce_gradient_sprite_ie.png) left -31px repeat-x;
     background:-o-linear-gradient(top , #ebebeb,#fff 90%);
     background:-moz-linear-gradient(center top , #ebebeb,#fff 90%);
     background:-webkit-gradient(linear, 0 0, 0 bottom, color-stop(0, #ebebeb), color-stop(0.90, #fff));
@@ -4372,11 +4372,11 @@ END CASINO - GAMES INNER PAGES
 }
 
 .free-bets-welcome .specialMenu li h4{
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 8px 0px no-repeat scroll, -o-linear-gradient(top, #e7e7e7 1%, #bfbfbf 49%);
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 8px 0px no-repeat scroll, -moz-linear-gradient(center top, #e7e7e7, #bfbfbf);
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 8px 0px no-repeat scroll, -webkit-gradient(linear,left top,left bottom,color-stop(0, #e7e7e7),color-stop(0.50, #bfbfbf)); /*webkit*/
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 8px 0px no-repeat scroll, -webkit-linear-gradient(#e7e7e7, #bfbfbf);
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 8px 0px no-repeat scroll, linear-gradient(top, #e7e7e7, #bfbfbf);
+    background:url("../images/themes/table_arrows.gif") 8px 0px no-repeat scroll, -o-linear-gradient(top, #e7e7e7 1%, #bfbfbf 49%);
+    background:url("../images/themes/table_arrows.gif") 8px 0px no-repeat scroll, -moz-linear-gradient(center top, #e7e7e7, #bfbfbf);
+    background:url("../images/themes/table_arrows.gif") 8px 0px no-repeat scroll, -webkit-gradient(linear,left top,left bottom,color-stop(0, #e7e7e7),color-stop(0.50, #bfbfbf)); /*webkit*/
+    background:url("../images/themes/table_arrows.gif") 8px 0px no-repeat scroll, -webkit-linear-gradient(#e7e7e7, #bfbfbf);
+    background:url("../images/themes/table_arrows.gif") 8px 0px no-repeat scroll, linear-gradient(top, #e7e7e7, #bfbfbf);
     color:#000;
     line-height:25px;
     margin:0;
@@ -4387,11 +4387,11 @@ END CASINO - GAMES INNER PAGES
 }
 
 .free-bets-welcome .specialMenu li.open_parent h4{
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 6px -18px no-repeat scroll, -o-linear-gradient(top, #e4e4e4, #b3b3b 50%);
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 6px -18px no-repeat scroll, -moz-linear-gradient(center top, #e4e4e4, #b3b3b3);
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 6px -18px no-repeat scroll, -webkit-gradient(linear,left top,left bottom,color-stop(0, #e4e4e4),color-stop(0.50, #b3b3b3)); /*webkit*/
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 6px -18px no-repeat scroll, -webkit-linear-gradient(#e4e4e4, #b3b3b3);
-    background:url("/tpl/bets/shared/images/table_arrows.gif") 6px -18px no-repeat scroll, linear-gradient(top, #e4e4e4, #b3b3b3);
+    background:url("../images/themes/table_arrows.gif") 6px -18px no-repeat scroll, -o-linear-gradient(top, #e4e4e4, #b3b3b 50%);
+    background:url("../images/themes/table_arrows.gif") 6px -18px no-repeat scroll, -moz-linear-gradient(center top, #e4e4e4, #b3b3b3);
+    background:url("../images/themes/table_arrows.gif") 6px -18px no-repeat scroll, -webkit-gradient(linear,left top,left bottom,color-stop(0, #e4e4e4),color-stop(0.50, #b3b3b3)); /*webkit*/
+    background:url("../images/themes/table_arrows.gif") 6px -18px no-repeat scroll, -webkit-linear-gradient(#e4e4e4, #b3b3b3);
+    background:url("../images/themes/table_arrows.gif") 6px -18px no-repeat scroll, linear-gradient(top, #e4e4e4, #b3b3b3);
 }
 
 .free-bets-welcome dl.expandable dd{
@@ -4578,7 +4578,7 @@ body#live-betting .jqmOverlay{
     /*deactivate preloader*/
     /*display:none;*/
     /*deactivate preloader end*/
-    background: #000 url("/tpl/bets/shared/images/liveBettingPreloaderBg.jpg") no-repeat 0 0;
+    background: #000 url("../images/themes/liveBettingPreloaderBg.jpg") no-repeat 0 0;
     width: 944px;
     padding-top: 300px;
     padding-bottom: 25px;
@@ -4593,7 +4593,7 @@ body#live-betting .jqmOverlay{
     width: 80px;
     height: 100px;
     margin: auto;
-    background: transparent url("/tpl/bets/shared/images/preloader_4.gif") top left no-repeat;
+    background: transparent url("../images/themes/preloader_4.gif") top left no-repeat;
 }
 
 /* This CSS stylesheet defines styles used by required elements in a flex application page that supports browser history */
@@ -4618,7 +4618,7 @@ body#live-betting .jqmOverlay{
 .liveBettingContent .alternativeScreen dl{
     min-height:230px;
     margin:15px 5px 5px 15px;
-    background: url("/tpl/bets/shared/images/liveBettingAltBg.png") no-repeat right center;
+    background: url("../images/themes/liveBettingAltBg.png") no-repeat right center;
     position:relative;
 }
 .liveBettingContent .alternativeScreen dl dt{
@@ -4662,7 +4662,7 @@ body#live-betting .jqmOverlay{
     width:84px;
     height:84px;
     text-indent:-9999px;
-    background: url("/tpl/bets/shared/images/liveBettingAdobeLogo.png") no-repeat center center;
+    background: url("../images/themes/liveBettingAdobeLogo.png") no-repeat center center;
 }
 .liveBettingContent .alternativeScreen h2{
     color:#4ec600;
@@ -4730,7 +4730,7 @@ body#live-betting .jqmOverlay{
 }
 .liveBettingFooterLinksTitles ul li .links{
     display: block;
-    background: url("/tpl/bets/shared/images/liveFlashFooterTabsSprite.png") no-repeat 0 0;
+    background: url("../images/themes/liveFlashFooterTabsSprite.png") no-repeat 0 0;
     height: 19px;
     line-height: 19px;
     margin: 5px 0 5px 10px;
@@ -4745,7 +4745,7 @@ body#live-betting .jqmOverlay{
     left: 35%;
     top: 29px;
     z-index: 1000;
-    background: url("/tpl/bets/shared/images/liveBettinggFooterArrow.png") no-repeat 0 0;
+    background: url("../images/themes/liveBettinggFooterArrow.png") no-repeat 0 0;
 }
 .liveBettingFooterLinksTitles ul li.link_2 span{
     background-position: 0 -24px;
@@ -4822,7 +4822,7 @@ body#live-betting .jqmOverlay{
 }
 .downloadSteps dd{
     height:300px;
-    background: url("/tpl/bets/shared/images/downPageBG.png") repeat-x scroll 0 230px transparent;
+    background: url("../images/themes/downPageBG.png") repeat-x scroll 0 230px transparent;
 }
 .downloadSteps p{
     width:370px;
@@ -4876,7 +4876,7 @@ body#live-betting .jqmOverlay{
     border-radius: 0 0 5px 5px;
 }
 .liveDiaryHolder .liveDiaryContent.loading {
-    background:url(/tpl/bets/shared/images/ajax-loader-long.gif) no-repeat center center!important;
+    background:url(../images/themes/ajax-loader-long.gif) no-repeat center center!important;
     height: 514px;
 }
 .liveDiaryHolder .b_DynamicCalendar{
@@ -4949,7 +4949,7 @@ body#live-betting .jqmOverlay{
 .liveDiaryHolder .b_DynamicCalendarSportList a.toggler{
     position:relative;
     background:#050505;
-    background:url(/tpl/bets/shared/images/tbsprite.png) 330px -1573px no-repeat;
+    background:url(../images/themes/tbsprite.png) 330px -1573px no-repeat;
 }
 .liveDiaryHolder #cal_content #sport_list_tooltip{
     display: none;
@@ -4978,11 +4978,11 @@ body#live-betting .jqmOverlay{
     text-decoration: none;
 }
 .liveDiaryHolder .b_DynamicCalendarNavigation li a.minical{
-    background:url(/tpl/bets/shared/images/tbsprite.png) 10px -1621px no-repeat;
+    background:url(../images/themes/tbsprite.png) 10px -1621px no-repeat;
     width:36px;
 }
 .liveDiaryHolder .b_DynamicCalendarNavigation li:nth-child(2){
-    background:url(/tpl/bets/shared/images/liveDiaryMinical.png) center center no-repeat;
+    background:url(../images/themes/liveDiaryMinical.png) center center no-repeat;
     /*width:36px;*/
 }
 .liveDiaryHolder #cal_content{
@@ -5015,13 +5015,13 @@ body#live-betting .jqmOverlay{
 .liveDiaryHolder #MiniCalendarNav strong{
     width: 145px;
     color:#666;
-    background: url(/tpl/bets/shared/images/liveDiaryPickerBk.png) 0 0 no-repeat;
+    background: url(../images/themes/liveDiaryPickerBk.png) 0 0 no-repeat;
 }
 .liveDiaryHolder #MiniCalendarNav a.prev{
-    background: url(/tpl/bets/shared/images/liveDiaryMinicalArrows.png) 10px center no-repeat;
+    background: url(../images/themes/liveDiaryMinicalArrows.png) 10px center no-repeat;
 }
 .liveDiaryHolder #MiniCalendarNav a.next{
-    background: url(/tpl/bets/shared/images/liveDiaryMinicalArrows.png) -60px center no-repeat;
+    background: url(../images/themes/liveDiaryMinicalArrows.png) -60px center no-repeat;
 }
 .liveDiaryHolder #MiniCalendar table{
     width:175px;
@@ -5196,7 +5196,7 @@ body#live-betting .jqmOverlay{
     cursor: default;
 }
 .liveHelpHolder .liveHelpInnerHeader li.current span{
-    background: url("/tpl/bets/shared/images/liveBettinggHelpArrow.png") no-repeat 0 0;
+    background: url("../images/themes/liveBettinggHelpArrow.png") no-repeat 0 0;
     display: block;
     width:13px;
     height:6px;
@@ -5355,12 +5355,12 @@ body#live-betting .jqmOverlay{
 }
 #bets .b_specialEvent .b_hpH4 span,
 #topcoupons .b_specialEvent .b_hpH4 span{
-    background: url("/tpl/bets/shared/images/tbsprite.png") no-repeat  10px -1051px;
+    background: url("../images/themes/tbsprite.png") no-repeat  10px -1051px;
     left:0;
     width:30px;
 }
 #bets .b_specialEvent .b_hpH4.toggler_open span{
-    background: url("/tpl/bets/shared/images/tbsprite.png") no-repeat  13px -1022px;
+    background: url("../images/themes/tbsprite.png") no-repeat  13px -1022px;
     left:0;
 }
 #matches #main_container{
@@ -5681,7 +5681,7 @@ body#live-betting .jqmOverlay{
     width: 25px;
 }
 #inboxTabContent .msgOpenClose a{
-    background: url("/tpl/bets/shared/images/myaccount_table_arrows.gif") no-repeat 12px 50%;
+    background: url("../images/themes/myaccount_table_arrows.gif") no-repeat 12px 50%;
     width: 25px;
     display:block;
     height:40px;
@@ -5710,7 +5710,7 @@ body#live-betting .jqmOverlay{
     color: #fff;
 }
 #inboxTabContent .msgDel a{
-    background: url("/tpl/bets/shared/images/inbox_trash.png") no-repeat 0 50%;
+    background: url("../images/themes/inbox_trash.png") no-repeat 0 50%;
     width: 12px;
     display:block;
     height:40px;
@@ -5769,10 +5769,10 @@ body#live-betting .jqmOverlay{
     text-align: center;
 }
 #inboxTabContent .msgHeader .brdr{
-    background: url("/tpl/bets/shared/images/myaccount_table_borders.png") no-repeat left 50%;
+    background: url("../images/themes/myaccount_table_borders.png") no-repeat left 50%;
 }
 #inboxTabContent .msgToggle.opened{
-    background: url("/tpl/bets/shared/images/myaccount_table_arrows.gif") no-repeat -62px 50%;
+    background: url("../images/themes/myaccount_table_arrows.gif") no-repeat -62px 50%;
 }
 
 .confirmMessageDelete{
@@ -5804,7 +5804,7 @@ body#live-betting .jqmOverlay{
 }
 .confirmMessageDelete .title p{padding-left: 10px;}
 .confirmMessageDelete .content{
-    background: #f1f1f1 url("/tpl/bets/shared/images/inbox_confirm.png") no-repeat 10px 50%;
+    background: #f1f1f1 url("../images/themes/inbox_confirm.png") no-repeat 10px 50%;
     min-height: 50px;
     border: 1px solid #a6a6a6;
     -moz-border-radius: 0 0 5px 5px;
@@ -6047,14 +6047,14 @@ body#account .jqmOverlay{
     border-bottom: 1px solid #D3D3D3;
 }
 .leagueInnerTitle{
-    background: #ebebeb url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat; /* Old browsers */
-    background:  url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat, -moz-linear-gradient(top, #ebebeb 1%, #d0d0d0 100%); /* FF3.6+ */
-    background: url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ebebeb), color-stop(100%,#d0d0d0)); /* Chrome,Safari4+ */
-    background: url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat, -webkit-linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* Chrome10+,Safari5.1+ */
-    background: url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat, -o-linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* Opera11.10+ */
-    background: url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat, -ms-linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* IE10+ */
-    -pie-background: url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat, linear-gradient(#ebebeb ,#d0d0d0);/*ie7-8*/
-    background: url(/tpl/bets/shared/images/tbsprite.png) 7px -1046px no-repeat, linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* W3C */
+    background: #ebebeb url(../images/themes/tbsprite.png) 7px -1046px no-repeat; /* Old browsers */
+    background:  url(../images/themes/tbsprite.png) 7px -1046px no-repeat, -moz-linear-gradient(top, #ebebeb 1%, #d0d0d0 100%); /* FF3.6+ */
+    background: url(../images/themes/tbsprite.png) 7px -1046px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(1%,#ebebeb), color-stop(100%,#d0d0d0)); /* Chrome,Safari4+ */
+    background: url(../images/themes/tbsprite.png) 7px -1046px no-repeat, -webkit-linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* Chrome10+,Safari5.1+ */
+    background: url(../images/themes/tbsprite.png) 7px -1046px no-repeat, -o-linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* Opera11.10+ */
+    background: url(../images/themes/tbsprite.png) 7px -1046px no-repeat, -ms-linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* IE10+ */
+    -pie-background: url(../images/themes/tbsprite.png) 7px -1046px no-repeat, linear-gradient(#ebebeb ,#d0d0d0);/*ie7-8*/
+    background: url(../images/themes/tbsprite.png) 7px -1046px no-repeat, linear-gradient(top, #ebebeb 1%,#d0d0d0 100%); /* W3C */
     line-height: 30px;
     padding-left: 30px;
     border-bottom: 1px #ebebeb solid;
@@ -6081,7 +6081,7 @@ body#account .jqmOverlay{
 }
 .leagueInnerTitle.toggler_open{
     background-position: 10px -1020px;
-    -pie-background: url(/tpl/bets/shared/images/tbsprite.png) 10px -1020px no-repeat, linear-gradient(#ebebeb ,#d0d0d0);
+    -pie-background: url(../images/themes/tbsprite.png) 10px -1020px no-repeat, linear-gradient(#ebebeb ,#d0d0d0);
 }
 #betting .b_avaliableMarkets{
     background-color: #fff;
@@ -6132,7 +6132,7 @@ body#account .jqmOverlay{
     padding: 5px 0 0 20px;
     list-style-position: inside;
     list-style-type: none;
-    background: url("/tpl/bets/shared/images/tbsprite.png") -5px -1707px no-repeat;
+    background: url("../images/themes/tbsprite.png") -5px -1707px no-repeat;
     margin: 0 0 0 7px;
 }
 #main_container #promoBox .links a{
@@ -6257,28 +6257,28 @@ body#account .jqmOverlay{
     float: right;
     cursor: pointer;
     background: #fafafa;
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -moz-linear-gradient(top, #fafafa 0%, #ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#ccc));
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -webkit-linear-gradient(top, #fafafa 0%,#ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -o-linear-gradient(top, #fafafa 0%,#ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -ms-linear-gradient(top, #fafafa 0%,#ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -moz-linear-gradient(top, #fafafa 0%, #ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#ccc));
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -webkit-linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -o-linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -ms-linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, linear-gradient(top, #fafafa 0%,#ccc 100%);
 }
 .topLeaguesContainer .submit.disabled, .allLeaguesContainer .submit.disabled{
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1600px no-repeat, -moz-linear-gradient(top, #fafafa 0%, #ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1600px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#ccc));
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1600px no-repeat, -webkit-linear-gradient(top, #fafafa 0%,#ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1600px no-repeat, -o-linear-gradient(top, #fafafa 0%,#ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1600px no-repeat, -ms-linear-gradient(top, #fafafa 0%,#ccc 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1600px no-repeat, linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1600px no-repeat, -moz-linear-gradient(top, #fafafa 0%, #ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1600px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fafafa), color-stop(100%,#ccc));
+    background: url(../images/themes/tbsprite.png) 0 -1600px no-repeat, -webkit-linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1600px no-repeat, -o-linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1600px no-repeat, -ms-linear-gradient(top, #fafafa 0%,#ccc 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1600px no-repeat, linear-gradient(top, #fafafa 0%,#ccc 100%);
 }
 .topLeaguesContainer .submit:hover, .allLeaguesContainer .submit:hover{
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -moz-linear-gradient(top, #ccc 0%, #fafafa 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ccc), color-stop(100%,#fafafa));
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -webkit-linear-gradient(top, #ccc 0%,#fafafa 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -o-linear-gradient(top, #ccc 0%,#fafafa 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, -ms-linear-gradient(top, #ccc 0%,#fafafa 100%);
-    background: url(/tpl/bets/shared/images/tbsprite.png) 0 -1571px no-repeat, linear-gradient(top, #ccc 0%,#fafafa 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -moz-linear-gradient(top, #ccc 0%, #fafafa 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ccc), color-stop(100%,#fafafa));
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -webkit-linear-gradient(top, #ccc 0%,#fafafa 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -o-linear-gradient(top, #ccc 0%,#fafafa 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, -ms-linear-gradient(top, #ccc 0%,#fafafa 100%);
+    background: url(../images/themes/tbsprite.png) 0 -1571px no-repeat, linear-gradient(top, #ccc 0%,#fafafa 100%);
 }
 .evenBackground{
     background-color: #f2f2f2;
@@ -6428,13 +6428,13 @@ body#account .jqmOverlay{
     width: 210px;
 }
 #register .b_support ul li.phone{
-    background: url("/tpl/bets/shared/images/supportInfo.png") no-repeat scroll -10px 5px transparent;
+    background: url("../images/themes/supportInfo.png") no-repeat scroll -10px 5px transparent;
     width: 150px;
     padding-left: 35px;
     max-width: 150px;
 }
 #register .b_support ul li.email{
-    background: url("/tpl/bets/shared/images/supportInfo.png") no-repeat scroll 0 -100px transparent;
+    background: url("../images/themes/supportInfo.png") no-repeat scroll 0 -100px transparent;
     width: 160px;
     padding-left: 52px;
     max-width: 160px;
@@ -6449,7 +6449,7 @@ body#account .jqmOverlay{
 }
 /*contry flags for registration form*/
 #countryFlag {
-    background: url("/tpl/bets/shared/images/flags_22.jpg") no-repeat scroll 0 20px transparent;
+    background: url("../images/themes/flags_22.jpg") no-repeat scroll 0 20px transparent;
     height: 17px;
     left: 122px;
     position: relative;

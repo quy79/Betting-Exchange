@@ -80,7 +80,7 @@ namespace BetEx247.Web.Controllers
                 transactionPayment.RecurringTotalCycles = 1;
                 transactionPayment.RecurringCycleLength = 7;
             }
-
+                     
             message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);
 
             ViewBag.Message = message;
