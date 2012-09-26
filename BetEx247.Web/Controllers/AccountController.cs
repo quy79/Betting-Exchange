@@ -200,6 +200,11 @@ namespace BetEx247.Web.Controllers
             return View();
         }
 
+        public ActionResult ForgetPassword()
+        {
+            return View();
+        }
+
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
