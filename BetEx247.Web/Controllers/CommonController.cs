@@ -28,7 +28,7 @@ namespace BetEx247.Web.Controllers
 
         public JsonResult getSport()
         {
-            BetEx247.Core.XMLObjects.Sport.Interface.ISport sport = IoC.Resolve<IGuiService>().GetSport(Constant.SportType.FOOTBALL);
+            BetEx247.Core.XMLObjects.Sport.Interface.ISport sport = IoC.Resolve<IGuiService>().GetSport(Constant.SportType.SOCCER);
             return Json(sport, JsonRequestBehavior.AllowGet);
         }
     }

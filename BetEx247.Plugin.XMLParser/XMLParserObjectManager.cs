@@ -103,8 +103,9 @@ namespace BetEx247.Plugin.XMLParser
         /// <returns></returns>
         public ISport Sport(Constant.SportType sportType)
         {
-            foreach(ISport sp in sports){
-                if (sp.ID== (int)sportType)
+            foreach (ISport sp in sports)
+            {
+                if (sp.ID == (int)sportType)
                 {
                     return sp;
                 }
@@ -130,7 +131,7 @@ namespace BetEx247.Plugin.XMLParser
             {
                 Debug.WriteLine("Not Sirialized");
                 Debug.WriteLine("Begin Parse XML");
-               sports= this.XMLParse();
+                sports = this.XMLParse();
                 Debug.WriteLine("End Parse XML");
                 this.SerializeObject("c:\\git\\outputFile.txt", this.Sports);
                 Debug.WriteLine("Serialized after Parsed");
@@ -141,7 +142,7 @@ namespace BetEx247.Plugin.XMLParser
                 this.Sports = _sports;
             }
 
-           // Sports = XMLParse();
+            // Sports = XMLParse();
         }
         /// <summary>
         /// 
@@ -378,7 +379,7 @@ namespace BetEx247.Plugin.XMLParser
             int test = 0;
             while (iteratorSport.MoveNext())
             {
-                
+
                 XPathNavigator _sportNameNavigator = iteratorSport.Current.Clone();
                 int feedContentSport = Convert.ToInt32(_sportNameNavigator.GetAttribute("feedContents", ""));
                 int sportID = int.Parse(_sportNameNavigator.GetAttribute("id", ""));
@@ -451,18 +452,18 @@ namespace BetEx247.Plugin.XMLParser
                         _sport = SportTitabetParse(Constant.SportType.CRICKET);
                         _sportType = Constant.SportType.CRICKET;
                     }
-                    
+
                 }
 
-                if (sportID == (int)Constant.SportType.SOCCER)
-                {
+                //if (sportID == (int)Constant.SportType.SOCCER)
+                //{
 
-                    _sport = SportTitabetParse(Constant.SportType.SOCCER);
-                    if (_sport != null)
-                    {
-                        _sportType = Constant.SportType.SOCCER;
-                    }
-                }
+                //    _sport = SportTitabetParse(Constant.SportType.SOCCER);
+                //    if (_sport != null)
+                //    {
+                //        _sportType = Constant.SportType.SOCCER;
+                //    }
+                //}
 
                 if (sportID == (int)Constant.SportType.TENNIS)
                 {
@@ -482,15 +483,15 @@ namespace BetEx247.Plugin.XMLParser
                 }
                 else
                 {
-                     _sport = SportPinnacleParse(urlPathLeague, urlPathFeed, iteratorSport);
-                     _sport.SportFeedType = Constant.SourceFeedType.PINNACLESPORTS;
-                     _sports.Add(_sport);
+                    _sport = SportPinnacleParse(urlPathLeague, urlPathFeed, iteratorSport);
+                    _sport.SportFeedType = Constant.SourceFeedType.PINNACLESPORTS;
+                    _sports.Add(_sport);
                 }
 
                 //{ // get data from Pinacle
-                  //  ISport _sport = SportPinnacleParse(urlPathLeague, urlPathFeed, iteratorSport);
-                  //  _sports.Add(_sport);
-               // }
+                //  ISport _sport = SportPinnacleParse(urlPathLeague, urlPathFeed, iteratorSport);
+                //  _sports.Add(_sport);
+                // }
                 //else // Get from Titabet
                 //  {
                 //}
@@ -502,7 +503,7 @@ namespace BetEx247.Plugin.XMLParser
 
         }
         #endregion
-        
+
         #region Serialier
         /// <summary>
         /// 
@@ -537,7 +538,7 @@ namespace BetEx247.Plugin.XMLParser
 
         public List<ISport> DeSerializeObject(string filename)
         {
-            List<ISport> objectToSerialize ;
+            List<ISport> objectToSerialize;
             try
             {
 
@@ -625,24 +626,25 @@ namespace BetEx247.Plugin.XMLParser
                 // League
                 if (_sportNameNavigator.HasChildren)
                 {
-                   XPathExpression exprevent;
-                            exprevent = _sportNameNavigator.Compile("group");
-                            XPathNodeIterator iteratorEvent = _sportNameNavigator.Select(exprevent);
-                            while (iteratorEvent.MoveNext())
-                            {
+                    XPathExpression exprevent;
+                    exprevent = _sportNameNavigator.Compile("group");
+                    XPathNodeIterator iteratorEvent = _sportNameNavigator.Select(exprevent);
+                    while (iteratorEvent.MoveNext())
+                    {
 
-                                ILeague _league = LeagueTitabetParse(iteratorEvent, _sport.ID);
-                                if(_sport.Leagues==null){
-                                    _sport.Leagues = new List<ILeague>();
-                                }
-                                _sport.Leagues.Add(_league);
-                            }
+                        ILeague _league = LeagueTitabetParse(iteratorEvent, _sport.ID);
+                        if (_sport.Leagues == null)
+                        {
+                            _sport.Leagues = new List<ILeague>();
+                        }
+                        _sport.Leagues.Add(_league);
+                    }
 
                 }
             }
             return _sport;
         }
-        private ILeague LeagueTitabetParse( XPathNodeIterator iteratorLeague, int sportID)
+        private ILeague LeagueTitabetParse(XPathNodeIterator iteratorLeague, int sportID)
         {
             ILeague _league = new League();
 
@@ -731,7 +733,7 @@ namespace BetEx247.Plugin.XMLParser
                     while (iteratorMarket.MoveNext())
                     {
                         IMarket _market = MarketTitabetParse(iteratorMarket);
-                        if (_match.Markets==null)
+                        if (_match.Markets == null)
                         {
                             _match.Markets = new List<IMarket>();
                         }
@@ -757,7 +759,8 @@ namespace BetEx247.Plugin.XMLParser
             if (_marketNameNavigator.HasChildren)
             {
                 IOutcome _outcome = OutcomeTitabetParse(iteratorMarket);
-                if(_market.Outcomes==null){
+                if (_market.Outcomes == null)
+                {
                     _market.Outcomes = new List<IOutcome>();
                 }
                 _market.Outcomes.Add(_outcome);
@@ -798,6 +801,11 @@ namespace BetEx247.Plugin.XMLParser
                 // ISport _sport = new Sport();
                 _sport.ID = Convert.ToInt32(_sportNameNavigator.GetAttribute("id", ""));
                 _sport.Name = _sportNameNavigator.Value;
+
+                if (_sport.ID == 29)
+                {
+                    int spo = _sport.ID;
+                }
                 //Add sport to List
                 // sports.Add(_sport);
                 //league- event
@@ -813,8 +821,7 @@ namespace BetEx247.Plugin.XMLParser
                 while (iteratorLeague.MoveNext())
                 {
                     ILeague _league = LeaguePinnacleParse(urlPathFeed, _sport.ID, _sportNameNavigator, iteratorLeague);
-                    if (_sport.Leagues==null)
-
+                    if (_sport.Leagues == null)
                     {
                         _sport.Leagues = new List<ILeague>();
                     }
@@ -886,8 +893,6 @@ namespace BetEx247.Plugin.XMLParser
         /// <returns></returns>
         private IMatch MatchPinnacleParse(XPathNodeIterator iteratorMatchEvent)
         {
-
-
             XPathNavigator _matchEventNameNavigator = iteratorMatchEvent.Current.Clone();
             IMatch _match = new Match();
             _match.ID = Convert.ToInt32(_matchEventNameNavigator.SelectSingleNode("id").ToString()); ;
@@ -909,7 +914,7 @@ namespace BetEx247.Plugin.XMLParser
                 while (iteratorBet.MoveNext())
                 {
                     XPathNavigator _betNameNavigator = iteratorBet.Current.Clone();
-                    IPeriod _period =  PeriodPinnacleParse(_matchEventNameNavigator, iteratorBet);
+                    IPeriod _period = PeriodPinnacleParse(_betNameNavigator, iteratorBet); // PeriodPinnacleParse(_matchEventNameNavigator, iteratorBet);
                     if (_match.Periods == null)
                     {
                         _match.Periods = new List<IPeriod>();
@@ -925,9 +930,9 @@ namespace BetEx247.Plugin.XMLParser
         /// </summary>
         /// <param name="iteratorSport"></param>
         /// <returns></returns>
-        private IPeriod PeriodPinnacleParse( XPathNavigator matchEventNameNavigator,XPathNodeIterator iteratorBet)
+        private IPeriod PeriodPinnacleParse(XPathNavigator matchEventNameNavigator, XPathNodeIterator iteratorBet)
         {
-          
+
             XPathNavigator _betNameNavigator = iteratorBet.Current.Clone();
             IPeriod _period = new Period();
             _period.Description = _betNameNavigator.SelectSingleNode("description").Value; ;
@@ -949,7 +954,7 @@ namespace BetEx247.Plugin.XMLParser
             while (iteratorHandicap.MoveNext())
             {
                 ISpread _spread = SpreadPinnacleParse(iteratorHandicap);
-                if (_period.Spreads==null)
+                if (_period.Spreads == null)
                 {
                     _period.Spreads = new List<ISpread>();
                 }
@@ -959,7 +964,7 @@ namespace BetEx247.Plugin.XMLParser
             while (iteratorTotal.MoveNext())
             {
                 ITotal _total = TotalPinnacleParse(iteratorTotal);
-                if (_period.Totals==null)
+                if (_period.Totals == null)
                 {
                     _period.Totals = new List<ITotal>();
                 }
@@ -970,7 +975,7 @@ namespace BetEx247.Plugin.XMLParser
             while (iteratorMoneyLine.MoveNext())
             {
                 IMoneyLine _moneyline = MoneyLinePinnacleParse(iteratorMoneyLine);
-                if (_period.MoneyLines==null)
+                if (_period.MoneyLines == null)
                 {
                     _period.MoneyLines = new List<IMoneyLine>();
                 }
@@ -989,9 +994,9 @@ namespace BetEx247.Plugin.XMLParser
         {
             IMoneyLine _moneyline = new MoneyLine();
             XPathNavigator _choiceNameNavigator = iteratorMoneyLine.Current.Clone();
-            _moneyline.AwayPrice = float.Parse(_choiceNameNavigator.SelectSingleNode("awayPrice").Value);
-            _moneyline.HomePrice = float.Parse(_choiceNameNavigator.SelectSingleNode("homePrice").Value);
-            _moneyline.DrawPrice = float.Parse(_choiceNameNavigator.SelectSingleNode("drawPrice").Value);
+            _moneyline.AwayPrice = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("awayPrice").Value) ? float.Parse(_choiceNameNavigator.SelectSingleNode("awayPrice").Value) : 0;
+            _moneyline.HomePrice = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("homePrice").Value) ? float.Parse(_choiceNameNavigator.SelectSingleNode("homePrice").Value) : 0;
+            _moneyline.DrawPrice = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("drawPrice").Value) ? float.Parse(_choiceNameNavigator.SelectSingleNode("drawPrice").Value) : 0;
             return _moneyline;
         }
         /// <summary>
@@ -1003,9 +1008,9 @@ namespace BetEx247.Plugin.XMLParser
         {
             XPathNavigator _choiceNameNavigator = iteratorTotal.Current.Clone();
             ITotal _total = new Total();
-            _total.Point = float.Parse(_choiceNameNavigator.SelectSingleNode("points").Value);
-            _total.OverPrice = float.Parse(_choiceNameNavigator.SelectSingleNode("overPrice").Value);
-            _total.UnderPrice = float.Parse(_choiceNameNavigator.SelectSingleNode("underPrice").Value);
+            _total.Point = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("points").Value)? float.Parse(_choiceNameNavigator.SelectSingleNode("points").Value):0;
+            _total.OverPrice = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("overPrice").Value)? float.Parse(_choiceNameNavigator.SelectSingleNode("overPrice").Value):0;
+            _total.UnderPrice = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("underPrice").Value)? float.Parse(_choiceNameNavigator.SelectSingleNode("underPrice").Value):0;
             return _total;
         }
         /// <summary>
@@ -1017,10 +1022,10 @@ namespace BetEx247.Plugin.XMLParser
         {
             XPathNavigator _choiceNameNavigator = iteratorHandicap.Current.Clone();
             ISpread _spread = new Spread();
-            _spread.AwaySpread = float.Parse(_choiceNameNavigator.SelectSingleNode("awaySpread").Value);
-            _spread.AwayPrice = float.Parse(_choiceNameNavigator.SelectSingleNode("awayPrice").Value);
-            _spread.HomeSpread = float.Parse(_choiceNameNavigator.SelectSingleNode("homeSpread").Value);
-            _spread.HomePrice = float.Parse(_choiceNameNavigator.SelectSingleNode("homePrice").Value);
+            _spread.AwaySpread =!string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("awaySpread").Value)? float.Parse(_choiceNameNavigator.SelectSingleNode("awaySpread").Value):0;
+            _spread.AwayPrice = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("awayPrice").Value) ? float.Parse(_choiceNameNavigator.SelectSingleNode("awayPrice").Value) : 0;
+            _spread.HomeSpread = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("homeSpread").Value) ? float.Parse(_choiceNameNavigator.SelectSingleNode("homeSpread").Value) : 0;
+            _spread.HomePrice = !string.IsNullOrEmpty(_choiceNameNavigator.SelectSingleNode("homePrice").Value) ? float.Parse(_choiceNameNavigator.SelectSingleNode("homePrice").Value) : 0;
             return _spread;
         }
         #endregion
@@ -1029,8 +1034,9 @@ namespace BetEx247.Plugin.XMLParser
         /// 
         /// </summary>
         /// <returns></returns>
-        public String RenderJson(){
-        return "not implemented";
+        public String RenderJson()
+        {
+            return "not implemented";
         }
         /// <summary>
         /// 
@@ -1044,6 +1050,6 @@ namespace BetEx247.Plugin.XMLParser
     }
 
 }
- 
+
 
 
