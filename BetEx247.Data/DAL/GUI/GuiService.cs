@@ -5,17 +5,33 @@ using System.Text;
 using BetEx247.Plugin.XMLParser;
 using BetEx247.Core.XMLObjects.Sport.Interface;
 using BetEx247.Core;
+using BetEx247.Core.Infrastructure;
+using BetEx247.Core.Caching;
 
 namespace BetEx247.Data.DAL
 {
-    public class GuiService:IGuiService
+    public class GuiService : IGuiService
     {
         private static GuiService _instance;
         private XMLParserObjectManager obj;
-        public GuiService() 
+        private string key = "betex247";
+
+        /// <summary>
+        /// Gets a cache manager
+        /// </summary>
+        public ICacheManager CacheManager
+        {
+            get
+            {
+                return new MemoryCacheManager();
+            }
+        }
+
+        public GuiService()
         {
             obj = new XMLParserObjectManager();
             obj.Parse();
+            CacheManager.Set(key, GetAllSport(), 10);
         }
 
         public static GuiService Instance
@@ -35,8 +51,10 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <returns>list sport</returns>
         public List<ISport> GetAllSport()
-        {               
-            return obj.Sports;
+        {
+            if (CacheManager.IsSet(key))
+                return CacheManager.Get<List<ISport>>(key);
+            return obj.Sports.Where(w => w.Leagues != null).ToList<ISport>();
         }
 
         /// <summary>

@@ -136,6 +136,8 @@
     <Content Include="Content\Images\themes\tbsprite.png" />
     <Content Include="Content\Images\themes\us.png" />
     <Content Include="Content\Scripts\GUI\betex247.js" />
+    <Content Include="Content\Scripts\GUI\Cookies.js" />
+    <Content Include="Content\Scripts\GUI\DateFormat.js" />
     <Content Include="Content\Scripts\GUI\sports.js" />
     <Content Include="Content\Scripts\GUI\standards.js" />
     <Content Include="Content\Scripts\GUI\StringBuilder.js" />

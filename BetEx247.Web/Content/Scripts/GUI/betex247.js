@@ -1,30 +1,53 @@
 ﻿betex247 = {
+    Url: '',
     init: function () { },
     //#region common function
     getallsport: function () {
-        $.get(
-            'common/getAllSport', // home là controller và action là getInfo
-            function (data) {
+//        var key = "sportlist";
+//        if (checkCookie(key)) {
+//            var jData = $.parseJSON(getCookie(key));
+//            var output = betex247.bindsport(jData);
+//            $("#left_column").html(output);
+//            //hide all league
+//            $(".navsports").hide();
+//            //toggle the componenet with class msg_body
+//            $(".sport-heading").click(function () {
+//                $(".navsports").hide();
+//                $(this).next(".navsports").slideToggle(250);
+//            });
+//        }
+
+        $.ajax({
+            type: "GET",
+            url: this.Url + 'common/getAllSport', // {"content"="Hello!"}
+            dataType: 'json',
+            cache: true,
+            success: function (data) {
+//                setCookie(key, data, 1);
                 var output = betex247.bindsport(data);
                 $("#left_column").html(output);
                 //hide all league
                 $(".navsports").hide();
                 //toggle the componenet with class msg_body
                 $(".sport-heading").click(function () {
+                    $(".navsports").hide();
                     $(this).next(".navsports").slideToggle(250);
                 });
             }
-        )
+        });
     },
 
     getsport: function (id) {
-        $.get(
-            'common/getSport', // home là controller và action là getInfo
-            function (data) {
+        $.ajax({
+            type: "GET",
+            url: this.Url + 'common/getSport', // {"content"="Hello!"}
+            dataType: 'json',
+            cache: true,
+            success: function (data) {
                 var outPut = betex247.bindbet(data);
                 $("div.highlights-content").html(outPut);
             }
-        )
+        });
     },
     //#endregion
 
@@ -41,12 +64,25 @@
             var twt = obj[i];
             if (twt.Name.length > 0) {
                 var countLeague = twt.Leagues.length;
-                sb.append(this.addStringSport(twt.Name, countLeague));
+                var activeCountLeague = 0;
+                if (countLeague > 0) {
+                    for (var j = 0; j < countLeague; j++) {
+                        var twtLeague = twt.Leagues[j];
+                        if (twtLeague.Matches != null) {
+                            activeCountLeague++;
+                        }
+                    }
+                    sb.append(this.addStringEndLeague());
+                }
+
+                sb.append(this.addStringSport(twt.Name, activeCountLeague));
                 if (countLeague > 0) {
                     sb.append(this.addStringStartLeague());
                     for (var j = 0; j < countLeague; j++) {
                         var twtLeague = twt.Leagues[j];
-                        sb.append(this.addStringLeague("#", twtLeague.Name));
+                        if (twtLeague.Matches != null) {
+                            sb.append(this.addStringLeague("#", twtLeague.Name));
+                        }
                     }
                     sb.append(this.addStringEndLeague());
                 }
@@ -153,7 +189,7 @@
                         }
                         sb.append(this.betdettailEnd());
                     }
-                    
+
                 }
             }
         }
