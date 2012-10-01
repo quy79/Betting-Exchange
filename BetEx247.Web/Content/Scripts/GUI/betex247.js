@@ -1,21 +1,38 @@
-﻿betex247 = {
+﻿var country_list = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua &amp; Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas"
+		, "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia &amp; Herzegovina", "Botswana", "Brazil", "British Virgin Islands"
+		, "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica"
+		, "Cote D Ivoire", "Croatia", "Cruise Ship", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea"
+		, "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana"
+		, "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India"
+		, "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyz Republic", "Laos", "Latvia"
+		, "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Mauritania"
+		, "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia"
+		, "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal"
+		, "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre &amp; Miquelon", "Samoa", "San Marino", "Satellite", "Saudi Arabia", "Senegal", "Serbia", "Seychelles"
+		, "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain", "Sri Lanka", "St Kitts &amp; Nevis", "St Lucia", "St Vincent", "St. Lucia", "Sudan"
+		, "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad &amp; Tobago", "Tunisia"
+		, "Turkey", "Turkmenistan", "Turks &amp; Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (US)"
+		, "Yemen", "Zambia", "Zimbabwe"];
+
+var national_list = "World cup,Asian cup";
+betex247 = {
     Url: '',
     init: function () { },
     //#region common function
     getallsport: function () {
-//        var key = "sportlist";
-//        if (checkCookie(key)) {
-//            var jData = $.parseJSON(getCookie(key));
-//            var output = betex247.bindsport(jData);
-//            $("#left_column").html(output);
-//            //hide all league
-//            $(".navsports").hide();
-//            //toggle the componenet with class msg_body
-//            $(".sport-heading").click(function () {
-//                $(".navsports").hide();
-//                $(this).next(".navsports").slideToggle(250);
-//            });
-//        }
+        //        var key = "sportlist";
+        //        if (checkCookie(key)) {
+        //            var jData = $.parseJSON(getCookie(key));
+        //            var output = betex247.bindsport(jData);
+        //            $("#left_column").html(output);
+        //            //hide all league
+        //            $(".navsports").hide();
+        //            //toggle the componenet with class msg_body
+        //            $(".sport-heading").click(function () {
+        //                $(".navsports").hide();
+        //                $(this).next(".navsports").slideToggle(250);
+        //            });
+        //        }
 
         $.ajax({
             type: "GET",
@@ -23,15 +40,23 @@
             dataType: 'json',
             cache: true,
             success: function (data) {
-//                setCookie(key, data, 1);
+                //                setCookie(key, data, 1);
                 var output = betex247.bindsport(data);
                 $("#left_column").html(output);
                 //hide all league
-                $(".navsports").hide();
+                $(".navsports").slideUp(500);
+                $(".navsportssub").slideUp(500);
                 //toggle the componenet with class msg_body
                 $(".sport-heading").click(function () {
                     $(".navsports").hide();
-                    $(this).next(".navsports").slideToggle(250);
+                    $(this).next(".navsports").slideToggle(500);
+                    $('html,body').animate({ scrollTop: $(this).offset().top - 200}, 1000);
+                });
+
+                $(".league-heading").click(function () {
+                    $(".navsportssub").slideUp(500);
+                    $(this).children(".navsportssub").slideToggle(500);
+                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
                 });
             }
         });
@@ -62,9 +87,13 @@
         var obj = data;
         for (var i = 0; i < obj.length; i++) {
             var twt = obj[i];
+            //check sport name
             if (twt.Name.length > 0) {
+                var listCountry = "";
+                var listNational = "";
                 var countLeague = twt.Leagues.length;
                 var activeCountLeague = 0;
+                //count active league on sport
                 if (countLeague > 0) {
                     for (var j = 0; j < countLeague; j++) {
                         var twtLeague = twt.Leagues[j];
@@ -72,23 +101,97 @@
                             activeCountLeague++;
                         }
                     }
-                    sb.append(this.addStringEndLeague());
                 }
-
+                //add sport name to list menu
                 sb.append(this.addStringSport(twt.Name, activeCountLeague));
                 if (countLeague > 0) {
+                    listCountry = this.bindLeagueCountry(twt.Leagues);
+                    listNational = this.bindLeagueNational(twt.Leagues);
+                    //add start div league
                     sb.append(this.addStringStartLeague());
-                    for (var j = 0; j < countLeague; j++) {
-                        var twtLeague = twt.Leagues[j];
-                        if (twtLeague.Matches != null) {
-                            sb.append(this.addStringLeague("#", twtLeague.Name));
+                    //add National league
+                    if (listNational.length > 1) {
+                        sb.append(this.addStringLeague("#", "National"));
+                        for (var j = 0; j < countLeague; j++) {
+                            sb.append(this.addStringStartSubLeague());
+                            var twtLeague = twt.Leagues[j];
+                            if (twtLeague.Matches != null && listNational.indexOf(twtLeague.Name) > -1) {
+                                sb.append(this.addStringSubLeague("#", twtLeague.Name));
+                            }
+                            sb.append(this.addStringEndSubLeague());
+                            sb.append("</li>");
                         }
                     }
+                    //add Country league
+                    if (listCountry.length > 1) {
+                        var arrList = listCountry.split(',');
+                        for (var k = 0; k < arrList.length; k++) {
+                            var sCountry = arrList[k];
+                            if (sCountry.length > 0) {
+                                sb.append(this.addStringLeague("#", sCountry));
+                                sb.append(this.addStringStartSubLeague());
+                                for (var j = 0; j < countLeague; j++) {
+                                    var twtLeague = twt.Leagues[j];
+                                    if (twtLeague.Matches != null) {
+                                        if (twtLeague.Name.indexOf(sCountry) > -1) {
+                                            sb.append(this.addStringSubLeague("#", twtLeague.Name));
+                                        }
+                                    }
+                                }
+                                sb.append(this.addStringEndSubLeague());
+                                sb.append("</li>");
+                            }
+                        }
+                    }
+                    //add end div league
                     sb.append(this.addStringEndLeague());
                 }
             }
         }
         return sb.toString();
+    },
+
+    bindLeagueCountry: function (jLeagueData) {
+        var list = "";
+        var countLeague = jLeagueData.length;
+        if (countLeague > 0) {
+            for (var i = 0; i < countLeague; i++) {
+                var twtLeague = jLeagueData[i];
+                if (twtLeague.Matches != null) {
+                    var name = twtLeague.Name;
+                    if (name.indexOf(national_list) < 0) {
+                        var arrName = name.split(' ');
+                        if (arrName.length > 0) {
+                            if (list.indexOf(arrName[0]) < 0) {
+                                list += arrName[0] + ",";
+                            }
+                        } else {
+                            if (list.indexOf(name) < 0) {
+                                list += name + ",";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return list;
+    },
+
+    bindLeagueNational: function (jLeagueData) {
+        var list = "";
+        var countLeague = jLeagueData.length;
+        if (countLeague > 0) {
+            for (var i = 0; i < countLeague; i++) {
+                var twtLeague = jLeagueData[i];
+                if (twtLeague.Matches != null) {
+                    var name = twtLeague.Name;
+                    if (national_list.indexOf(name) > -1) {
+                        list += name + ",";
+                    }
+                }
+            }
+        }
+        return list;
     },
 
     addStringSport: function (sportname, leagueCount) {
@@ -157,10 +260,34 @@
 
     addStringLeague: function (url, leagueName) {
         var sb = new StringBuilder();
+        sb.append("        <li class=\"league-heading\"><a href=\"" + url + "\">");
+        sb.append("            <div style=\"padding: 3px 0px 3px 8px;\">+&nbsp;<b>");
+        sb.append("                " + leagueName + "</b></div>");
+        //sb.append("        </a></li>");
+        sb.append("        </a>");
+        return sb.toString();
+    },
+
+    addStringSubLeague: function (url, leagueName) {
+        var sb = new StringBuilder();
         sb.append("        <li><a href=\"" + url + "\">");
-        sb.append("            <div style=\"padding: 3px 0px 3px 4px;\">");
-        sb.append("                " + leagueName + "</div>");
+        sb.append("            <div style=\"padding: 3px 0px 3px 26px;\">");
+        sb.append("                <i>" + leagueName + "</i></div>");
         sb.append("        </a></li>");
+        return sb.toString();
+    },
+
+    addStringStartSubLeague: function () {
+        var sb = new StringBuilder();
+        sb.append("<div class=\"navsportssub\">");
+        sb.append("    <ul>");
+        return sb.toString();
+    },
+
+    addStringEndSubLeague: function () {
+        var sb = new StringBuilder();
+        sb.append("    </ul>");
+        sb.append("</div>");
         return sb.toString();
     },
 
