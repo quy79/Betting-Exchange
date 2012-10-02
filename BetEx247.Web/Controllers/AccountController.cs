@@ -14,11 +14,13 @@ using BetEx247.Data.DAL;
 using BetEx247.Core.Common.Extensions;
 using BetEx247.Core.Common.Utils;
 using BetEx247.Core;
+using BetEx247.Data;
 
 namespace BetEx247.Web.Controllers
 {
     public class AccountController : Controller
     {
+        #region Login & Logout
         //
         // GET: /Account/LogOn
 
@@ -38,6 +40,16 @@ namespace BetEx247.Web.Controllers
                 if (IoC.Resolve<ICustomerService>().Authenticate(model.UserName, FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password.Trim(), "sha1")))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                   
+                    //insert history login
+                    LoginHistory history = new LoginHistory();
+                    history.MemberID = SessionManager.USER_ID;
+                    history.LoginTime = DateTime.Now;
+                    history.Status = Constant.Status.ACTIVENUM;
+                    history.IP = Request.UserHostAddress;
+                    IoC.Resolve<ICustomerService>().InsertHistory(history);
+
+
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
@@ -57,6 +69,49 @@ namespace BetEx247.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+                  
+        public string LoginAjax(string userName, string userPass)
+        {
+            if (IoC.Resolve<ICustomerService>().Authenticate(userName, FormsAuthentication.HashPasswordForStoringInConfigFile(userPass, "sha1")))
+            {
+                FormsAuthentication.SetAuthCookie(userName, false);
+                var member = IoC.Resolve<ICustomerService>().GetCustomerByUsername(userName);
+                //insert history login
+                LoginHistory history = new LoginHistory();
+                history.MemberID = member.MemberID;
+                history.LoginTime = DateTime.Now;
+                history.Status = Constant.Status.ACTIVENUM;
+                history.IP = Request.UserHostAddress;
+                IoC.Resolve<ICustomerService>().InsertHistory(history);        
+               
+                var memberInfo = IoC.Resolve<ICustomerService>().GetCustomerByUsername(userName);
+                return "success|"+memberInfo.FirstName+" " +memberInfo.LastName;
+            }
+            return null;
+        }
+                       
+        public string LogOutAjax()
+        {
+            try
+            {
+                //update history
+                //insert history login
+                try
+                {
+                    LoginHistory history = new LoginHistory();
+                    history.ID = SessionManager.HISTORY_ID;
+                    history.LogoutTime = DateTime.Now;
+                    IoC.Resolve<ICustomerService>().UpdateHistory(history);
+                }
+                catch { }
+                SessionManager.Logout();
+                return "success";
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
         //
         // GET: /Account/LogOff
@@ -66,7 +121,9 @@ namespace BetEx247.Web.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        #endregion
 
+        #region Register
         //
         // GET: /Account/Register
 
@@ -145,7 +202,9 @@ namespace BetEx247.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        #endregion
 
+        #region Change & Update Pass
         //
         // GET: /Account/ChangePassword
 
@@ -204,6 +263,14 @@ namespace BetEx247.Web.Controllers
         {
             return View();
         }
+        #endregion
+
+        #region Account Info
+        public ActionResult Balances()
+        {
+            return View();
+        }
+        #endregion
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

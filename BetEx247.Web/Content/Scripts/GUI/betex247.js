@@ -16,9 +16,10 @@
 
 var national_list = "World cup,Asian cup";
 betex247 = {
-    Url: '',
+    Url: 'http://localhost:4262/',
     init: function () { },
     //#region common function
+    //#region Sport GUI
     getallsport: function () {
         //        var key = "sportlist";
         //        if (checkCookie(key)) {
@@ -50,7 +51,7 @@ betex247 = {
                 $(".sport-heading").click(function () {
                     $(".navsports").hide();
                     $(this).next(".navsports").slideToggle(500);
-                    $('html,body').animate({ scrollTop: $(this).offset().top - 200}, 1000);
+                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
                 });
 
                 $(".league-heading").click(function () {
@@ -76,7 +77,48 @@ betex247 = {
     },
     //#endregion
 
+    //#region account
+    login: function () {
+        var uNick = $('#LoginName').val();
+        var uPass = $('#Password').val();
+        $.ajax({
+            type: "GET",
+            url: this.Url + 'account/loginajax',
+            data: { userName: uNick, userPass: uPass },
+            cache: true,
+            success: function (data) {
+                if (data != null) {
+                    var arrData = data.split('|');
+                    $('#LoginName').val('');
+                    $('#Password').val('');
+                    if (arrData[0] == "success") {
+                        $("li.cnotlogin").hide();
+                        $("li.clogin").show();
+                        $("#lbwellcome").html(arrData[1]);
+                    }
+                }
+            }
+        });
+    },
+
+    logout: function () {
+        $.ajax({
+            type: "GET",
+            url: this.Url + 'account/logoutajax',
+            cache: true,
+            success: function (data) {
+                if (data == "success") {
+                    $("li.cnotlogin").show();
+                    $("li.clogin").hide();
+                }
+            }
+        });
+    },
+    //#endregion
+    //#endregion
+
     //#region support function
+    //#region Sport GUI
     bindsport: function (data) {
         var sb = new StringBuilder();
         sb.append("<div>");
@@ -462,5 +504,6 @@ betex247 = {
 
         return sb.toString();
     }
+    //#endregion
     //#endregion
 }

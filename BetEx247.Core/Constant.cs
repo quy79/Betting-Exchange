@@ -236,6 +236,8 @@ namespace BetEx247.Core
             public const string INACTIVE = "INACTIVE";
             public const string DELETED = "DELETED";
             public const string NEW = "NEW";
+            public const byte ACTIVENUM = 1;
+            public const byte INACTIVENUM = 2;
         }
 
         public static class SEOLinkPage

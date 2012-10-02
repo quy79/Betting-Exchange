@@ -199,8 +199,8 @@
           <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="MemberID" Type="bigint" />
           <Property Name="LoginTime" Type="datetime" Nullable="false" />
-          <Property Name="LogoutTime" Type="datetime" Nullable="false" />
-          <Property Name="Status" Type="tinyint" />
+          <Property Name="LogoutTime" Type="datetime" />
+          <Property Name="Status" Type="tinyint" Nullable="false" />
           <Property Name="IP" Type="nvarchar" MaxLength="30" />
           <Property Name="LoginFrom" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -218,11 +218,11 @@
           </Key>
           <Property Name="MemberID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="NickName" Type="nvarchar" Nullable="false" MaxLength="50" />
-          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="20" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="SecurityQuestion1" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="SecurityQuestion2" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="SecurityAnswer1" Type="nvarchar" Nullable="false" MaxLength="255" />
-          <Property Name="SecurityAnswer2" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="SecurityAnswer1" Type="nvarchar" MaxLength="255" />
+          <Property Name="SecurityAnswer2" Type="nvarchar" MaxLength="255" />
           <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="MiddleName" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
@@ -231,9 +231,9 @@
           <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="20" />
           <Property Name="Telephone" Type="nvarchar" Nullable="false" MaxLength="30" />
-          <Property Name="Cellphone" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Cellphone" Type="nvarchar" MaxLength="30" />
           <Property Name="Email1" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="Email2" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="100" />
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="Suffix" Type="nvarchar" MaxLength="50" />
           <Property Name="TotalPoints" Type="bigint" />
@@ -1009,7 +1009,6 @@
           <EntitySet Name="Countries" EntityType="BetEXData.Country" />
           <EntitySet Name="DiscountRateMSTs" EntityType="BetEXData.DiscountRateMST" />
           <EntitySet Name="Leagues" EntityType="BetEXData.League" />
-          <EntitySet Name="LoginHistories" EntityType="BetEXData.LoginHistory" />
           <EntitySet Name="MatchStatus" EntityType="BetEXData.MatchStatu" />
           <EntitySet Name="Members" EntityType="BetEXData.Member" />
           <EntitySet Name="Messages" EntityType="BetEXData.Message" />
@@ -1054,10 +1053,6 @@
           <AssociationSet Name="FK_Team_Leagues" Association="BetEXData.FK_Team_Leagues">
             <End Role="League" EntitySet="Leagues" />
             <End Role="Team" EntitySet="Teams" />
-          </AssociationSet>
-          <AssociationSet Name="FK_LoginHistory_Members" Association="BetEXData.FK_LoginHistory_Members">
-            <End Role="Member" EntitySet="Members" />
-            <End Role="LoginHistory" EntitySet="LoginHistories" />
           </AssociationSet>
           <AssociationSet Name="FK_Messages_Members" Association="BetEXData.FK_Messages_Members">
             <End Role="Member" EntitySet="Members" />
@@ -1143,6 +1138,11 @@
             <End Role="SportsMatch" EntitySet="SportsMatches" />
             <End Role="Sports_TotalOU" EntitySet="Sports_TotalOU" />
           </AssociationSet>
+          <EntitySet Name="LoginHistories" EntityType="BetEXData.LoginHistory" />
+          <AssociationSet Name="FK_LoginHistory_Members" Association="BetEXData.FK_LoginHistory_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="LoginHistory" EntitySet="LoginHistories" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="BetStatusMST">
           <Key>
@@ -1194,19 +1194,6 @@
           <NavigationProperty Name="SoccerMatches" Relationship="BetEXData.FK_SoccerMatches_Leagues" FromRole="League" ToRole="SoccerMatch" />
           <NavigationProperty Name="Teams" Relationship="BetEXData.FK_Team_Leagues" FromRole="League" ToRole="Team" />
         </EntityType>
-        <EntityType Name="LoginHistory">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="MemberID" />
-          <Property Type="DateTime" Name="LoginTime" Nullable="false" />
-          <Property Type="DateTime" Name="LogoutTime" Nullable="false" />
-          <Property Type="Byte" Name="Status" />
-          <Property Type="String" Name="IP" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LoginFrom" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Member" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="LoginHistory" ToRole="Member" />
-        </EntityType>
         <EntityType Name="MatchStatu">
           <Key>
             <PropertyRef Name="ID" />
@@ -1254,13 +1241,13 @@
           <Property Type="Boolean" Name="IsActive" />
           <Property Type="DateTime" Name="AddedDate" />
           <Property Type="DateTime" Name="Updatedate" />
-          <NavigationProperty Name="LoginHistories" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
           <NavigationProperty Name="Messages" Relationship="BetEXData.FK_Messages_Members" FromRole="Member" ToRole="Message" />
           <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Members" FromRole="Member" ToRole="MyBet" />
           <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_Members" FromRole="Member" ToRole="MyCard" />
           <NavigationProperty Name="MyWallets" Relationship="BetEXData.FK_MyWallet_Members" FromRole="Member" ToRole="MyWallet" />
           <NavigationProperty Name="Statements" Relationship="BetEXData.FK_Statements_Members" FromRole="Member" ToRole="Statement" />
           <NavigationProperty Name="Transactions" Relationship="BetEXData.FK_Transactions_Members" FromRole="Member" ToRole="Transaction" />
+          <NavigationProperty Name="LoginHistories" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -1785,18 +1772,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_LoginHistory_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
-          <End Type="BetEXData.LoginHistory" Role="LoginHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="LoginHistory">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Messages_Members">
           <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
           <End Type="BetEXData.Message" Role="Message" Multiplicity="*" />
@@ -2049,6 +2024,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="LoginHistory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="MemberID" />
+          <Property Type="DateTime" Name="LoginTime" Nullable="false" />
+          <Property Type="DateTime" Name="LogoutTime" />
+          <Property Type="Byte" Name="Status" Nullable="false" />
+          <Property Type="String" Name="IP" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoginFrom" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Member" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="LoginHistory" ToRole="Member" />
+        </EntityType>
+        <Association Name="FK_LoginHistory_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BetEXData.LoginHistory" Role="LoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LoginHistory">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2104,19 +2104,6 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
                 <ScalarProperty Name="SportID" ColumnName="SportID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LoginHistories">
-            <EntityTypeMapping TypeName="BetEXData.LoginHistory">
-              <MappingFragment StoreEntitySet="LoginHistory">
-                <ScalarProperty Name="LoginFrom" ColumnName="LoginFrom" />
-                <ScalarProperty Name="IP" ColumnName="IP" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
-                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
-                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2633,6 +2620,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="LoginHistories">
+            <EntityTypeMapping TypeName="BetEXData.LoginHistory">
+              <MappingFragment StoreEntitySet="LoginHistory">
+                <ScalarProperty Name="LoginFrom" ColumnName="LoginFrom" />
+                <ScalarProperty Name="IP" ColumnName="IP" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LogoutTime" ColumnName="LogoutTime" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2659,7 +2659,6 @@
         <EntityTypeShape EntityType="BetEXData.Country" Width="1.5" PointX="7.75" PointY="0.75" Height="1.4033821614583246" />
         <EntityTypeShape EntityType="BetEXData.DiscountRateMST" Width="1.5" PointX="9.75" PointY="0.75" Height="1.5956835937500102" />
         <EntityTypeShape EntityType="BetEXData.League" Width="1.5" PointX="3" PointY="23.375" Height="3.3263964843750102" />
-        <EntityTypeShape EntityType="BetEXData.LoginHistory" Width="1.5" PointX="9.75" PointY="39" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="BetEXData.MatchStatu" Width="1.5" PointX="9.75" PointY="3.75" Height="1.5956835937500102" />
         <EntityTypeShape EntityType="BetEXData.Member" Width="1.5" PointX="7.5" PointY="44.375" Height="9.09543945312501" />
         <EntityTypeShape EntityType="BetEXData.Message" Width="1.5" PointX="9.75" PointY="42.375" Height="3.7109993489583246" />
@@ -2707,40 +2706,34 @@
           <ConnectorPoint PointX="3.75" PointY="45.211293945312491" />
           <ConnectorPoint PointX="5.25" PointY="45.211293945312491" />
         </AssociationConnector>
-        <AssociationConnector Association="BetEXData.FK_LoginHistory_Members" >
-          <ConnectorPoint PointX="9" PointY="44.431537461538461" />
-          <ConnectorPoint PointX="9.53125" PointY="43.900287461538461" />
-          <ConnectorPoint PointX="9.53125" PointY="40.278595377604162" />
-          <ConnectorPoint PointX="9.75" PointY="40.278595377604162" />
-        </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Messages_Members" >
-          <ConnectorPoint PointX="9" PointY="45.261752174479213" />
-          <ConnectorPoint PointX="9.75" PointY="45.261752174479213" />
+          <ConnectorPoint PointX="9" PointY="45.230499674479162" />
+          <ConnectorPoint PointX="9.75" PointY="45.230499674479162" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Members" >
-          <ConnectorPoint PointX="8.9757692307692327" PointY="44.375" />
-          <ConnectorPoint PointX="9.375" PointY="43.975769230769231" />
+          <ConnectorPoint PointX="9.0000000000000018" PointY="44.375" />
+          <ConnectorPoint PointX="9.375" PointY="44" />
           <ConnectorPoint PointX="9.375" PointY="13.970856119791662" />
           <ConnectorPoint PointX="9.75" PointY="13.970856119791662" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyCards_Members" >
-          <ConnectorPoint PointX="9" PointY="48.874746093749991" />
-          <ConnectorPoint PointX="12.75" PointY="48.874746093749991" />
+          <ConnectorPoint PointX="9" PointY="49.265306367187492" />
+          <ConnectorPoint PointX="12.75" PointY="49.265306367187492" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyWallet_Members" >
           <ConnectorPoint PointX="9" PointY="51.432444661458334" />
           <ConnectorPoint PointX="9.75" PointY="51.432444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Statements_Members" >
-          <ConnectorPoint PointX="8.25" PointY="53.47043945312501" />
-          <ConnectorPoint PointX="8.25" PointY="55.85512419791668" />
-          <ConnectorPoint PointX="8.5729191666666669" PointY="55.85512419791668" />
-          <ConnectorPoint PointX="8.7395858333333347" PointY="55.85512419791668" />
-          <ConnectorPoint PointX="9.75" PointY="55.85512419791668" />
+          <ConnectorPoint PointX="8.0273446875" PointY="53.470439453124996" />
+          <ConnectorPoint PointX="8.0273446875" PointY="55.855124197916673" />
+          <ConnectorPoint PointX="8.4615915104166657" PointY="55.855124197916673" />
+          <ConnectorPoint PointX="8.6282581770833335" PointY="55.855124197916673" />
+          <ConnectorPoint PointX="9.75" PointY="55.855124197916673" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Transactions_Members" >
-          <ConnectorPoint PointX="8.6562525" PointY="53.47043945312501" />
-          <ConnectorPoint PointX="8.6562525" PointY="60.663198242187491" />
+          <ConnectorPoint PointX="8.54492484375" PointY="53.470439453124996" />
+          <ConnectorPoint PointX="8.54492484375" PointY="60.663198242187491" />
           <ConnectorPoint PointX="9.75" PointY="60.663198242187491" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_AsianHandicap" >
@@ -2826,6 +2819,12 @@
           <ConnectorPoint PointX="1.5" PointY="9.4129036458333246" />
           <ConnectorPoint PointX="1.5" PointY="11.259348958333334" />
           <ConnectorPoint PointX="3" PointY="11.259348958333334" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BetEXData.LoginHistory" Width="1.5" PointX="9.75" PointY="63.625" Height="2.5571907552083246" />
+        <AssociationConnector Association="BetEXData.FK_LoginHistory_Members" >
+          <ConnectorPoint PointX="7.73241984375" PointY="53.470439453124996" />
+          <ConnectorPoint PointX="7.73241984375" PointY="64.903595377604162" />
+          <ConnectorPoint PointX="9.75" PointY="64.903595377604162" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

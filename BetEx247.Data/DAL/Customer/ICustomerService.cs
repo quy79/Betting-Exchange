@@ -61,8 +61,7 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Logout customer
         /// </summary>
-        void Logout();
-
+        void Logout();            
         #endregion 
     
         #region Check Data
@@ -79,6 +78,18 @@ namespace BetEx247.Data.DAL
         /// <param name="email">nickname to check</param>
         /// <returns>true, false</returns>
         bool checkExistNickName(string nickName);
+        #endregion
+
+        #region History
+        long InsertHistory(LoginHistory history);
+
+        bool UpdateHistory(LoginHistory history);
+
+        LoginHistory LastLogin(long memberID);
+        #endregion 
+
+        #region Account Info
+        MyWallet GetAccountWallet(long memberId);
         #endregion
     }
 }

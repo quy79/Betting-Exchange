@@ -81,7 +81,7 @@ namespace BetEx247.Data.DAL
         {
             using (var dba = new BetEXDataContainer())
             {
-                return dba.Members.Where(w => w.Email1 == email || w.Email2 == email).SingleOrDefault();
+                return dba.Members.Where(w => w.Email1 == email || w.Email2 == email && w.Status==Constant.Status.ACTIVE).SingleOrDefault();
             }
         }
 
@@ -94,7 +94,7 @@ namespace BetEx247.Data.DAL
         {
             using (var dba = new BetEXDataContainer())
             {
-                return dba.Members.Where(w => w.NickName == username).SingleOrDefault();
+                return dba.Members.Where(w => w.NickName == username && w.Status == Constant.Status.ACTIVE).SingleOrDefault();
             }
         }
 
@@ -214,7 +214,7 @@ namespace BetEx247.Data.DAL
         public IQueryable<Member> Table
         {
             get { throw new NotImplementedException(); }
-        }
+        }  
         #endregion
 
         #region Check Data
@@ -248,6 +248,61 @@ namespace BetEx247.Data.DAL
                     return true;
             }
             return false;
+        }
+        #endregion
+
+        #region History
+
+        public long InsertHistory(LoginHistory history)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                dba.AddToLoginHistories(history);
+                dba.SaveChanges();
+                return history.ID;
+            }
+        }
+
+        public bool UpdateHistory(LoginHistory history)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                try
+                {
+                    var Orghistory = dba.LoginHistories.Where(w => w.ID == history.ID).SingleOrDefault();
+                    if (Orghistory != null)
+                    {
+                        Orghistory.LogoutTime = history.LogoutTime;
+                        dba.SaveChanges();
+                    }
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+        }
+
+        public LoginHistory LastLogin(long memberID)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var lstHisttory = dba.LoginHistories.Where(w => w.MemberID == memberID).OrderByDescending(k => k.ID).ToList();
+                if (lstHisttory != null)
+                    return lstHisttory[0];
+            }
+            return null;
+        }
+        #endregion
+
+        #region Account Info
+        public MyWallet GetAccountWallet(long memberId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.MyWallets.Where(w => w.MemberID == memberId).SingleOrDefault();                
+            }
         }
         #endregion
     }
