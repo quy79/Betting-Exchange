@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://www.apsp.biz/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://www.apsp.biz/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://www.apsp.biz/">
+      <s:element name="DoTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpDay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpMonth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardHName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF3" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DoTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BypassAcquirerProcessing">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpDay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpMonth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardHName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankResponse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankAccept" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BankTransID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AuthCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BypassAcquirerProcessingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BypassAcquirerProcessingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Do3DSTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MerchPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardNum" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpDay" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpMonth" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ExpYear" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardHName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Amount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Addr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserIP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UDF3" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OrderRef" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Do3DSTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Do3DSTransactionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="S3DProcess">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Method" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ticket3D" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="S3DProcessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="S3DProcessResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVbVSignature">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MerchPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ticket3D" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getVbVSignatureResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getVbVSignatureResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDDR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDDRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDDRResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setBatchFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="batchFile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Delimiter" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strReturn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setBatchFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="setBatchFileResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="strReturn" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBatchFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="BatchRef" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getBatchFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getBatchFileResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMerchantInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MCHCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MCHPass" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMerchantInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMerchantInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNextAMTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MCHCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MCHPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="BankAccept" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="Trntype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="IPAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getNextAMTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getNextAMTransactionsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckoutReadReceipt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MCHCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MCHPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PSPTransID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckoutReadReceiptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckoutReadReceiptResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="sError" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get3DSTransactionStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MCHCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MCHPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Ticket3D" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="get3DSTransactionStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="get3DSTransactionStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTransactionStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MerchPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ORef" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getTransactionStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getTransactionStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isCardPendingSVPVerification">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MerchPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardHash" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SVPTransaction">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isCardPendingSVPVerificationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isCardPendingSVPVerificationResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="SVPTransaction">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifySVP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MerchPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CardHash" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SVP" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifySVPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verifySVPResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setOnHold">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MerchID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MerchPass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TransID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="setOnHoldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="setOnHoldResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="DoTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:DoTransaction" />
+  </wsdl:message>
+  <wsdl:message name="DoTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:DoTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="BypassAcquirerProcessingSoapIn">
+    <wsdl:part name="parameters" element="tns:BypassAcquirerProcessing" />
+  </wsdl:message>
+  <wsdl:message name="BypassAcquirerProcessingSoapOut">
+    <wsdl:part name="parameters" element="tns:BypassAcquirerProcessingResponse" />
+  </wsdl:message>
+  <wsdl:message name="Do3DSTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:Do3DSTransaction" />
+  </wsdl:message>
+  <wsdl:message name="Do3DSTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:Do3DSTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="S3DProcessSoapIn">
+    <wsdl:part name="parameters" element="tns:S3DProcess" />
+  </wsdl:message>
+  <wsdl:message name="S3DProcessSoapOut">
+    <wsdl:part name="parameters" element="tns:S3DProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="getVbVSignatureSoapIn">
+    <wsdl:part name="parameters" element="tns:getVbVSignature" />
+  </wsdl:message>
+  <wsdl:message name="getVbVSignatureSoapOut">
+    <wsdl:part name="parameters" element="tns:getVbVSignatureResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDDRSoapIn">
+    <wsdl:part name="parameters" element="tns:getDDR" />
+  </wsdl:message>
+  <wsdl:message name="getDDRSoapOut">
+    <wsdl:part name="parameters" element="tns:getDDRResponse" />
+  </wsdl:message>
+  <wsdl:message name="setBatchFileSoapIn">
+    <wsdl:part name="parameters" element="tns:setBatchFile" />
+  </wsdl:message>
+  <wsdl:message name="setBatchFileSoapOut">
+    <wsdl:part name="parameters" element="tns:setBatchFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="getBatchFileSoapIn">
+    <wsdl:part name="parameters" element="tns:getBatchFile" />
+  </wsdl:message>
+  <wsdl:message name="getBatchFileSoapOut">
+    <wsdl:part name="parameters" element="tns:getBatchFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMerchantInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMerchantInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetMerchantInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMerchantInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getNextAMTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:getNextAMTransactions" />
+  </wsdl:message>
+  <wsdl:message name="getNextAMTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:getNextAMTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckoutReadReceiptSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckoutReadReceipt" />
+  </wsdl:message>
+  <wsdl:message name="CheckoutReadReceiptSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckoutReadReceiptResponse" />
+  </wsdl:message>
+  <wsdl:message name="get3DSTransactionStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:get3DSTransactionStatus" />
+  </wsdl:message>
+  <wsdl:message name="get3DSTransactionStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:get3DSTransactionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTransactionStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:getTransactionStatus" />
+  </wsdl:message>
+  <wsdl:message name="getTransactionStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:getTransactionStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="isCardPendingSVPVerificationSoapIn">
+    <wsdl:part name="parameters" element="tns:isCardPendingSVPVerification" />
+  </wsdl:message>
+  <wsdl:message name="isCardPendingSVPVerificationSoapOut">
+    <wsdl:part name="parameters" element="tns:isCardPendingSVPVerificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifySVPSoapIn">
+    <wsdl:part name="parameters" element="tns:verifySVP" />
+  </wsdl:message>
+  <wsdl:message name="verifySVPSoapOut">
+    <wsdl:part name="parameters" element="tns:verifySVPResponse" />
+  </wsdl:message>
+  <wsdl:message name="setOnHoldSoapIn">
+    <wsdl:part name="parameters" element="tns:setOnHold" />
+  </wsdl:message>
+  <wsdl:message name="setOnHoldSoapOut">
+    <wsdl:part name="parameters" element="tns:setOnHoldResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="DoTransaction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Process PSP Transaction</wsdl:documentation>
+      <wsdl:input message="tns:DoTransactionSoapIn" />
+      <wsdl:output message="tns:DoTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BypassAcquirerProcessing">
+      <wsdl:input message="tns:BypassAcquirerProcessingSoapIn" />
+      <wsdl:output message="tns:BypassAcquirerProcessingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Do3DSTransaction">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">3D Secure Card Check</wsdl:documentation>
+      <wsdl:input message="tns:Do3DSTransactionSoapIn" />
+      <wsdl:output message="tns:Do3DSTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="S3DProcess">
+      <wsdl:input message="tns:S3DProcessSoapIn" />
+      <wsdl:output message="tns:S3DProcessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getVbVSignature">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieve VbV Signature</wsdl:documentation>
+      <wsdl:input message="tns:getVbVSignatureSoapIn" />
+      <wsdl:output message="tns:getVbVSignatureSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDDR">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets Transaction Dynamic Descriptor</wsdl:documentation>
+      <wsdl:input message="tns:getDDRSoapIn" />
+      <wsdl:output message="tns:getDDRSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setBatchFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Batch Text Upload Service</wsdl:documentation>
+      <wsdl:input message="tns:setBatchFileSoapIn" />
+      <wsdl:output message="tns:setBatchFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getBatchFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">BatchText Download Service</wsdl:documentation>
+      <wsdl:input message="tns:getBatchFileSoapIn" />
+      <wsdl:output message="tns:getBatchFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Merchant Currencies, Acquirers &amp; Cards</wsdl:documentation>
+      <wsdl:input message="tns:GetMerchantInfoSoapIn" />
+      <wsdl:output message="tns:GetMerchantInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getNextAMTransactions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get transactions which are not generated by AM Portal</wsdl:documentation>
+      <wsdl:input message="tns:getNextAMTransactionsSoapIn" />
+      <wsdl:output message="tns:getNextAMTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckoutReadReceipt">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set Checkout Page Read Receipt</wsdl:documentation>
+      <wsdl:input message="tns:CheckoutReadReceiptSoapIn" />
+      <wsdl:output message="tns:CheckoutReadReceiptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="get3DSTransactionStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get 3DSecure Transaction Status</wsdl:documentation>
+      <wsdl:input message="tns:get3DSTransactionStatusSoapIn" />
+      <wsdl:output message="tns:get3DSTransactionStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Transaction Status</wsdl:documentation>
+      <wsdl:input message="tns:getTransactionStatusSoapIn" />
+      <wsdl:output message="tns:getTransactionStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isCardPendingSVPVerification">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Check if card needs to be verified by SVP</wsdl:documentation>
+      <wsdl:input message="tns:isCardPendingSVPVerificationSoapIn" />
+      <wsdl:output message="tns:isCardPendingSVPVerificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifySVP">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify SVP</wsdl:documentation>
+      <wsdl:input message="tns:verifySVPSoapIn" />
+      <wsdl:output message="tns:verifySVPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="setOnHold">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verify SVP</wsdl:documentation>
+      <wsdl:input message="tns:setOnHoldSoapIn" />
+      <wsdl:output message="tns:setOnHoldSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoTransaction">
+      <soap:operation soapAction="https://www.apsp.biz/DoTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BypassAcquirerProcessing">
+      <soap:operation soapAction="https://www.apsp.biz/BypassAcquirerProcessing" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Do3DSTransaction">
+      <soap:operation soapAction="https://www.apsp.biz/Do3DSTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="S3DProcess">
+      <soap:operation soapAction="https://www.apsp.biz/S3DProcess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVbVSignature">
+      <soap:operation soapAction="https://www.apsp.biz/getVbVSignature" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDDR">
+      <soap:operation soapAction="https://www.apsp.biz/getDDR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setBatchFile">
+      <soap:operation soapAction="https://www.apsp.biz/setBatchFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchFile">
+      <soap:operation soapAction="https://www.apsp.biz/getBatchFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantInfo">
+      <soap:operation soapAction="https://www.apsp.biz/GetMerchantInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextAMTransactions">
+      <soap:operation soapAction="https://www.apsp.biz/getNextAMTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckoutReadReceipt">
+      <soap:operation soapAction="https://www.apsp.biz/CheckoutReadReceipt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get3DSTransactionStatus">
+      <soap:operation soapAction="https://www.apsp.biz/get3DSTransactionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionStatus">
+      <soap:operation soapAction="https://www.apsp.biz/getTransactionStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isCardPendingSVPVerification">
+      <soap:operation soapAction="https://www.apsp.biz/isCardPendingSVPVerification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifySVP">
+      <soap:operation soapAction="https://www.apsp.biz/verifySVP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOnHold">
+      <soap:operation soapAction="https://www.apsp.biz/setOnHold" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoTransaction">
+      <soap12:operation soapAction="https://www.apsp.biz/DoTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BypassAcquirerProcessing">
+      <soap12:operation soapAction="https://www.apsp.biz/BypassAcquirerProcessing" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Do3DSTransaction">
+      <soap12:operation soapAction="https://www.apsp.biz/Do3DSTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="S3DProcess">
+      <soap12:operation soapAction="https://www.apsp.biz/S3DProcess" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getVbVSignature">
+      <soap12:operation soapAction="https://www.apsp.biz/getVbVSignature" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDDR">
+      <soap12:operation soapAction="https://www.apsp.biz/getDDR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setBatchFile">
+      <soap12:operation soapAction="https://www.apsp.biz/setBatchFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBatchFile">
+      <soap12:operation soapAction="https://www.apsp.biz/getBatchFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMerchantInfo">
+      <soap12:operation soapAction="https://www.apsp.biz/GetMerchantInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNextAMTransactions">
+      <soap12:operation soapAction="https://www.apsp.biz/getNextAMTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckoutReadReceipt">
+      <soap12:operation soapAction="https://www.apsp.biz/CheckoutReadReceipt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="get3DSTransactionStatus">
+      <soap12:operation soapAction="https://www.apsp.biz/get3DSTransactionStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransactionStatus">
+      <soap12:operation soapAction="https://www.apsp.biz/getTransactionStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isCardPendingSVPVerification">
+      <soap12:operation soapAction="https://www.apsp.biz/isCardPendingSVPVerification" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifySVP">
+      <soap12:operation soapAction="https://www.apsp.biz/verifySVP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOnHold">
+      <soap12:operation soapAction="https://www.apsp.biz/setOnHold" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="https://www.apsp.biz:9085/service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="https://www.apsp.biz:9085/service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

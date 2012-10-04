@@ -372,6 +372,15 @@ namespace BetEx247.Core.Common.Utils
         /// <summary>
         /// Gets store location
         /// </summary>
+        /// <returns>Store location</returns>
+        public static string GetRequestIP()
+        {
+            return HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]; 
+        }
+
+        /// <summary>
+        /// Gets store location
+        /// </summary>
         /// <param name="useSsl">Use SSL</param>
         /// <returns>Store location</returns>
         public static string GetStoreLocation(bool useSsl)

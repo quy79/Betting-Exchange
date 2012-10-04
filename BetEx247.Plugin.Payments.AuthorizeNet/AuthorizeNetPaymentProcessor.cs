@@ -67,7 +67,7 @@ namespace BetEx247.Plugin.Payments.AuthorizeNet
         }
 
         // Populate merchant authentication (ARB Support)
-        private MerchantAuthenticationType PopulateMerchantAuthentication()
+        private net.authorize.api.MerchantAuthenticationType PopulateMerchantAuthentication()
         {
             MerchantAuthenticationType authentication = new MerchantAuthenticationType();
             authentication.name = loginID;

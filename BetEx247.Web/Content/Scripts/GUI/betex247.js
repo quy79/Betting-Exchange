@@ -152,8 +152,9 @@ betex247 = {
                     //add start div league
                     sb.append(this.addStringStartLeague());
                     //add National league
+
+                    sb.append(this.addStringLeague("#", "International"));
                     if (listNational.length > 1) {
-                        sb.append(this.addStringLeague("#", "National"));
                         for (var j = 0; j < countLeague; j++) {
                             sb.append(this.addStringStartSubLeague());
                             var twtLeague = twt.Leagues[j];
