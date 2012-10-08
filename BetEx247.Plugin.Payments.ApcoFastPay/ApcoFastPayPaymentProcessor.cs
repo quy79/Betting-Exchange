@@ -97,7 +97,7 @@ namespace BetEx247.Plugin.Payments.ApcoFastPay
                 switch (responseFields[0])
                 {
                     case "APPROVED":
-                        processPaymentResult.AuthorizationTransactionCode = string.Format("{0},{1}", responseFields[7], responseFields[10]);
+                        processPaymentResult.AuthorizationTransactionCode = string.Format("{0}", responseFields[1]);
                         processPaymentResult.AuthorizationTransactionResult = string.Format("Approved ({0}: {1})", responseFields[2], responseFields[11]);
                         processPaymentResult.AVSResult = responseFields[0];
                         //responseFields[38];
@@ -171,32 +171,44 @@ namespace BetEx247.Plugin.Payments.ApcoFastPay
         /// <param name="processPaymentResult">Process payment result</param>
         public void ProcessRecurringPayment(TransactionPayment transactionPayment, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
-            //String xmlText = "<Transaction hash=\"secretword\"><ProfileID>3E6338087DF147CA806F1329DA718DCB</ProfileID><Value>21.46</Value><Curr>840</Curr><Lang>en</Lang><ORef>B87654</ORef><RedirectionURL>http://www.google.com</RedirectionURL><UDF1>test1</UDF1><UDF2>test2</UDF2><UDF3>test3</UDF3><ActionType>1</ActionType></Transaction>";
-            WebClient webClient = new WebClient();
-            NameValueCollection form = new NameValueCollection();
-            form.Add("MerchID", loginID);
-            form.Add("Pass", loginPass);
-            form.Add("TrType", "4");
-            form.Add("CardNum", transactionPayment.PaymentMenthod.CreditCardNumber);
-            form.Add("CVV2", transactionPayment.PaymentMenthod.CardCvv2);
-            form.Add("ExpDay", "31");
-            form.Add("ExpMonth", transactionPayment.PaymentMenthod.CardExpirationMonth);
-            form.Add("ExpYear", transactionPayment.PaymentMenthod.CardExpirationYear);
-            form.Add("CardHName", transactionPayment.PaymentMenthod.NameOnCard);
-            form.Add("Amount", transactionPayment.TransactionPaymentTotal.ToString("0.00", CultureInfo.InvariantCulture));
-            form.Add("CurrencyCode", Constant.Payment.CURRENCYCODE);
-            form.Add("Addr", transactionPayment.Customer.Address);
-            form.Add("PostCode", transactionPayment.Customer.PostalCode);
-            form.Add("TransID", transactionPayment.TransactionPaymentId.ToString());
-            form.Add("UserIP", CommonHelper.GetRequestIP());
-            form.Add("UDF1", "Test 1");
-            form.Add("UDF2", "Test 1");
-            form.Add("UDF3", "Test 1");
+            int transactionMode = (int)TransactMode.Credit;
+            string reply = webService.DoTransaction(loginID, loginPass, transactionMode.ToString(),
+                transactionPayment.PaymentMenthod.CreditCardNumber, transactionPayment.PaymentMenthod.CardCvv2, "", transactionPayment.PaymentMenthod.CardExpirationMonth, transactionPayment.PaymentMenthod.CardExpirationYear,
+                transactionPayment.PaymentMenthod.NameOnCard, transactionPayment.TransactionPaymentTotal.ToString("0.00", CultureInfo.InvariantCulture),
+                Constant.Payment.CURRENCYCODENUMBER, transactionPayment.Customer.Address, transactionPayment.Customer.PostalCode,transactionPayment.TransactionIDRespone.ToString(), //transactionPayment.TransactionPaymentId.ToString(),
+                CommonHelper.GetRequestIP(), "Authorization 1", "Authorization 2", "Authorization 3");
 
-            string reply = null;
-            Byte[] responseData = webClient.UploadValues(GetApcPaymentUrl(), form);
-            reply = Encoding.ASCII.GetString(responseData);          
-                   
+            if (!String.IsNullOrEmpty(reply))
+            {
+                reply = reply.Replace("||", "|");
+                string[] responseFields = reply.Split('|');
+                switch (responseFields[0])
+                {
+                    case "CAPTURED":
+                        processPaymentResult.AuthorizationTransactionCode = string.Format("{0}", responseFields[1]);
+                        processPaymentResult.AuthorizationTransactionResult = string.Format("Approved ({0}: {1})", responseFields[2], responseFields[11]);
+                        processPaymentResult.AVSResult = responseFields[0];
+                        //responseFields[38];
+                        if (transactionMode == (int)TransactMode.Authorization)
+                        {
+                            processPaymentResult.PaymentStatus = PaymentStatusEnum.Paid;
+                        }
+                        else
+                        {
+                            processPaymentResult.PaymentStatus = PaymentStatusEnum.Authorized;
+                        }
+                        break;
+                    default:
+                        processPaymentResult.Error = string.Format("Declined {0}", responseFields[0]);
+                        processPaymentResult.FullError = string.Format("Declined {0}", responseFields[0]);
+                        break;
+                }
+            }
+            else
+            {
+                processPaymentResult.Error = "Unknown error";
+                processPaymentResult.FullError = "Unknown error";
+            }
         }
 
         /// <summary>

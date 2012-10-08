@@ -42,17 +42,24 @@ namespace BetEx247.Web.Controllers
             string message = string.Empty;
             long transactionPaymentId = 0;
             TransactionPayment transactionPayment = new TransactionPayment();
-            transactionPayment.TransactionPaymentType = id;
-            transactionPayment.MemberId = 1;
-            transactionPayment.MemberIP = Request.UserHostAddress;
-            transactionPayment.MemberEmail = transactionPayment.Customer.Email1;
-            transactionPayment.TransactionPaymentTotal = collection["Amount"].ToDecimal();
-            transactionPayment.TransactionPaymentStatusId = (int)PaymentStatusEnum.Authorized;
-            transactionPayment.PaymentMethodId = 1;
+
             if (id != 1)
             {
+                transactionPayment = IoC.Resolve<ITransactionPaymentService>().GetTransactionPaymentByUserId(1);
+                transactionPayment.TransactionPaymentType = id;
+                transactionPayment.MemberIP = Request.UserHostAddress;
                 transactionPayment.RecurringTotalCycles = 1;
                 transactionPayment.RecurringCycleLength = 7;
+            }
+            else
+            {
+                transactionPayment.TransactionPaymentType = id;
+                transactionPayment.MemberId = 1;
+                transactionPayment.MemberIP = Request.UserHostAddress;
+                transactionPayment.MemberEmail = transactionPayment.Customer.Email1;
+                transactionPayment.TransactionPaymentTotal = collection["Amount"].ToDecimal();
+                transactionPayment.TransactionPaymentStatusId = (int)PaymentStatusEnum.Authorized;
+                transactionPayment.PaymentMethodId = 1;
             }
                      
             message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);
