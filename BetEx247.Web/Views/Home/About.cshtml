@@ -1,68 +1,71 @@
 ﻿@{
     ViewBag.Title = "About Us";
 }
-<h2>
-    About</h2>
-<div  style="background-color:White">
-<p>
-    @ViewBag.Message
-</p>
-@using (Html.BeginForm(new { id = 1 }))
-{
-    <table width="100%" cellspacing="2" cellpadding="1" border="0">
-        <tbody>
-            <tr>
-                <td>
-                    &nbsp;&nbsp;<br>
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount:
-                </td>
-                <td>
-                    <input type="text" style="width: 60px;background-color:Gray;" id="Amount" maxlength="4" name="Amount">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <input type="submit" id="btnSubmit" name="submit" value="Diposit" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-}
-@using (Html.BeginForm(new { id = 2 }))
-{
-    <table width="100%" cellspacing="2" cellpadding="1" border="0">
-        <tbody>
-            <tr>
-                <td>
-                    &nbsp;&nbsp;<br>
-                </td>
-                <td>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount:
-                </td>
-                <td>
-                    <input type="text" style="width: 60px;background-color:Gray;" id="Amount" maxlength="4" name="Amount">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                </td>
-                <td>
-                    <input type="submit" id="btnSubmit" name="submit" value="With Draw" />
-                </td>
-            </tr>
-        </tbody>
-    </table>
-}
+<div id="middle_column"> 
+    <h2>
+        About</h2>
+    <div  style="background-color:White">
+    <p>
+        @ViewBag.Message
+    </p>
+    @using (Html.BeginForm(new { id = 1 }))
+    {
+        <table width="100%" cellspacing="2" cellpadding="1" border="0">
+            <tbody>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;<br>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount:
+                    </td>
+                    <td>
+                        <input type="text" style="width: 60px;background-color:Gray;" id="Amount" maxlength="4" name="Amount">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="submit" id="btnSubmit" name="submit" value="Diposit" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    @using (Html.BeginForm(new { id = 2 }))
+    {
+        <table width="100%" cellspacing="2" cellpadding="1" border="0">
+            <tbody>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;<br>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount:
+                    </td>
+                    <td>
+                        <input type="text" style="width: 60px;background-color:Gray;" id="Amount" maxlength="4" name="Amount">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input type="submit" id="btnSubmit" name="submit" value="With Draw" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+      </div>
   </div>
+  @Html.Partial("_RightColumn")

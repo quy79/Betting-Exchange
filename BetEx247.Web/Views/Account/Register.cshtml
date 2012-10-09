@@ -7,177 +7,181 @@
 <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.maskedinput.min.js")" type="text/javascript"></script>
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-    <div class="highlights">
-        <span>RegisterModel</span>
-    </div>
-    <div class="highlights-content">
-        <fieldset>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.NickName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.NickName)
-                @Html.ValidationMessageFor(model => model.NickName)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Password)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Password)
-                @Html.ValidationMessageFor(model => model.Password)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.ConfirmPassword)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.ConfirmPassword)
-                @Html.ValidationMessageFor(model => model.ConfirmPassword)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SecurityQuestion1)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SecurityQuestion1)
-                @Html.ValidationMessageFor(model => model.SecurityQuestion1)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SecurityAnswer1)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SecurityAnswer1)
-                @Html.ValidationMessageFor(model => model.SecurityAnswer1)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SecurityQuestion2)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SecurityQuestion2)
-                @Html.ValidationMessageFor(model => model.SecurityQuestion2)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.SecurityAnswer2)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.SecurityAnswer2)
-                @Html.ValidationMessageFor(model => model.SecurityAnswer2)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Currency)
-            </div>
-            <div class="editor-field">
-                @Html.DropDownList("Currency", (IEnumerable<SelectListItem>)ViewBag.CurrencyList, "--Select--", new { id = "Currency" })
-                @Html.ValidationMessageFor(model => model.Currency)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.FirstName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.FirstName)
-                @Html.ValidationMessageFor(model => model.FirstName)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.MiddleName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.MiddleName)
-                @Html.ValidationMessageFor(model => model.MiddleName)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.LastName)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.LastName)
-                @Html.ValidationMessageFor(model => model.LastName)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Gender)
-            </div>
-            <div class="editor-field">
-                @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.Gender, "--Select--", new { id = "Country" })
-                @Html.ValidationMessageFor(model => model.Gender)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Address)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Address)
-                @Html.ValidationMessageFor(model => model.Address)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.City)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.City)
-                @Html.ValidationMessageFor(model => model.City)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.PostalCode)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.PostalCode)
-                @Html.ValidationMessageFor(model => model.PostalCode)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Country)
-            </div>
-            <div class="editor-field">
-                @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.ListCountry, "--Select--", new { id = "Country" })
-                @Html.ValidationMessageFor(model => model.Country)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Telephone)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Telephone)
-                @Html.ValidationMessageFor(model => model.Telephone)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Cellphone)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Cellphone)
-                @Html.ValidationMessageFor(model => model.Cellphone)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Email)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Email)
-                @Html.ValidationMessageFor(model => model.Email)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Email2)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Email2)
-                @Html.ValidationMessageFor(model => model.Email2)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Suffix)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Suffix)
-                @Html.ValidationMessageFor(model => model.Suffix)
-            </div>
-            <div class="editor-label">
-                @Html.LabelFor(model => model.Timezone)
-            </div>
-            <div class="editor-field">
-                @Html.EditorFor(model => model.Timezone)
-                @Html.ValidationMessageFor(model => model.Timezone)
-            </div>
-            <p>
-                <input type="submit" value="Create" />
-            </p>
-        </fieldset>
-        <div>
-            @Html.ActionLink("Back to List", "Index")
+
+<div id="middle_column"> 
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <div class="highlights">
+            <span>RegisterModel</span>
         </div>
-    </div>
-}
+        <div class="highlights-content">
+            <fieldset>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.NickName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NickName)
+                    @Html.ValidationMessageFor(model => model.NickName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Password)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Password)
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ConfirmPassword)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.ConfirmPassword)
+                    @Html.ValidationMessageFor(model => model.ConfirmPassword)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityQuestion1)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityQuestion1)
+                    @Html.ValidationMessageFor(model => model.SecurityQuestion1)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityAnswer1)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityAnswer1)
+                    @Html.ValidationMessageFor(model => model.SecurityAnswer1)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityQuestion2)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityQuestion2)
+                    @Html.ValidationMessageFor(model => model.SecurityQuestion2)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityAnswer2)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityAnswer2)
+                    @Html.ValidationMessageFor(model => model.SecurityAnswer2)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Currency)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Currency", (IEnumerable<SelectListItem>)ViewBag.CurrencyList, "--Select--", new { id = "Currency" })
+                    @Html.ValidationMessageFor(model => model.Currency)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FirstName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MiddleName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MiddleName)
+                    @Html.ValidationMessageFor(model => model.MiddleName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LastName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Gender)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.Gender, "--Select--", new { id = "Country" })
+                    @Html.ValidationMessageFor(model => model.Gender)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Address)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.City)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.City)
+                    @Html.ValidationMessageFor(model => model.City)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PostalCode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.PostalCode)
+                    @Html.ValidationMessageFor(model => model.PostalCode)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Country)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.ListCountry, "--Select--", new { id = "Country" })
+                    @Html.ValidationMessageFor(model => model.Country)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Telephone)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Telephone)
+                    @Html.ValidationMessageFor(model => model.Telephone)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Cellphone)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Cellphone)
+                    @Html.ValidationMessageFor(model => model.Cellphone)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email)
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email2)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email2)
+                    @Html.ValidationMessageFor(model => model.Email2)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Suffix)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Suffix)
+                    @Html.ValidationMessageFor(model => model.Suffix)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Timezone)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Timezone)
+                    @Html.ValidationMessageFor(model => model.Timezone)
+                </div>
+                <p>
+                    <input type="submit" value="Create" />
+                </p>
+            </fieldset>
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+    }
+  </div>
+  @Html.Partial("_RightColumn")
 <script type="text/javascript">
     $(document).ready(function () {
         $("#Telephone").addClass("phone");

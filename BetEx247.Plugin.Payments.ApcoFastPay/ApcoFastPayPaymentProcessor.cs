@@ -111,8 +111,8 @@ namespace BetEx247.Plugin.Payments.ApcoFastPay
                         }
                         break;
                     default:
-                        processPaymentResult.Error = string.Format("Declined {0}", responseFields[0]);
-                        processPaymentResult.FullError = string.Format("Declined {0}", responseFields[0]);
+                        processPaymentResult.Error = string.Format("Declined {0}", responseFields[0] + " " + transactionPayment.PaymentMenthod.CreditCardNumber);
+                        processPaymentResult.FullError = string.Format("Declined {0}", responseFields[0] + " " + transactionPayment.PaymentMenthod.CreditCardNumber);
                         break;                    
                 }
             }
@@ -171,7 +171,7 @@ namespace BetEx247.Plugin.Payments.ApcoFastPay
         /// <param name="processPaymentResult">Process payment result</param>
         public void ProcessRecurringPayment(TransactionPayment transactionPayment, Guid bettingGuid, ref ProcessPaymentResult processPaymentResult)
         {
-            int transactionMode = (int)TransactMode.Credit;
+            int transactionMode = (int)TransactMode.OriginalCredit;
             string reply = webService.DoTransaction(loginID, loginPass, transactionMode.ToString(),
                 transactionPayment.PaymentMenthod.CreditCardNumber, transactionPayment.PaymentMenthod.CardCvv2, "", transactionPayment.PaymentMenthod.CardExpirationMonth, transactionPayment.PaymentMenthod.CardExpirationYear,
                 transactionPayment.PaymentMenthod.NameOnCard, transactionPayment.TransactionPaymentTotal.ToString("0.00", CultureInfo.InvariantCulture),

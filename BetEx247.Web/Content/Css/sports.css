@@ -1383,7 +1383,7 @@ table.MyBets_Totals td {
 	
 	color:#f98200;
 	font-size:14px;
-	background-image: url(../images/themes/promotion_header.png);
+	background-image: url(..../images/themes/promotion_header.png);
 	background-repeat: no-repeat;
 	padding:3px 0px 3px 6px;
 	width:399px;
@@ -1717,6 +1717,7 @@ margin-left:4px;
 float:left;
 }
 
+span.bet-delete {background:url(../images/themes/delete.gif); background-position:0px 0px; float:right; width:11px; height:11px; display:block; margin:0px 0px 0 0}
 
 span.sports-soccer, span.sports-baseball, span.sports-tennis, span.sports-horse, span.sports-usfootball, span.sports-cricket, span.sports-hockey, span.sports-rugby, span.sports-handball, span.sports-volleyball {background:url(../images/themes/sports_sprites1.png) no-repeat 0 0}
 span.sports-soccer {background-position:0px 0px; float:left; width:32px; height:25px; display:block; margin:-5px 5px 0 0}
@@ -1954,7 +1955,7 @@ height:auto; padding:1px 0px 1px 0px; text-align: center; vertical-align: middle
   color: #FFF;}
 
 .match-title-bigger { 
-padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold
+padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; right: 0px;
 }
 
 
@@ -2031,3 +2032,61 @@ div.highlights  a:hover{
 
 }
 
+/*
+* Betslip
+*/
+#dvBetslip{
+position: relative:
+display: none;
+width: 100%;
+height: auto;
+
+}
+
+#coupon-container {
+position: relative;
+width: 531px;
+margin: 0 auto;
+display: block;
+clear: both;
+border: 1px solid #fff;
+min-height: 150px;
+/* Mozilla ignores crazy MS image filters, so it will skip the following */
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../images/themes/75.png');
+	background-image:url(../images/themes/75.png);
+}
+
+.coupon-title{
+width: 100%;
+margin: 0 auto;
+padding-top: 20px;
+}
+
+
+.coupon-title h3.sports{font-size:20px; text-align:center; border:none;
+	background:none 3px 3px no-repeat;}
+
+.leagues-box {
+position: relative;
+margin: 0 auto;
+padding-top: 0px;
+width: 480px;	
+}
+
+.leagues-box a.country-league-lnk, a:visited.country-league-lnk a:link.visited.country-league-lnk{
+text-decoration: none;
+color: #000;
+font-size: 1.1em;
+font-weight: normal;
+display: block;
+}
+
+.leagues-box a:hover.country-league-lnk{
+color: #fff;
+}
+
+.leagues-box table tr td {
+padding: 5px 0px 5px 0px;	
+align: left;
+text-align: left;
+}

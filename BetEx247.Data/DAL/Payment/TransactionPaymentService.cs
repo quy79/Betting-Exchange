@@ -61,7 +61,7 @@ namespace BetEx247.Data.DAL
             using (var dba = new BetEXDataContainer())
             {
                 byte type = (byte)1;
-                var listTransaction = dba.Transactions.Where(w => w.MemberId == UserId && w.Type == type).OrderByDescending(z=>z.ID).ToList();
+                var listTransaction = dba.Transactions.Where(w => w.MemberId == UserId && w.Type == type).OrderByDescending(z=>z.Amount).ToList();
                 if (listTransaction != null)
                 {
                     transaction = listTransaction[0];

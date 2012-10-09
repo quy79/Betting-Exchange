@@ -720,22 +720,22 @@ dl.expandable dd.hidden{
     background-position: left bottom;
 }
 .en #regform .sbmRegister {
-    background-image: url(/tpl/bets/en/images/sbmRegister.gif);
+    background-image: url(../images/themes/sbmRegister.gif);
 }
 .es #regform .sbmRegister {
-    background-image: url(/tpl/bets/es/images/sbmRegister.gif);
+    background-image: url(../images/themes/sbmRegister.gif);
 }
 .de #regform .sbmRegister {
-    background-image: url(/tpl/bets/de/images/sbmRegister.gif);
+    background-image: url(../images/themes/sbmRegister.gif);
 }
 .fr #regform .sbmRegister {
-    background-image: url(/tpl/bets/fr/images/sbmRegister.gif);
+    background-image: url(../images/themes/sbmRegister.gif);
 }
 .it #regform .sbmRegister {
-    background-image: url(/tpl/bets/it/images/sbmRegister.gif);
+    background-image: url(../images/themes/sbmRegister.gif);
 }
 .ru #regform .sbmRegister {
-    background-image: url(/tpl/bets/ru/images/sbmRegister.gif);
+    background-image: url(../images/themes/sbmRegister.gif);
 }
 #regform .sms label{
    width: 230px;
@@ -3099,22 +3099,22 @@ a.successDeposit:hover {
     background-position: left bottom;
 }
 .en .successDeposit {
-    background-image: url(/tpl/bets/en/images/depositNow.gif);
+    background-image: url(../images/themes/depositNow.gif);
 }
 .es .successDeposit {
-    background-image: url(/tpl/bets/es/images/depositNow.gif);
+    background-image: url(../images/themes/depositNow.gif);
 }
 .de .successDeposit {
-    background-image: url(/tpl/bets/de/images/depositNow.gif);
+    background-image: url(../images/themes/depositNow.gif);
 }
 .fr .successDeposit {
-    background-image: url(/tpl/bets/fr/images/depositNow.gif);
+    background-image: url(../images/themes/depositNow.gif);
 }
 .it .successDeposit {
-    background-image: url(/tpl/bets/it/images/depositNow.gif);
+    background-image: url(../images/themes/depositNow.gif);
 }
 .ru .successDeposit {
-    background-image: url(/tpl/bets/ru/images/depositNow.gif);
+    background-image: url(../images/themes/depositNow.gif);
 }
 /*SUCCESS REGISTRATION - END*/
 
@@ -4450,42 +4450,42 @@ END CASINO - GAMES INNER PAGES
 }
 
 .en .button.joinBtn {
-    background-image: url(/tpl/bets/en/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .en .button.joinBtn:hover {
     background-position: left bottom;
 }
 
 .es .button.joinBtn {
-    background-image: url(/tpl/bets/es/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .es .button.joinBtn:hover {
     background-position: left bottom;
 }
 
 .fr .button.joinBtn {
-    background-image: url(/tpl/bets/fr/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .fr .button.joinBtn:hover {
     background-position: left bottom;
 }
 
 .it .button.joinBtn {
-    background-image: url(/tpl/bets/it/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .it .button.joinBtn:hover {
     background-position: left bottom;
 }
 
 .de .button.joinBtn {
-    background-image: url(/tpl/bets/de/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .de .button.joinBtn:hover {
     background-position: left bottom;
 }
 
 .ru .button.joinBtn {
-    background-image: url(/tpl/bets/ru/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .ru .button.joinBtn:hover {
     background-position: left bottom;

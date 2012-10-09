@@ -1,0 +1,136 @@
+@charset "utf-8";
+/* CSS Document */
+
+#right_col{float:right; position: relative; margin-top: 5px; margin-right: 5px; padding: 0; width: 250px; text-align: left;}
+		
+		#right_col .module{position:relative; margin-bottom:0px;}
+		#right_col .module h3{text-transform:uppercase;}
+		#right_col .module .inner{background:#000;}
+		
+		.betslip_header	{
+			background:url(../images/themes/betslip_header.png) no-repeat;
+			width:250px;
+			height:22px;
+			text-align: center;	
+			padding-top: 7px;
+			padding-bottom : 0px;
+			margin-bottom : 0px;
+			text-transform: uppercase;
+			font-size: 1.2em;
+			font-weight: bold;
+			
+		}
+
+		
+			#blockBettingSlip.module{}
+			#blockBettingSlip.module .inner{padding:0px; font-size:10px; line-height:1.1; background-color: #fff}
+			#blockBettingSlip.module h3{height:38px; width:222px; margin-bottom:1px; text-indent:-9999px; overflow:hidden; position:relative;
+				background:url(../images/themes/slip-header.gif) no-repeat;}
+			#blockBettingSlip.module h3 a{position:absolute; top:9px; left:159px; width:55px; height:23px;}
+			
+			
+			
+			#blockBettingSlip.module table.header-lay{
+				background-color:#fff;
+				 
+			}
+			#blockBettingSlip.module table.header-lay th{padding:2px 0px 0px; text-align:left; color:#000; }			
+			#blockBettingSlip.module table.header-lay th strong{color:#000;}
+			#blockBettingSlip.module table.header-lay th.stake{padding-left: 8px; width: 80px; vertical-align: middle;background-color: #fcf4c9}
+			#blockBettingSlip.module table.header-lay th.odds{width:120px; align: left; padding-left: 0px;background-color: #fcf4c9}
+			#blockBettingSlip.module table.header-lay th.profit{width: 50px; text-align:right; padding-right:8px;background-color: #fcf4c9}
+			
+			#blockBettingSlip.module table.bet_lay_select{margin:0px 0px; color:#414141;}
+			#blockBettingSlip.module table.bet_lay_select td{padding:1px; vertical-align:middle;}
+			#blockBettingSlip.module table.bet_lay_select td.club{font-size:11px;}
+			#blockBettingSlip.module table.bet_lay_select td.club a.tooltip{font-weight:normal; color:#414141;}
+			#blockBettingSlip.module table.bet_lay_select td.stake{padding-left: 5px; width: 80px; margin-top: 0px; padding-top:0px;background-color: #fcf4c9}
+			#blockBettingSlip.module table.bet_lay_select td.odds{width: 120px;  align: left; padding-left: 3px;background-color: #fcf4c9}	
+			#blockBettingSlip.module table.bet_lay_select td.profit{width: 50px; text-align:right; padding-right:8px;background-color: #fcf4c9}		
+			#blockBettingSlip.module table.bet_lay_select a{color:#bf9700; font-weight:bold;}
+			#blockBettingSlip.module table.bet_lay_select a.bet_max{padding-left:1px;}
+			#blockBettingSlip.module table.bet_lay_select img{vertical-align:baseline;}			
+			#blockBettingSlip.module table.bet_lay_select .hilite{background-color:#f5c81f;}			
+			#blockBettingSlip.module table.bet_lay_select .inputSlip{border:1px solid #aeaeae; padding:2px; margin:0 0 0 1px; width:50px; color:#444;}
+			
+			
+			
+			#blockBettingSlip.module table.header-back{
+				background-color:#fff;
+				 
+			}
+			#blockBettingSlip.module table.header-back th{padding:0px 0px 0px; text-align:left; color:#000; }			
+			#blockBettingSlip.module table.header-back th strong{color:#000;}
+			#blockBettingSlip.module table.header-back th.stake{padding-left: 8px; width: 80px; vertical-align: middle;background-color: #d2e0fc}
+			#blockBettingSlip.module table.header-back th.odds{width:120px; align: left; padding-left: 0px;background-color: #d2e0fc}
+			#blockBettingSlip.module table.header-back th.profit{width: 50px; text-align:right; padding-right:8px;background-color: #d2e0fc}
+			
+			#blockBettingSlip.module table.bet_select{margin:0px 0px; color:#414141;}
+			#blockBettingSlip.module table.bet_select td{padding:1px; vertical-align:middle;}
+			#blockBettingSlip.module table.bet_select td.club{font-size:11px;}
+			#blockBettingSlip.module table.bet_select td.club a.tooltip{font-weight:normal; color:#414141;}
+			#blockBettingSlip.module table.bet_select td.stake{padding-left: 5px; width: 80px; margin-top: 0px; padding-top:0px;background-color: #d2e0fc}
+			#blockBettingSlip.module table.bet_select td.odds{width: 120px;  align: left; padding-left: 3px;background-color: #d2e0fc}	
+			#blockBettingSlip.module table.bet_select td.profit{width: 50px; text-align:right; padding-right:8px;background-color: #d2e0fc}		
+			#blockBettingSlip.module table.bet_select a{color:#bf9700; font-weight:bold;}
+			#blockBettingSlip.module table.bet_select a.bet_max{padding-left:1px;}
+			#blockBettingSlip.module table.bet_select img{vertical-align:baseline;}			
+			#blockBettingSlip.module table.bet_select .hilite{background-color:#f5c81f;}			
+			#blockBettingSlip.module table.bet_select .inputSlip{border:1px solid #aeaeae; padding:2px; margin:0 0 0 1px; width:50px; color:#444;}
+			
+			#blockBettingSlip.module .multibet_header{
+				color:#d3d3d3;
+				background-color:#000;
+				-moz-border-radius: 3px;
+					-webkit-border-radius: 3px;
+					border-radius: 3px;
+					padding:3px;
+					margin-bottom:1px;
+					cursor:pointer;
+			}
+			#blockBettingSlip.module .multibet_header span{padding-left:19px;
+				background:url(.../images/themes/arrow-down.gif) 8px 5px no-repeat;}
+								
+			#blockBettingSlip.module table.bet_multiple{margin:3px 5px 4px; color:#414141; width:212px;}			
+			#blockBettingSlip.module table.bet_multiple th{padding:3px 1px; vertical-align:middle;}
+			#blockBettingSlip.module table.bet_multiple th.type{text-align:left;}			
+			#blockBettingSlip.module table.bet_multiple td{padding:1px; vertical-align:middle;}
+			#blockBettingSlip.module table.bet_multiple td.number{text-align:right;}		
+			#blockBettingSlip.module table.bet_multiple a{color:#bf9700; font-weight:bold;}
+			#blockBettingSlip.module table.bet_multiple a.bet_max{padding-left:1px;}			
+			#blockBettingSlip.module table.bet_multiple .inputSlip{border:1px solid #aeaeae; padding:2px; margin:0 0 0 1px; width:57px; color:#444;}
+            #blockBettingSlip.module table.bet_multiple a.conflicted{color:red}
+			
+			#blockBettingSlip.module table.bet_changes{margin:3px 5px 4px; color:#414141; width:212px;}
+			#blockBettingSlip.module table.bet_changes td{padding:3px 1px; vertical-align:middle;}
+			#blockBettingSlip.module table.bet_changes td.notice{line-height:1.1;}
+			#blockBettingSlip.module table.bet_changes td.notice img{float:left; display:inline; margin-right:7px;}
+			#blockBettingSlip.module table.bet_changes td.button{text-align:right;}
+			#blockBettingSlip.module table.bet_changes a.remove{color:#000; font-weight:bold; white-space:nowrap}
+            #fund_bet{display:none;}
+			
+			
+			
+p.bet-note {
+    padding: 5px;
+    color: #000;
+    margin-bottom: 5px;
+	font-size: 11px;
+}
+
+p.bet-note a, p.bet-note a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+p.bet-note a:hover {
+    color: #b10101;
+    text-decoration: underline;
+}
+
+.bdr_all{
+-moz-border-radius: 0px 0px 5px 5px;
+-webkit-border-radius: 0px 0px 5px 5px;
+border-radius: 0px 0px 5px 5px;
+}
+
