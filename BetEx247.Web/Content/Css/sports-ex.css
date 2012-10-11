@@ -100,24 +100,24 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 	
 	#login_form input.inputText{float:left; margin-left:5px; display:inline; width:113px;  padding:7px 9px 6px;
 		color:#fff; font-size:10px; border:1px solid #000;
-		background:#000 url(../images/themes/input-bg.gif) left bottom repeat-x; }
+		background:#000 url("../images/themes/input-bg.gif") left bottom repeat-x; }
 	#login_form input.inputText:hover,
 	#login_form input.inputText:focus{border-color:#333;}
 	
 	#login_form ul{list-style:none; margin:0; clear:both; padding-top:7px;}
 	#login_form ul li{float:left; margin-left:6px; display:inline;}
 	#login_form ul li a{float:left; margin-top:3px; padding:0 0 0 7px; color:#c5c0c0;
-		background:url(../images/themes/arrow.gif) 0 6px no-repeat;}
+		background:url("../images/themes/arrow.gif") 0 6px no-repeat;}
 	#login_form ul li a:hover{color:#fff;}
 	#login_form ul li.login{float:right;}
 	
 	ul#head_links{margin-left:0; padding-top:7px; list-style:none; position:absolute; top:98px; left:0;}
 	ul#head_links li{float:left; display:inline; margin-right:20px; padding-left:10px; font-size:11px; 
-		background:url(../images/themes/arrow-yellow.gif) 0 6px no-repeat;}
+		background:url("../images/themes/arrow-yellow.gif") 0 6px no-repeat;}
 	ul#head_links li a{float:left; font-weight:bold;}
 	
 	#time{position:absolute; top:106px; right:0; color:#8a8989; display:none;
-		background:url(../images/themes/icns/clock.gif) 0 1px no-repeat; padding-left:20px; height:15px; line-height:14px;}
+		background:url("../images/themes/icns/clock.gif") 0 1px no-repeat; padding-left:20px; height:15px; line-height:14px;}
 		#time strong{color:#fff; font-weight:normal;}
 
 	
@@ -128,20 +128,20 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		#contentbox a{ color:#f2de00; text-decoration:none;}	
 		#contentbox a:hover {color:#fff;}
 		*/
-		#contentbox .events {position:relative; width: 531px; height: 28px; background: transparent url(../images/themes/bg-title.gif) no-repeat; font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+		#contentbox .events {position:relative; width: 531px; height: 28px; background: transparent url("../images/themes/bg-title.gif") no-repeat; font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
 			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #000;}
-			#contentbox .events-live {position:relative; width: 531px; height: 28px; background: transparent url(../images/themes/bg-title2.gif) no-repeat; font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			#contentbox .events-live {position:relative; width: 531px; height: 28px; background: transparent url("../images/themes/bg-title2.gif") no-repeat; font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
 			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #000;}
 		#contentbox h1,
 		#contentbox h2{ font-size:17px;  /* font-size:20px; - adjusted to 20px with cufon */
 			font-weight:bold; color:#fff; text-transform:uppercase; padding:0 12px; height:28px; line-height:25px;
 			text-shadow: 1px 1px 1px #000; border-bottom:1px solid #000;
-			background:url(../images/themes/bg-title.gif) no-repeat;}	
+			background:url("../images/themes/bg-title.gif") no-repeat;}	
 		.ie8 #contentbox h1,
 		.ie8 #contentbox h2{padding:2px 12px 1px; height:25px;}
 		#contentbox h2.smaller{font-size:13px; text-transform:none;}
 		.single_col #contentbox h1,
-		.single_col #contentbox h2{background-image:url(../images/themes/bg-title-wide.gif);}
+		.single_col #contentbox h2{background-image:url("../images/themes/bg-title-wide.gif");}
 		
 		#contentbox h3{font-size:17px; line-height:1.1; margin-bottom:0.8em;}
 		#contentbox h4{font-size:16px; line-height:1.1; margin-bottom:0.8em;}
@@ -154,20 +154,20 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		#contentbox .header_extra iframe{right:0; top:-30px;}
 		
 		#contentbox .breadcrumbs{color:#a5a4a4; padding:0 20px; height:28px; line-height:26px;
-			border-bottom:1px solid #000; background:url(../images/themes/bg-title.gif) no-repeat;}
+			border-bottom:1px solid #000; background:url("../images/themes/bg-title.gif") no-repeat;}
 		
 		#contentbox p{margin-bottom:1.2em;}
 		
 		#contentbox ul{margin-bottom:1.2em;}
-		#contentbox ul li{padding-left:11px; background:url(../images/themes/arrow-ul.gif) 0 0.5em no-repeat;}
+		#contentbox ul li{padding-left:11px; background:url("../images/themes/arrow-ul.gif") 0 0.5em no-repeat;}
 		
 		#contentbox ul.column{}
 		#contentbox ul.column li{float:left; width:154px; padding-left:11px;}
 		#contentbox ul.column li.even{clear:both;}
 		
 		#contentbox div.featured_banner{margin-bottom:9px; height:103px; position:relative;}
-		#contentbox div.featured_banner.liveinplay{background:url(../images/themes/content/live-in-play.gif) no-repeat;}
-		#contentbox div.featured_banner.inplaydiary{background:url(../images/themes/content/in-play-diary.gif) no-repeat;}
+		#contentbox div.featured_banner.liveinplay{background:url("../images/themes/content/live-in-play.gif") no-repeat;}
+		#contentbox div.featured_banner.inplaydiary{background:url("../images/themes/content/in-play-diary.gif") no-repeat;}
 		#contentbox div.featured_banner h1{display:none;}
 		#contentbox div.featured_banner a{position:absolute; top:0; right:0;}
 		
@@ -178,19 +178,19 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		#contentbox div.pagination a:hover{color:#f2de00;}		
 		
 		#contentbox .std_content{border:1px solid #323232; padding:17px 19px 3px; margin-bottom:12px;
-			background:#000 url(../images/themes/bg-table.gif) left top repeat-x; }
+			background:#000 url("../images/themes/bg-table.gif") left top repeat-x; }
 		#contentbox .flush_content{border:1px solid #323232; padding:17px 0 3px; margin-bottom:12px;
-			background:#000 url(../images/themes/bg-table.gif) left top repeat-x; }
+			background:#000 url("../images/themes/bg-table.gif") left top repeat-x; }
 		#contentbox .alt_content{border:1px solid #323232; padding:13px 10px 9px 10px; margin-bottom:12px;
-			background:#000 url(../images/themes/bg-altcontent.gif) left top repeat-x; }
+			background:#000 url("../images/themes/bg-altcontent.gif") left top repeat-x; }
 		#contentbox .alt_content_live{border:1px solid #323232; padding:13px 10px 9px 10px; margin-bottom:12px;
-			background:#0a711e url(../images/themes/bg-altcontent_live.gif) left top repeat-x; }
+			background:#0a711e url("../images/themes/bg-altcontent_live.gif") left top repeat-x; }
 		#contentbox .altflush_content{border:1px solid #323232; padding:2px 0 9px 0; margin-bottom:12px;
-			background:#000 url(../images/themes/bg-altcontent.gif) left top repeat-x; }
+			background:#000 url("../images/themes/bg-altcontent.gif") left top repeat-x; }
 		#contentbox .live_content{border:1px solid #000; padding:12px 10px 9px 10px; margin-bottom:12px;
-			background:#018c2c url(../images/themes/bg-livecontent.gif) left top repeat-x; }
+			background:#018c2c url("../images/themes/bg-livecontent.gif") left top repeat-x; }
 		#contentbox .nonlive_content{border:1px solid #323232; padding:12px 10px 9px 10px; margin-bottom:12px;
-			background:#000 url(../images/themes/bg-table.gif) left top repeat-x; }
+			background:#000 url("../images/themes/bg-table.gif") left top repeat-x; }
 		
 		#contentbox .headerBtns{position:absolute; right:4px; top:-24px;}
 		#contentbox .headerBtns a{display:inline-block; font-weight:bold; font-size:10px; color:#fff; padding:0 10px; height:18px; line-height:16px;
@@ -218,7 +218,7 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		#contentbox ul.payment{margin:0;}
 		#contentbox ul.payment li{float:left; margin:0 3px 6px 0; padding:0; background:none;}
 		#contentbox ul.payment li a{float:left; height:30px; text-indent:-9999px; overflow:hidden;
-			background:url(../images/themes/foot_logos/logos.gif);}
+			background:url("../images/themes/foot_logos/logos.gif");}
 		
 		#contentbox ul.payment li a.mc      {width:55px;  background-position:0 0;}
 		#contentbox ul.payment li a.maestro {width:48px;  background-position:-55px 0;}
@@ -231,7 +231,7 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		#contentbox ul.payment li a.fastbank_dep{width:76px;  background-position:-577px 0;}
 		
 		#contentbox a.payment_icn{float:left; display:inline; margin-right:3px; height:30px; text-indent:-9999px; overflow:hidden;
-			background:url(../images/themes/foot_logos/logos.gif);}
+			background:url("../images/themes/foot_logos/logos.gif");}
 		
 		#contentbox a.payment_icn.mc      {width:55px;  background-position:0 0;}
 		#contentbox a.payment_icn.maestro {width:48px;  background-position:-55px 0;}
@@ -286,7 +286,7 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		
 		/* std table */
 		#contentbox table.stdTable{width:100%; color:#e1e1e1; margin-bottom:14px;}
-		#contentbox table.stdTable th{text-align:left; padding:3px 10px; background:#4c4c4c url(../images/themes/bg-history-header.gif) left bottom repeat-x;}
+		#contentbox table.stdTable th{text-align:left; padding:3px 10px; background:#4c4c4c url("../images/themes/bg-history-header.gif") left bottom repeat-x;}
 		#contentbox table.stdTable td{padding:8px 10px;}
 		#contentbox table.stdTable tr.odd td{padding:4px 10px; background:#151515;}
 		#contentbox table.stdTable th.name{width:200px;}
@@ -295,9 +295,9 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		
 			#blockBettingSlip.module{}
 			#blockBettingSlip.module .inner{padding:0 4px 4px; font-size:10px; line-height:1.1;
-				background:#e5e5e5 url(../images/themes/bg-bettingslip.gif) left top no-repeat;}
+				background:#e5e5e5 url("../images/themes/bg-bettingslip.gif") left top no-repeat;}
 			#blockBettingSlip.module h3{height:38px; width:222px; margin-bottom:1px; text-indent:-9999px; overflow:hidden; position:relative;
-				background:url(../images/themes/slip-header.gif) no-repeat;}
+				background:url("../images/themes/slip-header.gif") no-repeat;}
 			#blockBettingSlip.module h3 a{position:absolute; top:9px; left:159px; width:55px; height:23px;}
 			
 			#blockBettingSlip.module table.header{
@@ -340,7 +340,7 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 					cursor:pointer;
 			}
 			#blockBettingSlip.module .multibet_header span{padding-left:19px;
-				background:url(../images/themes/arrow-down.gif) 8px 5px no-repeat;}
+				background:url("../images/themes/arrow-down.gif") 8px 5px no-repeat;}
 								
 			#blockBettingSlip.module table.bet_multiple{margin:3px 5px 4px; color:#414141; width:212px;}			
 			#blockBettingSlip.module table.bet_multiple th{padding:3px 1px; vertical-align:middle;}
@@ -363,18 +363,18 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		
 			#guarantee.module{}
 			#guarantee.module h3{padding:7px 100px 7px 11px;
-				background:url(../images/themes/guarantee-header.gif) no-repeat;}
+				background:url("../images/themes/guarantee-header.gif") no-repeat;}
 			#guarantee.module .badge{position:absolute; width:92px; height:92px; top:-8px; right:0;
-				background:url(../images/themes/guarantee-badge.png) no-repeat;}
+				background:url("../images/themes/guarantee-badge.png") no-repeat;}
 			#guarantee.module .inner{padding:2px 19px 5px 10px;
-				background:#000 url(../images/themes/guarantee-bg.gif) left top repeat-x;}
+				background:#000 url("../images/themes/guarantee-bg.gif") left top repeat-x;}
 			#guarantee.module ul{margin-bottom:2px;}
-			#guarantee.module ul li{padding-left:15px; background:url(../images/themes/icns/tick.gif) 0 4px no-repeat;}
+			#guarantee.module ul li{padding-left:15px; background:url("../images/themes/icns/tick.gif") 0 4px no-repeat;}
 			.ie6 #guarantee.module ul li,
 			.ie7 #guarantee.module ul li{zoom:1;}
 			#guarantee.module ul li span{display:block; padding:0 0 4px; margin-top:3px;
-				background:url(../images/themes/listings-div2.png) left bottom no-repeat;}
-			.ie6 #guarantee.module ul li span{background-image:url(../images/themes/listings-div2.gif);}
+				background:url("../images/themes/listings-div2.png") left bottom no-repeat;}
+			.ie6 #guarantee.module ul li span{background-image:url("../images/themes/listings-div2.gif");}
 			
 			#bonus.module .inner{
 			  padding:10px 10px 10px 15px;
@@ -408,13 +408,13 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 				#followus.module a{font-size:14px; float:left; display:inline; height:34px; line-height:30px; padding-left:37px;
 					background:0 0 no-repeat;}
 				#followus.module a:hover{text-decoration:none;}
-				#followus.module a.facebook{background-image:url(../images/themes/icns/facebook.png); margin-right:15px;}
-				#followus.module a.twitter{background-image:url(../images/themes/icns/twitter.png);}
+				#followus.module a.facebook{background-image:url("../images/themes/icns/facebook.png"); margin-right:15px;}
+				#followus.module a.twitter{background-image:url("../images/themes/icns/twitter.png");}
 			
 			
 
 #footerbox{height:315px;  width:100%;  position:absolute; bottom:0; font-size:10px; color:#969696;
-	background:#202020 url(../images/themes/bg-footer.gif) left top repeat-x;}
+	background:#202020 url("../images/themes/bg-footer.gif") left top repeat-x;}
 	#footerbox .inner{width:980px; margin:0 auto; padding-top:30px;}
 	
 	
@@ -430,7 +430,7 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 			#footerbox .betting_links ul{list-style:circle;}
 			#footerbox .betting_links ul li{margin-left:15px; float:left; width:120px;}
 			.ie6 #footerbox .betting_links ul li,
-			.ie7 #footerbox .betting_links ul li{margin-left:0; padding-left:15px; background:url(../images/themes/bullet.gif) 2px 6px no-repeat;}
+			.ie7 #footerbox .betting_links ul li{margin-left:0; padding-left:15px; background:url("../images/themes/bullet.gif") 2px 6px no-repeat;}
 			#footerbox .betting_links ul li a{color:#bcbcbc;}
 			#footerbox .betting_links ul li a:hover{color:#fff;}			
 		
@@ -443,7 +443,7 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		#footerbox ul.payment{margin:3px 0 53px; position:relative; right:-10px;}
 		#footerbox ul.payment li{float:left; margin:0 3px 6px 0;}
 		#footerbox ul.payment li span{float:left; height:30px; text-indent:-9999px; overflow:hidden;
-			background:url(../images/themes/foot_logos/logos.gif);}
+			background:url("../images/themes/foot_logos/logos.gif");}
 		
 		#footerbox ul.payment li span.mc      {width:52px;  background-position:0 -37px;}
 		#footerbox ul.payment li span.maestro {width:48px;  background-position:-55px -37px;}
@@ -596,7 +596,7 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 }
 
 .nonlive_content a.betLink.nogo, .nonlive_content a.betLink.nogo:visited, .nonlive_content a.betLink.nogo:hover {
-    background: url(../images/themes/cell-bg.gif) repeat-x scroll left -30px #000000 !important;
+    background: url("../images/themes/cell-bg.gif") repeat-x scroll left -30px #000000 !important;
     border: 1px solid #525252 !important;
     color: #fff !important;
     display: inline !important;
@@ -699,7 +699,7 @@ p.bet-note a:hover {
 #guide.module p.title{font-size:15px; color:#000; line-height:18px; margin-bottom:1px; width:130px;}
 #guide.module p.title strong{color:#c09800;}
 #guide.module a.register{position:absolute; bottom:0; left:0; display:block; width:230px; height:27px; text-indent:-9999px; overflow:hidden;
-	background:transparent url(../images/themes/btns/reg-today.gif) 0 0 no-repeat;}
+	background:transparent url("../images/themes/btns/reg-today.gif") 0 0 no-repeat;}
 #guide.module .guide{position:absolute; bottom:27px; right:-17px; display:block; width:113px; height:108px; text-indent:-9999px; overflow:hidden;
-	background:transparent url(../images/themes/guide.png) 0 0 no-repeat;}
+	background:transparent url("../images/themes/guide.png") 0 0 no-repeat;}
 

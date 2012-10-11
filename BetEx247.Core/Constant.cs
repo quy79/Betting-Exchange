@@ -157,6 +157,13 @@ namespace BetEx247.Core
             PINNACLESPORTS = 2,
             TITANBET = 3
         }
+
+        public enum TransactionType
+        {
+            DEPOSIT=1,
+            WITHDRAW=2
+        }
+
         /// <summary>
         /// Selelct sport type
         /// </summary>
@@ -248,6 +255,11 @@ namespace BetEx247.Core
         public static class SEOLinkPage
         {
             public static string MEMBER_LOGIN { get { return ""; } }
+        }
+
+        public static class Messagage
+        {
+            public const string NOTRANSACTION = "You must deposit at least one before withdraw.";
         }
     }
     

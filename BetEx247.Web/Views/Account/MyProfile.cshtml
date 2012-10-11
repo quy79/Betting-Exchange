@@ -1,231 +1,148 @@
-﻿@{
-    ViewBag.Title = "ByLeague";
+﻿@model BetEx247.Data.Model.Member
+@{
+    ViewBag.Title = "MyProfile";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex.css")" media="screen" />
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex1.css")" media="screen" /> 
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />  
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex1.css")" media="screen" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
-
 <div id="middle_column">
     <div id="contentbox" class="clearfix">
-        <h1 class="sports_header">
-            Premier League Coupons</h1>
-        <div class="events-live">
-            <div style="position: absolute; margin-top: 8px; padding-left: 15px">
-                LIVE ! In-play Matches
-            </div>
-            <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
-                color: #fff">
-                Premier League</div>
-        </div>
-        <div class="alt_content_live bdr_btm">
-            <div class="event_wrap">
-                <table border="0" cellspacing="0" class="livebetListings">
-                    <tr>
-                        <td class="livenow">
-                            <span>Live Now</span>
-                        </td>
-                        <td class="time">
-                            06:15
-                        </td>
-                        <td class="teams">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
-                                Arsenal v Olympiakos</strong></a>
-                        </td>
-                        <td class="markets">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
-                                markets</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="livenow">
-                            <span>Live Now</span>
-                        </td>
-                        <td class="time">
-                            06:15
-                        </td>
-                        <td class="teams">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
-                                FC Porto v Paris S.G.</strong></a>
-                        </td>
-                        <td class="markets">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
-                                markets</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="livenow">
-                            <span>Live Now</span>
-                        </td>
-                        <td class="time">
-                            06:15
-                        </td>
-                        <td class="teams">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
-                                Zenit St.Peterspurg v AC Milan</strong></a>
-                        </td>
-                        <td class="markets">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
-                                markets</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="livenow">
-                            <span>Live Now</span>
-                        </td>
-                        <td class="time">
-                            06:15
-                        </td>
-                        <td class="teams">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
-                                Manchester City v Borussia Dortmund</strong></a>
-                        </td>
-                        <td class="markets">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
-                                markets</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="livenow">
-                            <span>Live Now</span>
-                        </td>
-                        <td class="time">
-                            06:15
-                        </td>
-                        <td class="teams">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
-                                Anderlect v Malaga</strong></a>
-                        </td>
-                        <td class="markets">
-                            <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
-                                markets</a>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="events">
-            <div style="position: absolute; margin-top: 8px; padding-left: 15px">
-                Upcomming Matches
-            </div>
-            <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
-                color: #fff">
-                Premier League</div>
-        </div>
-        <div class="alt_content bdr_btm">
-            <div class="event_wrap">
-                <span class="headerExtra couponDate">Saturday, October 6, 2012</span>
+        <h2>
+            MyProfile</h2>
+        <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Content/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>Member</legend>
+                @Html.HiddenFor(model => model.MemberID)
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.NickName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NickName)
+                    @Html.ValidationMessageFor(model => model.NickName)
+                </div>                  
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityQuestion1)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityQuestion1)
+                    @Html.ValidationMessageFor(model => model.SecurityQuestion1)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityQuestion2)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityQuestion2)
+                    @Html.ValidationMessageFor(model => model.SecurityQuestion2)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityAnswer1)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityAnswer1)
+                    @Html.ValidationMessageFor(model => model.SecurityAnswer1)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.SecurityAnswer2)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SecurityAnswer2)
+                    @Html.ValidationMessageFor(model => model.SecurityAnswer2)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.FirstName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.FirstName)
+                    @Html.ValidationMessageFor(model => model.FirstName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.MiddleName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MiddleName)
+                    @Html.ValidationMessageFor(model => model.MiddleName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.LastName)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.LastName)
+                    @Html.ValidationMessageFor(model => model.LastName)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Country)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Country)
+                    @Html.ValidationMessageFor(model => model.Country)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Address)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.City)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.City)
+                    @Html.ValidationMessageFor(model => model.City)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.PostalCode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.PostalCode)
+                    @Html.ValidationMessageFor(model => model.PostalCode)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Telephone)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Telephone)
+                    @Html.ValidationMessageFor(model => model.Telephone)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Cellphone)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Cellphone)
+                    @Html.ValidationMessageFor(model => model.Cellphone)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email1)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email1)
+                    @Html.ValidationMessageFor(model => model.Email1)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Email2)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Email2)
+                    @Html.ValidationMessageFor(model => model.Email2)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Gender)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Gender)
+                    @Html.ValidationMessageFor(model => model.Gender)
+                </div>                
                 <p>
-                    <div class="betting_row clearfix">
-                        <div style="float: left; padding: 5px 5px 5px 0px;">
-                            13:45</div>
-                        <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
-                            Olympic Lyonais &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; Dinamo Kyev</a> <a href="#"
-                                class="betLink cell third last_cell" id="113625526" onclick="addToBettingSlip('113625526');">
-                                View all markets >> </a>
-                    </div>
-                    <p>
-                        <div class="betting_row clearfix">
-                            <div style="float: left; padding: 5px 5px 5px 0px;">
-                                16:00</div>
-                            <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
-                                Manchester City &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; Benfica</a> <a href="#" class="betLink cell third last_cell"
-                                    id="113625526" onclick="addToBettingSlip('113625526');">View all markets >>
-                            </a>
-                        </div>
-                        <p>
-                            <div class="betting_row clearfix">
-                                <div style="float: left; padding: 5px 5px 5px 0px;">
-                                    13:45</div>
-                                <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
-                                    Olympic Lyonais &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; Dinamo Kyev</a> <a href="#"
-                                        class="betLink cell third last_cell" id="113625526" onclick="addToBettingSlip('113625526');">
-                                        View all markets >> </a>
-                            </div>
-                            <p>
-                                <div class="betting_row clearfix">
-                                    <div style="float: left; padding: 5px 5px 5px 0px;">
-                                        16:00</div>
-                                    <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
-                                        Manchester City &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; Benfica</a> <a href="#" class="betLink cell third last_cell"
-                                            id="113625526" onclick="addToBettingSlip('113625526');">View all markets >>
-                                    </a>
-                                </div>
-                                <p>
-                                    <div class="betting_row clearfix">
-                                        <div style="float: left; padding: 5px 5px 5px 0px;">
-                                            13:45</div>
-                                        <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
-                                            Olympic Lyonais &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; Dinamo Kyev</a> <a href="#"
-                                                class="betLink cell third last_cell" id="113625526" onclick="addToBettingSlip('113625526');">
-                                                View all markets >> </a>
-                                    </div>
-                                    <p>
-                                        <div class="betting_row clearfix">
-                                            <div style="float: left; padding: 5px 5px 5px 0px;">
-                                                16:00</div>
-                                            <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
-                                                Manchester City &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; Benfica</a> <a href="#" class="betLink cell third last_cell"
-                                                    id="113625526" onclick="addToBettingSlip('113625526');">View all markets >>
-                                            </a>
-                                        </div>
-                                        <p>
-                                            <span class="headerExtra couponDate">Saturday, October 7, 2012</span>
-                <p>
-                    <div class="betting_row clearfix">
-                        <div style="float: left; padding: 5px 5px 5px 0px;">
-                            13:45</div>
-                        <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
-                            Olympic Lyonais &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; Dinamo Kyev</a> <a href="#"
-                                class="betLink cell third last_cell" id="113625526" onclick="addToBettingSlip('113625526');">
-                                View all markets >> </a>
-                    </div>
-            </div>
-        </div>
-        <div id="coupon-container" class="clearfix">
-            <div class="coupon-title">
-                <h3 class="sports">
-                    ENGLAND'S ALL TOURNAMENTS</h3>
-            </div>
-            <div class="leagues-box">
-                <table width="100%">
-                    <tr>
-                        <td width="33%">
-                            <a href="" class="country-league-lnk">Premier League(803)</a>
-                        </td>
-                        <td width="34%">
-                            <a href="" class="country-league-lnk">League One(95)</a>
-                        </td>
-                        <td width="33%">
-                            <a href="" class="country-league-lnk">League Two(117)</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="33%">
-                            <a href="" class="country-league-lnk">Championship</a>
-                        </td>
-                        <td width="34%">
-                            <a href="" class="country-league-lnk">FA Cup</a>
-                        </td>
-                        <td width="33%">
-                            <a href="" class="country-league-lnk">Fa Community Shield</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width="33%">
-                            <a href="" class="country-league-lnk">FA Trophy</a>
-                        </td>
-                        <td width="34%">
-                            <a href="" class="country-league-lnk">Blue Square Premier</a>
-                        </td>
-                        <td width="33%">
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+                    <input type="submit" value="Save" />
+                </p>
+            </fieldset>
+        }
     </div>
 </div>
 <div id="right_col">
@@ -238,7 +155,7 @@
                 <p class="bet-note">
                     <strong>New Customer? </strong><a href="/index.php/user/register/">Join now</a><br />
                 </p>
-                <style type="text/css">                      
+                <style type="text/css">
                     #place_bet:hover, #fund_bet:hover
                     {
                         width: 91px;
@@ -283,7 +200,7 @@
                         line-height: 25px;
                         text-align: center;
                     }
-                </style>                
+                </style>
                 <table width="100%" border="0" cellspacing="0" class="header-back">
                     <tr>
                         <th colspan="3" style="background-color: #79b0db; height: 24px; text-align: right;

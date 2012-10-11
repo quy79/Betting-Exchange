@@ -24,9 +24,16 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Gets last TransactionPayment by userID
         /// </summary>
-        /// <param name="TransactionPaymentId">The UserId identifier</param>
+        /// <param name="UserId">The UserId identifier</param>
         /// <returns>TransactionPayment</returns>
-        TransactionPayment GetTransactionPaymentByUserId(long UserId);  
+        TransactionPayment GetTransactionPaymentByUserId(long UserId);
+
+        /// <summary>
+        /// Gets List Transaction by userID
+        /// </summary>
+        /// <param name="UserId">The UserId identifier</param>
+        /// <returns>List Transaction</returns>
+        List<Transaction> GetTransactionByUserId(long UserId);
         
         /// <summary>
         /// Search TransactionPayments

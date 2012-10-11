@@ -15,6 +15,7 @@ using BetEx247.Core.Common.Extensions;
 using BetEx247.Core.Common.Utils;
 using BetEx247.Core;
 using BetEx247.Data;
+using BetEx247.Core.Payment;
 
 namespace BetEx247.Web.Controllers
 {
@@ -40,7 +41,7 @@ namespace BetEx247.Web.Controllers
                 if (IoC.Resolve<ICustomerService>().Authenticate(model.UserName, FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password.Trim(), "sha1")))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-                   
+
                     //insert history login
                     LoginHistory history = new LoginHistory();
                     history.MemberID = SessionManager.USER_ID;
@@ -69,7 +70,7 @@ namespace BetEx247.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-                  
+
         public string LoginAjax(string userName, string userPass)
         {
             if (IoC.Resolve<ICustomerService>().Authenticate(userName, FormsAuthentication.HashPasswordForStoringInConfigFile(userPass, "sha1")))
@@ -82,14 +83,14 @@ namespace BetEx247.Web.Controllers
                 history.LoginTime = DateTime.Now;
                 history.Status = Constant.Status.ACTIVENUM;
                 history.IP = Request.UserHostAddress;
-                IoC.Resolve<ICustomerService>().InsertHistory(history);        
-               
+                IoC.Resolve<ICustomerService>().InsertHistory(history);
+
                 var memberInfo = IoC.Resolve<ICustomerService>().GetCustomerByUsername(userName);
-                return "success|"+memberInfo.FirstName+" " +memberInfo.LastName;
+                return "success|" + memberInfo.FirstName + " " + memberInfo.LastName;
             }
             return null;
         }
-                       
+
         public string LogOutAjax()
         {
             try
@@ -266,8 +267,139 @@ namespace BetEx247.Web.Controllers
         #endregion
 
         #region Account Info
+        [Authorize]
         public ActionResult Balances()
         {
+            long memberId = SessionManager.USER_ID;
+            var mywallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
+            return View(mywallet);
+        }
+
+        [Authorize]
+        public ActionResult Statement()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Exposure()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult UnmatchedBets()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult UnsettledBets()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult SettledBets()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult CancelledBets()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult LapsedBets()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult VoidBets()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult UpdateCards()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Deposit()
+        {
+            return View();
+        }
+
+        [Authorize, HttpPost]
+        public ActionResult Deposit(FormCollection collection)
+        {
+            string message = string.Empty;
+            long transactionPaymentId = 0;
+            long memberId = SessionManager.USER_ID;
+
+            TransactionPayment transactionPayment = new TransactionPayment();
+            transactionPayment.TransactionPaymentType = (int)Constant.TransactionType.DEPOSIT;
+            transactionPayment.MemberId = memberId;
+            transactionPayment.MemberIP = Request.UserHostAddress;
+            transactionPayment.MemberEmail = transactionPayment.Customer.Email1;
+            transactionPayment.TransactionPaymentTotal = collection["Amount"].ToDecimal();
+            transactionPayment.TransactionPaymentStatusId = (int)PaymentStatusEnum.Authorized;
+            transactionPayment.PaymentMethodId = 1;
+
+            message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);
+
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Withdraw()
+        {
+            return View();
+        }
+
+        [Authorize, HttpPost]
+        public ActionResult Withdraw(FormCollection collection)
+        {
+            string message = string.Empty;
+            long memberId = SessionManager.USER_ID;
+            long transactionPaymentId = 0;
+            if (IoC.Resolve<ITransactionPaymentService>().GetTransactionByUserId(memberId) != null)
+            {
+                message = Constant.Messagage.NOTRANSACTION;
+            }
+            else
+            {
+                TransactionPayment transactionPayment = new TransactionPayment();
+                transactionPayment = IoC.Resolve<ITransactionPaymentService>().GetTransactionPaymentByUserId(memberId);
+                transactionPayment.TransactionPaymentType = (int)Constant.TransactionType.WITHDRAW;
+                transactionPayment.MemberIP = Request.UserHostAddress;
+                transactionPayment.RecurringTotalCycles = 1;
+                transactionPayment.RecurringCycleLength = 7;
+
+                message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);                      
+            }
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult MyProfile()
+        {
+            var memberId = SessionManager.USER_ID;
+            var memberProfile = IoC.Resolve<ICustomerService>().GetCustomerById(memberId);
+            return View(memberProfile);
+        }
+
+        [Authorize, HttpPost]
+        public ActionResult MyProfile(Member model)
+        {
+            IoC.Resolve<ICustomerService>().Update(model);
             return View();
         }
         #endregion

@@ -7,6 +7,7 @@ using BetEx247.Data.Model;
 using BetEx247.Core.Common.Utils;
 using BetEx247.Core.Common.Extensions;
 using BetEx247.Core.Infrastructure;
+using BetEx247.Core;
 
 namespace BetEx247.Data.DAL
 {
@@ -50,9 +51,25 @@ namespace BetEx247.Data.DAL
         }
 
         /// <summary>
+        /// Gets List Transaction by userID
+        /// </summary>
+        /// <param name="UserId">The UserId identifier</param>
+        /// <returns>List Transaction</returns>
+        public List<Transaction> GetTransactionByUserId(long UserId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {                 
+                var lstTran = dba.Transactions.Where(w => w.MemberId == UserId).ToList();
+                if (lstTran != null && lstTran.Count > 0)
+                    return lstTran;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// Gets last TransactionPayment by userID
         /// </summary>
-        /// <param name="TransactionPaymentId">The UserId identifier</param>
+        /// <param name="UserId">The UserId identifier</param>
         /// <returns>TransactionPayment</returns>
         public TransactionPayment GetTransactionPaymentByUserId(long UserId)
         {
@@ -463,7 +480,7 @@ namespace BetEx247.Data.DAL
             if (!string.IsNullOrEmpty(processPaymentResult.Error))
                 outMessage = processPaymentResult.Error;
             else
-                outMessage = processPaymentResult.AuthorizationTransactionResult;
+                outMessage = processPaymentResult.AuthorizationTransactionCode;
             return outMessage;
         }
 
