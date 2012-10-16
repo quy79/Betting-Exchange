@@ -32,5 +32,23 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <returns>Currency list</returns>
         SelectList MakeSelectListCurrency();
+
+        /// <summary>
+        /// Get list Month
+        /// </summary>
+        /// <returns>Currency list</returns>
+        SelectList MakeSelectListMonth();
+
+        /// <summary>
+        /// Get list Year Birth Available
+        /// </summary>
+        /// <returns>Currency list</returns>
+        SelectList MakeSelectListYearBirth();
+
+        /// <summary>
+        /// Get list Year Card Available
+        /// </summary>
+        /// <returns>Currency list</returns>
+        SelectList MakeSelectListYearCard();
     }
 }

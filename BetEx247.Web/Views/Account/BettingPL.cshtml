@@ -1,43 +1,31 @@
-﻿@model IEnumerable<BetEx247.Data.Model.MyBet>
+﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
 
 @{
-    ViewBag.Title = "Statement";
+    ViewBag.Title = "BettingPL";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Statement</h2>
+<h2>BettingPL</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
-    <tr>  
+<table width="70%">
+    <tr> 
         <th>
-            Date
-        </th>         
+            Date settled
+        </th>           
         <th>
-            MarketID
+            Description
         </th>
         <th>
-            BL
-        </th>
-        <th>
-            IsWon
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Stake
-        </th>
+            No. of Bets
+        </th>        
         <th>
             GrossProfit
         </th>
         <th>
             NetProfit
-        </th>
-        <th>
-            Exposure
         </th>
         <th>
             Liability
@@ -47,41 +35,29 @@
         </th>
         <th>
             GrossWinning
-        </th>
+        </th>            
         <th>
             Commission
-        </th>        
+        </th>             
     </tr>
 
 @foreach (var item in Model) {
-    <tr>     
+    <tr>   
         <td>
-            @Html.DisplayFor(modelItem => item.SubmitedTime)
-        </td>    
+            @Html.DisplayFor(modelItem=>item.SettledTime)
+        </td>       
         <td>
-            @Html.DisplayFor(modelItem => item.MarketID)
+            @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stake)
-        </td>
+            @Html.DisplayFor(modelItem=>item.Entrant)
+        </td>            
         <td>
             @Html.DisplayFor(modelItem => item.GrossProfit)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NetProfit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Exposure)
-        </td>
+        </td>             
         <td>
             @Html.DisplayFor(modelItem => item.Liability)
         </td>
@@ -90,7 +66,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.GrossWinning)
-        </td>
+        </td>       
         <td>
             @Html.DisplayFor(modelItem => item.Commission)
         </td>        

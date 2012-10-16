@@ -1,44 +1,97 @@
-﻿@model BetEx247.Data.Model.MyWallet
+﻿@model BetEx247.Data.Model.PaymentMethod
 @{
-    ViewBag.Title = "Balances";
+    ViewBag.Title = "UpdateCreditCard";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex.css")" media="screen" />
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex1.css")" media="screen" /> 
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />  
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex1.css")" media="screen" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
 <div id="middle_column">
     <div id="contentbox" class="clearfix">
         <h2>
-            Balances</h2>
-        <fieldset>
-            <legend>MyWallet</legend>
-            <div class="display-label">
-                MemberID</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.MemberID)
-            </div>
-            <div class="display-label">
-                Available</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.Available)
-            </div>
-            <div class="display-label">
-                Exposure</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.Exposure)
-            </div>
-            <div class="display-label">
-                Balance</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.Balance)
-            </div>
-            @*<div class="display-label">
-                UpdatedTime</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.UpdatedTime)
-            </div>*@
-        </fieldset>
+            Update Card</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>                            
+                @Html.HiddenFor(model => model.ID)
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CardType)
+                </div>
+                <div class="editor-field">
+                    @Html.Raw(ViewBag.CartType)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.NameOnCard)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.NameOnCard)
+                    @Html.ValidationMessageFor(model => model.NameOnCard)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CreditCardNumber)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.CreditCardNumber)
+                    @Html.ValidationMessageFor(model => model.CreditCardNumber)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.CardCvv2)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.CardCvv2)
+                    @Html.ValidationMessageFor(model => model.CardCvv2)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ValidFrom)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("MonthFrom")
+                    @Html.DropDownList("YearFrom")                     
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.ValidTo)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("MonthTo")
+                    @Html.DropDownList("YearTo")
+                </div>        
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Bank)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Bank)
+                    @Html.ValidationMessageFor(model => model.Bank)
+                </div>             
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Address)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Zipcode)
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.Zipcode)
+                    @Html.ValidationMessageFor(model => model.Zipcode)
+                </div>    
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.Country)
+                </div>
+                <div class="editor-field">
+                    @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.ListCountry, "--Select--", new { id = "Country" })
+                    @Html.ValidationMessageFor(model => model.Country)
+                </div>
+                <p>
+                    <input type="submit" value="Save" />
+                </p>
+            </fieldset>
+        }
     </div>
 </div>
 <div id="right_col">

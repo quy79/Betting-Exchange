@@ -278,54 +278,206 @@ namespace BetEx247.Web.Controllers
         [Authorize]
         public ActionResult Statement()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstStatement = IoC.Resolve<IBettingService>().GetMyBetByMemberId(memberId);
+            return View(lstStatement);
         }
 
         [Authorize]
         public ActionResult Exposure()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId,(short)Constant.MyBetStatus.EXPOSURE);
+            return View(lstExposure);
         }
 
         [Authorize]
         public ActionResult UnmatchedBets()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstUnmatchedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.UNMATCHEDBETS);
+            return View(lstUnmatchedBet);
         }
 
         [Authorize]
         public ActionResult UnsettledBets()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstUnSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.UNSETTLEDBETS);
+            return View(lstUnSettledBet);
+        }
+
+        [Authorize]
+        public ActionResult BettingPL()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstBettingPL = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.BETTINGPL);
+            return View(lstBettingPL);
         }
 
         [Authorize]
         public ActionResult SettledBets()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.SETTLEDBETS);
+            return View(lstSettledBet);
         }
 
         [Authorize]
         public ActionResult CancelledBets()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstCancelBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.CANCELLEDBETS);
+            return View(lstCancelBet);
         }
 
         [Authorize]
         public ActionResult LapsedBets()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstLapsedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.LAPSEDBETS);
+            return View(lstLapsedBet);
         }
 
         [Authorize]
         public ActionResult VoidBets()
         {
-            return View();
+            long memberId = SessionManager.USER_ID;
+            var lstVoidBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.VOIDBETS);
+            return View(lstVoidBet);
         }
 
         [Authorize]
         public ActionResult UpdateCards()
         {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult UpdateCreditCard(long id)
+        {
+            var paymentMenthod = IoC.Resolve<IPaymentService>().GetPaymentMethodById(id);
+            ViewBag.CartType = paymentMenthod.CardType;
+            ViewBag.MonthFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMenthod.ValidFrom.Month);
+            ViewBag.MonthTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMenthod.ValidTo.Month);
+            ViewBag.YearFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMenthod.ValidFrom.Year);
+            ViewBag.YearTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMenthod.ValidTo.Year);
+            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMenthod.Country);  
+            return View(paymentMenthod);
+        }
+
+        [Authorize,HttpPost]
+        public ActionResult UpdateCreditCard(long id,FormCollection collection)
+        {
+            string message = string.Empty;
+            var paymentMethod = IoC.Resolve<IPaymentService>().GetPaymentMethodById(id);
+            paymentMethod.Name = collection["NameOnCard"];
+            paymentMethod.Description = "Payment menthod: " + id;
+            paymentMethod.CreditCardNumber = collection["CreditCardNumber"];
+            paymentMethod.NameOnCard = collection["NameOnCard"];
+            paymentMethod.CardCvv2 = collection["CardCvv2"];
+            paymentMethod.MaskedCreditCardNumber = collection["CardCvv2"];
+            string monthFrom = collection["MonthFrom"];
+            string monthTo = collection["MonthTo"];
+            string yearFrom = collection["YearFrom"];
+            string yearTo = collection["YearTo"];
+            DateTime dateFrom = new DateTime(yearFrom.ToInt32(), monthFrom.ToInt32(), 1);
+            DateTime dateTo = new DateTime(yearTo.ToInt32(), monthTo.ToInt32(), 28);
+            paymentMethod.ValidFrom = dateFrom;
+            paymentMethod.ValidTo = dateTo;
+            paymentMethod.CardExpirationMonth = monthTo;
+            paymentMethod.CardExpirationYear = yearTo;
+            paymentMethod.Address = collection["Address"];
+            paymentMethod.Country = collection["Country"];
+            paymentMethod.Zipcode = collection["Zipcode"];              
+            paymentMethod.Bank = collection["Bank"];
+
+            try
+            {
+                IoC.Resolve<IPaymentService>().UpdatePaymentMethod(paymentMethod);
+                message = "Update successfully!";
+            }
+            catch(Exception ex)
+            {
+                message = "Error: " + ex.Message;
+            }
+            ViewBag.Message = message;
+            //update datemonth
+            ViewBag.MonthFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMethod.ValidFrom.Month);
+            ViewBag.MonthTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMethod.ValidTo.Month);
+            ViewBag.YearFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMethod.ValidFrom.Year);
+            ViewBag.YearTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMethod.ValidTo.Year);
+            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMethod.Country); 
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult AddNewCard(int id)
+        {
+            ViewBag.CartType = id.ToString();
+            ViewBag.ListMonth = IoC.Resolve<ICommonService>().MakeSelectListMonth();
+            ViewBag.ListYear = IoC.Resolve<ICommonService>().MakeSelectListYearCard();
+            ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
+            return View();
+        }
+
+        [Authorize,HttpPost]
+        public ActionResult AddNewCard( int id,FormCollection collection)
+        {
+            string message = string.Empty;
+            string cardType = string.Empty;
+            switch (id)
+            {
+                case 1:
+                    cardType = Constant.CardType.VISACREDIT;
+                    break;
+                default:
+                    cardType = Constant.CardType.VISACREDIT;
+                    break;
+            }
+            PaymentMethod paymentMethod = new PaymentMethod();
+            paymentMethod.CardType = cardType;
+            paymentMethod.Name = collection["NameOnCard"];
+            paymentMethod.Description = "Payment menthod: "+id;
+            paymentMethod.CreditCardNumber = collection["CreditCardNumber"];
+            paymentMethod.NameOnCard = collection["NameOnCard"];
+            paymentMethod.CardCvv2 = collection["CardCvv2"];
+            paymentMethod.MaskedCreditCardNumber = collection["CardCvv2"]; 
+            string monthFrom = collection["MonthFrom"];
+            string monthTo = collection["MonthTo"];
+            string yearFrom = collection["YearFrom"];
+            string yearTo = collection["YearTo"];
+            DateTime dateFrom = new DateTime(yearFrom.ToInt32(), monthFrom.ToInt32(), 1);
+            DateTime dateTo = new DateTime(yearTo.ToInt32(), monthTo.ToInt32(), 28);
+            paymentMethod.ValidFrom = dateFrom;
+            paymentMethod.ValidTo = dateTo;
+            paymentMethod.CardExpirationMonth = monthTo;            
+            paymentMethod.CardExpirationYear = yearTo;
+            paymentMethod.Address = collection["Address"];
+            paymentMethod.Country = collection["Country"];
+            paymentMethod.Zipcode = collection["Zipcode"];
+            paymentMethod.Email = SessionManager.USER_EMAIL;
+            paymentMethod.Bank = collection["Bank"];
+            paymentMethod.ClassName = Constant.PaymentClass.APCOService;
+            paymentMethod.Verified = false;
+            paymentMethod.AddedDate = DateTime.Now;
+            paymentMethod.ModifyDate = DateTime.Now;
+
+            try
+            {
+                IoC.Resolve<IPaymentService>().InsertPaymentMethod(paymentMethod);
+                message = "Insert card successfully!";
+            }
+            catch (Exception ex)
+            {
+                message = "Error: " + ex.Message;
+            }
+            //update load data
+            ViewBag.CartType = id.ToString();
+            ViewBag.ListMonth = IoC.Resolve<ICommonService>().MakeSelectListMonth();
+            ViewBag.ListYear = IoC.Resolve<ICommonService>().MakeSelectListYearCard();
+            ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
+            ViewBag.Message = message;
             return View();
         }
 

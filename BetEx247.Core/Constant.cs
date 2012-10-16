@@ -126,6 +126,18 @@ namespace BetEx247.Core
             OTHER = 5001,
         }
 
+        public enum MyBetStatus
+        {
+            EXPOSURE=1,
+            UNMATCHEDBETS=2,
+            UNSETTLEDBETS=3,
+            BETTINGPL=4,
+            SETTLEDBETS=5,
+            CANCELLEDBETS=6,
+            LAPSEDBETS=7,
+            VOIDBETS=8
+        }
+
         public enum ChoiceType
         {
             MONEY_LINE = 1,
@@ -202,9 +214,8 @@ namespace BetEx247.Core
             WATER_POLO = 36,
             AUSSIE_RULES = 39,
             MOTOR_SPORTS = 41
-
-
         }
+
         //public enum SportName
         //{
         //    [StringValue("Cordless Power Drill")]
@@ -260,6 +271,32 @@ namespace BetEx247.Core
         public static class Messagage
         {
             public const string NOTRANSACTION = "You must deposit at least one before withdraw.";
+        }
+
+        public static class CardType
+        {
+            //Deposit & Withdraw
+            public const string VISADEBIT="VISA Debit";
+            public const string VISACREDIT = "VISA Credit";
+            public const string VISAELECTION = "VISA Electron";
+            public const string SWITCHMAESTRO = "Switch / Maestro";
+            public const string SKRILL = "Skrill (Moneybookers)";
+            public const string NETELLER = "NETeller";
+            public const string NETELLER1PAY = "NETeller (1-PAY)";  
+            //Deposit only option
+            public const string MASTERCARDDEBIT = "MasterCard Debit";
+            public const string MASTERCARD = "MasterCard";
+            public const string CARTASI = "CartaSi";
+            public const string DINERSCLUBBYSKRILL = "Diners Club by Skrill";
+            public const string DANKORTBYSKRILL = "Dankort by Skrill";  
+            public const string NORDEASOLO = "Nordea Solo (Sweden, Finland) by Skrill";
+            //Withdraw Option Only
+            public const string BANKACCOUNT = "Bank Account";            
+        }
+
+        public static class PaymentClass
+        {
+            public const string APCOService = "BetEx247.Plugin.Payments.ApcoFastPay.ApcoFastPayPaymentProcessor,BetEx247.Plugin.Payments.ApcoFastPay";
         }
     }
     

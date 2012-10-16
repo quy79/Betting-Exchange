@@ -41,6 +41,39 @@
           <EntitySet Name="Statements" EntityType="BetEXData.Store.Statements" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Teams" EntityType="BetEXData.Store.Teams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Transactions" EntityType="BetEXData.Store.Transactions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PSV_MYBET" EntityType="BetEXData.Store.PSV_MYBET" store:Type="Views" store:Schema="dbo" store:Name="PSV_MYBET">
+            <DefiningQuery>SELECT 
+      [PSV_MYBET].[SportID] AS [SportID], 
+      [PSV_MYBET].[SportName] AS [SportName], 
+      [PSV_MYBET].[LeagueName] AS [LeagueName], 
+      [PSV_MYBET].[Description] AS [Description], 
+      [PSV_MYBET].[StartDate] AS [StartDate], 
+      [PSV_MYBET].[EndDate] AS [EndDate], 
+      [PSV_MYBET].[ChampionTitle] AS [ChampionTitle], 
+      [PSV_MYBET].[BetId] AS [BetId], 
+      [PSV_MYBET].[MemberID] AS [MemberID], 
+      [PSV_MYBET].[MarketID] AS [MarketID], 
+      [PSV_MYBET].[BL] AS [BL], 
+      [PSV_MYBET].[IsWon] AS [IsWon], 
+      [PSV_MYBET].[Price] AS [Price], 
+      [PSV_MYBET].[Stake] AS [Stake], 
+      [PSV_MYBET].[Entrant] AS [Entrant], 
+      [PSV_MYBET].[AmountMatch] AS [AmountMatch], 
+      [PSV_MYBET].[GrossProfit] AS [GrossProfit], 
+      [PSV_MYBET].[NetProfit] AS [NetProfit], 
+      [PSV_MYBET].[Exposure] AS [Exposure], 
+      [PSV_MYBET].[Liability] AS [Liability], 
+      [PSV_MYBET].[Payouts] AS [Payouts], 
+      [PSV_MYBET].[GrossWinning] AS [GrossWinning], 
+      [PSV_MYBET].[CancelledTime] AS [CancelledTime], 
+      [PSV_MYBET].[SubmitedTime] AS [SubmitedTime], 
+      [PSV_MYBET].[SettledTime] AS [SettledTime], 
+      [PSV_MYBET].[Commission] AS [Commission], 
+      [PSV_MYBET].[BetStatusID] AS [BetStatusID], 
+      [PSV_MYBET].[InPlayBet] AS [InPlayBet], 
+      [PSV_MYBET].[PointsRefunded] AS [PointsRefunded]
+      FROM [dbo].[PSV_MYBET] AS [PSV_MYBET]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CardsInfo_SoccerMatches" Association="BetEXData.Store.FK_CardsInfo_SoccerMatches">
             <End Role="SoccerMatches" EntitySet="SoccerMatches" />
             <End Role="CardsInfo" EntitySet="CardsInfo" />
@@ -343,8 +376,7 @@
           <Property Name="BranchCode" Type="nvarchar" MaxLength="30" />
           <Property Name="SwiftCode" Type="nvarchar" MaxLength="30" />
           <Property Name="IBAN" Type="nvarchar" MaxLength="50" />
-          <Property Name="AccountHolder" Type="nvarchar" MaxLength="100" />
-          <Property Name="AccountNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Verified" Type="bit" />
           <Property Name="ClassName" Type="nvarchar" MaxLength="500" />
           <Property Name="AddedDate" Type="datetime" />
           <Property Name="ModifyDate" Type="datetime" />
@@ -688,6 +720,48 @@
           <Property Name="AddedDate" Type="datetime" />
           <Property Name="ModifyDate" Type="datetime" />
         </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BettingExchange.dbo.PSV_MYBET' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PSV_MYBET">
+          <Key>
+            <PropertyRef Name="SportName" />
+            <PropertyRef Name="LeagueName" />
+            <PropertyRef Name="BetId" />
+            <PropertyRef Name="IsWon" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Stake" />
+          </Key>
+          <Property Name="SportID" Type="int" />
+          <Property Name="SportName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="LeagueName" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="ntext" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ChampionTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="BetId" Type="bigint" Nullable="false" />
+          <Property Name="MemberID" Type="bigint" />
+          <Property Name="MarketID" Type="bigint" />
+          <Property Name="BL" Type="bit" />
+          <Property Name="IsWon" Type="bit" Nullable="false" />
+          <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Stake" Type="money" Nullable="false" />
+          <Property Name="Entrant" Type="bigint" />
+          <Property Name="AmountMatch" Type="bigint" />
+          <Property Name="GrossProfit" Type="money" />
+          <Property Name="NetProfit" Type="money" />
+          <Property Name="Exposure" Type="money" />
+          <Property Name="Liability" Type="money" />
+          <Property Name="Payouts" Type="money" />
+          <Property Name="GrossWinning" Type="money" />
+          <Property Name="CancelledTime" Type="datetime" />
+          <Property Name="SubmitedTime" Type="datetime" />
+          <Property Name="SettledTime" Type="datetime" />
+          <Property Name="Commission" Type="money" />
+          <Property Name="BetStatusID" Type="smallint" />
+          <Property Name="InPlayBet" Type="bit" />
+          <Property Name="PointsRefunded" Type="int" />
+        </EntityType>
         <Association Name="FK_CardsInfo_SoccerMatches">
           <End Role="SoccerMatches" Type="BetEXData.Store.SoccerMatches" Multiplicity="0..1" />
           <End Role="CardsInfo" Type="BetEXData.Store.CardsInfo" Multiplicity="*" />
@@ -1016,7 +1090,6 @@
           <EntitySet Name="MyBets" EntityType="BetEXData.MyBet" />
           <EntitySet Name="MyCards" EntityType="BetEXData.MyCard" />
           <EntitySet Name="MyWallets" EntityType="BetEXData.MyWallet" />
-          <EntitySet Name="PaymentMethods" EntityType="BetEXData.PaymentMethod" />
           <EntitySet Name="Players" EntityType="BetEXData.Player" />
           <EntitySet Name="ScoreInfoes" EntityType="BetEXData.ScoreInfo" />
           <EntitySet Name="ScoreTypeMSTs" EntityType="BetEXData.ScoreTypeMST" />
@@ -1082,10 +1155,6 @@
             <End Role="Soccer_CorrectScores" EntitySet="Soccer_CorrectScores" />
             <End Role="MyBet" EntitySet="MyBets" />
           </AssociationSet>
-          <AssociationSet Name="FK_MyCards_PaymentMethods" Association="BetEXData.FK_MyCards_PaymentMethods">
-            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
-            <End Role="MyCard" EntitySet="MyCards" />
-          </AssociationSet>
           <AssociationSet Name="FK_ScoreInfo_SoccerMatches" Association="BetEXData.FK_ScoreInfo_SoccerMatches">
             <End Role="SoccerMatch" EntitySet="SoccerMatches" />
             <End Role="ScoreInfo" EntitySet="ScoreInfoes" />
@@ -1144,6 +1213,12 @@
             <End Role="Member" EntitySet="Members" />
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
+          <EntitySet Name="PaymentMethods" EntityType="BetEXData.PaymentMethod" />
+          <AssociationSet Name="FK_MyCards_PaymentMethods" Association="BetEXData.FK_MyCards_PaymentMethods">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="MyCard" EntitySet="MyCards" />
+          </AssociationSet>
+          <EntitySet Name="PSV_MYBET" EntityType="BetEXData.PSV_MYBET" />
         </EntityContainer>
         <EntityType Name="BetStatusMST">
           <Key>
@@ -1322,38 +1397,6 @@
           <Property Type="Decimal" Name="Balance" Precision="19" Scale="4" />
           <Property Type="DateTime" Name="UpdatedTime" />
           <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyWallet_Members" FromRole="MyWallet" ToRole="Member" />
-        </EntityType>
-        <EntityType Name="PaymentMethod">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CardType" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CreditCardNumber" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="NameOnCard" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="MaskedCreditCardNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CardCvv2" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="ValidFrom" Nullable="false" />
-          <Property Type="DateTime" Name="ValidTo" Nullable="false" />
-          <Property Type="String" Name="CardExpirationMonth" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="CardExpirationYear" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Zipcode" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Bank" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Branch" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="BranchCode" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SwiftCode" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="IBAN" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="AccountHolder" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="AccountNumber" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="ClassName" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="AddedDate" />
-          <Property Type="DateTime" Name="ModifyDate" />
-          <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="PaymentMethod" ToRole="MyCard" />
         </EntityType>
         <EntityType Name="Player">
           <Key>
@@ -1840,18 +1883,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MyCards_PaymentMethods">
-          <End Type="BetEXData.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
-          <End Type="BetEXData.MyCard" Role="MyCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentMethod">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="MyCard">
-              <PropertyRef Name="PaymentMethodId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_ScoreInfo_SoccerMatches">
           <End Type="BetEXData.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
           <End Type="BetEXData.ScoreInfo" Role="ScoreInfo" Multiplicity="*" />
@@ -2051,6 +2082,88 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="PaymentMethod">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardType" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CreditCardNumber" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="NameOnCard" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MaskedCreditCardNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardCvv2" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="ValidFrom" Nullable="false" />
+          <Property Type="DateTime" Name="ValidTo" Nullable="false" />
+          <Property Type="String" Name="CardExpirationMonth" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardExpirationYear" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Zipcode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Bank" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Branch" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BranchCode" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SwiftCode" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IBAN" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Verified" />
+          <Property Type="String" Name="ClassName" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="DateTime" Name="ModifyDate" />
+          <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="PaymentMethod" ToRole="MyCard" />
+        </EntityType>
+        <Association Name="FK_MyCards_PaymentMethods">
+          <End Type="BetEXData.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
+          <End Type="BetEXData.MyCard" Role="MyCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaymentMethod">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MyCard">
+              <PropertyRef Name="PaymentMethodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PSV_MYBET">
+          <Key>
+            <PropertyRef Name="SportName" />
+            <PropertyRef Name="LeagueName" />
+            <PropertyRef Name="BetId" />
+            <PropertyRef Name="IsWon" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Stake" />
+          </Key>
+          <Property Type="Int32" Name="SportID" />
+          <Property Type="String" Name="SportName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LeagueName" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="String" Name="ChampionTitle" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="BetId" Nullable="false" />
+          <Property Type="Int64" Name="MemberID" />
+          <Property Type="Int64" Name="MarketID" />
+          <Property Type="Boolean" Name="BL" />
+          <Property Type="Boolean" Name="IsWon" Nullable="false" />
+          <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="Stake" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Int64" Name="Entrant" />
+          <Property Type="Int64" Name="AmountMatch" />
+          <Property Type="Decimal" Name="GrossProfit" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="NetProfit" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Exposure" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Liability" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Payouts" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="GrossWinning" Precision="19" Scale="4" />
+          <Property Type="DateTime" Name="CancelledTime" />
+          <Property Type="DateTime" Name="SubmitedTime" />
+          <Property Type="DateTime" Name="SettledTime" />
+          <Property Type="Decimal" Name="Commission" Precision="19" Scale="4" />
+          <Property Type="Int16" Name="BetStatusID" />
+          <Property Type="Boolean" Name="InPlayBet" />
+          <Property Type="Int32" Name="PointsRefunded" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2226,38 +2339,6 @@
                 <ScalarProperty Name="Exposure" ColumnName="Exposure" />
                 <ScalarProperty Name="Available" ColumnName="Available" />
                 <ScalarProperty Name="MemberID" ColumnName="MemberID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PaymentMethods">
-            <EntityTypeMapping TypeName="BetEXData.PaymentMethod">
-              <MappingFragment StoreEntitySet="PaymentMethods">
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
-                <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
-                <ScalarProperty Name="AccountHolder" ColumnName="AccountHolder" />
-                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
-                <ScalarProperty Name="SwiftCode" ColumnName="SwiftCode" />
-                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
-                <ScalarProperty Name="Branch" ColumnName="Branch" />
-                <ScalarProperty Name="Bank" ColumnName="Bank" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="CardExpirationYear" ColumnName="CardExpirationYear" />
-                <ScalarProperty Name="CardExpirationMonth" ColumnName="CardExpirationMonth" />
-                <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
-                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
-                <ScalarProperty Name="CardCvv2" ColumnName="CardCvv2" />
-                <ScalarProperty Name="MaskedCreditCardNumber" ColumnName="MaskedCreditCardNumber" />
-                <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
-                <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
-                <ScalarProperty Name="CardType" ColumnName="CardType" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -2636,6 +2717,72 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PaymentMethods">
+            <EntityTypeMapping TypeName="BetEXData.PaymentMethod">
+              <MappingFragment StoreEntitySet="PaymentMethods">
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+                <ScalarProperty Name="Verified" ColumnName="Verified" />
+                <ScalarProperty Name="IBAN" ColumnName="IBAN" />
+                <ScalarProperty Name="SwiftCode" ColumnName="SwiftCode" />
+                <ScalarProperty Name="BranchCode" ColumnName="BranchCode" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CardExpirationYear" ColumnName="CardExpirationYear" />
+                <ScalarProperty Name="CardExpirationMonth" ColumnName="CardExpirationMonth" />
+                <ScalarProperty Name="ValidTo" ColumnName="ValidTo" />
+                <ScalarProperty Name="ValidFrom" ColumnName="ValidFrom" />
+                <ScalarProperty Name="CardCvv2" ColumnName="CardCvv2" />
+                <ScalarProperty Name="MaskedCreditCardNumber" ColumnName="MaskedCreditCardNumber" />
+                <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
+                <ScalarProperty Name="CreditCardNumber" ColumnName="CreditCardNumber" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PSV_MYBET">
+            <EntityTypeMapping TypeName="BetEXData.PSV_MYBET">
+              <MappingFragment StoreEntitySet="PSV_MYBET">
+                <ScalarProperty Name="PointsRefunded" ColumnName="PointsRefunded" />
+                <ScalarProperty Name="InPlayBet" ColumnName="InPlayBet" />
+                <ScalarProperty Name="BetStatusID" ColumnName="BetStatusID" />
+                <ScalarProperty Name="Commission" ColumnName="Commission" />
+                <ScalarProperty Name="SettledTime" ColumnName="SettledTime" />
+                <ScalarProperty Name="SubmitedTime" ColumnName="SubmitedTime" />
+                <ScalarProperty Name="CancelledTime" ColumnName="CancelledTime" />
+                <ScalarProperty Name="GrossWinning" ColumnName="GrossWinning" />
+                <ScalarProperty Name="Payouts" ColumnName="Payouts" />
+                <ScalarProperty Name="Liability" ColumnName="Liability" />
+                <ScalarProperty Name="Exposure" ColumnName="Exposure" />
+                <ScalarProperty Name="NetProfit" ColumnName="NetProfit" />
+                <ScalarProperty Name="GrossProfit" ColumnName="GrossProfit" />
+                <ScalarProperty Name="AmountMatch" ColumnName="AmountMatch" />
+                <ScalarProperty Name="Entrant" ColumnName="Entrant" />
+                <ScalarProperty Name="Stake" ColumnName="Stake" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="IsWon" ColumnName="IsWon" />
+                <ScalarProperty Name="BL" ColumnName="BL" />
+                <ScalarProperty Name="MarketID" ColumnName="MarketID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="BetId" ColumnName="BetId" />
+                <ScalarProperty Name="ChampionTitle" ColumnName="ChampionTitle" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
+                <ScalarProperty Name="SportName" ColumnName="SportName" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2668,7 +2815,6 @@
         <EntityTypeShape EntityType="BetEXData.MyBet" Width="1.5" PointX="9.75" PointY="11.25" Height="5.4417122395833246" />
         <EntityTypeShape EntityType="BetEXData.MyCard" Width="1.5" PointX="12.75" PointY="47.5" Height="2.7494921874999818" />
         <EntityTypeShape EntityType="BetEXData.MyWallet" Width="1.5" PointX="9.75" PointY="50.25" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BetEXData.PaymentMethod" Width="1.5" PointX="10.5" PointY="31.875" Height="6.2109179687499818" />
         <EntityTypeShape EntityType="BetEXData.Player" Width="1.5" PointX="9.75" PointY="6.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="BetEXData.ScoreInfo" Width="1.5" PointX="7.5" PointY="6.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BetEXData.ScoreTypeMST" Width="1.5" PointX="11.75" PointY="0.75" Height="1.4033821614583246" />
@@ -2719,8 +2865,8 @@
           <ConnectorPoint PointX="9.75" PointY="13.970856119791662" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyCards_Members" >
-          <ConnectorPoint PointX="9" PointY="49.265306367187492" />
-          <ConnectorPoint PointX="12.75" PointY="49.265306367187492" />
+          <ConnectorPoint PointX="9" PointY="48.874746093750005" />
+          <ConnectorPoint PointX="12.75" PointY="48.874746093750005" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyWallet_Members" >
           <ConnectorPoint PointX="9" PointY="51.432444661458334" />
@@ -2742,11 +2888,6 @@
           <ConnectorPoint PointX="9.2916666666666661" PointY="15.595856119791662" />
           <ConnectorPoint PointX="9.4583333333333339" PointY="15.595856119791662" />
           <ConnectorPoint PointX="9.75" PointY="15.595856119791662" />
-        </AssociationConnector>
-        <AssociationConnector Association="BetEXData.FK_MyCards_PaymentMethods" >
-          <ConnectorPoint PointX="11.65625" PointY="38.085917968749982" />
-          <ConnectorPoint PointX="11.65625" PointY="48.156120546875" />
-          <ConnectorPoint PointX="12.75" PointY="48.156120546875" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_ScoreInfo_SoccerMatches" >
           <ConnectorPoint PointX="6.4062525" PointY="20.625" />
@@ -2829,6 +2970,12 @@
           <ConnectorPoint PointX="8.7606221777343762" PointY="60.884348958333334" />
           <ConnectorPoint PointX="9.75" PointY="60.884348958333334" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="BetEXData.PaymentMethod" Width="1.5" PointX="12.375" PointY="12.125" Height="6.0186165364583246" />
+        <AssociationConnector Association="BetEXData.FK_MyCards_PaymentMethods" >
+          <ConnectorPoint PointX="13.3125" PointY="18.143616536458325" />
+          <ConnectorPoint PointX="13.3125" PointY="47.5" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BetEXData.PSV_MYBET" Width="1.5" PointX="14.375" PointY="0.75" Height="6.5955208333333246" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

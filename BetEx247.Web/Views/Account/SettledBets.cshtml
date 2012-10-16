@@ -1,6 +1,85 @@
-﻿@{
+﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
+
+@{
     ViewBag.Title = "SettledBets";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>SettledBets</h2>
+<h2>Settled Bets</h2>
+
+<table width="70%">
+    <tr>   
+        <th>
+            Date
+        </th>      
+        <th>
+            Bet ID
+        </th>
+        <th>
+            Market
+        </th>
+        <th>
+            Entrant
+        </th>           
+        <th>
+            B/L
+        </th>
+        <th>
+            Amount Matched
+        </th>        
+        <th>
+            Result
+        </th>          
+        <th>
+            Settled Gross P/L
+        </th>      
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmitedTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BetId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SportName+" - "+item.LeagueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=>item.Entrant)
+        </td>       
+        <td>
+            @{
+                if (item.BL != null && item.BL.Value)
+                {
+                    @Html.Raw("Bet")
+                }
+                else
+                {
+                    @Html.Raw("Lay")
+                }
+            }         
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmountMatch)
+        </td>            
+        <td>
+            @{
+                if (item.IsWon)
+                {
+                    @Html.Raw("Won")
+                }
+                else
+                {
+                    @Html.Raw("Loss")
+                }
+            }         
+        </td>                
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossProfit)
+        </td>        
+    </tr>
+}
+
+</table>

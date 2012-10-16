@@ -42,9 +42,7 @@ namespace BetEx247.Data.DAL
         public PaymentMethod GetPaymentMethodById(long paymentMethodId)
         {
             if (paymentMethodId == 0)
-                return null;
-            string key = string.Format(PAYMENTMETHODS_BY_ID_KEY, paymentMethodId);
-
+                return null;          
             var query = from pm in _context.PaymentMethods
                         where pm.ID == paymentMethodId
                         select pm;
@@ -78,7 +76,7 @@ namespace BetEx247.Data.DAL
         {
             if (paymentMethod == null)
                 throw new ArgumentNullException("paymentMethod");
-
+            
             paymentMethod.Name = CommonHelper.EnsureNotNull(paymentMethod.Name);
             paymentMethod.Name = CommonHelper.EnsureMaximumLength(paymentMethod.Name, 100);
             paymentMethod.Description = CommonHelper.EnsureNotNull(paymentMethod.Description);
@@ -100,8 +98,7 @@ namespace BetEx247.Data.DAL
             paymentMethod.BranchCode = paymentMethod.BranchCode;
             paymentMethod.SwiftCode = paymentMethod.SwiftCode;
             paymentMethod.IBAN = paymentMethod.IBAN;
-            paymentMethod.AccountHolder = paymentMethod.AccountHolder;
-            paymentMethod.AccountNumber = paymentMethod.AccountNumber;
+            paymentMethod.Verified = paymentMethod.Verified;
 
             _context.SaveChanges();
         }
