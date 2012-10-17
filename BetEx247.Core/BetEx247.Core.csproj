@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ChilkatDotNet4">
+      <HintPath>..\..\..\Program Files\Chilkat Software Inc\Chilkat.NET-v4.0\ChilkatDotNet4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -68,6 +71,10 @@
     <Compile Include="Caching\ICacheManager.cs" />
     <Compile Include="Caching\MemoryCacheManager.cs" />
     <Compile Include="Caching\PerRequestCacheManager.cs" />
+    <Compile Include="ChilkatEmail\Email.cs" />
+    <Compile Include="ChilkatEmail\MailServices.cs" />
+    <Compile Include="ChilkatEmail\Utils\Constants.cs" />
+    <Compile Include="ChilkatEmail\Utils\MailUtils.cs" />
     <Compile Include="Common\Extensions\DecimalExtensions.cs" />
     <Compile Include="Common\Extensions\StringExtensions.cs" />
     <Compile Include="Common\Utils\BBCodeHelper.cs" />
