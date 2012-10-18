@@ -277,9 +277,16 @@ namespace BetEx247.Web.Controllers
 
         [Authorize]
         public ActionResult Statement()
-        {
+        {               
+            DateTime startDate;
+            DateTime endDate;
+            int betCategory;
+            int betDisplay;
+            int pageNo;
+            int recordPerpage;
+
             long memberId = SessionManager.USER_ID;
-            var lstStatement = IoC.Resolve<IBettingService>().GetMyBetByMemberId(memberId);
+            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId);
             return View(lstStatement);
         }
 

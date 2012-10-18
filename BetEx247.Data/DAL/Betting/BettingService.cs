@@ -38,6 +38,34 @@ namespace BetEx247.Data.DAL
         }
 
         /// <summary>
+        /// Get Statement for User login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <returns>List mybet</returns>
+        public List<Statement> GetStatementByMemberId(long memberId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var statement = dba.Statements.Where(w => w.MemberId == memberId).ToList();
+                return statement;
+            }
+        }
+
+        /// <summary>
+        /// Get Statement for User login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <returns>List mybet</returns>
+        public List<Statement> GetStatementByMemberId(long memberId, DateTime startDate, DateTime endDate, int betCategory, int betDisplay, int pageNo, int recordPerpage)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var statement = dba.PSP_SEARCHSTATEMENT(memberId, startDate, endDate, betCategory, betDisplay, pageNo, recordPerpage).ToList();
+                return statement;
+            }
+        }
+
+        /// <summary>
         /// Get Bet for User login
         /// </summary>
         /// <param name="memberId">memberId</param>

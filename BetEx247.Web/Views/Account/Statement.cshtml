@@ -1,100 +1,268 @@
-﻿@model IEnumerable<BetEx247.Data.Model.MyBet>
-
+﻿@model IEnumerable<BetEx247.Data.Model.Statement>
 @{
     ViewBag.Title = "Statement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Statement</h2>
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/datepicker.css")" media="screen" />
+<script src="@Url.Content("~/Content/Scripts/GUI/datepicker.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/GUI/Common.js")" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Scripts/GUI/lang/en.js")" charset="utf-8"></script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>  
+<script type="text/javascript">
+//<![CDATA[
+
+    /*
+    A "Reservation Date" example using two datePickers
+    --------------------------------------------------
+
+    * Functionality
+
+    1. When the page loads:
+    - We clear the value of the two inputs (to clear any values cached by the browser)
+    - We set an "onchange" event handler on the startDate input to call the setReservationDates function
+    2. When a start date is selected
+    - We set the low range of the endDate datePicker to be the start date the user has just selected
+    - If the endDate input already has a date stipulated and the date falls before the new start date then we clear the input's value
+
+    * Caveats (aren't there always)
+
+    - This demo has been written for dates that have NOT been split across three inputs
+
+    */
+
+    function makeTwoChars(inp) {
+        return String(inp).length < 2 ? "0" + inp : inp;
+    }
+
+    function initialiseInputs() {
+        // Clear any old values from the inputs (that might be cached by the browser after a page reload)
+        document.getElementById("sd").value = "";
+        document.getElementById("ed").value = "";
+
+        // Add the onchange event handler to the start date input
+        datePickerController.addEvent(document.getElementById("sd"), "change", setReservationDates);
+    }
+
+    var initAttempts = 0;
+
+    function setReservationDates(e) {
+        // Internet Explorer will not have created the datePickers yet so we poll the datePickerController Object using a setTimeout
+        // until they become available (a maximum of ten times in case something has gone horribly wrong)
+
+        try {
+            var sd = datePickerController.getDatePicker("sd");
+            var ed = datePickerController.getDatePicker("ed");
+        } catch (err) {
+            if (initAttempts++ < 10) setTimeout("setReservationDates()", 50);
+            return;
+        }
+
+        // Check the value of the input is a date of the correct format
+        var dt = datePickerController.dateFormat(this.value, sd.format.charAt(0) == "m");
+
+        // If the input's value cannot be parsed as a valid date then return
+        if (dt == 0) return;
+
+        // At this stage we have a valid YYYYMMDD date
+
+        // Grab the value set within the endDate input and parse it using the dateFormat method
+        // N.B: The second parameter to the dateFormat function, if TRUE, tells the function to favour the m-d-y date format
+        var edv = datePickerController.dateFormat(document.getElementById("ed").value, ed.format.charAt(0) == "m");
+
+        // Set the low range of the second datePicker to be the date parsed from the first
+        ed.setRangeLow(dt);
+
+        // If theres a value already present within the end date input and it's smaller than the start date
+        // then clear the end date value
+        if (edv < dt) {
+            document.getElementById("ed").value = "";
+        }
+    }
+
+    function removeInputEvents() {
+        // Remove the onchange event handler set within the function initialiseInputs
+        datePickerController.removeEvent(document.getElementById("sd"), "change", setReservationDates);
+    }
+
+    datePickerController.addEvent(window, 'load', initialiseInputs);
+    datePickerController.addEvent(window, 'unload', removeInputEvents);
+
+//]]>
+</script>
+<h2>
+    Statement</h2>
+<table width="70%" cellspacing="0" cellpadding="0" border="0">
+    <tbody>
+        <tr>
+            <td width="50px" valign="middle" style="text-align: left" rowspan="2" class="tdPageFilters">
+                Date:
+            </td>
+            <td valign="middle" style="text-align: left" class="tdPageFilters">
+                <input type="radio" checked="true" value="Predefined" name="rdoPeriodType" id="rdoPredefined"><select
+                    onclick="Common.SetSelectedRadio('rdoPredefined','rdoCustom')" style="width: 192px"
+                    id="selPeriod"><option value="Last24Hrs">Last 24 hours</option>
+                    <option value="Last48Hrs">Last 48 hours</option>
+                    <option value="Last7Days">Last 7 days</option>
+                    <option value="Last30Days">Last 30 days</option>
+                    <option value="Last3Months">Last 3 months</option>
+                    <option value="Last6Months">Last 6 months</option>
+                </select>
+            </td>
+            <td valign="middle" style="text-align: left" class="tdPageFilters">
+                Bet Category:
+            </td>
+            <td valign="middle" style="text-align: left" class="tdPageFilters">
+                <select style="width: 140px" id="selBetCategory">
+                    <option value="">All</option>
+                    <option value="44744701-0d9b-43dd-814b-3bcde3c069e6">American Football</option>
+                    <option value="9f220331-55e5-4377-9123-e514703e50e2">Athletics</option>
+                    <option value="ad8633af-6f7b-4422-b192-ec1c14bdefe1">Australian Rules</option>
+                    <option value="6fe60177-5741-43c5-a5fc-a4d5976ebc42">Baseball</option>
+                    <option value="248aaa38-d041-415b-b80a-554b345ebe81">Basketball</option>
+                    <option value="ec6e1b94-26c6-41c6-9c45-9dba87a11ec4">Boxing</option>
+                    <option value="c81537e3-835d-48ec-86da-3ccc9c473837">Combat Sports</option>
+                    <option value="e74365a1-feb9-402a-b135-c4badbcf646e">Cricket</option>
+                    <option value="22eafe22-3260-4f8c-bdc4-4813727b5a10">Cycling</option>
+                    <option value="7efd6a4e-b71c-423a-84c5-a1da623d3849">Darts</option>
+                    <option value="d7332ffd-4103-4829-aa25-b89b5f870538">Entertainment</option>
+                    <option value="252d1938-d5fa-48fa-84bf-7853f756fb2d">Financial Bets</option>
+                    <option value="7bfaffed-1569-4007-924a-8152263a9a13">Gaelic Games</option>
+                    <option value="c5e2d394-a91b-40d5-a18e-917b4ce6fb1b">Golf</option>
+                    <option value="dc648477-a3b5-4fba-bbf3-2b439764fc8a">Greyhound Racing</option>
+                    <option value="7d03bdd5-b16d-42b4-9fd6-0c998f7a3ee3">Handball</option>
+                    <option value="b94fcf50-e292-472e-a45f-c436c5265adc">Harness Racing</option>
+                    <option value="78d504cb-72dc-4779-bcbf-cb53546b136e">Hockey</option>
+                    <option value="96bbb7ce-5885-44f6-a936-509a91da58b5">Horse Racing</option>
+                    <option value="bf32c3e0-985e-4337-b73c-ee68cbf072bc">Ice Hockey</option>
+                    <option value="38dea885-305b-4ab9-802d-1785c703877f">Jai Lai</option>
+                    <option value="c399ca02-c90b-4430-8f34-f8a739dfc69f">Motor Sports</option>
+                    <option value="ca9edb5b-0161-4c8a-8dbb-9e98688f32f1">Olympic Games</option>
+                    <option value="322efb9e-59d5-45f1-ab09-add365211cc6">Poker</option>
+                    <option value="ba5542c6-0531-4331-84bb-6b016c27f0da">Politics</option>
+                    <option value="c100c815-8a49-44a1-939f-044c4ec64cc5">Rowing</option>
+                    <option value="2cc0465b-de32-43b6-96c2-55b4eb6b80fc">Rugby League</option>
+                    <option value="5b6aaa2b-6878-42f1-a683-691624db7ef9">Rugby Union</option>
+                    <option value="de865888-01df-4262-b769-d97b0b6ef56c">Snooker</option>
+                    <option value="83e7824b-113d-4502-9c74-6551396c6027">Soccer</option>
+                    <option value="ffa0de0e-672f-4a81-85f0-38bc765827a8">Squash</option>
+                    <option value="73f32bb6-9eff-449b-968d-767659e31b15">Sumo Wrestling</option>
+                    <option value="7c4da767-dc64-46f3-bb31-df050c41e854">Swimming</option>
+                    <option value="443ae99f-c0ee-4b6d-819b-9bf747bfe043">Tennis</option>
+                    <option value="26b72db1-bfb1-43bf-be96-a35338605846">Volleyball</option>
+                </select>
+            </td>
+            <td valign="middle" rowspan="2" class="tdPageFilters">
+                <a onclick="ui_doSearch();return false;" href="javascript:void(0)" class="ImgBtn">Show
+                    Records</a>
+            </td>
+            <td valign="middle" rowspan="2" class="tdPageFilters">
+                <select id="selExport">
+                    <option value="csv">CSV</option>
+                    <option value="xls">Excel</option>
+                </select><a onclick="ui_doExcelDownload(document.getElementById('selExport').value);return false;"
+                    href="javascript:void(0)" class="ImgBtn">Export</a>
+            </td>
+            <td width="1%" rowspan="2" class="tdPageFilters">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td valign="middle" style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
+                <input type="radio" style="vertical-align: middle" value="Custom" name="rdoPeriodType"
+                    id="rdoCustom">
+                <p><input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today" name="sd" id="sd" value="" maxlength="10" /></p>
+                <p class="lastup"><input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today" name="ed" id="ed" value="" maxlength="10" /></p>
+            </td>
+            <td valign="middle" style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
+                Display:
+            </td>
+            <td style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
+                <select onchange="ShowBetCategory()" style="width: 140px" id="selDisplay">
+                    <option value="">All</option>
+                    <option value="Adjustment">Adjustment</option>
+                    <option value="Settlement">Bets Only</option>
+                    <option value="Commission">Commission</option>
+                    <option value="Deposit">Deposit</option>
+                    <option value="Fee">Fee</option>
+                    <option value="FBSettlement">Free Bets</option>
+                    <option value="LoyaltyRebate">Loyalty Refund</option>
+                    <option value="MarketRebate">Market Refund</option>
+                    <option value="Withdraw">Withdrawal</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table width="70%">
+    <tr>
         <th>
             Date
-        </th>         
-        <th>
-            MarketID
         </th>
         <th>
-            BL
+            ID
         </th>
         <th>
-            IsWon
+            Description
         </th>
         <th>
-            Price
+            Selection
+        </th>
+        <th>
+            B/L
         </th>
         <th>
             Stake
         </th>
         <th>
-            GrossProfit
+            Odds
+        </th>
+        <th>
+            Type_Result
+        </th>
+        <th>
+            Amount
         </th>
         <th>
             NetProfit
         </th>
         <th>
-            Exposure
-        </th>
-        <th>
-            Liability
-        </th>
-        <th>
-            Payouts
-        </th>
-        <th>
-            GrossWinning
-        </th>
-        <th>
             Commission
-        </th>        
+        </th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>     
-        <td>
-            @Html.DisplayFor(modelItem => item.SubmitedTime)
-        </td>    
-        <td>
-            @Html.DisplayFor(modelItem => item.MarketID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsWon)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Stake)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GrossProfit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NetProfit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Exposure)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Liability)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payouts)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GrossWinning)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Commission)
-        </td>        
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatementTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Selection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackOrLay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Odds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type_Result)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetProfit)
+            </td>
+        </tr>
+    }
 </table>

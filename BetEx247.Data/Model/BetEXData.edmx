@@ -58,6 +58,7 @@
       [PSV_MYBET].[Price] AS [Price], 
       [PSV_MYBET].[Stake] AS [Stake], 
       [PSV_MYBET].[Entrant] AS [Entrant], 
+      [PSV_MYBET].[MatchTurnOver] AS [MatchTurnOver], 
       [PSV_MYBET].[AmountMatch] AS [AmountMatch], 
       [PSV_MYBET].[GrossProfit] AS [GrossProfit], 
       [PSV_MYBET].[NetProfit] AS [NetProfit], 
@@ -747,6 +748,7 @@
           <Property Name="Price" Type="decimal" Nullable="false" Scale="2" />
           <Property Name="Stake" Type="money" Nullable="false" />
           <Property Name="Entrant" Type="bigint" />
+          <Property Name="MatchTurnOver" Type="bigint" />
           <Property Name="AmountMatch" Type="bigint" />
           <Property Name="GrossProfit" Type="money" />
           <Property Name="NetProfit" Type="money" />
@@ -1074,6 +1076,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="PSP_SEARCHSTATEMENT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="memberId" Type="bigint" Mode="In" />
+          <Parameter Name="startDate" Type="datetime" Mode="In" />
+          <Parameter Name="endDate" Type="datetime" Mode="In" />
+          <Parameter Name="betCategory" Type="int" Mode="In" />
+          <Parameter Name="displayType" Type="int" Mode="In" />
+          <Parameter Name="pageNo" Type="int" Mode="In" />
+          <Parameter Name="sRecordsPerPage" Type="int" Mode="In" />
+        </Function>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -1219,6 +1230,15 @@
             <End Role="MyCard" EntitySet="MyCards" />
           </AssociationSet>
           <EntitySet Name="PSV_MYBET" EntityType="BetEXData.PSV_MYBET" />
+          <FunctionImport Name="PSP_SEARCHSTATEMENT" EntitySet="Statements" ReturnType="Collection(BetEXData.Statement)">
+            <Parameter Name="memberId" Mode="In" Type="Int64" />
+            <Parameter Name="startDate" Mode="In" Type="DateTime" />
+            <Parameter Name="endDate" Mode="In" Type="DateTime" />
+            <Parameter Name="betCategory" Mode="In" Type="Int32" />
+            <Parameter Name="displayType" Mode="In" Type="Int32" />
+            <Parameter Name="pageNo" Mode="In" Type="Int32" />
+            <Parameter Name="sRecordsPerPage" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="BetStatusMST">
           <Key>
@@ -2149,6 +2169,7 @@
           <Property Type="Decimal" Name="Price" Nullable="false" Precision="18" Scale="2" />
           <Property Type="Decimal" Name="Stake" Nullable="false" Precision="19" Scale="4" />
           <Property Type="Int64" Name="Entrant" />
+          <Property Type="Int64" Name="MatchTurnOver" />
           <Property Type="Int64" Name="AmountMatch" />
           <Property Type="Decimal" Name="GrossProfit" Precision="19" Scale="4" />
           <Property Type="Decimal" Name="NetProfit" Precision="19" Scale="4" />
@@ -2765,6 +2786,7 @@
                 <ScalarProperty Name="NetProfit" ColumnName="NetProfit" />
                 <ScalarProperty Name="GrossProfit" ColumnName="GrossProfit" />
                 <ScalarProperty Name="AmountMatch" ColumnName="AmountMatch" />
+                <ScalarProperty Name="MatchTurnOver" ColumnName="MatchTurnOver" />
                 <ScalarProperty Name="Entrant" ColumnName="Entrant" />
                 <ScalarProperty Name="Stake" ColumnName="Stake" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
@@ -2783,6 +2805,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PSP_SEARCHSTATEMENT" FunctionName="BetEXData.Store.PSP_SEARCHSTATEMENT" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2975,7 +2998,7 @@
           <ConnectorPoint PointX="13.3125" PointY="18.143616536458325" />
           <ConnectorPoint PointX="13.3125" PointY="47.5" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="BetEXData.PSV_MYBET" Width="1.5" PointX="14.375" PointY="0.75" Height="6.5955208333333246" />
+        <EntityTypeShape EntityType="BetEXData.PSV_MYBET" Width="1.5" PointX="14.375" PointY="0.75" Height="6.78782226562501" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

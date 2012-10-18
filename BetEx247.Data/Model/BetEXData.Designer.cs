@@ -963,6 +963,179 @@ namespace BetEx247.Data.Model
         }
 
         #endregion
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="startDate">No Metadata Documentation available.</param>
+        /// <param name="endDate">No Metadata Documentation available.</param>
+        /// <param name="betCategory">No Metadata Documentation available.</param>
+        /// <param name="displayType">No Metadata Documentation available.</param>
+        /// <param name="pageNo">No Metadata Documentation available.</param>
+        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
+        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, Nullable<global::System.DateTime> startDate, Nullable<global::System.DateTime> endDate, Nullable<global::System.Int32> betCategory, Nullable<global::System.Int32> displayType, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter startDateParameter;
+            if (startDate.HasValue)
+            {
+                startDateParameter = new ObjectParameter("startDate", startDate);
+            }
+            else
+            {
+                startDateParameter = new ObjectParameter("startDate", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter endDateParameter;
+            if (endDate.HasValue)
+            {
+                endDateParameter = new ObjectParameter("endDate", endDate);
+            }
+            else
+            {
+                endDateParameter = new ObjectParameter("endDate", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter betCategoryParameter;
+            if (betCategory.HasValue)
+            {
+                betCategoryParameter = new ObjectParameter("betCategory", betCategory);
+            }
+            else
+            {
+                betCategoryParameter = new ObjectParameter("betCategory", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter displayTypeParameter;
+            if (displayType.HasValue)
+            {
+                displayTypeParameter = new ObjectParameter("displayType", displayType);
+            }
+            else
+            {
+                displayTypeParameter = new ObjectParameter("displayType", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter pageNoParameter;
+            if (pageNo.HasValue)
+            {
+                pageNoParameter = new ObjectParameter("pageNo", pageNo);
+            }
+            else
+            {
+                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter sRecordsPerPageParameter;
+            if (sRecordsPerPage.HasValue)
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
+            }
+            else
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", memberIdParameter, startDateParameter, endDateParameter, betCategoryParameter, displayTypeParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="startDate">No Metadata Documentation available.</param>
+        /// <param name="endDate">No Metadata Documentation available.</param>
+        /// <param name="betCategory">No Metadata Documentation available.</param>
+        /// <param name="displayType">No Metadata Documentation available.</param>
+        /// <param name="pageNo">No Metadata Documentation available.</param>
+        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
+        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, Nullable<global::System.DateTime> startDate, Nullable<global::System.DateTime> endDate, Nullable<global::System.Int32> betCategory, Nullable<global::System.Int32> displayType, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage, MergeOption mergeOption)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter startDateParameter;
+            if (startDate.HasValue)
+            {
+                startDateParameter = new ObjectParameter("startDate", startDate);
+            }
+            else
+            {
+                startDateParameter = new ObjectParameter("startDate", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter endDateParameter;
+            if (endDate.HasValue)
+            {
+                endDateParameter = new ObjectParameter("endDate", endDate);
+            }
+            else
+            {
+                endDateParameter = new ObjectParameter("endDate", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter betCategoryParameter;
+            if (betCategory.HasValue)
+            {
+                betCategoryParameter = new ObjectParameter("betCategory", betCategory);
+            }
+            else
+            {
+                betCategoryParameter = new ObjectParameter("betCategory", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter displayTypeParameter;
+            if (displayType.HasValue)
+            {
+                displayTypeParameter = new ObjectParameter("displayType", displayType);
+            }
+            else
+            {
+                displayTypeParameter = new ObjectParameter("displayType", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter pageNoParameter;
+            if (pageNo.HasValue)
+            {
+                pageNoParameter = new ObjectParameter("pageNo", pageNo);
+            }
+            else
+            {
+                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter sRecordsPerPageParameter;
+            if (sRecordsPerPage.HasValue)
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
+            }
+            else
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", mergeOption, memberIdParameter, startDateParameter, endDateParameter, betCategoryParameter, displayTypeParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+
+        #endregion
     }
     
 
@@ -6050,6 +6223,30 @@ namespace BetEx247.Data.Model
         private Nullable<global::System.Int64> _Entrant;
         partial void OnEntrantChanging(Nullable<global::System.Int64> value);
         partial void OnEntrantChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> MatchTurnOver
+        {
+            get
+            {
+                return _MatchTurnOver;
+            }
+            set
+            {
+                OnMatchTurnOverChanging(value);
+                ReportPropertyChanging("MatchTurnOver");
+                _MatchTurnOver = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MatchTurnOver");
+                OnMatchTurnOverChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _MatchTurnOver;
+        partial void OnMatchTurnOverChanging(Nullable<global::System.Int64> value);
+        partial void OnMatchTurnOverChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

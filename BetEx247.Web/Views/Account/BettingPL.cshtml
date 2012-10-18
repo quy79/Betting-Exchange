@@ -22,23 +22,17 @@
             No. of Bets
         </th>        
         <th>
-            GrossProfit
+            Matched Turnover
         </th>
         <th>
-            NetProfit
+            Settled Gross P/L
         </th>
         <th>
-            Liability
+            Commission paid
         </th>
         <th>
-            Payouts
-        </th>
-        <th>
-            GrossWinning
-        </th>            
-        <th>
-            Commission
-        </th>             
+            Settled Net P/L
+        </th>                
     </tr>
 
 @foreach (var item in Model) {
@@ -53,23 +47,17 @@
             @Html.DisplayFor(modelItem=>item.Entrant)
         </td>            
         <td>
+            @Html.DisplayFor(modelItem => item.MatchTurnOver)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.GrossProfit)
+        </td>             
+        <td>
+            @Html.DisplayFor(modelItem => item.Commission)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NetProfit)
-        </td>             
-        <td>
-            @Html.DisplayFor(modelItem => item.Liability)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Payouts)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GrossWinning)
-        </td>       
-        <td>
-            @Html.DisplayFor(modelItem => item.Commission)
-        </td>        
+        </td>              
     </tr>
 }
 
