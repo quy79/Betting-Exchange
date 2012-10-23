@@ -1,0 +1,142 @@
+﻿@model IEnumerable<BetEx247.Data.Model.MyBet>
+
+@{
+    ViewBag.Title = "Exposure";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Exposure</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            MemberID
+        </th>
+        <th>
+            MarketID
+        </th>
+        <th>
+            BL
+        </th>
+        <th>
+            IsWon
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Stake
+        </th>
+        <th>
+            GrossProfit
+        </th>
+        <th>
+            NetProfit
+        </th>
+        <th>
+            Exposure
+        </th>
+        <th>
+            Liability
+        </th>
+        <th>
+            Payouts
+        </th>
+        <th>
+            GrossWinning
+        </th>
+        <th>
+            SubmitedTime
+        </th>
+        <th>
+            CancelledTime
+        </th>
+        <th>
+            SettledTime
+        </th>
+        <th>
+            Commission
+        </th>
+        <th>
+            BetStatusID
+        </th>
+        <th>
+            InPlayBet
+        </th>
+        <th>
+            PointsRefunded
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MemberID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MarketID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsWon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stake)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossProfit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NetProfit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exposure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Liability)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Payouts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossWinning)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubmitedTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CancelledTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SettledTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Commission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BetStatusID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InPlayBet)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointsRefunded)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

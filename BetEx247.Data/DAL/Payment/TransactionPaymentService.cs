@@ -7,6 +7,7 @@ using BetEx247.Data.Model;
 using BetEx247.Core.Common.Utils;
 using BetEx247.Core.Common.Extensions;
 using BetEx247.Core.Infrastructure;
+using BetEx247.Core;
 
 namespace BetEx247.Data.DAL
 {
@@ -40,6 +41,56 @@ namespace BetEx247.Data.DAL
                 transactionPayment.TransactionPaymentType = transaction.Type;
                 transactionPayment.MemberId = transaction.MemberId;
                 transactionPayment.MemberIP = transaction.MemberIP;
+                transactionPayment.TransactionPaymentTotal = transaction.Amount;
+                transactionPayment.TransactionPaymentStatusId = transaction.Status;
+                transactionPayment.PaymentMethodId = transaction.PaymentMenthodID;
+                transactionPayment.TransactionIDRespone = transaction.ResponeTranId!=null? transaction.ResponeTranId.Value:0;
+                transactionPayment.MemberEmail = transaction.MemberEmail;
+            }
+            return transactionPayment;
+        }
+
+        /// <summary>
+        /// Gets List Transaction by userID
+        /// </summary>
+        /// <param name="UserId">The UserId identifier</param>
+        /// <returns>List Transaction</returns>
+        public List<Transaction> GetTransactionByUserId(long UserId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {                 
+                var lstTran = dba.Transactions.Where(w => w.MemberId == UserId).ToList();
+                if (lstTran != null && lstTran.Count > 0)
+                    return lstTran;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Gets last TransactionPayment by userID
+        /// </summary>
+        /// <param name="UserId">The UserId identifier</param>
+        /// <returns>TransactionPayment</returns>
+        public TransactionPayment GetTransactionPaymentByUserId(long UserId)
+        {
+            TransactionPayment transactionPayment = new TransactionPayment();
+            Transaction transaction=new Transaction();
+            using (var dba = new BetEXDataContainer())
+            {
+                byte type = (byte)1;
+                var listTransaction = dba.Transactions.Where(w => w.MemberId == UserId && w.Type == type).OrderByDescending(z=>z.Amount).ToList();
+                if (listTransaction != null)
+                {
+                    transaction = listTransaction[0];
+                }
+            }
+            if (transaction != null)
+            {
+                transactionPayment.TransactionPaymentId = transaction.ID;
+                transactionPayment.TransactionPaymentType = transaction.Type;
+                transactionPayment.MemberId = transaction.MemberId;
+                transactionPayment.MemberIP = transaction.MemberIP;
+                transactionPayment.TransactionIDRespone = transaction.ResponeTranId!=null?transaction.ResponeTranId.Value:0;
                 transactionPayment.TransactionPaymentTotal = transaction.Amount;
                 transactionPayment.TransactionPaymentStatusId = transaction.Status;
                 transactionPayment.PaymentMethodId = transaction.PaymentMenthodID;
@@ -84,6 +135,7 @@ namespace BetEx247.Data.DAL
                     transactionPayment.TransactionPaymentStatusId = transaction.Status;
                     transactionPayment.PaymentMethodId = transaction.PaymentMenthodID;
                     transactionPayment.MemberEmail = transaction.MemberEmail;
+                    transactionPayment.TransactionIDRespone = transaction.ResponeTranId != null ? transaction.ResponeTranId.Value : 0;
                     lstTransactionPayment.Add(transactionPayment);
                 }
             }
@@ -106,6 +158,7 @@ namespace BetEx247.Data.DAL
             transaction.MemberId = transactionPayment.MemberId;
             transaction.MemberIP = transactionPayment.MemberIP;
             transaction.MemberEmail = transactionPayment.MemberEmail;
+            transaction.ResponeTranId = transactionPayment.TransactionIDRespone;
             transaction.PaymentMenthodID = transactionPayment.PaymentMethodId;
             transaction.AddedDate = DateTime.Now;
             transaction.ModifyDate = DateTime.Now;
@@ -286,11 +339,11 @@ namespace BetEx247.Data.DAL
             TransactionPaymentId = 0;
             string outMessage = string.Empty;
             var processPaymentResult = new ProcessPaymentResult();
-            var customerService = IoC.Resolve<ICustomerService>();           
+            var customerService = IoC.Resolve<ICustomerService>();
             var paymentService = IoC.Resolve<IPaymentService>();
 
             try
-            {       
+            {
                 if (!CommonHelper.IsValidEmail(transactionPayment.Customer.Email1))
                 {
                     throw new Exception("Email is not valid");
@@ -316,19 +369,22 @@ namespace BetEx247.Data.DAL
                 {
                     if (isRecurring)
                     {
+                        paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                        #region tempcode
                         //recurring cart
-                        var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
-                        switch (recurringPaymentType)
-                        {
-                            case RecurringPaymentTypeEnum.NotSupported:
-                                throw new Exception("Recurring payments are not supported by selected payment method");
-                            case RecurringPaymentTypeEnum.Manual:
-                            case RecurringPaymentTypeEnum.Automatic:
-                                paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
-                                break;
-                            default:
-                                throw new Exception("Not supported recurring payment type");
-                        }
+                        //var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
+                        //switch (recurringPaymentType)
+                        //{
+                        //    case RecurringPaymentTypeEnum.NotSupported:
+                        //        throw new Exception("Recurring payments are not supported by selected payment method");
+                        //    case RecurringPaymentTypeEnum.Manual:
+                        //    case RecurringPaymentTypeEnum.Automatic:
+                        //        paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                        //        break;
+                        //    default:
+                        //        throw new Exception("Not supported recurring payment type");
+                        //}
+                        #endregion
                     }
                     else
                     {
@@ -340,20 +396,23 @@ namespace BetEx247.Data.DAL
                 {
                     if (isRecurring)
                     {
-                        var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
-                        switch (recurringPaymentType)
-                        {
-                            case RecurringPaymentTypeEnum.NotSupported:
-                                throw new Exception("Recurring payments are not supported by selected payment method");
-                            case RecurringPaymentTypeEnum.Manual:
-                                paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
-                                break;
-                            case RecurringPaymentTypeEnum.Automatic:
-                                //payment is processed on payment gateway site
-                                break;
-                            default:
-                                throw new Exception("Not supported recurring payment type");
-                        }
+                        paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                        #region tempcode
+                        //var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
+                        //switch (recurringPaymentType)
+                        //{
+                        //    case RecurringPaymentTypeEnum.NotSupported:
+                        //        throw new Exception("Recurring payments are not supported by selected payment method");
+                        //    case RecurringPaymentTypeEnum.Manual:
+                        //paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                        //        break;
+                        //    case RecurringPaymentTypeEnum.Automatic:
+                        //        //payment is processed on payment gateway site
+                        //        break;
+                        //    default:
+                        //        throw new Exception("Not supported recurring payment type");
+                        //}
+                        #endregion
                     }
                     else
                     {
@@ -365,49 +424,52 @@ namespace BetEx247.Data.DAL
                 //process transaction
                 if (String.IsNullOrEmpty(processPaymentResult.Error))
                 {
+                    transactionPayment.TransactionIDRespone = processPaymentResult.AuthorizationTransactionCode.ToInt64();
                     InsertTransactionPayment(transactionPayment);
+                    #region tempcode
                     //recurring orders
-                    if (!transactionPayment.IsRecurringPayment)
-                    {
-                        if (isRecurring)
-                        {
-                            //create recurring payment
-                            var rp = new RecurringPayment()
-                            {
-                                InitialTransactionPaymentId = transactionPayment.TransactionPaymentId,
-                                CycleLength = transactionPayment.RecurringCycleLength,
-                                CyclePeriod = transactionPayment.RecurringCyclePeriod,
-                                TotalCycles = transactionPayment.RecurringTotalCycles,
-                                StartDate = DateTime.UtcNow,
-                                IsActive = true,
-                                Deleted = false,
-                                CreatedOn = DateTime.UtcNow
-                            };
-                            InsertRecurringPayment(rp);   
-                            var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
-                            switch (recurringPaymentType)
-                            {
-                                case RecurringPaymentTypeEnum.NotSupported:
-                                    //not supported                                              
-                                    break;
-                                case RecurringPaymentTypeEnum.Manual:
-                                    //first payment
-                                    var rph = new RecurringPaymentHistory()
-                                    {
-                                        RecurringPaymentId = rp.RecurringPaymentId,
-                                        TransactionPaymentId = transactionPayment.TransactionPaymentId,
-                                        CreatedOn = DateTime.UtcNow
-                                    };
-                                    InsertRecurringPaymentHistory(rph);
-                                    break;
-                                case RecurringPaymentTypeEnum.Automatic:
-                                    //will be created later (process is automated)
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                    }
+                    //if (!transactionPayment.IsRecurringPayment)
+                    //{
+                    //    if (isRecurring)
+                    //    {
+                    //        //create recurring payment
+                    //        var rp = new RecurringPayment()
+                    //        {
+                    //            InitialTransactionPaymentId = transactionPayment.TransactionPaymentId,
+                    //            CycleLength = transactionPayment.RecurringCycleLength,
+                    //            CyclePeriod = transactionPayment.RecurringCyclePeriod,
+                    //            TotalCycles = transactionPayment.RecurringTotalCycles,
+                    //            StartDate = DateTime.UtcNow,
+                    //            IsActive = true,
+                    //            Deleted = false,
+                    //            CreatedOn = DateTime.UtcNow
+                    //        };
+                    //        InsertRecurringPayment(rp);
+                    //        var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
+                    //        switch (recurringPaymentType)
+                    //        {
+                    //            case RecurringPaymentTypeEnum.NotSupported:
+                    //                //not supported                                              
+                    //                break;
+                    //            case RecurringPaymentTypeEnum.Manual:
+                    //                //first payment
+                    //                var rph = new RecurringPaymentHistory()
+                    //                {
+                    //                    RecurringPaymentId = rp.RecurringPaymentId,
+                    //                    TransactionPaymentId = transactionPayment.TransactionPaymentId,
+                    //                    CreatedOn = DateTime.UtcNow
+                    //                };
+                    //                InsertRecurringPaymentHistory(rph);
+                    //                break;
+                    //            case RecurringPaymentTypeEnum.Automatic:
+                    //                //will be created later (process is automated)
+                    //                break;
+                    //            default:
+                    //                break;
+                    //        }
+                    //    }
+                    //}
+                    #endregion
                 }
             }
             catch (Exception exc)
@@ -418,7 +480,7 @@ namespace BetEx247.Data.DAL
             if (!string.IsNullOrEmpty(processPaymentResult.Error))
                 outMessage = processPaymentResult.Error;
             else
-                outMessage = processPaymentResult.AuthorizationTransactionResult;
+                outMessage = processPaymentResult.AuthorizationTransactionCode;
             return outMessage;
         }
 

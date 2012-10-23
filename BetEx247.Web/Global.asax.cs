@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using BetEx247.Core.Infrastructure;
+using BetEx247.Data.DAL;
 
 namespace BetEx247.Web
 {
@@ -28,6 +29,24 @@ namespace BetEx247.Web
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
+        }
+
+        protected void Session_Start(object src, EventArgs e)
+        {
+            if (Context.Session != null)
+            {
+                if (Context.Session.IsNewSession)
+                {
+                    //string sCookieHeader = Request.Headers["Cookie"];
+                    //if ((null != sCookieHeader) && (sCookieHeader.IndexOf("ASP.NET_SessionId") >= 0))
+                    //{
+                    //    // how to simulate it ???   
+                    //    // RedirectToAction(“ActionName”, “ControllerName”,  route values);  
+                    //    Response.Redirect("/Home/TestAction");
+                    //}
+                    var instanceGui= GuiService.Instance;
+                }
+            }
         }
 
         protected void Application_Start()

@@ -1,0 +1,500 @@
+@charset "utf-8";
+/* CSS Document */
+
+@charset "utf-8";
+/* CSS Document */
+
+/*Odds Menu & Odds Lists
+-------------------------------------------------*/
+
+body { _behavior: url("./css/csshover3.htc");}
+
+
+.normal { font-weight:normal !important; }
+
+.top_bottom_border { margin-bottom:3px;  margin-top:3px;	}
+.bottom_border { margin-bottom:3px; }
+
+
+.odds_row .top_border, .odds_row .tb {
+	margin-top:3px;	
+	
+}
+
+#odds_menu, #odds_list, #odds_winnings{
+	width:510px;
+	height:auto;
+	margin:0 0 10px 0;
+	
+}
+
+.odds_header{
+	width:510px;
+	height:29px;
+	background:url("../images/themes/odds_header.png") no-repeat;
+	display:block;
+}	
+
+.odds_header span {
+	display:inline-block;
+	margin:3px 0 0 5px;
+	font-size:14px;
+	font-weight:bold;
+	color:#b4b4b4;
+}
+
+#odds_menu span {
+	display:inline-block;
+	margin-top:5px;	
+}
+
+.odds_body{
+	width:508px;
+	height:auto;
+	background-color:#ffffff;
+	border-right:1px #b9b9b9 solid;
+	border-left:1px #b9b9b9 solid;
+	display:block;
+	border-top:0;
+	
+}
+
+	
+
+.odds_footer{
+	width:510px;
+	height:10px;
+	margin-bottom: 10px;		
+}	
+
+
+#odds_menu table{
+	margin:0px 10px 0 10px;
+	width:490px;
+}
+
+#odds_menu table td{
+	height:25px;
+	width:170px;
+	
+}
+
+#odds_menu table td a{
+	height:25px;
+	color:#707070;
+	font-size:12px;
+
+}
+
+#odds_menu table td a:hover{
+
+	color:#424242;
+}
+
+#odds_menu table td a.selected{
+	color:#ff8000;
+	font-weight:bold;
+
+}
+
+#odds_menu table td a.disabled{
+	color:#dddddd;
+}
+
+.odds_body table {
+	margin:0;	
+}
+
+.odds_body a {
+	color:#333333;	
+}
+
+
+
+.odds_body span select {
+	
+	margin-left:0;	
+	font-size:11px;
+	width:100%;
+}
+
+.odds_event{
+	display:inline-block;
+	width:150px;
+	border-right:1px solid #b9b9b9;
+	padding:0 5px 0 0;
+	color:#707070;
+	font-size:10px;
+	float:left !important;
+}
+
+.odds_time {
+	display:inline-block;
+	width:85px;
+	padding:0 5px;
+	color:#707070;
+	font-size:10px;
+	border-right:1px solid #b9b9b9;
+	float:left !important;
+	
+}
+
+
+
+.odds_sort {
+	display:inline-block;
+	width:75px;
+	padding:0 5px;
+	color:#707070;
+	font-size:10px;
+	border-right:1px #b9b9b9 solid;
+	float:left !important;
+	
+}
+
+.odds_price {
+	width:110px;
+	display:inline-block;
+	padding:0 5px;
+	color:#707070;
+	font-size:10px;
+	float:left !important;
+}
+
+#odds_list table td, #odds_winnings table td {
+	height:auto;
+	font-size:11px;
+	text-align:center;
+	height:30px;
+	
+}
+
+#odds_list td.MarketInfo{
+	width:300px;
+	display:inline-block;
+	margin:0 0 0 10px;
+	text-align:left;
+}
+
+#odds_list td img {
+	margin:0 10px 0 3px;	
+	
+}
+
+.odds_row_header, #odds_winnings .odds_row_header{ 
+	
+	height:20px;
+	text-align:left;
+	border-bottom:1px #b9b9b9 solid;
+	display:block;
+	margin:5px 5px 2px 5px;
+	color:#ff8000;
+	width:auto;
+	font-size:13px;
+	font-weight:bold;
+	
+}
+
+
+
+.odds_row_header  a{
+	color:#ffffff;
+	text-decoration:underline;
+
+	
+}
+
+
+.odds_row td, #odds_winnings .odds_row td{
+	max-width:250px;
+	padding:2px 4px 2px 0;
+	
+	
+}
+
+.odds_row span, #odds_winnings .odds_row span{
+	display:inline-block;
+	margin:0px 4px;
+	vertical-align:middle;
+}
+
+
+.odds_row td a, #odds_winnings .odds_row td a{
+	text-decoration:none;
+}
+
+
+.odds_row td a:hover{
+	text-decoration:underline;
+}
+
+.odds_row .odds_row_time {
+	width:60px;	
+}
+
+.odds_row .odds_row_time span {
+	margin-left:7px;
+	margin-right:5px;
+	
+}
+
+span.time{
+	text-align: center;
+	font-weight: bold;
+}
+
+/* Odds Bet Selected */
+.odds_row a.odds_selected{
+	cursor:pointer;
+	color:#ffffff;
+	background:url("../images/themes/odds_bg_selected.png");
+	height:28px;
+	font-weight:bold;
+}
+
+.odds_row a:hover.odds_selected{
+	text-decoration:none;
+}
+
+.odds_row a.odds_selected span{
+
+	display:inline-block;
+	margin:5px 4px;
+	vertical-align:middle;
+}
+
+.odds_row a.odds_selected{
+	width:100%;
+	display:inline-block;
+	text-decoration:none;
+	
+}
+
+.odds_row a.odds_selected span.left {
+	display:inline-block;
+	text-align:left;
+}
+
+
+
+/*Odds Bet */
+a.odds_bet, a.ob {
+	width:100%;
+	display:inline-block;
+	text-decoration:none;
+	background:url("../images/themes/odds_bg.png") repeat-x;
+	/*height:28px;*/
+	cursor:pointer;
+	color:#333333;
+	text-align:center;
+	font-size:12px;
+	background-color: #e0dede;
+	background-position: bottom left;
+
+}
+
+#odds_winnings .odds_row a.odds_bet, #odds_winnings .odds_row a.ob {
+width:100%;
+	display:inline-block;
+	text-decoration:none;
+	background:url("../images/themes/odds_bg.png") repeat-x;
+	/*height:28px;*/
+	cursor:default;
+	color:#333333;
+	text-align:center;
+	font-size:12px;
+	background-color: #e0dede;
+	background-position: bottom left;
+
+}
+
+a.odds_bet span, #odds_winnings .odds_row a.odds_bet span, a.ob span, #odds_winnings .odds_row a.ob span{
+
+	display:inline-block;
+	margin:5px 0;
+	vertical-align:middle;
+	font-weight:bold;
+}
+
+#odds_winnings .odds_row a.odds_bet span.disabled, #odds_winnings .odds_row a.ob span.disabled {
+	color:#9c9c9c;
+}
+
+a.odds_bet span.right, #odds_winnings .odds_row a.odds_bet span.right, a.ob span.right, #odds_winnings .odds_row a.ob span.right {
+	font-size:11px;
+	margin-right:4px;
+	font-weight:bold;
+}
+
+a.odds_bet span.left, #odds_winnings .odds_row a.odds_bet span.left, a.ob span.left, #odds_winnings .odds_row a.ob span.left {
+	font-size: 11px;
+	font-weight:normal;
+	margin-left:4px;
+	
+}
+
+a:hover.odds_bet, a:hover.ob{
+	width:100%;
+	display:inline-block;
+	text-decoration:none;
+	background:url("../images/themes/odds_bg_hover.png") repeat-x;
+	/*height:28px;*/
+	background-color: #4c4c4c;
+	background-position: bottom left;
+	
+}
+
+#odds_list a:hover.odds_bet, #odds_list a:hover.ob {
+	text-decoration:none;
+}
+
+a:hover.odds_bet span, a:hover.ob span{
+	 color:#FFF;
+	 text-decoration: none;
+	
+}
+
+a.odds_bet span, a.ob span {
+	text-decoration: none;
+}
+
+td.textleft {
+	text-align:left !important;	
+}
+
+
+.odds_header_time {
+	font-size:10px;
+	color:#ffffff;
+	display:inline-block;
+	margin:5px 5px 0 5px;
+}
+
+.odds_more{	
+	width:30px;
+	font-weight:bold;
+	text-align:center !important;
+	padding-right:6px;
+
+}
+
+.odds_more a{	
+	display:inline-block;
+}
+
+.odds_more img{
+	margin:0 3px 0 3px !important;	
+}
+
+.decimal_sel {
+	width:105px;
+	margin-right:10px;
+	font-size:11px;
+	height:20px;
+	margin-top:1px;
+	background-color:#333333;
+	color:#ffffff;
+}
+
+.decimal_sel option {
+	font-size:11px;	
+	background-color:#333333;
+	color:#ffffff;
+}
+/*Odds list Details*/
+
+.right_margin {
+	padding-right:10px !important;	
+}
+
+
+.left_margin {
+	padding-left:10px !important;	
+}
+
+.marketMultipleOdds, .mM {
+	width: 230px;
+}
+
+.market1X2Odds, .m1X2 {
+	width: 230px;
+}
+
+.market1X2Odds table td, .marketMultipleOdds table td, .m1X2 table td, .mM table td {
+	width: 33%;
+}
+
+.market1ColumnOdds, .m1C {
+	width: 230px;
+}
+
+#odds_winnings td.marketMultipleOdds, #odds_winnings td.market1ColumnOdds, #odds_winnings td.market1X2Odds {
+	width: 100%;
+} 
+
+.market1ColumnOdds a span.left, .m1C a span.left {
+	width: 180px;
+	text-align: left;
+}
+
+#odds_winnings .result_row td.market1X2Odds, #odds_winnings .result_row td.market1ColumnOdds, #odds_winnings .result_row td.marketMultipleOdds {
+	padding-left: 10px;
+	padding-right: 4px;
+}
+
+#odds_winnings a:hover.odds_bet, #odds_winnings a:hover.odds_bet span, #odds_winnings a:hover.ob, #odds_winnings a:hover.ob span {
+	text-decoration: none;
+	cursor: default;
+	color: #333333;
+	
+}
+
+td.mM table tr td {
+	vertical-align: top;
+}
+
+td.mM table tr.last td {
+	vertical-align: top; 
+	padding-top: 0px
+}
+
+/* some overrides for multimarket */
+table.n td {
+	margin: 0;
+	padding: 0;
+}
+
+.mM table.n td.m {
+	width: 100%;
+}
+
+table.n td span.left {
+	text-align: left;
+}
+
+.mM table.mM2 td {
+	width: 50%;
+}
+
+option.level_3{
+	padding-left: 20px;
+}
+
+option.level_2{
+	padding-left: 10px;
+}
+
+.del{
+	text-decoration: line-through !important;
+}
+
+div.infotooltip{
+		background-color: #333333; 
+		color:#ffffff;
+		padding:3px;		
+		width: 130px; 
+		min-height: 40px;
+		display: inline-block;
+		text-align:center;
+		border:1px #ff8000 solid;
+	}

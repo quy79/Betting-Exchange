@@ -1,18 +1,33 @@
-﻿<div class="header_upper clearfix">
+﻿@using BetEx247.Data;
+<div class="header_upper clearfix">
     <div class="grid_20">
 	    <h1 class="b_logo"><a href="." title="24/7 Betting Exchange" rel="home">24/7 Betting Exchange</a></h1>
     </div>
     <div id="userpanel" class="b_loginButtons clearfix">
     <!--start_hideonlogin_UserPanel-->
-    <form action="/Member/loginController" id="userFormLogin" method="post" class="regFormTop">
-        <ul>
-            <li class="reg_link"><a href="/Member/registerController">Register Now!</a></li>
-            <li><a href="/forgot-password.html">Forgot Your Password?</a></li>
-            <li><label for="loginUser">Username:</label><input tabindex="1" id="loginUser" name="LoginName" type="text" title="Username:" autocomplete="off" /></li>
-            <li><label for="pswd">Password:</label><input tabindex="2" id="pswd" name="Password" type="password" title="Password:" autocomplete="off" /><input class="formsubmit" type="submit" /></li>
-            <li><a id="loginform_submit" href="#" class="b_button smallButton smallButtonGrey">Log In</a></li>
+    <div class="regFormTop">
+        <ul>  
+            @{
+                string displayNotLogin = " style=display:none";
+                string displayLogin = " style=display:none";
+                string userName = string.Empty;
+                if(SessionManager.UserLoggedIn()){
+                    displayLogin = "";
+                    userName = SessionManager.USER_NAME;
+                }else{
+                    displayNotLogin = "";
+                }
+            }       
+            <li class="reg_link cnotlogin" @displayNotLogin><a href="@Url.Content("~/account/register")">Register Now!</a></li>
+            <li class="cnotlogin" @displayNotLogin><a href="@Url.Content("~/account/forgetpassword")">Forgot Your Password?</a></li>
+            <li class="cnotlogin" @displayNotLogin><label for="loginUser">Username:</label><input tabindex="1" id="LoginName" name="LoginName" type="text" title="Username:" autocomplete="off" /></li>
+            <li class="cnotlogin" @displayNotLogin><label for="pswd">Password:</label><input tabindex="2" id="Password" name="Password" type="password" title="Password:" autocomplete="off" /><input class="formsubmit" type="submit" /></li>
+            <li class="cnotlogin" @displayNotLogin><a id="loginform_submit" href="javascript:void(0)" onclick="betex247.login()" class="b_button smallButton smallButtonGrey">Log In</a></li>
+
+            <li class="clogin" @displayLogin><label for="loginUser">Wellcome:</label><label id="lbwellcome">@userName</label></li>
+            <li class="clogin" @displayLogin><a id="logoutform_submit" href="javascript:void(0)"  onclick="betex247.logout()" class="b_button smallButton smallButtonGrey">Log Out</a></li>
         </ul>
-    </form>
+    </div>
     <!--end_hideonlogin_UserPanel-->
     </div>            
 </div>

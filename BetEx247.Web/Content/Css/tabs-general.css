@@ -1,0 +1,121 @@
+@CHARSET "UTF-8";
+/******* MENU *******/
+#container{
+	
+	width: 240px;
+	position: relative;
+	margin-left: -10px;
+	left: -10px;
+	top: -10px;
+	margin-top: -10px;
+}
+#container ul{
+	list-style: none;
+	list-style-position: outside;
+}
+#container ul.menu li{
+	float: left;
+	margin-right: 5px;
+	margin-bottom: -1px;
+}
+#container ul.menu li{
+	font-weight: 700;
+	font-size: 12px;
+	display: block;
+	padding: 5px 10px 5px 10px;
+	background: #c8c5c3;
+	margin-bottom: -1px;
+	border: 1px solid #d0ccc9;
+	border-width: 1px 1px 1px 1px;
+	position: relative;
+	color: #898989;
+	cursor: pointer;
+}
+#container ul.menu li.active{
+	background: #fff;
+	top: 1px;
+	border-bottom: 0;
+	color: #b24d03;
+
+}
+/******* /MENU *******/
+/******* CONTENT *******/
+.content{
+	background: #efefef;
+	background: #fff;
+	border: 1px solid #d0ccc9;
+	text-align: left;
+	padding: 5px;
+	padding-bottom: 20px;
+	width: 240px;
+	position: relative;
+}
+.content span {
+	font-size: 11px;
+	font-weight: bold;
+	color: #cd7207;	
+	display: block;
+	width: 100%;
+	position: relative;
+	margin-left: 10px;
+	margin-top: 10px;
+	clear: both;
+}
+
+/******* /CONTENT *******/
+/******* NEWS *******/
+.content.news h1{
+	background: transparent url(images/news.jpg) no-repeat scroll left top;
+}
+.content.news{
+	display: block;
+}
+/******* /NEWS *******/
+/******* TUTORIALS *******/
+.content.tutorials h1{
+	background: transparent url(images/tuts.jpg) no-repeat scroll left top;
+}
+.content.tutorials{
+	display: none;
+}
+/******* /TUTORIALS *******/
+/******* LINKS *******/
+.content.links h1{
+	background: transparent url(images/links.jpg) no-repeat scroll left top;
+}
+.content.links{
+	display: none;
+}
+.content.links a{
+	color: #5f95ef;
+}
+
+.content.tutorials ul{
+list-style-type: none;
+padding: 0px;
+margin: 0px 0px 0px 25px;
+display: inline-block;
+}
+
+.content.tutorials ul li{
+display: block;
+width: 95%;
+background-image: url("../images/themes/arrow-acc.png");
+background-repeat: no-repeat;
+background-position: center left;
+padding-left: 17px;
+padding-top: 6px;
+padding-bottom: 4px;
+height: 14px;
+font-size: 11px;
+vertical-align: middle;
+}
+
+
+a.acclnk {
+text-decoration: none;
+color: #000;
+}
+a.acclnk:hover{
+text-decoration: underline;
+}

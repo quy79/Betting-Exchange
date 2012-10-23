@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+
+.box{margin:12px 0 12px}
+.box{margin:24px -24px;padding:0 24px}
+.box{background-color:#fcfcfc;display:block;zoom:1;padding-bottom:12px;}
+.box:after{content:" ";display:block;height:0;clear:both;visibility:hidden}
+.box.full{margin-left:-24px;padding:12px 3px}
+
+
+
+
+/* root element for tabs  */
+ul.css-tabs {
+    margin:0 !important;
+    padding:0;
+    height:22px;
+    border-bottom:1px solid #666;
+}
+
+/* single tab */
+ul.css-tabs li {
+    float:left;
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+
+/* link inside the tab. uses a background image */
+ul.css-tabs a {
+    float:left;
+    font-size:1.0em;
+    display:block;
+    padding:0px 15px;
+    text-decoration:none;
+    border:1px solid #666;
+    border-bottom:0px;
+    height:20px;
+    background-color:#efefef;
+    color:#777;
+    margin-right:2px;
+    position:relative;
+    top:1px;
+    outline:0;
+    -moz-border-radius:4px 4px 0 0;
+}
+
+ul.css-tabs a:hover {
+    background-color:#F7F7F7;
+    color:#333;
+}
+
+/* selected tab */
+ul.css-tabs a.current {
+    background-color:#ddd;
+    border-bottom:1px solid #ddd;
+    color:#000;
+    cursor:default;
+}
+
+
+/* tab pane */
+.css-panes div {
+    display:none;
+    border:1px solid #666;
+    border-width:0 1px 1px 1px;
+    
+    padding:10px 10px;
+    background-color:#ccbf9e;
+	fonts-size: 1.0em;
+}
+
+

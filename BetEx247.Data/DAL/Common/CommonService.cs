@@ -100,5 +100,67 @@ namespace BetEx247.Data.DAL
             SelectList Res = new SelectList(Items, "Value", "Text");
             return Res;
         }
+
+        /// <summary>
+        /// Get list Month
+        /// </summary>
+        /// <returns>Currency list</returns>
+        public SelectList MakeSelectListMonth()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+
+            for (int i = 1; i <= 12;i++ )
+            {
+                SelectListItem AddItem = new SelectListItem();
+                AddItem.Text = i.ToString();
+                AddItem.Value = i.ToString();
+                Items.Add(AddItem);
+            }
+
+            SelectList Res = new SelectList(Items, "Value", "Text");
+            return Res;
+        }
+
+        /// <summary>
+        /// Get list Year Birth Available
+        /// </summary>
+        /// <returns>Currency list</returns>
+        public SelectList MakeSelectListYearBirth()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+            int yearmin = DateTime.Now.Year - 70;
+            int yearmax = DateTime.Now.Year - 15;
+            for (int i = yearmax; i >= yearmin; i--)
+            {
+                SelectListItem AddItem = new SelectListItem();
+                AddItem.Text = i.ToString();
+                AddItem.Value = i.ToString();
+                Items.Add(AddItem);
+            }
+
+            SelectList Res = new SelectList(Items, "Value", "Text");
+            return Res;
+        }
+
+        /// <summary>
+        /// Get list Year Card Available
+        /// </summary>
+        /// <returns>Currency list</returns>
+        public SelectList MakeSelectListYearCard()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+            int yearmin = DateTime.Now.Year - 5;
+            int yearmax = DateTime.Now.Year + 5;
+            for (int i = yearmax; i >= yearmin; i--)
+            {
+                SelectListItem AddItem = new SelectListItem();
+                AddItem.Text = i.ToString();
+                AddItem.Value = i.ToString();
+                Items.Add(AddItem);
+            }
+
+            SelectList Res = new SelectList(Items, "Value", "Text");
+            return Res;
+        }
     }
 }

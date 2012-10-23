@@ -34,7 +34,12 @@ namespace BetEx247.Data.DAL
         /// Gets or sets the Member IP
         /// </summary>
         public string MemberIP { get; set; }
-        
+
+        /// <summary>
+        /// Gets or sets the TransactionPayment ID Responce
+        /// </summary>
+        public long TransactionIDRespone { get; set; }
+
         /// <summary>
         /// Gets or sets the TransactionPayment total
         /// </summary>

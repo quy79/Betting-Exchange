@@ -65,9 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Betting\BettingService.cs" />
-    <Compile Include="DAL\Common\IBettingService.cs" />
+    <Compile Include="DAL\Betting\IBettingService.cs" />
     <Compile Include="DAL\Common\CommonService.cs" />
     <Compile Include="DAL\Common\ICommonService.cs" />
+    <Compile Include="DAL\GUI\GuiService.cs" />
+    <Compile Include="DAL\GUI\IGuiService.cs" />
     <Compile Include="DAL\Payment\IPaymentService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -106,10 +108,12 @@
       <Project>{AFD770A1-3E4A-4103-8CBE-F3426559CBA0}</Project>
       <Name>BetEx247.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BetEx247.Plugin.XMLParser\BetEx247.Plugin.XMLParser.csproj">
+      <Project>{45726546-A06F-442B-A6FA-B0AA81B38AB3}</Project>
+      <Name>BetEx247.Plugin.XMLParser</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\GUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

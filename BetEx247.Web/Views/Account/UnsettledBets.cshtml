@@ -1,0 +1,70 @@
+﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
+@{
+    ViewBag.Title = "UnsettledBets";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>
+    UnsettledBets</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table width="70%">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            Bet ID
+        </th>
+        <th>
+            Market
+        </th>
+        <th>
+            Entrant
+        </th>
+        <th>
+            B/L
+        </th>        
+        <th>
+            Stake
+        </th>  
+        <th>
+            Odds
+        </th>        
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubmitedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Entrant)
+            </td>
+            <td>
+                @{
+                    if (item.BL!=null && item.BL.Value)
+                    {
+                        @Html.Raw("Bet")
+                    }
+                    else
+                    {
+                        @Html.Raw("Lay")
+                    }
+                }                       
+            </td>               
+            <td>
+                @Html.DisplayFor(modelItem => item.Stake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>               
+        </tr>
+    }
+</table>

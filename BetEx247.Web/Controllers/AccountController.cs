@@ -14,11 +14,14 @@ using BetEx247.Data.DAL;
 using BetEx247.Core.Common.Extensions;
 using BetEx247.Core.Common.Utils;
 using BetEx247.Core;
+using BetEx247.Data;
+using BetEx247.Core.Payment;
 
 namespace BetEx247.Web.Controllers
 {
     public class AccountController : Controller
     {
+        #region Login & Logout
         //
         // GET: /Account/LogOn
 
@@ -38,6 +41,16 @@ namespace BetEx247.Web.Controllers
                 if (IoC.Resolve<ICustomerService>().Authenticate(model.UserName, FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password.Trim(), "sha1")))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+
+                    //insert history login
+                    LoginHistory history = new LoginHistory();
+                    history.MemberID = SessionManager.USER_ID;
+                    history.LoginTime = DateTime.Now;
+                    history.Status = Constant.Status.ACTIVENUM;
+                    history.IP = Request.UserHostAddress;
+                    IoC.Resolve<ICustomerService>().InsertHistory(history);
+
+
                     if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
                         && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     {
@@ -58,6 +71,49 @@ namespace BetEx247.Web.Controllers
             return View(model);
         }
 
+        public string LoginAjax(string userName, string userPass)
+        {
+            if (IoC.Resolve<ICustomerService>().Authenticate(userName, FormsAuthentication.HashPasswordForStoringInConfigFile(userPass, "sha1")))
+            {
+                FormsAuthentication.SetAuthCookie(userName, false);
+                var member = IoC.Resolve<ICustomerService>().GetCustomerByUsername(userName);
+                //insert history login
+                LoginHistory history = new LoginHistory();
+                history.MemberID = member.MemberID;
+                history.LoginTime = DateTime.Now;
+                history.Status = Constant.Status.ACTIVENUM;
+                history.IP = Request.UserHostAddress;
+                IoC.Resolve<ICustomerService>().InsertHistory(history);
+
+                var memberInfo = IoC.Resolve<ICustomerService>().GetCustomerByUsername(userName);
+                return "success|" + memberInfo.FirstName + " " + memberInfo.LastName;
+            }
+            return null;
+        }
+
+        public string LogOutAjax()
+        {
+            try
+            {
+                //update history
+                //insert history login
+                try
+                {
+                    LoginHistory history = new LoginHistory();
+                    history.ID = SessionManager.HISTORY_ID;
+                    history.LogoutTime = DateTime.Now;
+                    IoC.Resolve<ICustomerService>().UpdateHistory(history);
+                }
+                catch { }
+                SessionManager.Logout();
+                return "success";
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         //
         // GET: /Account/LogOff
 
@@ -66,7 +122,9 @@ namespace BetEx247.Web.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
+        #endregion
 
+        #region Register
         //
         // GET: /Account/Register
 
@@ -145,7 +203,9 @@ namespace BetEx247.Web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        #endregion
 
+        #region Change & Update Pass
         //
         // GET: /Account/ChangePassword
 
@@ -199,6 +259,309 @@ namespace BetEx247.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult ForgetPassword()
+        {
+            return View();
+        }
+        #endregion
+
+        #region Account Info
+        [Authorize]
+        public ActionResult Balances()
+        {
+            long memberId = SessionManager.USER_ID;
+            var mywallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
+            return View(mywallet);
+        }
+
+        [Authorize]
+        public ActionResult Statement()
+        {               
+            DateTime startDate;
+            DateTime endDate;
+            int betCategory;
+            int betDisplay;
+            int pageNo;
+            int recordPerpage;
+
+            long memberId = SessionManager.USER_ID;
+            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId);
+            return View(lstStatement);
+        }
+
+        [Authorize]
+        public ActionResult Exposure()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId,(short)Constant.MyBetStatus.EXPOSURE);
+            return View(lstExposure);
+        }
+
+        [Authorize]
+        public ActionResult UnmatchedBets()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstUnmatchedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.UNMATCHEDBETS);
+            return View(lstUnmatchedBet);
+        }
+
+        [Authorize]
+        public ActionResult UnsettledBets()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstUnSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.UNSETTLEDBETS);
+            return View(lstUnSettledBet);
+        }
+
+        [Authorize]
+        public ActionResult BettingPL()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstBettingPL = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.BETTINGPL);
+            return View(lstBettingPL);
+        }
+
+        [Authorize]
+        public ActionResult SettledBets()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.SETTLEDBETS);
+            return View(lstSettledBet);
+        }
+
+        [Authorize]
+        public ActionResult CancelledBets()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstCancelBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.CANCELLEDBETS);
+            return View(lstCancelBet);
+        }
+
+        [Authorize]
+        public ActionResult LapsedBets()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstLapsedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.LAPSEDBETS);
+            return View(lstLapsedBet);
+        }
+
+        [Authorize]
+        public ActionResult VoidBets()
+        {
+            long memberId = SessionManager.USER_ID;
+            var lstVoidBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.VOIDBETS);
+            return View(lstVoidBet);
+        }
+
+        [Authorize]
+        public ActionResult UpdateCards()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult UpdateCreditCard(long id)
+        {
+            var paymentMenthod = IoC.Resolve<IPaymentService>().GetPaymentMethodById(id);
+            ViewBag.CartType = paymentMenthod.CardType;
+            ViewBag.MonthFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMenthod.ValidFrom.Month);
+            ViewBag.MonthTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMenthod.ValidTo.Month);
+            ViewBag.YearFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMenthod.ValidFrom.Year);
+            ViewBag.YearTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMenthod.ValidTo.Year);
+            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMenthod.Country);  
+            return View(paymentMenthod);
+        }
+
+        [Authorize,HttpPost]
+        public ActionResult UpdateCreditCard(long id,FormCollection collection)
+        {
+            string message = string.Empty;
+            var paymentMethod = IoC.Resolve<IPaymentService>().GetPaymentMethodById(id);
+            paymentMethod.Name = collection["NameOnCard"];
+            paymentMethod.Description = "Payment menthod: " + id;
+            paymentMethod.CreditCardNumber = collection["CreditCardNumber"];
+            paymentMethod.NameOnCard = collection["NameOnCard"];
+            paymentMethod.CardCvv2 = collection["CardCvv2"];
+            paymentMethod.MaskedCreditCardNumber = collection["CardCvv2"];
+            string monthFrom = collection["MonthFrom"];
+            string monthTo = collection["MonthTo"];
+            string yearFrom = collection["YearFrom"];
+            string yearTo = collection["YearTo"];
+            DateTime dateFrom = new DateTime(yearFrom.ToInt32(), monthFrom.ToInt32(), 1);
+            DateTime dateTo = new DateTime(yearTo.ToInt32(), monthTo.ToInt32(), 28);
+            paymentMethod.ValidFrom = dateFrom;
+            paymentMethod.ValidTo = dateTo;
+            paymentMethod.CardExpirationMonth = monthTo;
+            paymentMethod.CardExpirationYear = yearTo;
+            paymentMethod.Address = collection["Address"];
+            paymentMethod.Country = collection["Country"];
+            paymentMethod.Zipcode = collection["Zipcode"];              
+            paymentMethod.Bank = collection["Bank"];
+
+            try
+            {
+                IoC.Resolve<IPaymentService>().UpdatePaymentMethod(paymentMethod);
+                message = "Update successfully!";
+            }
+            catch(Exception ex)
+            {
+                message = "Error: " + ex.Message;
+            }
+            ViewBag.Message = message;
+            //update datemonth
+            ViewBag.MonthFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMethod.ValidFrom.Month);
+            ViewBag.MonthTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMethod.ValidTo.Month);
+            ViewBag.YearFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMethod.ValidFrom.Year);
+            ViewBag.YearTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMethod.ValidTo.Year);
+            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMethod.Country); 
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult AddNewCard(int id)
+        {
+            ViewBag.CartType = id.ToString();
+            ViewBag.ListMonth = IoC.Resolve<ICommonService>().MakeSelectListMonth();
+            ViewBag.ListYear = IoC.Resolve<ICommonService>().MakeSelectListYearCard();
+            ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
+            return View();
+        }
+
+        [Authorize,HttpPost]
+        public ActionResult AddNewCard( int id,FormCollection collection)
+        {
+            string message = string.Empty;
+            string cardType = string.Empty;
+            switch (id)
+            {
+                case 1:
+                    cardType = Constant.CardType.VISACREDIT;
+                    break;
+                default:
+                    cardType = Constant.CardType.VISACREDIT;
+                    break;
+            }
+            PaymentMethod paymentMethod = new PaymentMethod();
+            paymentMethod.CardType = cardType;
+            paymentMethod.Name = collection["NameOnCard"];
+            paymentMethod.Description = "Payment menthod: "+id;
+            paymentMethod.CreditCardNumber = collection["CreditCardNumber"];
+            paymentMethod.NameOnCard = collection["NameOnCard"];
+            paymentMethod.CardCvv2 = collection["CardCvv2"];
+            paymentMethod.MaskedCreditCardNumber = collection["CardCvv2"]; 
+            string monthFrom = collection["MonthFrom"];
+            string monthTo = collection["MonthTo"];
+            string yearFrom = collection["YearFrom"];
+            string yearTo = collection["YearTo"];
+            DateTime dateFrom = new DateTime(yearFrom.ToInt32(), monthFrom.ToInt32(), 1);
+            DateTime dateTo = new DateTime(yearTo.ToInt32(), monthTo.ToInt32(), 28);
+            paymentMethod.ValidFrom = dateFrom;
+            paymentMethod.ValidTo = dateTo;
+            paymentMethod.CardExpirationMonth = monthTo;            
+            paymentMethod.CardExpirationYear = yearTo;
+            paymentMethod.Address = collection["Address"];
+            paymentMethod.Country = collection["Country"];
+            paymentMethod.Zipcode = collection["Zipcode"];
+            paymentMethod.Email = SessionManager.USER_EMAIL;
+            paymentMethod.Bank = collection["Bank"];
+            paymentMethod.ClassName = Constant.PaymentClass.APCOService;
+            paymentMethod.Verified = false;
+            paymentMethod.AddedDate = DateTime.Now;
+            paymentMethod.ModifyDate = DateTime.Now;
+
+            try
+            {
+                IoC.Resolve<IPaymentService>().InsertPaymentMethod(paymentMethod);
+                message = "Insert card successfully!";
+            }
+            catch (Exception ex)
+            {
+                message = "Error: " + ex.Message;
+            }
+            //update load data
+            ViewBag.CartType = id.ToString();
+            ViewBag.ListMonth = IoC.Resolve<ICommonService>().MakeSelectListMonth();
+            ViewBag.ListYear = IoC.Resolve<ICommonService>().MakeSelectListYearCard();
+            ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Deposit()
+        {
+            return View();
+        }
+
+        [Authorize, HttpPost]
+        public ActionResult Deposit(FormCollection collection)
+        {
+            string message = string.Empty;
+            long transactionPaymentId = 0;
+            long memberId = SessionManager.USER_ID;
+
+            TransactionPayment transactionPayment = new TransactionPayment();
+            transactionPayment.TransactionPaymentType = (int)Constant.TransactionType.DEPOSIT;
+            transactionPayment.MemberId = memberId;
+            transactionPayment.MemberIP = Request.UserHostAddress;
+            transactionPayment.MemberEmail = transactionPayment.Customer.Email1;
+            transactionPayment.TransactionPaymentTotal = collection["Amount"].ToDecimal();
+            transactionPayment.TransactionPaymentStatusId = (int)PaymentStatusEnum.Authorized;
+            transactionPayment.PaymentMethodId = 1;
+
+            message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);
+
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Withdraw()
+        {
+            return View();
+        }
+
+        [Authorize, HttpPost]
+        public ActionResult Withdraw(FormCollection collection)
+        {
+            string message = string.Empty;
+            long memberId = SessionManager.USER_ID;
+            long transactionPaymentId = 0;
+            if (IoC.Resolve<ITransactionPaymentService>().GetTransactionByUserId(memberId) != null)
+            {
+                message = Constant.Messagage.NOTRANSACTION;
+            }
+            else
+            {
+                TransactionPayment transactionPayment = new TransactionPayment();
+                transactionPayment = IoC.Resolve<ITransactionPaymentService>().GetTransactionPaymentByUserId(memberId);
+                transactionPayment.TransactionPaymentType = (int)Constant.TransactionType.WITHDRAW;
+                transactionPayment.MemberIP = Request.UserHostAddress;
+                transactionPayment.RecurringTotalCycles = 1;
+                transactionPayment.RecurringCycleLength = 7;
+
+                message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);                      
+            }
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult MyProfile()
+        {
+            var memberId = SessionManager.USER_ID;
+            var memberProfile = IoC.Resolve<ICustomerService>().GetCustomerById(memberId);
+            return View(memberProfile);
+        }
+
+        [Authorize, HttpPost]
+        public ActionResult MyProfile(Member model)
+        {
+            IoC.Resolve<ICustomerService>().Update(model);
+            return View();
+        }
+        #endregion
 
         #region Status Codes
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)

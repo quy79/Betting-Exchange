@@ -42,7 +42,27 @@ namespace BetEx247.Data
                 return HttpHelper.GetSessionValue("CURRENT_USER_LOGGED") as Member;
             }
             set { }
-        }        
+        }
+
+        public static LoginHistory CurrentLoginHistory
+        {
+            get
+            {
+                if (!UserLoggedIn())
+                {
+                    Logout();
+                }
+                else
+                {
+                    if (USER_ID > 0)
+                    {
+                        var loginHistory = IoC.Resolve<ICustomerService>().LastLogin(USER_ID);
+                        HttpHelper.SetSessionValue("CURRENT_LOGIN_HISTORY", loginHistory);
+                    }                      
+                }
+                return HttpHelper.GetSessionValue("CURRENT_LOGIN_HISTORY") as LoginHistory;
+            }
+        }
         
         /// <summary>
         /// Get Current Login User by Member ID
@@ -52,11 +72,11 @@ namespace BetEx247.Data
         {
             Member user = null;
             HttpContext Context = HttpContext.Current;
-            long l_MemberId = 0;
+            string sNickName = string.Empty;
             if (UserLoggedIn())
             {
                 //in case session is old (email) => check if it is not integer then logout
-                if (!Context.User.Identity.Name.IsInteger())
+                if (string.IsNullOrEmpty(Context.User.Identity.Name))
                 {
                     Logout();
                     HttpResponse res = Context.Response;
@@ -64,8 +84,8 @@ namespace BetEx247.Data
                 }
                 else
                 {
-                    l_MemberId = long.Parse(Context.User.Identity.Name);
-                    user = IoC.Resolve<ICustomerService>().GetCustomerById(l_MemberId);
+                    sNickName = Context.User.Identity.Name;
+                    user = IoC.Resolve<ICustomerService>().GetCustomerByUsername(sNickName);
                 }
             }
 
@@ -83,6 +103,23 @@ namespace BetEx247.Data
                         HttpHelper.SetSessionValue("USER_ID", CurrentUserLogged.MemberID);
                     }
                     return HttpHelper.GetSessionLong("USER_ID");
+                }
+                else
+                    return 0;
+            }
+        }
+
+        public static long HISTORY_ID
+        {
+            get
+            {
+                if (UserLoggedIn())
+                {
+                    if (HttpHelper.GetSessionValue("HISTORY_ID") == null)
+                    {
+                        HttpHelper.SetSessionValue("HISTORY_ID",CurrentLoginHistory.ID);
+                    }
+                    return HttpHelper.GetSessionLong("HISTORY_ID");
                 }
                 else
                     return 0;

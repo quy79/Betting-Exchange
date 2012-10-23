@@ -57,15 +57,14 @@
     <script src="@Url.Content("~/Content/Scripts/JQuery/jquery-1.8.0.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/JQuery/jquery-ui-1.8.23.custom.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/JQuery/jquery-ui-slides.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/GUI/betex247.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/GUI/Cookies.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/GUI/StringBuilder.js")" type="text/javascript"></script> 
+    <script src="@Url.Content("~/Content/Scripts/GUI/DateFormat.js")" type="text/javascript"></script>
     <script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $(".navsports").hide();
-            //toggle the componenet with class msg_body
-            $(".sport-heading").click(function () {
-                $(this).next(".navsports").slideToggle(250);
-            });
-
+        $(document).ready(function () {               
+            betex247.getallsport();
             $(".langbox img.flag").addClass("flagvisibility");
 
             $(".langbox dt a").click(function () {
@@ -139,8 +138,12 @@
             <div class="main shadow extra-10">
 			<!-- menu -->
 			@Html.Partial("_Menu")           
-            <div id="content-main">             
-                @RenderBody()
+            <div id="content-main">   
+                @Html.Partial("_LeftMenu")
+                @*<div id="middle_column"> *@         
+                @RenderBody()                
+                @*</div>
+                @Html.Partial("_RightColumn")*@
             </div>
             </div>
              </section>

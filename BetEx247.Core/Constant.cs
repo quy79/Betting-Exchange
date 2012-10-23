@@ -126,6 +126,18 @@ namespace BetEx247.Core
             OTHER = 5001,
         }
 
+        public enum MyBetStatus
+        {
+            EXPOSURE=1,
+            UNMATCHEDBETS=2,
+            UNSETTLEDBETS=3,
+            BETTINGPL=4,
+            SETTLEDBETS=5,
+            CANCELLEDBETS=6,
+            LAPSEDBETS=7,
+            VOIDBETS=8
+        }
+
         public enum ChoiceType
         {
             MONEY_LINE = 1,
@@ -137,13 +149,18 @@ namespace BetEx247.Core
         public static class Payment
         {
             public const string AUTHORIZENETLOGINID = "97U9wFsx62";
-            public const string AUTHORIZENETTRANSACTION = "359ccj9fM2FC5XLc";
+            public const string AUTHORIZENETTRANSACTION = "359ccj9fM2FC5XLc";  
             public const bool AUTHORIZESANBOX = false;
 
             public const string MONEYBOOKERPAYMENTEMAIL = "chantinh2204@gmail.com";
 
+            public const string APCOPAYMENTLOGINID = "7815";
+            public const string APCOPAYMENTTRANSACTION = "MG79Lt5655dewg";
+            public const string APCOPAYMENTEMAIL = "chantinh2204@gmail.com";
+
             public const string STORENAME = "BetEx247";
             public const string CURRENCYCODE = "USD";
+            public const string CURRENCYCODENUMBER = "840";
         }
 
         public enum SourceFeedType
@@ -152,6 +169,13 @@ namespace BetEx247.Core
             PINNACLESPORTS = 2,
             TITANBET = 3
         }
+
+        public enum TransactionType
+        {
+            DEPOSIT=1,
+            WITHDRAW=2
+        }
+
         /// <summary>
         /// Selelct sport type
         /// </summary>
@@ -190,9 +214,8 @@ namespace BetEx247.Core
             WATER_POLO = 36,
             AUSSIE_RULES = 39,
             MOTOR_SPORTS = 41
-
-
         }
+
         //public enum SportName
         //{
         //    [StringValue("Cordless Power Drill")]
@@ -236,11 +259,44 @@ namespace BetEx247.Core
             public const string INACTIVE = "INACTIVE";
             public const string DELETED = "DELETED";
             public const string NEW = "NEW";
+            public const byte ACTIVENUM = 1;
+            public const byte INACTIVENUM = 2;
         }
 
         public static class SEOLinkPage
         {
             public static string MEMBER_LOGIN { get { return ""; } }
+        }
+
+        public static class Messagage
+        {
+            public const string NOTRANSACTION = "You must deposit at least one before withdraw.";
+        }
+
+        public static class CardType
+        {
+            //Deposit & Withdraw
+            public const string VISADEBIT="VISA Debit";
+            public const string VISACREDIT = "VISA Credit";
+            public const string VISAELECTION = "VISA Electron";
+            public const string SWITCHMAESTRO = "Switch / Maestro";
+            public const string SKRILL = "Skrill (Moneybookers)";
+            public const string NETELLER = "NETeller";
+            public const string NETELLER1PAY = "NETeller (1-PAY)";  
+            //Deposit only option
+            public const string MASTERCARDDEBIT = "MasterCard Debit";
+            public const string MASTERCARD = "MasterCard";
+            public const string CARTASI = "CartaSi";
+            public const string DINERSCLUBBYSKRILL = "Diners Club by Skrill";
+            public const string DANKORTBYSKRILL = "Dankort by Skrill";  
+            public const string NORDEASOLO = "Nordea Solo (Sweden, Finland) by Skrill";
+            //Withdraw Option Only
+            public const string BANKACCOUNT = "Bank Account";            
+        }
+
+        public static class PaymentClass
+        {
+            public const string APCOService = "BetEx247.Plugin.Payments.ApcoFastPay.ApcoFastPayPaymentProcessor,BetEx247.Plugin.Payments.ApcoFastPay";
         }
     }
     

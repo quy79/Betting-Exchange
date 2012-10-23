@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
+
+@{
+    ViewBag.Title = "BettingPL";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BettingPL</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table width="70%">
+    <tr> 
+        <th>
+            Date settled
+        </th>           
+        <th>
+            Description
+        </th>
+        <th>
+            No. of Bets
+        </th>        
+        <th>
+            Matched Turnover
+        </th>
+        <th>
+            Settled Gross P/L
+        </th>
+        <th>
+            Commission paid
+        </th>
+        <th>
+            Settled Net P/L
+        </th>                
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>   
+        <td>
+            @Html.DisplayFor(modelItem=>item.SettledTime)
+        </td>       
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem=>item.Entrant)
+        </td>            
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchTurnOver)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GrossProfit)
+        </td>             
+        <td>
+            @Html.DisplayFor(modelItem => item.Commission)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NetProfit)
+        </td>              
+    </tr>
+}
+
+</table>
