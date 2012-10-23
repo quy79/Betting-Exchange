@@ -11,21 +11,25 @@ var sShowWarning = false;
 var enableOddsFormat = true;
 var bMemberRequestProcessing = false;
 
-AccountHistory ={
-    ui_doSearch:function() {
+AccountHistory = {
+    Url: 'http://localhost:4262/',
+    init: function () { },
+    row:20,
+
+    ui_doSearch: function (action) {
         var period = $("#selPeriod").val();
         var startDate = "";
         var endDate = "";
         var betCategory = $("#selBetCategory").val();
         var display = $("#selDisplay").val();
-        if (ValidateInput()) {
-            $("#dvAccountHistory").html(this.html_getAllTable("") + this.getLoadingTableHTML());
+        if (this.ValidateInput()) {
+            $("#dvAccountHistory").html(this.getLoadingTableHTML());
             if ($("#rdoCustom").prop('checked')) {
                 period = "DateRange";
                 startDate = $("#txtStartDate").val();
                 endDate = $("#txtEndDate").val()
             }
-            $("#dvAccountHistory").html(html_getAllTable(""));
+            $("#dvAccountHistory").html();
             $("#dvAccountHistoryGroupedBets").html("");
             $("#dvAccountHistoryGroupedAccounts").html("");
             $("#dvAccountHistoryGroupedMisc").html("");
@@ -35,34 +39,34 @@ AccountHistory ={
             sResultID = "";
             sShowWarning = true;
             if (g_currentView == "All") {
-                this.server_getAllData(period, startDate, endDate, betCategory, display, 1, true)
+                this.server_getAllData(action,period, startDate, endDate, betCategory, display, 1, this.row)
             } else { }
         }
     },
 
-    ui_doDisplayChange:function(displayType) {
-        this.server_getAllData(g_periodType, g_startDate, g_endDate, g_betCategory, displayType, 1, true)
+    ui_doDisplayChange: function (displayType) {
+        this.server_getAllData(g_periodType, g_startDate, g_endDate, g_betCategory, displayType, 1, this.row)
     },
 
-    ui_doBetCatChange:function(betCategory) {
-        this.server_getAllData(g_periodType, g_startDate, g_endDate, betCategory, g_displayType, 1, true)
+    ui_doBetCatChange: function (betCategory) {
+        this.server_getAllData(g_periodType, g_startDate, g_endDate, betCategory, g_displayType, 1, this.row)
     },
 
-    ui_doPageChange:function(pageNo) {
-        this.server_getAllData(g_periodType, g_startDate, g_endDate, g_betCategory, g_displayType, pageNo, false)
+    ui_doPageChange: function (pageNo) {
+        this.server_getAllData(g_periodType, g_startDate, g_endDate, g_betCategory, g_displayType, pageNo, this.row)
     },
 
-    ui_popStartDate:function() {
+    ui_popStartDate: function () {
         SetSelectedRadio("rdoCustom", "rdoPredefined");
         popUpCalendar(document.getElementById('txtStartDate'), document.getElementById('txtStartDate'), 'yyyy-mm-dd', -1, -1)
     },
 
-    ui_popEndDate:function() {
+    ui_popEndDate: function () {
         SetSelectedRadio("rdoCustom", "rdoPredefined");
         popUpCalendar(document.getElementById('txtEndDate'), document.getElementById('txtEndDate'), 'yyyy-mm-dd', -1, -1)
     },
 
-    ui_doExcelDownload:function(downloadType) {
+    ui_doExcelDownload: function (downloadType) {
         if (downloadType != "") {
             var period = $("#selPeriod").val();
             var startDate = "";
@@ -81,66 +85,54 @@ AccountHistory ={
         }
     },
 
-    server_getAllData:function(periodType, startDate, endDate, betCategory, displayType, pageNo, refresh) {
+    server_getAllData: function (action,periodType, startDate, endDate, betCategory, displayType, pageNo, noOfPages) {
         if (this.BeginProcessing()) {
             var displayMemberType = "";
             if (displayType.indexOf("Member") != -1) {
                 displayMemberType = displayType.replace("Member", "");
                 displayType = "Member"
-            } 
-            frames["ifraMemberRequest"].location = "MemberAccountHistoryGetJS" + sExt + "?Period=" + periodType + "&StartDate=" + startDate + "&EndDate=" + endDate + "&BetCategory=" + betCategory + "&Display=" + displayType + "&Page=" + pageNo + "&Refresh=" + refresh + "&DisplayMemberType=" + displayMemberType + "&RecordsPerPage=" + sRecordsPerPage + "&MaxNumOfPage=" + sMaxNumOfPage + "&ResultID=" + sResultID
-
+            }
+            var surl = this.Url + ''; //frames["ifraMemberRequest"].location = "MemberAccountHistoryGetJS" + sExt + "?Period=" + periodType + "&StartDate=" + startDate + "&EndDate=" + endDate + "&BetCategory=" + betCategory + "&Display=" + displayType + "&Page=" + pageNo + "&Refresh=" + refresh + "&DisplayMemberType=" + displayMemberType + "&RecordsPerPage=" + sRecordsPerPage + "&MaxNumOfPage=" + sMaxNumOfPage + "&ResultID=" + sResultID
+            $.ajax({
+                url: this.Url + 'ajax/' + action,
+                type: 'GET',
+                data: { pr: periodType, sd: startDate, ed: endDate, bcate: betCategory, bdis: displayType, pNo: pageNo, row: noOfPages },
+                success: function (result) {       
+                    AccountHistory.server_receiveAllData(result, action);
+                }
+            });
         }
     },
 
-    server_receiveBetCategories:function(arrIDs, arrDescs) {
+    server_receiveBetCategories: function (arrIDs, arrDescs) {
         insertOptions(arrIDs, arrDescs, "selBetCategory", true, sBetCatAll)
     },
 
-    server_receiveAllData:function(arrAllData, periodType, startDate, endDate, betCategory, displayType, pageNo, noOfPages, displayMemberType, resultID, numDec, oddsFormat) {
+    server_receiveAllData: function (data, action) {
         try {
-            g_periodType = periodType;
-            g_displayType = displayType;
-            g_betCategory = betCategory;
-            g_currentPage = pageNo;
-            iNoOfPages = noOfPages;
-            sResultID = resultID;
-            var historyHTML = "";
-            for (var i = 0; i < arrAllData.length; i++) {
-                var voucherType = arrAllData[i][0];
-                switch (voucherType) {
-                    case "Member":
-                    case "Adjustment":
-                    case "Fee":
-                        historyHTML += html_getAllMemberRow(arrAllData[i], numDec);
-                        break;
-                    case "FBSettlement":
-                    case "Settlement":
-                        historyHTML += html_getAllSettlementRow(arrAllData[i], numDec, oddsFormat);
-                        break;
-                    case "Commission":
-                    case "MarketRebate":
-                    case "LoyaltyRebate":
-                        historyHTML += html_getAllOthersRow(arrAllData[i], numDec);
-                        break
-                }
+            switch (action) {
+                case "statement":
+                case "Adjustment":
+                case "Fee":
+                    $('#result').html(data);
+                    break;
+                case "FBSettlement":
+                case "Settlement":
+                    historyHTML += html_getAllSettlementRow(arrAllData[i], numDec, oddsFormat);
+                    break;
+                case "Commission":
+                case "MarketRebate":
+                case "LoyaltyRebate":
+                    historyHTML += html_getAllOthersRow(arrAllData[i], numDec);
+                    break
             }
-            if (historyHTML == "") {
-                historyHTML = html_getAllNoRows()
-            }
-            historyHTML = html_getAllTable(historyHTML);
-            $("#dvAccountHistory").html(historyHTML);
-            setSelectedOption("selBetCategory", betCategory, false);
-            setSelectedOption("selDisplay", displayType + displayMemberType, false);
-            var targetDrop = $("#selPager");
-            targetDrop.selectedIndex = pageNo - 1;
-            $("#dvPager").html(html_getFooterPager(pageNo, noOfPages));
+           
         } catch (e) {
-            top.showMessageBox(e.message)
+            
         }
     },
 
-    receiveWarningByPageCount:function(totalRecords) {
+    receiveWarningByPageCount: function (totalRecords) {
         if ((totalRecords + 1 > sRecordsPerPage * sMaxNumOfPage) && sShowWarning == true) {
             sShowWarning = false;
             var msssage = msgOverRecords;
@@ -148,16 +140,9 @@ AccountHistory ={
             msssage = msssage.replace(re, sMaxNumOfPage.toString());
             top.showMessageBox(msssage)
         }
-    },
+    },    
 
-    html_getAllTable:function(rowHTML) {
-        var tableHTML = $("#taAllTable").val();
-        var re = new RegExp("@RowData@", "g");
-        tableHTML = tableHTML.replace(re, rowHTML);
-        return tableHTML
-    },
-
-    html_getAllMemberRow:function(arrRowData, numDec) {
+    html_getAllMemberRow: function (arrRowData, numDec) {
         var rowHTML = $("#taAllMemberRow").val();
         var symbol = arrRowData[9];
         var re = new RegExp("@Date@", "g");
@@ -187,10 +172,10 @@ AccountHistory ={
         re = new RegExp("@Balance@", "g");
         rowHTML = rowHTML.replace(re, balance);
 
-        return rowHTML 
+        return rowHTML
     },
 
-    html_getAllSettlementRow:function(arrRowData, numDec, oddsFormat) {
+    html_getAllSettlementRow: function (arrRowData, numDec, oddsFormat) {
         var rowHTML = $("#taAllSettlementRow").val();
         var symbol = arrRowData[11];
         var re = new RegExp("@Date@", "g");
@@ -278,7 +263,7 @@ AccountHistory ={
         return rowHTML
     },
 
-    html_getAllOthersRow:function(arrRowData, numDec) {
+    html_getAllOthersRow: function (arrRowData, numDec) {
         var rowHTML = $("#taAllOthersRow").val();
         var symbol = arrRowData[11];
         var re = new RegExp("@Date@", "g");
@@ -312,18 +297,18 @@ AccountHistory ={
         return rowHTML
     },
 
-    html_getAllNoRows:function() {
+    html_getAllNoRows: function () {
         var rowHTML = $("#taAllNoRows").val();
         return rowHTML
     },
 
-    html_getMarketDescription:function(gpe, pe, e, m) {
+    html_getMarketDescription: function (gpe, pe, e, m) {
         if (gpe != "") gpe = gpe + " - ";
         if (pe != "") pe = pe + " - ";
         return "<b>" + m + "</b>" + " - " + gpe + pe + e
     },
 
-    html_getEventDescription:function(gpe, pe, e) {
+    html_getEventDescription: function (gpe, pe, e) {
         var desc = e;
         if (pe.length > 0) {
             desc += " (";
@@ -332,7 +317,7 @@ AccountHistory ={
         } return desc
     },
 
-    html_getFooterPager:function(currentPage, noOfPages) {
+    html_getFooterPager: function (currentPage, noOfPages) {
         var pagerHTML = "&nbsp;";
         if (noOfPages > 0) {
             if (currentPage > 1 && noOfPages > 1) {
@@ -361,7 +346,7 @@ AccountHistory ={
         } return pagerHTML
     },
 
-    createPagerDropdown:function(noOfPages) {
+    createPagerDropdown: function (noOfPages) {
         var sHTML = "";
         for (i = 0; i < noOfPages; i++) {
             var page = (i + 1);
@@ -370,23 +355,23 @@ AccountHistory ={
         }
         sHTML = "<select id='selPager' onchange='ui_doPageChange(this.value)'>" + sHTML + "</select>";
         $("#spPagerHolder").html(sHTML);
-    }, 
-    
-    BeginProcessing:function() {
+    },
+
+    BeginProcessing: function () {
         if (!bMemberRequestProcessing) {
             bMemberRequestProcessing = true;
             return true
         } else { return false }
     },
 
-    EndProcessing:function() { bMemberRequestProcessing = false; },
+    EndProcessing: function () { bMemberRequestProcessing = false; },
 
-    ValidateInput:function() {
+    ValidateInput: function () {
         if ($("#rdoCustom").prop('checked')) return ValidateDateRange($("#txtStartDate").val(), 6);
         return true
     },
 
-    ValidateDateRange:function(startDate, lastNumOfMonth) {
+    ValidateDateRange: function (startDate, lastNumOfMonth) {
         var totalDays = lastNumOfMonth * 30;
         var currentDate = new Date();
         var currentYear = currentDate.getFullYear();
@@ -401,7 +386,7 @@ AccountHistory ={
         } else return true
     },
 
-    ShowBetCategory:function() {
+    ShowBetCategory: function () {
         switch ($("#selDisplay").val()) {
             case "Adjustment":
             case "Deposit":
@@ -409,15 +394,15 @@ AccountHistory ={
             case "LoyaltyRebate":
             case "Withdraw":
                 setSelectedOption("selBetCategory", "", false);
-                $("#selBetCategory").prop('disabled',true);
+                $("#selBetCategory").prop('disabled', true);
                 break;
             default:
-                $("#selBetCategory").prop('disabled',false);
+                $("#selBetCategory").prop('disabled', false);
                 break
         }
     },
 
-    getLoadingTableHTML:function() {
-        return loadingTableHTML = $("#taLoadingTable").val(); 
+    getLoadingTableHTML: function () {
+        return loadingTableHTML = $("#taLoadingTable").val();
     }
 }

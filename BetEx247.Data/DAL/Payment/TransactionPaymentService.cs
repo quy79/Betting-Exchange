@@ -44,7 +44,7 @@ namespace BetEx247.Data.DAL
                 transactionPayment.TransactionPaymentTotal = transaction.Amount;
                 transactionPayment.TransactionPaymentStatusId = transaction.Status;
                 transactionPayment.PaymentMethodId = transaction.PaymentMenthodID;
-                transactionPayment.TransactionIDRespone = transaction.ResponeTranId!=null? transaction.ResponeTranId.Value:0;
+                transactionPayment.TransactionIDRespone = transaction.ResponeTranId != null ? transaction.ResponeTranId.Value : 0;
                 transactionPayment.MemberEmail = transaction.MemberEmail;
             }
             return transactionPayment;
@@ -58,7 +58,7 @@ namespace BetEx247.Data.DAL
         public List<Transaction> GetTransactionByUserId(long UserId)
         {
             using (var dba = new BetEXDataContainer())
-            {                 
+            {
                 var lstTran = dba.Transactions.Where(w => w.MemberId == UserId).ToList();
                 if (lstTran != null && lstTran.Count > 0)
                     return lstTran;
@@ -74,11 +74,11 @@ namespace BetEx247.Data.DAL
         public TransactionPayment GetTransactionPaymentByUserId(long UserId)
         {
             TransactionPayment transactionPayment = new TransactionPayment();
-            Transaction transaction=new Transaction();
+            Transaction transaction = new Transaction();
             using (var dba = new BetEXDataContainer())
             {
                 byte type = (byte)1;
-                var listTransaction = dba.Transactions.Where(w => w.MemberId == UserId && w.Type == type).OrderByDescending(z=>z.Amount).ToList();
+                var listTransaction = dba.Transactions.Where(w => w.MemberId == UserId && w.Type == type).OrderByDescending(z => z.Amount).ToList();
                 if (listTransaction != null)
                 {
                     transaction = listTransaction[0];
@@ -90,7 +90,7 @@ namespace BetEx247.Data.DAL
                 transactionPayment.TransactionPaymentType = transaction.Type;
                 transactionPayment.MemberId = transaction.MemberId;
                 transactionPayment.MemberIP = transaction.MemberIP;
-                transactionPayment.TransactionIDRespone = transaction.ResponeTranId!=null?transaction.ResponeTranId.Value:0;
+                transactionPayment.TransactionIDRespone = transaction.ResponeTranId != null ? transaction.ResponeTranId.Value : 0;
                 transactionPayment.TransactionPaymentTotal = transaction.Amount;
                 transactionPayment.TransactionPaymentStatusId = transaction.Status;
                 transactionPayment.PaymentMethodId = transaction.PaymentMenthodID;
@@ -333,6 +333,7 @@ namespace BetEx247.Data.DAL
         /// <param name="orderGuid">Order GUID to use</param>
         /// <param name="orderId">Order identifier</param>
         /// <returns>The error status, or String.Empty if no errors</returns>
+        
         public string PlaceTransactionPayment(TransactionPayment transactionPayment,
             Guid transactionPaymentGuid, out long TransactionPaymentId)
         {
@@ -365,67 +366,58 @@ namespace BetEx247.Data.DAL
                 if (transactionPayment.TransactionPaymentType == 2)
                     isRecurring = true;
                 //process payment
-                if (!transactionPayment.IsRecurringPayment)
+                if (isRecurring)
                 {
-                    if (isRecurring)
+                    if (IoC.Resolve<ICustomerService>().GetAccountWallet(transactionPayment.MemberId) == null)
                     {
-                        paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
-                        #region tempcode
-                        //recurring cart
-                        //var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
-                        //switch (recurringPaymentType)
-                        //{
-                        //    case RecurringPaymentTypeEnum.NotSupported:
-                        //        throw new Exception("Recurring payments are not supported by selected payment method");
-                        //    case RecurringPaymentTypeEnum.Manual:
-                        //    case RecurringPaymentTypeEnum.Automatic:
-                        //        paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
-                        //        break;
-                        //    default:
-                        //        throw new Exception("Not supported recurring payment type");
-                        //}
-                        #endregion
+                        processPaymentResult.Error = "You must deposit at least one time before withdraw.";
                     }
                     else
                     {
-                        //standard cart
-                        paymentService.ProcessPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                        if (CanWithdraw(transactionPayment.MemberId, transactionPayment.TransactionPaymentTotal))
+                        {
+                            paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                        }
+                        else
+                        {
+                            processPaymentResult.Error = "Current available is " + GetBalancebyMemberId(transactionPayment.MemberId) + ", You must withdraw less than or equal it.";
+                        }
                     }
+                    #region tempcode
+                    //recurring cart
+                    //var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
+                    //switch (recurringPaymentType)
+                    //{
+                    //    case RecurringPaymentTypeEnum.NotSupported:
+                    //        throw new Exception("Recurring payments are not supported by selected payment method");
+                    //    case RecurringPaymentTypeEnum.Manual:
+                    //    case RecurringPaymentTypeEnum.Automatic:
+                    //        paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                    //        break;
+                    //    default:
+                    //        throw new Exception("Not supported recurring payment type");
+                    //}
+                    #endregion
                 }
                 else
                 {
-                    if (isRecurring)
-                    {
-                        paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
-                        #region tempcode
-                        //var recurringPaymentType = paymentService.SupportRecurringPayments(transactionPayment.PaymentMethodId);
-                        //switch (recurringPaymentType)
-                        //{
-                        //    case RecurringPaymentTypeEnum.NotSupported:
-                        //        throw new Exception("Recurring payments are not supported by selected payment method");
-                        //    case RecurringPaymentTypeEnum.Manual:
-                        //paymentService.ProcessRecurringPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
-                        //        break;
-                        //    case RecurringPaymentTypeEnum.Automatic:
-                        //        //payment is processed on payment gateway site
-                        //        break;
-                        //    default:
-                        //        throw new Exception("Not supported recurring payment type");
-                        //}
-                        #endregion
-                    }
-                    else
-                    {
-                        throw new Exception("No recurring products");
-                    }
-                }
-
+                    //standard cart
+                    paymentService.ProcessPayment(transactionPayment, transactionPaymentGuid, ref processPaymentResult);
+                }    
 
                 //process transaction
                 if (String.IsNullOrEmpty(processPaymentResult.Error))
                 {
                     transactionPayment.TransactionIDRespone = processPaymentResult.AuthorizationTransactionCode.ToInt64();
                     InsertTransactionPayment(transactionPayment);
+                    if (isRecurring)
+                    {
+                        UpdateMyWalletWithdraw(transactionPayment.MemberId, transactionPayment.TransactionPaymentTotal);
+                    }
+                    else
+                    {
+                        UpdateMyWalletDeposit(transactionPayment.MemberId, transactionPayment.TransactionPaymentTotal);
+                    }
                     #region tempcode
                     //recurring orders
                     //if (!transactionPayment.IsRecurringPayment)
@@ -602,6 +594,106 @@ namespace BetEx247.Data.DAL
         public int ConvertAmountToRewardPoints(decimal amount)
         {
             throw new NotImplementedException();
+        }
+        #endregion
+
+        #region MYWallter function
+        /// <summary>
+        /// Gets remain balance user
+        /// </summary>
+        /// <param name="memberId">The member identifier</param>
+        /// <returns>money avalaible remain</returns>
+        public decimal GetBalancebyMemberId(long memberId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                decimal balance=0;
+                var wallet = dba.MyWallets.Where(w => w.MemberID == memberId).SingleOrDefault();
+                if(wallet!=null && wallet.Available!=null){
+                    balance = wallet.Available.Value;
+                }
+                return balance;
+            }
+        }
+
+        /// <summary>
+        /// Check can withdraw by memberid
+        /// </summary>
+        /// <param name="memberId">member identifier</param>
+        /// <returns>true:can withdraw; false : otherwise</returns>
+        public bool CanWithdraw(long memberId, decimal output)
+        {
+            if (GetBalancebyMemberId(memberId) > output)
+                return true;
+            return false;
+        }
+
+        /// <summary>
+        /// Update ballance for User's Wallet
+        /// </summary>
+        /// <param name="memberId">member identifier</param>
+        /// <param name="input">money user deposit</param>
+        /// <returns>true : update successfully ; false : otherwise</returns>
+        public bool UpdateMyWalletDeposit(long memberId, decimal input)
+        {
+            try
+            {
+                var wallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
+                if (wallet != null)
+                {
+                    wallet.Available = wallet.Available + input;
+                    wallet.Balance = wallet.Balance + input;
+                    wallet.UpdatedTime = DateTime.Now;
+
+                    IoC.Resolve<ICustomerService>().UpdateWallet(wallet);
+                }
+                else
+                {
+                    MyWallet mywallet = new MyWallet();
+                    mywallet.MemberID = memberId;
+                    mywallet.Available = input;
+                    mywallet.Balance = input;
+                    mywallet.UpdatedTime = DateTime.Now;
+
+                    IoC.Resolve<ICustomerService>().InsertWallet(mywallet);
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Update ballance for User's Wallet
+        /// </summary>
+        /// <param name="memberId">member identifier</param>
+        /// <param name="output">money user withdraw</param>
+        /// <returns>true : update successfully ; false : otherwise</returns>
+        public bool UpdateMyWalletWithdraw(long memberId, decimal output)
+        {
+            try
+            {
+                var wallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
+                if (wallet != null)
+                {
+                    wallet.Available = wallet.Available - output;
+                    wallet.Balance = wallet.Balance - output;
+                    wallet.UpdatedTime = DateTime.Now;
+
+                    IoC.Resolve<ICustomerService>().UpdateWallet(wallet);
+                }
+                else
+                {
+                    return false;
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         #endregion
     }

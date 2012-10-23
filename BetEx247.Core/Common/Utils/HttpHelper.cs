@@ -423,5 +423,46 @@ namespace BetEx247.Core.Common.Utils
         }
         #endregion
 
+        #region QueryString
+        public static string GetQueryStringValue(string pvName)
+        {
+            return HttpContext.Current.Request.QueryString[pvName];
+        }
+
+        public static string GetQueryStringString(string pvName)
+        {
+            return CSafeDataHelper.SafeString(GetQueryStringValue(pvName)).Trim();
+        }
+
+        public static DateTime GetQueryStringDatetime(string pvName)
+        {
+            return CSafeDataHelper.SafeDateTime(GetQueryStringValue(pvName));
+        }
+
+        public static bool GetQueryStringBoolean(string pvName)
+        {
+            return CSafeDataHelper.SafeBool(GetQueryStringValue(pvName));
+        }
+
+        public static double GetQueryStringDouble(string pvName)
+        {
+            return CSafeDataHelper.SafeDouble(GetQueryStringValue(pvName));
+        }
+
+        public static float GetQueryStringFloat(string pvName)
+        {
+            return CSafeDataHelper.SafeFloat(GetQueryStringValue(pvName));
+        }
+
+        public static long GetQueryStringLong(string pvName)
+        {
+            return CSafeDataHelper.SafeLong(GetQueryStringValue(pvName));
+        }
+
+        public static int GetQueryStringInt(string pvName)
+        {
+            return CSafeDataHelper.SafeInt(GetQueryStringValue(pvName));
+        }
+        #endregion
     }
 }

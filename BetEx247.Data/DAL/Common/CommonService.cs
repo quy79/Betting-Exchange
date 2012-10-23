@@ -22,7 +22,7 @@ namespace BetEx247.Data.DAL
                 var listCountry = dba.Countries.ToList();
                 List<SelectListItem> Items = new List<SelectListItem>();
                 foreach (Country item in listCountry)
-                {                             
+                {
                     SelectListItem AddItem = new SelectListItem();
                     AddItem.Value = item.ID.ToString();
                     AddItem.Text = item.Country1;
@@ -65,7 +65,7 @@ namespace BetEx247.Data.DAL
             List<SelectListItem> Items = new List<SelectListItem>();
 
             SelectListItem AddActive = new SelectListItem();
-            AddActive.Text =Constant.Status.ACTIVE;
+            AddActive.Text = Constant.Status.ACTIVE;
             AddActive.Value = Constant.Status.ACTIVE;
             Items.Add(AddActive);
 
@@ -93,9 +93,9 @@ namespace BetEx247.Data.DAL
                 i++;
                 SelectListItem AddItem = new SelectListItem();
                 AddItem.Text = item;
-                AddItem.Value = i.ToString(); 
+                AddItem.Value = i.ToString();
                 Items.Add(AddItem);
-            }                   
+            }
 
             SelectList Res = new SelectList(Items, "Value", "Text");
             return Res;
@@ -109,7 +109,7 @@ namespace BetEx247.Data.DAL
         {
             List<SelectListItem> Items = new List<SelectListItem>();
 
-            for (int i = 1; i <= 12;i++ )
+            for (int i = 1; i <= 12; i++)
             {
                 SelectListItem AddItem = new SelectListItem();
                 AddItem.Text = i.ToString();
@@ -158,6 +158,112 @@ namespace BetEx247.Data.DAL
                 AddItem.Value = i.ToString();
                 Items.Add(AddItem);
             }
+
+            SelectList Res = new SelectList(Items, "Value", "Text");
+            return Res;
+        }
+
+        /// <summary>
+        /// Get list Date search type
+        /// </summary>
+        /// <returns>Search Date list</returns>
+        public SelectList MakeSelectListDateSearch()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+            SelectListItem AddItem;
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Last 24 hours";
+            AddItem.Value = "Last24Hrs";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Last 48 hours";
+            AddItem.Value = "Last48Hrs";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Last 7 days";
+            AddItem.Value = "Last7Days";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Last 30 days";
+            AddItem.Value = "Last30Days";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Last 3 months";
+            AddItem.Value = "Last3Months";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Last 6 months";
+            AddItem.Value = "Last6Months";
+            Items.Add(AddItem);
+
+            SelectList Res = new SelectList(Items, "Value", "Text");
+            return Res;
+        }
+
+        /// <summary>
+        /// Get Bet Display search 
+        /// </summary>
+        /// <returns>Bet Display list</returns>
+        public SelectList MakeSelectListBetDisplay()
+        {
+            List<SelectListItem> Items = new List<SelectListItem>();
+            SelectListItem AddItem;
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "All";
+            AddItem.Value = "";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Adjustment";
+            AddItem.Value = "Adjustment";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Bets Only";
+            AddItem.Value = "Settlement";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Commission";
+            AddItem.Value = "Commission";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Deposit";
+            AddItem.Value = "Deposit";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Fee";
+            AddItem.Value = "Fee";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Free Bets";
+            AddItem.Value = "FBSettlement";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Loyalty Refund";
+            AddItem.Value = "LoyaltyRebate";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Market Refund";
+            AddItem.Value = "MarketRebate";
+            Items.Add(AddItem);
+
+            AddItem = new SelectListItem();
+            AddItem.Text = "Withdraw";
+            AddItem.Value = "Withdraw";
+            Items.Add(AddItem);
 
             SelectList Res = new SelectList(Items, "Value", "Text");
             return Res;

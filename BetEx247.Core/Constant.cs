@@ -8,6 +8,8 @@ namespace BetEx247.Core
 {
     public static class Constant
     {
+        public const int DefaultRow = 20;
+
         public static class SourceXML
         {
             public const string BETCLICK = "betclick";
@@ -298,6 +300,17 @@ namespace BetEx247.Core
         {
             public const string APCOService = "BetEx247.Plugin.Payments.ApcoFastPay.ApcoFastPayPaymentProcessor,BetEx247.Plugin.Payments.ApcoFastPay";
         }
-    }
-    
+
+        public static class QueryString
+        {
+            public const string Period = "pr";
+            public const string StartDate = "sd";
+            public const string EndDate = "ed";
+            public const string BetCategory = "bcate";
+            public const string BetDisplay = "bdis";
+            public const string PageNo = "pNo";
+            public const string RecordPerPage = "row";
+            public const string ReportType = "type";
+        }
+    }      
 }

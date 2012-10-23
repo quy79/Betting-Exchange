@@ -304,6 +304,44 @@ namespace BetEx247.Data.DAL
                 return dba.MyWallets.Where(w => w.MemberID == memberId).SingleOrDefault();                
             }
         }
+
+        /// <summary>
+        /// Insert new user's wallet
+        /// </summary>
+        /// <param name="wallet">wallet info</param>
+        /// <returns>wallet id</returns>
+        public long InsertWallet(MyWallet wallet)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                dba.AddToMyWallets(wallet);
+                return wallet.ID;
+            }
+        }
+
+        /// <summary>
+        /// Update user's wallet
+        /// </summary>
+        /// <param name="wallet">wallet info</param>
+        /// <returns>true:update succefully; false: otherwise</returns>
+        public bool UpdateWallet(MyWallet wallet)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                MyWallet origin= dba.MyWallets.Where(w => w.MemberID == wallet.MemberID).SingleOrDefault();
+
+                if (origin != null)
+                {
+                    origin.Balance = wallet.Balance;
+                    origin.Available = wallet.Available;
+                    origin.UpdatedTime = wallet.UpdatedTime;
+                    dba.SaveChanges();
+                }
+                return true;
+            }
+
+            return false;
+        }
         #endregion
     }
 }

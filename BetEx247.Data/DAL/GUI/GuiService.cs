@@ -7,11 +7,13 @@ using BetEx247.Core.XMLObjects.Sport.Interface;
 using BetEx247.Core;
 using BetEx247.Core.Infrastructure;
 using BetEx247.Core.Caching;
+using BetEx247.Data.Model;
 
 namespace BetEx247.Data.DAL
 {
     public class GuiService : IGuiService
     {
+        #region xml
         private static GuiService _instance;
         private XMLParserObjectManager obj;
         private string key = "betex247";
@@ -66,5 +68,16 @@ namespace BetEx247.Data.DAL
         {
             return obj.Sport(type);
         }
+        #endregion
+
+        #region database
+        public IEnumerable<Sport> GetSportData()
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.Sports.ToList();
+            }
+        }
+        #endregion
     }
 }

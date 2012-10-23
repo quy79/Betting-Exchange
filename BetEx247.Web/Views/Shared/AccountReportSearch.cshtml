@@ -1,15 +1,6 @@
-﻿@model IEnumerable<BetEx247.Data.Model.Statement>
-@{
-    ViewBag.Title = "Statement";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/datepicker.css")" media="screen" />
+﻿<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/datepicker.css")" media="screen" />
 <script src="@Url.Content("~/Content/Scripts/GUI/datepicker.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Content/Scripts/GUI/AccountHistory.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Content/Scripts/GUI/Common.js")" type="text/javascript"></script>
 <script type="text/javascript" src="@Url.Content("~/Content/Scripts/GUI/lang/en.js")" charset="utf-8"></script>
-
 <script type="text/javascript">
 //<![CDATA[
 
@@ -91,35 +82,32 @@
 
 //]]>
 </script>
-<h2>
-    Statement</h2>
 <table width="70%" cellspacing="0" cellpadding="0" border="0">
     <tbody>
         <tr>
             <td width="50px" valign="middle" style="text-align: left" rowspan="2" class="tdPageFilters">
-                Date:
+                Date Placed:
             </td>
             <td valign="middle" style="text-align: left" class="tdPageFilters">
                 <input type="radio" checked="true" value="Predefined" name="rdoPeriodType" id="rdoPredefined">
                 @Html.DropDownList("selPeriod", ViewBag.lstDateSearchType as SelectList, new { @id = "selPeriod", width = "192px", onclick = "Common.SetSelectedRadio('rdoPredefined','rdoCustom')" })                
             </td>
-            <td valign="middle" style="text-align: left" class="tdPageFilters">
+            <td valign="middle" style="text-align: left" rowspan="2" class="tdPageFilters">
                 Bet Category:
             </td>
-            <td valign="middle" style="text-align: left" class="tdPageFilters">
-                @Html.DropDownList("selBetCategory", ViewBag.lstSportData as SelectList,"--Select--", new {width="140px" })
-                
+            <td valign="middle" style="text-align: left" rowspan="2" class="tdPageFilters">
+                 @Html.DropDownList("selBetCategory", ViewBag.lstSportData as SelectList,"--Select--", new {width="140px" })
             </td>
             <td valign="middle" rowspan="2" class="tdPageFilters">
-                <a onclick="AccountHistory.ui_doSearch('statement');return false;" href="javascript:void(0)" class="ImgBtn">Show
+                <a onclick="ui_doSearch();return false;" href="javascript:void(0)" class="ImgBtn">Show
                     Records</a>
             </td>
             <td valign="middle" rowspan="2" class="tdPageFilters">
-                <select id="selExport">
+                <select onchange="ui_doExcelDownload(this.value)" id="selExport">
+                    <option value="">&lt;Export to&gt;</option>
                     <option value="csv">CSV</option>
                     <option value="xls">Excel</option>
-                </select><a onclick="ui_doExcelDownload(document.getElementById('selExport').value);return false;"
-                    href="javascript:void(0)" class="ImgBtn">Export</a>
+                </select>
             </td>
             <td width="1%" rowspan="2" class="tdPageFilters">
                 &nbsp;
@@ -132,86 +120,6 @@
                 <p><input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today" name="sd" id="sd" value="" maxlength="10" /></p>
                 <p class="lastup"><input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today" name="ed" id="ed" value="" maxlength="10" /></p>
             </td>
-            <td valign="middle" style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
-                Display:
-            </td>
-            <td style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
-                @Html.DropDownList("selDisplay", ViewBag.lstDisplaySearch as SelectList, new { @id = "selDisplay",width="140px", onchange="ShowBetCategory()" })                
-            </td>
         </tr>
     </tbody>
 </table>
-<div id="result">
-<table width="70%">
-    <tr>
-        <th>
-            Date
-        </th>
-        <th>
-            ID
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Selection
-        </th>
-        <th>
-            B/L
-        </th>
-        <th>
-            Stake
-        </th>
-        <th>
-            Odds
-        </th>
-        <th>
-            Type_Result
-        </th>
-        <th>
-            Amount
-        </th>
-        <th>
-            NetProfit
-        </th>
-        <th>
-            Commission
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatementTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BetId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BetId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Selection)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BackOrLay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stake)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Odds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type_Result)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NetProfit)
-            </td>
-        </tr>
-    }
-</table>
-</div>

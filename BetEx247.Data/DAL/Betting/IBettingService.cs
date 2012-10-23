@@ -24,6 +24,24 @@ namespace BetEx247.Data.DAL
         List<PSV_MYBET> GetMyBetByMemberId(long memberId);
 
         /// <summary>
+        /// Get Bet for User login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <param name="sWhere">where clause for search</param>
+        /// <param name="pageNo">pageNo for search</param>
+        /// <param name="recordPerpage">recordPerpage for search</param>
+        /// <returns>List psv_mybet</returns>
+        List<PSV_MYBET> GetMyBetByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage);
+
+        /// <summary>
+        /// Get Total Row for Searh History User login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <param name="sWhere">where clause for search</param>
+        /// <returns>number row</returns>
+        int CountRowBetByMemberId(long memberId, string sWhere);
+
+        /// <summary>
         /// Get Statement for User login
         /// </summary>
         /// <param name="memberId">memberId</param>
@@ -34,14 +52,19 @@ namespace BetEx247.Data.DAL
         /// Search statement for user login
         /// </summary>
         /// <param name="memberId">memberId</param>
-        /// <param name="startDate">startDate for search</param>
-        /// <param name="endDate">endDate for search</param>
-        /// <param name="betCategory">betCategory ex: Snooker, Soccer...</param>
-        /// <param name="betDisplay">betDisplay  ex: Adjustment, Bets Only...</param>
+        /// <param name="sWhere">where clause for search</param>
         /// <param name="pageNo">pageNo for search</param>
         /// <param name="recordPerpage">recordPerpage for search</param>
         /// <returns>List Statement</returns>
-        List<Statement> GetStatementByMemberId(long memberId, DateTime startDate, DateTime endDate, int betCategory, int betDisplay, int pageNo, int recordPerpage);
+        List<Statement> GetStatementByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage);
+
+        /// <summary>
+        /// Get Total rowfor search statement by user login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <param name="sWhere">where clause for search</param>
+        /// <returns>number row</returns>
+        int CountRowStatementByMemberId(long memberId, string sWhere);
 
         /// <summary>
         /// Get Bet for User login

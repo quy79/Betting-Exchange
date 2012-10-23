@@ -1,0 +1,77 @@
+﻿@model IEnumerable<BetEx247.Data.Model.Statement>
+@{
+    Layout = null;
+}
+
+<table width="70%">
+    <tr>
+        <th>
+            Date
+        </th>
+        <th>
+            ID
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Selection
+        </th>
+        <th>
+            B/L
+        </th>
+        <th>
+            Stake
+        </th>
+        <th>
+            Odds
+        </th>
+        <th>
+            Type_Result
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            NetProfit
+        </th>
+        <th>
+            Commission
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatementTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BetId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Selection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BackOrLay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Odds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type_Result)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetProfit)
+            </td>
+        </tr>
+    }
+</table>       

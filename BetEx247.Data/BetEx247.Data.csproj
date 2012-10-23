@@ -95,13 +95,11 @@
     <Compile Include="SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="Model\BetEXData.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BetEXData.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BetEx247.Core\BetEx247.Core.csproj">

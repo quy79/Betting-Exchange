@@ -50,5 +50,17 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <returns>Currency list</returns>
         SelectList MakeSelectListYearCard();
+
+        /// <summary>
+        /// Get list Date search type
+        /// </summary>
+        /// <returns>Search Date list</returns>
+        SelectList MakeSelectListDateSearch();
+
+        /// <summary>
+        /// Get Bet Display search 
+        /// </summary>
+        /// <returns>Bet Display list</returns>
+        SelectList MakeSelectListBetDisplay();
     }
 }

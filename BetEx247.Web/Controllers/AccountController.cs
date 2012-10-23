@@ -16,6 +16,7 @@ using BetEx247.Core.Common.Utils;
 using BetEx247.Core;
 using BetEx247.Data;
 using BetEx247.Core.Payment;
+using System.Text;
 
 namespace BetEx247.Web.Controllers
 {
@@ -278,15 +279,12 @@ namespace BetEx247.Web.Controllers
         [Authorize]
         public ActionResult Statement()
         {               
-            DateTime startDate;
-            DateTime endDate;
-            int betCategory;
-            int betDisplay;
-            int pageNo;
-            int recordPerpage;
-
             long memberId = SessionManager.USER_ID;
-            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId);
+            var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
+            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId,null,1,Constant.DefaultRow);
+            ViewBag.lstSportData =new SelectList(lstSportData,"ID","SportName");
+            ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch();
+            ViewBag.lstDisplaySearch = IoC.Resolve<ICommonService>().MakeSelectListBetDisplay();
             return View(lstStatement);
         }
 
@@ -294,7 +292,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult Exposure()
         {
             long memberId = SessionManager.USER_ID;
-            var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId,(short)Constant.MyBetStatus.EXPOSURE);
+            var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.EXPOSURE);
             return View(lstExposure);
         }
 
@@ -327,6 +325,11 @@ namespace BetEx247.Web.Controllers
         {
             long memberId = SessionManager.USER_ID;
             var lstSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.SETTLEDBETS);
+
+            var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
+            ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
+            ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch();   
+
             return View(lstSettledBet);
         }
 
@@ -335,6 +338,12 @@ namespace BetEx247.Web.Controllers
         {
             long memberId = SessionManager.USER_ID;
             var lstCancelBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.CANCELLEDBETS);
+
+            var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
+            ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
+            ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch();
+            int totalRow = IoC.Resolve<IBettingService>().CountRowBetByMemberId(memberId, "");            
+
             return View(lstCancelBet);
         }
 
@@ -343,6 +352,11 @@ namespace BetEx247.Web.Controllers
         {
             long memberId = SessionManager.USER_ID;
             var lstLapsedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.LAPSEDBETS);
+
+            var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
+            ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
+            ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch(); 
+
             return View(lstLapsedBet);
         }
 
@@ -351,6 +365,11 @@ namespace BetEx247.Web.Controllers
         {
             long memberId = SessionManager.USER_ID;
             var lstVoidBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.VOIDBETS);
+
+            var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
+            ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
+            ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch(); 
+            
             return View(lstVoidBet);
         }
 
@@ -369,12 +388,12 @@ namespace BetEx247.Web.Controllers
             ViewBag.MonthTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMenthod.ValidTo.Month);
             ViewBag.YearFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMenthod.ValidFrom.Year);
             ViewBag.YearTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMenthod.ValidTo.Year);
-            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMenthod.Country);  
+            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMenthod.Country);
             return View(paymentMenthod);
         }
 
-        [Authorize,HttpPost]
-        public ActionResult UpdateCreditCard(long id,FormCollection collection)
+        [Authorize, HttpPost]
+        public ActionResult UpdateCreditCard(long id, FormCollection collection)
         {
             string message = string.Empty;
             var paymentMethod = IoC.Resolve<IPaymentService>().GetPaymentMethodById(id);
@@ -396,7 +415,7 @@ namespace BetEx247.Web.Controllers
             paymentMethod.CardExpirationYear = yearTo;
             paymentMethod.Address = collection["Address"];
             paymentMethod.Country = collection["Country"];
-            paymentMethod.Zipcode = collection["Zipcode"];              
+            paymentMethod.Zipcode = collection["Zipcode"];
             paymentMethod.Bank = collection["Bank"];
 
             try
@@ -404,7 +423,7 @@ namespace BetEx247.Web.Controllers
                 IoC.Resolve<IPaymentService>().UpdatePaymentMethod(paymentMethod);
                 message = "Update successfully!";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 message = "Error: " + ex.Message;
             }
@@ -414,7 +433,7 @@ namespace BetEx247.Web.Controllers
             ViewBag.MonthTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListMonth(), "Value", "Text", paymentMethod.ValidTo.Month);
             ViewBag.YearFrom = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMethod.ValidFrom.Year);
             ViewBag.YearTo = new SelectList(IoC.Resolve<ICommonService>().MakeSelectListYearCard(), "Value", "Text", paymentMethod.ValidTo.Year);
-            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMethod.Country); 
+            ViewBag.ListCountry = new SelectList(IoC.Resolve<ICommonService>().getAllCountry(), "Value", "Text", paymentMethod.Country);
             return View();
         }
 
@@ -428,8 +447,8 @@ namespace BetEx247.Web.Controllers
             return View();
         }
 
-        [Authorize,HttpPost]
-        public ActionResult AddNewCard( int id,FormCollection collection)
+        [Authorize, HttpPost]
+        public ActionResult AddNewCard(int id, FormCollection collection)
         {
             string message = string.Empty;
             string cardType = string.Empty;
@@ -445,11 +464,11 @@ namespace BetEx247.Web.Controllers
             PaymentMethod paymentMethod = new PaymentMethod();
             paymentMethod.CardType = cardType;
             paymentMethod.Name = collection["NameOnCard"];
-            paymentMethod.Description = "Payment menthod: "+id;
+            paymentMethod.Description = "Payment menthod: " + id;
             paymentMethod.CreditCardNumber = collection["CreditCardNumber"];
             paymentMethod.NameOnCard = collection["NameOnCard"];
             paymentMethod.CardCvv2 = collection["CardCvv2"];
-            paymentMethod.MaskedCreditCardNumber = collection["CardCvv2"]; 
+            paymentMethod.MaskedCreditCardNumber = collection["CardCvv2"];
             string monthFrom = collection["MonthFrom"];
             string monthTo = collection["MonthTo"];
             string yearFrom = collection["YearFrom"];
@@ -458,7 +477,7 @@ namespace BetEx247.Web.Controllers
             DateTime dateTo = new DateTime(yearTo.ToInt32(), monthTo.ToInt32(), 28);
             paymentMethod.ValidFrom = dateFrom;
             paymentMethod.ValidTo = dateTo;
-            paymentMethod.CardExpirationMonth = monthTo;            
+            paymentMethod.CardExpirationMonth = monthTo;
             paymentMethod.CardExpirationYear = yearTo;
             paymentMethod.Address = collection["Address"];
             paymentMethod.Country = collection["Country"];
@@ -541,7 +560,7 @@ namespace BetEx247.Web.Controllers
                 transactionPayment.RecurringTotalCycles = 1;
                 transactionPayment.RecurringCycleLength = 7;
 
-                message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);                      
+                message = IoC.Resolve<ITransactionPaymentService>().PlaceTransactionPayment(transactionPayment, out transactionPaymentId);
             }
             ViewBag.Message = message;
             return View();

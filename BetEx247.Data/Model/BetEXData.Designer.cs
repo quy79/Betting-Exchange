@@ -19,16 +19,10 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_CardsInfo_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerMatch), "CardsInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.CardsInfo), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Leagues_Sports", "Sport", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Sport), "League", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.League), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_SoccerMatches_Leagues", "League", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.League), "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerMatch), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Team_Leagues", "League", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.League), "Team", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Team), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Messages_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Message), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyWallet_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyWallet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_AsianHandicap), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_CorrectScores), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_DrawNoBet), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOU), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_ScoreInfo_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "ScoreInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.ScoreInfo), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_AsianHandicap), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_CorrectScores", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_CorrectScores), true)]
@@ -37,13 +31,22 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_TotalGoalsOE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOE), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_TotalGoalsOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOU), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_WinningMargin", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_WinningMargin), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Leagues_SoccerCountries", "SoccerCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerCountry), "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerLeague), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Leagues_Sports", "Sport", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Sport), "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerLeague), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_SoccerMatches_SoccerLeagues", "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerLeague), "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerMatch), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Team_Leagues", "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerLeague), "Team", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Team), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerMatch), "Sports_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_AsianHandicap), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_MoneyLine_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_MoneyLine", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_MoneyLine), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_Outright_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_Outright", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_Outright), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_TotalOU_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_TotalOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_TotalOU), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_LoginHistory_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "LoginHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.LoginHistory), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Messages_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Message), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyWallet_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyWallet), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_PaymentMethods", "PaymentMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.PaymentMethod), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
 
 #endregion
 
@@ -98,18 +101,34 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<BetStatusMST> BetStatusMSTs
+        public ObjectSet<BetStatu> BetStatus
         {
             get
             {
-                if ((_BetStatusMSTs == null))
+                if ((_BetStatus == null))
                 {
-                    _BetStatusMSTs = base.CreateObjectSet<BetStatusMST>("BetStatusMSTs");
+                    _BetStatus = base.CreateObjectSet<BetStatu>("BetStatus");
                 }
-                return _BetStatusMSTs;
+                return _BetStatus;
             }
         }
-        private ObjectSet<BetStatusMST> _BetStatusMSTs;
+        private ObjectSet<BetStatu> _BetStatus;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<BookMaker> BookMakers
+        {
+            get
+            {
+                if ((_BookMakers == null))
+                {
+                    _BookMakers = base.CreateObjectSet<BookMaker>("BookMakers");
+                }
+                return _BookMakers;
+            }
+        }
+        private ObjectSet<BookMaker> _BookMakers;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -130,50 +149,34 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Country> Countries
+        public ObjectSet<DiscountRate> DiscountRates
         {
             get
             {
-                if ((_Countries == null))
+                if ((_DiscountRates == null))
                 {
-                    _Countries = base.CreateObjectSet<Country>("Countries");
+                    _DiscountRates = base.CreateObjectSet<DiscountRate>("DiscountRates");
                 }
-                return _Countries;
+                return _DiscountRates;
             }
         }
-        private ObjectSet<Country> _Countries;
+        private ObjectSet<DiscountRate> _DiscountRates;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DiscountRateMST> DiscountRateMSTs
+        public ObjectSet<LoginHistory> LoginHistories
         {
             get
             {
-                if ((_DiscountRateMSTs == null))
+                if ((_LoginHistories == null))
                 {
-                    _DiscountRateMSTs = base.CreateObjectSet<DiscountRateMST>("DiscountRateMSTs");
+                    _LoginHistories = base.CreateObjectSet<LoginHistory>("LoginHistories");
                 }
-                return _DiscountRateMSTs;
+                return _LoginHistories;
             }
         }
-        private ObjectSet<DiscountRateMST> _DiscountRateMSTs;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<League> Leagues
-        {
-            get
-            {
-                if ((_Leagues == null))
-                {
-                    _Leagues = base.CreateObjectSet<League>("Leagues");
-                }
-                return _Leagues;
-            }
-        }
-        private ObjectSet<League> _Leagues;
+        private ObjectSet<LoginHistory> _LoginHistories;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -190,22 +193,6 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<MatchStatu> _MatchStatus;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Member> Members
-        {
-            get
-            {
-                if ((_Members == null))
-                {
-                    _Members = base.CreateObjectSet<Member>("Members");
-                }
-                return _Members;
-            }
-        }
-        private ObjectSet<Member> _Members;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -450,6 +437,38 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<SoccerCountry> SoccerCountries
+        {
+            get
+            {
+                if ((_SoccerCountries == null))
+                {
+                    _SoccerCountries = base.CreateObjectSet<SoccerCountry>("SoccerCountries");
+                }
+                return _SoccerCountries;
+            }
+        }
+        private ObjectSet<SoccerCountry> _SoccerCountries;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SoccerLeague> SoccerLeagues
+        {
+            get
+            {
+                if ((_SoccerLeagues == null))
+                {
+                    _SoccerLeagues = base.CreateObjectSet<SoccerLeague>("SoccerLeagues");
+                }
+                return _SoccerLeagues;
+            }
+        }
+        private ObjectSet<SoccerLeague> _SoccerLeagues;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<SoccerMatch> SoccerMatches
         {
             get
@@ -462,6 +481,22 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<SoccerMatch> _SoccerMatches;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SportLeague> SportLeagues
+        {
+            get
+            {
+                if ((_SportLeagues == null))
+                {
+                    _SportLeagues = base.CreateObjectSet<SportLeague>("SportLeagues");
+                }
+                return _SportLeagues;
+            }
+        }
+        private ObjectSet<SportLeague> _SportLeagues;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -610,34 +645,34 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<LoginHistory> LoginHistories
+        public ObjectSet<PSV_MYBET> PSV_MYBET
         {
             get
             {
-                if ((_LoginHistories == null))
+                if ((_PSV_MYBET == null))
                 {
-                    _LoginHistories = base.CreateObjectSet<LoginHistory>("LoginHistories");
+                    _PSV_MYBET = base.CreateObjectSet<PSV_MYBET>("PSV_MYBET");
                 }
-                return _LoginHistories;
+                return _PSV_MYBET;
             }
         }
-        private ObjectSet<LoginHistory> _LoginHistories;
+        private ObjectSet<PSV_MYBET> _PSV_MYBET;
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Transaction> Transactions
+        public ObjectSet<Member> Members
         {
             get
             {
-                if ((_Transactions == null))
+                if ((_Members == null))
                 {
-                    _Transactions = base.CreateObjectSet<Transaction>("Transactions");
+                    _Members = base.CreateObjectSet<Member>("Members");
                 }
-                return _Transactions;
+                return _Members;
             }
         }
-        private ObjectSet<Transaction> _Transactions;
+        private ObjectSet<Member> _Members;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -658,28 +693,52 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<PSV_MYBET> PSV_MYBET
+        public ObjectSet<Transaction> Transactions
         {
             get
             {
-                if ((_PSV_MYBET == null))
+                if ((_Transactions == null))
                 {
-                    _PSV_MYBET = base.CreateObjectSet<PSV_MYBET>("PSV_MYBET");
+                    _Transactions = base.CreateObjectSet<Transaction>("Transactions");
                 }
-                return _PSV_MYBET;
+                return _Transactions;
             }
         }
-        private ObjectSet<PSV_MYBET> _PSV_MYBET;
+        private ObjectSet<Transaction> _Transactions;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Country> Countries
+        {
+            get
+            {
+                if ((_Countries == null))
+                {
+                    _Countries = base.CreateObjectSet<Country>("Countries");
+                }
+                return _Countries;
+            }
+        }
+        private ObjectSet<Country> _Countries;
 
         #endregion
         #region AddTo Methods
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the BetStatusMSTs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the BetStatus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToBetStatusMSTs(BetStatusMST betStatusMST)
+        public void AddToBetStatus(BetStatu betStatu)
         {
-            base.AddObject("BetStatusMSTs", betStatusMST);
+            base.AddObject("BetStatus", betStatu);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the BookMakers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToBookMakers(BookMaker bookMaker)
+        {
+            base.AddObject("BookMakers", bookMaker);
         }
     
         /// <summary>
@@ -691,27 +750,19 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Countries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the DiscountRates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToCountries(Country country)
+        public void AddToDiscountRates(DiscountRate discountRate)
         {
-            base.AddObject("Countries", country);
+            base.AddObject("DiscountRates", discountRate);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the DiscountRateMSTs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the LoginHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDiscountRateMSTs(DiscountRateMST discountRateMST)
+        public void AddToLoginHistories(LoginHistory loginHistory)
         {
-            base.AddObject("DiscountRateMSTs", discountRateMST);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Leagues EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToLeagues(League league)
-        {
-            base.AddObject("Leagues", league);
+            base.AddObject("LoginHistories", loginHistory);
         }
     
         /// <summary>
@@ -720,14 +771,6 @@ namespace BetEx247.Data.Model
         public void AddToMatchStatus(MatchStatu matchStatu)
         {
             base.AddObject("MatchStatus", matchStatu);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Members EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToMembers(Member member)
-        {
-            base.AddObject("Members", member);
         }
     
         /// <summary>
@@ -851,11 +894,35 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the SoccerCountries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSoccerCountries(SoccerCountry soccerCountry)
+        {
+            base.AddObject("SoccerCountries", soccerCountry);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SoccerLeagues EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSoccerLeagues(SoccerLeague soccerLeague)
+        {
+            base.AddObject("SoccerLeagues", soccerLeague);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the SoccerMatches EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToSoccerMatches(SoccerMatch soccerMatch)
         {
             base.AddObject("SoccerMatches", soccerMatch);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SportLeagues EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSportLeagues(SportLeague sportLeague)
+        {
+            base.AddObject("SportLeagues", sportLeague);
         }
     
         /// <summary>
@@ -931,19 +998,19 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the LoginHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PSV_MYBET EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToLoginHistories(LoginHistory loginHistory)
+        public void AddToPSV_MYBET(PSV_MYBET pSV_MYBET)
         {
-            base.AddObject("LoginHistories", loginHistory);
+            base.AddObject("PSV_MYBET", pSV_MYBET);
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Transactions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Members EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToTransactions(Transaction transaction)
+        public void AddToMembers(Member member)
         {
-            base.AddObject("Transactions", transaction);
+            base.AddObject("Members", member);
         }
     
         /// <summary>
@@ -955,11 +1022,19 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the PSV_MYBET EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the Transactions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToPSV_MYBET(PSV_MYBET pSV_MYBET)
+        public void AddToTransactions(Transaction transaction)
         {
-            base.AddObject("PSV_MYBET", pSV_MYBET);
+            base.AddObject("Transactions", transaction);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Countries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToCountries(Country country)
+        {
+            base.AddObject("Countries", country);
         }
 
         #endregion
@@ -969,13 +1044,10 @@ namespace BetEx247.Data.Model
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="memberId">No Metadata Documentation available.</param>
-        /// <param name="startDate">No Metadata Documentation available.</param>
-        /// <param name="endDate">No Metadata Documentation available.</param>
-        /// <param name="betCategory">No Metadata Documentation available.</param>
-        /// <param name="displayType">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
         /// <param name="pageNo">No Metadata Documentation available.</param>
         /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
-        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, Nullable<global::System.DateTime> startDate, Nullable<global::System.DateTime> endDate, Nullable<global::System.Int32> betCategory, Nullable<global::System.Int32> displayType, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
+        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
         {
             ObjectParameter memberIdParameter;
             if (memberId.HasValue)
@@ -987,44 +1059,14 @@ namespace BetEx247.Data.Model
                 memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
             }
     
-            ObjectParameter startDateParameter;
-            if (startDate.HasValue)
+            ObjectParameter whereParameter;
+            if (where != null)
             {
-                startDateParameter = new ObjectParameter("startDate", startDate);
+                whereParameter = new ObjectParameter("where", where);
             }
             else
             {
-                startDateParameter = new ObjectParameter("startDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter endDateParameter;
-            if (endDate.HasValue)
-            {
-                endDateParameter = new ObjectParameter("endDate", endDate);
-            }
-            else
-            {
-                endDateParameter = new ObjectParameter("endDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter betCategoryParameter;
-            if (betCategory.HasValue)
-            {
-                betCategoryParameter = new ObjectParameter("betCategory", betCategory);
-            }
-            else
-            {
-                betCategoryParameter = new ObjectParameter("betCategory", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter displayTypeParameter;
-            if (displayType.HasValue)
-            {
-                displayTypeParameter = new ObjectParameter("displayType", displayType);
-            }
-            else
-            {
-                displayTypeParameter = new ObjectParameter("displayType", typeof(global::System.Int32));
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
             }
     
             ObjectParameter pageNoParameter;
@@ -1047,20 +1089,17 @@ namespace BetEx247.Data.Model
                 sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", memberIdParameter, startDateParameter, endDateParameter, betCategoryParameter, displayTypeParameter, pageNoParameter, sRecordsPerPageParameter);
+            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
         }
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="mergeOption"></param>
         /// <param name="memberId">No Metadata Documentation available.</param>
-        /// <param name="startDate">No Metadata Documentation available.</param>
-        /// <param name="endDate">No Metadata Documentation available.</param>
-        /// <param name="betCategory">No Metadata Documentation available.</param>
-        /// <param name="displayType">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
         /// <param name="pageNo">No Metadata Documentation available.</param>
         /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
-        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, Nullable<global::System.DateTime> startDate, Nullable<global::System.DateTime> endDate, Nullable<global::System.Int32> betCategory, Nullable<global::System.Int32> displayType, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage, MergeOption mergeOption)
+        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage, MergeOption mergeOption)
         {
             ObjectParameter memberIdParameter;
             if (memberId.HasValue)
@@ -1072,44 +1111,14 @@ namespace BetEx247.Data.Model
                 memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
             }
     
-            ObjectParameter startDateParameter;
-            if (startDate.HasValue)
+            ObjectParameter whereParameter;
+            if (where != null)
             {
-                startDateParameter = new ObjectParameter("startDate", startDate);
+                whereParameter = new ObjectParameter("where", where);
             }
             else
             {
-                startDateParameter = new ObjectParameter("startDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter endDateParameter;
-            if (endDate.HasValue)
-            {
-                endDateParameter = new ObjectParameter("endDate", endDate);
-            }
-            else
-            {
-                endDateParameter = new ObjectParameter("endDate", typeof(global::System.DateTime));
-            }
-    
-            ObjectParameter betCategoryParameter;
-            if (betCategory.HasValue)
-            {
-                betCategoryParameter = new ObjectParameter("betCategory", betCategory);
-            }
-            else
-            {
-                betCategoryParameter = new ObjectParameter("betCategory", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter displayTypeParameter;
-            if (displayType.HasValue)
-            {
-                displayTypeParameter = new ObjectParameter("displayType", displayType);
-            }
-            else
-            {
-                displayTypeParameter = new ObjectParameter("displayType", typeof(global::System.Int32));
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
             }
     
             ObjectParameter pageNoParameter;
@@ -1132,7 +1141,171 @@ namespace BetEx247.Data.Model
                 sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", mergeOption, memberIdParameter, startDateParameter, endDateParameter, betCategoryParameter, displayTypeParameter, pageNoParameter, sRecordsPerPageParameter);
+            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", mergeOption, memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        /// <param name="pageNo">No Metadata Documentation available.</param>
+        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
+        public ObjectResult<PSV_MYBET> PSP_SEARCHMYBETS(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            ObjectParameter pageNoParameter;
+            if (pageNo.HasValue)
+            {
+                pageNoParameter = new ObjectParameter("pageNo", pageNo);
+            }
+            else
+            {
+                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter sRecordsPerPageParameter;
+            if (sRecordsPerPage.HasValue)
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
+            }
+            else
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PSV_MYBET>("PSP_SEARCHMYBETS", memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        /// <param name="pageNo">No Metadata Documentation available.</param>
+        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
+        public ObjectResult<PSV_MYBET> PSP_SEARCHMYBETS(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage, MergeOption mergeOption)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            ObjectParameter pageNoParameter;
+            if (pageNo.HasValue)
+            {
+                pageNoParameter = new ObjectParameter("pageNo", pageNo);
+            }
+            else
+            {
+                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter sRecordsPerPageParameter;
+            if (sRecordsPerPage.HasValue)
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
+            }
+            else
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PSV_MYBET>("PSP_SEARCHMYBETS", mergeOption, memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Int32>> PSP_SEARCHMYBETSPAGESIZE(Nullable<global::System.Int64> memberId, global::System.String where)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("PSP_SEARCHMYBETSPAGESIZE", memberIdParameter, whereParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Int32>> PSP_SEARCHSTATEMENTPAGESIZE(Nullable<global::System.Int64> memberId, global::System.String where)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("PSP_SEARCHSTATEMENTPAGESIZE", memberIdParameter, whereParameter);
         }
 
         #endregion
@@ -1146,24 +1319,24 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="BetStatusMST")]
+    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="BetStatu")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class BetStatusMST : EntityObject
+    public partial class BetStatu : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new BetStatusMST object.
+        /// Create a new BetStatu object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="status">Initial value of the Status property.</param>
-        public static BetStatusMST CreateBetStatusMST(global::System.Int16 id, global::System.String status)
+        public static BetStatu CreateBetStatu(global::System.Int16 id, global::System.String status)
         {
-            BetStatusMST betStatusMST = new BetStatusMST();
-            betStatusMST.ID = id;
-            betStatusMST.Status = status;
-            return betStatusMST;
+            BetStatu betStatu = new BetStatu();
+            betStatu.ID = id;
+            betStatu.Status = status;
+            return betStatu;
         }
 
         #endregion
@@ -1219,6 +1392,87 @@ namespace BetEx247.Data.Model
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="BookMaker")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class BookMaker : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new BookMaker object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="bookMaker1">Initial value of the BookMaker1 property.</param>
+        public static BookMaker CreateBookMaker(global::System.Int32 id, global::System.String bookMaker1)
+        {
+            BookMaker bookMaker = new BookMaker();
+            bookMaker.ID = id;
+            bookMaker.BookMaker1 = bookMaker1;
+            return bookMaker;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String BookMaker1
+        {
+            get
+            {
+                return _BookMaker1;
+            }
+            set
+            {
+                OnBookMaker1Changing(value);
+                ReportPropertyChanging("BookMaker1");
+                _BookMaker1 = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("BookMaker1");
+                OnBookMaker1Changed();
+            }
+        }
+        private global::System.String _BookMaker1;
+        partial void OnBookMaker1Changing(global::System.String value);
+        partial void OnBookMaker1Changed();
 
         #endregion
     
@@ -1500,26 +1754,26 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="DiscountRateMST")]
+    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="DiscountRate")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
-    public partial class DiscountRateMST : EntityObject
+    public partial class DiscountRate : EntityObject
     {
         #region Factory Method
     
         /// <summary>
-        /// Create a new DiscountRateMST object.
+        /// Create a new DiscountRate object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="points">Initial value of the Points property.</param>
-        /// <param name="discountRate">Initial value of the DiscountRate property.</param>
-        public static DiscountRateMST CreateDiscountRateMST(global::System.Int64 id, global::System.Int64 points, global::System.Int16 discountRate)
+        /// <param name="discountRate1">Initial value of the DiscountRate1 property.</param>
+        public static DiscountRate CreateDiscountRate(global::System.Int64 id, global::System.Int64 points, global::System.Int16 discountRate1)
         {
-            DiscountRateMST discountRateMST = new DiscountRateMST();
-            discountRateMST.ID = id;
-            discountRateMST.Points = points;
-            discountRateMST.DiscountRate = discountRate;
-            return discountRateMST;
+            DiscountRate discountRate = new DiscountRate();
+            discountRate.ID = id;
+            discountRate.Points = points;
+            discountRate.DiscountRate1 = discountRate1;
+            return discountRate;
         }
 
         #endregion
@@ -1581,361 +1835,27 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int16 DiscountRate
+        public global::System.Int16 DiscountRate1
         {
             get
             {
-                return _DiscountRate;
+                return _DiscountRate1;
             }
             set
             {
-                OnDiscountRateChanging(value);
-                ReportPropertyChanging("DiscountRate");
-                _DiscountRate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("DiscountRate");
-                OnDiscountRateChanged();
+                OnDiscountRate1Changing(value);
+                ReportPropertyChanging("DiscountRate1");
+                _DiscountRate1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DiscountRate1");
+                OnDiscountRate1Changed();
             }
         }
-        private global::System.Int16 _DiscountRate;
-        partial void OnDiscountRateChanging(global::System.Int16 value);
-        partial void OnDiscountRateChanged();
+        private global::System.Int16 _DiscountRate1;
+        partial void OnDiscountRate1Changing(global::System.Int16 value);
+        partial void OnDiscountRate1Changed();
 
         #endregion
     
-    }
-    
-    /// <summary>
-    /// No Metadata Documentation available.
-    /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="League")]
-    [Serializable()]
-    [DataContractAttribute(IsReference=true)]
-    public partial class League : EntityObject
-    {
-        #region Factory Method
-    
-        /// <summary>
-        /// Create a new League object.
-        /// </summary>
-        /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="leagueName">Initial value of the LeagueName property.</param>
-        public static League CreateLeague(global::System.Int64 id, global::System.String leagueName)
-        {
-            League league = new League();
-            league.ID = id;
-            league.LeagueName = leagueName;
-            return league;
-        }
-
-        #endregion
-        #region Primitive Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Int64 ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    OnIDChanging(value);
-                    ReportPropertyChanging("ID");
-                    _ID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("ID");
-                    OnIDChanged();
-                }
-            }
-        }
-        private global::System.Int64 _ID;
-        partial void OnIDChanging(global::System.Int64 value);
-        partial void OnIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int32> SportID
-        {
-            get
-            {
-                return _SportID;
-            }
-            set
-            {
-                OnSportIDChanging(value);
-                ReportPropertyChanging("SportID");
-                _SportID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("SportID");
-                OnSportIDChanged();
-            }
-        }
-        private Nullable<global::System.Int32> _SportID;
-        partial void OnSportIDChanging(Nullable<global::System.Int32> value);
-        partial void OnSportIDChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String LeagueName
-        {
-            get
-            {
-                return _LeagueName;
-            }
-            set
-            {
-                OnLeagueNameChanging(value);
-                ReportPropertyChanging("LeagueName");
-                _LeagueName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("LeagueName");
-                OnLeagueNameChanged();
-            }
-        }
-        private global::System.String _LeagueName;
-        partial void OnLeagueNameChanging(global::System.String value);
-        partial void OnLeagueNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String Description
-        {
-            get
-            {
-                return _Description;
-            }
-            set
-            {
-                OnDescriptionChanging(value);
-                ReportPropertyChanging("Description");
-                _Description = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("Description");
-                OnDescriptionChanged();
-            }
-        }
-        private global::System.String _Description;
-        partial void OnDescriptionChanging(global::System.String value);
-        partial void OnDescriptionChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> StartDate
-        {
-            get
-            {
-                return _StartDate;
-            }
-            set
-            {
-                OnStartDateChanging(value);
-                ReportPropertyChanging("StartDate");
-                _StartDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("StartDate");
-                OnStartDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _StartDate;
-        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnStartDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> EndDate
-        {
-            get
-            {
-                return _EndDate;
-            }
-            set
-            {
-                OnEndDateChanging(value);
-                ReportPropertyChanging("EndDate");
-                _EndDate = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EndDate");
-                OnEndDateChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _EndDate;
-        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
-        partial void OnEndDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ChampionTitle
-        {
-            get
-            {
-                return _ChampionTitle;
-            }
-            set
-            {
-                OnChampionTitleChanging(value);
-                ReportPropertyChanging("ChampionTitle");
-                _ChampionTitle = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ChampionTitle");
-                OnChampionTitleChanged();
-            }
-        }
-        private global::System.String _ChampionTitle;
-        partial void OnChampionTitleChanging(global::System.String value);
-        partial void OnChampionTitleChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int64> TotalTeams
-        {
-            get
-            {
-                return _TotalTeams;
-            }
-            set
-            {
-                OnTotalTeamsChanging(value);
-                ReportPropertyChanging("TotalTeams");
-                _TotalTeams = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TotalTeams");
-                OnTotalTeamsChanged();
-            }
-        }
-        private Nullable<global::System.Int64> _TotalTeams;
-        partial void OnTotalTeamsChanging(Nullable<global::System.Int64> value);
-        partial void OnTotalTeamsChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int64> TotalPlayers
-        {
-            get
-            {
-                return _TotalPlayers;
-            }
-            set
-            {
-                OnTotalPlayersChanging(value);
-                ReportPropertyChanging("TotalPlayers");
-                _TotalPlayers = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("TotalPlayers");
-                OnTotalPlayersChanged();
-            }
-        }
-        private Nullable<global::System.Int64> _TotalPlayers;
-        partial void OnTotalPlayersChanging(Nullable<global::System.Int64> value);
-        partial void OnTotalPlayersChanged();
-
-        #endregion
-    
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Leagues_Sports", "Sport")]
-        public Sport Sport
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Sport> SportReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_SoccerMatches_Leagues", "SoccerMatch")]
-        public EntityCollection<SoccerMatch> SoccerMatches
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerMatch>("BetEXData.FK_SoccerMatches_Leagues", "SoccerMatch");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerMatch>("BetEXData.FK_SoccerMatches_Leagues", "SoccerMatch", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Team_Leagues", "Team")]
-        public EntityCollection<Team> Teams
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Team>("BetEXData.FK_Team_Leagues", "Team");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Team>("BetEXData.FK_Team_Leagues", "Team", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -1953,13 +1873,13 @@ namespace BetEx247.Data.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="loginTime">Initial value of the LoginTime property.</param>
-        /// <param name="status">Initial value of the Status property.</param>
-        public static LoginHistory CreateLoginHistory(global::System.Int64 id, global::System.DateTime loginTime, global::System.Byte status)
+        /// <param name="logoutTime">Initial value of the LogoutTime property.</param>
+        public static LoginHistory CreateLoginHistory(global::System.Int64 id, global::System.DateTime loginTime, global::System.DateTime logoutTime)
         {
             LoginHistory loginHistory = new LoginHistory();
             loginHistory.ID = id;
             loginHistory.LoginTime = loginTime;
-            loginHistory.Status = status;
+            loginHistory.LogoutTime = logoutTime;
             return loginHistory;
         }
 
@@ -2044,9 +1964,9 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> LogoutTime
+        public global::System.DateTime LogoutTime
         {
             get
             {
@@ -2061,16 +1981,16 @@ namespace BetEx247.Data.Model
                 OnLogoutTimeChanged();
             }
         }
-        private Nullable<global::System.DateTime> _LogoutTime;
-        partial void OnLogoutTimeChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _LogoutTime;
+        partial void OnLogoutTimeChanging(global::System.DateTime value);
         partial void OnLogoutTimeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Byte Status
+        public Nullable<global::System.Byte> Status
         {
             get
             {
@@ -2085,8 +2005,8 @@ namespace BetEx247.Data.Model
                 OnStatusChanged();
             }
         }
-        private global::System.Byte _Status;
-        partial void OnStatusChanging(global::System.Byte value);
+        private Nullable<global::System.Byte> _Status;
+        partial void OnStatusChanging(Nullable<global::System.Byte> value);
         partial void OnStatusChanged();
     
         /// <summary>
@@ -3200,6 +3120,28 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_LoginHistory_Members", "LoginHistory")]
+        public EntityCollection<LoginHistory> LoginHistories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Messages_Members", "Message")]
         public EntityCollection<Message> Messages
         {
@@ -3300,28 +3242,6 @@ namespace BetEx247.Data.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_LoginHistory_Members", "LoginHistory")]
-        public EntityCollection<LoginHistory> LoginHistories
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory", value);
                 }
             }
         }
@@ -4262,44 +4182,6 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Members", "Member")]
-        public Member Member
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Member> MemberReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap")]
         public Soccer_AsianHandicap Soccer_AsianHandicap
         {
@@ -4369,6 +4251,120 @@ namespace BetEx247.Data.Model
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet")]
+        public Soccer_DrawNoBet Soccer_DrawNoBet
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Soccer_DrawNoBet> Soccer_DrawNoBetReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU")]
+        public Soccer_TotalGoalsOU Soccer_TotalGoalsOU
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Soccer_TotalGoalsOU> Soccer_TotalGoalsOUReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Members", "Member")]
+        public Member Member
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Member> MemberReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -4389,7 +4385,7 @@ namespace BetEx247.Data.Model
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="nickName">Initial value of the NickName property.</param>
         /// <param name="paymentMethodId">Initial value of the PaymentMethodId property.</param>
-        public static MyCard CreateMyCard(global::System.Int32 id, global::System.String nickName, global::System.Int64 paymentMethodId)
+        public static MyCard CreateMyCard(global::System.Int32 id, global::System.String nickName, global::System.Int16 paymentMethodId)
         {
             MyCard myCard = new MyCard();
             myCard.ID = id;
@@ -4529,7 +4525,7 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int64 PaymentMethodId
+        public global::System.Int16 PaymentMethodId
         {
             get
             {
@@ -4544,8 +4540,8 @@ namespace BetEx247.Data.Model
                 OnPaymentMethodIdChanged();
             }
         }
-        private global::System.Int64 _PaymentMethodId;
-        partial void OnPaymentMethodIdChanging(global::System.Int64 value);
+        private global::System.Int16 _PaymentMethodId;
+        partial void OnPaymentMethodIdChanging(global::System.Int16 value);
         partial void OnPaymentMethodIdChanged();
     
         /// <summary>
@@ -4885,16 +4881,14 @@ namespace BetEx247.Data.Model
         /// Create a new PaymentMethod object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
         /// <param name="creditCardNumber">Initial value of the CreditCardNumber property.</param>
         /// <param name="nameOnCard">Initial value of the NameOnCard property.</param>
         /// <param name="validFrom">Initial value of the ValidFrom property.</param>
         /// <param name="validTo">Initial value of the ValidTo property.</param>
-        public static PaymentMethod CreatePaymentMethod(global::System.Int64 id, global::System.String name, global::System.String creditCardNumber, global::System.String nameOnCard, global::System.DateTime validFrom, global::System.DateTime validTo)
+        public static PaymentMethod CreatePaymentMethod(global::System.Int16 id, global::System.String creditCardNumber, global::System.String nameOnCard, global::System.DateTime validFrom, global::System.DateTime validTo)
         {
             PaymentMethod paymentMethod = new PaymentMethod();
             paymentMethod.ID = id;
-            paymentMethod.Name = name;
             paymentMethod.CreditCardNumber = creditCardNumber;
             paymentMethod.NameOnCard = nameOnCard;
             paymentMethod.ValidFrom = validFrom;
@@ -4910,7 +4904,7 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int64 ID
+        public global::System.Int16 ID
         {
             get
             {
@@ -4928,14 +4922,14 @@ namespace BetEx247.Data.Model
                 }
             }
         }
-        private global::System.Int64 _ID;
-        partial void OnIDChanging(global::System.Int64 value);
+        private global::System.Int16 _ID;
+        partial void OnIDChanging(global::System.Int16 value);
         partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -4947,7 +4941,7 @@ namespace BetEx247.Data.Model
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
+                _Name = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -5825,15 +5819,17 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// Create a new PSV_MYBET object.
         /// </summary>
+        /// <param name="sportID">Initial value of the SportID property.</param>
         /// <param name="sportName">Initial value of the SportName property.</param>
         /// <param name="leagueName">Initial value of the LeagueName property.</param>
         /// <param name="betId">Initial value of the BetId property.</param>
         /// <param name="isWon">Initial value of the IsWon property.</param>
         /// <param name="price">Initial value of the Price property.</param>
         /// <param name="stake">Initial value of the Stake property.</param>
-        public static PSV_MYBET CreatePSV_MYBET(global::System.String sportName, global::System.String leagueName, global::System.Int64 betId, global::System.Boolean isWon, global::System.Decimal price, global::System.Decimal stake)
+        public static PSV_MYBET CreatePSV_MYBET(global::System.Int32 sportID, global::System.String sportName, global::System.String leagueName, global::System.Int64 betId, global::System.Boolean isWon, global::System.Decimal price, global::System.Decimal stake)
         {
             PSV_MYBET pSV_MYBET = new PSV_MYBET();
+            pSV_MYBET.SportID = sportID;
             pSV_MYBET.SportName = sportName;
             pSV_MYBET.LeagueName = leagueName;
             pSV_MYBET.BetId = betId;
@@ -5849,9 +5845,9 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> SportID
+        public global::System.Int32 SportID
         {
             get
             {
@@ -5859,15 +5855,18 @@ namespace BetEx247.Data.Model
             }
             set
             {
-                OnSportIDChanging(value);
-                ReportPropertyChanging("SportID");
-                _SportID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("SportID");
-                OnSportIDChanged();
+                if (_SportID != value)
+                {
+                    OnSportIDChanging(value);
+                    ReportPropertyChanging("SportID");
+                    _SportID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("SportID");
+                    OnSportIDChanged();
+                }
             }
         }
-        private Nullable<global::System.Int32> _SportID;
-        partial void OnSportIDChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _SportID;
+        partial void OnSportIDChanging(global::System.Int32 value);
         partial void OnSportIDChanged();
     
         /// <summary>
@@ -5995,30 +5994,6 @@ namespace BetEx247.Data.Model
         private Nullable<global::System.DateTime> _EndDate;
         partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
         partial void OnEndDateChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String ChampionTitle
-        {
-            get
-            {
-                return _ChampionTitle;
-            }
-            set
-            {
-                OnChampionTitleChanging(value);
-                ReportPropertyChanging("ChampionTitle");
-                _ChampionTitle = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("ChampionTitle");
-                OnChampionTitleChanged();
-            }
-        }
-        private global::System.String _ChampionTitle;
-        partial void OnChampionTitleChanging(global::System.String value);
-        partial void OnChampionTitleChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6907,24 +6882,18 @@ namespace BetEx247.Data.Model
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="matchID">Initial value of the MatchID property.</param>
         /// <param name="homeHandicap">Initial value of the HomeHandicap property.</param>
-        /// <param name="awayHandicap">Initial value of the AwayHandicap property.</param>
         /// <param name="homePrice">Initial value of the HomePrice property.</param>
         /// <param name="awayPrice">Initial value of the AwayPrice property.</param>
         /// <param name="period">Initial value of the Period property.</param>
-        /// <param name="isBestPrice">Initial value of the IsBestPrice property.</param>
-        /// <param name="xMLFeedsFile">Initial value of the XMLFeedsFile property.</param>
-        public static Soccer_AsianHandicap CreateSoccer_AsianHandicap(global::System.Int64 id, global::System.Int64 matchID, global::System.String homeHandicap, global::System.String awayHandicap, global::System.Decimal homePrice, global::System.Decimal awayPrice, global::System.Byte period, global::System.Boolean isBestPrice, global::System.String xMLFeedsFile)
+        public static Soccer_AsianHandicap CreateSoccer_AsianHandicap(global::System.Int64 id, global::System.Int64 matchID, global::System.String homeHandicap, global::System.Decimal homePrice, global::System.Decimal awayPrice, global::System.Byte period)
         {
             Soccer_AsianHandicap soccer_AsianHandicap = new Soccer_AsianHandicap();
             soccer_AsianHandicap.ID = id;
             soccer_AsianHandicap.MatchID = matchID;
             soccer_AsianHandicap.HomeHandicap = homeHandicap;
-            soccer_AsianHandicap.AwayHandicap = awayHandicap;
             soccer_AsianHandicap.HomePrice = homePrice;
             soccer_AsianHandicap.AwayPrice = awayPrice;
             soccer_AsianHandicap.Period = period;
-            soccer_AsianHandicap.IsBestPrice = isBestPrice;
-            soccer_AsianHandicap.XMLFeedsFile = xMLFeedsFile;
             return soccer_AsianHandicap;
         }
 
@@ -7005,30 +6974,6 @@ namespace BetEx247.Data.Model
         private global::System.String _HomeHandicap;
         partial void OnHomeHandicapChanging(global::System.String value);
         partial void OnHomeHandicapChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String AwayHandicap
-        {
-            get
-            {
-                return _AwayHandicap;
-            }
-            set
-            {
-                OnAwayHandicapChanging(value);
-                ReportPropertyChanging("AwayHandicap");
-                _AwayHandicap = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("AwayHandicap");
-                OnAwayHandicapChanged();
-            }
-        }
-        private global::System.String _AwayHandicap;
-        partial void OnAwayHandicapChanging(global::System.String value);
-        partial void OnAwayHandicapChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7173,54 +7118,6 @@ namespace BetEx247.Data.Model
         private global::System.Byte _Period;
         partial void OnPeriodChanging(global::System.Byte value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private global::System.Boolean _IsBestPrice;
-        partial void OnIsBestPriceChanging(global::System.Boolean value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7521,30 +7418,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsBestPrice;
-        partial void OnIsBestPriceChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Byte Period
@@ -7565,30 +7438,6 @@ namespace BetEx247.Data.Model
         private global::System.Byte _Period;
         partial void OnPeriodChanging(global::System.Byte value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -7696,11 +7545,13 @@ namespace BetEx247.Data.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="matchID">Initial value of the MatchID property.</param>
-        public static Soccer_DrawNoBet CreateSoccer_DrawNoBet(global::System.Int64 id, global::System.Int64 matchID)
+        /// <param name="entrants">Initial value of the Entrants property.</param>
+        public static Soccer_DrawNoBet CreateSoccer_DrawNoBet(global::System.Int64 id, global::System.Int64 matchID, global::System.Int16 entrants)
         {
             Soccer_DrawNoBet soccer_DrawNoBet = new Soccer_DrawNoBet();
             soccer_DrawNoBet.ID = id;
             soccer_DrawNoBet.MatchID = matchID;
+            soccer_DrawNoBet.Entrants = entrants;
             return soccer_DrawNoBet;
         }
 
@@ -7883,30 +7734,6 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsBestPrice;
-        partial void OnIsBestPriceChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public global::System.String Period
         {
             get
@@ -7929,33 +7756,9 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Int16> Entrants
+        public global::System.Int16 Entrants
         {
             get
             {
@@ -7970,13 +7773,35 @@ namespace BetEx247.Data.Model
                 OnEntrantsChanged();
             }
         }
-        private Nullable<global::System.Int16> _Entrants;
-        partial void OnEntrantsChanging(Nullable<global::System.Int16> value);
+        private global::System.Int16 _Entrants;
+        partial void OnEntrantsChanging(global::System.Int16 value);
         partial void OnEntrantsChanged();
 
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_DrawNoBet", "MyBet")]
+        public EntityCollection<MyBet> MyBets
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "MyBet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "MyBet", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8249,9 +8074,8 @@ namespace BetEx247.Data.Model
         /// <param name="awayPrice">Initial value of the AwayPrice property.</param>
         /// <param name="drawPrice">Initial value of the DrawPrice property.</param>
         /// <param name="period">Initial value of the Period property.</param>
-        /// <param name="xMLFeedsFile">Initial value of the XMLFeedsFile property.</param>
         /// <param name="entrants">Initial value of the Entrants property.</param>
-        public static Soccer_MatchOdds CreateSoccer_MatchOdds(global::System.Int64 id, global::System.Int64 matchID, global::System.Decimal homePrice, global::System.Decimal awayPrice, global::System.Decimal drawPrice, global::System.Byte period, global::System.String xMLFeedsFile, global::System.Int16 entrants)
+        public static Soccer_MatchOdds CreateSoccer_MatchOdds(global::System.Int64 id, global::System.Int64 matchID, global::System.Decimal homePrice, global::System.Decimal awayPrice, global::System.Decimal drawPrice, global::System.Byte period, global::System.Int16 entrants)
         {
             Soccer_MatchOdds soccer_MatchOdds = new Soccer_MatchOdds();
             soccer_MatchOdds.ID = id;
@@ -8260,7 +8084,6 @@ namespace BetEx247.Data.Model
             soccer_MatchOdds.AwayPrice = awayPrice;
             soccer_MatchOdds.DrawPrice = drawPrice;
             soccer_MatchOdds.Period = period;
-            soccer_MatchOdds.XMLFeedsFile = xMLFeedsFile;
             soccer_MatchOdds.Entrants = entrants;
             return soccer_MatchOdds;
         }
@@ -8466,30 +8289,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsBestPrice;
-        partial void OnIsBestPriceChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Byte Period
@@ -8510,30 +8309,6 @@ namespace BetEx247.Data.Model
         private global::System.Byte _Period;
         partial void OnPeriodChanging(global::System.Byte value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -8971,14 +8746,22 @@ namespace BetEx247.Data.Model
         /// <param name="matchID">Initial value of the MatchID property.</param>
         /// <param name="oU">Initial value of the OU property.</param>
         /// <param name="overPrice">Initial value of the OverPrice property.</param>
+        /// <param name="underPrice">Initial value of the UnderPrice property.</param>
+        /// <param name="lastUpdated">Initial value of the LastUpdated property.</param>
+        /// <param name="marketCloseTime">Initial value of the MarketCloseTime property.</param>
+        /// <param name="period">Initial value of the Period property.</param>
         /// <param name="entrants">Initial value of the Entrants property.</param>
-        public static Soccer_TotalGoalsOU CreateSoccer_TotalGoalsOU(global::System.Int64 id, global::System.Int64 matchID, global::System.String oU, global::System.Decimal overPrice, global::System.Int32 entrants)
+        public static Soccer_TotalGoalsOU CreateSoccer_TotalGoalsOU(global::System.Int64 id, global::System.Int64 matchID, global::System.Decimal oU, global::System.Decimal overPrice, global::System.Decimal underPrice, global::System.DateTime lastUpdated, global::System.DateTime marketCloseTime, global::System.Byte period, global::System.Int32 entrants)
         {
             Soccer_TotalGoalsOU soccer_TotalGoalsOU = new Soccer_TotalGoalsOU();
             soccer_TotalGoalsOU.ID = id;
             soccer_TotalGoalsOU.MatchID = matchID;
             soccer_TotalGoalsOU.OU = oU;
             soccer_TotalGoalsOU.OverPrice = overPrice;
+            soccer_TotalGoalsOU.UnderPrice = underPrice;
+            soccer_TotalGoalsOU.LastUpdated = lastUpdated;
+            soccer_TotalGoalsOU.MarketCloseTime = marketCloseTime;
+            soccer_TotalGoalsOU.Period = period;
             soccer_TotalGoalsOU.Entrants = entrants;
             return soccer_TotalGoalsOU;
         }
@@ -9042,7 +8825,7 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String OU
+        public global::System.Decimal OU
         {
             get
             {
@@ -9052,13 +8835,13 @@ namespace BetEx247.Data.Model
             {
                 OnOUChanging(value);
                 ReportPropertyChanging("OU");
-                _OU = StructuralObject.SetValidValue(value, false);
+                _OU = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("OU");
                 OnOUChanged();
             }
         }
-        private global::System.String _OU;
-        partial void OnOUChanging(global::System.String value);
+        private global::System.Decimal _OU;
+        partial void OnOUChanging(global::System.Decimal value);
         partial void OnOUChanged();
     
         /// <summary>
@@ -9088,9 +8871,9 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> UnderPrice
+        public global::System.Decimal UnderPrice
         {
             get
             {
@@ -9105,16 +8888,16 @@ namespace BetEx247.Data.Model
                 OnUnderPriceChanged();
             }
         }
-        private Nullable<global::System.Decimal> _UnderPrice;
-        partial void OnUnderPriceChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _UnderPrice;
+        partial void OnUnderPriceChanging(global::System.Decimal value);
         partial void OnUnderPriceChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> LastUpdated
+        public global::System.DateTime LastUpdated
         {
             get
             {
@@ -9129,8 +8912,8 @@ namespace BetEx247.Data.Model
                 OnLastUpdatedChanged();
             }
         }
-        private Nullable<global::System.DateTime> _LastUpdated;
-        partial void OnLastUpdatedChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _LastUpdated;
+        partial void OnLastUpdatedChanging(global::System.DateTime value);
         partial void OnLastUpdatedChanged();
     
         /// <summary>
@@ -9160,9 +8943,9 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> MarketCloseTime
+        public global::System.DateTime MarketCloseTime
         {
             get
             {
@@ -9177,40 +8960,16 @@ namespace BetEx247.Data.Model
                 OnMarketCloseTimeChanged();
             }
         }
-        private Nullable<global::System.DateTime> _MarketCloseTime;
-        partial void OnMarketCloseTimeChanging(Nullable<global::System.DateTime> value);
+        private global::System.DateTime _MarketCloseTime;
+        partial void OnMarketCloseTimeChanging(global::System.DateTime value);
         partial void OnMarketCloseTimeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsBestPrice;
-        partial void OnIsBestPriceChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Byte> Period
+        public global::System.Byte Period
         {
             get
             {
@@ -9225,33 +8984,9 @@ namespace BetEx247.Data.Model
                 OnPeriodChanged();
             }
         }
-        private Nullable<global::System.Byte> _Period;
-        partial void OnPeriodChanging(Nullable<global::System.Byte> value);
+        private global::System.Byte _Period;
+        partial void OnPeriodChanging(global::System.Byte value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9280,6 +9015,28 @@ namespace BetEx247.Data.Model
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_TotalGoalsOU", "MyBet")]
+        public EntityCollection<MyBet> MyBets
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "MyBet");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "MyBet", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -9697,6 +9454,680 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SoccerCountry")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SoccerCountry : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SoccerCountry object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="country">Initial value of the Country property.</param>
+        public static SoccerCountry CreateSoccerCountry(global::System.Int32 id, global::System.String country)
+        {
+            SoccerCountry soccerCountry = new SoccerCountry();
+            soccerCountry.ID = id;
+            soccerCountry.Country = country;
+            return soccerCountry;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _ID;
+        partial void OnIDChanging(global::System.Int32 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Country
+        {
+            get
+            {
+                return _Country;
+            }
+            set
+            {
+                OnCountryChanging(value);
+                ReportPropertyChanging("Country");
+                _Country = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Country");
+                OnCountryChanged();
+            }
+        }
+        private global::System.String _Country;
+        partial void OnCountryChanging(global::System.String value);
+        partial void OnCountryChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Goalserve_OddsFeed
+        {
+            get
+            {
+                return _Goalserve_OddsFeed;
+            }
+            set
+            {
+                OnGoalserve_OddsFeedChanging(value);
+                ReportPropertyChanging("Goalserve_OddsFeed");
+                _Goalserve_OddsFeed = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Goalserve_OddsFeed");
+                OnGoalserve_OddsFeedChanged();
+            }
+        }
+        private global::System.String _Goalserve_OddsFeed;
+        partial void OnGoalserve_OddsFeedChanging(global::System.String value);
+        partial void OnGoalserve_OddsFeedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Goalserve_LivescoreFeed
+        {
+            get
+            {
+                return _Goalserve_LivescoreFeed;
+            }
+            set
+            {
+                OnGoalserve_LivescoreFeedChanging(value);
+                ReportPropertyChanging("Goalserve_LivescoreFeed");
+                _Goalserve_LivescoreFeed = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Goalserve_LivescoreFeed");
+                OnGoalserve_LivescoreFeedChanged();
+            }
+        }
+        private global::System.String _Goalserve_LivescoreFeed;
+        partial void OnGoalserve_LivescoreFeedChanging(global::System.String value);
+        partial void OnGoalserve_LivescoreFeedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Betclick_OddsFeed
+        {
+            get
+            {
+                return _Betclick_OddsFeed;
+            }
+            set
+            {
+                OnBetclick_OddsFeedChanging(value);
+                ReportPropertyChanging("Betclick_OddsFeed");
+                _Betclick_OddsFeed = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Betclick_OddsFeed");
+                OnBetclick_OddsFeedChanged();
+            }
+        }
+        private global::System.String _Betclick_OddsFeed;
+        partial void OnBetclick_OddsFeedChanging(global::System.String value);
+        partial void OnBetclick_OddsFeedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> International
+        {
+            get
+            {
+                return _International;
+            }
+            set
+            {
+                OnInternationalChanging(value);
+                ReportPropertyChanging("International");
+                _International = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("International");
+                OnInternationalChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _International;
+        partial void OnInternationalChanging(Nullable<global::System.Boolean> value);
+        partial void OnInternationalChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Leagues_SoccerCountries", "SoccerLeague")]
+        public EntityCollection<SoccerLeague> SoccerLeagues
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerLeague>("BetEXData.FK_Leagues_SoccerCountries", "SoccerLeague");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerLeague>("BetEXData.FK_Leagues_SoccerCountries", "SoccerLeague", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SoccerLeague")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SoccerLeague : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SoccerLeague object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="is_Soccer">Initial value of the Is_Soccer property.</param>
+        /// <param name="leagueName_Goalserve">Initial value of the LeagueName_Goalserve property.</param>
+        /// <param name="leagueName_WebDisplay">Initial value of the LeagueName_WebDisplay property.</param>
+        public static SoccerLeague CreateSoccerLeague(global::System.Int64 id, global::System.Boolean is_Soccer, global::System.String leagueName_Goalserve, global::System.String leagueName_WebDisplay)
+        {
+            SoccerLeague soccerLeague = new SoccerLeague();
+            soccerLeague.ID = id;
+            soccerLeague.Is_Soccer = is_Soccer;
+            soccerLeague.LeagueName_Goalserve = leagueName_Goalserve;
+            soccerLeague.LeagueName_WebDisplay = leagueName_WebDisplay;
+            return soccerLeague;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SportID
+        {
+            get
+            {
+                return _SportID;
+            }
+            set
+            {
+                OnSportIDChanging(value);
+                ReportPropertyChanging("SportID");
+                _SportID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SportID");
+                OnSportIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SportID;
+        partial void OnSportIDChanging(Nullable<global::System.Int32> value);
+        partial void OnSportIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CountryID
+        {
+            get
+            {
+                return _CountryID;
+            }
+            set
+            {
+                OnCountryIDChanging(value);
+                ReportPropertyChanging("CountryID");
+                _CountryID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryID");
+                OnCountryIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CountryID;
+        partial void OnCountryIDChanging(Nullable<global::System.Int32> value);
+        partial void OnCountryIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean Is_Soccer
+        {
+            get
+            {
+                return _Is_Soccer;
+            }
+            set
+            {
+                OnIs_SoccerChanging(value);
+                ReportPropertyChanging("Is_Soccer");
+                _Is_Soccer = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Is_Soccer");
+                OnIs_SoccerChanged();
+            }
+        }
+        private global::System.Boolean _Is_Soccer;
+        partial void OnIs_SoccerChanging(global::System.Boolean value);
+        partial void OnIs_SoccerChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LeagueName_Goalserve
+        {
+            get
+            {
+                return _LeagueName_Goalserve;
+            }
+            set
+            {
+                OnLeagueName_GoalserveChanging(value);
+                ReportPropertyChanging("LeagueName_Goalserve");
+                _LeagueName_Goalserve = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LeagueName_Goalserve");
+                OnLeagueName_GoalserveChanged();
+            }
+        }
+        private global::System.String _LeagueName_Goalserve;
+        partial void OnLeagueName_GoalserveChanging(global::System.String value);
+        partial void OnLeagueName_GoalserveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String LeagueName_Betclick
+        {
+            get
+            {
+                return _LeagueName_Betclick;
+            }
+            set
+            {
+                OnLeagueName_BetclickChanging(value);
+                ReportPropertyChanging("LeagueName_Betclick");
+                _LeagueName_Betclick = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("LeagueName_Betclick");
+                OnLeagueName_BetclickChanged();
+            }
+        }
+        private global::System.String _LeagueName_Betclick;
+        partial void OnLeagueName_BetclickChanging(global::System.String value);
+        partial void OnLeagueName_BetclickChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LeagueName_WebDisplay
+        {
+            get
+            {
+                return _LeagueName_WebDisplay;
+            }
+            set
+            {
+                OnLeagueName_WebDisplayChanging(value);
+                ReportPropertyChanging("LeagueName_WebDisplay");
+                _LeagueName_WebDisplay = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("LeagueName_WebDisplay");
+                OnLeagueName_WebDisplayChanged();
+            }
+        }
+        private global::System.String _LeagueName_WebDisplay;
+        partial void OnLeagueName_WebDisplayChanging(global::System.String value);
+        partial void OnLeagueName_WebDisplayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _StartDate;
+        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EndDate;
+        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEndDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ChampionTitle
+        {
+            get
+            {
+                return _ChampionTitle;
+            }
+            set
+            {
+                OnChampionTitleChanging(value);
+                ReportPropertyChanging("ChampionTitle");
+                _ChampionTitle = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ChampionTitle");
+                OnChampionTitleChanged();
+            }
+        }
+        private global::System.String _ChampionTitle;
+        partial void OnChampionTitleChanging(global::System.String value);
+        partial void OnChampionTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> TotalTeams
+        {
+            get
+            {
+                return _TotalTeams;
+            }
+            set
+            {
+                OnTotalTeamsChanging(value);
+                ReportPropertyChanging("TotalTeams");
+                _TotalTeams = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalTeams");
+                OnTotalTeamsChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _TotalTeams;
+        partial void OnTotalTeamsChanging(Nullable<global::System.Int64> value);
+        partial void OnTotalTeamsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> TotalPlayers
+        {
+            get
+            {
+                return _TotalPlayers;
+            }
+            set
+            {
+                OnTotalPlayersChanging(value);
+                ReportPropertyChanging("TotalPlayers");
+                _TotalPlayers = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TotalPlayers");
+                OnTotalPlayersChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _TotalPlayers;
+        partial void OnTotalPlayersChanging(Nullable<global::System.Int64> value);
+        partial void OnTotalPlayersChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Leagues_SoccerCountries", "SoccerCountry")]
+        public SoccerCountry SoccerCountry
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BetEXData.FK_Leagues_SoccerCountries", "SoccerCountry").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BetEXData.FK_Leagues_SoccerCountries", "SoccerCountry").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SoccerCountry> SoccerCountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BetEXData.FK_Leagues_SoccerCountries", "SoccerCountry");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerCountry>("BetEXData.FK_Leagues_SoccerCountries", "SoccerCountry", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Leagues_Sports", "Sport")]
+        public Sport Sport
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Sport> SportReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sport>("BetEXData.FK_Leagues_Sports", "Sport", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_SoccerMatches_SoccerLeagues", "SoccerMatch")]
+        public EntityCollection<SoccerMatch> SoccerMatches
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerMatch>("BetEXData.FK_SoccerMatches_SoccerLeagues", "SoccerMatch");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerMatch>("BetEXData.FK_SoccerMatches_SoccerLeagues", "SoccerMatch", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Team_Leagues", "Team")]
+        public EntityCollection<Team> Teams
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Team>("BetEXData.FK_Team_Leagues", "Team");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Team>("BetEXData.FK_Team_Leagues", "Team", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SoccerMatch")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -9708,30 +10139,18 @@ namespace BetEx247.Data.Model
         /// Create a new SoccerMatch object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="matchName">Initial value of the MatchName property.</param>
-        /// <param name="c_1stHalfScore">Initial value of the C_1stHalfScore property.</param>
-        /// <param name="c_2ndHalfScore">Initial value of the C_2ndHalfScore property.</param>
-        /// <param name="c_FTScore">Initial value of the C_FTScore property.</param>
-        /// <param name="c_ET2Score">Initial value of the C_ET2Score property.</param>
-        /// <param name="c_PenaltyScore">Initial value of the C_PenaltyScore property.</param>
-        /// <param name="winningTeam">Initial value of the WinningTeam property.</param>
         /// <param name="homeTeam">Initial value of the HomeTeam property.</param>
         /// <param name="awayTeam">Initial value of the AwayTeam property.</param>
-        /// <param name="soccer_MatchStats_XMLFile">Initial value of the Soccer_MatchStats_XMLFile property.</param>
-        public static SoccerMatch CreateSoccerMatch(global::System.Int64 id, global::System.String matchName, global::System.String c_1stHalfScore, global::System.String c_2ndHalfScore, global::System.String c_FTScore, global::System.String c_ET2Score, global::System.String c_PenaltyScore, global::System.String winningTeam, global::System.String homeTeam, global::System.String awayTeam, global::System.String soccer_MatchStats_XMLFile)
+        /// <param name="startDate">Initial value of the StartDate property.</param>
+        /// <param name="startTime">Initial value of the StartTime property.</param>
+        public static SoccerMatch CreateSoccerMatch(global::System.Int64 id, global::System.String homeTeam, global::System.String awayTeam, global::System.DateTime startDate, global::System.DateTime startTime)
         {
             SoccerMatch soccerMatch = new SoccerMatch();
             soccerMatch.ID = id;
-            soccerMatch.MatchName = matchName;
-            soccerMatch.C_1stHalfScore = c_1stHalfScore;
-            soccerMatch.C_2ndHalfScore = c_2ndHalfScore;
-            soccerMatch.C_FTScore = c_FTScore;
-            soccerMatch.C_ET2Score = c_ET2Score;
-            soccerMatch.C_PenaltyScore = c_PenaltyScore;
-            soccerMatch.WinningTeam = winningTeam;
             soccerMatch.HomeTeam = homeTeam;
             soccerMatch.AwayTeam = awayTeam;
-            soccerMatch.Soccer_MatchStats_XMLFile = soccer_MatchStats_XMLFile;
+            soccerMatch.StartDate = startDate;
+            soccerMatch.StartTime = startTime;
             return soccerMatch;
         }
 
@@ -9768,177 +10187,249 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String MatchName
+        public Nullable<global::System.Int16> HomeTeam_1stHalfGoals
         {
             get
             {
-                return _MatchName;
+                return _HomeTeam_1stHalfGoals;
             }
             set
             {
-                OnMatchNameChanging(value);
-                ReportPropertyChanging("MatchName");
-                _MatchName = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("MatchName");
-                OnMatchNameChanged();
+                OnHomeTeam_1stHalfGoalsChanging(value);
+                ReportPropertyChanging("HomeTeam_1stHalfGoals");
+                _HomeTeam_1stHalfGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HomeTeam_1stHalfGoals");
+                OnHomeTeam_1stHalfGoalsChanged();
             }
         }
-        private global::System.String _MatchName;
-        partial void OnMatchNameChanging(global::System.String value);
-        partial void OnMatchNameChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String C_1stHalfScore
-        {
-            get
-            {
-                return _C_1stHalfScore;
-            }
-            set
-            {
-                OnC_1stHalfScoreChanging(value);
-                ReportPropertyChanging("C_1stHalfScore");
-                _C_1stHalfScore = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("C_1stHalfScore");
-                OnC_1stHalfScoreChanged();
-            }
-        }
-        private global::System.String _C_1stHalfScore;
-        partial void OnC_1stHalfScoreChanging(global::System.String value);
-        partial void OnC_1stHalfScoreChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String C_2ndHalfScore
-        {
-            get
-            {
-                return _C_2ndHalfScore;
-            }
-            set
-            {
-                OnC_2ndHalfScoreChanging(value);
-                ReportPropertyChanging("C_2ndHalfScore");
-                _C_2ndHalfScore = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("C_2ndHalfScore");
-                OnC_2ndHalfScoreChanged();
-            }
-        }
-        private global::System.String _C_2ndHalfScore;
-        partial void OnC_2ndHalfScoreChanging(global::System.String value);
-        partial void OnC_2ndHalfScoreChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String C_FTScore
-        {
-            get
-            {
-                return _C_FTScore;
-            }
-            set
-            {
-                OnC_FTScoreChanging(value);
-                ReportPropertyChanging("C_FTScore");
-                _C_FTScore = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("C_FTScore");
-                OnC_FTScoreChanged();
-            }
-        }
-        private global::System.String _C_FTScore;
-        partial void OnC_FTScoreChanging(global::System.String value);
-        partial void OnC_FTScoreChanged();
+        private Nullable<global::System.Int16> _HomeTeam_1stHalfGoals;
+        partial void OnHomeTeam_1stHalfGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnHomeTeam_1stHalfGoalsChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String C_ET1Score
+        public Nullable<global::System.Int16> AwayTeam_1stHalfGoals
         {
             get
             {
-                return _C_ET1Score;
+                return _AwayTeam_1stHalfGoals;
             }
             set
             {
-                OnC_ET1ScoreChanging(value);
-                ReportPropertyChanging("C_ET1Score");
-                _C_ET1Score = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("C_ET1Score");
-                OnC_ET1ScoreChanged();
+                OnAwayTeam_1stHalfGoalsChanging(value);
+                ReportPropertyChanging("AwayTeam_1stHalfGoals");
+                _AwayTeam_1stHalfGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AwayTeam_1stHalfGoals");
+                OnAwayTeam_1stHalfGoalsChanged();
             }
         }
-        private global::System.String _C_ET1Score;
-        partial void OnC_ET1ScoreChanging(global::System.String value);
-        partial void OnC_ET1ScoreChanged();
+        private Nullable<global::System.Int16> _AwayTeam_1stHalfGoals;
+        partial void OnAwayTeam_1stHalfGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnAwayTeam_1stHalfGoalsChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String C_ET2Score
+        public Nullable<global::System.Int16> HomeTeam_2ndHalfGoals
         {
             get
             {
-                return _C_ET2Score;
+                return _HomeTeam_2ndHalfGoals;
             }
             set
             {
-                OnC_ET2ScoreChanging(value);
-                ReportPropertyChanging("C_ET2Score");
-                _C_ET2Score = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("C_ET2Score");
-                OnC_ET2ScoreChanged();
+                OnHomeTeam_2ndHalfGoalsChanging(value);
+                ReportPropertyChanging("HomeTeam_2ndHalfGoals");
+                _HomeTeam_2ndHalfGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HomeTeam_2ndHalfGoals");
+                OnHomeTeam_2ndHalfGoalsChanged();
             }
         }
-        private global::System.String _C_ET2Score;
-        partial void OnC_ET2ScoreChanging(global::System.String value);
-        partial void OnC_ET2ScoreChanged();
+        private Nullable<global::System.Int16> _HomeTeam_2ndHalfGoals;
+        partial void OnHomeTeam_2ndHalfGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnHomeTeam_2ndHalfGoalsChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String C_PenaltyScore
+        public Nullable<global::System.Int16> AwayTeam_2ndHalfGoals
         {
             get
             {
-                return _C_PenaltyScore;
+                return _AwayTeam_2ndHalfGoals;
             }
             set
             {
-                OnC_PenaltyScoreChanging(value);
-                ReportPropertyChanging("C_PenaltyScore");
-                _C_PenaltyScore = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("C_PenaltyScore");
-                OnC_PenaltyScoreChanged();
+                OnAwayTeam_2ndHalfGoalsChanging(value);
+                ReportPropertyChanging("AwayTeam_2ndHalfGoals");
+                _AwayTeam_2ndHalfGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AwayTeam_2ndHalfGoals");
+                OnAwayTeam_2ndHalfGoalsChanged();
             }
         }
-        private global::System.String _C_PenaltyScore;
-        partial void OnC_PenaltyScoreChanging(global::System.String value);
-        partial void OnC_PenaltyScoreChanged();
+        private Nullable<global::System.Int16> _AwayTeam_2ndHalfGoals;
+        partial void OnAwayTeam_2ndHalfGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnAwayTeam_2ndHalfGoalsChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String WinningTeam
+        public Nullable<global::System.Int16> HomeTeam_ET1Goals
+        {
+            get
+            {
+                return _HomeTeam_ET1Goals;
+            }
+            set
+            {
+                OnHomeTeam_ET1GoalsChanging(value);
+                ReportPropertyChanging("HomeTeam_ET1Goals");
+                _HomeTeam_ET1Goals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HomeTeam_ET1Goals");
+                OnHomeTeam_ET1GoalsChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _HomeTeam_ET1Goals;
+        partial void OnHomeTeam_ET1GoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnHomeTeam_ET1GoalsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> AwayTeam_ET1Goals
+        {
+            get
+            {
+                return _AwayTeam_ET1Goals;
+            }
+            set
+            {
+                OnAwayTeam_ET1GoalsChanging(value);
+                ReportPropertyChanging("AwayTeam_ET1Goals");
+                _AwayTeam_ET1Goals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AwayTeam_ET1Goals");
+                OnAwayTeam_ET1GoalsChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _AwayTeam_ET1Goals;
+        partial void OnAwayTeam_ET1GoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnAwayTeam_ET1GoalsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> HomeTeam_FTGoals
+        {
+            get
+            {
+                return _HomeTeam_FTGoals;
+            }
+            set
+            {
+                OnHomeTeam_FTGoalsChanging(value);
+                ReportPropertyChanging("HomeTeam_FTGoals");
+                _HomeTeam_FTGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HomeTeam_FTGoals");
+                OnHomeTeam_FTGoalsChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _HomeTeam_FTGoals;
+        partial void OnHomeTeam_FTGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnHomeTeam_FTGoalsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> AwayTeam_FTGoals
+        {
+            get
+            {
+                return _AwayTeam_FTGoals;
+            }
+            set
+            {
+                OnAwayTeam_FTGoalsChanging(value);
+                ReportPropertyChanging("AwayTeam_FTGoals");
+                _AwayTeam_FTGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AwayTeam_FTGoals");
+                OnAwayTeam_FTGoalsChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _AwayTeam_FTGoals;
+        partial void OnAwayTeam_FTGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnAwayTeam_FTGoalsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> HomeTeam_PKGoals
+        {
+            get
+            {
+                return _HomeTeam_PKGoals;
+            }
+            set
+            {
+                OnHomeTeam_PKGoalsChanging(value);
+                ReportPropertyChanging("HomeTeam_PKGoals");
+                _HomeTeam_PKGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HomeTeam_PKGoals");
+                OnHomeTeam_PKGoalsChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _HomeTeam_PKGoals;
+        partial void OnHomeTeam_PKGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnHomeTeam_PKGoalsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int16> AwayTeam_PKGoals
+        {
+            get
+            {
+                return _AwayTeam_PKGoals;
+            }
+            set
+            {
+                OnAwayTeam_PKGoalsChanging(value);
+                ReportPropertyChanging("AwayTeam_PKGoals");
+                _AwayTeam_PKGoals = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AwayTeam_PKGoals");
+                OnAwayTeam_PKGoalsChanged();
+            }
+        }
+        private Nullable<global::System.Int16> _AwayTeam_PKGoals;
+        partial void OnAwayTeam_PKGoalsChanging(Nullable<global::System.Int16> value);
+        partial void OnAwayTeam_PKGoalsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> WinningTeam
         {
             get
             {
@@ -9948,13 +10439,13 @@ namespace BetEx247.Data.Model
             {
                 OnWinningTeamChanging(value);
                 ReportPropertyChanging("WinningTeam");
-                _WinningTeam = StructuralObject.SetValidValue(value, false);
+                _WinningTeam = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("WinningTeam");
                 OnWinningTeamChanged();
             }
         }
-        private global::System.String _WinningTeam;
-        partial void OnWinningTeamChanging(global::System.String value);
+        private Nullable<global::System.Boolean> _WinningTeam;
+        partial void OnWinningTeamChanging(Nullable<global::System.Boolean> value);
         partial void OnWinningTeamChanged();
     
         /// <summary>
@@ -10032,7 +10523,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Soccer_MatchStats_XMLFile
         {
@@ -10044,7 +10535,7 @@ namespace BetEx247.Data.Model
             {
                 OnSoccer_MatchStats_XMLFileChanging(value);
                 ReportPropertyChanging("Soccer_MatchStats_XMLFile");
-                _Soccer_MatchStats_XMLFile = StructuralObject.SetValidValue(value, false);
+                _Soccer_MatchStats_XMLFile = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Soccer_MatchStats_XMLFile");
                 OnSoccer_MatchStats_XMLFileChanged();
             }
@@ -10100,6 +10591,126 @@ namespace BetEx247.Data.Model
         private Nullable<global::System.Int64> _LeagueID;
         partial void OnLeagueIDChanging(Nullable<global::System.Int64> value);
         partial void OnLeagueIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private global::System.DateTime _StartDate;
+        partial void OnStartDateChanging(global::System.DateTime value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StartTime
+        {
+            get
+            {
+                return _StartTime;
+            }
+            set
+            {
+                OnStartTimeChanging(value);
+                ReportPropertyChanging("StartTime");
+                _StartTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartTime");
+                OnStartTimeChanged();
+            }
+        }
+        private global::System.DateTime _StartTime;
+        partial void OnStartTimeChanging(global::System.DateTime value);
+        partial void OnStartTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> PlayET1
+        {
+            get
+            {
+                return _PlayET1;
+            }
+            set
+            {
+                OnPlayET1Changing(value);
+                ReportPropertyChanging("PlayET1");
+                _PlayET1 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PlayET1");
+                OnPlayET1Changed();
+            }
+        }
+        private Nullable<global::System.Boolean> _PlayET1;
+        partial void OnPlayET1Changing(Nullable<global::System.Boolean> value);
+        partial void OnPlayET1Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> PlayET2
+        {
+            get
+            {
+                return _PlayET2;
+            }
+            set
+            {
+                OnPlayET2Changing(value);
+                ReportPropertyChanging("PlayET2");
+                _PlayET2 = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PlayET2");
+                OnPlayET2Changed();
+            }
+        }
+        private Nullable<global::System.Boolean> _PlayET2;
+        partial void OnPlayET2Changing(Nullable<global::System.Boolean> value);
+        partial void OnPlayET2Changed();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Boolean> PlayPK
+        {
+            get
+            {
+                return _PlayPK;
+            }
+            set
+            {
+                OnPlayPKChanging(value);
+                ReportPropertyChanging("PlayPK");
+                _PlayPK = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PlayPK");
+                OnPlayPKChanged();
+            }
+        }
+        private Nullable<global::System.Boolean> _PlayPK;
+        partial void OnPlayPKChanging(Nullable<global::System.Boolean> value);
+        partial void OnPlayPKChanged();
 
         #endregion
     
@@ -10123,44 +10734,6 @@ namespace BetEx247.Data.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CardsInfo>("BetEXData.FK_CardsInfo_SoccerMatches", "CardsInfo", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_SoccerMatches_Leagues", "League")]
-        public League League
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<League>("BetEXData.FK_SoccerMatches_Leagues", "League").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<League>("BetEXData.FK_SoccerMatches_Leagues", "League").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<League> LeagueReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<League>("BetEXData.FK_SoccerMatches_Leagues", "League");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<League>("BetEXData.FK_SoccerMatches_Leagues", "League", value);
                 }
             }
         }
@@ -10347,6 +10920,44 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_SoccerMatches_SoccerLeagues", "SoccerLeague")]
+        public SoccerLeague SoccerLeague
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BetEXData.FK_SoccerMatches_SoccerLeagues", "SoccerLeague").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BetEXData.FK_SoccerMatches_SoccerLeagues", "SoccerLeague").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SoccerLeague> SoccerLeagueReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BetEXData.FK_SoccerMatches_SoccerLeagues", "SoccerLeague");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerLeague>("BetEXData.FK_SoccerMatches_SoccerLeagues", "SoccerLeague", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_AsianHandicap_SoccerMatches", "Sports_AsianHandicap")]
         public EntityCollection<Sports_AsianHandicap> Sports_AsianHandicap
         {
@@ -10381,13 +10992,11 @@ namespace BetEx247.Data.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="sportName">Initial value of the SportName property.</param>
-        /// <param name="sportRules">Initial value of the SportRules property.</param>
-        public static Sport CreateSport(global::System.Int32 id, global::System.String sportName, global::System.String sportRules)
+        public static Sport CreateSport(global::System.Int32 id, global::System.String sportName)
         {
             Sport sport = new Sport();
             sport.ID = id;
             sport.SportName = sportName;
-            sport.SportRules = sportRules;
             return sport;
         }
 
@@ -10448,26 +11057,74 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String SportRules
+        public global::System.String SportName_Goalserve
         {
             get
             {
-                return _SportRules;
+                return _SportName_Goalserve;
             }
             set
             {
-                OnSportRulesChanging(value);
-                ReportPropertyChanging("SportRules");
-                _SportRules = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("SportRules");
-                OnSportRulesChanged();
+                OnSportName_GoalserveChanging(value);
+                ReportPropertyChanging("SportName_Goalserve");
+                _SportName_Goalserve = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SportName_Goalserve");
+                OnSportName_GoalserveChanged();
             }
         }
-        private global::System.String _SportRules;
-        partial void OnSportRulesChanging(global::System.String value);
-        partial void OnSportRulesChanged();
+        private global::System.String _SportName_Goalserve;
+        partial void OnSportName_GoalserveChanging(global::System.String value);
+        partial void OnSportName_GoalserveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SportName_Pinacle
+        {
+            get
+            {
+                return _SportName_Pinacle;
+            }
+            set
+            {
+                OnSportName_PinacleChanging(value);
+                ReportPropertyChanging("SportName_Pinacle");
+                _SportName_Pinacle = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SportName_Pinacle");
+                OnSportName_PinacleChanged();
+            }
+        }
+        private global::System.String _SportName_Pinacle;
+        partial void OnSportName_PinacleChanging(global::System.String value);
+        partial void OnSportName_PinacleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SportName_Betclick
+        {
+            get
+            {
+                return _SportName_Betclick;
+            }
+            set
+            {
+                OnSportName_BetclickChanging(value);
+                ReportPropertyChanging("SportName_Betclick");
+                _SportName_Betclick = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SportName_Betclick");
+                OnSportName_BetclickChanged();
+            }
+        }
+        private global::System.String _SportName_Betclick;
+        partial void OnSportName_BetclickChanging(global::System.String value);
+        partial void OnSportName_BetclickChanged();
 
         #endregion
     
@@ -10479,23 +11136,208 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Leagues_Sports", "League")]
-        public EntityCollection<League> Leagues
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Leagues_Sports", "SoccerLeague")]
+        public EntityCollection<SoccerLeague> SoccerLeagues
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<League>("BetEXData.FK_Leagues_Sports", "League");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerLeague>("BetEXData.FK_Leagues_Sports", "SoccerLeague");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<League>("BetEXData.FK_Leagues_Sports", "League", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerLeague>("BetEXData.FK_Leagues_Sports", "SoccerLeague", value);
                 }
             }
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SportLeague")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class SportLeague : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new SportLeague object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="sportID">Initial value of the SportID property.</param>
+        /// <param name="leagueName">Initial value of the LeagueName property.</param>
+        public static SportLeague CreateSportLeague(global::System.Int64 id, global::System.Int32 sportID, global::System.String leagueName)
+        {
+            SportLeague sportLeague = new SportLeague();
+            sportLeague.ID = id;
+            sportLeague.SportID = sportID;
+            sportLeague.LeagueName = leagueName;
+            return sportLeague;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 SportID
+        {
+            get
+            {
+                return _SportID;
+            }
+            set
+            {
+                if (_SportID != value)
+                {
+                    OnSportIDChanging(value);
+                    ReportPropertyChanging("SportID");
+                    _SportID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("SportID");
+                    OnSportIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _SportID;
+        partial void OnSportIDChanging(global::System.Int32 value);
+        partial void OnSportIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LeagueName
+        {
+            get
+            {
+                return _LeagueName;
+            }
+            set
+            {
+                if (_LeagueName != value)
+                {
+                    OnLeagueNameChanging(value);
+                    ReportPropertyChanging("LeagueName");
+                    _LeagueName = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("LeagueName");
+                    OnLeagueNameChanged();
+                }
+            }
+        }
+        private global::System.String _LeagueName;
+        partial void OnLeagueNameChanging(global::System.String value);
+        partial void OnLeagueNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> StartDate
+        {
+            get
+            {
+                return _StartDate;
+            }
+            set
+            {
+                OnStartDateChanging(value);
+                ReportPropertyChanging("StartDate");
+                _StartDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDate");
+                OnStartDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _StartDate;
+        partial void OnStartDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnStartDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> EndDate
+        {
+            get
+            {
+                return _EndDate;
+            }
+            set
+            {
+                OnEndDateChanging(value);
+                ReportPropertyChanging("EndDate");
+                _EndDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EndDate");
+                OnEndDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _EndDate;
+        partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnEndDateChanged();
+
+        #endregion
+    
     }
     
     /// <summary>
@@ -10512,16 +11354,14 @@ namespace BetEx247.Data.Model
         /// Create a new Sports_AsianHandicap object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="homeHandicap">Initial value of the HomeHandicap property.</param>
-        /// <param name="awayHandicap">Initial value of the AwayHandicap property.</param>
+        /// <param name="handicap">Initial value of the Handicap property.</param>
         /// <param name="homePrice">Initial value of the HomePrice property.</param>
         /// <param name="awayPrice">Initial value of the AwayPrice property.</param>
-        public static Sports_AsianHandicap CreateSports_AsianHandicap(global::System.Int64 id, global::System.String homeHandicap, global::System.String awayHandicap, global::System.Decimal homePrice, global::System.Decimal awayPrice)
+        public static Sports_AsianHandicap CreateSports_AsianHandicap(global::System.Int64 id, global::System.String handicap, global::System.Decimal homePrice, global::System.Decimal awayPrice)
         {
             Sports_AsianHandicap sports_AsianHandicap = new Sports_AsianHandicap();
             sports_AsianHandicap.ID = id;
-            sports_AsianHandicap.HomeHandicap = homeHandicap;
-            sports_AsianHandicap.AwayHandicap = awayHandicap;
+            sports_AsianHandicap.Handicap = handicap;
             sports_AsianHandicap.HomePrice = homePrice;
             sports_AsianHandicap.AwayPrice = awayPrice;
             return sports_AsianHandicap;
@@ -10586,48 +11426,24 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.String HomeHandicap
+        public global::System.String Handicap
         {
             get
             {
-                return _HomeHandicap;
+                return _Handicap;
             }
             set
             {
-                OnHomeHandicapChanging(value);
-                ReportPropertyChanging("HomeHandicap");
-                _HomeHandicap = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("HomeHandicap");
-                OnHomeHandicapChanged();
+                OnHandicapChanging(value);
+                ReportPropertyChanging("Handicap");
+                _Handicap = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Handicap");
+                OnHandicapChanged();
             }
         }
-        private global::System.String _HomeHandicap;
-        partial void OnHomeHandicapChanging(global::System.String value);
-        partial void OnHomeHandicapChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String AwayHandicap
-        {
-            get
-            {
-                return _AwayHandicap;
-            }
-            set
-            {
-                OnAwayHandicapChanging(value);
-                ReportPropertyChanging("AwayHandicap");
-                _AwayHandicap = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("AwayHandicap");
-                OnAwayHandicapChanged();
-            }
-        }
-        private global::System.String _AwayHandicap;
-        partial void OnAwayHandicapChanging(global::System.String value);
-        partial void OnAwayHandicapChanged();
+        private global::System.String _Handicap;
+        partial void OnHandicapChanging(global::System.String value);
+        partial void OnHandicapChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -10754,30 +11570,6 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsBestPrice;
-        partial void OnIsBestPriceChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
         public Nullable<global::System.Int16> Period
         {
             get
@@ -10796,30 +11588,6 @@ namespace BetEx247.Data.Model
         private Nullable<global::System.Int16> _Period;
         partial void OnPeriodChanging(Nullable<global::System.Int16> value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -11116,23 +11884,11 @@ namespace BetEx247.Data.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="matchID">Initial value of the MatchID property.</param>
-        /// <param name="homePrice">Initial value of the HomePrice property.</param>
-        /// <param name="awayPrice">Initial value of the AwayPrice property.</param>
-        /// <param name="drawPrice">Initial value of the DrawPrice property.</param>
-        /// <param name="lastUpdated">Initial value of the LastUpdated property.</param>
-        /// <param name="isBestPrice">Initial value of the IsBestPrice property.</param>
-        /// <param name="period">Initial value of the Period property.</param>
-        public static Sports_MoneyLine CreateSports_MoneyLine(global::System.Int64 id, global::System.Int64 matchID, global::System.Decimal homePrice, global::System.Decimal awayPrice, global::System.Decimal drawPrice, global::System.DateTime lastUpdated, global::System.Boolean isBestPrice, global::System.String period)
+        public static Sports_MoneyLine CreateSports_MoneyLine(global::System.Int64 id, global::System.Int64 matchID)
         {
             Sports_MoneyLine sports_MoneyLine = new Sports_MoneyLine();
             sports_MoneyLine.ID = id;
             sports_MoneyLine.MatchID = matchID;
-            sports_MoneyLine.HomePrice = homePrice;
-            sports_MoneyLine.AwayPrice = awayPrice;
-            sports_MoneyLine.DrawPrice = drawPrice;
-            sports_MoneyLine.LastUpdated = lastUpdated;
-            sports_MoneyLine.IsBestPrice = isBestPrice;
-            sports_MoneyLine.Period = period;
             return sports_MoneyLine;
         }
 
@@ -11193,9 +11949,9 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal HomePrice
+        public Nullable<global::System.Decimal> HomePrice
         {
             get
             {
@@ -11210,16 +11966,16 @@ namespace BetEx247.Data.Model
                 OnHomePriceChanged();
             }
         }
-        private global::System.Decimal _HomePrice;
-        partial void OnHomePriceChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _HomePrice;
+        partial void OnHomePriceChanging(Nullable<global::System.Decimal> value);
         partial void OnHomePriceChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal AwayPrice
+        public Nullable<global::System.Decimal> AwayPrice
         {
             get
             {
@@ -11234,16 +11990,16 @@ namespace BetEx247.Data.Model
                 OnAwayPriceChanged();
             }
         }
-        private global::System.Decimal _AwayPrice;
-        partial void OnAwayPriceChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _AwayPrice;
+        partial void OnAwayPriceChanging(Nullable<global::System.Decimal> value);
         partial void OnAwayPriceChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Decimal DrawPrice
+        public Nullable<global::System.Decimal> DrawPrice
         {
             get
             {
@@ -11258,16 +12014,16 @@ namespace BetEx247.Data.Model
                 OnDrawPriceChanged();
             }
         }
-        private global::System.Decimal _DrawPrice;
-        partial void OnDrawPriceChanging(global::System.Decimal value);
+        private Nullable<global::System.Decimal> _DrawPrice;
+        partial void OnDrawPriceChanging(Nullable<global::System.Decimal> value);
         partial void OnDrawPriceChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime LastUpdated
+        public Nullable<global::System.DateTime> LastUpdated
         {
             get
             {
@@ -11282,8 +12038,8 @@ namespace BetEx247.Data.Model
                 OnLastUpdatedChanged();
             }
         }
-        private global::System.DateTime _LastUpdated;
-        partial void OnLastUpdatedChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _LastUpdated;
+        partial void OnLastUpdatedChanging(Nullable<global::System.DateTime> value);
         partial void OnLastUpdatedChanged();
     
         /// <summary>
@@ -11337,31 +12093,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.Boolean IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private global::System.Boolean _IsBestPrice;
-        partial void OnIsBestPriceChanging(global::System.Boolean value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Period
         {
@@ -11373,7 +12105,7 @@ namespace BetEx247.Data.Model
             {
                 OnPeriodChanging(value);
                 ReportPropertyChanging("Period");
-                _Period = StructuralObject.SetValidValue(value, false);
+                _Period = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Period");
                 OnPeriodChanged();
             }
@@ -11381,30 +12113,6 @@ namespace BetEx247.Data.Model
         private global::System.String _Period;
         partial void OnPeriodChanging(global::System.String value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -11493,9 +12201,8 @@ namespace BetEx247.Data.Model
         /// <param name="outRightWinner">Initial value of the OutRightWinner property.</param>
         /// <param name="price">Initial value of the Price property.</param>
         /// <param name="period">Initial value of the Period property.</param>
-        /// <param name="xMLFeedsFile">Initial value of the XMLFeedsFile property.</param>
         /// <param name="entrants">Initial value of the Entrants property.</param>
-        public static Sports_Outright CreateSports_Outright(global::System.Int64 id, global::System.Int64 matchID, global::System.String outRightWinner, global::System.Decimal price, global::System.Int16 period, global::System.String xMLFeedsFile, global::System.Int16 entrants)
+        public static Sports_Outright CreateSports_Outright(global::System.Int64 id, global::System.Int64 matchID, global::System.String outRightWinner, global::System.Decimal price, global::System.Int16 period, global::System.Int16 entrants)
         {
             Sports_Outright sports_Outright = new Sports_Outright();
             sports_Outright.ID = id;
@@ -11503,7 +12210,6 @@ namespace BetEx247.Data.Model
             sports_Outright.OutRightWinner = outRightWinner;
             sports_Outright.Price = price;
             sports_Outright.Period = period;
-            sports_Outright.XMLFeedsFile = xMLFeedsFile;
             sports_Outright.Entrants = entrants;
             return sports_Outright;
         }
@@ -11661,30 +12367,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.Boolean> IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private Nullable<global::System.Boolean> _IsBestPrice;
-        partial void OnIsBestPriceChanging(Nullable<global::System.Boolean> value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int16 Period
@@ -11705,30 +12387,6 @@ namespace BetEx247.Data.Model
         private global::System.Int16 _Period;
         partial void OnPeriodChanging(global::System.Int16 value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -11817,11 +12475,9 @@ namespace BetEx247.Data.Model
         /// <param name="lastUpdated">Initial value of the LastUpdated property.</param>
         /// <param name="inPlay">Initial value of the InPlay property.</param>
         /// <param name="marketCloseTime">Initial value of the MarketCloseTime property.</param>
-        /// <param name="isBestPrice">Initial value of the IsBestPrice property.</param>
         /// <param name="period">Initial value of the Period property.</param>
-        /// <param name="xMLFeedsFile">Initial value of the XMLFeedsFile property.</param>
         /// <param name="entrants">Initial value of the Entrants property.</param>
-        public static Sports_TotalOU CreateSports_TotalOU(global::System.Int64 id, global::System.Int64 matchID, global::System.DateTime lastUpdated, global::System.Boolean inPlay, global::System.DateTime marketCloseTime, global::System.Boolean isBestPrice, global::System.Int16 period, global::System.String xMLFeedsFile, global::System.Int16 entrants)
+        public static Sports_TotalOU CreateSports_TotalOU(global::System.Int64 id, global::System.Int64 matchID, global::System.DateTime lastUpdated, global::System.Boolean inPlay, global::System.DateTime marketCloseTime, global::System.Int16 period, global::System.Int16 entrants)
         {
             Sports_TotalOU sports_TotalOU = new Sports_TotalOU();
             sports_TotalOU.ID = id;
@@ -11829,9 +12485,7 @@ namespace BetEx247.Data.Model
             sports_TotalOU.LastUpdated = lastUpdated;
             sports_TotalOU.InPlay = inPlay;
             sports_TotalOU.MarketCloseTime = marketCloseTime;
-            sports_TotalOU.IsBestPrice = isBestPrice;
             sports_TotalOU.Period = period;
-            sports_TotalOU.XMLFeedsFile = xMLFeedsFile;
             sports_TotalOU.Entrants = entrants;
             return sports_TotalOU;
         }
@@ -12039,30 +12693,6 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Boolean IsBestPrice
-        {
-            get
-            {
-                return _IsBestPrice;
-            }
-            set
-            {
-                OnIsBestPriceChanging(value);
-                ReportPropertyChanging("IsBestPrice");
-                _IsBestPrice = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("IsBestPrice");
-                OnIsBestPriceChanged();
-            }
-        }
-        private global::System.Boolean _IsBestPrice;
-        partial void OnIsBestPriceChanging(global::System.Boolean value);
-        partial void OnIsBestPriceChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
         public global::System.Int16 Period
         {
             get
@@ -12081,30 +12711,6 @@ namespace BetEx247.Data.Model
         private global::System.Int16 _Period;
         partial void OnPeriodChanging(global::System.Int16 value);
         partial void OnPeriodChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String XMLFeedsFile
-        {
-            get
-            {
-                return _XMLFeedsFile;
-            }
-            set
-            {
-                OnXMLFeedsFileChanging(value);
-                ReportPropertyChanging("XMLFeedsFile");
-                _XMLFeedsFile = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("XMLFeedsFile");
-                OnXMLFeedsFileChanged();
-            }
-        }
-        private global::System.String _XMLFeedsFile;
-        partial void OnXMLFeedsFileChanging(global::System.String value);
-        partial void OnXMLFeedsFileChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -12190,19 +12796,17 @@ namespace BetEx247.Data.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="matchName">Initial value of the MatchName property.</param>
-        /// <param name="startTime">Initial value of the StartTime property.</param>
-        /// <param name="endTime">Initial value of the EndTime property.</param>
+        /// <param name="startDateTime">Initial value of the StartDateTime property.</param>
         /// <param name="homeTeam">Initial value of the HomeTeam property.</param>
-        /// <param name="c_MatchScore">Initial value of the C_MatchScore property.</param>
-        public static SportsMatch CreateSportsMatch(global::System.Int64 id, global::System.String matchName, global::System.DateTime startTime, global::System.DateTime endTime, global::System.String homeTeam, global::System.String c_MatchScore)
+        /// <param name="awayTeam">Initial value of the AwayTeam property.</param>
+        public static SportsMatch CreateSportsMatch(global::System.Int64 id, global::System.String matchName, global::System.DateTime startDateTime, global::System.String homeTeam, global::System.String awayTeam)
         {
             SportsMatch sportsMatch = new SportsMatch();
             sportsMatch.ID = id;
             sportsMatch.MatchName = matchName;
-            sportsMatch.StartTime = startTime;
-            sportsMatch.EndTime = endTime;
+            sportsMatch.StartDateTime = startDateTime;
             sportsMatch.HomeTeam = homeTeam;
-            sportsMatch.C_MatchScore = c_MatchScore;
+            sportsMatch.AwayTeam = awayTeam;
             return sportsMatch;
         }
 
@@ -12265,48 +12869,24 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.DateTime StartTime
+        public global::System.DateTime StartDateTime
         {
             get
             {
-                return _StartTime;
+                return _StartDateTime;
             }
             set
             {
-                OnStartTimeChanging(value);
-                ReportPropertyChanging("StartTime");
-                _StartTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("StartTime");
-                OnStartTimeChanged();
+                OnStartDateTimeChanging(value);
+                ReportPropertyChanging("StartDateTime");
+                _StartDateTime = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("StartDateTime");
+                OnStartDateTimeChanged();
             }
         }
-        private global::System.DateTime _StartTime;
-        partial void OnStartTimeChanging(global::System.DateTime value);
-        partial void OnStartTimeChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.DateTime EndTime
-        {
-            get
-            {
-                return _EndTime;
-            }
-            set
-            {
-                OnEndTimeChanging(value);
-                ReportPropertyChanging("EndTime");
-                _EndTime = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("EndTime");
-                OnEndTimeChanged();
-            }
-        }
-        private global::System.DateTime _EndTime;
-        partial void OnEndTimeChanging(global::System.DateTime value);
-        partial void OnEndTimeChanged();
+        private global::System.DateTime _StartDateTime;
+        partial void OnStartDateTimeChanging(global::System.DateTime value);
+        partial void OnStartDateTimeChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -12335,7 +12915,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String AwayTeam
         {
@@ -12347,7 +12927,7 @@ namespace BetEx247.Data.Model
             {
                 OnAwayTeamChanging(value);
                 ReportPropertyChanging("AwayTeam");
-                _AwayTeam = StructuralObject.SetValidValue(value, true);
+                _AwayTeam = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("AwayTeam");
                 OnAwayTeamChanged();
             }
@@ -12361,96 +12941,264 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String C_1stPeriodScore
+        public global::System.String Set1Score
         {
             get
             {
-                return _C_1stPeriodScore;
+                return _Set1Score;
             }
             set
             {
-                OnC_1stPeriodScoreChanging(value);
-                ReportPropertyChanging("C_1stPeriodScore");
-                _C_1stPeriodScore = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("C_1stPeriodScore");
-                OnC_1stPeriodScoreChanged();
+                OnSet1ScoreChanging(value);
+                ReportPropertyChanging("Set1Score");
+                _Set1Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set1Score");
+                OnSet1ScoreChanged();
             }
         }
-        private global::System.String _C_1stPeriodScore;
-        partial void OnC_1stPeriodScoreChanging(global::System.String value);
-        partial void OnC_1stPeriodScoreChanged();
+        private global::System.String _Set1Score;
+        partial void OnSet1ScoreChanging(global::System.String value);
+        partial void OnSet1ScoreChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String C_2ndPeriodScore
+        public global::System.String Set2Score
         {
             get
             {
-                return _C_2ndPeriodScore;
+                return _Set2Score;
             }
             set
             {
-                OnC_2ndPeriodScoreChanging(value);
-                ReportPropertyChanging("C_2ndPeriodScore");
-                _C_2ndPeriodScore = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("C_2ndPeriodScore");
-                OnC_2ndPeriodScoreChanged();
+                OnSet2ScoreChanging(value);
+                ReportPropertyChanging("Set2Score");
+                _Set2Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set2Score");
+                OnSet2ScoreChanged();
             }
         }
-        private global::System.String _C_2ndPeriodScore;
-        partial void OnC_2ndPeriodScoreChanging(global::System.String value);
-        partial void OnC_2ndPeriodScoreChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String C_MatchScore
-        {
-            get
-            {
-                return _C_MatchScore;
-            }
-            set
-            {
-                OnC_MatchScoreChanging(value);
-                ReportPropertyChanging("C_MatchScore");
-                _C_MatchScore = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("C_MatchScore");
-                OnC_MatchScoreChanged();
-            }
-        }
-        private global::System.String _C_MatchScore;
-        partial void OnC_MatchScoreChanging(global::System.String value);
-        partial void OnC_MatchScoreChanged();
+        private global::System.String _Set2Score;
+        partial void OnSet2ScoreChanging(global::System.String value);
+        partial void OnSet2ScoreChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String WinningTeam
+        public global::System.String Set3Score
         {
             get
             {
-                return _WinningTeam;
+                return _Set3Score;
             }
             set
             {
-                OnWinningTeamChanging(value);
-                ReportPropertyChanging("WinningTeam");
-                _WinningTeam = StructuralObject.SetValidValue(value, true);
-                ReportPropertyChanged("WinningTeam");
-                OnWinningTeamChanged();
+                OnSet3ScoreChanging(value);
+                ReportPropertyChanging("Set3Score");
+                _Set3Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set3Score");
+                OnSet3ScoreChanged();
             }
         }
-        private global::System.String _WinningTeam;
-        partial void OnWinningTeamChanging(global::System.String value);
-        partial void OnWinningTeamChanged();
+        private global::System.String _Set3Score;
+        partial void OnSet3ScoreChanging(global::System.String value);
+        partial void OnSet3ScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Set4Score
+        {
+            get
+            {
+                return _Set4Score;
+            }
+            set
+            {
+                OnSet4ScoreChanging(value);
+                ReportPropertyChanging("Set4Score");
+                _Set4Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set4Score");
+                OnSet4ScoreChanged();
+            }
+        }
+        private global::System.String _Set4Score;
+        partial void OnSet4ScoreChanging(global::System.String value);
+        partial void OnSet4ScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Set5Score
+        {
+            get
+            {
+                return _Set5Score;
+            }
+            set
+            {
+                OnSet5ScoreChanging(value);
+                ReportPropertyChanging("Set5Score");
+                _Set5Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set5Score");
+                OnSet5ScoreChanged();
+            }
+        }
+        private global::System.String _Set5Score;
+        partial void OnSet5ScoreChanging(global::System.String value);
+        partial void OnSet5ScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Set7Score
+        {
+            get
+            {
+                return _Set7Score;
+            }
+            set
+            {
+                OnSet7ScoreChanging(value);
+                ReportPropertyChanging("Set7Score");
+                _Set7Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set7Score");
+                OnSet7ScoreChanged();
+            }
+        }
+        private global::System.String _Set7Score;
+        partial void OnSet7ScoreChanging(global::System.String value);
+        partial void OnSet7ScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Set8Score
+        {
+            get
+            {
+                return _Set8Score;
+            }
+            set
+            {
+                OnSet8ScoreChanging(value);
+                ReportPropertyChanging("Set8Score");
+                _Set8Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set8Score");
+                OnSet8ScoreChanged();
+            }
+        }
+        private global::System.String _Set8Score;
+        partial void OnSet8ScoreChanging(global::System.String value);
+        partial void OnSet8ScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Set9Score
+        {
+            get
+            {
+                return _Set9Score;
+            }
+            set
+            {
+                OnSet9ScoreChanging(value);
+                ReportPropertyChanging("Set9Score");
+                _Set9Score = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Set9Score");
+                OnSet9ScoreChanged();
+            }
+        }
+        private global::System.String _Set9Score;
+        partial void OnSet9ScoreChanging(global::System.String value);
+        partial void OnSet9ScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ExtraTimeScore
+        {
+            get
+            {
+                return _ExtraTimeScore;
+            }
+            set
+            {
+                OnExtraTimeScoreChanging(value);
+                ReportPropertyChanging("ExtraTimeScore");
+                _ExtraTimeScore = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ExtraTimeScore");
+                OnExtraTimeScoreChanged();
+            }
+        }
+        private global::System.String _ExtraTimeScore;
+        partial void OnExtraTimeScoreChanging(global::System.String value);
+        partial void OnExtraTimeScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String PKScore
+        {
+            get
+            {
+                return _PKScore;
+            }
+            set
+            {
+                OnPKScoreChanging(value);
+                ReportPropertyChanging("PKScore");
+                _PKScore = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("PKScore");
+                OnPKScoreChanged();
+            }
+        }
+        private global::System.String _PKScore;
+        partial void OnPKScoreChanging(global::System.String value);
+        partial void OnPKScoreChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Winner
+        {
+            get
+            {
+                return _Winner;
+            }
+            set
+            {
+                OnWinnerChanging(value);
+                ReportPropertyChanging("Winner");
+                _Winner = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Winner");
+                OnWinnerChanged();
+            }
+        }
+        private global::System.String _Winner;
+        partial void OnWinnerChanging(global::System.String value);
+        partial void OnWinnerChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -12505,31 +13253,31 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int16> StatusID
+        public Nullable<global::System.Int16> MatchStatusID
         {
             get
             {
-                return _StatusID;
+                return _MatchStatusID;
             }
             set
             {
-                OnStatusIDChanging(value);
-                ReportPropertyChanging("StatusID");
-                _StatusID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("StatusID");
-                OnStatusIDChanged();
+                OnMatchStatusIDChanging(value);
+                ReportPropertyChanging("MatchStatusID");
+                _MatchStatusID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MatchStatusID");
+                OnMatchStatusIDChanged();
             }
         }
-        private Nullable<global::System.Int16> _StatusID;
-        partial void OnStatusIDChanging(Nullable<global::System.Int16> value);
-        partial void OnStatusIDChanged();
+        private Nullable<global::System.Int16> _MatchStatusID;
+        partial void OnMatchStatusIDChanging(Nullable<global::System.Int16> value);
+        partial void OnMatchStatusIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int64> LeagueID
+        public Nullable<global::System.Int32> LeagueID
         {
             get
             {
@@ -12544,8 +13292,8 @@ namespace BetEx247.Data.Model
                 OnLeagueIDChanged();
             }
         }
-        private Nullable<global::System.Int64> _LeagueID;
-        partial void OnLeagueIDChanging(Nullable<global::System.Int64> value);
+        private Nullable<global::System.Int32> _LeagueID;
+        partial void OnLeagueIDChanging(Nullable<global::System.Int32> value);
         partial void OnLeagueIDChanged();
 
         #endregion
@@ -13312,16 +14060,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Team_Leagues", "League")]
-        public League League
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Team_Leagues", "SoccerLeague")]
+        public SoccerLeague SoccerLeague
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<League>("BetEXData.FK_Team_Leagues", "League").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BetEXData.FK_Team_Leagues", "SoccerLeague").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<League>("BetEXData.FK_Team_Leagues", "League").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BetEXData.FK_Team_Leagues", "SoccerLeague").Value = value;
             }
         }
         /// <summary>
@@ -13329,17 +14077,17 @@ namespace BetEx247.Data.Model
         /// </summary>
         [BrowsableAttribute(false)]
         [DataMemberAttribute()]
-        public EntityReference<League> LeagueReference
+        public EntityReference<SoccerLeague> SoccerLeagueReference
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<League>("BetEXData.FK_Team_Leagues", "League");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BetEXData.FK_Team_Leagues", "SoccerLeague");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<League>("BetEXData.FK_Team_Leagues", "League", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerLeague>("BetEXData.FK_Team_Leagues", "SoccerLeague", value);
                 }
             }
         }

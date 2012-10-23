@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BetEx247.Data.Model;
+using BetEx247.Core;
 
 namespace BetEx247.Data.DAL
 {
@@ -18,7 +19,7 @@ namespace BetEx247.Data.DAL
         {
             using (var dba = new BetEXDataContainer())
             {
-                var mybet = dba.PSV_MYBET.Where(w => w.BetStatusID == type && w.MemberID == memberId).ToList();
+                var mybet = dba.PSV_MYBET.Where(w => w.BetStatusID == type && w.MemberID == memberId).Take(Constant.DefaultRow).ToList();
                 return mybet;
             }
         }
@@ -38,7 +39,39 @@ namespace BetEx247.Data.DAL
         }
 
         /// <summary>
-        /// Get Statement for User login
+        /// Get Bet for User login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <param name="sWhere">where clause for search</param>
+        /// <param name="pageNo">pageNo for search</param>
+        /// <param name="recordPerpage">recordPerpage for search</param>
+        /// <returns>List psv_mybet</returns>
+        public List<PSV_MYBET> GetMyBetByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var mybet = dba.PSP_SEARCHMYBETS(memberId, sWhere, pageNo, recordPerpage).ToList();
+                return mybet;
+            }
+        }
+
+        /// <summary>
+        /// Get Total Row for Searh History User login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <param name="sWhere">where clause for search</param>
+        /// <returns>number row</returns>
+        public int CountRowBetByMemberId(long memberId, string sWhere)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var result = dba.PSP_SEARCHMYBETSPAGESIZE(memberId, sWhere).First<int?>();
+                return result.Value;
+            }
+        }
+
+        /// <summary>
+        /// Get Statement for User login                                                    
         /// </summary>
         /// <param name="memberId">memberId</param>
         /// <returns>List mybet</returns>
@@ -56,12 +89,27 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="memberId">memberId</param>
         /// <returns>List mybet</returns>
-        public List<Statement> GetStatementByMemberId(long memberId, DateTime startDate, DateTime endDate, int betCategory, int betDisplay, int pageNo, int recordPerpage)
+        public List<Statement> GetStatementByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var statement = dba.PSP_SEARCHSTATEMENT(memberId, startDate, endDate, betCategory, betDisplay, pageNo, recordPerpage).ToList();
+                var statement = dba.PSP_SEARCHSTATEMENT(memberId, sWhere, pageNo, recordPerpage).ToList();
                 return statement;
+            }
+        }
+
+        /// <summary>
+        /// Get Total rowfor search statement by user login
+        /// </summary>
+        /// <param name="memberId">memberId</param>
+        /// <param name="sWhere">where clause for search</param>
+        /// <returns>number row</returns>
+        public int CountRowStatementByMemberId(long memberId, string sWhere)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var rowCount = dba.PSP_SEARCHSTATEMENTPAGESIZE(memberId, sWhere).First<int?>();
+                return rowCount.Value;
             }
         }
 

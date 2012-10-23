@@ -402,5 +402,38 @@ namespace BetEx247.Data.DAL
         /// <returns>Converted value</returns>
         int ConvertAmountToRewardPoints(decimal amount);
         #endregion                    
+
+        #region MYWallter function
+        /// <summary>
+        /// Gets remain balance user
+        /// </summary>
+        /// <param name="memberId">The member identifier</param>
+        /// <returns>money avalaible remain</returns>
+        decimal GetBalancebyMemberId(long memberId);
+
+        /// <summary>
+        /// Check can withdraw by memberid
+        /// </summary>
+        /// <param name="memberId">member identifier</param>
+        /// <param name="output">money want withdraw</param>
+        /// <returns>true:can withdraw; false : otherwise</returns>
+        bool CanWithdraw(long memberId,decimal output);
+
+        /// <summary>
+        /// Update ballance for User's Wallet
+        /// </summary>
+        /// <param name="memberId">member identifier</param>
+        /// <param name="input">money user deposit</param>
+        /// <returns>true : update successfully ; false : otherwise</returns>
+        bool UpdateMyWalletDeposit(long memberId, decimal input);
+
+        /// <summary>
+        /// Update ballance for User's Wallet
+        /// </summary>
+        /// <param name="memberId">member identifier</param>
+        /// <param name="output">money user withdraw</param>
+        /// <returns>true : update successfully ; false : otherwise</returns>
+        bool UpdateMyWalletWithdraw(long memberId, decimal output);
+        #endregion
     }
 }

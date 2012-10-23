@@ -90,6 +90,20 @@ namespace BetEx247.Data.DAL
 
         #region Account Info
         MyWallet GetAccountWallet(long memberId);
+
+        /// <summary>
+        /// Insert new user's wallet
+        /// </summary>
+        /// <param name="wallet">wallet info</param>
+        /// <returns>wallet id</returns>
+        long InsertWallet(MyWallet wallet);
+
+        /// <summary>
+        /// Update user's wallet
+        /// </summary>
+        /// <param name="wallet">wallet info</param>
+        /// <returns>true:update succefully; false: otherwise</returns>
+        bool UpdateWallet(MyWallet wallet);
         #endregion
     }
 }
