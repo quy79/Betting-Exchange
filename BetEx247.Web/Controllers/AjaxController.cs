@@ -38,6 +38,37 @@ namespace BetEx247.Web.Controllers
                 sb.Append(" and (t.StatementTime between '" + start + "' and '" + end + "') ");
             }
 
+            switch (betDisplay)
+            {
+                case (int)Constant.StatementDisplayType.ADJUSTMENT:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.ADJUSTMENT + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.BETSONLY:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.BETSONLY + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.COMMISSIONS:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.COMMISSIONS + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.DEPOIST:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.DEPOIST + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.FEE:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.FEE + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.FREEBETS:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.FREEBETS + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.LOYALTYREFUND:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.LOYALTYREFUND + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.MARKETREFUND:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.MARKETREFUND + " ");
+                    break;
+                case (int)Constant.StatementDisplayType.WITHDRAW:
+                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.WITHDRAW + " ");
+                    break;
+            }
+
             if (betCategory > 0)
             {
                 sb.Append(" and t.CardId=" + betCategory + " ");
@@ -45,6 +76,10 @@ namespace BetEx247.Web.Controllers
 
             long memberId = SessionManager.USER_ID;
             var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId, sb.ToString(), pageNo, recordPerpage);
+
+            int totalRow = IoC.Resolve<IBettingService>().CountRowStatementByMemberId(memberId, sb.ToString());
+            ViewBag.TotalRow = totalRow;
+
             return View(lstStatement);
         }
 
@@ -107,6 +142,9 @@ namespace BetEx247.Web.Controllers
             long memberId = SessionManager.USER_ID;
             var lstStatement = IoC.Resolve<IBettingService>().GetMyBetByMemberId(memberId, sb.ToString(), pageNo, recordPerpage);
             ViewBag.ReportType = reportType;
+
+            int totalRow = IoC.Resolve<IBettingService>().CountRowBetByMemberId(memberId, sb.ToString());
+
             return View(lstStatement);
         }
     }

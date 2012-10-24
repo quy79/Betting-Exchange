@@ -140,6 +140,19 @@ namespace BetEx247.Core
             VOIDBETS=8
         }
 
+        public enum StatementDisplayType
+        {
+            ADJUSTMENT = 1,
+            BETSONLY = 2,
+            COMMISSIONS  = 3,
+            DEPOIST  = 4,
+            FEE  = 5,
+            FREEBETS = 6,
+            LOYALTYREFUND = 7,
+            MARKETREFUND = 8,
+            WITHDRAW =9
+        }
+
         public enum ChoiceType
         {
             MONEY_LINE = 1,

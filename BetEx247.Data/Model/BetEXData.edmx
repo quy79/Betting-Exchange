@@ -750,6 +750,7 @@
           <Property Name="FeeCharged" Type="money" />
           <Property Name="MarketAmountRefund" Type="money" />
           <Property Name="Reason" Type="ntext" />
+          <Property Name="DisplayId" Type="int" />
         </EntityType>
         <EntityType Name="Teams">
           <Key>
@@ -1246,7 +1247,6 @@
           <EntitySet Name="Sports_Outright" EntityType="BetEXData.Sports_Outright" />
           <EntitySet Name="Sports_TotalOU" EntityType="BetEXData.Sports_TotalOU" />
           <EntitySet Name="SportsMatches" EntityType="BetEXData.SportsMatch" />
-          <EntitySet Name="Statements" EntityType="BetEXData.Statement" />
           <EntitySet Name="Teams" EntityType="BetEXData.Team" />
           <EntitySet Name="PSV_MYBET" EntityType="BetEXData.PSV_MYBET" />
           <AssociationSet Name="FK_CardsInfo_SoccerMatches" Association="BetEXData.FK_CardsInfo_SoccerMatches">
@@ -1354,10 +1354,6 @@
             <End Role="Member" EntitySet="Members" />
             <End Role="MyWallet" EntitySet="MyWallets" />
           </AssociationSet>
-          <AssociationSet Name="FK_Statements_Members" Association="BetEXData.FK_Statements_Members">
-            <End Role="Member" EntitySet="Members" />
-            <End Role="Statement" EntitySet="Statements" />
-          </AssociationSet>
           <EntitySet Name="PaymentMethods" EntityType="BetEXData.PaymentMethod" />
           <AssociationSet Name="FK_MyCards_PaymentMethods" Association="BetEXData.FK_MyCards_PaymentMethods">
             <End Role="PaymentMethod" EntitySet="PaymentMethods" />
@@ -1369,6 +1365,11 @@
             <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
           <EntitySet Name="Countries" EntityType="BetEXData.Country" />
+          <EntitySet Name="Statements" EntityType="BetEXData.Statement" />
+          <AssociationSet Name="FK_Statements_Members" Association="BetEXData.FK_Statements_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Statement" EntitySet="Statements" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="BetStatu">
           <Key>
@@ -1861,31 +1862,6 @@
           <NavigationProperty Name="Sports_Outright" Relationship="BetEXData.FK_Sports_Outright_SportsMatches" FromRole="SportsMatch" ToRole="Sports_Outright" />
           <NavigationProperty Name="Sports_TotalOU" Relationship="BetEXData.FK_Sports_TotalOU_SportsMatches" FromRole="SportsMatch" ToRole="Sports_TotalOU" />
         </EntityType>
-        <EntityType Name="Statement">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int64" Name="MemberId" Nullable="false" />
-          <Property Type="Int64" Name="BetId" />
-          <Property Type="DateTime" Name="StatementTime" Nullable="false" />
-          <Property Type="String" Name="Selection" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="Byte" Name="BackOrLay" />
-          <Property Type="Decimal" Name="Stake" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="Odds" Precision="18" Scale="2" />
-          <Property Type="String" Name="Type_Result" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="GrossProfit" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="NetProfit" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="Commission" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="AmountDeposit" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="AmountWithdrawal" Precision="19" Scale="4" />
-          <Property Type="Int32" Name="CardId" />
-          <Property Type="Decimal" Name="FeeCharged" Precision="19" Scale="4" />
-          <Property Type="Decimal" Name="MarketAmountRefund" Precision="19" Scale="4" />
-          <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Member" Relationship="BetEXData.FK_Statements_Members" FromRole="Statement" ToRole="Member" />
-        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="ID" />
@@ -2233,8 +2209,8 @@
           <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Members" FromRole="Member" ToRole="MyBet" />
           <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_Members" FromRole="Member" ToRole="MyCard" />
           <NavigationProperty Name="MyWallets" Relationship="BetEXData.FK_MyWallet_Members" FromRole="Member" ToRole="MyWallet" />
-          <NavigationProperty Name="Statements" Relationship="BetEXData.FK_Statements_Members" FromRole="Member" ToRole="Statement" />
           <NavigationProperty Name="Transactions" Relationship="BetEXData.FK_Transactions_Members" FromRole="Member" ToRole="Transaction" />
+          <NavigationProperty Name="Statements" Relationship="BetEXData.FK_Statements_Members" FromRole="Member" ToRole="Statement" />
         </EntityType>
         <Association Name="FK_LoginHistory_Members">
           <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
@@ -2293,18 +2269,6 @@
             </Principal>
             <Dependent Role="MyWallet">
               <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Statements_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
-          <End Type="BetEXData.Statement" Role="Statement" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="Statement">
-              <PropertyRef Name="MemberId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2388,6 +2352,44 @@
           <Property Type="Int64" Name="ID" Nullable="false" />
           <Property Type="String" Name="Country1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Statement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="MemberId" Nullable="false" />
+          <Property Type="Int64" Name="BetId" />
+          <Property Type="DateTime" Name="StatementTime" Nullable="false" />
+          <Property Type="String" Name="Selection" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Byte" Name="BackOrLay" />
+          <Property Type="Decimal" Name="Stake" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Odds" Precision="18" Scale="2" />
+          <Property Type="String" Name="Type_Result" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Decimal" Name="Amount" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="GrossProfit" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="NetProfit" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="Commission" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="AmountDeposit" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="AmountWithdrawal" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="CardId" />
+          <Property Type="Decimal" Name="FeeCharged" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="MarketAmountRefund" Precision="19" Scale="4" />
+          <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DisplayId" />
+          <NavigationProperty Name="Member" Relationship="BetEXData.FK_Statements_Members" FromRole="Statement" ToRole="Member" />
+        </EntityType>
+        <Association Name="FK_Statements_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
+          <End Type="BetEXData.Statement" Role="Statement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Statement">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2874,31 +2876,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Statements">
-            <EntityTypeMapping TypeName="BetEXData.Statement">
-              <MappingFragment StoreEntitySet="Statements">
-                <ScalarProperty Name="Reason" ColumnName="Reason" />
-                <ScalarProperty Name="MarketAmountRefund" ColumnName="MarketAmountRefund" />
-                <ScalarProperty Name="FeeCharged" ColumnName="FeeCharged" />
-                <ScalarProperty Name="CardId" ColumnName="CardId" />
-                <ScalarProperty Name="AmountWithdrawal" ColumnName="AmountWithdrawal" />
-                <ScalarProperty Name="AmountDeposit" ColumnName="AmountDeposit" />
-                <ScalarProperty Name="Commission" ColumnName="Commission" />
-                <ScalarProperty Name="NetProfit" ColumnName="NetProfit" />
-                <ScalarProperty Name="GrossProfit" ColumnName="GrossProfit" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Type_Result" ColumnName="Type_Result" />
-                <ScalarProperty Name="Odds" ColumnName="Odds" />
-                <ScalarProperty Name="Stake" ColumnName="Stake" />
-                <ScalarProperty Name="BackOrLay" ColumnName="BackOrLay" />
-                <ScalarProperty Name="Selection" ColumnName="Selection" />
-                <ScalarProperty Name="StatementTime" ColumnName="StatementTime" />
-                <ScalarProperty Name="BetId" ColumnName="BetId" />
-                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Teams">
             <EntityTypeMapping TypeName="BetEXData.Team">
               <MappingFragment StoreEntitySet="Teams">
@@ -3043,6 +3020,32 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Statements">
+            <EntityTypeMapping TypeName="BetEXData.Statement">
+              <MappingFragment StoreEntitySet="Statements">
+                <ScalarProperty Name="DisplayId" ColumnName="DisplayId" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+                <ScalarProperty Name="MarketAmountRefund" ColumnName="MarketAmountRefund" />
+                <ScalarProperty Name="FeeCharged" ColumnName="FeeCharged" />
+                <ScalarProperty Name="CardId" ColumnName="CardId" />
+                <ScalarProperty Name="AmountWithdrawal" ColumnName="AmountWithdrawal" />
+                <ScalarProperty Name="AmountDeposit" ColumnName="AmountDeposit" />
+                <ScalarProperty Name="Commission" ColumnName="Commission" />
+                <ScalarProperty Name="NetProfit" ColumnName="NetProfit" />
+                <ScalarProperty Name="GrossProfit" ColumnName="GrossProfit" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Type_Result" ColumnName="Type_Result" />
+                <ScalarProperty Name="Odds" ColumnName="Odds" />
+                <ScalarProperty Name="Stake" ColumnName="Stake" />
+                <ScalarProperty Name="BackOrLay" ColumnName="BackOrLay" />
+                <ScalarProperty Name="Selection" ColumnName="Selection" />
+                <ScalarProperty Name="StatementTime" ColumnName="StatementTime" />
+                <ScalarProperty Name="BetId" ColumnName="BetId" />
+                <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3096,7 +3099,6 @@
         <EntityTypeShape EntityType="BetEXData.Sports_Outright" Width="1.5" PointX="3" PointY="5.25" Height="2.7494921874999818" />
         <EntityTypeShape EntityType="BetEXData.Sports_TotalOU" Width="1.5" PointX="3" PointY="8.75" Height="3.134095052083353" />
         <EntityTypeShape EntityType="BetEXData.SportsMatch" Width="1.5" PointX="0.75" PointY="3.875" Height="5.4417122395833237" />
-        <EntityTypeShape EntityType="BetEXData.Statement" Width="1.5" PointX="9.75" PointY="51.75" Height="4.864807942708353" />
         <EntityTypeShape EntityType="BetEXData.Team" Width="1.5" PointX="5.25" PointY="42.25" Height="2.1725878906249818" />
         <EntityTypeShape EntityType="BetEXData.PSV_MYBET" Width="1.5" PointX="11.75" PointY="11.75" Height="6.5955208333333246" />
         <AssociationConnector Association="BetEXData.FK_CardsInfo_SoccerMatches" >
@@ -3107,8 +3109,8 @@
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_AsianHandicap" >
           <ConnectorPoint PointX="9" PointY="13.576396484374982" />
           <ConnectorPoint PointX="9.375" PointY="13.951396484374982" />
-          <ConnectorPoint PointX="9.375" PointY="22.415430815104166" />
-          <ConnectorPoint PointX="9.75" PointY="22.415430815104166" />
+          <ConnectorPoint PointX="9.375" PointY="21.78815755208332" />
+          <ConnectorPoint PointX="9.75" PointY="21.78815755208332" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_CorrectScores" >
           <ConnectorPoint PointX="9" PointY="15.942047526041662" />
@@ -3192,10 +3194,10 @@
         <AssociationConnector Association="BetEXData.FK_Team_Leagues" >
           <ConnectorPoint PointX="3.71875" PointY="26.537903645833353" />
           <ConnectorPoint PointX="3.71875" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="4.5393865720621749" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="4.706053238728841" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="4.9456415720621747" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="5.2228232860310877" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="4.5666278989283251" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="4.83952768172582" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="4.9728828989283249" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="5.139549565594991" PointY="43.336293945312491" />
           <ConnectorPoint PointX="5.25" PointY="43.336293945312491" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Sports_AsianHandicap_SoccerMatches" >
@@ -3223,10 +3225,10 @@
           <ConnectorPoint PointX="9.75" PointY="38.009348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Messages_Members" >
-          <ConnectorPoint PointX="4.8079448107910157" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="4.8079448107910157" PointY="41.879547526041677" />
-          <ConnectorPoint PointX="4.9456415720621747" PointY="41.879547526041677" />
-          <ConnectorPoint PointX="5.2228232860310877" PointY="41.879547526041677" />
+          <ConnectorPoint PointX="4.8624274645233152" PointY="40.845439453124996" />
+          <ConnectorPoint PointX="4.8624274645233152" PointY="41.879547526041677" />
+          <ConnectorPoint PointX="4.9728828989283249" PointY="41.879547526041677" />
+          <ConnectorPoint PointX="5.139549565594991" PointY="41.879547526041677" />
           <ConnectorPoint PointX="9.75" PointY="41.879547526041677" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Members" >
@@ -3238,8 +3240,6 @@
           <ConnectorPoint PointX="6.489583333333333" PointY="26.932027994791667" />
           <ConnectorPoint PointX="7" PointY="26.932027994791667" />
           <ConnectorPoint PointX="7" PointY="21.754547526041662" />
-          <ConnectorPoint PointX="9.2916666666666661" PointY="21.754547526041662" />
-          <ConnectorPoint PointX="9.4583333333333339" PointY="21.754547526041662" />
           <ConnectorPoint PointX="9.75" PointY="21.754547526041662" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyCards_Members" >
@@ -3252,16 +3252,11 @@
           <ConnectorPoint PointX="13.5" PointY="45.5" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyWallet_Members" >
-          <ConnectorPoint PointX="4.6227199053955079" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="4.6227199053955079" PointY="50.035543619791667" />
-          <ConnectorPoint PointX="4.9456415720621747" PointY="50.035543619791667" />
-          <ConnectorPoint PointX="5.1123082387288408" PointY="50.035543619791667" />
-          <ConnectorPoint PointX="9.75" PointY="50.035543619791667" />
-        </AssociationConnector>
-        <AssociationConnector Association="BetEXData.FK_Statements_Members" >
-          <ConnectorPoint PointX="5.0289749053955077" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="5.0289749053955077" PointY="54.182403971354162" />
-          <ConnectorPoint PointX="9.75" PointY="54.182403971354162" />
+          <ConnectorPoint PointX="4.6499612322616581" PointY="40.845439453124996" />
+          <ConnectorPoint PointX="4.6499612322616581" PointY="49.384348958333334" />
+          <ConnectorPoint PointX="4.6728610150591541" PointY="49.384348958333334" />
+          <ConnectorPoint PointX="4.83952768172582" PointY="49.384348958333334" />
+          <ConnectorPoint PointX="9.75" PointY="49.384348958333334" />
         </AssociationConnector>
         <EntityTypeShape EntityType="BetEXData.PaymentMethod" Width="1.5" PointX="14.375" PointY="1.125" Height="6.018616536458353" />
         <AssociationConnector Association="BetEXData.FK_MyCards_PaymentMethods" >
@@ -3271,11 +3266,17 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="BetEXData.Transaction" Width="1.5" PointX="6.75" PointY="45.5" Height="3.5186979166666674" />
         <AssociationConnector Association="BetEXData.FK_Transactions_Members" >
-          <ConnectorPoint PointX="5.1394899526977538" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="5.1394899526977538" PointY="47.259348958333334" />
+          <ConnectorPoint PointX="5.056216232261658" PointY="40.845439453124996" />
+          <ConnectorPoint PointX="5.056216232261658" PointY="47.259348958333334" />
           <ConnectorPoint PointX="6.75" PointY="47.259348958333334" />
         </AssociationConnector>
         <EntityTypeShape EntityType="BetEXData.Country" Width="1.5" PointX="0.75" PointY="12.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BetEXData.Statement" Width="1.5" PointX="6.75" PointY="49.75" Height="5.057109374999996" />
+        <AssociationConnector Association="BetEXData.FK_Statements_Members" >
+          <ConnectorPoint PointX="4.7561943483924871" PointY="40.845439453124996" />
+          <ConnectorPoint PointX="4.7561943483924871" PointY="52.2785546875" />
+          <ConnectorPoint PointX="6.75" PointY="52.2785546875" />
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
