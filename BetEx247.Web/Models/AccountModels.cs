@@ -63,11 +63,7 @@ namespace BetEx247.Web.Models
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }
-
-        [Required]
-        [Display(Name = "Comfirm Password")]
-        public string ComfirmPassword { get; set; }
+        public string ConfirmPassword { get; set; }             
 
         [Required]
         [Display(Name = "Security Question 1")]
@@ -83,15 +79,16 @@ namespace BetEx247.Web.Models
         [Display(Name = "Security Answer 2")]
         public string SecurityAnswer2 { get; set; }
 
-        [Required]
-        [Display(Name = "Currency")]
-        public IEnumerable<SelectListItem> Currency { get; set; }
+        //[Required]
+        //[Display(Name = "Currency")]
+        //public IEnumerable<SelectListItem> Currency { get; set; }
+        public int Currency { get; set; }
 
         [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
@@ -99,25 +96,27 @@ namespace BetEx247.Web.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [Display(Name = "Address")]
-        public string Address { get; set; }
+        //[Required]
+        //[Display(Name = "Address")]
+        //public string Address { get; set; }
 
-        [Display(Name = "City")]
-        public string City { get; set; }
-        [Required]
-        [Display(Name = "Postal Code")]
-        public string PostalCode { get; set; }
+        //[Display(Name = "City")]
+        //public string City { get; set; }
+        //[Required]
+        //[Display(Name = "Postal Code")]
+        //public string PostalCode { get; set; }
 
-        [Display(Name = "Telephone")]
-        public string Telephone { get; set; }
+        //[Display(Name = "Telephone")]
+        //public string Telephone { get; set; }
 
-        [Display(Name = "Cellphone")]
-        public string Cellphone { get; set; }
+        //[Display(Name = "Cellphone")]
+        //public string Cellphone { get; set; }
 
-        [Required]
-        [Display(Name = "Country")]
-        public IEnumerable<SelectListItem> Country { get; set; }
+        //[Required]
+        //[Display(Name = "Country")]
+        //public IEnumerable<SelectListItem> Country { get; set; }
+
+        public int Country { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -125,20 +124,31 @@ namespace BetEx247.Web.Models
         public string Email { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        [Display(Name = "Email 2")]
-        public string Email2 { get; set; }
+        [Display(Name = "Confirm Email")]
+        [Compare("Email", ErrorMessage = "The email and confirmation email do not match.")]
+        public string ConfirmEmail { get; set; }
 
-        [Required]
-        [Display(Name = "Gender")]
-        public IEnumerable<SelectListItem> Gender { get; set; }  
+        //[DataType(DataType.EmailAddress)]
+        //[Display(Name = "Email 2")]
+        //public string Email2 { get; set; }
+
+       
+        //[Display(Name = "Gender")]
+        //public IEnumerable<SelectListItem> Gender { get; set; }  
+        public bool Gender { get; set; }
      
         [Display(Name = "Suffix")]
         public string Suffix { get; set; }
 
-        [Display(Name = "Betting Region")]
-        public string BettingRegion { get; set; } 
+        //[Display(Name = "Betting Region")]
+        //public string BettingRegion { get; set; } 
     
-        [Display(Name = "Timezone")]
-        public string Timezone { get; set; }            
+        //[Display(Name = "Timezone")]
+        //public string Timezone { get; set; }
+
+        [Required(ErrorMessage = "You must enter your birthday!")]
+        [DataType(DataType.Date)]
+        [Display(Name = "Date of birth")]
+        public string Birthday { get; set; }         
     }
 }

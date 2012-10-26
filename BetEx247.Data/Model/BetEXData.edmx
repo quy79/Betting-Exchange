@@ -274,16 +274,16 @@
           <Property Name="SecurityAnswer1" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="SecurityAnswer2" Type="nvarchar" Nullable="false" MaxLength="255" />
           <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="MiddleName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="100" />
           <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="Country" Type="bigint" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="500" />
-          <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="PostalCode" Type="nvarchar" Nullable="false" MaxLength="20" />
-          <Property Name="Telephone" Type="nvarchar" Nullable="false" MaxLength="30" />
-          <Property Name="Cellphone" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="500" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="30" />
+          <Property Name="Cellphone" Type="nvarchar" MaxLength="30" />
           <Property Name="Email1" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="Email2" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Email2" Type="nvarchar" MaxLength="100" />
           <Property Name="Gender" Type="bit" Nullable="false" />
           <Property Name="Suffix" Type="nvarchar" MaxLength="50" />
           <Property Name="TotalPoints" Type="bigint" />
@@ -1333,6 +1333,14 @@
             <End Role="SportsMatch" EntitySet="SportsMatches" />
             <End Role="Sports_TotalOU" EntitySet="Sports_TotalOU" />
           </AssociationSet>
+          <EntitySet Name="PaymentMethods" EntityType="BetEXData.PaymentMethod" />
+          <AssociationSet Name="FK_MyCards_PaymentMethods" Association="BetEXData.FK_MyCards_PaymentMethods">
+            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
+            <End Role="MyCard" EntitySet="MyCards" />
+          </AssociationSet>
+          <EntitySet Name="Transactions" EntityType="BetEXData.Transaction" />
+          <EntitySet Name="Countries" EntityType="BetEXData.Country" />
+          <EntitySet Name="Statements" EntityType="BetEXData.Statement" />
           <EntitySet Name="Members" EntityType="BetEXData.Member" />
           <AssociationSet Name="FK_LoginHistory_Members" Association="BetEXData.FK_LoginHistory_Members">
             <End Role="Member" EntitySet="Members" />
@@ -1354,21 +1362,13 @@
             <End Role="Member" EntitySet="Members" />
             <End Role="MyWallet" EntitySet="MyWallets" />
           </AssociationSet>
-          <EntitySet Name="PaymentMethods" EntityType="BetEXData.PaymentMethod" />
-          <AssociationSet Name="FK_MyCards_PaymentMethods" Association="BetEXData.FK_MyCards_PaymentMethods">
-            <End Role="PaymentMethod" EntitySet="PaymentMethods" />
-            <End Role="MyCard" EntitySet="MyCards" />
-          </AssociationSet>
-          <EntitySet Name="Transactions" EntityType="BetEXData.Transaction" />
-          <AssociationSet Name="FK_Transactions_Members" Association="BetEXData.FK_Transactions_Members">
-            <End Role="Member" EntitySet="Members" />
-            <End Role="Transaction" EntitySet="Transactions" />
-          </AssociationSet>
-          <EntitySet Name="Countries" EntityType="BetEXData.Country" />
-          <EntitySet Name="Statements" EntityType="BetEXData.Statement" />
           <AssociationSet Name="FK_Statements_Members" Association="BetEXData.FK_Statements_Members">
             <End Role="Member" EntitySet="Members" />
             <End Role="Statement" EntitySet="Statements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transactions_Members" Association="BetEXData.FK_Transactions_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Transaction" EntitySet="Transactions" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="BetStatu">
@@ -1485,8 +1485,8 @@
           <Property Type="Boolean" Name="DepositAndWithdraw" />
           <Property Type="Int16" Name="PaymentMethodId" Nullable="false" />
           <Property Type="Int64" Name="MemberID" />
-          <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyCards_Members" FromRole="MyCard" ToRole="Member" />
           <NavigationProperty Name="PaymentMethod" Relationship="BetEXData.FK_MyCards_PaymentMethods" FromRole="MyCard" ToRole="PaymentMethod" />
+          <NavigationProperty Name="Member" Relationship="BetEXData.FK_MyCards_Members" FromRole="MyCard" ToRole="Member" />
         </EntityType>
         <EntityType Name="MyWallet">
           <Key>
@@ -2165,113 +2165,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="Member">
-          <Key>
-            <PropertyRef Name="MemberID" />
-          </Key>
-          <Property Type="Int64" Name="MemberID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="NickName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SecurityQuestion1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SecurityQuestion2" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SecurityAnswer1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="SecurityAnswer2" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="MiddleName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Int64" Name="Country" Nullable="false" />
-          <Property Type="String" Name="Address" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="City" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="PostalCode" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Telephone" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Cellphone" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Email2" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="Gender" Nullable="false" />
-          <Property Type="String" Name="Suffix" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int64" Name="TotalPoints" />
-          <Property Type="Int32" Name="DiscountRate" />
-          <Property Type="DateTime" Name="LastUpdate" />
-          <Property Type="String" Name="Language" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="BettingRegion" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Timezone" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Int16" Name="Currency" />
-          <Property Type="Int32" Name="AutoLogout" />
-          <Property Type="String" Name="EmailFormat" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="Double" Name="ExposureLimit" />
-          <Property Type="DateTime" Name="PointsLastUpdateTime" />
-          <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="IsActive" />
-          <Property Type="DateTime" Name="AddedDate" />
-          <Property Type="DateTime" Name="Updatedate" />
-          <NavigationProperty Name="LoginHistories" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
-          <NavigationProperty Name="Messages" Relationship="BetEXData.FK_Messages_Members" FromRole="Member" ToRole="Message" />
-          <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Members" FromRole="Member" ToRole="MyBet" />
-          <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_Members" FromRole="Member" ToRole="MyCard" />
-          <NavigationProperty Name="MyWallets" Relationship="BetEXData.FK_MyWallet_Members" FromRole="Member" ToRole="MyWallet" />
-          <NavigationProperty Name="Transactions" Relationship="BetEXData.FK_Transactions_Members" FromRole="Member" ToRole="Transaction" />
-          <NavigationProperty Name="Statements" Relationship="BetEXData.FK_Statements_Members" FromRole="Member" ToRole="Statement" />
-        </EntityType>
-        <Association Name="FK_LoginHistory_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
-          <End Type="BetEXData.LoginHistory" Role="LoginHistory" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="LoginHistory">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Messages_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
-          <End Type="BetEXData.Message" Role="Message" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="Message">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MyBets_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
-          <End Type="BetEXData.MyBet" Role="MyBet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="MyBet">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MyCards_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
-          <End Type="BetEXData.MyCard" Role="MyCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="MyCard">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MyWallet_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
-          <End Type="BetEXData.MyWallet" Role="MyWallet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="MyWallet">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="PaymentMethod">
           <Key>
             <PropertyRef Name="ID" />
@@ -2333,18 +2226,6 @@
           <Property Type="DateTime" Name="ModifyDate" />
           <NavigationProperty Name="Member" Relationship="BetEXData.FK_Transactions_Members" FromRole="Transaction" ToRole="Member" />
         </EntityType>
-        <Association Name="FK_Transactions_Members">
-          <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
-          <End Type="BetEXData.Transaction" Role="Transaction" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="Transaction">
-              <PropertyRef Name="MemberId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="ID" />
@@ -2378,6 +2259,113 @@
           <Property Type="Int32" Name="DisplayId" />
           <NavigationProperty Name="Member" Relationship="BetEXData.FK_Statements_Members" FromRole="Statement" ToRole="Member" />
         </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Type="Int64" Name="MemberID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NickName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityQuestion1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityQuestion2" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityAnswer1" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecurityAnswer2" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="Country" Nullable="false" />
+          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="City" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PostalCode" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Telephone" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cellphone" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="Suffix" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="TotalPoints" />
+          <Property Type="Int32" Name="DiscountRate" />
+          <Property Type="DateTime" Name="LastUpdate" />
+          <Property Type="String" Name="Language" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BettingRegion" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Timezone" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="Currency" />
+          <Property Type="Int32" Name="AutoLogout" />
+          <Property Type="String" Name="EmailFormat" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="ExposureLimit" />
+          <Property Type="DateTime" Name="PointsLastUpdateTime" />
+          <Property Type="String" Name="Status" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsActive" />
+          <Property Type="DateTime" Name="AddedDate" />
+          <Property Type="DateTime" Name="Updatedate" />
+          <NavigationProperty Name="LoginHistories" Relationship="BetEXData.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
+          <NavigationProperty Name="Messages" Relationship="BetEXData.FK_Messages_Members" FromRole="Member" ToRole="Message" />
+          <NavigationProperty Name="MyBets" Relationship="BetEXData.FK_MyBets_Members" FromRole="Member" ToRole="MyBet" />
+          <NavigationProperty Name="MyCards" Relationship="BetEXData.FK_MyCards_Members" FromRole="Member" ToRole="MyCard" />
+          <NavigationProperty Name="MyWallets" Relationship="BetEXData.FK_MyWallet_Members" FromRole="Member" ToRole="MyWallet" />
+          <NavigationProperty Name="Statements" Relationship="BetEXData.FK_Statements_Members" FromRole="Member" ToRole="Statement" />
+          <NavigationProperty Name="Transactions" Relationship="BetEXData.FK_Transactions_Members" FromRole="Member" ToRole="Transaction" />
+        </EntityType>
+        <Association Name="FK_LoginHistory_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BetEXData.LoginHistory" Role="LoginHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="LoginHistory">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Messages_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BetEXData.Message" Role="Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyBets_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BetEXData.MyBet" Role="MyBet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MyBet">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyCards_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BetEXData.MyCard" Role="MyCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MyCard">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyWallet_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BetEXData.MyWallet" Role="MyWallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MyWallet">
+              <PropertyRef Name="MemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Statements_Members">
           <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
           <End Type="BetEXData.Statement" Role="Statement" Multiplicity="*" />
@@ -2386,6 +2374,18 @@
               <PropertyRef Name="MemberID" />
             </Principal>
             <Dependent Role="Statement">
+              <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transactions_Members">
+          <End Type="BetEXData.Member" Role="Member" Multiplicity="1" />
+          <End Type="BetEXData.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="Transaction">
               <PropertyRef Name="MemberId" />
             </Dependent>
           </ReferentialConstraint>
@@ -2922,47 +2922,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Members">
-            <EntityTypeMapping TypeName="BetEXData.Member">
-              <MappingFragment StoreEntitySet="Members">
-                <ScalarProperty Name="Updatedate" ColumnName="Updatedate" />
-                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="PointsLastUpdateTime" ColumnName="PointsLastUpdateTime" />
-                <ScalarProperty Name="ExposureLimit" ColumnName="ExposureLimit" />
-                <ScalarProperty Name="EmailFormat" ColumnName="EmailFormat" />
-                <ScalarProperty Name="AutoLogout" ColumnName="AutoLogout" />
-                <ScalarProperty Name="Currency" ColumnName="Currency" />
-                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
-                <ScalarProperty Name="BettingRegion" ColumnName="BettingRegion" />
-                <ScalarProperty Name="Language" ColumnName="Language" />
-                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
-                <ScalarProperty Name="DiscountRate" ColumnName="DiscountRate" />
-                <ScalarProperty Name="TotalPoints" ColumnName="TotalPoints" />
-                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
-                <ScalarProperty Name="Gender" ColumnName="Gender" />
-                <ScalarProperty Name="Email2" ColumnName="Email2" />
-                <ScalarProperty Name="Email1" ColumnName="Email1" />
-                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
-                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
-                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Country" ColumnName="Country" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="SecurityAnswer2" ColumnName="SecurityAnswer2" />
-                <ScalarProperty Name="SecurityAnswer1" ColumnName="SecurityAnswer1" />
-                <ScalarProperty Name="SecurityQuestion2" ColumnName="SecurityQuestion2" />
-                <ScalarProperty Name="SecurityQuestion1" ColumnName="SecurityQuestion1" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="NickName" ColumnName="NickName" />
-                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="PaymentMethods">
             <EntityTypeMapping TypeName="BetEXData.PaymentMethod">
               <MappingFragment StoreEntitySet="PaymentMethods">
@@ -3046,6 +3005,47 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="BetEXData.Member">
+              <MappingFragment StoreEntitySet="Members">
+                <ScalarProperty Name="Updatedate" ColumnName="Updatedate" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PointsLastUpdateTime" ColumnName="PointsLastUpdateTime" />
+                <ScalarProperty Name="ExposureLimit" ColumnName="ExposureLimit" />
+                <ScalarProperty Name="EmailFormat" ColumnName="EmailFormat" />
+                <ScalarProperty Name="AutoLogout" ColumnName="AutoLogout" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="Timezone" ColumnName="Timezone" />
+                <ScalarProperty Name="BettingRegion" ColumnName="BettingRegion" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="LastUpdate" ColumnName="LastUpdate" />
+                <ScalarProperty Name="DiscountRate" ColumnName="DiscountRate" />
+                <ScalarProperty Name="TotalPoints" ColumnName="TotalPoints" />
+                <ScalarProperty Name="Suffix" ColumnName="Suffix" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email2" ColumnName="Email2" />
+                <ScalarProperty Name="Email1" ColumnName="Email1" />
+                <ScalarProperty Name="Cellphone" ColumnName="Cellphone" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SecurityAnswer2" ColumnName="SecurityAnswer2" />
+                <ScalarProperty Name="SecurityAnswer1" ColumnName="SecurityAnswer1" />
+                <ScalarProperty Name="SecurityQuestion2" ColumnName="SecurityQuestion2" />
+                <ScalarProperty Name="SecurityQuestion1" ColumnName="SecurityQuestion1" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3109,8 +3109,8 @@
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_AsianHandicap" >
           <ConnectorPoint PointX="9" PointY="13.576396484374982" />
           <ConnectorPoint PointX="9.375" PointY="13.951396484374982" />
-          <ConnectorPoint PointX="9.375" PointY="21.78815755208332" />
-          <ConnectorPoint PointX="9.75" PointY="21.78815755208332" />
+          <ConnectorPoint PointX="9.375" PointY="22.415430815104166" />
+          <ConnectorPoint PointX="9.75" PointY="22.415430815104166" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_CorrectScores" >
           <ConnectorPoint PointX="9" PointY="15.942047526041662" />
@@ -3126,9 +3126,9 @@
           <ConnectorPoint PointX="9.75" PointY="20.129547526041662" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Soccer_TotalGoalsOU" >
-          <ConnectorPoint PointX="9" PointY="30.65625" />
-          <ConnectorPoint PointX="10.09375" PointY="30.65625" />
-          <ConnectorPoint PointX="10.09375" PointY="24.701315104166667" />
+          <ConnectorPoint PointX="9" PointY="31.663198242187491" />
+          <ConnectorPoint PointX="10.5" PointY="31.663198242187491" />
+          <ConnectorPoint PointX="10.5" PointY="24.701315104166667" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_ScoreInfo_SoccerMatches" >
           <ConnectorPoint PointX="6.4062525" PointY="19.125" />
@@ -3194,16 +3194,16 @@
         <AssociationConnector Association="BetEXData.FK_Team_Leagues" >
           <ConnectorPoint PointX="3.71875" PointY="26.537903645833353" />
           <ConnectorPoint PointX="3.71875" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="4.5666278989283251" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="4.83952768172582" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="4.9728828989283249" PointY="43.336293945312491" />
-          <ConnectorPoint PointX="5.139549565594991" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="4.5572891666666671" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="4.7239558333333331" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="4.9635441666666669" PointY="43.336293945312491" />
+          <ConnectorPoint PointX="5.2317745833333316" PointY="43.336293945312491" />
           <ConnectorPoint PointX="5.25" PointY="43.336293945312491" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Sports_AsianHandicap_SoccerMatches" >
           <ConnectorPoint PointX="6.2031225" PointY="26.682027994791667" />
-          <ConnectorPoint PointX="6.2031225" PointY="41.112366536458339" />
-          <ConnectorPoint PointX="7.5" PointY="41.112366536458339" />
+          <ConnectorPoint PointX="6.2031225" PointY="41.458517252604175" />
+          <ConnectorPoint PointX="7.5" PointY="41.458517252604175" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Sports_MoneyLine_SportsMatches" >
           <ConnectorPoint PointX="2.25" PointY="4.1920475260416765" />
@@ -3217,7 +3217,16 @@
           <ConnectorPoint PointX="2.25" PointY="9.0333561197916623" />
           <ConnectorPoint PointX="3" PointY="9.0333561197916623" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="BetEXData.Member" Width="1.5" PointX="4.5" PointY="31.75" Height="9.0954394531249818" />
+        <EntityTypeShape EntityType="BetEXData.PaymentMethod" Width="1.5" PointX="14.375" PointY="1.125" Height="6.018616536458353" />
+        <AssociationConnector Association="BetEXData.FK_MyCards_PaymentMethods" >
+          <ConnectorPoint PointX="15.125" PointY="7.143616536458353" />
+          <ConnectorPoint PointX="15.125" PointY="46.874746093750005" />
+          <ConnectorPoint PointX="14.25" PointY="46.874746093750005" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BetEXData.Transaction" Width="1.5" PointX="6.75" PointY="45.5" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="BetEXData.Country" Width="1.5" PointX="0.75" PointY="12.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BetEXData.Statement" Width="1.5" PointX="6.75" PointY="49.75" Height="5.057109374999996" />
+        <EntityTypeShape EntityType="BetEXData.Member" Width="1.5" PointX="4.5" PointY="32.25" Height="9.095439453124996" />
         <AssociationConnector Association="BetEXData.FK_LoginHistory_Members" >
           <ConnectorPoint PointX="6" PointY="38.009348958333334" />
           <ConnectorPoint PointX="6.1197891666666671" PointY="38.009348958333334" />
@@ -3225,14 +3234,14 @@
           <ConnectorPoint PointX="9.75" PointY="38.009348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_Messages_Members" >
-          <ConnectorPoint PointX="4.8624274645233152" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="4.8624274645233152" PointY="41.879547526041677" />
-          <ConnectorPoint PointX="4.9728828989283249" PointY="41.879547526041677" />
-          <ConnectorPoint PointX="5.139549565594991" PointY="41.879547526041677" />
+          <ConnectorPoint PointX="4.84375" PointY="41.345439453124996" />
+          <ConnectorPoint PointX="4.84375" PointY="41.879547526041677" />
+          <ConnectorPoint PointX="4.9635441666666669" PointY="41.879547526041677" />
+          <ConnectorPoint PointX="5.2317745833333316" PointY="41.879547526041677" />
           <ConnectorPoint PointX="9.75" PointY="41.879547526041677" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyBets_Members" >
-          <ConnectorPoint PointX="5.25" PointY="31.75" />
+          <ConnectorPoint PointX="5.25" PointY="32.25" />
           <ConnectorPoint PointX="5.25" PointY="26.932027994791667" />
           <ConnectorPoint PointX="6.1197891666666671" PointY="26.932027994791667" />
           <ConnectorPoint PointX="6.2864558333333331" PointY="26.932027994791667" />
@@ -3240,6 +3249,8 @@
           <ConnectorPoint PointX="6.489583333333333" PointY="26.932027994791667" />
           <ConnectorPoint PointX="7" PointY="26.932027994791667" />
           <ConnectorPoint PointX="7" PointY="21.754547526041662" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="21.754547526041662" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="21.754547526041662" />
           <ConnectorPoint PointX="9.75" PointY="21.754547526041662" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyCards_Members" >
@@ -3252,30 +3263,19 @@
           <ConnectorPoint PointX="13.5" PointY="45.5" />
         </AssociationConnector>
         <AssociationConnector Association="BetEXData.FK_MyWallet_Members" >
-          <ConnectorPoint PointX="4.6499612322616581" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="4.6499612322616581" PointY="49.384348958333334" />
-          <ConnectorPoint PointX="4.6728610150591541" PointY="49.384348958333334" />
-          <ConnectorPoint PointX="4.83952768172582" PointY="49.384348958333334" />
+          <ConnectorPoint PointX="5.0468775" PointY="41.345439453124996" />
+          <ConnectorPoint PointX="5.0468775" PointY="49.384348958333334" />
           <ConnectorPoint PointX="9.75" PointY="49.384348958333334" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="BetEXData.PaymentMethod" Width="1.5" PointX="14.375" PointY="1.125" Height="6.018616536458353" />
-        <AssociationConnector Association="BetEXData.FK_MyCards_PaymentMethods" >
-          <ConnectorPoint PointX="15.125" PointY="7.143616536458353" />
-          <ConnectorPoint PointX="15.125" PointY="46.874746093750005" />
-          <ConnectorPoint PointX="14.25" PointY="46.874746093750005" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="BetEXData.Transaction" Width="1.5" PointX="6.75" PointY="45.5" Height="3.5186979166666674" />
-        <AssociationConnector Association="BetEXData.FK_Transactions_Members" >
-          <ConnectorPoint PointX="5.056216232261658" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="5.056216232261658" PointY="47.259348958333334" />
-          <ConnectorPoint PointX="6.75" PointY="47.259348958333334" />
-        </AssociationConnector>
-        <EntityTypeShape EntityType="BetEXData.Country" Width="1.5" PointX="0.75" PointY="12.75" Height="1.4033821614583246" />
-        <EntityTypeShape EntityType="BetEXData.Statement" Width="1.5" PointX="6.75" PointY="49.75" Height="5.057109374999996" />
         <AssociationConnector Association="BetEXData.FK_Statements_Members" >
-          <ConnectorPoint PointX="4.7561943483924871" PointY="40.845439453124996" />
-          <ConnectorPoint PointX="4.7561943483924871" PointY="52.2785546875" />
+          <ConnectorPoint PointX="4.6406225" PointY="41.345439453124996" />
+          <ConnectorPoint PointX="4.6406225" PointY="52.2785546875" />
           <ConnectorPoint PointX="6.75" PointY="52.2785546875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BetEXData.FK_Transactions_Members" >
+          <ConnectorPoint PointX="5.1484412499999994" PointY="41.345439453124996" />
+          <ConnectorPoint PointX="5.1484412499999994" PointY="47.259348958333334" />
+          <ConnectorPoint PointX="6.75" PointY="47.259348958333334" />
         </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>

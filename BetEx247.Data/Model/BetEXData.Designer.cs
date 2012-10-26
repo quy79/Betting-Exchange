@@ -39,14 +39,14 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_MoneyLine_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_MoneyLine", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_MoneyLine), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_Outright_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_Outright", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_Outright), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_TotalOU_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_TotalOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_TotalOU), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_PaymentMethods", "PaymentMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.PaymentMethod), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_LoginHistory_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "LoginHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.LoginHistory), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Messages_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Message), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyWallet_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyWallet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_PaymentMethods", "PaymentMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.PaymentMethod), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
 
 #endregion
 
@@ -645,22 +645,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Member> Members
-        {
-            get
-            {
-                if ((_Members == null))
-                {
-                    _Members = base.CreateObjectSet<Member>("Members");
-                }
-                return _Members;
-            }
-        }
-        private ObjectSet<Member> _Members;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<PaymentMethod> PaymentMethods
         {
             get
@@ -721,6 +705,22 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<Statement> _Statements;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Member> Members
+        {
+            get
+            {
+                if ((_Members == null))
+                {
+                    _Members = base.CreateObjectSet<Member>("Members");
+                }
+                return _Members;
+            }
+        }
+        private ObjectSet<Member> _Members;
 
         #endregion
         #region AddTo Methods
@@ -998,14 +998,6 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Members EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToMembers(Member member)
-        {
-            base.AddObject("Members", member);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the PaymentMethods EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToPaymentMethods(PaymentMethod paymentMethod)
@@ -1035,6 +1027,14 @@ namespace BetEx247.Data.Model
         public void AddToStatements(Statement statement)
         {
             base.AddObject("Statements", statement);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Members EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToMembers(Member member)
+        {
+            base.AddObject("Members", member);
         }
 
         #endregion
@@ -2228,18 +2228,11 @@ namespace BetEx247.Data.Model
         /// <param name="securityAnswer1">Initial value of the SecurityAnswer1 property.</param>
         /// <param name="securityAnswer2">Initial value of the SecurityAnswer2 property.</param>
         /// <param name="firstName">Initial value of the FirstName property.</param>
-        /// <param name="middleName">Initial value of the MiddleName property.</param>
         /// <param name="lastName">Initial value of the LastName property.</param>
         /// <param name="country">Initial value of the Country property.</param>
-        /// <param name="address">Initial value of the Address property.</param>
-        /// <param name="city">Initial value of the City property.</param>
-        /// <param name="postalCode">Initial value of the PostalCode property.</param>
-        /// <param name="telephone">Initial value of the Telephone property.</param>
-        /// <param name="cellphone">Initial value of the Cellphone property.</param>
         /// <param name="email1">Initial value of the Email1 property.</param>
-        /// <param name="email2">Initial value of the Email2 property.</param>
         /// <param name="gender">Initial value of the Gender property.</param>
-        public static Member CreateMember(global::System.Int64 memberID, global::System.String nickName, global::System.String password, global::System.String securityQuestion1, global::System.String securityQuestion2, global::System.String securityAnswer1, global::System.String securityAnswer2, global::System.String firstName, global::System.String middleName, global::System.String lastName, global::System.Int64 country, global::System.String address, global::System.String city, global::System.String postalCode, global::System.String telephone, global::System.String cellphone, global::System.String email1, global::System.String email2, global::System.Boolean gender)
+        public static Member CreateMember(global::System.Int64 memberID, global::System.String nickName, global::System.String password, global::System.String securityQuestion1, global::System.String securityQuestion2, global::System.String securityAnswer1, global::System.String securityAnswer2, global::System.String firstName, global::System.String lastName, global::System.Int64 country, global::System.String email1, global::System.Boolean gender)
         {
             Member member = new Member();
             member.MemberID = memberID;
@@ -2250,16 +2243,9 @@ namespace BetEx247.Data.Model
             member.SecurityAnswer1 = securityAnswer1;
             member.SecurityAnswer2 = securityAnswer2;
             member.FirstName = firstName;
-            member.MiddleName = middleName;
             member.LastName = lastName;
             member.Country = country;
-            member.Address = address;
-            member.City = city;
-            member.PostalCode = postalCode;
-            member.Telephone = telephone;
-            member.Cellphone = cellphone;
             member.Email1 = email1;
-            member.Email2 = email2;
             member.Gender = gender;
             return member;
         }
@@ -2465,7 +2451,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String MiddleName
         {
@@ -2477,7 +2463,7 @@ namespace BetEx247.Data.Model
             {
                 OnMiddleNameChanging(value);
                 ReportPropertyChanging("MiddleName");
-                _MiddleName = StructuralObject.SetValidValue(value, false);
+                _MiddleName = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("MiddleName");
                 OnMiddleNameChanged();
             }
@@ -2537,7 +2523,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Address
         {
@@ -2549,7 +2535,7 @@ namespace BetEx247.Data.Model
             {
                 OnAddressChanging(value);
                 ReportPropertyChanging("Address");
-                _Address = StructuralObject.SetValidValue(value, false);
+                _Address = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Address");
                 OnAddressChanged();
             }
@@ -2561,7 +2547,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String City
         {
@@ -2573,7 +2559,7 @@ namespace BetEx247.Data.Model
             {
                 OnCityChanging(value);
                 ReportPropertyChanging("City");
-                _City = StructuralObject.SetValidValue(value, false);
+                _City = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("City");
                 OnCityChanged();
             }
@@ -2585,7 +2571,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String PostalCode
         {
@@ -2597,7 +2583,7 @@ namespace BetEx247.Data.Model
             {
                 OnPostalCodeChanging(value);
                 ReportPropertyChanging("PostalCode");
-                _PostalCode = StructuralObject.SetValidValue(value, false);
+                _PostalCode = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("PostalCode");
                 OnPostalCodeChanged();
             }
@@ -2609,7 +2595,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Telephone
         {
@@ -2621,7 +2607,7 @@ namespace BetEx247.Data.Model
             {
                 OnTelephoneChanging(value);
                 ReportPropertyChanging("Telephone");
-                _Telephone = StructuralObject.SetValidValue(value, false);
+                _Telephone = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Telephone");
                 OnTelephoneChanged();
             }
@@ -2633,7 +2619,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Cellphone
         {
@@ -2645,7 +2631,7 @@ namespace BetEx247.Data.Model
             {
                 OnCellphoneChanging(value);
                 ReportPropertyChanging("Cellphone");
-                _Cellphone = StructuralObject.SetValidValue(value, false);
+                _Cellphone = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Cellphone");
                 OnCellphoneChanged();
             }
@@ -2681,7 +2667,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Email2
         {
@@ -2693,7 +2679,7 @@ namespace BetEx247.Data.Model
             {
                 OnEmail2Changing(value);
                 ReportPropertyChanging("Email2");
-                _Email2 = StructuralObject.SetValidValue(value, false);
+                _Email2 = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Email2");
                 OnEmail2Changed();
             }
@@ -3230,28 +3216,6 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Transactions_Members", "Transaction")]
-        public EntityCollection<Transaction> Transactions
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Transaction>("BetEXData.FK_Transactions_Members", "Transaction");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Transaction>("BetEXData.FK_Transactions_Members", "Transaction", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Statements_Members", "Statement")]
         public EntityCollection<Statement> Statements
         {
@@ -3264,6 +3228,28 @@ namespace BetEx247.Data.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Transactions_Members", "Transaction")]
+        public EntityCollection<Transaction> Transactions
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Transaction>("BetEXData.FK_Transactions_Members", "Transaction");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Transaction>("BetEXData.FK_Transactions_Members", "Transaction", value);
                 }
             }
         }
@@ -4578,44 +4564,6 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyCards_Members", "Member")]
-        public Member Member
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Member> MemberReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyCards_PaymentMethods", "PaymentMethod")]
         public PaymentMethod PaymentMethod
         {
@@ -4644,6 +4592,44 @@ namespace BetEx247.Data.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentMethod>("BetEXData.FK_MyCards_PaymentMethods", "PaymentMethod", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyCards_Members", "Member")]
+        public Member Member
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Member> MemberReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member", value);
                 }
             }
         }

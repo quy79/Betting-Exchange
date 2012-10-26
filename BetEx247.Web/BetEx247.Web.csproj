@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc">
+      <HintPath>C:\Users\admin\Desktop\MvcCaptcha.Test\MvcCaptcha.Test\MvcCaptchaSimpleExample\bin\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
@@ -113,6 +116,7 @@
     <Content Include="Content\Css\tabs-general.css" />
     <Content Include="Content\Css\tabs-ie6.css" />
     <Content Include="Content\Images\themes\75.png" />
+    <Content Include="Content\Images\themes\ab18.png" />
     <Content Include="Content\Images\themes\arrow-acc.png" />
     <Content Include="Content\Images\themes\arrow-down.gif" />
     <Content Include="Content\Images\themes\arrow-light.gif" />
@@ -125,6 +129,7 @@
     <Content Include="Content\Images\themes\bg-altcontent_live.gif" />
     <Content Include="Content\Images\themes\bg-bettingslip.gif" />
     <Content Include="Content\Images\themes\bg-eventdates.gif" />
+    <Content Include="Content\Images\themes\bg-header.gif" />
     <Content Include="Content\Images\themes\bg-livebet-cell.gif" />
     <Content Include="Content\Images\themes\bg-nonlive-match.gif" />
     <Content Include="Content\Images\themes\bg-sport-title.gif" />
@@ -139,21 +144,34 @@
     <Content Include="Content\Images\themes\br.png" />
     <Content Include="Content\Images\themes\button_show.png" />
     <Content Include="Content\Images\themes\cal.gif" />
+    <Content Include="Content\Images\themes\Captcha.jpg" />
     <Content Include="Content\Images\themes\ccui-main_nav_hvr.png" />
     <Content Include="Content\Images\themes\cell-bg.gif" />
     <Content Include="Content\Images\themes\cell-div.gif" />
     <Content Include="Content\Images\themes\cell-live-bg.gif" />
     <Content Include="Content\Images\themes\choose_sport_header.png" />
     <Content Include="Content\Images\themes\cs.png" />
+    <Content Include="Content\Images\themes\DatePicker.gif" />
     <Content Include="Content\Images\themes\de.png" />
     <Content Include="Content\Images\themes\delete.gif" />
     <Content Include="Content\Images\themes\fr.png" />
     <Content Include="Content\Images\themes\gb.png" />
     <Content Include="Content\Images\themes\h300.png" />
     <Content Include="Content\Images\themes\header_bg.jpg" />
+    <Content Include="Content\Images\themes\icon_bank_transfer.gif" />
+    <Content Include="Content\Images\themes\icon_giropay.gif" />
+    <Content Include="Content\Images\themes\icon_mastercard.gif" />
+    <Content Include="Content\Images\themes\icon_moneybookers.gif" />
+    <Content Include="Content\Images\themes\icon_neteller.gif" />
+    <Content Include="Content\Images\themes\icon_paypal.png" />
+    <Content Include="Content\Images\themes\icon_paysafe.gif" />
+    <Content Include="Content\Images\themes\icon_qiwi.png" />
+    <Content Include="Content\Images\themes\icon_trustpay.png" />
+    <Content Include="Content\Images\themes\icon_visa.gif" />
     <Content Include="Content\Images\themes\in.png" />
     <Content Include="Content\Images\themes\jp.png" />
     <Content Include="Content\Images\themes\laybet_arrow.png" />
+    <Content Include="Content\Images\themes\lga.png" />
     <Content Include="Content\Images\themes\listings-div.png" />
     <Content Include="Content\Images\themes\live-in-play.gif" />
     <Content Include="Content\Images\themes\livenow.gif" />
@@ -173,11 +191,21 @@
     <Content Include="Content\Images\themes\search_odds_but.png" />
     <Content Include="Content\Images\themes\seperator.gif" />
     <Content Include="Content\Images\themes\slip-header.gif" />
+    <Content Include="Content\Images\themes\SL_178x82_Sportbonus_50_1er.gif" />
+    <Content Include="Content\Images\themes\SOCCER13.jpg" />
+    <Content Include="Content\Images\themes\spirte.png" />
     <Content Include="Content\Images\themes\sports-live.gif" />
     <Content Include="Content\Images\themes\sports.gif" />
     <Content Include="Content\Images\themes\sports_sprites1.png" />
     <Content Include="Content\Images\themes\sprite_sport_icons40px.png" />
     <Content Include="Content\Images\themes\tbsprite.png" />
+    <Content Include="Content\Images\themes\thawte.png" />
+    <Content Include="Content\Images\themes\trust_LGA_en.png" />
+    <Content Include="Content\Images\themes\trust_safety_seal_en.png" />
+    <Content Include="Content\Images\themes\trust_safety_seal_small.png" />
+    <Content Include="Content\Images\themes\trust_thawte_en.png" />
+    <Content Include="Content\Images\themes\trust_virus_free_seal_en.png" />
+    <Content Include="Content\Images\themes\trust_virus_free_seal_small.png" />
     <Content Include="Content\Images\themes\us.png" />
     <Content Include="Content\Scripts\GUI\AccountHistory.js" />
     <Content Include="Content\Scripts\GUI\betex247.js" />
@@ -204,6 +232,7 @@
     <Content Include="Content\Scripts\GUI\lang\sp.js" />
     <Content Include="Content\Scripts\GUI\lang\sv.js" />
     <Content Include="Content\Scripts\GUI\lang\ua.js" />
+    <Content Include="Content\Scripts\GUI\Market.js" />
     <Content Include="Content\Scripts\GUI\sports.js" />
     <Content Include="Content\Scripts\GUI\standards.js" />
     <Content Include="Content\Scripts\GUI\StringBuilder.js" />
@@ -407,6 +436,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Ajax\MyBetHistory.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_DefaultCaptchaView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Register-Done.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

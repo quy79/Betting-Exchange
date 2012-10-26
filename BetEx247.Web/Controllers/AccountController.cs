@@ -17,6 +17,8 @@ using BetEx247.Core;
 using BetEx247.Data;
 using BetEx247.Core.Payment;
 using System.Text;
+using CaptchaMvc.Attributes;
+using CaptchaMvc.Infrastructure;
 
 namespace BetEx247.Web.Controllers
 {
@@ -134,75 +136,95 @@ namespace BetEx247.Web.Controllers
             ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
             ViewBag.Gender = IoC.Resolve<ICommonService>().MakeSelectListGender();
             ViewBag.CurrencyList = IoC.Resolve<ICommonService>().MakeSelectListCurrency();
-            RegisterModel model = new RegisterModel();
+            RegisterModel model = new RegisterModel();           
             return View(model);
         }
 
         //
         // POST: /Account/Register
-
+        [CaptchaVerify("Captcha is not valid")]
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
-            MembershipCreateStatus createStatus = new MembershipCreateStatus();
-            var member = new Member();
-            if (IoC.Resolve<ICustomerService>().checkExistEmail(model.Email))
+            if (ModelState.IsValid)
             {
-                createStatus = MembershipCreateStatus.DuplicateEmail;
-            }
-            else if (model.Email2 != null && IoC.Resolve<ICustomerService>().checkExistEmail(model.Email2))
-            {
-                createStatus = MembershipCreateStatus.DuplicateEmail;
-            }
-            else if (IoC.Resolve<ICustomerService>().checkExistNickName(model.NickName))
-            {
-                createStatus = MembershipCreateStatus.DuplicateUserName;
+                TempData["Message"] = "Message: captcha is valid.";
+                MembershipCreateStatus createStatus = new MembershipCreateStatus();
+                var member = new Member();
+                if (IoC.Resolve<ICustomerService>().checkExistEmail(model.Email))
+                {
+                    createStatus = MembershipCreateStatus.DuplicateEmail;
+                }
+                //else if (model.Email2 != null && IoC.Resolve<ICustomerService>().checkExistEmail(model.Email2))
+                //{
+                //    createStatus = MembershipCreateStatus.DuplicateEmail;
+                //}
+                else if (IoC.Resolve<ICustomerService>().checkExistNickName(model.NickName))
+                {
+                    createStatus = MembershipCreateStatus.DuplicateUserName;
+                }
+                else
+                {
+                    // Attempt to register the user
+                    member.NickName = CommonHelper.EnsureNotNull(model.NickName);
+                    member.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password.Trim(), "sha1");
+                    member.SecurityQuestion1 = CommonHelper.EnsureNotNull(model.SecurityQuestion1);
+                    member.SecurityAnswer1 = CommonHelper.EnsureNotNull(model.SecurityAnswer1);
+                    member.SecurityQuestion2 = CommonHelper.EnsureNotNull(model.SecurityQuestion2);
+                    member.SecurityAnswer2 = CommonHelper.EnsureNotNull(model.SecurityAnswer2);
+                    member.Currency = short.Parse(Request.Form["Currency"].ToString());
+                    member.FirstName = CommonHelper.EnsureNotNull(model.FirstName);
+                    member.MiddleName = CommonHelper.EnsureNotNull(model.MiddleName);
+                    member.LastName = CommonHelper.EnsureNotNull(model.LastName);
+                    //member.Address = CommonHelper.EnsureNotNull(model.Address);
+                    //member.City = CommonHelper.EnsureNotNull(model.City);
+                    //member.PostalCode = CommonHelper.EnsureNotNull(model.PostalCode);
+                    //member.Telephone = CommonHelper.EnsureNotNull(model.Telephone);
+                    //member.Cellphone = CommonHelper.EnsureNotNull(model.Cellphone);
+                    member.Country = Request.Form["Country"].ToInt64();
+                    member.Email1 = CommonHelper.EnsureNotNull(model.Email);
+                    //member.Email2 = CommonHelper.EnsureNotNull(model.Email2);
+                    member.Gender = Request.Form["Gender"] == "M" ? true : false;
+                    //member.BettingRegion = CommonHelper.EnsureNotNull(model.BettingRegion);
+                    //member.Timezone = CommonHelper.EnsureNotNull(model.Timezone);
+                    member.AddedDate = DateTime.UtcNow;
+                    member.Updatedate = DateTime.UtcNow;
+                    member.Status = Constant.Status.INACTIVE;
+                    member.IsActive = false;
+
+                    IoC.Resolve<ICustomerService>().Insert(member);
+                    createStatus = MembershipCreateStatus.Success;
+                }
+
+                if (createStatus == MembershipCreateStatus.Success)
+                {
+                    FormsAuthentication.SetAuthCookie(member.NickName, false /* createPersistentCookie */);
+                    return RedirectToAction("register-done", "account");
+                }
+                else
+                {
+                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
+                }
+
+                // If we got this far, something failed, redisplay form
+                return View(model);
             }
             else
             {
-                // Attempt to register the user
-                member.NickName = CommonHelper.EnsureNotNull(model.NickName);
-                member.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(model.Password.Trim(), "sha1");
-                member.SecurityQuestion1 = CommonHelper.EnsureNotNull(model.SecurityQuestion1);
-                member.SecurityAnswer1 = CommonHelper.EnsureNotNull(model.SecurityAnswer1);
-                member.SecurityQuestion2 = CommonHelper.EnsureNotNull(model.SecurityQuestion2);
-                member.SecurityAnswer2 = CommonHelper.EnsureNotNull(model.SecurityAnswer2);
-                member.Currency = short.Parse(Request.Form["Currency"].ToString());
-                member.FirstName = CommonHelper.EnsureNotNull(model.FirstName);
-                member.MiddleName = CommonHelper.EnsureNotNull(model.MiddleName);
-                member.LastName = CommonHelper.EnsureNotNull(model.LastName);
-                member.Address = CommonHelper.EnsureNotNull(model.Address);
-                member.City = CommonHelper.EnsureNotNull(model.City);
-                member.PostalCode = CommonHelper.EnsureNotNull(model.PostalCode);
-                member.Telephone = CommonHelper.EnsureNotNull(model.Telephone);
-                member.Cellphone = CommonHelper.EnsureNotNull(model.Cellphone);
-                member.Country = Request.Form["Country"].ToInt64();
-                member.Email1 = CommonHelper.EnsureNotNull(model.Email);
-                member.Email2 = CommonHelper.EnsureNotNull(model.Email2);
-                member.Gender = Request.Form["Gender"] == "M" ? true : false;
-                member.BettingRegion = CommonHelper.EnsureNotNull(model.BettingRegion);
-                member.Timezone = CommonHelper.EnsureNotNull(model.Timezone);
-                member.AddedDate = DateTime.UtcNow;
-                member.Updatedate = DateTime.UtcNow;
-                member.Status = Constant.Status.INACTIVE;
-                member.IsActive = false;
-
-                IoC.Resolve<ICustomerService>().Insert(member);
-                createStatus = MembershipCreateStatus.Success;
+                TempData["ErrorMessage"] = "Error: captcha is not valid.";
+                ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
+                ViewBag.Gender = IoC.Resolve<ICommonService>().MakeSelectListGender();
+                ViewBag.CurrencyList = IoC.Resolve<ICommonService>().MakeSelectListCurrency();                 
+                return View(model);
             }
+        }
 
-            if (createStatus == MembershipCreateStatus.Success)
-            {
-                //FormsAuthentication.SetAuthCookie(member.NickName, false /* createPersistentCookie */);
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                ModelState.AddModelError("", ErrorCodeToString(createStatus));
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
+        [ActionName("register-done")]
+        public ActionResult RegisterComplete()
+        {
+            long userId = SessionManager.USER_ID;
+            var member = IoC.Resolve<ICustomerService>().GetCustomerById(userId);
+            return View(member);
         }
         #endregion
 
@@ -619,6 +641,15 @@ namespace BetEx247.Web.Controllers
                 default:
                     return "An unknown error occurred. Please verify your entry and try again. If the problem persists, please contact your system administrator.";
             }
+        }
+
+        public ActionResult ChangeContainerProvider()
+        {
+            if (CaptchaUtils.CaptchaManager.StorageProvider is CookieStorageProvider)
+                CaptchaUtils.CaptchaManager.StorageProvider = new SessionStorageProvider();
+            else
+                CaptchaUtils.CaptchaManager.StorageProvider = new CookieStorageProvider();
+            return RedirectToAction("Index");
         }
         #endregion
     }

@@ -94,7 +94,7 @@ namespace BetEx247.Data.DAL
         {
             using (var dba = new BetEXDataContainer())
             {
-                return dba.Members.Where(w => w.NickName == username && w.Status == Constant.Status.ACTIVE).SingleOrDefault();
+                return dba.Members.Where(w => w.NickName == username).SingleOrDefault();
             }
         }
 

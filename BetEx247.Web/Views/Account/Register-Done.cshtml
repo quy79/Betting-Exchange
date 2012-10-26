@@ -1,0 +1,77 @@
+﻿@model BetEx247.Data.Model.Member
+@{
+    ViewBag.Title = "RegisterComplete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div id="middle_column">
+    <div id="contentbox" class="clearfix">
+        <h1 class="sports_header">
+            CREATE ACCOUNT</h1>
+        <form action="" method="post" class="AccountRegForm">
+        <div class="create-account-box">
+            <div class="rb">
+                My Account</div>
+            <br />
+            <table cellpadding="3" cellspacing="2">
+                <tr>
+                    <td colspan="2">
+                        <span class="">Your account has been created ! Please check your mail box to confirm
+                            the registered information. </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Welcome [@Model.FirstName @Model.LastName]
+                    </td>
+                </tr>
+                <tr>
+                    <td width="150">
+                        Current available balance
+                    </td>
+                    <td width="350">
+                        0.00
+                    </td>
+                </tr>
+                <tr>
+                    <td width="150">
+                        Date registered
+                    </td>
+                    <td width="350">
+                        @Model.AddedDate.Value.ToLongDateString()
+                    </td>
+                </tr>
+                <tr>
+                    <td width="150">
+                        Last login
+                    </td>
+                    <td width="350">
+                        @Model.AddedDate.Value.ToLongDateString()
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Would you like to deposit money ? Deposit via Credit Card, Bank Transfer, Skrill
+                        MoneyBookers, NETeller and more
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div id="icons">
+                            <a href="/en/deposit">
+                                <img height="29" alt="banktransfer" width="54" class="inline" src="@Url.Content("~/Content/images/themes/icon_bank_transfer.gif")" /><img
+                                    height="29" alt="creditcard_visa" width="54" class="inline" src="@Url.Content("~/Content/images/themes/icon_visa.gif")" /><img
+                                        height="29" alt="creditcard_master" width="54" class="inline" src="@Url.Content("~/Content/images/themes/icon_mastercard.gif")" /><img
+                                            height="29" alt="moneybookers" width="54" class="inline" src="@Url.Content("~/Content/images/themes/icon_moneybookers.gif")" /><img
+                                                height="29" alt="neteller" width="54" class="inline" src="@Url.Content("~/Content/images/themes/icon_neteller.gif")" /><img
+                                                    height="29" alt="paysafecard" width="54" class="inline" src="@Url.Content("~/Content/images/themes/icon_paysafe.gif")" /><img
+                                                        height="29" width="54" alt="giropay" src="@Url.Content("~/Content/images/themes/icon_giropay.gif")"
+                                                        class="inline" /><img height="29" width="54" alt="TrustPay" src="@Url.Content("~/Content/images/themes/icon_trustpay.png")"
+                                                            class="inline" /></a></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        </form>
+    </div>
+</div>
+@Html.Partial("_RightColumn")
