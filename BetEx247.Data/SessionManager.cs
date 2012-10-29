@@ -44,6 +44,26 @@ namespace BetEx247.Data
             set { }
         }
 
+        public static MyWallet WalletUserLogged
+        {
+            get
+            {
+                if (!UserLoggedIn())
+                {
+                    Logout();
+                }
+                else
+                {     
+                    if (HttpHelper.GetSessionValue("WALLET_USER_LOGGED") == null)
+                    {
+                        MyWallet wallet = IoC.Resolve<ICustomerService>().GetAccountWallet(USER_ID);
+                        HttpHelper.SetSessionValue("WALLET_USER_LOGGED", wallet);
+                    }
+                }
+                return HttpHelper.GetSessionValue("WALLET_USER_LOGGED") as MyWallet;
+            }
+        }
+
         public static LoginHistory CurrentLoginHistory
         {
             get

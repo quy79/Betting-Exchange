@@ -2411,42 +2411,193 @@ function calculateProfitLossOddsMarket() {
 }
 
 function calculateWinLoseForEntrants(htBets, side, winIndex, loseIndex) {
-    var entrantID; var entrantWin; var entrantLose; var stake; var odds; var loseALL = 0; for (var id in htBets) { entrantID = htBets[id][iBetEntrantID]; if (htEntrants[entrantID] == null) break; stake = htBets[id][iBetStake]; odds = htBets[id][iBetOdds]; if (stake != "" && odds != "") { entrantWin = htEntrants[entrantID][winIndex] * 1; entrantLose = htEntrants[entrantID][loseIndex] * 1; if (side == betSide_Back) { entrantWin = entrantWin + (stake * odds - stake); entrantLose = entrantLose - stake * 1 } else { entrantWin = entrantWin - (stake * odds - stake); entrantLose = entrantLose + (stake * 1) } loseALL = loseALL + (stake * 1); htEntrants[entrantID][winIndex] = entrantWin; htEntrants[entrantID][loseIndex] = entrantLose } } return loseALL
+    var entrantID; var entrantWin;
+    var entrantLose; var stake; var odds;
+    var loseALL = 0;
+    for (var id in htBets) {
+        entrantID = htBets[id][iBetEntrantID];
+        if (htEntrants[entrantID] == null) break;
+        stake = htBets[id][iBetStake]; odds = htBets[id][iBetOdds];
+        if (stake != "" && odds != "") {
+            entrantWin = htEntrants[entrantID][winIndex] * 1; entrantLose = htEntrants[entrantID][loseIndex] * 1;
+            if (side == betSide_Back) {
+                entrantWin = entrantWin + (stake * odds - stake); entrantLose = entrantLose - stake * 1
+            } else {
+                entrantWin = entrantWin - (stake * odds - stake); entrantLose = entrantLose + (stake * 1)
+            }
+            loseALL = loseALL + (stake * 1);
+            htEntrants[entrantID][winIndex] = entrantWin;
+            htEntrants[entrantID][loseIndex] = entrantLose
+        }
+    } return loseALL
 };
 
 function resetWinLoseForEntrants() {
-    iMLAll = 0; iUMLAll = 0; iUPLAll = 0; for (var entrantID in htEntrants) { htEntrants[entrantID][iEtUPWin] = 0; htEntrants[entrantID][iEtUPLose] = 0; htEntrants[entrantID][iEtMWin] = 0; htEntrants[entrantID][iEtMLose] = 0; htEntrants[entrantID][iEtUMWin] = 0; htEntrants[entrantID][iEtUMLose] = 0; htEntrants[entrantID][iEtProfitLossDisplay] = 0; htEntrants[entrantID][iEtWinDisplay] = 0; htEntrants[entrantID][iEtLoseDisplay] = 0 }
+    iMLAll = 0; iUMLAll = 0; iUPLAll = 0;
+    for (var entrantID in htEntrants) {
+        htEntrants[entrantID][iEtUPWin] = 0; htEntrants[entrantID][iEtUPLose] = 0;
+        htEntrants[entrantID][iEtMWin] = 0; htEntrants[entrantID][iEtMLose] = 0;
+        htEntrants[entrantID][iEtUMWin] = 0; htEntrants[entrantID][iEtUMLose] = 0;
+        htEntrants[entrantID][iEtProfitLossDisplay] = 0;
+        htEntrants[entrantID][iEtWinDisplay] = 0; htEntrants[entrantID][iEtLoseDisplay] = 0
+    }
 };
 
 function setProfitLossUI() {
-    var bHideProfitLoss = (top.userGetSetting(top.cHideProfitLoss) || !top.bLoggedIn); if (bHideProfitLoss) { document.getElementById("chkPLMinusComm").disabled = true; $("#chkPLMinusComm").parent().next().css("color", "#999999"); document.getElementById("chkPLIncUnMatched").disabled = true; $("#chkPLIncUnMatched").parent().next().css("color", "#999999"); document.getElementById("chkPLIncUnPlaced").disabled = true; $("#chkPLIncUnPlaced").parent().next().css("color", "#999999"); document.getElementById("chkPLIncSettled").disabled = true; $("#chkPLIncSettled").parent().next().css("color", "#999999"); if (top.bLoggedIn) { if (sBetType == "Odds") { for (var entrantID in htEntrants) { document.getElementById("dv" + entrantID + "ProfitLoss").style.display = "none" } } else { document.getElementById("trOverallPLHeader").style.display = "none"; document.getElementById("trOverallPLTable").style.display = "none"; document.getElementById("trOverallPLTableNA").style.display = "none"; document.getElementById("trOverallPLGap").style.display = "none"; document.getElementById("trOverallPLGap2").style.display = "none" } } } else { document.getElementById("chkPLMinusComm").disabled = false; $("#chkPLMinusComm").parent().next().css("color", "#000000"); document.getElementById("chkPLIncUnMatched").disabled = false; $("#chkPLIncUnMatched").parent().next().css("color", "#000000"); document.getElementById("chkPLIncUnPlaced").disabled = !top.userGetSetting(top.cPLIncUnMatched); $("#chkPLIncUnPlaced").parent().next().css("color", !top.userGetSetting(top.cPLIncUnMatched) ? "#999999" : "#000000"); document.getElementById("chkPLIncSettled").disabled = false; $("#chkPLIncSettled").parent().next().css("color", "#000000"); calculateProfitLoss(); if (sBetType == "Odds") { for (var entrantID in htEntrants) { var winValue = ""; if (document.getElementById("sp" + entrantID + "WinValue") != null) { winValue = document.getElementById("sp" + entrantID + "WinValue").innerText } var lostValue = ""; if (document.getElementById("sp" + entrantID + "LoseValue") != null) { lostValue = document.getElementById("sp" + entrantID + "LoseValue").innerText } document.getElementById("dv" + entrantID + "ProfitLoss").style.display = ((winValue == "") && (lostValue == "")) ? "none" : "" } } else { document.getElementById("trOverallPLHeader").style.display = ""; document.getElementById("trOverallPLGap").style.display = ""; document.getElementById("trOverallPLGap2").style.display = "" } } ui_doResize()
+    var bHideProfitLoss = (top.userGetSetting(top.cHideProfitLoss) || !top.bLoggedIn);
+    if (bHideProfitLoss) {
+        document.getElementById("chkPLMinusComm").disabled = true;
+        $("#chkPLMinusComm").parent().next().css("color", "#999999");
+        document.getElementById("chkPLIncUnMatched").disabled = true;
+        $("#chkPLIncUnMatched").parent().next().css("color", "#999999");
+        document.getElementById("chkPLIncUnPlaced").disabled = true;
+        $("#chkPLIncUnPlaced").parent().next().css("color", "#999999");
+        document.getElementById("chkPLIncSettled").disabled = true; $("#chkPLIncSettled").parent().next().css("color", "#999999");
+        if (top.bLoggedIn) {
+            if (sBetType == "Odds") {
+                for (var entrantID in htEntrants) {
+                    document.getElementById("dv" + entrantID + "ProfitLoss").style.display = "none"
+                }
+            } else {
+                document.getElementById("trOverallPLHeader").style.display = "none";
+                document.getElementById("trOverallPLTable").style.display = "none";
+                document.getElementById("trOverallPLTableNA").style.display = "none"; document.getElementById("trOverallPLGap").style.display = "none";
+                document.getElementById("trOverallPLGap2").style.display = "none"
+            }
+        }
+    } else {
+        document.getElementById("chkPLMinusComm").disabled = false;
+        $("#chkPLMinusComm").parent().next().css("color", "#000000");
+        document.getElementById("chkPLIncUnMatched").disabled = false;
+        $("#chkPLIncUnMatched").parent().next().css("color", "#000000");
+        document.getElementById("chkPLIncUnPlaced").disabled = !top.userGetSetting(top.cPLIncUnMatched);
+        $("#chkPLIncUnPlaced").parent().next().css("color", !top.userGetSetting(top.cPLIncUnMatched) ? "#999999" : "#000000");
+        document.getElementById("chkPLIncSettled").disabled = false;
+        $("#chkPLIncSettled").parent().next().css("color", "#000000"); calculateProfitLoss();
+        if (sBetType == "Odds") {
+            for (var entrantID in htEntrants) {
+                var winValue = ""; if (document.getElementById("sp" + entrantID + "WinValue") != null) {
+                    winValue = document.getElementById("sp" + entrantID + "WinValue").innerText
+                } var lostValue = "";
+                if (document.getElementById("sp" + entrantID + "LoseValue") != null) {
+                    lostValue = document.getElementById("sp" + entrantID + "LoseValue").innerText
+                }
+                document.getElementById("dv" + entrantID + "ProfitLoss").style.display = ((winValue == "") && (lostValue == "")) ? "none" : ""
+            }
+        } else {
+            document.getElementById("trOverallPLHeader").style.display = "";
+            document.getElementById("trOverallPLGap").style.display = "";
+            document.getElementById("trOverallPLGap2").style.display = ""
+        }
+    }
+    ui_doResize()
 };
 
 var sBetViewNormal = "Normal"; var sBetViewConsolidated = "Consolidated";
 var sBetViewAverage = "Average"; var matchedBetView = sBetViewNormal;
 
 function ui_changeMatchedBetsView(viewType) {
-    if (IsProcessing()) return; matchedBetView = viewType; var htMatchedBetsBackView = htMyBetsBackMatched; var htMatchedBetsLayView = htMyBetsLayMatched; switch (matchedBetView) { case sBetViewConsolidated: htMatchedBetsBackView = calculateConsolidatedMatchedBets(htMatchedBetsBackView); htMatchedBetsLayView = calculateConsolidatedMatchedBets(htMyBetsLayMatched); break; case sBetViewAverage: htMatchedBetsBackView = calculateAverageMatchedBets(htMatchedBetsBackView); htMatchedBetsLayView = calculateAverageMatchedBets(htMyBetsLayMatched); break } client_renderMyBetsSection(betState_Matched, betSide_Back, htMatchedBetsBackView, sSortMatchedBackBetsBy, bSortMatchedBackBetsDesc); client_renderMyBetsSection(betState_Matched, betSide_Lay, htMatchedBetsLayView, sSortMatchedLayBetsBy, bSortMatchedLayBetsDesc)
+    if (IsProcessing()) return; matchedBetView = viewType;
+    var htMatchedBetsBackView = htMyBetsBackMatched;
+    var htMatchedBetsLayView = htMyBetsLayMatched;
+    switch (matchedBetView) {
+        case sBetViewConsolidated:
+            htMatchedBetsBackView = calculateConsolidatedMatchedBets(htMatchedBetsBackView);
+            htMatchedBetsLayView = calculateConsolidatedMatchedBets(htMyBetsLayMatched); break;
+        case sBetViewAverage:
+            htMatchedBetsBackView = calculateAverageMatchedBets(htMatchedBetsBackView);
+            htMatchedBetsLayView = calculateAverageMatchedBets(htMyBetsLayMatched);
+            break
+    }
+    client_renderMyBetsSection(betState_Matched, betSide_Back, htMatchedBetsBackView, sSortMatchedBackBetsBy, bSortMatchedBackBetsDesc);
+    client_renderMyBetsSection(betState_Matched, betSide_Lay, htMatchedBetsLayView, sSortMatchedLayBetsBy, bSortMatchedLayBetsDesc)
 };
 
 function calculateAverageMatchedBets(htBets) {
-    var htAverageBets = {}; if (htBets != null) { var key = ""; for (var oId in htBets) { var etId = htBets[oId][iBetEntrantID]; var stake = htBets[oId][iBetStake] * 1; var odds = htBets[oId][iBetOdds] * 1; key = etId; if (htAverageBets[key] == null) { htAverageBets[key] = new Array(); htAverageBets[key][iBetEntrantID] = etId; htAverageBets[key][iBetStake] = stake; htAverageBets[key][iBetOdds] = odds * stake } else { htAverageBets[key][iBetStake] = htAverageBets[key][iBetStake] * 1 + stake; htAverageBets[key][iBetOdds] = htAverageBets[key][iBetOdds] * 1 + odds * stake } } for (var avgBetID in htAverageBets) { htAverageBets[avgBetID][iBetOdds] = htAverageBets[avgBetID][iBetOdds] * 1 / htAverageBets[avgBetID][iBetStake] * 1 } } return htAverageBets
+    var htAverageBets = {};
+    if (htBets != null) {
+        var key = "";
+        for (var oId in htBets) {
+            var etId = htBets[oId][iBetEntrantID]; var stake = htBets[oId][iBetStake] * 1;
+            var odds = htBets[oId][iBetOdds] * 1; key = etId;
+            if (htAverageBets[key] == null) {
+                htAverageBets[key] = new Array(); htAverageBets[key][iBetEntrantID] = etId;
+                htAverageBets[key][iBetStake] = stake; htAverageBets[key][iBetOdds] = odds * stake
+            } else {
+                htAverageBets[key][iBetStake] = htAverageBets[key][iBetStake] * 1 + stake;
+                htAverageBets[key][iBetOdds] = htAverageBets[key][iBetOdds] * 1 + odds * stake
+            }
+        }
+        for (var avgBetID in htAverageBets) {
+            htAverageBets[avgBetID][iBetOdds] = htAverageBets[avgBetID][iBetOdds] * 1 / htAverageBets[avgBetID][iBetStake] * 1
+        }
+    }
+    return htAverageBets
 };
 
 function calculateConsolidatedMatchedBets(htBets) {
-    var htConsolidatedBets = {}; if (htBets != null) { var key = ""; for (var oId in htBets) { var etId = htBets[oId][iBetEntrantID]; var stake = htBets[oId][iBetStake] * 1; var odds = htBets[oId][iBetOdds] * 1; key = etId + odds.toString(); if (htConsolidatedBets[key] == null) { htConsolidatedBets[key] = new Array(); htConsolidatedBets[key][iBetEntrantID] = etId; htConsolidatedBets[key][iBetStake] = stake; htConsolidatedBets[key][iBetOdds] = odds } else { htConsolidatedBets[key][iBetStake] = htConsolidatedBets[key][iBetStake] * 1 + stake } } } return htConsolidatedBets
+    var htConsolidatedBets = {};
+    if (htBets != null) {
+        var key = ""; for (var oId in htBets) {
+            var etId = htBets[oId][iBetEntrantID]; var stake = htBets[oId][iBetStake] * 1;
+            var odds = htBets[oId][iBetOdds] * 1; key = etId + odds.toString();
+            if (htConsolidatedBets[key] == null) {
+                htConsolidatedBets[key] = new Array();
+                htConsolidatedBets[key][iBetEntrantID] = etId;
+                htConsolidatedBets[key][iBetStake] = stake;
+                htConsolidatedBets[key][iBetOdds] = odds
+            } else {
+                htConsolidatedBets[key][iBetStake] = htConsolidatedBets[key][iBetStake] * 1 + stake
+            }
+        }
+    }
+    return htConsolidatedBets
 };
 
 function server_receiveExposure(sMyBetsTimestamp, exposure) {
-    if (mybetsTimestamp == null || mybetsTimestamp != sMyBetsTimestamp) { document.getElementById("spMyExposure").innerHTML = formatCurrency(exposure, sSymbol, numDec); mybetsTimestamp = sMyBetsTimestamp } window.clearTimeout(timeoutMyBets); timeoutMyBets = window.setTimeout("ui_refreshMyBets()", mybetsTimeout)
+    if (mybetsTimestamp == null || mybetsTimestamp != sMyBetsTimestamp) {
+        document.getElementById("spMyExposure").innerHTML = formatCurrency(exposure, sSymbol, numDec);
+        mybetsTimestamp = sMyBetsTimestamp
+    }
+    window.clearTimeout(timeoutMyBets);
+    timeoutMyBets = window.setTimeout("ui_refreshMyBets()", mybetsTimeout)
 };
 
 function ui_openPLSettings() {
-    if (IsProcessing()) return; if (document.getElementById("dvPLSettingsHolder").style.display == "") { ui_closePLSettings() } else { document.getElementById("chkPLIncSettled").checked = top.userGetSetting(top.cPLIncSettled); document.getElementById("chkPLMinusComm").checked = top.userGetSetting(top.cPLIncCommision); document.getElementById("chkPLIncUnMatched").checked = top.userGetSetting(top.cPLIncUnMatched); document.getElementById("chkPLIncUnPlaced").checked = top.userGetSetting(top.cPLIncUnPlaced); document.getElementById("chkPLIncUnPopupWin").checked = top.userGetSetting(top.cPLIncUnPopupWin); document.getElementById("chkPLShow").checked = !top.userGetSetting(top.cHideProfitLoss); if (iPLMarketView == top.MarketView_SportsbookView) { iPLMarketDepth = top.userGetSettingInt(top.cPLSportsbookMarketDepth); bPLShowTotalMatched = top.userGetSetting(top.cPLSportsbookShowTotalMatched); bPLShowBook = top.userGetSetting(top.cPLSportsbookShowBook) } else { iPLMarketDepth = top.userGetSettingInt(top.cPLExchangeMarketDepth); bPLShowTotalMatched = top.userGetSetting(top.cPLExchangeShowTotalMatched); bPLShowBook = top.userGetSetting(top.cPLExchangeShowBook) } ui_changeMarketViewUI(iPLMarketView, true, false); document.getElementById("dvPLSettingsHolder").style.display = "" } if (top.bLoggedIn) { document.getElementById("tbProfitLoss").style.display = "" } else { document.getElementById("tbProfitLoss").style.display = "none" } if (document.getElementById("tbProfitLoss").className != "here") { document.getElementById("tbDisplay").className = "here" }
+    if (IsProcessing()) return;
+    if (document.getElementById("dvPLSettingsHolder").style.display == "") {
+        ui_closePLSettings()
+    } else {
+        document.getElementById("chkPLIncSettled").checked = top.userGetSetting(top.cPLIncSettled);
+        document.getElementById("chkPLMinusComm").checked = top.userGetSetting(top.cPLIncCommision);
+        document.getElementById("chkPLIncUnMatched").checked = top.userGetSetting(top.cPLIncUnMatched);
+        document.getElementById("chkPLIncUnPlaced").checked = top.userGetSetting(top.cPLIncUnPlaced);
+        document.getElementById("chkPLIncUnPopupWin").checked = top.userGetSetting(top.cPLIncUnPopupWin);
+        document.getElementById("chkPLShow").checked = !top.userGetSetting(top.cHideProfitLoss);
+        if (iPLMarketView == top.MarketView_SportsbookView) {
+            iPLMarketDepth = top.userGetSettingInt(top.cPLSportsbookMarketDepth);
+            bPLShowTotalMatched = top.userGetSetting(top.cPLSportsbookShowTotalMatched);
+            bPLShowBook = top.userGetSetting(top.cPLSportsbookShowBook)
+        } else {
+            iPLMarketDepth = top.userGetSettingInt(top.cPLExchangeMarketDepth);
+            bPLShowTotalMatched = top.userGetSetting(top.cPLExchangeShowTotalMatched);
+            bPLShowBook = top.userGetSetting(top.cPLExchangeShowBook)
+        } ui_changeMarketViewUI(iPLMarketView, true, false);
+        document.getElementById("dvPLSettingsHolder").style.display = ""
+    }
+    if (top.bLoggedIn) {
+        document.getElementById("tbProfitLoss").style.display = ""
+    } else {
+        document.getElementById("tbProfitLoss").style.display = "none"
+    }
+    if (document.getElementById("tbProfitLoss").className != "here") {
+        document.getElementById("tbDisplay").className = "here"
+    }
 };
 
 function ui_closePLSettings() {
-    if (IsProcessing()) return; document.getElementById("dvPLSettingsHolder").style.display = "none"
+    if (IsProcessing()) return;
+    document.getElementById("dvPLSettingsHolder").style.display = "none"
 };
 
 function ui_setIncludeSettled(show) {

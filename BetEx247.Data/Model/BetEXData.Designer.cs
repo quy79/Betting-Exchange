@@ -40,13 +40,13 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_Outright_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_Outright", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_Outright), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_TotalOU_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_TotalOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_TotalOU), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_PaymentMethods", "PaymentMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.PaymentMethod), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_LoginHistory_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "LoginHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.LoginHistory), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Messages_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Message), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyWallet_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyWallet), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_LoginHistory_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "LoginHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.LoginHistory), true)]
 
 #endregion
 
@@ -161,22 +161,6 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<DiscountRate> _DiscountRates;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<LoginHistory> LoginHistories
-        {
-            get
-            {
-                if ((_LoginHistories == null))
-                {
-                    _LoginHistories = base.CreateObjectSet<LoginHistory>("LoginHistories");
-                }
-                return _LoginHistories;
-            }
-        }
-        private ObjectSet<LoginHistory> _LoginHistories;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -721,6 +705,22 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<Member> _Members;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<LoginHistory> LoginHistories
+        {
+            get
+            {
+                if ((_LoginHistories == null))
+                {
+                    _LoginHistories = base.CreateObjectSet<LoginHistory>("LoginHistories");
+                }
+                return _LoginHistories;
+            }
+        }
+        private ObjectSet<LoginHistory> _LoginHistories;
 
         #endregion
         #region AddTo Methods
@@ -755,14 +755,6 @@ namespace BetEx247.Data.Model
         public void AddToDiscountRates(DiscountRate discountRate)
         {
             base.AddObject("DiscountRates", discountRate);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the LoginHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToLoginHistories(LoginHistory loginHistory)
-        {
-            base.AddObject("LoginHistories", loginHistory);
         }
     
         /// <summary>
@@ -1035,6 +1027,14 @@ namespace BetEx247.Data.Model
         public void AddToMembers(Member member)
         {
             base.AddObject("Members", member);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the LoginHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToLoginHistories(LoginHistory loginHistory)
+        {
+            base.AddObject("LoginHistories", loginHistory);
         }
 
         #endregion
@@ -1873,13 +1873,11 @@ namespace BetEx247.Data.Model
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="loginTime">Initial value of the LoginTime property.</param>
-        /// <param name="logoutTime">Initial value of the LogoutTime property.</param>
-        public static LoginHistory CreateLoginHistory(global::System.Int64 id, global::System.DateTime loginTime, global::System.DateTime logoutTime)
+        public static LoginHistory CreateLoginHistory(global::System.Int64 id, global::System.DateTime loginTime)
         {
             LoginHistory loginHistory = new LoginHistory();
             loginHistory.ID = id;
             loginHistory.LoginTime = loginTime;
-            loginHistory.LogoutTime = logoutTime;
             return loginHistory;
         }
 
@@ -1964,9 +1962,9 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime LogoutTime
+        public Nullable<global::System.DateTime> LogoutTime
         {
             get
             {
@@ -1981,8 +1979,8 @@ namespace BetEx247.Data.Model
                 OnLogoutTimeChanged();
             }
         }
-        private global::System.DateTime _LogoutTime;
-        partial void OnLogoutTimeChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _LogoutTime;
+        partial void OnLogoutTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnLogoutTimeChanged();
     
         /// <summary>
@@ -3106,28 +3104,6 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_LoginHistory_Members", "LoginHistory")]
-        public EntityCollection<LoginHistory> LoginHistories
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Messages_Members", "Message")]
         public EntityCollection<Message> Messages
         {
@@ -3250,6 +3226,28 @@ namespace BetEx247.Data.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Transaction>("BetEXData.FK_Transactions_Members", "Transaction", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_LoginHistory_Members", "LoginHistory")]
+        public EntityCollection<LoginHistory> LoginHistories
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory", value);
                 }
             }
         }

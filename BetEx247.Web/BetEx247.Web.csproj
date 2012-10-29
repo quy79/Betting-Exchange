@@ -209,6 +209,7 @@
     <Content Include="Content\Images\themes\us.png" />
     <Content Include="Content\Scripts\GUI\AccountHistory.js" />
     <Content Include="Content\Scripts\GUI\betex247.js" />
+    <Content Include="Content\Scripts\GUI\BetEx247Market.js" />
     <Content Include="Content\Scripts\GUI\Common.js" />
     <Content Include="Content\Scripts\GUI\Cookies.js" />
     <Content Include="Content\Scripts\GUI\DateFormat.js" />

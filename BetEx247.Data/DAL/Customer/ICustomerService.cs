@@ -104,6 +104,48 @@ namespace BetEx247.Data.DAL
         /// <param name="wallet">wallet info</param>
         /// <returns>true:update succefully; false: otherwise</returns>
         bool UpdateWallet(MyWallet wallet);
+
+        /// <summary>
+        /// Amount of Net Winnings in all  markets which Bettor has betted 
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>money of net winnings</returns>
+        decimal WinningHeld(long memberId);
+
+        /// <summary>
+        /// Amount of Commissions has paid for BetEx247
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>Amount of Commissions has paid for BetEx247</returns>
+        decimal CommissionsHeld(long memberId);
+
+        /// <summary>
+        /// Amount of money in Funds
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>Amount of money in Funds</returns>
+        decimal FundsHeld(long memberId);
+
+        /// <summary>
+        /// The discount (%) applied to the Maximum Market Rate for each Bettor depending on the number of BetEx247 Points they have when the market is settled.
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>The discount (%) applied to the Maximum Market Rate</returns>
+        decimal LoyaltyDiscountRate(long memberId);
+
+        /// <summary>
+        /// Points earned by each Bettor in respect of their settled activity on the Exchange
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>Points earned by each Bettor</returns>
+        decimal TotalPoints(long memberId);
+
+        /// <summary>
+        /// The cumulative amount of BetEx247 Points earned by Bettor, irrespective of the BetEx247 Decay Rate.
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>The cumulative amount of BetEx247 Points</returns>
+        decimal LifetimePoints(long memberId);
         #endregion
     }
 }

@@ -92,9 +92,14 @@ betex247 = {
                     $('#LoginName').val('');
                     $('#Password').val('');
                     if (arrData[0] == "success") {
-                        $("li.cnotlogin").hide();
-                        $("li.clogin").show();
-                        $("#lbwellcome").html(arrData[1]);
+                        $("div.regFormTop").hide();
+                        $("div.header-login-panel").show();
+                        $("p strong").html(arrData[1]);
+                        $("ul.topnav > li")[0].html(arrData[2]);
+                        $("ul.topnav > li")[1].html(arrData[3]);
+                        $("ul.topnav > li")[2].html(arrData[4]);
+                    } else {
+                        alert(data);
                     }
                 }
             }
@@ -108,8 +113,8 @@ betex247 = {
             cache: true,
             success: function (data) {
                 if (data == "success") {
-                    $("li.cnotlogin").show();
-                    $("li.clogin").hide();
+                    $("div.regFormTop").show();
+                    $("div.header-login-panel").hide();
                 }
             }
         });

@@ -76,6 +76,7 @@ namespace BetEx247.Web.Controllers
 
         public string LoginAjax(string userName, string userPass)
         {
+            string result = string.Empty;
             if (IoC.Resolve<ICustomerService>().Authenticate(userName, FormsAuthentication.HashPasswordForStoringInConfigFile(userPass, "sha1")))
             {
                 FormsAuthentication.SetAuthCookie(userName, false);
@@ -89,9 +90,21 @@ namespace BetEx247.Web.Controllers
                 IoC.Resolve<ICustomerService>().InsertHistory(history);
 
                 var memberInfo = IoC.Resolve<ICustomerService>().GetCustomerByUsername(userName);
-                return "success|" + memberInfo.FirstName + " " + memberInfo.LastName;
+                result= "success|" + memberInfo.FirstName + " " + memberInfo.LastName;
+                MyWallet wallet = IoC.Resolve<ICustomerService>().GetAccountWallet(member.MemberID);
+                if (wallet != null)
+                {
+                    result += wallet.Available != null ? "|" + wallet.Available.ToString() : "|0";
+                    result += wallet.Exposure != null ? "|" + wallet.Exposure.ToString() : "|0";
+                    result += wallet.Balance != null ? "|" + wallet.Balance.ToString() : "|0";
+                }
+                else
+                {
+                    result += "|0|0|0";
+                }
+                return result;
             }
-            return null;
+            return ErrorCodeToString(MembershipCreateStatus.ProviderError);
         }
 
         public string LogOutAjax()

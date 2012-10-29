@@ -6,6 +6,7 @@ using BetEx247.Data.Model;
 using BetEx247.Core;
 using BetEx247.Core.Common.Utils;
 using System.Web.Security;
+using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Data.DAL
 {
@@ -121,7 +122,7 @@ namespace BetEx247.Data.DAL
         {
             using (var dba = new BetEXDataContainer())
             {
-                var profile = dba.Members.Where(w => w.NickName == nickname && w.Password == password && w.Status == Constant.Status.ACTIVE && w.IsActive == true).SingleOrDefault();
+                var profile = dba.Members.Where(w => w.NickName == nickname && w.Password == password).SingleOrDefault();
                 if (profile != null)
                 {
                     FormsAuthentication.SetAuthCookie(nickname, false);  
@@ -341,6 +342,90 @@ namespace BetEx247.Data.DAL
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Amount of Net Winnings in all  markets which Bettor has betted 
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>money of net winnings</returns>
+        public decimal WinningHeld(long memberId)
+        {
+            decimal result=0;
+            List<PSV_MYBET> lstBet = IoC.Resolve<IBettingService>().GetMyBetByMemberId(memberId);
+            if (lstBet != null)
+            {
+                foreach(PSV_MYBET item in lstBet)
+                {
+                    if (item.IsWon)
+                    {
+                        result += item.NetProfit != null ? item.NetProfit.Value : 0;
+                    }
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Amount of Commissions has paid for BetEx247
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>Amount of Commissions has paid for BetEx247</returns>
+        public decimal CommissionsHeld(long memberId)
+        {
+            decimal result = 0;
+            List<PSV_MYBET> lstBet = IoC.Resolve<IBettingService>().GetMyBetByMemberId(memberId);
+            if (lstBet != null)
+            {
+                foreach (PSV_MYBET item in lstBet)
+                {
+                    if (item.IsWon)
+                    {
+                        result += item.Commission != null ? item.Commission.Value : 0;
+                    }
+                }
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Amount of money in Funds
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>Amount of money in Funds</returns>
+        public decimal FundsHeld(long memberId)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// The discount (%) applied to the Maximum Market Rate for each Bettor depending on the number of BetEx247 Points they have when the market is settled.
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>The discount (%) applied to the Maximum Market Rate</returns>
+        public decimal LoyaltyDiscountRate(long memberId)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// Points earned by each Bettor in respect of their settled activity on the Exchange
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>Points earned by each Bettor</returns>
+        public decimal TotalPoints(long memberId)
+        {
+            return 0;
+        }
+
+        /// <summary>
+        /// The cumulative amount of BetEx247 Points earned by Bettor, irrespective of the BetEx247 Decay Rate.
+        /// </summary>
+        /// <param name="memberId">user id</param>
+        /// <returns>The cumulative amount of BetEx247 Points</returns>
+        public decimal LifetimePoints(long memberId)
+        {
+            return 0;
         }
         #endregion
     }

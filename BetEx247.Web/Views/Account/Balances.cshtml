@@ -1,44 +1,116 @@
-﻿@model BetEx247.Data.Model.MyWallet
+﻿@using BetEx247.Core.Infrastructure;
+@using BetEx247.Data.DAL;
+@using BetEx247.Data;
+
+@model BetEx247.Data.Model.MyWallet
 @{
     ViewBag.Title = "Balances";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex.css")" media="screen" />
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex1.css")" media="screen" /> 
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />  
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex1.css")" media="screen" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
 <div id="middle_column">
     <div id="contentbox" class="clearfix">
-        <h2>
-            Balances</h2>
-        <fieldset>
-            <legend>MyWallet</legend>
-            <div class="display-label">
-                MemberID</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.MemberID)
+        <h1 class="sports_header">
+            MY ACCOUNT</h1>
+        <form action="" method="post" class="AccountRegForm">
+        <div class="create-account-box">
+            <div class="dvBody">
+                <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                    <tr>
+                        <td class="tdPageHeader">
+                            Account Balances
+                        </td>
+                        <td align="right" class="tdPager">
+                            <select style="visibility: hidden">
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <table id="tblBalances" class="stdLabelValueTable" cellpadding="0" cellspacing="0"
+                    border="0" width="100%">
+                    <tr>
+                        <td class="LabelCell" width="30%">
+                            Available:
+                        </td>
+                        <td class="ValueCell">
+                            £@Html.DisplayFor(model => model.Available)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Exposure:
+                        </td>
+                        <td class="ValueCell">
+                            £@Html.DisplayFor(model => model.Exposure)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Balance:
+                        </td>
+                        <td class="ValueCell">
+                            £@Html.DisplayFor(model => model.Balance)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Winnings Held:
+                        </td>
+                        <td class="ValueCell">
+                            £@Html.Raw(IoC.Resolve<ICustomerService>().WinningHeld(SessionManager.USER_ID).ToString())
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Commission Held:
+                        </td>
+                        <td class="ValueCell">
+                            £@Html.Raw(IoC.Resolve<ICustomerService>().CommissionsHeld(SessionManager.USER_ID).ToString())
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Funds Held:
+                        </td>
+                        <td class="ValueCell">
+                            £@Html.Raw(IoC.Resolve<ICustomerService>().FundsHeld(SessionManager.USER_ID).ToString())
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Loyalty Discount Rate:
+                        </td>
+                        <td class="ValueCell">
+                            @Html.Raw(IoC.Resolve<ICustomerService>().LoyaltyDiscountRate(SessionManager.USER_ID).ToString())%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Total BetEx247 Points:
+                        </td>
+                        <td class="ValueCell">
+                            @Html.Raw(IoC.Resolve<ICustomerService>().TotalPoints(SessionManager.USER_ID).ToString())
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="LabelCell">
+                            Lifetime BetEx247 Points:
+                        </td>
+                        <td class="ValueCell">
+                            @Html.Raw(IoC.Resolve<ICustomerService>().LifetimePoints(SessionManager.USER_ID).ToString())
+                        </td>
+                    </tr>
+                    <tr class="stdControlsBar">
+                        <td colspan="2" align="center">
+                        </td>
+                    </tr>
+                </table>
             </div>
-            <div class="display-label">
-                Available</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.Available)
-            </div>
-            <div class="display-label">
-                Exposure</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.Exposure)
-            </div>
-            <div class="display-label">
-                Balance</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.Balance)
-            </div>
-            @*<div class="display-label">
-                UpdatedTime</div>
-            <div class="display-field">
-                @Html.DisplayFor(model => model.UpdatedTime)
-            </div>*@
-        </fieldset>
+        </div>
+        </form>        
     </div>
 </div>
 <div id="right_col">
