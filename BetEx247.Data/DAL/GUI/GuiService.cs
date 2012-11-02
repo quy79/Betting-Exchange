@@ -78,6 +78,53 @@ namespace BetEx247.Data.DAL
                 return dba.Sports.ToList();
             }
         }
+
+        public List<SoccerMatch> LiveInMatches(bool isSoccer)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.PSP_LIVEINPLAYMATCHES(isSoccer).ToList();
+            }            
+        }
+
+        public List<SoccerMatch> UpCommingMatches(bool isSoccer,long? leagueId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                if (leagueId == null || leagueId == 0)
+                {
+                    return dba.PSP_UPCOMMINGMATCHES(isSoccer,0).ToList();
+                }
+                else
+                {
+                    return dba.PSP_UPCOMMINGMATCHES(isSoccer, leagueId).ToList();
+                }
+            }   
+        }
+
+        public SoccerCountry GetCountryByLeage(long leagueId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.PSP_GETCOUNTRYBYLEAGUE(leagueId).First();
+            }
+        }
+
+        public SoccerCountry GetCountryByCountry(int countryId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.SoccerCountries.Where(w => w.ID == countryId).SingleOrDefault();
+            }
+        }
+
+        public List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.PSP_GETCOUNTLEAGUEBYCOUNTRY(countryId).ToList();
+            }
+        }
         #endregion
     }
 }

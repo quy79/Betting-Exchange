@@ -1,0 +1,44 @@
+﻿@using System.Collections;
+@using BetEx247.Data.Model;
+@using System.Data;
+
+@{
+    List<SoccerMatch> list = ViewBag.ListSoccerComming;
+    DateTime DateNow = DateTime.Now;    
+}
+<div class="events">
+    <div style="position: absolute; margin-top: 8px; padding-left: 15px">
+        Upcomming Matches
+    </div>
+    <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
+        color: #fff">
+        Premier League</div>
+</div>
+<div class="alt_content bdr_btm">
+    <div class="event_wrap">
+        @{   
+            for(int i=0;i<7;i++)
+            {
+                List<SoccerMatch> temp = list.Where(w => w.StartDate.Date == DateNow.Date).ToList();
+                if(temp.Count>0)
+                {
+                    @Html.Raw("<span class=\"headerExtra couponDate\">"+@DateNow.ToLongDateString()+"</span><p>")
+                    
+                    foreach(SoccerMatch item in temp)
+                    {   
+                        <div class="betting_row clearfix">
+                            <div style="float: left; padding: 5px 5px 5px 0px;">
+                                @item.StartTime.ToString("HH:mm")</div>
+                            <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
+                                @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> <a href="#"
+                                    class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('113625526');">
+                                    View all markets >> </a>
+                        </div>
+                    }
+                    
+                }
+                DateNow= DateNow.AddDays(1); 
+            }
+        }   
+    </div>
+</div>

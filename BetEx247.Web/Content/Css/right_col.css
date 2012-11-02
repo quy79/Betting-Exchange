@@ -8,7 +8,7 @@
 		#right_col .module .inner{background:#000;}
 		
 		.betslip_header	{
-			background:url("../images/themes/betslip_header.png") no-repeat;
+			background:url(../images/themes/betslip_header.png) no-repeat;
 			width:250px;
 			height:22px;
 			text-align: center;	
@@ -25,7 +25,7 @@
 			#blockBettingSlip.module{}
 			#blockBettingSlip.module .inner{padding:0px; font-size:10px; line-height:1.1; background-color: #fff}
 			#blockBettingSlip.module h3{height:38px; width:222px; margin-bottom:1px; text-indent:-9999px; overflow:hidden; position:relative;
-				background:url("../images/themes/slip-header.gif") no-repeat;}
+				background:url(../images/themes/slip-header.gif) no-repeat;}
 			#blockBettingSlip.module h3 a{position:absolute; top:9px; left:159px; width:55px; height:23px;}
 			
 			
@@ -89,7 +89,7 @@
 					cursor:pointer;
 			}
 			#blockBettingSlip.module .multibet_header span{padding-left:19px;
-				background:url(.../images/themes/arrow-down.gif") 8px 5px no-repeat;}
+				background:url(.../images/themes/arrow-down.gif) 8px 5px no-repeat;}
 								
 			#blockBettingSlip.module table.bet_multiple{margin:3px 5px 4px; color:#414141; width:212px;}			
 			#blockBettingSlip.module table.bet_multiple th{padding:3px 1px; vertical-align:middle;}

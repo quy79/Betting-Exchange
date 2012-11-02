@@ -1,0 +1,75 @@
+﻿@using System.Collections;
+@using BetEx247.Data.Model;
+@using System.Data;
+
+@{
+    SoccerCountry country = ViewBag.SoccerCountries;
+    List<PSV_ALLTOURNAMENT> list = ViewBag.AllTournaments;
+}
+
+<div id="coupon-container" class="clearfix">
+    <div class="coupon-title">
+        <h3 class="sports">
+            @{
+                if (country != null)
+                {
+                    @Html.Raw(country.Country.ToUpper() + "'S ALL TOURNAMENTS")
+                }
+                else
+                {
+                    @Html.Raw("ALL TOURNAMENTS")
+                }
+            }
+        </h3>    
+    </div>
+    <div class="leagues-box">
+        <table width="100%">
+        @{
+            int tempRow = 0;
+            bool start = true;
+            int countRow = list.Count;
+            int totalRow = list.Count % 3 > 0 ? list.Count + (3 - list.Count) : list.Count;
+
+            for (int i = 0; i < totalRow; i++)
+            {
+                tempRow = i % 3;
+                if (tempRow == 0 && start)
+                {
+                    if (i < countRow)
+                    {
+                        @Html.Raw("<tr><td width=\"33%\"><a href=\"\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td>")
+                    }
+                    else                    
+                    {
+                        @Html.Raw("<tr><td width=\"33%\"></td>")
+                    }
+                    start = false;
+                }
+                else if (tempRow == 0 && !start)
+                {
+                    if (i < countRow)
+                    {
+                        @Html.Raw("<td width=\"33%\"><a href=\"\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td></tr>")
+                    }
+                    else
+                    {
+                        @Html.Raw("<tr><td width=\"33%\"></td>")
+                    }
+                    start = true;
+                }
+                else
+                {
+                    if (i < countRow)
+                    {
+                        @Html.Raw("<td width=\"34%\"><a href=\"\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td>")
+                    }
+                    else
+                    {
+                        @Html.Raw("<td width=\"34%\"></td>")
+                    }
+                }
+            }
+            }            
+        </table>
+    </div>
+</div>

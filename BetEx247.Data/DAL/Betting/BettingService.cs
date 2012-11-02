@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using BetEx247.Data.Model;
 using BetEx247.Core;
+using System.Data;
+using BetEx247.Core.Infrastructure;
 
 namespace BetEx247.Data.DAL
 {
@@ -88,14 +90,19 @@ namespace BetEx247.Data.DAL
         /// Get Statement for User login
         /// </summary>
         /// <param name="memberId">memberId</param>
-        /// <returns>List mybet</returns>
-        public List<Statement> GetStatementByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage)
+        /// <returns>DataTable Statement</returns>
+        public DataTable GetStatementByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage)
         {
-            using (var dba = new BetEXDataContainer())
-            {
-                var statement = dba.PSP_SEARCHSTATEMENT(memberId, sWhere, pageNo, recordPerpage).ToList();
-                return statement;
-            }
+            DataTable dt = new DataTable("Statement");
+            DataFactory dataFactory = new DataFactory();
+            dt = dataFactory.ExecuteReader("PSP_SEARCHSTATEMENT", "@memberId", memberId, "@where", sWhere, "@pageNo", pageNo, "@sRecordsPerPage", recordPerpage);
+            return dt;
+
+            //using (var dba = new BetEXDataContainer())
+            //{
+            //    var statement = dba.PSP_SEARCHSTATEMENT(memberId, sWhere, pageNo, recordPerpage).ToList();                
+            //    return statement;
+            //}
         }
 
         /// <summary>

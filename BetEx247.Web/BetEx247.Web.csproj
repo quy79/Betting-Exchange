@@ -108,27 +108,38 @@
     <Content Include="Content\Css\bets-inner.css" />
     <Content Include="Content\Css\common.css" />
     <Content Include="Content\Css\datepicker.css" />
+    <Content Include="Content\Css\form-validate.css" />
+    <Content Include="Content\Css\jquery-ui-slides.min.css" />
+    <Content Include="Content\Css\jquery-ui.1.8.17.custom.css" />
     <Content Include="Content\Css\odds.css" />
+    <Content Include="Content\Css\pagination.png" />
     <Content Include="Content\Css\right_col.css" />
     <Content Include="Content\Css\sports-ex.css" />
     <Content Include="Content\Css\sports-ex1.css" />
     <Content Include="Content\Css\sports.css" />
     <Content Include="Content\Css\tabs-general.css" />
     <Content Include="Content\Css\tabs-ie6.css" />
+    <Content Include="Content\Css\tabs-noimages.css" />
+    <Content Include="Content\Images\themes\18plus.gif" />
     <Content Include="Content\Images\themes\75.png" />
     <Content Include="Content\Images\themes\ab18.png" />
+    <Content Include="Content\Images\themes\account-title-bg.jpg" />
     <Content Include="Content\Images\themes\arrow-acc.png" />
     <Content Include="Content\Images\themes\arrow-down.gif" />
     <Content Include="Content\Images\themes\arrow-light.gif" />
     <Content Include="Content\Images\themes\arrow-ul.gif" />
     <Content Include="Content\Images\themes\arrow.png" />
     <Content Include="Content\Images\themes\backbet_arrow.png" />
+    <Content Include="Content\Images\themes\backstripes.gif" />
+    <Content Include="Content\Images\themes\badges.gif" />
     <Content Include="Content\Images\themes\betex247_logo.png" />
     <Content Include="Content\Images\themes\betslip_header.png" />
+    <Content Include="Content\Images\themes\bettech.gif" />
     <Content Include="Content\Images\themes\bg-altcontent.gif" />
     <Content Include="Content\Images\themes\bg-altcontent_live.gif" />
     <Content Include="Content\Images\themes\bg-bettingslip.gif" />
     <Content Include="Content\Images\themes\bg-eventdates.gif" />
+    <Content Include="Content\Images\themes\bg-footer.gif" />
     <Content Include="Content\Images\themes\bg-header.gif" />
     <Content Include="Content\Images\themes\bg-livebet-cell.gif" />
     <Content Include="Content\Images\themes\bg-nonlive-match.gif" />
@@ -140,9 +151,12 @@
     <Content Include="Content\Images\themes\bg-title2.gif" />
     <Content Include="Content\Images\themes\bg.gif" />
     <Content Include="Content\Images\themes\bg_body.gif" />
+    <Content Include="Content\Images\themes\bg_header.jpg" />
     <Content Include="Content\Images\themes\blue.png" />
     <Content Include="Content\Images\themes\br.png" />
+    <Content Include="Content\Images\themes\bullet2.gif" />
     <Content Include="Content\Images\themes\button_show.png" />
+    <Content Include="Content\Images\themes\cal-grey.gif" />
     <Content Include="Content\Images\themes\cal.gif" />
     <Content Include="Content\Images\themes\Captcha.jpg" />
     <Content Include="Content\Images\themes\ccui-main_nav_hvr.png" />
@@ -156,6 +170,8 @@
     <Content Include="Content\Images\themes\delete.gif" />
     <Content Include="Content\Images\themes\fr.png" />
     <Content Include="Content\Images\themes\gb.png" />
+    <Content Include="Content\Images\themes\gradient-e5e5e5-ffffff.gif" />
+    <Content Include="Content\Images\themes\grass-bg.jpg" />
     <Content Include="Content\Images\themes\h300.png" />
     <Content Include="Content\Images\themes\header_bg.jpg" />
     <Content Include="Content\Images\themes\icon_bank_transfer.gif" />
@@ -172,11 +188,13 @@
     <Content Include="Content\Images\themes\jp.png" />
     <Content Include="Content\Images\themes\laybet_arrow.png" />
     <Content Include="Content\Images\themes\lga.png" />
+    <Content Include="Content\Images\themes\lga_malta.gif" />
     <Content Include="Content\Images\themes\listings-div.png" />
     <Content Include="Content\Images\themes\live-in-play.gif" />
     <Content Include="Content\Images\themes\livenow.gif" />
     <Content Include="Content\Images\themes\loading.gif" />
     <Content Include="Content\Images\themes\loading1.gif" />
+    <Content Include="Content\Images\themes\logos.gif" />
     <Content Include="Content\Images\themes\mainbg.jpg" />
     <Content Include="Content\Images\themes\mainSecHdrBg.gif" />
     <Content Include="Content\Images\themes\menu_bg.jpg" />
@@ -190,6 +208,12 @@
     <Content Include="Content\Images\themes\rot-odds1.jpg" />
     <Content Include="Content\Images\themes\search_odds_but.png" />
     <Content Include="Content\Images\themes\seperator.gif" />
+    <Content Include="Content\Images\themes\slides\slide-1.jpg" />
+    <Content Include="Content\Images\themes\slides\slide-2.jpg" />
+    <Content Include="Content\Images\themes\slides\slide-3.jpg" />
+    <Content Include="Content\Images\themes\slides\slide-4.jpg" />
+    <Content Include="Content\Images\themes\slides\slide-5.jpg" />
+    <Content Include="Content\Images\themes\slides\slide-6.jpg" />
     <Content Include="Content\Images\themes\slip-header.gif" />
     <Content Include="Content\Images\themes\SL_178x82_Sportbonus_50_1er.gif" />
     <Content Include="Content\Images\themes\SOCCER13.jpg" />
@@ -199,6 +223,7 @@
     <Content Include="Content\Images\themes\sports_sprites1.png" />
     <Content Include="Content\Images\themes\sprite_sport_icons40px.png" />
     <Content Include="Content\Images\themes\tbsprite.png" />
+    <Content Include="Content\Images\themes\thawte.gif" />
     <Content Include="Content\Images\themes\thawte.png" />
     <Content Include="Content\Images\themes\trust_LGA_en.png" />
     <Content Include="Content\Images\themes\trust_safety_seal_en.png" />
@@ -443,6 +468,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Account\Register-Done.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\InplayMatches.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\UpcommingMatches.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\AllTournaments.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Slides.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

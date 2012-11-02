@@ -5,11 +5,11 @@
 
 	
 #contentbox .eventListings{border:1px solid #323232; padding:11px 9px; margin-bottom:12px;
-	background:#000 url("../images/themes/bg-table.gif") left top repeat-x; }
+	background:#000 url(../images/themes/bg-table.gif) left top repeat-x; }
 	#contentbox .eventListings table{width:100%;}
 	#contentbox .eventListings table td{vertical-align:middle; padding:6px; border-bottom:1px dotted #636363;}
 	#contentbox .eventListings table td.icon{padding-left:0; padding-right:0; width:25px;}
-	#contentbox .eventListings table td.icon span{display:block; width:25px; height:25px; background:url("../images/themes/sports.gif") 0 0 no-repeat;}
+	#contentbox .eventListings table td.icon span{display:block; width:25px; height:25px; background:url(../images/themes/sports.gif) 0 0 no-repeat;}
 	#contentbox .eventListings table td.icon span.f1{background-position:0 0;}
 	#contentbox .eventListings table td.icon span.soccer{background-position:0 -25px;}
 	#contentbox .eventListings table td.icon span.rugby{background-position:0 -50px;}
@@ -24,7 +24,7 @@
 	#contentbox .eventListings table td.sport a{color:#f2de00;}
 	#contentbox .eventListings table td.time{width:60px;}
 	#contentbox .eventListings table td.times{width:140px; text-align:right;}
-	#contentbox .eventListings table td.teams{padding-left:8px; background:url("../images/themes/cell-div.gif") left 1.3em no-repeat;}
+	#contentbox .eventListings table td.teams{padding-left:8px; background:url(../images/themes/cell-div.gif) left 1.3em no-repeat;}
 	#contentbox .eventListings table td.teams a{color:#fff; font-weight:bold;}
 	#contentbox .eventListings table td.markets{text-align:right; padding-right:0;}
 	#contentbox .eventListings table td.markets a{color:#d4d4d4;}
@@ -150,7 +150,7 @@
 
 #contentbox .betting_wrap{}
 #contentbox .betting_wrap h2{font-size:10px; padding:0 0 0 30px; margin-bottom:8px; border:none; text-shadow:none; height:25px; line-height:25px;
-	background:url("../images/themes/sports.gif") left top no-repeat;}
+	background:url(../images/themes/sports.gif) left top no-repeat;}
 	#contentbox .betting_wrap h2.soccer{background-position:0 -25px;}
 	#contentbox .betting_wrap h2.rugby{background-position:0 -50px;}
 	#contentbox .betting_wrap h2.cricket{background-position:0 -75px;}
@@ -178,10 +178,10 @@ span.couponDate{color: #F2DE00;}
 	#contentbox .betting_wrap .currentMatch td{line-height:16px; text-align:center; padding:2px 0 3px;}
 	/*#contentbox .betting_wrap .currentMatch td.matchDate{width:75px;}*/
 	
-	#contentbox .betting_wrap .currentMatch td.top {height:5px; line-height:5px; font-size:0; padding:0; background:url("../images/themes/bg-match.gif") center top no-repeat;}
-	#contentbox .betting_wrap .currentMatch td.top_no_sep {height:5px; line-height:5px; font-size:0; padding:0; background:url("../images/themes/bg-match-no-sep.gif") center top no-repeat;}
-	#contentbox .betting_wrap .currentMatch td.btm {height:5px; line-height:5px; font-size:0; padding:0; background:url("../images/themes/bg-match.gif") center -5px no-repeat;}
-	#contentbox .betting_wrap .currentMatch td.btm_no_sep {height:5px; line-height:5px; font-size:0; padding:0; background:url("../images/themes/bg-match-no-sep.gif") center -5px no-repeat;}
+	#contentbox .betting_wrap .currentMatch td.top {height:5px; line-height:5px; font-size:0; padding:0; background:url(../images/themes/bg-match.gif) center top no-repeat;}
+	#contentbox .betting_wrap .currentMatch td.top_no_sep {height:5px; line-height:5px; font-size:0; padding:0; background:url(../images/themes/bg-match-no-sep.gif) center top no-repeat;}
+	#contentbox .betting_wrap .currentMatch td.btm {height:5px; line-height:5px; font-size:0; padding:0; background:url(../images/themes/bg-match.gif) center -5px no-repeat;}
+	#contentbox .betting_wrap .currentMatch td.btm_no_sep {height:5px; line-height:5px; font-size:0; padding:0; background:url(../images/themes/bg-match-no-sep.gif) center -5px no-repeat;}
 	
 	#contentbox .betting_wrap .currentMatch td.team_left{text-align:right; width:214px; padding-right:10px; border-right:1px solid #4eb16c;}
 	#contentbox .betting_wrap .currentMatch td.team_right{text-align:left; width:214px; padding-left:10px; border-left:1px solid #4eb16c;}
@@ -193,7 +193,7 @@ span.couponDate{color: #F2DE00;}
 	#contentbox .betting_row{border-bottom:1px dotted #636363; padding-bottom:5px; margin-bottom:8px; margin-top:-5px;}
 	#contentbox .betting_row.last{border-bottom:0; padding-bottom:0; margin-bottom:0;}
 		#contentbox .betting_row a.cell{float:left; display:inline; color:#fff; padding:5px 5px 5px 5px; margin:0 3px 3px 0; position:relative;
-		background:#000 url("../images/themes/cell-bg.gif") left -30px repeat-x; border:1px solid #525252;}
+		background:#000 url(../images/themes/cell-bg.gif) left -30px repeat-x; border:1px solid #525252;}
 		#contentbox .betting_row a.cell:hover{background-position:left top;}
 		#contentbox .betting_row a.cell strong.odds{font-size:1.09em; position:absolute; right:5px; top:4px;}
         #contentbox .betting_row a.head{float:left; display:inline; color:#fff; padding:5px; margin:0 3px 3px 0; position:relative;
@@ -229,12 +229,12 @@ span.couponDate{color: #F2DE00;}
         #contentbox .betting_row div.last_cell{margin-right:0;}
 	
 	/* live */	
-	#contentbox .live_content .betting_wrap h2{background-image:url("../images/themes/sports-live.gif");}
-	#contentbox .live_content .betting_wrap p{padding-left:10px; background:url("../images/themes/arrow-light.gif") left 0.5em no-repeat;}
+	#contentbox .live_content .betting_wrap h2{background-image:url(../images/themes/sports-live.gif);}
+	#contentbox .live_content .betting_wrap p{padding-left:10px; background:url(../images/themes/arrow-light.gif) left 0.5em no-repeat;}
 	
 	#contentbox .live_content .betting_row{border-bottom:none; padding-bottom:0; margin-bottom:8px; margin-top:-5px;}
 		#contentbox .live_content .betting_row.last{border-bottom:0; padding-bottom:0; margin-bottom:0;}
-		#contentbox .live_content .betting_row a.cell{background:#027525 url("../images/themes/cell-live-bg.gif") left -30px repeat-x;
+		#contentbox .live_content .betting_row a.cell{background:#027525 url(../images/themes/cell-live-bg.gif) left -30px repeat-x;
 			border:1px solid #077629; border-bottom-color:#004817; border-right-color:#004817;}
 		#contentbox .live_content .betting_row a.cell:hover{background-color:#209444; background-position:left top; }
     #contentbox .live_content .betting_row a.head{background:#027525;
@@ -242,14 +242,14 @@ span.couponDate{color: #F2DE00;}
 		
 	/* non-live */
 	#contentbox .nonlive_content{}
-	#contentbox .nonlive_content .betting_wrap h2{background-image:url("../images/themes/sports.gif");}
-	#contentbox .nonlive_content .betting_wrap p{padding-left:10px; background:url("../images/themes/arrow-light.gif") left 0.5em no-repeat;}	
+	#contentbox .nonlive_content .betting_wrap h2{background-image:url(../images/themes/sports.gif);}
+	#contentbox .nonlive_content .betting_wrap p{padding-left:10px; background:url(../images/themes/arrow-light.gif) left 0.5em no-repeat;}	
 	#contentbox .nonlive_content .betting_row{border-bottom:none; padding-bottom:0; margin-bottom:8px;}
 	
-	#contentbox .nonlive_content .betting_wrap .currentMatch td.top{background:url("../images/themes/bg-nonlive-match.gif") center top no-repeat;}
-	#contentbox .nonlive_content .betting_wrap .currentMatch td.btm{background:url("../images/themes/bg-nonlive-match.gif") center -5px no-repeat;}
-    #contentbox .nonlive_content .betting_wrap .currentMatch td.top_no_sep{background:url("../images/themes/bg-nonlive-match-no-sep.gif") center top no-repeat;}
-    #contentbox .nonlive_content .betting_wrap .currentMatch td.btm_no_sep{background:url("../images/themes/bg-nonlive-match-no-sep.gif") center -5px no-repeat;}
+	#contentbox .nonlive_content .betting_wrap .currentMatch td.top{background:url(../images/themes/bg-nonlive-match.gif) center top no-repeat;}
+	#contentbox .nonlive_content .betting_wrap .currentMatch td.btm{background:url(../images/themes/bg-nonlive-match.gif) center -5px no-repeat;}
+    #contentbox .nonlive_content .betting_wrap .currentMatch td.top_no_sep{background:url(../images/themes/bg-nonlive-match-no-sep.gif) center top no-repeat;}
+    #contentbox .nonlive_content .betting_wrap .currentMatch td.btm_no_sep{background:url(../images/themes/bg-nonlive-match-no-sep.gif) center -5px no-repeat;}
     #contentbox .nonlive_content .betting_wrap .currentMatch td.team_left{border-right:1px solid #4d4d4d;}
 	#contentbox .nonlive_content .betting_wrap .currentMatch td.team_right{border-left:1px solid #4d4d4d;}
 	
@@ -268,10 +268,10 @@ span.couponDate{color: #F2DE00;}
 	
 	#contentbox table.livebetListings td.livenow{width:10%; padding-left:10px;}
 	#contentbox table.livebetListings td.livenow span{display:block; width:26px; height:18px; text-indent:-9999px; overflow:hidden;
-		background:url("../images/themes/livenow.gif") no-repeat;}
+		background:url(../images/themes/livenow.gif) no-repeat;}
 	
 	#contentbox table.livebetListings td.icon{width:25px;}
-	#contentbox table.livebetListings td.icon span{display:block; width:25px; height:25px; background:url("../images/themes/sports-live.gif") 0 0 no-repeat;}
+	#contentbox table.livebetListings td.icon span{display:block; width:25px; height:25px; background:url(../images/themes/sports-live.gif) 0 0 no-repeat;}
 	#contentbox table.livebetListings td.icon span.f1{background-position:0 0;}
 	#contentbox table.livebetListings td.icon span.soccer{background-position:0 -25px;}
 	#contentbox table.livebetListings td.icon span.rugby{background-position:0 -50px;}
@@ -295,7 +295,7 @@ span.couponDate{color: #F2DE00;}
 	
 	
 #contentbox table.eventDates{width:100%; margin-bottom:9px;
-	background:#093345 url("../images/themes/bg-eventdates.gif") left top repeat-x;}
+	background:#093345 url(../images/themes/bg-eventdates.gif) left top repeat-x;}
 	#contentbox table.eventDates td{text-align:center; padding:11px;}
 	#contentbox table.eventDates td.first{padding-left:35px;}
 	#contentbox table.eventDates td.last{padding-right:35px;}
@@ -329,7 +329,7 @@ span.couponDate{color: #F2DE00;}
 	#contentbox .needhelp p.info{font-size:15px; color:#fff; line-height:1.2;}
 
 /* event listings */
-#contentbox .event_wrap{margin-top:-10px;}
+#contentbox .event_wrap{margin-top:-10px; }
 	#contentbox .event_row{border-bottom:1px dotted #636363; padding:8px 0;}
 	#contentbox .event_row.last{border:none; padding-bottom:0;}
 	#contentbox .event_row span,
@@ -370,27 +370,27 @@ span.couponDate{color: #F2DE00;}
 }
 
 #contentbox .sports_header{position: relative; width: 531px; margin-bottom:0px;
-	background:url("../images/themes/bg-sport-title.gif") left top no-repeat; font-size:20px; text-align:center; padding-top: 15px; height: 50px;}
+	background:url(../images/themes/bg-sport-title.gif) left top no-repeat; font-size:20px; text-align:center; padding-top: 15px; height: 50px;}
 #contentbox h1.sports{font-size:28px; height:63px; line-height:62px;  text-align:center; border:none;
 	background:none 3px 3px no-repeat;}
 	#contentbox h1.sports_long {font-size:18px;}
-	#contentbox h1.sports.f1{background-image:url("../images/themes/sportsheaders/f1.gif");}
-	#contentbox h1.sports.soccer{background-image:url("../images/themes/sportsheaders/soccer.gif");}
-	#contentbox h1.sports.rugby{background-image:url("../images/themes/sportsheaders/rugby.gif");}
-	#contentbox h1.sports.cricket{background-image:url("../images/themes/sportsheaders/cricket.gif");}
-	#contentbox h1.sports.tennis{background-image:url("../images/themes/sportsheaders/tennis.gif");}
-	#contentbox h1.sports.nfl{background-image:url("../images/themes/sportsheaders/nfl.gif");}
-	#contentbox h1.sports.boxing{background-image:url("../images/themes/sportsheaders/boxing.gif");}
-	#contentbox h1.sports.basketball{background-image:url("../images/themes/sportsheaders/basketball.gif");}
-	#contentbox h1.sports.golf{background-image:url("../images/themes/sportsheaders/golf.gif");}
-	#contentbox h1.sports.cycling{background-image:url("../images/themes/sportsheaders/cycling.gif");}
+	#contentbox h1.sports.f1{background-image:url(../images/themes/f1.gif);}
+	#contentbox h1.sports.soccer{background-image:url(../images/themes/soccer.gif);}
+	#contentbox h1.sports.rugby{background-image:url(../images/themes/rugby.gif);}
+	#contentbox h1.sports.cricket{background-image:url(../images/themes/cricket.gif);}
+	#contentbox h1.sports.tennis{background-image:url(../images/themes/tennis.gif);}
+	#contentbox h1.sports.nfl{background-image:url(../images/themes/nfl.gif);}
+	#contentbox h1.sports.boxing{background-image:url(../images/themes/boxing.gif);}
+	#contentbox h1.sports.basketball{background-image:url(../images/themes/basketball.gif);}
+	#contentbox h1.sports.golf{background-image:url(../images/themes/golf.gif);}
+	#contentbox h1.sports.cycling{background-image:url(../images/themes/cycling.gif);}
 	
 	#contentbox .rel a.view_coupons{position:absolute; right:0; top:-35px; height:26px; line-height:26px; padding:0 16px;
 		background:#222;}
 
 /* tournament listings */
 #contentbox .tournaments{padding:8px 10px;}
-#contentbox .tournaments.seperator{padding-bottom:12px; background:url("../images/themes/seperator.gif") left bottom no-repeat;}
+#contentbox .tournaments.seperator{padding-bottom:12px; background:url(../images/themes/seperator.gif) left bottom no-repeat;}
 	#contentbox .tournaments p{float:left; display:inline; width:74px; margin-right:10px;}
 	#contentbox .tournaments ul.col_1{float:left; display:inline; width:218px; margin-right:15px;}
 	#contentbox .tournaments ul.col_2{float:left; display:inline; width:218px;}

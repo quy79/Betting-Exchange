@@ -37,12 +37,12 @@
                     Password?</a></li>
                 <li class="cnotlogin">
                     <label for="loginUser">
-                        Username:</label><input tabindex="1" id="LoginName" name="LoginName" type="text"
-                            title="Username:" autocomplete="off" /></li>
+                        Username:</label><input tabindex="1" id="LoginName" name="LoginName" type="text" style="color:Black"
+                           autocomplete="off" /></li>
                 <li class="cnotlogin">
                     <label for="pswd">
-                        Password:</label><input tabindex="2" id="Password" name="Password" type="password"
-                            title="Password:" autocomplete="off" /><input class="formsubmit" type="submit" /></li>
+                        Password:</label><input tabindex="2" id="Password" name="Password" type="password" style="color:Black"
+                            autocomplete="off" /><input class="formsubmit" type="submit" /></li>
                 <li class="cnotlogin"><a id="loginform_submit" href="javascript:void(0)" onclick="betex247.login()"
                     class="b_button smallButton smallButtonGrey">Log In</a></li>
             </ul>
@@ -66,3 +66,20 @@
         <!--end_hideonlogin_UserPanel-->
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#LoginName').keypress(function (e) {
+            if (e.which == 13) {
+                jQuery(this).blur();
+                jQuery('#loginform_submit').focus().click();
+            }
+        });
+
+        $('#Password').keypress(function (e) {
+            if (e.which == 13) {
+                jQuery(this).blur();
+                jQuery('#loginform_submit').focus().click();
+            }
+        }); 
+    });
+</script>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BetEx247.Data.Model;
+using System.Data;
 
 namespace BetEx247.Data.DAL
 {
@@ -55,8 +56,8 @@ namespace BetEx247.Data.DAL
         /// <param name="sWhere">where clause for search</param>
         /// <param name="pageNo">pageNo for search</param>
         /// <param name="recordPerpage">recordPerpage for search</param>
-        /// <returns>List Statement</returns>
-        List<Statement> GetStatementByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage);
+        /// <returns>DataTable Statement</returns>
+        DataTable GetStatementByMemberId(long memberId, string sWhere, int pageNo, int recordPerpage);
 
         /// <summary>
         /// Get Total rowfor search statement by user login

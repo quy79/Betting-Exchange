@@ -31,6 +31,16 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <returns>list sport</returns>
         IEnumerable<Sport> GetSportData();
+
+        List<SoccerMatch> LiveInMatches(bool isSoccer);
+
+        List<SoccerMatch> UpCommingMatches(bool isSoccer, long? leagueId);
+
+        SoccerCountry GetCountryByLeage(long leagueId);
+
+        SoccerCountry GetCountryByCountry(int countryId);
+
+        List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId);
         #endregion
     }
 }

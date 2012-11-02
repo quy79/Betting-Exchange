@@ -54,7 +54,7 @@ ul.Tabs li a
 	color:#666666;
 	font-size:13px;
 	display:inline-block;
-	background:url("../images/themes/tab_off.png") no-repeat;
+	background:url(../images/themes/tab_off.png) no-repeat;
 	margin-top:1px;
 	
 }
@@ -63,7 +63,7 @@ ul.Tabs li a
 
 ul.Tabs li a.Tab_1
 {
-	background:url("../images/themes/live_betting_tab.png") 0 0px no-repeat;
+	background:url(../images/themes/live_betting_tab.png) 0 0px no-repeat;
 	margin-top:1px;
 }
 
@@ -72,7 +72,7 @@ ul.Tabs li a.Tab_1
 }
 ul.Tabs li a.LiveBetting_a
 {
-	background:url("../images/themes/live_betting_tab.png") 0 -32px no-repeat;
+	background:url(../images/themes/live_betting_tab.png) 0 -32px no-repeat;
 	color:#ffffff;
 	width:170px;
 }
@@ -80,26 +80,26 @@ ul.Tabs li a.LiveBetting_a
 
 ul.Tabs li a.Tab_2
 {
-	background:url("../images/themes/hot_bets_tab.png") 0 0 no-repeat;
+	background:url(../images/themes/hot_bets_tab.png) 0 0 no-repeat;
 }
 
 
 ul.Tabs li a.HotBets_a
 {
-	background:url("../images/themes/hot_bets_tab.png") 0 -32px no-repeat;
+	background:url(../images/themes/hot_bets_tab.png) 0 -32px no-repeat;
 	color:#ffffff;
 	width:170px;
 }
 
 ul.Tabs li a.Tab_3
 {
-	background:url("../images/themes/next_bets_tab.png") 0 0 no-repeat;
+	background:url(../images/themes/next_bets_tab.png) 0 0 no-repeat;
 	
 }
 
 ul.Tabs li a.NextBets_a
 {
-	background:url("../images/themes/next_bets_tab.png") 0 -32px no-repeat;
+	background:url(../images/themes/next_bets_tab.png) 0 -32px no-repeat;
 	color:#FFF;
 	width:170px;
 }
@@ -155,7 +155,7 @@ td.tab_heading {
 }
 
 .BettingTabsFooter {
-	background-image:url("../images/themes/tabs_footer.png");
+	background-image:url(../images/themes/tabs_footer.png);
 	height:30px;
 	width:510px;
 	background-repeat:none;
@@ -249,7 +249,7 @@ td a.bets
 }
 
 td a:hover.bets {
-	background-image:url("../images/themes/bets_bg_on.png");
+	background-image:url(../images/themes/bets_bg_on.png);
 	background-repeat:repeat-x;
 	color:#ffffff;
 	
@@ -261,7 +261,7 @@ td a:hover.bets {
 }
 
 td a.bets_selected	{
-	background:url("../images/themes/bets_selected.png") repeat-x;
+	background:url(../images/themes/bets_selected.png) repeat-x;
 	display:inline-block;
 	color:#333333;
 	font-weight:bold;
@@ -322,7 +322,7 @@ a.HotBetsEventLink, a.HotBetsEventLink:hover, a.HotBetsEventLink:visited {
 {
 	width:510px;
 	height:28px;
-	background:url("../images/themes/promotion_header.png") no-repeat;
+	background:url(../images/themes/promotion_header.png) no-repeat;
 	color:#ff8000;
 	font-size:1em;
 	font-weight:bold;
@@ -501,8 +501,8 @@ input.PresetBetButton {
 }
 
 .ChooseSportsHeader	{
-	background:url("../images/themes/choose_sport_header.png") no-repeat;
-	width:185px;
+	background:url(../images/themes/choose_sport_header.png) no-repeat;
+	width:187px;
 	height:24px;
 	text-align: center;	
 	padding-top: 5px;
@@ -548,7 +548,7 @@ input.PresetBetButton {
 
 .ChooseSportsTop input.ShowButton
 {
-	background:url("../images/themes/button_show.png") no-repeat;
+	background:url(../images/themes/button_show.png) no-repeat;
 	width:87px;
 	height:28px;
 	border:none;
@@ -566,7 +566,7 @@ input.SearchBtn {
 	border:none;
 	width:29px;
 	height:26px;
-	background:url("../images/themes/search_odds_but.png") 0 -26px no-repeat;
+	background:url(../images/themes/search_odds_but.png) 0 -26px no-repeat;
 	font-size:1em;
 	font-weight:bold;
 	color:#ffffff;
@@ -576,7 +576,7 @@ input.SearchBtn {
 }
 
 input:hover.SearchBtn{
-	background:url("../images/themes/search_odds_but.png") 0 0px no-repeat;
+	background:url(../images/themes/search_odds_but.png) 0 0px no-repeat;
 }
 
 .SearchInfo {
@@ -595,14 +595,14 @@ input:hover.SearchBtn{
 /*Odds Tree Levels*/
 
 a.myfav_button {
-	background:url("../images/themes/my_fav_button.png") 0 0 no-repeat;
+	background:url(../images/themes/my_fav_button.png) 0 0 no-repeat;
 	display:inline-block;
 	width:211px;
 	height:28px;
 	margin:5px 0 0 0;
 }
 
-a:hover.myfav_button {	background:url("../images/themes/my_fav_button.png") 0 -28px no-repeat;	}
+a:hover.myfav_button {	background:url(../images/themes/my_fav_button.png) 0 -28px no-repeat;	}
 
 .myfav_button span {
 	display:inline-block;
@@ -686,7 +686,7 @@ ul.main_tree{
 .category_tree li.level_1 {	
 	font-weight: bold;
 	height:30px;
-	background:url("../images/themes/menu_bg.png") repeat-x;
+	background:url(../images/themes/menu_bg.png) repeat-x;
 	vertical-align:middle;
 	font-size:10px;
 	cursor:pointer;
@@ -699,7 +699,7 @@ ul.main_tree{
 
 .category_tree li:hover.level_1  
 {
-	background:url("../images/themes/menu_bg_hover.png");
+	background:url(../images/themes/menu_bg_hover.png);
 	cursor:pointer;
 }
 
@@ -911,7 +911,7 @@ td.WelcomeBonus
 
 td.WelcomeBonus a
 {
-	background:url("../images/themes/bonus_section.png") no-repeat;
+	background:url(../images/themes/bonus_section.png) no-repeat;
 	height:60px;
 	padding:10px 10px 0px 10px;
 	width:187px;
@@ -966,14 +966,14 @@ p.title2{
 }
 
 .promotional_body_header_left {
-	background-image:url("../images/themes/promotional_header.png");
+	background-image:url(../images/themes/promotional_header.png);
 	background-repeat:no-repeat;
 	height:7px;
 	width:8px;
 }
 
 .promotional_body_header_right {
-	background-image:url("../images/themes/promotional_header.png");
+	background-image:url(../images/themes/promotional_header.png);
 	background-position:right center;
 	background-repeat:no-repeat;
 	height:7px;
@@ -986,7 +986,7 @@ p.title2{
     font-size:12px;
     font-weight:bold;
     display:inline-block;
-	background:url(/images/standard/column_header.png");
+	background:url(/images/standard/column_header.png);
 	height:28px;
 	width:225px;
 }
@@ -1018,7 +1018,7 @@ p.title2{
 	height:70px;
 	width:90px;
 	margin-left:125px;
-	background:url("../images/themes/overlay_bg.png") repeat-x;
+	background:url(../images/themes/overlay_bg.png) repeat-x;
 }
 
 .promotional_image_overlay a {
@@ -1041,14 +1041,14 @@ p.title2{
 
 
 .promotional_image_footer_right {
-    background-image:url("../images/themes/promotional_footer.png");
+    background-image:url(../images/themes/promotional_footer.png);
     background-repeat: no-repeat;
     background-position: right;
 	width:3px;
 	height:7px;
 }
 .promotional_image_footer_left {
-    background-image:url("../images/themes/promotional_footer.png");
+    background-image:url(../images/themes/promotional_footer.png);
     background-repeat: no-repeat;
     width:8px;
 	height:7px;
@@ -1067,7 +1067,7 @@ p.title2{
 }
 
 .hot_bets_button{
-	background:url("../images/themes/hot_bets_button.png");
+	background:url(../images/themes/hot_bets_button.png);
 	height:30px;
 	width:198px;
 	display:inline-block;
@@ -1082,7 +1082,7 @@ p.title2{
 }
 
 .live_bets_button{
-	background:url("../images/themes/live_bets_button.png");
+	background:url(../images/themes/live_bets_button.png);
 	height:30px;
 	width:198px;
 	display:inline-block;
@@ -1098,7 +1098,7 @@ p.title2{
 }
 
 .next_bets_button {
-	background:url("../images/themes/next_bets_button.png");
+	background:url(../images/themes/next_bets_button.png);
 	height:30px;
 	width:198px;
 	display:inline-block;
@@ -1112,7 +1112,7 @@ p.title2{
 
 
 a.first_bet_demo {
-	background:url("../images/themes/first_bet_demo.png") 0 -55px no-repeat;
+	background:url(../images/themes/first_bet_demo.png) 0 -55px no-repeat;
 	height:55px;
 	width:226px;
 	display:inline-block;
@@ -1128,7 +1128,7 @@ a.first_bet_demo span {
 }
 
 a:hover.first_bet_demo {
-	background:url("../images/themes/first_bet_demo.png") 0 0px no-repeat;
+	background:url(../images/themes/first_bet_demo.png) 0 0px no-repeat;
 }
 
 a:hover.first_bet_demo span {
@@ -1168,7 +1168,7 @@ ul.MyBetsTabs li a
 
 ul.MyBetsTabs li a.tab_off {
 	
-	background:url("../images/themes/mybets_tab_off.png") no-repeat;
+	background:url(../images/themes/mybets_tab_off.png) no-repeat;
 	margin-top:1px;
 	text-align:center;
 }
@@ -1179,7 +1179,7 @@ ul.MyBetsTabs li a.tab_off span {
 	color:#424242;
 }
 ul.MyBetsTabs li a.tab_on {
-	background:url("../images/themes/mybets_tab_on.png");
+	background:url(../images/themes/mybets_tab_on.png);
 	text-align:center;
 }
 
@@ -1361,7 +1361,7 @@ table.MyBets_Totals td {
     color:#666666;
     width:100%;
     display:block;
-    background-image: url(/images/tv2.gif");
+    background-image: url(/images/tv2.gif);
     background-repeat:no-repeat;
     padding-left:15px;
 }
@@ -1370,20 +1370,20 @@ table.MyBets_Totals td {
 .sports_newsrotator	{
 	width:510px;
 	height:473px;
-	background:url("../images/themes/newrototar_bg.png") no-repeat;
+	background:url(../images/themes/newrototar_bg.png) no-repeat;
 	margin-bottom:10px;
 	display:inline-block;
 	
 }
 
 #newsBox { margin:0 0 0 15px; display:inline-block; height:373; width:510px; }
-.NewsBoxHeader	{ background-image:url("../images/themes/promotion_header.png");height:28px;width:510px;; }
+.NewsBoxHeader	{ background-image:url(../images/themes/promotion_header.png);height:28px;width:510px;; }
 .NewsBoxHeader span { display:inline-block; margin:2px 10px; color:#FF8000; font-size:16px; font-weight:bold; } 
 .NewsBoxTitle {
 	
 	color:#f98200;
 	font-size:14px;
-	background-image: url(..../images/themes/promotion_header.png");
+	background-image: url(..../images/themes/promotion_header.png);
 	background-repeat: no-repeat;
 	padding:3px 0px 3px 6px;
 	width:399px;
@@ -1437,7 +1437,7 @@ table.MyBets_Totals td {
 .NewsBoxContent {
 	width:510px;
 	height:473px;
-	background:url("../images/themes/newrototar_bg.png") no-repeat;
+	background:url(../images/themes/newrototar_bg.png) no-repeat;
 	margin-bottom:10px;
 	display:inline-block;
 }
@@ -1703,6 +1703,42 @@ border-bottom: 1px solid #000;
 }
 
 
+
+.myaccount-box {
+padding: 3px 3px;
+color : #000;
+cursor: pointer;
+position: relative;
+border: 0px 1px 1px 1px solid #63260a;
+-moz-border-radius: 0px 0px 5px 5px;
+-webkit-border-radius: 0px 0px 5px 5px;
+border-radius: 0px 0px 5px 5px;
+margin-bottom: 5px;    
+clear: both;
+/* Mozilla ignores crazy MS image filters, so it will skip the following */
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../images/themes/75.png');
+	background-image:url(../images/themes/75.png);
+}
+.myaccount-box >ul li{
+	background:url("../images/themes/arrow-acc.png") no-repeat -5px 5px;
+}
+.myaccount-box >ul li a{
+	font: 10px Arial,Helvetica,sans-serif;
+	padding: 7px 0px 3px 15px;
+	text-align:left;
+	width:148px;
+	display:block;
+	color:#000;
+	font-weight: bold;
+}
+.myaccount-box >ul li:hover{
+	box-shadow:none;
+}
+.myaccount-box >ul li a:hover{
+	color: #fff;
+	box-shadow:none;
+}
+
 .sport-counter {
 color:#333333;
 display:inline-block;
@@ -1717,9 +1753,9 @@ margin-left:4px;
 float:left;
 }
 
-span.bet-delete {background:url("../images/themes/delete.gif"); background-position:0px 0px; float:right; width:11px; height:11px; display:block; margin:0px 0px 0 0}
+span.bet-delete {background:url(../images/themes/delete.gif); background-position:0px 0px; float:right; width:11px; height:11px; display:block; margin:0px 0px 0 0}
 
-span.sports-soccer, span.sports-baseball, span.sports-tennis, span.sports-horse, span.sports-usfootball, span.sports-cricket, span.sports-hockey, span.sports-rugby, span.sports-handball, span.sports-volleyball {background:url("../images/themes/sports_sprites1.png") no-repeat 0 0}
+span.sports-soccer, span.sports-baseball, span.sports-tennis, span.sports-horse, span.sports-usfootball, span.sports-cricket, span.sports-hockey, span.sports-rugby, span.sports-handball, span.sports-volleyball {background:url(../images/themes/sports_sprites1.png) no-repeat 0 0}
 span.sports-soccer {background-position:0px 0px; float:left; width:32px; height:25px; display:block; margin:-5px 5px 0 0}
 a:hover span.sports-soccer {background-position:0px -28px}
 li.selected span.sports-soccer {background-position:0px -28px}
@@ -2053,7 +2089,7 @@ border: 1px solid #fff;
 min-height: 150px;
 /* Mozilla ignores crazy MS image filters, so it will skip the following */
     filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../images/themes/75.png');
-	background-image:url("../images/themes/75.png");
+	background-image:url(../images/themes/75.png);
 }
 
 .coupon-title{
@@ -2090,3 +2126,281 @@ padding: 5px 0px 5px 0px;
 align: left;
 text-align: left;
 }
+
+
+.create-account-box {
+ display: block; position: relative; margin: 0 auto; background-color:#000; padding: 0px; border: 1px solid #fff;
+font-size: 1.0em; 
+}
+.rb {
+ width: 511px; position: relative; margin: 0 auto; background-color:#d9580a; padding: 5px; border-bottom: 1px solid #fff;
+ font-size: 1.2em; font-weight: bold
+}
+#hint{
+	cursor:pointer;
+}
+.tooltip{
+	margin:8px;
+	padding:8px;
+	border:1px solid blue;
+	background-color:yellow;
+	position: absolute;
+	z-index: 2;
+}
+#payment-icons{margin-top:7px;width:480px;float:left;}
+#payment-icons img{margin-left:0;margin-right:5px;margin-bottom:5px;}
+img.inline,img.tooltip,.info img{margin-left:3px;display:inline;vertical-align:top;}
+.header-login-panel{
+	position:relative;
+	float: right;
+	width: 350px;
+    padding: 5px;
+    -moz-border-radius: 5px 5px 5px 5px;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;    
+    margin-bottom:5px;
+	margin-right: 15px;
+	margin-top: 0px;
+	border: 1px solid #000;
+	/* Mozilla ignores crazy MS image filters, so it will skip the following */
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../images/themes/75.png');
+	background-image:url(../images/themes/75.png);
+}
+
+.header-login-panel .account-balance {
+	color: yellow;
+		
+}
+
+
+
+
+
+#accordion-container {
+	font-size: 11px;
+	background: #fff;
+	padding: 5px 10px 10px 10px;
+	border: 1px solid #000;
+	-moz-border-radius: 0 0 5px 5px;
+	-webkit-border-radius: 0 0 5px 5px;
+	border-radius: 0 0 5px 5px;
+	margin-bottom: 5px;
+}
+
+.accordion-header {
+	font-size: 11px;
+	margin: 0px 0px 0px 0px;
+	padding: 5px 10px;
+	cursor: pointer;
+	color: #C00;
+
+}
+
+
+
+
+.accordion-content {
+	display: none;
+	color : #000;
+	padding: 0px 0px 0px 15px;
+	background: #ffffff;
+}
+
+.accordion-content >ul li a{
+	font: 10px Arial,Helvetica,sans-serif;
+	padding: 7px 0px 3px 5px;
+	text-align:left;
+	width:148px;
+	display:block;
+	color:#000;
+	font-weight: bold;
+}
+.accordion-content >ul li:hover{
+	box-shadow:none;
+}
+.accordion-content >ul li a:hover{
+	color: #a90b0b;
+	box-shadow:none;
+
+}
+
+
+	
+div.dvBody
+{
+	position:relative;
+	width:100%;
+	height:100%;
+	color: #000;
+}
+div.dvBody table tr td.tdPageHeader, table tr td.tdPager
+{
+	font-weight:bold;
+	background:#FFAE00;
+	padding:1px 7px 1px 7px;
+	height: 18px !important;
+
+}
+
+div.dvBody table tr td.tdPager
+{
+	color:#000;
+}
+
+.LabelCell
+{
+	background-color:#CCCCCC;
+	text-align:right;
+	height: 18px !important;
+}
+
+.ValueCell
+{
+	background-color:#E4E4E4;
+	height: 18px !important;
+}
+
+.stdControlsBar td
+{
+	background-color:#CCCCCC;
+	padding:1px 3px 1px 0px;
+	height: 18px !important;
+}
+
+.stdLabelValueTable tr td
+{
+	border-top:solid 1px white;
+	border-right:solid 1px white;
+	padding: 0px 3px 0px 3px;
+	height: 18px !important;
+	
+}
+
+
+.account-box-title{
+
+	position: relative;
+	display: block;
+	clear: both;
+	margin: 0 auto;
+	padding: 5px 5px 5px 10px;
+	color: #000;
+	font-size: 1.1em;
+	font-weight: bold;
+	background-color: #fcba48;
+	
+}
+
+.sports_header1{position: relative; display: block; margin-bottom:0px;
+	background:url(../images/themes/account-title-bg.jpg) left top no-repeat; font-size:20px; text-align:center; padding-top: 15px; height: 50px;}
+	
+	
+#footer-wrapper { background:#202020 url(../images/themes/bg-footer.gif) left top repeat-x; clear: both; position: relative; width: 100%;  padding: 0px; margin: 0 auto; bottom: 0px; margin-bottom: 0px !important;}	
+#footer1{height:315px;  width:988px;  position:relative;  font-size:10px; color:#969696; margin: 0 auto; bottom: 0px; margin-bottom: 0px !important;}
+	#footer1 .inner{width:988px; margin:0 auto; padding-top:30px;}
+	
+	
+	#footer1 .col_1{float:left; width:668px; }
+		#footer1 .footer_links{float:left; width:363px;}
+			#footer1 .footer_links li{float:left; width:166px; padding:3px 0 5px; border-top:1px dotted #b3b3b3; margin-right:15px; display:inline; }
+			#footer1 .footer_links li.first{border-top:0;}
+			#footer1 .footer_links li a{color:#bcbcbc;}			
+			#footer1 .footer_links li a:hover{color:#fff;}
+		
+		#footer1 .betting_links{float:right; width:276px;}
+			#footer1 .betting_links strong{display:block; color:#e2e2e2; margin-bottom:5px;}
+			#footer1 .betting_links ul{list-style:circle;}
+			#footer1 .betting_links ul li{margin-left:15px; float:left; width:120px;}
+			.ie6 #footer1 .betting_links ul li,
+			.ie7 #footer1 .betting_links ul li{margin-left:0; padding-left:15px; background:url(../images/bullet.gif) 2px 6px no-repeat;}
+			#footer1 .betting_links ul li a{color:#bcbcbc;}
+			#footer1 .betting_links ul li a:hover{color:#fff;}			
+		
+		#footer1 .copyright{clear:both; padding:15px 0 0; height:1%;}
+		#footer1 .copyright img{float:left; margin-right:18px;}
+		#footer1 .copyright p{padding-top:13px;}
+			
+		
+		#footer1 .logos{float:right; width:296px;}
+		#footer1 ul.payment{margin:3px 0 53px; position:relative; right:-10px;}
+		#footer1 ul.payment li{float:left; margin:0 3px 6px 0;}
+		#footer1 ul.payment li span{float:left; height:30px; text-indent:-9999px; overflow:hidden;
+			background:url(../images/themes/logos.gif);}
+		
+		#footer1 ul.payment li span.mc      {width:52px;  background-position:0 -37px;}
+		#footer1 ul.payment li span.maestro {width:48px;  background-position:-55px -37px;}
+		#footer1 ul.payment li span.visa    {width:52px;  background-position:-106px -37px;}
+		#footer1 ul.payment li span.visaelec{width:52px;  background-position:-161px -37px;}
+		#footer1 ul.payment li span.ukash   {width:68px;  background-position:-216px -37px;}
+		#footer1 ul.payment li span.fnb     {width:108px; background-position:-287px -37px;}
+		#footer1 ul.payment li span.mimoney {width:102px; background-position:-398px -37px;}
+		#footer1 ul.payment li span.fastbank{width:65px;  background-position:-503px -37px;}
+		
+		#footer1 ul.payment li span.mc:hover      {background-position:0 0;}
+		#footer1 ul.payment li span.maestro:hover {background-position:-55px 0;}
+		#footer1 ul.payment li span.visa:hover    {background-position:-106px 0;}
+		#footer1 ul.payment li span.visaelec:hover{background-position:-161px 0;}
+		#footer1 ul.payment li span.ukash:hover   {background-position:-216px 0;}
+		#footer1 ul.payment li span.fnb:hover     {background-position:-287px 0;}
+		#footer1 ul.payment li span.mimoney:hover {background-position:-398px 0;}
+		#footer1 ul.payment li span.fastbank:hover{ background-position:-503px 0;}
+		
+		#footer1 ul.security{}
+		#footer1 ul.security li{float:left;}
+		#footer1 ul.security li.thawte{ margin-right:19px;}
+
+		#footer1 p.small{margin-top:1em;}
+		
+		
+		
+		#footer #footer_AffiliateLinks {
+	overflow: hidden;
+	list-style: none;
+	margin: 0 auto;
+	padding: 1em 0 1em 0;
+	width: 400px;
+}
+
+#footer1 .copyright #footer_AffiliateLinks li {
+	display: inline;
+}
+
+#footer1 .copyright #footer_AffiliateLinks li a {
+	overflow: hidden;
+	display: block;
+	float: left;
+	height: 25px;
+	margin: 18px 2px 0 0;
+	text-indent: -999em;
+}
+
+#footer1 .copyright #footer_AffiliateLinks a#LGAMalta {
+    background: transparent url(http://cache.cdnbf.net/www/ALL_BRANDS/GBR/en/rtd/images/footer/lga_malta.gif) no-repeat scroll top left;
+    width: 88px;
+}
+#footer1 .copyright #footer_AffiliateLinks a#verisign {
+	background: transparent url(http://cache.cdnbf.net/www/ALL_BRANDS/GBR/en/rtd/images/footer/verisign.gif) no-repeat scroll top left;
+	width: 56px;
+}
+#footer1 .copyright #footer_AffiliateLinks a#gamCare18Plus {
+	background: transparent url(http://cache.cdnbf.net/www/ALL_BRANDS/GBR/en/rtd/images/footer/18plus.gif) no-repeat scroll top left;
+	width: 21px;
+}
+#footer1 .copyright #footer_AffiliateLinks a#grarule {
+	background: transparent url(http://cache.cdnbf.net/www/ALL_BRANDS/GBR/en/rtd/images/footer/gra.gif) no-repeat scroll top left;
+	width: 23px;
+	height: 23px;
+}
+#footer1 .copyright #footer_AffiliateLinks a#oddsr {
+	background: transparent url(http://betfair.com.au/images/footer/TGC_logo.gif) no-repeat scroll top left;
+	width: 65px;
+	height: 20px;
+}
+#footer1 .copyright #footer_AffiliateLinks a#dareg {
+	background: transparent url(http://cache.cdnbf.net/www/ALL_BRANDS/GBR/en/rtd/images/footer/dareg.gif) no-repeat scroll top left;
+	width: 23px;
+	height: 23px;
+}
+
+	
+	

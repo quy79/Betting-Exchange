@@ -28,6 +28,9 @@ namespace BetEx247.Web.Controllers
             ViewBag.SportList = sport;
             Debug.WriteLine("End XMLParserObjectManager ");
 
+            ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true);
+            ViewBag.ListSoccerComming = IoC.Resolve<IGuiService>().UpCommingMatches(true,0);
+
             return View();
         }
 

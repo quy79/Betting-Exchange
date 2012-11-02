@@ -44,9 +44,9 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_MyWallet_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyWallet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
 [assembly: EdmRelationshipAttribute("BetEXData", "FK_LoginHistory_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "LoginHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.LoginHistory), true)]
+[assembly: EdmRelationshipAttribute("BetEXData", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
 
 #endregion
 
@@ -677,22 +677,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Statement> Statements
-        {
-            get
-            {
-                if ((_Statements == null))
-                {
-                    _Statements = base.CreateObjectSet<Statement>("Statements");
-                }
-                return _Statements;
-            }
-        }
-        private ObjectSet<Statement> _Statements;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Member> Members
         {
             get
@@ -721,6 +705,38 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<LoginHistory> _LoginHistories;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<PSV_ALLTOURNAMENT> PSV_ALLTOURNAMENT
+        {
+            get
+            {
+                if ((_PSV_ALLTOURNAMENT == null))
+                {
+                    _PSV_ALLTOURNAMENT = base.CreateObjectSet<PSV_ALLTOURNAMENT>("PSV_ALLTOURNAMENT");
+                }
+                return _PSV_ALLTOURNAMENT;
+            }
+        }
+        private ObjectSet<PSV_ALLTOURNAMENT> _PSV_ALLTOURNAMENT;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Statement> Statements
+        {
+            get
+            {
+                if ((_Statements == null))
+                {
+                    _Statements = base.CreateObjectSet<Statement>("Statements");
+                }
+                return _Statements;
+            }
+        }
+        private ObjectSet<Statement> _Statements;
 
         #endregion
         #region AddTo Methods
@@ -1014,14 +1030,6 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Statements EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToStatements(Statement statement)
-        {
-            base.AddObject("Statements", statement);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Members EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToMembers(Member member)
@@ -1036,113 +1044,25 @@ namespace BetEx247.Data.Model
         {
             base.AddObject("LoginHistories", loginHistory);
         }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the PSV_ALLTOURNAMENT EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPSV_ALLTOURNAMENT(PSV_ALLTOURNAMENT pSV_ALLTOURNAMENT)
+        {
+            base.AddObject("PSV_ALLTOURNAMENT", pSV_ALLTOURNAMENT);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Statements EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToStatements(Statement statement)
+        {
+            base.AddObject("Statements", statement);
+        }
 
         #endregion
         #region Function Imports
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="memberId">No Metadata Documentation available.</param>
-        /// <param name="where">No Metadata Documentation available.</param>
-        /// <param name="pageNo">No Metadata Documentation available.</param>
-        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
-        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
-        {
-            ObjectParameter memberIdParameter;
-            if (memberId.HasValue)
-            {
-                memberIdParameter = new ObjectParameter("memberId", memberId);
-            }
-            else
-            {
-                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
-            }
-    
-            ObjectParameter whereParameter;
-            if (where != null)
-            {
-                whereParameter = new ObjectParameter("where", where);
-            }
-            else
-            {
-                whereParameter = new ObjectParameter("where", typeof(global::System.String));
-            }
-    
-            ObjectParameter pageNoParameter;
-            if (pageNo.HasValue)
-            {
-                pageNoParameter = new ObjectParameter("pageNo", pageNo);
-            }
-            else
-            {
-                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter sRecordsPerPageParameter;
-            if (sRecordsPerPage.HasValue)
-            {
-                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
-            }
-            else
-            {
-                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        /// <param name="mergeOption"></param>
-        /// <param name="memberId">No Metadata Documentation available.</param>
-        /// <param name="where">No Metadata Documentation available.</param>
-        /// <param name="pageNo">No Metadata Documentation available.</param>
-        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
-        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage, MergeOption mergeOption)
-        {
-            ObjectParameter memberIdParameter;
-            if (memberId.HasValue)
-            {
-                memberIdParameter = new ObjectParameter("memberId", memberId);
-            }
-            else
-            {
-                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
-            }
-    
-            ObjectParameter whereParameter;
-            if (where != null)
-            {
-                whereParameter = new ObjectParameter("where", where);
-            }
-            else
-            {
-                whereParameter = new ObjectParameter("where", typeof(global::System.String));
-            }
-    
-            ObjectParameter pageNoParameter;
-            if (pageNo.HasValue)
-            {
-                pageNoParameter = new ObjectParameter("pageNo", pageNo);
-            }
-            else
-            {
-                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
-            }
-    
-            ObjectParameter sRecordsPerPageParameter;
-            if (sRecordsPerPage.HasValue)
-            {
-                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
-            }
-            else
-            {
-                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
-            }
-    
-            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", mergeOption, memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
-        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1306,6 +1226,284 @@ namespace BetEx247.Data.Model
             }
     
             return base.ExecuteFunction<Nullable<global::System.Int32>>("PSP_SEARCHSTATEMENTPAGESIZE", memberIdParameter, whereParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_LIVEINPLAYMATCHES(Nullable<global::System.Boolean> isSoccer)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_LIVEINPLAYMATCHES", isSoccerParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_LIVEINPLAYMATCHES(Nullable<global::System.Boolean> isSoccer, MergeOption mergeOption)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_LIVEINPLAYMATCHES", mergeOption, isSoccerParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_UPCOMMINGMATCHES(Nullable<global::System.Boolean> isSoccer, Nullable<global::System.Int64> leagueId)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_UPCOMMINGMATCHES", isSoccerParameter, leagueIdParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_UPCOMMINGMATCHES(Nullable<global::System.Boolean> isSoccer, Nullable<global::System.Int64> leagueId, MergeOption mergeOption)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_UPCOMMINGMATCHES", mergeOption, isSoccerParameter, leagueIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="countryId">No Metadata Documentation available.</param>
+        public ObjectResult<PSV_ALLTOURNAMENT> PSP_GETCOUNTLEAGUEBYCOUNTRY(Nullable<global::System.Int32> countryId)
+        {
+            ObjectParameter countryIdParameter;
+            if (countryId.HasValue)
+            {
+                countryIdParameter = new ObjectParameter("countryId", countryId);
+            }
+            else
+            {
+                countryIdParameter = new ObjectParameter("countryId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PSV_ALLTOURNAMENT>("PSP_GETCOUNTLEAGUEBYCOUNTRY", countryIdParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="countryId">No Metadata Documentation available.</param>
+        public ObjectResult<PSV_ALLTOURNAMENT> PSP_GETCOUNTLEAGUEBYCOUNTRY(Nullable<global::System.Int32> countryId, MergeOption mergeOption)
+        {
+            ObjectParameter countryIdParameter;
+            if (countryId.HasValue)
+            {
+                countryIdParameter = new ObjectParameter("countryId", countryId);
+            }
+            else
+            {
+                countryIdParameter = new ObjectParameter("countryId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PSV_ALLTOURNAMENT>("PSP_GETCOUNTLEAGUEBYCOUNTRY", mergeOption, countryIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerCountry> PSP_GETCOUNTRYBYLEAGUE(Nullable<global::System.Int64> leagueId)
+        {
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerCountry>("PSP_GETCOUNTRYBYLEAGUE", leagueIdParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerCountry> PSP_GETCOUNTRYBYLEAGUE(Nullable<global::System.Int64> leagueId, MergeOption mergeOption)
+        {
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerCountry>("PSP_GETCOUNTRYBYLEAGUE", mergeOption, leagueIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        /// <param name="pageNo">No Metadata Documentation available.</param>
+        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
+        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            ObjectParameter pageNoParameter;
+            if (pageNo.HasValue)
+            {
+                pageNoParameter = new ObjectParameter("pageNo", pageNo);
+            }
+            else
+            {
+                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter sRecordsPerPageParameter;
+            if (sRecordsPerPage.HasValue)
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
+            }
+            else
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        /// <param name="pageNo">No Metadata Documentation available.</param>
+        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
+        public ObjectResult<Statement> PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage, MergeOption mergeOption)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            ObjectParameter pageNoParameter;
+            if (pageNo.HasValue)
+            {
+                pageNoParameter = new ObjectParameter("pageNo", pageNo);
+            }
+            else
+            {
+                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter sRecordsPerPageParameter;
+            if (sRecordsPerPage.HasValue)
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
+            }
+            else
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<Statement>("PSP_SEARCHSTATEMENT", mergeOption, memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
         }
 
         #endregion
@@ -3192,28 +3390,6 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Statements_Members", "Statement")]
-        public EntityCollection<Statement> Statements
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Transactions_Members", "Transaction")]
         public EntityCollection<Transaction> Transactions
         {
@@ -3248,6 +3424,28 @@ namespace BetEx247.Data.Model
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Statements_Members", "Statement")]
+        public EntityCollection<Statement> Statements
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement", value);
                 }
             }
         }
@@ -5785,6 +5983,162 @@ namespace BetEx247.Data.Model
         private Nullable<global::System.Int64> _TeamID;
         partial void OnTeamIDChanging(Nullable<global::System.Int64> value);
         partial void OnTeamIDChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="PSV_ALLTOURNAMENT")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PSV_ALLTOURNAMENT : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PSV_ALLTOURNAMENT object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="leagueName_WebDisplay">Initial value of the LeagueName_WebDisplay property.</param>
+        public static PSV_ALLTOURNAMENT CreatePSV_ALLTOURNAMENT(global::System.Int64 id, global::System.String leagueName_WebDisplay)
+        {
+            PSV_ALLTOURNAMENT pSV_ALLTOURNAMENT = new PSV_ALLTOURNAMENT();
+            pSV_ALLTOURNAMENT.ID = id;
+            pSV_ALLTOURNAMENT.LeagueName_WebDisplay = leagueName_WebDisplay;
+            return pSV_ALLTOURNAMENT;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SportID
+        {
+            get
+            {
+                return _SportID;
+            }
+            set
+            {
+                OnSportIDChanging(value);
+                ReportPropertyChanging("SportID");
+                _SportID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SportID");
+                OnSportIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SportID;
+        partial void OnSportIDChanging(Nullable<global::System.Int32> value);
+        partial void OnSportIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CountryID
+        {
+            get
+            {
+                return _CountryID;
+            }
+            set
+            {
+                OnCountryIDChanging(value);
+                ReportPropertyChanging("CountryID");
+                _CountryID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryID");
+                OnCountryIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CountryID;
+        partial void OnCountryIDChanging(Nullable<global::System.Int32> value);
+        partial void OnCountryIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LeagueName_WebDisplay
+        {
+            get
+            {
+                return _LeagueName_WebDisplay;
+            }
+            set
+            {
+                if (_LeagueName_WebDisplay != value)
+                {
+                    OnLeagueName_WebDisplayChanging(value);
+                    ReportPropertyChanging("LeagueName_WebDisplay");
+                    _LeagueName_WebDisplay = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("LeagueName_WebDisplay");
+                    OnLeagueName_WebDisplayChanged();
+                }
+            }
+        }
+        private global::System.String _LeagueName_WebDisplay;
+        partial void OnLeagueName_WebDisplayChanging(global::System.String value);
+        partial void OnLeagueName_WebDisplayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Total
+        {
+            get
+            {
+                return _Total;
+            }
+            set
+            {
+                OnTotalChanging(value);
+                ReportPropertyChanging("Total");
+                _Total = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Total");
+                OnTotalChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Total;
+        partial void OnTotalChanging(Nullable<global::System.Int32> value);
+        partial void OnTotalChanged();
 
         #endregion
     

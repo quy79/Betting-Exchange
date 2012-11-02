@@ -316,11 +316,12 @@ namespace BetEx247.Web.Controllers
         {               
             long memberId = SessionManager.USER_ID;
             var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
-            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId,null,1,Constant.DefaultRow);
+            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId,"",1,Constant.DefaultRow);
             ViewBag.lstSportData =new SelectList(lstSportData,"ID","SportName");
             ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch();
             ViewBag.lstDisplaySearch = IoC.Resolve<ICommonService>().MakeSelectListBetDisplay();
-            return View(lstStatement);
+            ViewBag.lstStatement = lstStatement;
+            return View();
         }
 
         [Authorize]

@@ -34,6 +34,10 @@
     <Reference Include="ChilkatDotNet4">
       <HintPath>..\..\..\Program Files\Chilkat Software Inc\Chilkat.NET-v4.0\ChilkatDotNet4.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\SpiralEdge\Source_MySQL\GBMLib\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\..\..\Source\Nop\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -85,8 +89,10 @@
     <Compile Include="Common\Utils\IWebHelper.cs" />
     <Compile Include="Common\Utils\JSONObject.cs" />
     <Compile Include="Common\Utils\RemotePost.cs" />
+    <Compile Include="Common\Utils\TypeConvertor.cs" />
     <Compile Include="Common\Utils\WebHelper.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="Infrastructure\DataFactory.cs" />
     <Compile Include="Infrastructure\DependencyResolverFactory.cs" />
     <Compile Include="Infrastructure\IDependencyResolver.cs" />
     <Compile Include="Infrastructure\IDependencyResolverFactory.cs" />

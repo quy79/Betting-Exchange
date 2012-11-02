@@ -1,19 +1,24 @@
 ﻿@using BetEx247.Core.Infrastructure;
 @using BetEx247.Data.DAL;
 @using BetEx247.Data;
-
 @model BetEx247.Data.Model.MyWallet
 @{
     ViewBag.Title = "Balances";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string Available = "0";
+    string Exposure = "0";
+    string Balance = "0";    
+    if(Model!=null)
+    {
+        Available = Model.Available != null ? Model.Available.Value.ToString() : "0";
+        Exposure = Model.Exposure != null ? Model.Exposure.Value.ToString() : "0";
+        Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";        
+    } 
 }
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex.css")" media="screen" />
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex1.css")" media="screen" />
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
-<div id="middle_column">
-    <div id="contentbox" class="clearfix">
-        <h1 class="sports_header">
+<div id="middle_column_1">
+    <div class="clearfix">
+        <h1 class="sports_header1">
             MY ACCOUNT</h1>
         <form action="" method="post" class="AccountRegForm">
         <div class="create-account-box">
@@ -22,10 +27,6 @@
                     <tr>
                         <td class="tdPageHeader">
                             Account Balances
-                        </td>
-                        <td align="right" class="tdPager">
-                            <select style="visibility: hidden">
-                            </select>
                         </td>
                     </tr>
                 </table>
@@ -36,7 +37,7 @@
                             Available:
                         </td>
                         <td class="ValueCell">
-                            £@Html.DisplayFor(model => model.Available)
+                            £@Available
                         </td>
                     </tr>
                     <tr>
@@ -44,7 +45,7 @@
                             Exposure:
                         </td>
                         <td class="ValueCell">
-                            £@Html.DisplayFor(model => model.Exposure)
+                            £@Exposure
                         </td>
                     </tr>
                     <tr>
@@ -52,55 +53,23 @@
                             Balance:
                         </td>
                         <td class="ValueCell">
-                            £@Html.DisplayFor(model => model.Balance)
+                            £@Balance
                         </td>
-                    </tr>
-                    <tr>
-                        <td class="LabelCell">
-                            Winnings Held:
-                        </td>
-                        <td class="ValueCell">
-                            £@Html.Raw(IoC.Resolve<ICustomerService>().WinningHeld(SessionManager.USER_ID).ToString())
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="LabelCell">
-                            Commission Held:
-                        </td>
-                        <td class="ValueCell">
-                            £@Html.Raw(IoC.Resolve<ICustomerService>().CommissionsHeld(SessionManager.USER_ID).ToString())
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="LabelCell">
-                            Funds Held:
-                        </td>
-                        <td class="ValueCell">
-                            £@Html.Raw(IoC.Resolve<ICustomerService>().FundsHeld(SessionManager.USER_ID).ToString())
-                        </td>
-                    </tr>
+                    </tr>                    
                     <tr>
                         <td class="LabelCell">
                             Loyalty Discount Rate:
                         </td>
                         <td class="ValueCell">
-                            @Html.Raw(IoC.Resolve<ICustomerService>().LoyaltyDiscountRate(SessionManager.USER_ID).ToString())%
+                            0%
                         </td>
                     </tr>
                     <tr>
                         <td class="LabelCell">
-                            Total BetEx247 Points:
+                            Total Betex247 Points:
                         </td>
                         <td class="ValueCell">
-                            @Html.Raw(IoC.Resolve<ICustomerService>().TotalPoints(SessionManager.USER_ID).ToString())
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="LabelCell">
-                            Lifetime BetEx247 Points:
-                        </td>
-                        <td class="ValueCell">
-                            @Html.Raw(IoC.Resolve<ICustomerService>().LifetimePoints(SessionManager.USER_ID).ToString())
+                            0.00
                         </td>
                     </tr>
                     <tr class="stdControlsBar">
@@ -110,291 +79,6 @@
                 </table>
             </div>
         </div>
-        </form>        
-    </div>
-</div>
-<div id="right_col">
-    <div class="blockRight">
-        <div class="betslip_header">
-            <span class="orange">Betslip (4)</span>
-        </div>
-        <div id="blockBettingSlip" class="module">
-            <div class="inner bdr_all">
-                <p class="bet-note">
-                    <strong>New Customer? </strong><a href="/index.php/user/register/">Join now</a><br />
-                </p>
-                <style type="text/css">
-                    #place_bet:hover, #fund_bet:hover
-                    {
-                        width: 91px;
-                        height: 25px;
-                        display: block;
-                        background: url(/themes/bet/images/buttons/place_bet.gif") no-repeat 0 -25px;
-                        color: #c00000;
-                        font-size: 12px;
-                        font-family: Arial;
-                        line-height: 25px;
-                        text-align: center;
-                        float: left;
-                        clear: both;
-                    }
-                    
-                    #place_bet_loader, #place_bet_loader:hover, #fund_bet_loader, #fund_bet_loader:hover
-                    {
-                        width: 91px;
-                        height: 25px;
-                        display: none;
-                        background: url(/themes/bet/images/buttons/bet-loader.gif") no-repeat center center;
-                        cursor: pointer;
-                        color: #808080;
-                        font-size: 12px;
-                        font-family: Arial;
-                        line-height: 25px;
-                        text-align: center;
-                        float: left;
-                        clear: both;
-                    }
-                    
-                    #bet_slip_message
-                    {
-                        padding: 5px 10px;
-                        color: #C00000;
-                        background: #FFC0C0;
-                        margin-right: 10px;
-                        border: 1px solid #C00000;
-                        display: none;
-                        font-size: 12px;
-                        font-family: Arial;
-                        line-height: 25px;
-                        text-align: center;
-                    }
-                </style>
-                <table width="100%" border="0" cellspacing="0" class="header-back">
-                    <tr>
-                        <th colspan="3" style="background-color: #79b0db; height: 24px; text-align: right;
-                            padding-top: 0px; font-family: Tahoma, Geneva, sans-serif;">
-                            <div style="display: block; float: left; position: relative; width: 66px; height: 24px;
-                                margin: 0px 0px; padding: 0px; background: url(@Url.Content("~/Content/images/themes/backbet_arrow.png")) no-repeat">
-                                <div style="position: relative; float: left; margin: 5px 15px; color: #fff; text-shadow: #000 2px 2px">
-                                    BACK</div>
-                            </div>
-                            <div style="position: relative; width: auto; height: 20px; float: none; margin-top: 0px;
-                                margin-right: 15px; display: inline-block; line-height: normal; top: -2px; font-weight: normal">
-                                <strong>Barcelona</strong><br />
-                                (-1/1,5)
-                            </div>
-                            <a href="#" title="delete">
-                                <div style="position: relative; width: 11px; height: 11px; float: right; margin-top: 7px;
-                                    margin-right: 5px">
-                                    <span class="bet-delete"></span>
-                                </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="stake">
-                            Stake
-                        </th>
-                        <th class="odds">
-                            Odds
-                        </th>
-                        <th class="profit">
-                            Profit
-                        </th>
-                    </tr>
-                </table>
-                <fieldset>
-                    <table width="100%" border="0" cellspacing="0" class="bet_select" id="stakeTable">
-                        <tr>
-                            <td class="stake">
-                                <input type="text" name="bet_stake" id="bet_stake_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="odds">
-                                <input type="text" name="bet_odds" id="bet_odds_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="profit">
-                                100.00sdfsfsfsd
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="height: 15px; background-color: #d2e0fc">
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <table width="100%" border="0" cellspacing="0" class="header-back">
-                    <tr>
-                        <th colspan="3" style="background-color: #79b0db; height: 24px; text-align: right;
-                            padding-top: 0px; font-family: Tahoma, Geneva, sans-serif;">
-                            <div style="display: block; float: left; position: relative; width: 66px; height: 24px;
-                                margin: 0px 0px; padding: 0px; background: url(@Url.Content("~/Content/images/themes/backbet_arrow.png")) no-repeat">
-                                <div style="position: relative; float: left; margin: 5px 15px; color: #fff; text-shadow: #000 2px 2px">
-                                    BACK</div>
-                            </div>
-                            <div style="position: relative; width: auto; height: 20px; float: none; margin-top: 0px;
-                                margin-right: 15px; display: inline-block; line-height: normal; top: -2px; font-weight: normal">
-                                <strong>Benfica - Barcelona</strong><br />
-                                (Draw)
-                            </div>
-                            <a href="#" title="delete">
-                                <div style="position: relative; width: 11px; height: 11px; float: right; margin-top: 7px;
-                                    margin-right: 5px">
-                                    <span class="bet-delete"></span>
-                                </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="stake">
-                            Stake
-                        </th>
-                        <th class="odds">
-                            Odds
-                        </th>
-                        <th class="profit">
-                            Profit
-                        </th>
-                    </tr>
-                </table>
-                <fieldset>
-                    <table width="100%" border="0" cellspacing="0" class="bet_select" id="stakeTable">
-                        <tr>
-                            <td class="stake">
-                                <input type="text" name="bet_stake" id="bet_stake_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="odds">
-                                <input type="text" name="bet_odds" id="bet_odds_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="profit">
-                                100.00sdfsfsfsd
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="height: 15px; background-color: #d2e0fc">
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <table width="100%" border="0" cellspacing="0" class="header-lay">
-                    <tr>
-                        <th colspan="3" style="background-color: #f6e588; height: 24px; text-align: right;
-                            padding-top: 0px; font-family: Tahoma, Geneva, sans-serif;">
-                            <div style="display: block; float: left; position: relative; width: 66px; height: 24px;
-                                margin: 0px 0px; padding: 0px; background: url(@Url.Content("~/Content/images/themes/laybet_arrow.png")) no-repeat">
-                                <div style="position: relative; float: left; margin: 5px 15px; color: #fff; text-shadow: #000 2px 2px">
-                                    LAY</div>
-                            </div>
-                            <div style="position: relative; width: auto; height: 20px; float: none; margin-top: 0px;
-                                margin-right: 15px; display: inline-block; line-height: normal; top: -2px; font-weight: normal">
-                                <strong>Andy Murray</strong><br />
-                                (to win 1st Set)
-                            </div>
-                            <a href="#" title="delete">
-                                <div style="position: relative; width: 11px; height: 11px; float: right; margin-top: 7px;
-                                    margin-right: 5px">
-                                    <span class="bet-delete"></span>
-                                </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="stake">
-                            Stake
-                        </th>
-                        <th class="odds">
-                            Odds
-                        </th>
-                        <th class="profit">
-                            Profit
-                        </th>
-                    </tr>
-                </table>
-                <fieldset>
-                    <table width="100%" border="0" cellspacing="0" class="bet_lay_select" id="stakeTable">
-                        <tr>
-                            <td class="stake">
-                                <input type="text" name="bet_stake" id="bet_stake_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="odds">
-                                <input type="text" name="bet_odds" id="bet_odds_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="profit">
-                                100.00sdfsfsfsd
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="height: 15px; background-color: #fcf4c9">
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <table width="100%" border="0" cellspacing="0" class="header-lay">
-                    <tr>
-                        <th colspan="3" style="background-color: #f6e588; height: 24px; text-align: right;
-                            padding-top: 0px; font-family: Tahoma, Geneva, sans-serif;">
-                            <div style="display: block; float: left; position: relative; width: 66px; height: 24px;
-                                margin: 0px 0px; padding: 0px; background: url(@Url.Content("~/Content/images/themes/laybet_arrow.png")) no-repeat">
-                                <div style="position: relative; float: left; margin: 5px 15px; color: #fff; text-shadow: #000 2px 2px">
-                                    LAY</div>
-                            </div>
-                            <div style="position: relative; width: auto; height: 20px; float: none; margin-top: 0px;
-                                margin-right: 15px; display: inline-block; line-height: normal; top: -2px; font-weight: normal">
-                                <strong>Benfica - Barcelona</strong><br />
-                                (Correct score: 0-1)
-                            </div>
-                            <a href="#" title="delete">
-                                <div style="position: relative; width: 11px; height: 11px; float: right; margin-top: 7px;
-                                    margin-right: 5px">
-                                    <span class="bet-delete"></span>
-                                </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="stake">
-                            Stake
-                        </th>
-                        <th class="odds">
-                            Odds
-                        </th>
-                        <th class="profit">
-                            Profit
-                        </th>
-                    </tr>
-                </table>
-                <fieldset>
-                    <table width="100%" border="0" cellspacing="0" class="bet_lay_select" id="stakeTable">
-                        <tr>
-                            <td class="stake">
-                                <input type="text" name="bet_stake" id="bet_stake_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="odds">
-                                <input type="text" name="bet_odds" id="bet_odds_001" style="width: 50px; color: #000;
-                                    margin-left: 0px; padding: 4px; border: 1px solid #000; font-size: 10px; margin-top: 0px;
-                                    background: #FFF repeat-x;" />
-                            </td>
-                            <td class="profit">
-                                100.00sdfsfsfsd
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="3" style="height: 15px; background-color: #fcf4c9">
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-                <br />
-            </div>
-        </div>
+        </form>
     </div>
 </div>

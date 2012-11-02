@@ -1,0 +1,189 @@
+﻿@using System.Collections;
+@using BetEx247.Data.Model;
+@using BetEx247.Core.Infrastructure;
+@using BetEx247.Data.DAL;
+
+@{
+    List<SoccerMatch> list = ViewBag.ListSoccerLive;
+}
+<div class="events-live">
+    <div style="position: absolute; margin-top: 8px; padding-left: 15px">
+        LIVE ! In-play Matches
+    </div>
+    <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
+        color: #fff">
+        Premier League</div>
+</div>
+<div class="alt_content_live bdr_btm">
+    <div class="event_wrap">
+        <div style="height: 150px; overflow: auto">
+            <table border="0" cellspacing="0" class="livebetListings">
+                @{
+                    foreach(SoccerMatch item in list)
+                    {
+                        <tr>
+                            <td class="livenow">
+                                <span>Live Now</span>
+                            </td>
+                            <td class="time">
+                                @item.StartTime.ToString("HH:mm")
+                            </td>
+                            <td class="teams">
+                                <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                                    @item.HomeTeam v @item.AwayTeam</strong></a>
+                            </td>
+                            <td class="markets">
+                                <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                                    markets</a>
+                            </td>
+                        </tr> 
+                    }
+                }
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            Arsenal v Olympiakos</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            FC Porto v Paris S.G.</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            Zenit St.Peterspurg v AC Milan</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            Manchester City v Borussia Dortmund</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            Anderlect v Malaga</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            FC Porto v Paris S.G.</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            Zenit St.Peterspurg v AC Milan</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            Manchester City v Borussia Dortmund</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="livenow">
+                        <span>Live Now</span>
+                    </td>
+                    <td class="time">
+                        06:15
+                    </td>
+                    <td class="teams">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/"><strong>
+                            Anderlect v Malaga</strong></a>
+                    </td>
+                    <td class="markets">
+                        <a href="https://www.bet.co.za/index.php/bethome/action/liveevent/eventid/142715/">view
+                            markets</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

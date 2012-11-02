@@ -100,7 +100,7 @@ display: inline-block;
 .content.tutorials ul li{
 display: block;
 width: 95%;
-background-image: url("../images/themes/arrow-acc.png");
+background-image: url(../images/themes/arrow-acc.png);
 background-repeat: no-repeat;
 background-position: center left;
 padding-left: 17px;

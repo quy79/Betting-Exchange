@@ -4,18 +4,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div id="middle_column">        
-    <div class="highlights">
-        <span>BETTING HIGHLIGHTS</span>
-    </div>
-    <div class="highlights-content">
-        <div>
-            <img src="@Url.Content("~/Content/Images/themes/loading1.gif")" width="30" height="30" />
-        </div>       
+    @Html.Partial("Slides")
+    <div id="contentbox" class="clearfix">
+        @Html.Partial("InplayMatches")
+        @Html.Partial("UpcommingMatches")
     </div>
 </div>
 @Html.Partial("_RightColumn")
 <script type="text/javascript">
     $(document).ready(function () {
-        betex247.getsport(1);
+        //betex247.getsport(1);
     });
 </script>
