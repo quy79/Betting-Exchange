@@ -95,6 +95,11 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Home\Index.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Index.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\app_settings.xml">
@@ -127,6 +132,7 @@
     <Content Include="Content\Images\themes\arrow-acc.png" />
     <Content Include="Content\Images\themes\arrow-down.gif" />
     <Content Include="Content\Images\themes\arrow-light.gif" />
+    <Content Include="Content\Images\themes\arrow-listings.gif" />
     <Content Include="Content\Images\themes\arrow-ul.gif" />
     <Content Include="Content\Images\themes\arrow.png" />
     <Content Include="Content\Images\themes\backbet_arrow.png" />
@@ -142,6 +148,7 @@
     <Content Include="Content\Images\themes\bg-footer.gif" />
     <Content Include="Content\Images\themes\bg-header.gif" />
     <Content Include="Content\Images\themes\bg-livebet-cell.gif" />
+    <Content Include="Content\Images\themes\bg-module-head.gif" />
     <Content Include="Content\Images\themes\bg-nonlive-match.gif" />
     <Content Include="Content\Images\themes\bg-sport-title.gif" />
     <Content Include="Content\Images\themes\bg-table.gif" />
@@ -154,6 +161,9 @@
     <Content Include="Content\Images\themes\bg_header.jpg" />
     <Content Include="Content\Images\themes\blue.png" />
     <Content Include="Content\Images\themes\br.png" />
+    <Content Include="Content\Images\themes\btn_a.png" />
+    <Content Include="Content\Images\themes\btn_span.png" />
+    <Content Include="Content\Images\themes\bullet-listings.gif" />
     <Content Include="Content\Images\themes\bullet2.gif" />
     <Content Include="Content\Images\themes\button_show.png" />
     <Content Include="Content\Images\themes\cal-grey.gif" />
@@ -168,6 +178,7 @@
     <Content Include="Content\Images\themes\DatePicker.gif" />
     <Content Include="Content\Images\themes\de.png" />
     <Content Include="Content\Images\themes\delete.gif" />
+    <Content Include="Content\Images\themes\flash.gif" />
     <Content Include="Content\Images\themes\fr.png" />
     <Content Include="Content\Images\themes\gb.png" />
     <Content Include="Content\Images\themes\gradient-e5e5e5-ffffff.gif" />
@@ -200,11 +211,154 @@
     <Content Include="Content\Images\themes\menu_bg.jpg" />
     <Content Include="Content\Images\themes\menu_bg.png" />
     <Content Include="Content\Images\themes\menu_bg_hover.png" />
+    <Content Include="Content\Images\themes\misc\333333_40x100_textures_02_glass_25.png" />
+    <Content Include="Content\Images\themes\misc\444444_40x100_textures_02_glass_25.png" />
+    <Content Include="Content\Images\themes\misc\999999_40x100_textures_02_glass_25.png" />
+    <Content Include="Content\Images\themes\misc\a21111_40x100_textures_02_glass_35.png" />
+    <Content Include="Content\Images\themes\misc\accbox_left.jpg" />
+    <Content Include="Content\Images\themes\misc\accbox_right.jpg" />
+    <Content Include="Content\Images\themes\misc\accbox_ver.gif" />
+    <Content Include="Content\Images\themes\misc\add-contacts-header-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\addcontact.png" />
+    <Content Include="Content\Images\themes\misc\arrow.png" />
+    <Content Include="Content\Images\themes\misc\autoresponder-box-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\autoresponder-header-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\bc.gif" />
+    <Content Include="Content\Images\themes\misc\bglines.png" />
+    <Content Include="Content\Images\themes\misc\bg_button_a.gif" />
+    <Content Include="Content\Images\themes\misc\bg_button_a.png" />
+    <Content Include="Content\Images\themes\misc\bg_button_span.gif" />
+    <Content Include="Content\Images\themes\misc\bg_button_span.png" />
+    <Content Include="Content\Images\themes\misc\bl.gif" />
+    <Content Include="Content\Images\themes\misc\bounced-icon.jpg" />
+    <Content Include="Content\Images\themes\misc\box-bg.png" />
+    <Content Include="Content\Images\themes\misc\box-btm.png" />
+    <Content Include="Content\Images\themes\misc\br.gif" />
+    <Content Include="Content\Images\themes\misc\check.png" />
+    <Content Include="Content\Images\themes\misc\click-icon.jpg" />
+    <Content Include="Content\Images\themes\misc\close.gif" />
+    <Content Include="Content\Images\themes\misc\close_pop.png" />
+    <Content Include="Content\Images\themes\misc\contacts-icon.png" />
+    <Content Include="Content\Images\themes\misc\contacts-title-bg.png" />
+    <Content Include="Content\Images\themes\misc\contacts.gif" />
+    <Content Include="Content\Images\themes\misc\copycontact.png" />
+    <Content Include="Content\Images\themes\misc\design-email.jpg" />
+    <Content Include="Content\Images\themes\misc\design-login.jpg" />
+    <Content Include="Content\Images\themes\misc\design-register.jpg" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_arrows_leftright.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_arrows_updown.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_close.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_doc.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_folder_closed.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_folder_open.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_minus.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_11x11_icon_plus.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_7x7_arrow_down.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_7x7_arrow_left.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_7x7_arrow_right.gif" />
+    <Content Include="Content\Images\themes\misc\eeeeee_7x7_arrow_up.gif" />
+    <Content Include="Content\Images\themes\misc\emails-box-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\emails-header-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\emails.gif" />
+    <Content Include="Content\Images\themes\misc\email_sent.jpg" />
+    <Content Include="Content\Images\themes\misc\error.png" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_arrows_leftright.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_arrows_updown.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_close.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_doc.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_folder_closed.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_folder_open.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_minus.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_11x11_icon_plus.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_7x7_arrow_down.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_7x7_arrow_left.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_7x7_arrow_right.gif" />
+    <Content Include="Content\Images\themes\misc\ffd40f_7x7_arrow_up.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_arrows_leftright.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_arrows_updown.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_close.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_doc.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_folder_closed.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_folder_open.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_minus.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_11x11_icon_plus.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_7x7_arrow_down.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_7x7_arrow_left.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_7x7_arrow_right.gif" />
+    <Content Include="Content\Images\themes\misc\ffffff_7x7_arrow_up.gif" />
+    <Content Include="Content\Images\themes\misc\footer-bg.png" />
+    <Content Include="Content\Images\themes\misc\fromfile.png" />
+    <Content Include="Content\Images\themes\misc\headerbg.png" />
+    <Content Include="Content\Images\themes\misc\header_bg.gif" />
+    <Content Include="Content\Images\themes\misc\horbg.png" />
+    <Content Include="Content\Images\themes\misc\icon-password.png" />
+    <Content Include="Content\Images\themes\misc\icon-username.png" />
+    <Content Include="Content\Images\themes\misc\icon_cal.png" />
+    <Content Include="Content\Images\themes\misc\img\button_large.jpg" />
+    <Content Include="Content\Images\themes\misc\img\flickr.jpg" />
+    <Content Include="Content\Images\themes\misc\img\footer_dottedGrayDivider.gif" />
+    <Content Include="Content\Images\themes\misc\img\footer_top.jpg" />
+    <Content Include="Content\Images\themes\misc\img\header.jpg" />
+    <Content Include="Content\Images\themes\misc\img\large_hr.jpg" />
+    <Content Include="Content\Images\themes\misc\img\learn_more1.jpg" />
+    <Content Include="Content\Images\themes\misc\img\learn_more2.jpg" />
+    <Content Include="Content\Images\themes\misc\img\learn_more3.jpg" />
+    <Content Include="Content\Images\themes\misc\img\linkedin.jpg" />
+    <Content Include="Content\Images\themes\misc\img\monitor.jpg" />
+    <Content Include="Content\Images\themes\misc\img\myspace.jpg" />
+    <Content Include="Content\Images\themes\misc\img\product1_heading.jpg" />
+    <Content Include="Content\Images\themes\misc\img\product1_image.jpg" />
+    <Content Include="Content\Images\themes\misc\img\product2_heading.jpg" />
+    <Content Include="Content\Images\themes\misc\img\product2_image.jpg" />
+    <Content Include="Content\Images\themes\misc\img\product3_heading.jpg" />
+    <Content Include="Content\Images\themes\misc\img\product3_image.jpg" />
+    <Content Include="Content\Images\themes\misc\img\small_hr.jpg" />
+    <Content Include="Content\Images\themes\misc\img\twitter.jpg" />
+    <Content Include="Content\Images\themes\misc\jqmBG.gif" />
+    <Content Include="Content\Images\themes\misc\last-message.png" />
+    <Content Include="Content\Images\themes\misc\lastMsgTitle_bg.png" />
+    <Content Include="Content\Images\themes\misc\list-header-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\loadera64.gif" />
+    <Content Include="Content\Images\themes\misc\loading-icon.gif" />
+    <Content Include="Content\Images\themes\misc\login_whisp.png" />
+    <Content Include="Content\Images\themes\misc\logo.jpg" />
+    <Content Include="Content\Images\themes\misc\logo_login.png" />
+    <Content Include="Content\Images\themes\misc\mail.jpg" />
+    <Content Include="Content\Images\themes\misc\main.jpg" />
+    <Content Include="Content\Images\themes\misc\message-title-bg.png" />
+    <Content Include="Content\Images\themes\misc\navbg.png" />
+    <Content Include="Content\Images\themes\misc\navbg_selected.png" />
+    <Content Include="Content\Images\themes\misc\notice-error.png" />
+    <Content Include="Content\Images\themes\misc\notice-info.png" />
+    <Content Include="Content\Images\themes\misc\notice-success.png" />
+    <Content Include="Content\Images\themes\misc\open-icon.jpg" />
+    <Content Include="Content\Images\themes\misc\optmmk-main_nav_sprite.png" />
+    <Content Include="Content\Images\themes\misc\optmmk_emails_nav_sprite.png" />
+    <Content Include="Content\Images\themes\misc\optmmk_emails_nav_sprite1.png" />
+    <Content Include="Content\Images\themes\misc\optmmk_emails_nav_sprite2.png" />
+    <Content Include="Content\Images\themes\misc\roundedge-blue-left.gif" />
+    <Content Include="Content\Images\themes\misc\roundedge-blue-right.gif" />
+    <Content Include="Content\Images\themes\misc\roundedge-gray-left.gif" />
+    <Content Include="Content\Images\themes\misc\roundedge-gray-right.gif" />
+    <Content Include="Content\Images\themes\misc\roundedge-green-left.gif" />
+    <Content Include="Content\Images\themes\misc\roundedge-green-right.gif" />
+    <Content Include="Content\Images\themes\misc\search-header-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\segment-icon.png" />
+    <Content Include="Content\Images\themes\misc\segments-header-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\sprite.gif" />
+    <Content Include="Content\Images\themes\misc\stat-bottom-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\stat-header-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\stat-main-bg.jpg" />
+    <Content Include="Content\Images\themes\misc\systat-list-icon.png" />
+    <Content Include="Content\Images\themes\misc\systats-segments-icon.png" />
+    <Content Include="Content\Images\themes\misc\template-message.jpg" />
+    <Content Include="Content\Images\themes\misc\warning.png" />
     <Content Include="Content\Images\themes\my_fav_button.png" />
     <Content Include="Content\Images\themes\navbg.png" />
     <Content Include="Content\Images\themes\navbg_hover.png" />
     <Content Include="Content\Images\themes\navbg_selected.png" />
     <Content Include="Content\Images\themes\odds_header.png" />
+    <Content Include="Content\Images\themes\overlay-button.png" />
     <Content Include="Content\Images\themes\rot-odds1.jpg" />
     <Content Include="Content\Images\themes\search_odds_but.png" />
     <Content Include="Content\Images\themes\seperator.gif" />
@@ -217,6 +371,7 @@
     <Content Include="Content\Images\themes\slip-header.gif" />
     <Content Include="Content\Images\themes\SL_178x82_Sportbonus_50_1er.gif" />
     <Content Include="Content\Images\themes\SOCCER13.jpg" />
+    <Content Include="Content\Images\themes\soccerbg.png" />
     <Content Include="Content\Images\themes\spirte.png" />
     <Content Include="Content\Images\themes\sports-live.gif" />
     <Content Include="Content\Images\themes\sports.gif" />
@@ -480,6 +635,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\Slides.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\MyAccount.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Home\Index.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Index.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

@@ -15,6 +15,7 @@
         Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";        
     } 
 }
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
 <div id="middle_column_1">
     <div class="clearfix">
@@ -82,3 +83,8 @@
         </form>
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        betex247.myaccount();
+    });
+</script>

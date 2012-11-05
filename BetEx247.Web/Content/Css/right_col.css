@@ -89,7 +89,7 @@
 					cursor:pointer;
 			}
 			#blockBettingSlip.module .multibet_header span{padding-left:19px;
-				background:url(.../images/themes/arrow-down.gif) 8px 5px no-repeat;}
+				background:url(../images/themes/arrow-down.gif) 8px 5px no-repeat;}
 								
 			#blockBettingSlip.module table.bet_multiple{margin:3px 5px 4px; color:#414141; width:212px;}			
 			#blockBettingSlip.module table.bet_multiple th{padding:3px 1px; vertical-align:middle;}

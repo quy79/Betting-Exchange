@@ -40,6 +40,15 @@
 
 }
 
+.AccountRegForm .text-input-date {
+	width: 70px;
+	color: #000;
+	padding: 4px;
+	border: 1px solid #000;
+	font-size: 0.9em;
+	background: #FFF repeat-x;
+}
+
 
 .AccountRegForm select {
 	border: 1px solid #fa8925;

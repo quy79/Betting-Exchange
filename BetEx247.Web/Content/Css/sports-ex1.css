@@ -31,6 +31,10 @@
 	
 	#contentbox .eventListings table td a:hover{color:#f2de00;}
 	#contentbox .eventListings table tr.last td{border-bottom:none; padding-bottom:0;}
+	
+	
+	
+	#contentbox .eventListings table td.row_odd{background-color: #cdcbcb;}	
 
 /* my account */
 #contentbox .account_content{}	
@@ -258,17 +262,16 @@ span.couponDate{color: #F2DE00;}
 	#contentbox .suspended .betting_row a.cell strong.odds {color:#eb3a3a; text-decoration:line-through;}
 	#contentbox .suspended .betting_row a.cell:hover{background-position:left -30px; cursor:default;}
 
-	
+
 	
 /* Live bet listings */
 #contentbox table.livebetListings{width:100%;}
-	#contentbox table.livebetListings td{padding:5px; padding-top: 10px !important; vertical-align:middle; line-height:1.2; color: #000 }
+#contentbox table.livebetListings tr.row_odd {background-color: #cdcbcb;}
+	#contentbox table.livebetListings td{vertical-align: middle; padding:5px; padding-top: 2px !important; padding-bottom: 2px !important; vertical-align:middle; line-height:1.2; color: #000 }
 	#contentbox table.livebetListings td a{color:#000;}
 	#contentbox table.livebetListings td a:hover{color:#fff;}
 	
-	#contentbox table.livebetListings td.livenow{width:10%; padding-left:10px;}
-	#contentbox table.livebetListings td.livenow span{display:block; width:26px; height:18px; text-indent:-9999px; overflow:hidden;
-		background:url(../images/themes/livenow.gif) no-repeat;}
+
 	
 	#contentbox table.livebetListings td.icon{width:25px;}
 	#contentbox table.livebetListings td.icon span{display:block; width:25px; height:25px; background:url(../images/themes/sports-live.gif) 0 0 no-repeat;}
@@ -287,11 +290,15 @@ span.couponDate{color: #F2DE00;}
 	#contentbox table.livebetListings td.sport a{color:#64ff94;}
 
 	/*#contentbox table.livebetListings td.teams span{white-space:nowrap}*/
-	
+	#contentbox table.livebetListings td.livenow{width:5%; padding-left:5px;}
+	#contentbox table.livebetListings td.livenow span{display:block; width:26px; height:18px; text-indent:-9999px; overflow:hidden;
+		background:url(../images/themes/flash.gif) 0px 4px no-repeat;}
 	#contentbox table.livebetListings td.markets{width:20%;}
-	#contentbox table.livebetListings td.time{width: 10%;}
+	#contentbox table.livebetListings td.time{width: 5%;}
 	#contentbox table.livebetListings td.time span{display:block;}
 	#contentbox table.livebetListings td.teams{width: 60%; padding-left:8px; }
+	#contentbox table.livebetListings td.livescore{width: 10%;}
+	
 	
 	
 #contentbox table.eventDates{width:100%; margin-bottom:9px;
@@ -329,12 +336,12 @@ span.couponDate{color: #F2DE00;}
 	#contentbox .needhelp p.info{font-size:15px; color:#fff; line-height:1.2;}
 
 /* event listings */
-#contentbox .event_wrap{margin-top:-10px; }
+#contentbox .event_wrap{margin-top:-10px; margin-left: 0px; padding-left: 0px; padding-right: 0px}
 	#contentbox .event_row{border-bottom:1px dotted #636363; padding:8px 0;}
 	#contentbox .event_row.last{border:none; padding-bottom:0;}
 	#contentbox .event_row span,
 	#contentbox .event_row a{padding:0 9px; float:left;
-	background:url("../images/themes/cell-div.gif") left 0.4em no-repeat;}
+	background:url(../images/themes/cell-div.gif") left 0.4em no-repeat;}
 	
 	#contentbox .event_row span.first,
 	#contentbox .event_row a.first{background:none; padding-left:0;color: #f2de00;}
@@ -429,15 +436,15 @@ span.couponDate{color: #F2DE00;}
 .clear {clear:both;}
 
 .headerSort {
-    background-image: url("../images/themes/sort.gif");
+    background-image: url(../images/themes/sort.gif");
     background-position: right center;
     background-repeat: no-repeat;
     cursor: pointer;
 }
 
 .headerSortDsc {
-    background-image: url("../images/themes/dsc.gif");
+    background-image: url(../images/themes/dsc.gif");
 }
 .headerSortAsc {
-    background-image: url("../images/themes/asc.gif");
+    background-image: url(../images/themes/asc.gif");
 }

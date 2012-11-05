@@ -247,7 +247,7 @@ span.time{
 .odds_row a.odds_selected{
 	cursor:pointer;
 	color:#ffffff;
-	background:url(/images/sports/odds/odds_bg_selected.png);
+	background:url(../images/themes/odds_bg_selected.png);
 	height:28px;
 	font-weight:bold;
 }
@@ -282,7 +282,7 @@ a.odds_bet, a.ob {
 	width:100%;
 	display:inline-block;
 	text-decoration:none;
-	background:url(/images/sports/odds/odds_bg.png) repeat-x;
+	background:url(../images/themes/odds_bg.png) repeat-x;
 	/*height:28px;*/
 	cursor:pointer;
 	color:#333333;
@@ -297,7 +297,7 @@ a.odds_bet, a.ob {
 width:100%;
 	display:inline-block;
 	text-decoration:none;
-	background:url(/images/sports/odds/odds_bg.png) repeat-x;
+	background:url(../images/themes/odds_bg.png) repeat-x;
 	/*height:28px;*/
 	cursor:default;
 	color:#333333;
@@ -337,7 +337,7 @@ a:hover.odds_bet, a:hover.ob{
 	width:100%;
 	display:inline-block;
 	text-decoration:none;
-	background:url(/images/sports/odds/odds_bg_hover.png) repeat-x;
+	background:url(../images/themes/odds_bg_hover.png) repeat-x;
 	/*height:28px;*/
 	background-color: #4c4c4c;
 	background-position: bottom left;

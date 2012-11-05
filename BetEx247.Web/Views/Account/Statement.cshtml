@@ -4,33 +4,13 @@
     ViewBag.Title = "Statement";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/datepicker.css")" media="screen" />
 <script src="@Url.Content("~/Content/Scripts/GUI/datepicker.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Content/Scripts/GUI/AccountHistory.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Content/Scripts/GUI/Common.js")" type="text/javascript"></script>
 <script type="text/javascript" src="@Url.Content("~/Content/Scripts/GUI/lang/en.js")" charset="utf-8"></script>
 <script type="text/javascript">
-//<![CDATA[
-
-    /*
-    A "Reservation Date" example using two datePickers
-    --------------------------------------------------
-
-    * Functionality
-
-    1. When the page loads:
-    - We clear the value of the two inputs (to clear any values cached by the browser)
-    - We set an "onchange" event handler on the startDate input to call the setReservationDates function
-    2. When a start date is selected
-    - We set the low range of the endDate datePicker to be the start date the user has just selected
-    - If the endDate input already has a date stipulated and the date falls before the new start date then we clear the input's value
-
-    * Caveats (aren't there always)
-
-    - This demo has been written for dates that have NOT been split across three inputs
-
-    */
-
     function makeTwoChars(inp) {
         return String(inp).length < 2 ? "0" + inp : inp;
     }
@@ -643,3 +623,8 @@
         </tr>
     </tbody>
 </table>*@ 
+<script type="text/javascript">
+    $(document).ready(function () {
+        betex247.myaccount();
+    });
+</script>

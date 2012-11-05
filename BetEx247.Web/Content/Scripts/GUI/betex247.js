@@ -75,6 +75,23 @@ betex247 = {
             }
         });
     },
+
+    myaccount: function () {
+        $.ajax({
+            type: "GET",
+            url: this.Url + 'common/MyAccount', 
+            cache: true,
+            success: function (data) {
+                $("#left_column").html(data);
+
+                $(".accordion-header").click(function () {
+                    $(".accordion-content").hide();
+                    $(this).next(".accordion-content").slideToggle(500);
+                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+                });
+            }
+        });
+    },
     //#endregion
 
     //#region account

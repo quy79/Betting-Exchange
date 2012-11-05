@@ -3,11 +3,13 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/right_col.css")" media="screen" />
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/jquery-ui-slides.min.css")" media="screen" />
 <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jquery/jquery-ui-slides.min.js")"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         betex247.getallsport();
+        $(".liverow:even").addClass("row_odd");
     });
     /*odds-commentaries slides*/
     $(function () {

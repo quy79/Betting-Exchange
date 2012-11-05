@@ -65,7 +65,7 @@
 /******* /CONTENT *******/
 /******* NEWS *******/
 .content.news h1{
-	background: transparent url(images/news.jpg) no-repeat scroll left top;
+	background: transparent url(../images/themes/news.jpg) no-repeat scroll left top;
 }
 .content.news{
 	display: block;
@@ -73,7 +73,7 @@
 /******* /NEWS *******/
 /******* TUTORIALS *******/
 .content.tutorials h1{
-	background: transparent url(images/tuts.jpg) no-repeat scroll left top;
+	background: transparent url(../images/themes/tuts.jpg) no-repeat scroll left top;
 }
 .content.tutorials{
 	display: none;
@@ -81,7 +81,7 @@
 /******* /TUTORIALS *******/
 /******* LINKS *******/
 .content.links h1{
-	background: transparent url(images/links.jpg) no-repeat scroll left top;
+	background: transparent url(../images/themes/links.jpg) no-repeat scroll left top;
 }
 .content.links{
 	display: none;

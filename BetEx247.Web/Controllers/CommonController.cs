@@ -36,6 +36,10 @@ namespace BetEx247.Web.Controllers
             return Json(sport, JsonRequestBehavior.AllowGet);
         }
 
-
+        [OutputCache(Duration = 1800, Location = OutputCacheLocation.Client, VaryByParam = "none")]
+        public ActionResult MyAccount()
+        {
+            return PartialView("MyAccount");
+        }
     }
 }

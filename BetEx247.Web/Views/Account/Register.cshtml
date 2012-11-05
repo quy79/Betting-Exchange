@@ -4,6 +4,7 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
 <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.maskedinput.min.js")" type="text/javascript"></script>
@@ -11,13 +12,15 @@
 <script type="text/javascript">
     $(document).ready(function () {
         betex247.getallsport();
+        $("#CreateAccount").addClass("AccountRegForm");
+        $("#CaptchaInputText").addClass("text-input");
     });
 </script>
 <div id="middle_column">
     <div id="contentbox" class="clearfix">
         <h1 class="sports_header">
             CREATE ACCOUNT</h1>  
-        @using (Html.BeginForm("register", "account"))
+        @using (Html.BeginForm("register", "account", FormMethod.Post, new { @id = "CreateAccount" }))
         {
             @Html.ValidationSummary(false)
             <div class="create-account-box">
@@ -387,13 +390,13 @@ Notices and other communications delivered or mailed to the postal address or to
                             @Html.Captcha(5, "_DefaultCaptchaView")
                         </td>
                     </tr>
-                    <tr>
+                   @* <tr>
                         <td width="150">
                         </td>
                         <td width="350">
                             <input type="text" name="captcha" id="Captcha" class="text-input" />
                         </td>
-                    </tr>
+                    </tr>*@
                     <tr>
                         <td colspan="2" align="center">
                             <input type="submit" value="Open Account" id="FormSubmit" style="background: #EFEFEF;" />

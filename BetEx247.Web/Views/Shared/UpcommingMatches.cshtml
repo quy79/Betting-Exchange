@@ -22,18 +22,20 @@
                 List<SoccerMatch> temp = list.Where(w => w.StartDate.Date == DateNow.Date).ToList();
                 if(temp.Count>0)
                 {
-                    @Html.Raw("<span class=\"headerExtra couponDate\">"+@DateNow.ToLongDateString()+"</span><p>")
+                    @Html.Raw("<span class=\"headerExtra couponDate\">"+@DateNow.ToLongDateString()+"</span>")
                     
                     foreach(SoccerMatch item in temp)
                     {   
+                        @Html.Raw("<p>")
                         <div class="betting_row clearfix">
                             <div style="float: left; padding: 5px 5px 5px 0px;">
                                 @item.StartTime.ToString("HH:mm")</div>
-                            <a href="#" class="betLink cell fifty" id="113625524" onclick="addToBettingSlip('113625524');">
+                            <a href="#" class="betLink cell fifty" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
                                 @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> <a href="#"
-                                    class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('113625526');">
+                                    class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
                                     View all markets >> </a>
                         </div>
+                        
                     }
                     
                 }
