@@ -13,3 +13,8 @@ E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\bin\Deb
 E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\ResolveAssemblyReference.cache
 E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.dll
 E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Discount\bin\Debug\BetEx247.Plugin.Discount.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Discount\obj\Debug\ResolveAssemblyReference.cache
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Discount\obj\Debug\BetEx247.Plugin.Discount.pdb

@@ -20,3 +20,7 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\BetEx247.Plugin.XMLParser.p
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\bin\EntityFramework.xml
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\obj\Debug\BetEx247.Web.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Web\obj\Debug\BetEx247.Web.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Web\obj\Debug\ResolveAssemblyReference.cache
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Web\obj\Debug\BetEx247.Web.Resources.Home.Index.resources
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Web\obj\Debug\GenerateResource.read.1.tlog
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Web\obj\Debug\GenerateResource.write.1.tlog
