@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<statuses>
+	<status id="1" name="Matched">Matched</status>
+	<status id="2" name="Unmatched">Unmatched</status>
+	<status id="3" name="Cancelled">Cancelled</status>
+	<status id="4" name="Lapsed">Lapsed</status>
+	<status id="5" name="Settled">Settled</status>
+	
+</statuses>
+

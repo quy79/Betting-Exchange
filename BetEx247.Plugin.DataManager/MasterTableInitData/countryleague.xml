@@ -1,0 +1,1205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<countries>
+	<country id="1" name="Argentina">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/argentina_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/argentina</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division">Primera Division</league>
+			<league id="2" name="Primera B Nacional">Primera B Nacional</league>
+			<league id="3" name="Prim B Metropolitana">Prim B Metropolitana</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Argentina: Primera Division">Argentina: Primera Division</league>
+			<league id="2" name="Argentina: Primera B Nacional">Argentina: Primera B Nacional</league>
+			<league id="3" name="Argentina: Prim B Metropolitana">Argentina: Prim B Metropolitana</league>
+		</leagues>
+	</country>
+	
+	<country id="2" name="Australia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Australia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Australia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="A-League">A-League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Australian: A-League">Australian: A-League</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Australian A-League">Australian A-League</league>
+		</leagues>
+	</country>
+	
+	<country id="3" name="Austria">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Austria_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Austria</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="T-Mobile Bundesliga">T-Mobile Bundesliga</league>
+			<league id="2" name="Regionalliga East">Regionalliga East</league>
+			<league id="3" name="Regionalliga Central">Regionalliga Central</league>
+			<league id="4" name="Regionalliga West">Regionalliga West</league>
+			<league id="5" name="Ofb Cup">Ofb Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Austria: T-Mobile Bundesliga">Austria: T-Mobile Bundesliga</league>
+			<league id="2" name="Austria: Regionalliga East">Austria: Regionalliga East</league>
+			<league id="3" name="Austria: Regionalliga Central">Austria: Regionalliga Central</league>
+			<league id="4" name="Austria: Regionalliga West">Austria: Regionalliga West</league>
+			<league id="5" name="Austria: Ofb Cup">Austria: Ofb Cup</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="3" name="Austrian Bundesliga">Austrian Bundesliga</league>
+		</leagues>
+	</country>
+	
+	<country id="4" name="Belarus">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Belarus_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Belarus</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Vysshaya Liga">Vysshaya Liga</league>
+			<league id="2" name="Belarusian Cup">Belarusian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Belarus: Vysshaya Liga">Belarus: Vysshaya Liga</league>
+			<league id="2" name="Belarus: Belarusian Cup">Belarus: Belarusian Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="5" name="Belgium">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Belgium_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Belgium</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Jupiler League">Jupiler League</league>
+			<league id="2" name="Belgacom League">Belgacom League</league>
+			<league id="3" name="Belgian Cup">Belgian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Belgium: Jupiler League">Belgium: Jupiler League</league>
+			<league id="2" name="Belgium: Belgacom League">Belgium: Belgacom League</league>
+			<league id="3" name="Belgium: Belgian Cup">Belgium: Belgian Cup</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Belgian Division 1">Belgian Division 1</league>
+		</leagues>
+	</country>
+	
+	<country id="6" name="Brazil">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Brazil_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Brazil</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Campeonato Brasileiro">Campeonato Brasileiro</league>
+			<league id="2" name="Campeonato Brasileiro B">Campeonato Brasileiro B</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Brazil: Campeonato Brasileiro">Brazil: Campeonato Brasileiro</league>
+			<league id="2" name="Brazil: Campeonato Brasileiro B">Brazil: Campeonato Brasileiro B</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Brazilian Campeonato">Brazilian Campeonato</league>
+			<league id="2" name="Brazilian Serie B">Brazilian Serie B</league>
+		</leagues>
+	</country>
+	
+	<country id="7" name="Bulgaria">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Bulgaria_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Bulgaria</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="A Pfg">A Pfg</league>
+			<league id="2" name="B Pfg">B Pfg</league>
+			<league id="3" name="Bulgarian Cup">Bulgarian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Bulgaria: A Pfg">Bulgaria: A Pfg</league>
+			<league id="2" name="Bulgaria: B Pfg">Bulgaria: B Pfg</league>
+			<league id="3" name="Bulgaria: Bulgarian Cup">Bulgaria: Bulgarian Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="8" name="Chile">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Chile_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Chile</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division - Clausura">Primera Division - Clausura</league>
+			<league id="2" name="Primera B">Primera B</league>
+			<league id="3" name="Chilean Cup">Chilean Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Chile: Primera Division - Clausura">Chile: Primera Division - Clausura</league>
+			<league id="2" name="Chile: Primera B">Chile: Primera B</league>
+			<league id="3" name="Chile: Chilean Cup">Chile: Chilean Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="9" name="China">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/China_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/China</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Super League">Super League</league>
+			<league id="2" name="FA Cup">FA Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="China: Super League">China: Super League</league>
+			<league id="2" name="China: FA Cup">China: FA Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="10" name="Colombia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Colombia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Colombia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Liga Postobon">Liga Postobon</league>
+			<league id="2" name="Colombian Cup">Colombian Cup</league>
+			<league id="3" name="Primera B">Primera B</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Colombia: Liga Postobon">Colombia: Liga Postobon</league>
+			<league id="2" name="Colombia: Colombian Cup">Colombia: Colombian Cup</league>
+			<league id="3" name="Colombia: Primera B">Colombia: Primera B</league>
+		</leagues>
+	</country>
+	
+	<country id="11" name="Costa Rica">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/costarica_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/costarica</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division">Primera Division</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Costa Rica: Primera Division">Costa Rica: Primera Division</league>
+		</leagues>
+	</country>
+	
+	<country id="12" name="Cyprus">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Cyprus_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Cyprus</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Cyprus: First Division">Cyprus: First Division</league>
+			<league id="2" name="Division 2">Division 2</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Cyprus: First Division">Cyprus: First Division</league>
+			<league id="2" name="Cyprus: Division 2">Cyprus: Division 2</league>
+		</leagues>
+	</country>
+	
+	<country id="13" name="Croatia">
+	<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Croatia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Croatia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="1. Hnl">1. Hnl</league>
+			<league id="2" name="Croatian Cup">Croatian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Croatia: 1. Hnl">Croatia: 1. Hnl</league>
+			<league id="2" name="Croatia: Croatian Cup">Croatia: Croatian Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="14" name="Czech Republic">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/czechia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/czechia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Gambrinus Liga">Gambrinus Liga</league>
+			<league id="2" name="Division 2">Division 2</league>
+			<league id="3" name="Pohar Ceske Posty">Pohar Ceske Posty</league>
+			<league id="4" name="Division A">Division A</league>
+			<league id="5" name="Division B">Division B</league>
+			<league id="6" name="Division C">Division C</league>
+			<league id="7" name="Division D">Division D</league>
+			<league id="8" name="Division E">Division E</league>
+			<league id="9" name="Youth League">Youth League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Czech Republic: Gambrinus Liga">Czech Republic: Gambrinus Liga</league>
+			<league id="2" name="Czech Republic: Division 2">Czech Republic: Division 2</league>
+			<league id="3" name="Czech Republic: Pohar Ceske Posty">Czech Republic: Pohar Ceske Posty</league>
+			<league id="4" name="Czech Republic: Division A">Czech Republic: Division A</league>
+			<league id="5" name="Czech Republic: Division B">Czech Republic: Division B</league>
+			<league id="6" name="Czech Republic: Division C">Czech Republic: Division C</league>
+			<league id="7" name="Czech Republic: Division D">Czech Republic: Division D</league>
+			<league id="8" name="Czech Republic: Division E">Czech Republic: Division E</league>
+			<league id="9" name="Czech Republic: Youth League">Czech Republic: Youth League</league>
+		</leagues>
+	</country>
+	
+	<country id="15" name="Denmark">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Denmark_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Denmark</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Superliga">Superliga</league>
+			<league id="2" name="1st Division">1st Division</league>
+			<league id="3" name="2nd Division">2nd Division</league>
+			<league id="4" name="Landspokal Cup">Landspokal Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Denmark: Superliga">Denmark: Superliga</league>
+			<league id="2" name="Denmark: 1st Division">Denmark: 1st Division</league>
+			<league id="3" name="Denmark: 2nd Division">Denmark: 2nd Division</league>
+			<league id="4" name="Denmark: Landspokal Cup">Denmark: Landspokal Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="16" name="Estonia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Estonia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Estonia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Meistriliiga">Meistriliiga</league>
+			<league id="2" name="Esi Liiga">Esi Liiga</league>
+			<league id="3" name="Estonian Cup">Estonian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Estonia: Meistriliiga">Estonia: Meistriliiga</league>
+			<league id="2" name="Estonia: Esi Liiga">Estonia: Esi Liiga</league>
+			<league id="3" name="Estonia: Estonian Cup">Estonia: Estonian Cup</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Estonia Meistriliiga">Estonia Meistriliiga</league>
+		</leagues>
+	</country>
+	
+	<country id="17" name="Ecuador">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Ecuador_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Ecuador</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Serie A">Serie A</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Ecuador: Serie A">Ecuador: Serie A</league>
+		</leagues>
+	</country>
+		
+	<country id="18" name="Egypt">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Egypt_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Egypt</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Premier League">Premier League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Egypt: Premier League">Egypt: Premier League</league>
+		</leagues>
+	</country>
+	
+	<country id="19" name="England">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/England_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/England</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Premier League">Premier League</league>
+			<league id="2" name="Championship">Championship</league>
+			<league id="3" name="League One">League One</league>
+			<league id="4" name="League Two">League Two</league>
+			<league id="5" name="Blue Square Premier">Blue Square Premier</league>
+			<league id="6" name="Blue Square North">Blue Square North</league>
+			<league id="7" name="Blue Square South">Blue Square South</league>
+			<league id="8" name="Fa Cup">Fa Cup</league>
+			<league id="9" name="Capital One Cup">Capital One Cup</league>
+			<league id="10" name="Johnstone'S Paint Trophy">Johnstone'S Paint Trophy</league>
+			<league id="11" name="Fa Trophy">Fa Trophy</league>
+			<league id="12" name="Charity Shield">Charity Shield</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="England: Premier League">England: Premier League</league>
+			<league id="2" name="England: Championship">England: Championship</league>
+			<league id="3" name="England: League One">England: League One</league>
+			<league id="4" name="England: League Two">England: League Two</league>
+			<league id="5" name="England: Blue Square Premier">England: Blue Square Premier</league>
+			<league id="6" name="England: Blue Square North">England: Blue Square North</league>
+			<league id="7" name="England: Blue Square South">England: Blue Square South</league>
+			<league id="8" name="England: Fa Cup">England: Fa Cup</league>
+			<league id="9" name="England: Capital One Cup">England: Capital One Cup</league>
+			<league id="10" name="England: Johnstone'S Paint Trophy">England: Johnstone'S Paint Trophy</league>
+			<league id="11" name="England: Fa Trophy">England: Fa Trophy</league>
+			<league id="12" name="England: Charity Shield">England: Charity Shield</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Eng. Premier League">Eng. Premier League</league>
+			<league id="2" name="English Championship">English Championship</league>
+			<league id="3" name="English League 1">English League 1</league>
+			<league id="4" name="English League 2">English League 2</league>
+		</leagues>
+	</country>
+	
+	<country id="20" name="Finland">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Finland_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Finland</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Veikkausliiga">Veikkausliiga</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Finland: Veikkausliiga">Finland: Veikkausliiga</league>
+		</leagues>
+	</country>
+	
+	<country id="21" name="France">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/France_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/France</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Ligue 1">Ligue 1</league>
+			<league id="2" name="Ligue 2">Ligue 2</league>
+			<league id="3" name="National">National</league>
+			<league id="4" name="Coupe De La Ligue">Coupe De La Ligue</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="France: Ligue 1">France: Ligue 1</league>
+			<league id="2" name="France: Ligue 2">France: Ligue 2</league>
+			<league id="3" name="France: National">France: National</league>
+			<league id="4" name="France: Coupe De La Ligue">France: Coupe De La Ligue</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="French Ligue 1">French Ligue 1</league>
+			<league id="2" name="French Ligue 2">French Ligue 2</league>
+		</leagues>
+	</country>
+	
+	<country id="22" name="Germany">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Germany_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Germany</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Bundesliga">Bundesliga</league>
+			<league id="2" name="Bundesliga 2">Bundesliga 2</league>
+			<league id="3" name="Liga 3">Liga 3</league>
+			<league id="4" name="Dfb Pokal">Dfb Pokal</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Germany: Bundesliga">Germany: Bundesliga</league>
+			<league id="2" name="Germany: Bundesliga 2">Germany: Bundesliga 2</league>
+			<league id="3" name="Germany: Liga 3">Germany: Liga 3</league>
+			<league id="4" name="Germany: Dfb Pokal">Germany: Dfb Pokal</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="German Bundesliga">German Bundesliga</league>
+			<league id="4" name="German DFB Cup">German DFB Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="23" name="Greece">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Greece_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Greece</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Super League">Super League</league>
+			<league id="2" name="Football League">Football League</league>
+			<league id="3" name="Football League 2">Football League 2</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Greece: Super League">Greece: Super League</league>
+			<league id="2" name="Greece: Football League">Greece: Football League</league>
+			<league id="3" name="Greece: Football League 2">Greece: Football League 2</league>
+		</leagues>
+	</country>
+		
+	<country id="24" name="Hungary">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Hungary_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Hungary</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Nb I">Nb I</league>
+			<league id="2" name="Nb Ii - East">Nb Ii - East</league>
+			<league id="3" name="Nb Ii - West">Nb Ii - West</league>
+			<league id="4" name="League Cup">League Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Hungary: Nb I">Hungary: Nb I</league>
+			<league id="2" name="Hungary: Nb Ii - East">Hungary: Nb Ii - East</league>
+			<league id="3" name="Hungary: Nb Ii - West">Hungary: Nb Ii - West</league>
+			<league id="4" name="Hungary: League Cup">Hungary: League Cup</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Hungarian Division 1">Hungarian Division 1</league>
+		</leagues>
+	</country>
+	
+	<country id="25" name="Holland">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Holland_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Holland</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Eredivisie">Eredivisie</league>
+			<league id="2" name="Eerste Divisie">Eerste Divisie</league>
+			<league id="3" name="Knvb Beker">Knvb Beker</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Holland: Eredivisie">Holland: Eredivisie</league>
+			<league id="2" name="Holland: Eerste Divisie">Holland: Eerste Divisie</league>
+			<league id="3" name="Holland: Knvb Beker">Holland: Knvb Beker</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Dutch Eredivisie">Dutch Eredivisie</league>
+		</leagues>
+	</country>
+	
+	<country id="26" name="Iceland">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Iceland_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Iceland</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Landsbankadeild">Landsbankadeild</league>
+			<league id="2" name="Division 1">Division 1</league>
+			<league id="3" name="League Cup">League Cup</league>
+			<league id="4" name="Icelandic Cup">Icelandic Cup</league>
+			<league id="5" name="Super Cup">Super Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Iceland: Landsbankadeild">Iceland: Landsbankadeild</league>
+			<league id="2" name="Iceland: Division 1">Iceland: Division 1</league>
+			<league id="3" name="Iceland: League Cup">Iceland: League Cup</league>
+			<league id="4" name="Iceland: Icelandic Cup">Iceland: Icelandic Cup</league>
+			<league id="5" name="Iceland: Super Cup">Iceland: Super Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="27" name="Ireland">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Ireland_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Ireland</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Premier League">Premier League</league>
+			<league id="2" name="Division 1">Division 1</league>
+			<league id="3" name="Fai Cup">Fai Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Ireland: Premier League">Ireland: Premier League</league>
+			<league id="2" name="Ireland: Division 1">Ireland: Division 1</league>
+			<league id="3" name="Ireland: Fai Cup">Ireland: Fai Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="28" name="Israel">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Israel_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Israel</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Ligat Ha'Al">Ligat Ha'Al</league>
+			<league id="2" name="Leumit League">Leumit League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Israel: Ligat Ha'Al">Israel: Ligat Ha'Al</league>
+			<league id="2" name="Israel: Leumit League">Israel: Leumit League</league>
+		</leagues>
+	</country>
+	
+	<country id="29" name="Italy">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Italy_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Italy</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Serie A">Serie A</league>
+			<league id="2" name="Serie B">Serie B</league>
+			<league id="3" name="Lega Pro C1/A">Lega Pro C1/A</league>
+			<league id="4" name="Lega Pro C1/B">Lega Pro C1/B</league>
+			<league id="5" name="Lega Pro C2/A">Lega Pro C2/A</league>
+			<league id="6" name="Lega Pro C2/B">Lega Pro C2/B</league>
+			<league id="7" name="Coppa Italia">Coppa Italia</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Italy: Serie A">Italy: Serie A</league>
+			<league id="2" name="Italy: Serie B">Italy: Serie B</league>
+			<league id="3" name="Italy: Lega Pro C1/A">Italy: Lega Pro C1/A</league>
+			<league id="4" name="Italy: Lega Pro C1/B">Italy: Lega Pro C1/B</league>
+			<league id="5" name="Italy: Lega Pro C2/A">Italy: Lega Pro C2/A</league>
+			<league id="6" name="Italy: Lega Pro C2/B">Italy: Lega Pro C2/B</league>
+			<league id="7" name="Italy: Coppa Italia">Italy: Coppa Italia</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Italian Serie A">Italian Serie A</league>
+			<league id="1" name="Italian Serie B">Italian Serie B</league>
+		</leagues>
+	</country>
+	
+	<country id="30" name="Japan">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Japan_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Japan</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="J-League">J-League</league>
+			<league id="2" name="J-League Division 2">J-League Division 2</league>
+			<league id="3" name="Nabisco Cup">Nabisco Cup</league>
+			<league id="4" name="Emperors Cup">Emperors Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Japan: J-League">Japan: J-League</league>
+			<league id="2" name="Japan: J-League Division 2">Japan: J-League Division 2</league>
+			<league id="3" name="Japan: Nabisco Cup">Japan: Nabisco Cup</league>
+			<league id="4" name="Japan: Emperors Cup">Japan: Emperors Cup</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Japan Cup">Japan Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="31" name="Korea">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Korea_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Korea</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="	K-League - Championship Group">	K-League - Championship Group</league>
+			<league id="2" name="K-League - Relegation Group">K-League - Relegation Group</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Korea: K-League - Championship Group">Korea: K-League - Championship Group</league>
+			<league id="2" name="Korea: K-League - Relegation Group">Korea: K-League - Relegation Group</league>
+		</leagues>
+	</country>
+
+	<country id="32" name="Lithuania">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/lithuania_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/lithuania</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="A Lyga">A Lyga</league>
+			<league id="2" name="Division 2">Division 2</league>
+			<league id="3" name="Lithuanian Cup">Lithuanian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Lithuania: A Lyga">Lithuania: A Lyga</league>
+			<league id="2" name="Lithuania: Division 2">Lithuania: Division 2</league>
+			<league id="3" name="Lithuania: Lithuanian Cup">Lithuania: Lithuanian Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="33" name="Mexico">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Mexico_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Mexico</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division - Apertura">Primera Division - Apertura</league>
+			<league id="2" name="Primera Division - Clausura">Primera Division - Clausura</league>
+			<league id="3" name="Liga De Ascenso - Apertura">Liga De Ascenso - Apertura</league>
+			<league id="4" name="Liga De Ascenso - Super Final">Liga De Ascenso - Super Final</league>
+			<league id="5" name="Liga De Ascenso - Clausura">Liga De Ascenso - Clausura</league>
+			<league id="6" name="Copa Mexico">Copa Mexico</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Mexico: Primera Division - Apertura">Mexico: Primera Division - Apertura</league>
+			<league id="2" name="Mexico: Primera Division - Clausura">Mexico: Primera Division - Clausura</league>
+			<league id="3" name="Mexico: Liga De Ascenso - Apertura">Mexico: Liga De Ascenso - Apertura</league>
+			<league id="4" name="Mexico: Liga De Ascenso - Super Final">Mexico: Liga De Ascenso - Super Final</league>
+			<league id="5" name="Mexico: Liga De Ascenso - Clausura">Mexico: Liga De Ascenso - Clausura</league>
+			<league id="6" name="Mexico: Copa Mexico">Mexico: Copa Mexico</league>
+		</leagues>
+	</country>
+	
+	<country id="34" name="Norway">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Norway_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Norway</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Tippeligaen">Tippeligaen</league>
+			<league id="2" name="Adeccoligaen">Adeccoligaen</league>
+			<league id="3" name="Division 2 - Group 1">Division 2 - Group 1</league>
+			<league id="4" name="Division 2 - Group 2">Division 2 - Group 2</league>
+			<league id="5" name="Division 2 - Group 3">Division 2 - Group 3</league>
+			<league id="6" name="Division 2 - Group 4">Division 2 - Group 4</league>
+			<league id="7" name="Nm Cup">Nm Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Norway: Tippeligaen">Norway: Tippeligaen</league>
+			<league id="2" name="Norway: Adeccoligaen">Norway: Adeccoligaen</league>
+			<league id="3" name="Norway: Division 2 - Group 1">Norway: Division 2 - Group 1</league>
+			<league id="4" name="Norway: Division 2 - Group 2">Norway: Division 2 - Group 2</league>
+			<league id="5" name="Norway: Division 2 - Group 3">Norway: Division 2 - Group 3</league>
+			<league id="6" name="Norway: Division 2 - Group 4">Norway: Division 2 - Group 4</league>
+			<league id="7" name="Norway: Nm Cup">Norway: Nm Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="35" name="Paraguay">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Paraguay_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Paraguay</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division - Clausura">Primera Division - Clausura</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Paraguay: Primera Division - Clausura">Paraguay: Primera Division - Clausura</league>
+		</leagues>
+	</country>
+	
+	<country id="36" name="Peru">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Peru_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Peru</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division - Apetura">Primera Division - Apetura</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Peru: Primera Division - Apetura">Peru: Primera Division - Apetura</league>
+		</leagues>
+	</country>
+	
+	<country id="37" name="Poland">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Poland_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Poland</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Ekstraklasa">Ekstraklasa</league>
+			<league id="2" name="Division 1">Division 1</league>
+			<league id="3" name="Mloda Ekstraklasa U21">Mloda Ekstraklasa U21</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Poland: Ekstraklasa">Poland: Ekstraklasa</league>
+			<league id="2" name="Poland: Division 1">Poland: Division 1</league>
+			<league id="3" name="Poland: Mloda Ekstraklasa U21">Poland: Mloda Ekstraklasa U21</league>
+		</leagues>
+	</country>
+	
+	<country id="38" name="Portugal">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Portugal_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Portugal</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Portuguese Liga">Portuguese Liga</league>
+			<league id="2" name="Liga De Honra">Liga De Honra</league>
+			<league id="3" name="Ta‡a De Portugal">Ta‡a De Portugal</league>
+			<league id="4" name="League Cup">League Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Portugal: Portuguese Liga">Portugal: Portuguese Liga</league>
+			<league id="2" name="Portugal: Liga De Honra">Portugal: Liga De Honra</league>
+			<league id="3" name="Portugal: Ta‡a De Portugal">Portugal: Ta‡a De Portugal</league>
+			<league id="4" name="Portugal: League Cup">Portugal: League Cup</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Portuguese Superliga">Portuguese Superliga</league>
+		</leagues>
+	</country>
+	
+	<country id="39" name="Romania">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Romania_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Romania</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Liga I">Liga I</league>
+			<league id="2" name="Division 2/Serie A">Division 2/Serie A</league>
+			<league id="3" name="Division 2/Serie B">Division 2/Serie B</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Romania: Liga I">Romania: Liga I</league>
+			<league id="2" name="Romania: Division 2/Serie A">Romania: Division 2/Serie A</league>
+			<league id="3" name="Romania: Division 2/Serie B">Romania: Division 2/Serie B</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Romania Liga 1">Romania Liga 1</league>
+		</leagues>
+	</country>
+	
+	<country id="40" name="Russia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Russia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Russia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Premier League">Premier League</league>
+			<league id="2" name="Division 1">Division 1</league>
+			<league id="3" name="Division 2 - South">Division 2 - South</league>
+			<league id="4" name="Division 2 - East">Division 2 - East</league>
+			<league id="5" name="Division 2 - Center">Division 2 - Center</league>
+			<league id="6" name="Division 2 - West">Division 2 - West</league>
+			<league id="7" name="Division 2 - Ural-Povolzhye">Division 2 - Ural-Povolzhye</league>
+			<league id="8" name="Russian Cup">Russian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Russia: Premier League">Russia: Premier League</league>
+			<league id="2" name="Russia: Division 1">Russia: Division 1</league>
+			<league id="3" name="Russia: Division 2 - South">Russia: Division 2 - South</league>
+			<league id="4" name="Russia: Division 2 - East">Russia: Division 2 - East</league>
+			<league id="5" name="Russia: Division 2 - Center">Russia: Division 2 - Center</league>
+			<league id="6" name="Russia: Division 2 - West">Russia: Division 2 - West</league>
+			<league id="7" name="Russia: Division 2 - Ural-Povolzhye">Russia: Division 2 - Ural-Povolzhye</league>
+			<league id="8" name="Russia: Russian Cup">Russia: Russian Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="41" name="Saudi Arabia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/saudi_arabia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/saudi_arabia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Saudi Professional League">Saudi Professional League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Saudi Arabia: Saudi Professional League">Saudi Arabia: Saudi Professional League</league>
+		</leagues>
+	</country>
+	
+	<country id="42" name="Scotland">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Scotland_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Scotland</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Premier League">Premier League</league>
+			<league id="2" name="Division 1">Division 1</league>
+			<league id="3" name="Division 2">Division 2</league>
+			<league id="4" name="Division 3">Division 3</league>
+			<league id="5" name="Division 4">Division 4</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Scotland: Premier League">Scotland: Premier League</league>
+			<league id="2" name="Scotland: Division 1">Scotland: Division 1</league>
+			<league id="3" name="Scotland: Division 2">Scotland: Division 2</league>
+			<league id="4" name="Scotland: Division 3">Scotland: Division 3</league>
+			<league id="5" name="Scotland: Division 4">Scotland: Division 4</league>
+		</leagues>
+	</country>
+	
+	<country id="43" name="Serbia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Serbia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Serbia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Super Liga">Super Liga</league>
+			<league id="2" name="Serbian Cup">Serbian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Serbia: Super Liga">Serbia: Super Liga</league>
+			<league id="2" name="Serbia: Serbian Cup">Serbia: Serbian Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="44" name="Singapore">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Singapore_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Singapore</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="S-League">S-League</league>
+			<league id="2" name="Singapore Cup">Singapore Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Singapore: S-League">Singapore: S-League</league>
+			<league id="2" name="Singapore: Singapore Cup">Singapore: Singapore Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="45" name="Slovakia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Slovakia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Slovakia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Corgon Liga">Corgon Liga</league>
+			<league id="2" name="Liga 2">Liga 2</league>
+			<league id="3" name="Slovak Cup">Slovak Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Slovakia: Corgon Liga">Slovakia: Corgon Liga</league>
+			<league id="2" name="Slovakia: Liga 2">Slovakia: Liga 2</league>
+			<league id="3" name="Slovakia: Slovak Cup">Slovakia: Slovak Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="46" name="Slovenia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Slovenia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Slovenia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Prva Liga">Prva Liga</league>
+			<league id="2" name="Snl 2">Snl 2</league>
+			<league id="3" name="Slovenian Cup">Slovenian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Slovenia: Prva Liga">Slovenia: Prva Liga</league>
+			<league id="2" name="Slovenia: Snl 2">Slovenia: Snl 2</league>
+			<league id="3" name="Slovenia: Slovenian Cup">Slovenia: Slovenian Cup</league>
+		</leagues>
+	</country>
+	
+	<country id="47" name="South Africa">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/southafrica_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/southafrica</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Premier League">Premier League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="South Africa: Premier League">South Africa: Premier League</league>
+		</leagues>
+	</country>
+	
+	<country id="48" name="Spain">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Spain_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Spain</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division">Primera Division</league>
+			<league id="2" name="Segunda Division">Segunda Division</league>
+			<league id="3" name="Segunda Division - B">Segunda Division - B</league>
+			<league id="4" name="Copa Del Rey">Copa Del Rey</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Spain :Primera Division">Spain :Primera Division</league>
+			<league id="2" name="Spain :Segunda Division">Spain :Segunda Division</league>
+			<league id="3" name="Spain :Segunda Division - B">Spain :Segunda Division - B</league>
+			<league id="4" name="Spain :Copa Del Rey">Spain :Copa Del Rey</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Spanish Liga Primera">Spanish Liga Primera</league>
+		</leagues>
+	</country>
+	
+	<country id="49" name="Sweden">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Sweden_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Sweden</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Allsvenskan">Allsvenskan</league>
+			<league id="2" name="Superettan">Superettan</league>
+			<league id="3" name="Division 1">Division 1</league>
+			<league id="4" name="Svenska Cupen">Svenska Cupen</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Sweden: Allsvenskan">Sweden: Allsvenskan</league>
+			<league id="2" name="Sweden: Superettan">Sweden: Superettan</league>
+			<league id="3" name="Sweden: Division 1">Sweden: Division 1</league>
+			<league id="4" name="Sweden: Svenska Cupen">Sweden: Svenska Cupen</league>
+		</leagues>
+	</country>
+	
+	<country id="50" name="Switzerland">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Switzerland_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Switzerland</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="SwitzerlandSuper League">Super League</league>
+			<league id="2" name="Challenge League">Challenge League</league>
+			<league id="3" name="Swiss Cup">Swiss Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Switzerland: SwitzerlandSuper League">Switzerland: Super League</league>
+			<league id="2" name="Switzerland: Challenge League">Switzerland: Challenge League</league>
+			<league id="3" name="Switzerland: Swiss Cup">Switzerland: Swiss Cup</league>
+		</leagues>
+		<leagues id="3" name="betclick">
+			<league id="1" name="Swiss Super League">Swiss Super League</league>
+		</leagues>
+	</country>
+	
+	<country id="51" name="Turkey">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Turkey_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Turkey</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Superliga">Superliga</league>
+			<league id="2" name="Ptt 1. Lig">Ptt 1. Lig</league>
+			<league id="3" name="Tff 2. Lig White Group">Tff 2. Lig White Group</league>
+			<league id="4" name="Tff 2. Lig Red Group">Tff 2. Lig Red Group</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Turkey: Superliga">Turkey: Superliga</league>
+			<league id="2" name="Turkey: Ptt 1. Lig">Turkey: Ptt 1. Lig</league>
+			<league id="3" name="Turkey: Tff 2. Lig White Group">Turkey: Tff 2. Lig White Group</league>
+			<league id="4" name="Turkey: Tff 2. Lig Red Group">Turkey: Tff 2. Lig Red Group</league>
+		</leagues>
+	</country>
+	
+	<country id="52" name="United Arab Emirates">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/uae_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/uae</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Uae League">Uae League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="United Arab Emirates: Uae League">United Arab Emirates: Uae League</league>
+		</leagues>
+	</country>
+	
+	<country id="53" name="Ukraine">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Ukraine_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Ukraine</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Premier League">Premier League</league>
+			<league id="2" name="Division 2">Division 2</league>
+			<league id="3" name="Ukrainian Cup">Ukrainian Cup</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Ukraine: Premier League">Ukraine: Premier League</league>
+			<league id="2" name="Ukraine: Division 2">Ukraine: Division 2</league>
+			<league id="3" name="Ukraine: Ukrainian Cup">Ukraine: Ukrainian Cup</league>
+		</leagues>
+	</country>
+		
+	<country id="54" name="Uruguay">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Uruguay_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Uruguay</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division - Apertura">Primera Division - Apertura</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Uruguay: Primera Division - Apertura">Uruguay: Primera Division - Apertura</league>
+		</leagues>
+	</country>
+	
+	<country id="55" name="United States">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/USA_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/USA</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Major League Soccer (MLS)">Major League Soccer (MLS)</league>
+			<league id="2" name="North American Soccer League">North American Soccer League</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="USA: Major League Soccer (MLS)">USA: Major League Soccer (MLS)</league>
+			<league id="2" name="USA: North American Soccer League">USA: North American Soccer League</league>
+		</leagues>
+	</country>
+	
+	<country id="56" name="Venezuela">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Venezuela_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Venezuela</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Primera Division - Apertura">Primera Division - Apertura</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Venezuela: Primera Division - Apertura">Venezuela: Primera Division - Apertura</league>
+		</leagues>
+	</country>
+		
+	<country id="32" name="Latvia">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/Latvia_shedule/</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/Latvia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Virsliga">Virsliga</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Latvia: Virsliga">Latvia: Virsliga</league>
+		</leagues>
+	</country>
+		
+	<country id="58" name="Wales">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/wales_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/wales</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Latvia">Latvia</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Latvia">Latvia</league>
+		</leagues>
+	</country>
+	
+	<country id="59" name="Africa" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/africa_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/africa</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Africa">Africa</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Africa">Africa</league>
+		</leagues>
+	</country>
+	
+	<country id="60" name="Asia" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/asia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/asia</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Asia">Asia</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Asia">Asia</league>
+		</leagues>
+	</country>
+	
+	<country id="61" name="North &amp; Central America" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/concacaf_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/concacaf</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="North &amp; Central America">North &amp; Central America</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="North &amp; Central America">North &amp; Central America</league>
+		</leagues>
+	</country>
+	
+	<country id="62" name="Europe" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/eurocups_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/eurocups</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Europe">Europe</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="Europe">Europe</league>
+		</leagues>
+	</country>
+	
+	<country id="63" name="South America" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/southamerica_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/southamerica</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="South America">South America</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="South America">South America</league>
+		</leagues>
+	</country>
+	
+	<country id="64" name="International Specials" international="1" >
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccer_odds/worldcup_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/soccernew/worldcup</url>
+			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="International Specials">International Specials</league>
+		</leagues>
+		<leagues id="2" name="feed">
+			<league id="1" name="International Specials">International Specials</league>
+		</leagues>
+	</country>
+							
+
+</countries>
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<statuses>
+	<status id="1" name="Postponed">Postponed</status>
+	<status id="2" name="Cancelled">Cancelled</status>
+	<status id="3" name="InPlay_1stHalft">InPlay_1stHalft</status>
+	<status id="4" name="InPlay_2ndHalft">InPlay_2ndHalft</status>
+	<status id="5" name="InPlay_ET1">InPlay_ET1</status>
+	<status id="6" name="InPlay_ET2">InPlay_ET2</status>
+	<status id="7" name="InPlay_PK">InPlay_PK</status>
+	<status id="8" name="HT">HT</status>
+	<status id="9" name="HT1">HT1</status>
+	<status id="10" name="FT">FT</status>
+	<status id="11" name="NotStarted">NotStarted</status>
+</statuses>
+					
