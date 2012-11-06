@@ -13,7 +13,6 @@ using System.Collections.Specialized;
 using System.Xml;
 using System.IO;
 using System.Net;
-using BetEx247.Core.Common.Extensions;
 
 namespace BetEx247.Core.Common.Utils
 {
@@ -23,36 +22,6 @@ namespace BetEx247.Core.Common.Utils
     public partial class CommonHelper
     {
         #region Methods
-        public static void DefineSearchDate(string period,string startDate, string endDate, ref DateTime start, ref DateTime end)
-        {
-            if (startDate == "" && endDate == "")
-            {
-                end = DateTime.Now;
-                switch (period)
-                {
-                    case "Last48Hrs":
-                        start = end.AddHours(-48);
-                        break;
-                    case "Last7Days":
-                        start = end.AddDays(-7);
-                        break;
-                    case "Last30Days":
-                        start = end.AddDays(-30);
-                        break;
-                    case "Last3Months":
-                        start = end.AddDays(-90);
-                        break;
-                    case "Last6Months":
-                        start = end.AddDays(-180);
-                        break;
-                }
-            }
-            else
-            {
-                end = endDate.ToDateTime();
-                start = startDate.ToDateTime();
-            }
-        }
 
         /// <summary>
         /// Verifies that a string is in valid e-mail format
@@ -941,7 +910,7 @@ namespace BetEx247.Core.Common.Utils
             }
         }
 
-        public static void DownloadXML(string sUrl, string sSource, int? level, string downloadTime)
+        public static void DownloadXML(string sUrl,String sSource, int? level, string downloadTime)
         {
             string pathLocal = string.Empty;               
             switch (sSource)
@@ -949,8 +918,8 @@ namespace BetEx247.Core.Common.Utils
                 case Constant.SourceXML.BETCLICK:
                     pathLocal = Constant.PlaceFolder.BETCLICK_FOLDER;
                     break;
-                case Constant.SourceXML.TITANBET:
-                    pathLocal = Constant.PlaceFolder.TITABET_FOLDER;
+                case Constant.SourceXML.GOALSERVE:
+                    pathLocal = Constant.PlaceFolder.GOALSERVE_FOLDER;
                     break;
                 case Constant.SourceXML.PINNACLESPORTS:
                     pathLocal = Constant.PlaceFolder.PINNACLESPORTS_FOLDER;
@@ -976,8 +945,8 @@ namespace BetEx247.Core.Common.Utils
             switch (sSource)
             {
                 case Constant.SourceXML.BETCLICK:
-                case Constant.SourceXML.TITANBET:
-                    fileName = string.Format("{0}_{1}.xml", sSource, downloadTime);
+                case Constant.SourceXML.GOALSERVE:
+                    fileName =string.Format("{0}.xml",  downloadTime);// string.Format("{0}_{1}.xml", sSource, downloadTime);
                     break;
                 case Constant.SourceXML.PINNACLESPORTS:
                     if (level != null)
@@ -1009,7 +978,7 @@ namespace BetEx247.Core.Common.Utils
                     break;
             }
 
-            string folderPath = CommonHelper.CreateDirectory(pathLocal, "FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString());
+            string folderPath = CommonHelper.CreateDirectory(pathLocal,"XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
             string sFullPath = string.Format("{0}/{1}/{2}", CommonHelper.getLocalPath(), folderPath, fileName);
             contentSave.Save(sFullPath);
         }
