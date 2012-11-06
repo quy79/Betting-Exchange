@@ -8,19 +8,20 @@ namespace BetEx247.Core
 {
     public static class Constant
     {
-        public const int DefaultRow = 20;
-
         public static class SourceXML
         {
             public const string BETCLICK = "betclick";
             public const string PINNACLESPORTS = "pinnaclesports";
             public const string TITANBET = "titanbet";
+            public const string GOALSERVE = "goalserve";
+            public static  string MASTERXMLSOURCE = "/";
 
-            public static string BETCLICKURL = ConfigurationManager.AppSettings["BETCLICKURL"];//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/odds_en.xml";
-            public static string PINNACLESPORTSURL = ConfigurationManager.AppSettings["PINNACLESPORTSURL"].ToString();
+
+            public static string BETCLICKURL = ConfigurationManager.AppSettings["BETCLICKURL"]==null?"":ConfigurationManager.AppSettings["BETCLICKURL"];//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/odds_en.xml";
+            public static string PINNACLESPORTSURL = ConfigurationManager.AppSettings["PINNACLESPORTSURL"] == null ? "" : ConfigurationManager.AppSettings["PINNACLESPORTSURL"].ToString();
             public static string PINNACLELEAGUEURL = ConfigurationManager.AppSettings["PINNACLELEAGUEURL"].ToString();
             public static string PINNACLEFEEDURL = ConfigurationManager.AppSettings["PINNACLEFEEDURL"].ToString();
-            public static string TITABETURL = ConfigurationManager.AppSettings["TITABETURL"].ToString();//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";// 
+            public static string GOALSEVERURL = ConfigurationManager.AppSettings["GOALSERVEURL"] == null ? "" : ConfigurationManager.AppSettings["GOALSERVEURL"].ToString();//"D:/Project/PN Technologies/BetEx247/BetEx247.Web/App_Data/feed.xml";// 
         }
 
         public static class TitanBetOddTypeID
@@ -97,9 +98,10 @@ namespace BetEx247.Core
 
         public static class PlaceFolder
         {
-            public const string BETCLICK_FOLDER = "App_Data/XMLFEED/BETCLICK";
-            public const string PINNACLESPORTS_FOLDER = "App_Data/XMLFEED/PINNACLE";
-            public const string TITABET_FOLDER = "App_Data/XMLFEED/TITANBET";
+            public static string BETCLICK_FOLDER = "App_Data/XMLFEED/BETCLICK";
+            public static string PINNACLESPORTS_FOLDER = "App_Data/XMLFEED/PINNACLE";
+            public static string TITABET_FOLDER = "App_Data/XMLFEED/TITANBET";
+            public static string GOALSERVE_FOLDER = "App_Data/XMLFEED/GOALSERVE";
         }
 
         public enum BetType
@@ -138,19 +140,6 @@ namespace BetEx247.Core
             CANCELLEDBETS=6,
             LAPSEDBETS=7,
             VOIDBETS=8
-        }
-
-        public enum StatementDisplayType
-        {
-            ADJUSTMENT = 1,
-            BETSONLY = 2,
-            COMMISSIONS  = 3,
-            DEPOIST  = 4,
-            FEE  = 5,
-            FREEBETS = 6,
-            LOYALTYREFUND = 7,
-            MARKETREFUND = 8,
-            WITHDRAW =9
         }
 
         public enum ChoiceType
@@ -196,7 +185,7 @@ namespace BetEx247.Core
         /// </summary>
         public enum SportType
         {
-            EMPTY = 0,
+            SOCCER = 0,
             BADMINTON = 1,
             BASEBALL = 3,
             BASKETBALL = 4,
@@ -219,7 +208,6 @@ namespace BetEx247.Core
             RUGBY_LEAGUE = 26,
             RUGBY_UNION = 27,
             SNOOKER = 28,
-            SOCCER = 29,
             SOFTBALL = 30,
             SQUASH = 31,
             TABLE_TENNIS = 32,
@@ -313,17 +301,6 @@ namespace BetEx247.Core
         {
             public const string APCOService = "BetEx247.Plugin.Payments.ApcoFastPay.ApcoFastPayPaymentProcessor,BetEx247.Plugin.Payments.ApcoFastPay";
         }
-
-        public static class QueryString
-        {
-            public const string Period = "pr";
-            public const string StartDate = "sd";
-            public const string EndDate = "ed";
-            public const string BetCategory = "bcate";
-            public const string BetDisplay = "bdis";
-            public const string PageNo = "pNo";
-            public const string RecordPerPage = "row";
-            public const string ReportType = "type";
-        }
-    }      
+    }
+    
 }

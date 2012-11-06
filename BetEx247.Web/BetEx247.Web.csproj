@@ -526,10 +526,6 @@
       <Project>{32EC2D8B-95E2-4111-96AA-A9F9E93E110A}</Project>
       <Name>BetEx247.Plugin.Payments.AuthorizeNet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BetEx247.Plugin.XMLParser\BetEx247.Plugin.XMLParser.csproj">
-      <Project>{45726546-A06F-442B-A6FA-B0AA81B38AB3}</Project>
-      <Name>BetEx247.Plugin.XMLParser</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />

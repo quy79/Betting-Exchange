@@ -7,16 +7,23 @@ using BetEx247.Core;
 
 namespace BetEx247.Plugin.DownloadFeed
 {
-    public class BetclickFeed:IDownloadFeed
+    public class BetclickFeed
     {
-        public void DownloadXML()
+        public void DownloadXML(String url)
         {
+            bool downloaded = false;
+            while (!downloaded){
             try
             {
-                string downloadTime = DateTime.Now.Ticks.ToString();
-                CommonHelper.DownloadXML(Constant.SourceXML.BETCLICKURL, Constant.SourceXML.BETCLICK, null,downloadTime);
+                string downloadTime = "betclick";// DateTime.Now.Ticks.ToString();
+                CommonHelper.DownloadXML(url, Constant.SourceXML.BETCLICK, null,downloadTime);
+                downloaded = true;
             }
-            catch { }
+            catch (Exception e){ 
+            
+            }
+        }
+
         }
     }
 }

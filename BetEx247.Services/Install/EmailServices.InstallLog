@@ -1,0 +1,57 @@
+﻿Installing assembly 'C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe'.
+Affected parameters are:
+   logtoconsole = 
+   i = 
+   logfile = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.InstallLog
+   assemblypath = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe
+Installing service AutoResponder Services...
+Service AutoResponder Services has been successfully installed.
+Creating EventLog source AutoResponder Services in log Application...
+Committing assembly 'C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe'.
+Affected parameters are:
+   logtoconsole = 
+   i = 
+   logfile = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.InstallLog
+   assemblypath = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe
+Uninstalling assembly 'C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.InstallLog
+   assemblypath = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe
+Removing EventLog source AutoResponder Services.
+Service AutoResponder Services is being removed from the system...
+An exception occurred during the uninstallation of the System.ServiceProcess.ServiceInstaller installer.
+System.ComponentModel.Win32Exception: Access is denied
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+Uninstalling assembly 'C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.InstallLog
+   assemblypath = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe
+Removing EventLog source AutoResponder Services.
+Warning: The source AutoResponder Services is not registered on the local machine.
+Service AutoResponder Services is being removed from the system...
+Service AutoResponder Services was successfully removed from the system.
+Installing assembly 'C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe'.
+Affected parameters are:
+   logtoconsole = 
+   i = 
+   logfile = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.InstallLog
+   assemblypath = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe
+Installing service AutoResponder Services...
+Service AutoResponder Services has been successfully installed.
+Creating EventLog source AutoResponder Services in log Application...
+Committing assembly 'C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe'.
+Affected parameters are:
+   logtoconsole = 
+   i = 
+   logfile = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.InstallLog
+   assemblypath = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe
+Uninstalling assembly 'C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.InstallLog
+   assemblypath = C:\code\Code\DBLayer\EmailServices\Install\EmailServices.exe
+Removing EventLog source AutoResponder Services.
+Service AutoResponder Services is being removed from the system...
+Service AutoResponder Services was successfully removed from the system.

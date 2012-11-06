@@ -40,12 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BetclickFeed.cs" />
-    <Compile Include="DownloadXMLFeed.cs" />
+    <Compile Include="BetclickFeed.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="IDownloadFeed.cs" />
-    <Compile Include="PinnaclesportsFeed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TitanbetFeed.cs" />
+    <Compile Include="GoalServeFeed.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BetEx247.Core\BetEx247.Core.csproj">
