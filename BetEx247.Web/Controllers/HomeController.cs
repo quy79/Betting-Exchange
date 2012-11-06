@@ -2,29 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
-//using BetEx247.Core.XML;
-using BetEx247.Plugin.XMLParser;
+using System.Web.Mvc;    
 using BetEx247.Core;
 using BetEx247.Plugin.DownloadFeed;
 using BetEx247.Data.Model;
 using BetEx247.Data.DAL;
 using BetEx247.Core.Common.Extensions;
 using BetEx247.Core.Payment;
-using BetEx247.Core.Infrastructure;
-using BetEx247.Core.XMLObjects.Sport.Interface;
+using BetEx247.Core.Infrastructure;  
 using System.Diagnostics;
+using BetEx247.Plugin.DataManager.XMLObjects.Sport;
+using BetEx247.Plugin.DataManager;
 
 namespace BetEx247.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {                     
             Debug.WriteLine("Init XMLParserObjectManager");
-            XMLParserObjectManager obj = new XMLParserObjectManager();
-            obj.Parse();
-            List<BetEx247.Core.XMLObjects.Sport.Interface.ISport> sport=  obj.Sports;
+            //XMLParserObjectManager obj = new XMLParserObjectManager();
+            //obj.Parse();
+
+            SportsDataRenderManager renderMgr = new SportsDataRenderManager();
+            List<Bet247xSport> list = renderMgr.refreshData();
+
+            List<Bet247xSport> sport = list;// obj.Sports;
             ViewBag.SportList = sport;
             Debug.WriteLine("End XMLParserObjectManager ");
 

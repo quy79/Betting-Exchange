@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using BetEx247.Core.XMLObjects.Sport.Interface;
 using BetEx247.Core;
 using BetEx247.Data.Model;
 
@@ -15,14 +14,14 @@ namespace BetEx247.Data.DAL
         /// get all sport in system
         /// </summary>
         /// <returns>list sport</returns>
-        List<ISport> GetAllSport();
+        List<Sport> GetAllSport();
 
         /// <summary>
         /// Get Sport
         /// </summary>
         /// <param name="type">Sport type</param>
         /// <returns>Sport</returns>
-        ISport GetSport(Constant.SportType type);
+        Sport GetSport(Constant.SportType type);
         #endregion
 
         #region database

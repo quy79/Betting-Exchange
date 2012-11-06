@@ -941,7 +941,7 @@ namespace BetEx247.Core.Common.Utils
             }
         }
 
-        public static void DownloadXML(string sUrl, string sSource, int? level, string downloadTime)
+        public static void DownloadXML(string sUrl,String sSource, int? level, string downloadTime)
         {
             string pathLocal = string.Empty;               
             switch (sSource)
@@ -949,8 +949,8 @@ namespace BetEx247.Core.Common.Utils
                 case Constant.SourceXML.BETCLICK:
                     pathLocal = Constant.PlaceFolder.BETCLICK_FOLDER;
                     break;
-                case Constant.SourceXML.TITANBET:
-                    pathLocal = Constant.PlaceFolder.TITABET_FOLDER;
+                case Constant.SourceXML.GOALSERVE:
+                    pathLocal = Constant.PlaceFolder.GOALSERVE_FOLDER;
                     break;
                 case Constant.SourceXML.PINNACLESPORTS:
                     pathLocal = Constant.PlaceFolder.PINNACLESPORTS_FOLDER;
@@ -976,8 +976,8 @@ namespace BetEx247.Core.Common.Utils
             switch (sSource)
             {
                 case Constant.SourceXML.BETCLICK:
-                case Constant.SourceXML.TITANBET:
-                    fileName = string.Format("{0}_{1}.xml", sSource, downloadTime);
+                case Constant.SourceXML.GOALSERVE:
+                    fileName =string.Format("{0}.xml",  downloadTime);// string.Format("{0}_{1}.xml", sSource, downloadTime);
                     break;
                 case Constant.SourceXML.PINNACLESPORTS:
                     if (level != null)
@@ -1009,7 +1009,7 @@ namespace BetEx247.Core.Common.Utils
                     break;
             }
 
-            string folderPath = CommonHelper.CreateDirectory(pathLocal, "FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString());
+            string folderPath = CommonHelper.CreateDirectory(pathLocal,"XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
             string sFullPath = string.Format("{0}/{1}/{2}", CommonHelper.getLocalPath(), folderPath, fileName);
             contentSave.Save(sFullPath);
         }

@@ -8,6 +8,8 @@ namespace BetEx247.Core
 {
     public static class Constant
     {
+        public const int DefaultRow = 20;
+
         public static class SourceXML
         {
             public const string BETCLICK = "betclick";
@@ -140,6 +142,19 @@ namespace BetEx247.Core
             CANCELLEDBETS=6,
             LAPSEDBETS=7,
             VOIDBETS=8
+        }
+
+        public enum StatementDisplayType
+        {
+            ADJUSTMENT = 1,
+            BETSONLY = 2,
+            COMMISSIONS  = 3,
+            DEPOIST  = 4,
+            FEE  = 5,
+            FREEBETS = 6,
+            LOYALTYREFUND = 7,
+            MARKETREFUND = 8,
+            WITHDRAW =9
         }
 
         public enum ChoiceType
@@ -301,6 +316,17 @@ namespace BetEx247.Core
         {
             public const string APCOService = "BetEx247.Plugin.Payments.ApcoFastPay.ApcoFastPayPaymentProcessor,BetEx247.Plugin.Payments.ApcoFastPay";
         }
-    }
-    
+
+        public static class QueryString
+        {
+            public const string Period = "pr";
+            public const string StartDate = "sd";
+            public const string EndDate = "ed";
+            public const string BetCategory = "bcate";
+            public const string BetDisplay = "bdis";
+            public const string PageNo = "pNo";
+            public const string RecordPerPage = "row";
+            public const string ReportType = "type";
+        }
+    }      
 }

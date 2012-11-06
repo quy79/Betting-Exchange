@@ -22,7 +22,7 @@ using CaptchaMvc.Infrastructure;
 
 namespace BetEx247.Web.Controllers
 {
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         #region Login & Logout
         //

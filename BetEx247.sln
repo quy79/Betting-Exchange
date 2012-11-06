@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetEx247.MvcGlobalisation",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetEx247.Services", "BetEx247.Services\BetEx247.Services.csproj", "{C98F4C6E-3B8F-4479-B28E-7DF4564CF3A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetEx247.Plugin.DataManager", "BetEx247.Plugin.DataManager\BetEx247.Plugin.DataManager.csproj", "{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetEx247.Plugin.Resources", "BetEx247.Plugin.Resources\BetEx247.Plugin.Resources.csproj", "{3326A3BE-30BF-4564-9F8E-643FB7244EF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +153,26 @@ Global
 		{C98F4C6E-3B8F-4479-B28E-7DF4564CF3A9}.Release|Mixed Platforms.Build.0 = Release|x86
 		{C98F4C6E-3B8F-4479-B28E-7DF4564CF3A9}.Release|x86.ActiveCfg = Release|x86
 		{C98F4C6E-3B8F-4479-B28E-7DF4564CF3A9}.Release|x86.Build.0 = Release|x86
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394}.Release|x86.ActiveCfg = Release|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -165,5 +189,7 @@ Global
 		{C8EC9985-2A31-4843-9C20-F537147592B4} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
 		{FCFAE228-37AC-41A4-9DB6-F8F1ADE35D78} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
 		{8F677390-1262-4A87-9279-5A5750FD722A} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
+		{99A9B9F1-8F07-46E7-AD27-4A4FAE5F8394} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
+		{3326A3BE-30BF-4564-9F8E-643FB7244EF3} = {0E0D59A8-7392-4C9F-BD31-000D087CE91E}
 	EndGlobalSection
 EndGlobal

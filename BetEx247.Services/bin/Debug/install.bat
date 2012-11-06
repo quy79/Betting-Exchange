@@ -6,7 +6,7 @@ set PATH=%PATH%;%DOTNETFX2%
 
 echo Installing BetEx247.Services.exe
 echo ---------------------------------------------------
-InstallUtil /i E:\beauty\Dropbox\Betting\newcode\BetEx247.Services\bin\Debug\BetEx247Services.exe
+InstallUtil /i BetEx247Services.exe
 echo ---------------------------------------------------
 echo Done.
 pause

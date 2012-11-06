@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using BetEx247.Core.Common.Utils;
+@using BetEx247.Plugin.Resources;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Cache-Control" content="no-cache">
@@ -56,11 +59,15 @@
     </style>
     <script src="@Url.Content("~/Content/Scripts/Microsoft/modernizr-1.7.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/JQuery/jquery-1.8.0.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/JQuery/jquery.cookie.js")" type="text/javascript"></script> 
     <script src="@Url.Content("~/Content/Scripts/JQuery/jquery-ui-1.8.23.custom.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/GUI/betex247.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/GUI/Cookies.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/GUI/StringBuilder.js")" type="text/javascript"></script>
     <script src="@Url.Content("~/Content/Scripts/GUI/DateFormat.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/GUI/globalize.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Content/Scripts/cultures/globalize.culture." + CultureHelper.GetCurrentCulture() + ".js")" type="text/javascript"></script>
+ 
     <script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(document).ready(function () {
@@ -91,6 +98,49 @@
             $(".langbox img.flag").toggleClass("flagvisibility");
         });  
     </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            Globalize.addCultureInfo("@CultureHelper.GetCurrentCulture()" /*es-CL*/, {
+                messages: {
+                    "RSVP": "@Resources.RSVP",
+                    "RSVPs": "@Resources.RSVPs",
+                    "BingMapsReturnedAddress": "@Html.Raw(Resources.BingMapsReturnedAddress)",
+                    "MonthDayYear": "@Html.Raw(Resources.MonthDayYear)",
+                    "MonthDay": "@Html.Raw(Resources.MMMdd)",
+                    "with": "@Resources.with"
+                }
+            });
+
+            Globalize.culture("@CultureHelper.GetCurrentCulture()"); //Set appropriate culture 
+
+            $(".lang-picker").bind("mouseenter mouseleave", function () {
+
+
+                $(this).toggleClass('hover');
+                var size = $('a', this).size(); // number of links
+                var height = $('a', this).height(); // link height
+                var start = $(this).hasClass('hover') ? size : 1;
+                $(this).stop(true, false).animate({ height: (height + 2) * start }, 150);
+
+            });
+
+
+            $(".lang-picker a." + Globalize.culture().name.toLowerCase()).prependTo($(".lang-picker")); //Select current culture
+
+            //culture change 
+            $(".lang-picker a").click(function () {
+                if ($(this).hasClass(Globalize.culture().name.toLowerCase()))
+                    return false; // do nothing
+                alert($(this).attr("class"));
+                $.cookie("_culture", $(this).attr("class"), { expires: 365, path: '/' });
+                window.location.reload(); // reload 
+
+            });
+        });
+    </script>
+
 </head>
 <body>
     <div class="l-container">

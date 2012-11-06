@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using BetEx247.Plugin.XMLParser;
-using BetEx247.Core.XMLObjects.Sport.Interface;
+using System.Text;    
 using BetEx247.Core;
 using BetEx247.Core.Infrastructure;
 using BetEx247.Core.Caching;
@@ -15,7 +13,7 @@ namespace BetEx247.Data.DAL
     {
         #region xml
         private static GuiService _instance;
-        private XMLParserObjectManager obj;
+        //private XMLParserObjectManager obj;
         private string key = "betex247";
 
         /// <summary>
@@ -31,9 +29,9 @@ namespace BetEx247.Data.DAL
 
         public GuiService()
         {
-            obj = new XMLParserObjectManager();
-            obj.Parse();
-            CacheManager.Set(key, GetAllSport(), 10);
+            //obj = new XMLParserObjectManager();
+            //obj.Parse();
+            //CacheManager.Set(key, GetAllSport(), 10);
         }
 
         public static GuiService Instance
@@ -52,11 +50,13 @@ namespace BetEx247.Data.DAL
         /// get all sport in system
         /// </summary>
         /// <returns>list sport</returns>
-        public List<ISport> GetAllSport()
+        public List<Sport> GetAllSport()
         {
-            if (CacheManager.IsSet(key))
-                return CacheManager.Get<List<ISport>>(key);
-            return obj.Sports.Where(w => w.Leagues != null).ToList<ISport>();
+            //if (CacheManager.IsSet(key))
+            //    return CacheManager.Get<List<Sport>>(key);
+            //return obj.Sports.Where(w => w.Leagues != null).ToList<Sport>();
+            
+            return null;
         }
 
         /// <summary>
@@ -64,9 +64,10 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="type">Sport type</param>
         /// <returns>Sport</returns>
-        public ISport GetSport(Constant.SportType type)
+        public Sport GetSport(Constant.SportType type)
         {
-            return obj.Sport(type);
+            //return obj.Sport(type);
+            return null;
         }
         #endregion
 

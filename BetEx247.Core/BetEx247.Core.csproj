@@ -85,6 +85,7 @@
     <Compile Include="Common\Utils\CommonHelper.cs" />
     <Compile Include="Common\Utils\Crypter.cs" />
     <Compile Include="Common\Utils\CSafeDataHelper.cs" />
+    <Compile Include="Common\Utils\CultureHelper.cs" />
     <Compile Include="Common\Utils\HttpHelper.cs" />
     <Compile Include="Common\Utils\IWebHelper.cs" />
     <Compile Include="Common\Utils\JSONObject.cs" />

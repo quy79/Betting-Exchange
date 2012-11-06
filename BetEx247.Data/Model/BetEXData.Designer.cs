@@ -18,31 +18,35 @@ using System.Runtime.Serialization;
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
 
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_CardsInfo_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerMatch), "CardsInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.CardsInfo), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_LoginHistory_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "LoginHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.LoginHistory), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Messages_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Message), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyWallet_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyWallet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_AsianHandicap), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_CorrectScores), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_DrawNoBet), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOU), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_MyCards_PaymentMethods", "PaymentMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.PaymentMethod), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_ScoreInfo_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "ScoreInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.ScoreInfo), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_AsianHandicap), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_CorrectScores", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_CorrectScores), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_DrawNoBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_DrawNoBet), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_MatchOdds", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_MatchOdds), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_TotalGoalsOE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOE), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_TotalGoalsOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOU), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_WinningMargin", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_WinningMargin), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerMatch), "Sports_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_AsianHandicap), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_MoneyLine_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_MoneyLine", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_MoneyLine), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_Outright_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_Outright", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_Outright), true)]
-[assembly: EdmRelationshipAttribute("BetEXData", "FK_Sports_TotalOU_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_TotalOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_TotalOU), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_CardsInfo_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerMatch), "CardsInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.CardsInfo), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_LoginHistory_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "LoginHistory", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.LoginHistory), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Messages_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Message), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyBets_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyCards_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyWallet_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Member), "MyWallet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyWallet), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Statements_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Statement", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Statement), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Transactions_Members", "Member", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Member), "Transaction", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Transaction), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_AsianHandicap), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_CorrectScores), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_DrawNoBet), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOU), "MyBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyBet), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_MyCards_PaymentMethods", "PaymentMethod", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.PaymentMethod), "MyCard", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.MyCard), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_ScoreInfo_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "ScoreInfo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.ScoreInfo), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_AsianHandicap), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_CorrectScores", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_CorrectScores), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_DrawNoBet", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_DrawNoBet), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_MatchOdds", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_MatchOdds), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_TotalGoalsOE", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOE), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_TotalGoalsOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_TotalGoalsOU), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerMatch), "Soccer_WinningMargin", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Soccer_WinningMargin), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerMatch), "Sports_AsianHandicap", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_AsianHandicap), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Sports_MoneyLine_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_MoneyLine", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_MoneyLine), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Sports_Outright_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_Outright", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_Outright), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Sports_TotalOU_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_TotalOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_TotalOU), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Leagues_SoccerCountries", "SoccerCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerCountry), "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerLeague), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Leagues_Sports", "Sport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Sport), "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerLeague), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_SoccerMatches_SoccerLeagues", "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerLeague), "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerMatch), true)]
+[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Team_Leagues", "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerLeague), "Team", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Team), true)]
 
 #endregion
 
@@ -157,6 +161,22 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<Country> _Countries;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<DataControlStatu> DataControlStatus
+        {
+            get
+            {
+                if ((_DataControlStatus == null))
+                {
+                    _DataControlStatus = base.CreateObjectSet<DataControlStatu>("DataControlStatus");
+                }
+                return _DataControlStatus;
+            }
+        }
+        private ObjectSet<DataControlStatu> _DataControlStatus;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -497,22 +517,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SoccerLeague> SoccerLeagues
-        {
-            get
-            {
-                if ((_SoccerLeagues == null))
-                {
-                    _SoccerLeagues = base.CreateObjectSet<SoccerLeague>("SoccerLeagues");
-                }
-                return _SoccerLeagues;
-            }
-        }
-        private ObjectSet<SoccerLeague> _SoccerLeagues;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<SoccerMatch> SoccerMatches
         {
             get
@@ -705,6 +709,22 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<PSV_ALLTOURNAMENT> PSV_ALLTOURNAMENT
+        {
+            get
+            {
+                if ((_PSV_ALLTOURNAMENT == null))
+                {
+                    _PSV_ALLTOURNAMENT = base.CreateObjectSet<PSV_ALLTOURNAMENT>("PSV_ALLTOURNAMENT");
+                }
+                return _PSV_ALLTOURNAMENT;
+            }
+        }
+        private ObjectSet<PSV_ALLTOURNAMENT> _PSV_ALLTOURNAMENT;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<PSV_MYBET> PSV_MYBET
         {
             get
@@ -721,18 +741,34 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<DataControlStatu> DataControlStatus
+        public ObjectSet<PSV_STATEMENTS> PSV_STATEMENTS
         {
             get
             {
-                if ((_DataControlStatus == null))
+                if ((_PSV_STATEMENTS == null))
                 {
-                    _DataControlStatus = base.CreateObjectSet<DataControlStatu>("DataControlStatus");
+                    _PSV_STATEMENTS = base.CreateObjectSet<PSV_STATEMENTS>("PSV_STATEMENTS");
                 }
-                return _DataControlStatus;
+                return _PSV_STATEMENTS;
             }
         }
-        private ObjectSet<DataControlStatu> _DataControlStatus;
+        private ObjectSet<PSV_STATEMENTS> _PSV_STATEMENTS;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SoccerLeague> SoccerLeagues
+        {
+            get
+            {
+                if ((_SoccerLeagues == null))
+                {
+                    _SoccerLeagues = base.CreateObjectSet<SoccerLeague>("SoccerLeagues");
+                }
+                return _SoccerLeagues;
+            }
+        }
+        private ObjectSet<SoccerLeague> _SoccerLeagues;
 
         #endregion
         #region AddTo Methods
@@ -767,6 +803,14 @@ namespace BetEx247.Data.Model
         public void AddToCountries(Country country)
         {
             base.AddObject("Countries", country);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the DataControlStatus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToDataControlStatus(DataControlStatu dataControlStatu)
+        {
+            base.AddObject("DataControlStatus", dataControlStatu);
         }
     
         /// <summary>
@@ -938,14 +982,6 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SoccerLeagues EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSoccerLeagues(SoccerLeague soccerLeague)
-        {
-            base.AddObject("SoccerLeagues", soccerLeague);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the SoccerMatches EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToSoccerMatches(SoccerMatch soccerMatch)
@@ -1042,6 +1078,14 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the PSV_ALLTOURNAMENT EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPSV_ALLTOURNAMENT(PSV_ALLTOURNAMENT pSV_ALLTOURNAMENT)
+        {
+            base.AddObject("PSV_ALLTOURNAMENT", pSV_ALLTOURNAMENT);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the PSV_MYBET EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToPSV_MYBET(PSV_MYBET pSV_MYBET)
@@ -1050,11 +1094,19 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the DataControlStatus EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// Deprecated Method for adding a new object to the PSV_STATEMENTS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
-        public void AddToDataControlStatus(DataControlStatu dataControlStatu)
+        public void AddToPSV_STATEMENTS(PSV_STATEMENTS pSV_STATEMENTS)
         {
-            base.AddObject("DataControlStatus", dataControlStatu);
+            base.AddObject("PSV_STATEMENTS", pSV_STATEMENTS);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SoccerLeagues EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSoccerLeagues(SoccerLeague soccerLeague)
+        {
+            base.AddObject("SoccerLeagues", soccerLeague);
         }
 
         #endregion
@@ -1067,7 +1119,7 @@ namespace BetEx247.Data.Model
         /// <param name="where">No Metadata Documentation available.</param>
         /// <param name="pageNo">No Metadata Documentation available.</param>
         /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
-        public int PSP_SEARCHSTATEMENT(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
+        public ObjectResult<PSV_MYBET> PSP_SEARCHMYBETS(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage)
         {
             ObjectParameter memberIdParameter;
             if (memberId.HasValue)
@@ -1109,7 +1161,293 @@ namespace BetEx247.Data.Model
                 sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction("PSP_SEARCHSTATEMENT", memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
+            return base.ExecuteFunction<PSV_MYBET>("PSP_SEARCHMYBETS", memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        /// <param name="pageNo">No Metadata Documentation available.</param>
+        /// <param name="sRecordsPerPage">No Metadata Documentation available.</param>
+        public ObjectResult<PSV_MYBET> PSP_SEARCHMYBETS(Nullable<global::System.Int64> memberId, global::System.String where, Nullable<global::System.Int32> pageNo, Nullable<global::System.Int32> sRecordsPerPage, MergeOption mergeOption)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            ObjectParameter pageNoParameter;
+            if (pageNo.HasValue)
+            {
+                pageNoParameter = new ObjectParameter("pageNo", pageNo);
+            }
+            else
+            {
+                pageNoParameter = new ObjectParameter("pageNo", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter sRecordsPerPageParameter;
+            if (sRecordsPerPage.HasValue)
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", sRecordsPerPage);
+            }
+            else
+            {
+                sRecordsPerPageParameter = new ObjectParameter("sRecordsPerPage", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PSV_MYBET>("PSP_SEARCHMYBETS", mergeOption, memberIdParameter, whereParameter, pageNoParameter, sRecordsPerPageParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Int32>> PSP_SEARCHMYBETSPAGESIZE(Nullable<global::System.Int64> memberId, global::System.String where)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("PSP_SEARCHMYBETSPAGESIZE", memberIdParameter, whereParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="memberId">No Metadata Documentation available.</param>
+        /// <param name="where">No Metadata Documentation available.</param>
+        public ObjectResult<Nullable<global::System.Int32>> PSP_SEARCHSTATEMENTPAGESIZE(Nullable<global::System.Int64> memberId, global::System.String where)
+        {
+            ObjectParameter memberIdParameter;
+            if (memberId.HasValue)
+            {
+                memberIdParameter = new ObjectParameter("memberId", memberId);
+            }
+            else
+            {
+                memberIdParameter = new ObjectParameter("memberId", typeof(global::System.Int64));
+            }
+    
+            ObjectParameter whereParameter;
+            if (where != null)
+            {
+                whereParameter = new ObjectParameter("where", where);
+            }
+            else
+            {
+                whereParameter = new ObjectParameter("where", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction<Nullable<global::System.Int32>>("PSP_SEARCHSTATEMENTPAGESIZE", memberIdParameter, whereParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_LIVEINPLAYMATCHES(Nullable<global::System.Boolean> isSoccer)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_LIVEINPLAYMATCHES", isSoccerParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_LIVEINPLAYMATCHES(Nullable<global::System.Boolean> isSoccer, MergeOption mergeOption)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_LIVEINPLAYMATCHES", mergeOption, isSoccerParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="countryId">No Metadata Documentation available.</param>
+        public ObjectResult<PSV_ALLTOURNAMENT> PSP_GETCOUNTLEAGUEBYCOUNTRY(Nullable<global::System.Int32> countryId)
+        {
+            ObjectParameter countryIdParameter;
+            if (countryId.HasValue)
+            {
+                countryIdParameter = new ObjectParameter("countryId", countryId);
+            }
+            else
+            {
+                countryIdParameter = new ObjectParameter("countryId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PSV_ALLTOURNAMENT>("PSP_GETCOUNTLEAGUEBYCOUNTRY", countryIdParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="countryId">No Metadata Documentation available.</param>
+        public ObjectResult<PSV_ALLTOURNAMENT> PSP_GETCOUNTLEAGUEBYCOUNTRY(Nullable<global::System.Int32> countryId, MergeOption mergeOption)
+        {
+            ObjectParameter countryIdParameter;
+            if (countryId.HasValue)
+            {
+                countryIdParameter = new ObjectParameter("countryId", countryId);
+            }
+            else
+            {
+                countryIdParameter = new ObjectParameter("countryId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<PSV_ALLTOURNAMENT>("PSP_GETCOUNTLEAGUEBYCOUNTRY", mergeOption, countryIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_UPCOMMINGMATCHES(Nullable<global::System.Boolean> isSoccer, Nullable<global::System.Int64> leagueId)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_UPCOMMINGMATCHES", isSoccerParameter, leagueIdParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="isSoccer">No Metadata Documentation available.</param>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerMatch> PSP_UPCOMMINGMATCHES(Nullable<global::System.Boolean> isSoccer, Nullable<global::System.Int64> leagueId, MergeOption mergeOption)
+        {
+            ObjectParameter isSoccerParameter;
+            if (isSoccer.HasValue)
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", isSoccer);
+            }
+            else
+            {
+                isSoccerParameter = new ObjectParameter("isSoccer", typeof(global::System.Boolean));
+            }
+    
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerMatch>("PSP_UPCOMMINGMATCHES", mergeOption, isSoccerParameter, leagueIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerCountry> PSP_GETCOUNTRYBYLEAGUE(Nullable<global::System.Int64> leagueId)
+        {
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerCountry>("PSP_GETCOUNTRYBYLEAGUE", leagueIdParameter);
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="mergeOption"></param>
+        /// <param name="leagueId">No Metadata Documentation available.</param>
+        public ObjectResult<SoccerCountry> PSP_GETCOUNTRYBYLEAGUE(Nullable<global::System.Int64> leagueId, MergeOption mergeOption)
+        {
+            ObjectParameter leagueIdParameter;
+            if (leagueId.HasValue)
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", leagueId);
+            }
+            else
+            {
+                leagueIdParameter = new ObjectParameter("leagueId", typeof(global::System.Int64));
+            }
+    
+            return base.ExecuteFunction<SoccerCountry>("PSP_GETCOUNTRYBYLEAGUE", mergeOption, leagueIdParameter);
         }
 
         #endregion
@@ -1123,7 +1461,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="BetStatu")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="BetStatu")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BetStatu : EntityObject
@@ -1204,7 +1542,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="BookMaker")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="BookMaker")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class BookMaker : EntityObject
@@ -1285,7 +1623,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="CardsInfo")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="CardsInfo")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class CardsInfo : EntityObject
@@ -1439,16 +1777,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_CardsInfo_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_CardsInfo_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_CardsInfo_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_CardsInfo_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_CardsInfo_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_CardsInfo_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -1460,13 +1798,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_CardsInfo_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_CardsInfo_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_CardsInfo_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_CardsInfo_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -1477,7 +1815,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Country")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Country")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Country : EntityObject
@@ -1558,7 +1896,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="DataControlStatu")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="DataControlStatu")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class DataControlStatu : EntityObject
@@ -1637,7 +1975,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="DiscountRate")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="DiscountRate")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class DiscountRate : EntityObject
@@ -1744,7 +2082,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="LoginHistory")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="LoginHistory")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class LoginHistory : EntityObject
@@ -1948,16 +2286,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_LoginHistory_Members", "Member")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_LoginHistory_Members", "Member")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_LoginHistory_Members", "Member").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_LoginHistory_Members", "Member").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_LoginHistory_Members", "Member").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_LoginHistory_Members", "Member").Value = value;
             }
         }
         /// <summary>
@@ -1969,13 +2307,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_LoginHistory_Members", "Member");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_LoginHistory_Members", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_LoginHistory_Members", "Member", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BettingExchangeModel.FK_LoginHistory_Members", "Member", value);
                 }
             }
         }
@@ -1986,7 +2324,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="MatchStatu")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="MatchStatu")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MatchStatu : EntityObject
@@ -2091,7 +2429,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Member")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Member")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Member : EntityObject
@@ -2987,18 +3325,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_LoginHistory_Members", "LoginHistory")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_LoginHistory_Members", "LoginHistory")]
         public EntityCollection<LoginHistory> LoginHistories
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<LoginHistory>("BettingExchangeModel.FK_LoginHistory_Members", "LoginHistory");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LoginHistory>("BetEXData.FK_LoginHistory_Members", "LoginHistory", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<LoginHistory>("BettingExchangeModel.FK_LoginHistory_Members", "LoginHistory", value);
                 }
             }
         }
@@ -3009,18 +3347,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Messages_Members", "Message")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Messages_Members", "Message")]
         public EntityCollection<Message> Messages
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Message>("BetEXData.FK_Messages_Members", "Message");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Message>("BettingExchangeModel.FK_Messages_Members", "Message");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Message>("BetEXData.FK_Messages_Members", "Message", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Message>("BettingExchangeModel.FK_Messages_Members", "Message", value);
                 }
             }
         }
@@ -3031,18 +3369,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Members", "MyBet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Members", "MyBet")]
         public EntityCollection<MyBet> MyBets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BetEXData.FK_MyBets_Members", "MyBet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Members", "MyBet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BetEXData.FK_MyBets_Members", "MyBet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Members", "MyBet", value);
                 }
             }
         }
@@ -3053,18 +3391,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyCards_Members", "MyCard")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyCards_Members", "MyCard")]
         public EntityCollection<MyCard> MyCards
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyCard>("BetEXData.FK_MyCards_Members", "MyCard");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyCard>("BettingExchangeModel.FK_MyCards_Members", "MyCard");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyCard>("BetEXData.FK_MyCards_Members", "MyCard", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyCard>("BettingExchangeModel.FK_MyCards_Members", "MyCard", value);
                 }
             }
         }
@@ -3075,18 +3413,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyWallet_Members", "MyWallet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyWallet_Members", "MyWallet")]
         public EntityCollection<MyWallet> MyWallets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyWallet>("BetEXData.FK_MyWallet_Members", "MyWallet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyWallet>("BettingExchangeModel.FK_MyWallet_Members", "MyWallet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyWallet>("BetEXData.FK_MyWallet_Members", "MyWallet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyWallet>("BettingExchangeModel.FK_MyWallet_Members", "MyWallet", value);
                 }
             }
         }
@@ -3097,18 +3435,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Statements_Members", "Statement")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Statements_Members", "Statement")]
         public EntityCollection<Statement> Statements
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Statement>("BettingExchangeModel.FK_Statements_Members", "Statement");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Statement>("BetEXData.FK_Statements_Members", "Statement", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Statement>("BettingExchangeModel.FK_Statements_Members", "Statement", value);
                 }
             }
         }
@@ -3119,18 +3457,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Transactions_Members", "Transaction")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Transactions_Members", "Transaction")]
         public EntityCollection<Transaction> Transactions
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Transaction>("BetEXData.FK_Transactions_Members", "Transaction");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Transaction>("BettingExchangeModel.FK_Transactions_Members", "Transaction");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Transaction>("BetEXData.FK_Transactions_Members", "Transaction", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Transaction>("BettingExchangeModel.FK_Transactions_Members", "Transaction", value);
                 }
             }
         }
@@ -3141,7 +3479,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Message")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Message")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Message : EntityObject
@@ -3491,16 +3829,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Messages_Members", "Member")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Messages_Members", "Member")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Messages_Members", "Member").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Messages_Members", "Member").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Messages_Members", "Member").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Messages_Members", "Member").Value = value;
             }
         }
         /// <summary>
@@ -3512,13 +3850,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Messages_Members", "Member");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Messages_Members", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_Messages_Members", "Member", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BettingExchangeModel.FK_Messages_Members", "Member", value);
                 }
             }
         }
@@ -3529,7 +3867,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="MyBet")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="MyBet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MyBet : EntityObject
@@ -4049,16 +4387,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Members", "Member")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Members", "Member")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyBets_Members", "Member").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyBets_Members", "Member").Value = value;
             }
         }
         /// <summary>
@@ -4070,13 +4408,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyBets_Members", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_MyBets_Members", "Member", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BettingExchangeModel.FK_MyBets_Members", "Member", value);
                 }
             }
         }
@@ -4087,16 +4425,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap")]
         public Soccer_AsianHandicap Soccer_AsianHandicap
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_AsianHandicap>("BetEXData.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_AsianHandicap>("BettingExchangeModel.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_AsianHandicap>("BetEXData.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_AsianHandicap>("BettingExchangeModel.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap").Value = value;
             }
         }
         /// <summary>
@@ -4108,13 +4446,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_AsianHandicap>("BetEXData.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_AsianHandicap>("BettingExchangeModel.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_AsianHandicap>("BetEXData.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_AsianHandicap>("BettingExchangeModel.FK_MyBets_Soccer_AsianHandicap", "Soccer_AsianHandicap", value);
                 }
             }
         }
@@ -4125,16 +4463,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores")]
         public Soccer_CorrectScores Soccer_CorrectScores
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_CorrectScores>("BetEXData.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_CorrectScores>("BettingExchangeModel.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_CorrectScores>("BetEXData.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_CorrectScores>("BettingExchangeModel.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores").Value = value;
             }
         }
         /// <summary>
@@ -4146,13 +4484,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_CorrectScores>("BetEXData.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_CorrectScores>("BettingExchangeModel.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_CorrectScores>("BetEXData.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_CorrectScores>("BettingExchangeModel.FK_MyBets_Soccer_CorrectScores", "Soccer_CorrectScores", value);
                 }
             }
         }
@@ -4163,16 +4501,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet")]
         public Soccer_DrawNoBet Soccer_DrawNoBet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BettingExchangeModel.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BettingExchangeModel.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet").Value = value;
             }
         }
         /// <summary>
@@ -4184,13 +4522,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_DrawNoBet>("BettingExchangeModel.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_DrawNoBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_DrawNoBet>("BettingExchangeModel.FK_MyBets_Soccer_DrawNoBet", "Soccer_DrawNoBet", value);
                 }
             }
         }
@@ -4201,16 +4539,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU")]
         public Soccer_TotalGoalsOU Soccer_TotalGoalsOU
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BettingExchangeModel.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BettingExchangeModel.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU").Value = value;
             }
         }
         /// <summary>
@@ -4222,13 +4560,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Soccer_TotalGoalsOU>("BettingExchangeModel.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_TotalGoalsOU>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Soccer_TotalGoalsOU>("BettingExchangeModel.FK_MyBets_Soccer_TotalGoalsOU", "Soccer_TotalGoalsOU", value);
                 }
             }
         }
@@ -4239,7 +4577,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="MyCard")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="MyCard")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MyCard : EntityObject
@@ -4252,7 +4590,7 @@ namespace BetEx247.Data.Model
         /// <param name="id">Initial value of the ID property.</param>
         /// <param name="nickName">Initial value of the NickName property.</param>
         /// <param name="paymentMethodId">Initial value of the PaymentMethodId property.</param>
-        public static MyCard CreateMyCard(global::System.Int32 id, global::System.String nickName, global::System.Int64 paymentMethodId)
+        public static MyCard CreateMyCard(global::System.Int32 id, global::System.String nickName, global::System.Int16 paymentMethodId)
         {
             MyCard myCard = new MyCard();
             myCard.ID = id;
@@ -4392,7 +4730,7 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int64 PaymentMethodId
+        public global::System.Int16 PaymentMethodId
         {
             get
             {
@@ -4407,8 +4745,8 @@ namespace BetEx247.Data.Model
                 OnPaymentMethodIdChanged();
             }
         }
-        private global::System.Int64 _PaymentMethodId;
-        partial void OnPaymentMethodIdChanging(global::System.Int64 value);
+        private global::System.Int16 _PaymentMethodId;
+        partial void OnPaymentMethodIdChanging(global::System.Int16 value);
         partial void OnPaymentMethodIdChanged();
     
         /// <summary>
@@ -4445,16 +4783,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyCards_Members", "Member")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyCards_Members", "Member")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyCards_Members", "Member").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyCards_Members", "Member").Value = value;
             }
         }
         /// <summary>
@@ -4466,13 +4804,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyCards_Members", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_MyCards_Members", "Member", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BettingExchangeModel.FK_MyCards_Members", "Member", value);
                 }
             }
         }
@@ -4483,16 +4821,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyCards_PaymentMethods", "PaymentMethod")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyCards_PaymentMethods", "PaymentMethod")]
         public PaymentMethod PaymentMethod
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMethod>("BetEXData.FK_MyCards_PaymentMethods", "PaymentMethod").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMethod>("BettingExchangeModel.FK_MyCards_PaymentMethods", "PaymentMethod").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMethod>("BetEXData.FK_MyCards_PaymentMethods", "PaymentMethod").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMethod>("BettingExchangeModel.FK_MyCards_PaymentMethods", "PaymentMethod").Value = value;
             }
         }
         /// <summary>
@@ -4504,13 +4842,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMethod>("BetEXData.FK_MyCards_PaymentMethods", "PaymentMethod");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<PaymentMethod>("BettingExchangeModel.FK_MyCards_PaymentMethods", "PaymentMethod");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentMethod>("BetEXData.FK_MyCards_PaymentMethods", "PaymentMethod", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PaymentMethod>("BettingExchangeModel.FK_MyCards_PaymentMethods", "PaymentMethod", value);
                 }
             }
         }
@@ -4521,7 +4859,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="MyWallet")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="MyWallet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class MyWallet : EntityObject
@@ -4699,16 +5037,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyWallet_Members", "Member")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyWallet_Members", "Member")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyWallet_Members", "Member").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyWallet_Members", "Member").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyWallet_Members", "Member").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyWallet_Members", "Member").Value = value;
             }
         }
         /// <summary>
@@ -4720,13 +5058,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_MyWallet_Members", "Member");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_MyWallet_Members", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_MyWallet_Members", "Member", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BettingExchangeModel.FK_MyWallet_Members", "Member", value);
                 }
             }
         }
@@ -4737,7 +5075,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="PaymentMethod")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="PaymentMethod")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PaymentMethod : EntityObject
@@ -4748,16 +5086,14 @@ namespace BetEx247.Data.Model
         /// Create a new PaymentMethod object.
         /// </summary>
         /// <param name="id">Initial value of the ID property.</param>
-        /// <param name="name">Initial value of the Name property.</param>
         /// <param name="creditCardNumber">Initial value of the CreditCardNumber property.</param>
         /// <param name="nameOnCard">Initial value of the NameOnCard property.</param>
         /// <param name="validFrom">Initial value of the ValidFrom property.</param>
         /// <param name="validTo">Initial value of the ValidTo property.</param>
-        public static PaymentMethod CreatePaymentMethod(global::System.Int64 id, global::System.String name, global::System.String creditCardNumber, global::System.String nameOnCard, global::System.DateTime validFrom, global::System.DateTime validTo)
+        public static PaymentMethod CreatePaymentMethod(global::System.Int16 id, global::System.String creditCardNumber, global::System.String nameOnCard, global::System.DateTime validFrom, global::System.DateTime validTo)
         {
             PaymentMethod paymentMethod = new PaymentMethod();
             paymentMethod.ID = id;
-            paymentMethod.Name = name;
             paymentMethod.CreditCardNumber = creditCardNumber;
             paymentMethod.NameOnCard = nameOnCard;
             paymentMethod.ValidFrom = validFrom;
@@ -4773,7 +5109,7 @@ namespace BetEx247.Data.Model
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int64 ID
+        public global::System.Int16 ID
         {
             get
             {
@@ -4791,14 +5127,14 @@ namespace BetEx247.Data.Model
                 }
             }
         }
-        private global::System.Int64 _ID;
-        partial void OnIDChanging(global::System.Int64 value);
+        private global::System.Int16 _ID;
+        partial void OnIDChanging(global::System.Int16 value);
         partial void OnIDChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -4810,7 +5146,7 @@ namespace BetEx247.Data.Model
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
+                _Name = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -5381,18 +5717,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyCards_PaymentMethods", "MyCard")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyCards_PaymentMethods", "MyCard")]
         public EntityCollection<MyCard> MyCards
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyCard>("BetEXData.FK_MyCards_PaymentMethods", "MyCard");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyCard>("BettingExchangeModel.FK_MyCards_PaymentMethods", "MyCard");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyCard>("BetEXData.FK_MyCards_PaymentMethods", "MyCard", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyCard>("BettingExchangeModel.FK_MyCards_PaymentMethods", "MyCard", value);
                 }
             }
         }
@@ -5403,7 +5739,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Player")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Player")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Player : EntityObject
@@ -5678,7 +6014,163 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="PSV_MYBET")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="PSV_ALLTOURNAMENT")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PSV_ALLTOURNAMENT : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PSV_ALLTOURNAMENT object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="leagueName_WebDisplay">Initial value of the LeagueName_WebDisplay property.</param>
+        public static PSV_ALLTOURNAMENT CreatePSV_ALLTOURNAMENT(global::System.Int64 id, global::System.String leagueName_WebDisplay)
+        {
+            PSV_ALLTOURNAMENT pSV_ALLTOURNAMENT = new PSV_ALLTOURNAMENT();
+            pSV_ALLTOURNAMENT.ID = id;
+            pSV_ALLTOURNAMENT.LeagueName_WebDisplay = leagueName_WebDisplay;
+            return pSV_ALLTOURNAMENT;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> SportID
+        {
+            get
+            {
+                return _SportID;
+            }
+            set
+            {
+                OnSportIDChanging(value);
+                ReportPropertyChanging("SportID");
+                _SportID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SportID");
+                OnSportIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _SportID;
+        partial void OnSportIDChanging(Nullable<global::System.Int32> value);
+        partial void OnSportIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CountryID
+        {
+            get
+            {
+                return _CountryID;
+            }
+            set
+            {
+                OnCountryIDChanging(value);
+                ReportPropertyChanging("CountryID");
+                _CountryID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryID");
+                OnCountryIDChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CountryID;
+        partial void OnCountryIDChanging(Nullable<global::System.Int32> value);
+        partial void OnCountryIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String LeagueName_WebDisplay
+        {
+            get
+            {
+                return _LeagueName_WebDisplay;
+            }
+            set
+            {
+                if (_LeagueName_WebDisplay != value)
+                {
+                    OnLeagueName_WebDisplayChanging(value);
+                    ReportPropertyChanging("LeagueName_WebDisplay");
+                    _LeagueName_WebDisplay = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("LeagueName_WebDisplay");
+                    OnLeagueName_WebDisplayChanged();
+                }
+            }
+        }
+        private global::System.String _LeagueName_WebDisplay;
+        partial void OnLeagueName_WebDisplayChanging(global::System.String value);
+        partial void OnLeagueName_WebDisplayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Total
+        {
+            get
+            {
+                return _Total;
+            }
+            set
+            {
+                OnTotalChanging(value);
+                ReportPropertyChanging("Total");
+                _Total = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Total");
+                OnTotalChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Total;
+        partial void OnTotalChanging(Nullable<global::System.Int32> value);
+        partial void OnTotalChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="PSV_MYBET")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class PSV_MYBET : EntityObject
@@ -6435,7 +6927,552 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="ScoreInfo")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="PSV_STATEMENTS")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PSV_STATEMENTS : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new PSV_STATEMENTS object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="memberId">Initial value of the MemberId property.</param>
+        /// <param name="statementTime">Initial value of the StatementTime property.</param>
+        public static PSV_STATEMENTS CreatePSV_STATEMENTS(global::System.Int64 id, global::System.Int64 memberId, global::System.DateTime statementTime)
+        {
+            PSV_STATEMENTS pSV_STATEMENTS = new PSV_STATEMENTS();
+            pSV_STATEMENTS.ID = id;
+            pSV_STATEMENTS.MemberId = memberId;
+            pSV_STATEMENTS.StatementTime = statementTime;
+            return pSV_STATEMENTS;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> Row
+        {
+            get
+            {
+                return _Row;
+            }
+            set
+            {
+                OnRowChanging(value);
+                ReportPropertyChanging("Row");
+                _Row = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Row");
+                OnRowChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _Row;
+        partial void OnRowChanging(Nullable<global::System.Int64> value);
+        partial void OnRowChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Int64 _ID;
+        partial void OnIDChanging(global::System.Int64 value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 MemberId
+        {
+            get
+            {
+                return _MemberId;
+            }
+            set
+            {
+                if (_MemberId != value)
+                {
+                    OnMemberIdChanging(value);
+                    ReportPropertyChanging("MemberId");
+                    _MemberId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("MemberId");
+                    OnMemberIdChanged();
+                }
+            }
+        }
+        private global::System.Int64 _MemberId;
+        partial void OnMemberIdChanging(global::System.Int64 value);
+        partial void OnMemberIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> BetId
+        {
+            get
+            {
+                return _BetId;
+            }
+            set
+            {
+                OnBetIdChanging(value);
+                ReportPropertyChanging("BetId");
+                _BetId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BetId");
+                OnBetIdChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _BetId;
+        partial void OnBetIdChanging(Nullable<global::System.Int64> value);
+        partial void OnBetIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime StatementTime
+        {
+            get
+            {
+                return _StatementTime;
+            }
+            set
+            {
+                if (_StatementTime != value)
+                {
+                    OnStatementTimeChanging(value);
+                    ReportPropertyChanging("StatementTime");
+                    _StatementTime = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("StatementTime");
+                    OnStatementTimeChanged();
+                }
+            }
+        }
+        private global::System.DateTime _StatementTime;
+        partial void OnStatementTimeChanging(global::System.DateTime value);
+        partial void OnStatementTimeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Selection
+        {
+            get
+            {
+                return _Selection;
+            }
+            set
+            {
+                OnSelectionChanging(value);
+                ReportPropertyChanging("Selection");
+                _Selection = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Selection");
+                OnSelectionChanged();
+            }
+        }
+        private global::System.String _Selection;
+        partial void OnSelectionChanging(global::System.String value);
+        partial void OnSelectionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Byte> BackOrLay
+        {
+            get
+            {
+                return _BackOrLay;
+            }
+            set
+            {
+                OnBackOrLayChanging(value);
+                ReportPropertyChanging("BackOrLay");
+                _BackOrLay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("BackOrLay");
+                OnBackOrLayChanged();
+            }
+        }
+        private Nullable<global::System.Byte> _BackOrLay;
+        partial void OnBackOrLayChanging(Nullable<global::System.Byte> value);
+        partial void OnBackOrLayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Stake
+        {
+            get
+            {
+                return _Stake;
+            }
+            set
+            {
+                OnStakeChanging(value);
+                ReportPropertyChanging("Stake");
+                _Stake = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Stake");
+                OnStakeChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Stake;
+        partial void OnStakeChanging(Nullable<global::System.Decimal> value);
+        partial void OnStakeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Odds
+        {
+            get
+            {
+                return _Odds;
+            }
+            set
+            {
+                OnOddsChanging(value);
+                ReportPropertyChanging("Odds");
+                _Odds = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Odds");
+                OnOddsChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Odds;
+        partial void OnOddsChanging(Nullable<global::System.Decimal> value);
+        partial void OnOddsChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Type_Result
+        {
+            get
+            {
+                return _Type_Result;
+            }
+            set
+            {
+                OnType_ResultChanging(value);
+                ReportPropertyChanging("Type_Result");
+                _Type_Result = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Type_Result");
+                OnType_ResultChanged();
+            }
+        }
+        private global::System.String _Type_Result;
+        partial void OnType_ResultChanging(global::System.String value);
+        partial void OnType_ResultChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Amount
+        {
+            get
+            {
+                return _Amount;
+            }
+            set
+            {
+                OnAmountChanging(value);
+                ReportPropertyChanging("Amount");
+                _Amount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Amount");
+                OnAmountChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Amount;
+        partial void OnAmountChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> GrossProfit
+        {
+            get
+            {
+                return _GrossProfit;
+            }
+            set
+            {
+                OnGrossProfitChanging(value);
+                ReportPropertyChanging("GrossProfit");
+                _GrossProfit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("GrossProfit");
+                OnGrossProfitChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _GrossProfit;
+        partial void OnGrossProfitChanging(Nullable<global::System.Decimal> value);
+        partial void OnGrossProfitChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> NetProfit
+        {
+            get
+            {
+                return _NetProfit;
+            }
+            set
+            {
+                OnNetProfitChanging(value);
+                ReportPropertyChanging("NetProfit");
+                _NetProfit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("NetProfit");
+                OnNetProfitChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _NetProfit;
+        partial void OnNetProfitChanging(Nullable<global::System.Decimal> value);
+        partial void OnNetProfitChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> Commission
+        {
+            get
+            {
+                return _Commission;
+            }
+            set
+            {
+                OnCommissionChanging(value);
+                ReportPropertyChanging("Commission");
+                _Commission = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Commission");
+                OnCommissionChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _Commission;
+        partial void OnCommissionChanging(Nullable<global::System.Decimal> value);
+        partial void OnCommissionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AmountDeposit
+        {
+            get
+            {
+                return _AmountDeposit;
+            }
+            set
+            {
+                OnAmountDepositChanging(value);
+                ReportPropertyChanging("AmountDeposit");
+                _AmountDeposit = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AmountDeposit");
+                OnAmountDepositChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AmountDeposit;
+        partial void OnAmountDepositChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountDepositChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> AmountWithdrawal
+        {
+            get
+            {
+                return _AmountWithdrawal;
+            }
+            set
+            {
+                OnAmountWithdrawalChanging(value);
+                ReportPropertyChanging("AmountWithdrawal");
+                _AmountWithdrawal = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AmountWithdrawal");
+                OnAmountWithdrawalChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _AmountWithdrawal;
+        partial void OnAmountWithdrawalChanging(Nullable<global::System.Decimal> value);
+        partial void OnAmountWithdrawalChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CardId
+        {
+            get
+            {
+                return _CardId;
+            }
+            set
+            {
+                OnCardIdChanging(value);
+                ReportPropertyChanging("CardId");
+                _CardId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CardId");
+                OnCardIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CardId;
+        partial void OnCardIdChanging(Nullable<global::System.Int32> value);
+        partial void OnCardIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> FeeCharged
+        {
+            get
+            {
+                return _FeeCharged;
+            }
+            set
+            {
+                OnFeeChargedChanging(value);
+                ReportPropertyChanging("FeeCharged");
+                _FeeCharged = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FeeCharged");
+                OnFeeChargedChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _FeeCharged;
+        partial void OnFeeChargedChanging(Nullable<global::System.Decimal> value);
+        partial void OnFeeChargedChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> MarketAmountRefund
+        {
+            get
+            {
+                return _MarketAmountRefund;
+            }
+            set
+            {
+                OnMarketAmountRefundChanging(value);
+                ReportPropertyChanging("MarketAmountRefund");
+                _MarketAmountRefund = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MarketAmountRefund");
+                OnMarketAmountRefundChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _MarketAmountRefund;
+        partial void OnMarketAmountRefundChanging(Nullable<global::System.Decimal> value);
+        partial void OnMarketAmountRefundChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Reason
+        {
+            get
+            {
+                return _Reason;
+            }
+            set
+            {
+                OnReasonChanging(value);
+                ReportPropertyChanging("Reason");
+                _Reason = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Reason");
+                OnReasonChanged();
+            }
+        }
+        private global::System.String _Reason;
+        partial void OnReasonChanging(global::System.String value);
+        partial void OnReasonChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> DisplayId
+        {
+            get
+            {
+                return _DisplayId;
+            }
+            set
+            {
+                OnDisplayIdChanging(value);
+                ReportPropertyChanging("DisplayId");
+                _DisplayId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DisplayId");
+                OnDisplayIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _DisplayId;
+        partial void OnDisplayIdChanging(Nullable<global::System.Int32> value);
+        partial void OnDisplayIdChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="ScoreInfo")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ScoreInfo : EntityObject
@@ -6619,16 +7656,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_ScoreInfo_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_ScoreInfo_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_ScoreInfo_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_ScoreInfo_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_ScoreInfo_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_ScoreInfo_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -6640,13 +7677,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_ScoreInfo_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_ScoreInfo_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_ScoreInfo_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_ScoreInfo_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -6657,7 +7694,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="ScoreTypeMST")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="ScoreTypeMST")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class ScoreTypeMST : EntityObject
@@ -6738,7 +7775,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_AsianHandicap")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_AsianHandicap")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_AsianHandicap : EntityObject
@@ -7022,18 +8059,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_AsianHandicap", "MyBet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_AsianHandicap", "MyBet")]
         public EntityCollection<MyBet> MyBets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_AsianHandicap", "MyBet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_AsianHandicap", "MyBet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_AsianHandicap", "MyBet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_AsianHandicap", "MyBet", value);
                 }
             }
         }
@@ -7044,16 +8081,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -7065,13 +8102,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -7082,7 +8119,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_CorrectScores")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_CorrectScores")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_CorrectScores : EntityObject
@@ -7342,18 +8379,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_CorrectScores", "MyBet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_CorrectScores", "MyBet")]
         public EntityCollection<MyBet> MyBets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_CorrectScores", "MyBet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_CorrectScores", "MyBet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_CorrectScores", "MyBet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_CorrectScores", "MyBet", value);
                 }
             }
         }
@@ -7364,16 +8401,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -7385,13 +8422,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -7402,7 +8439,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_DrawNoBet")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_DrawNoBet")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_DrawNoBet : EntityObject
@@ -7656,18 +8693,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_DrawNoBet", "MyBet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_DrawNoBet", "MyBet")]
         public EntityCollection<MyBet> MyBets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "MyBet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_DrawNoBet", "MyBet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_DrawNoBet", "MyBet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_DrawNoBet", "MyBet", value);
                 }
             }
         }
@@ -7678,16 +8715,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -7699,13 +8736,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -7716,7 +8753,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_MatchedBets")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_MatchedBets")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_MatchedBets : EntityObject
@@ -7927,7 +8964,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_MatchOdds")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_MatchOdds")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_MatchOdds : EntityObject
@@ -8213,16 +9250,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -8234,13 +9271,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -8251,7 +9288,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_TotalGoalsOE")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_TotalGoalsOE")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_TotalGoalsOE : EntityObject
@@ -8563,16 +9600,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -8584,13 +9621,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -8601,7 +9638,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_TotalGoalsOU")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_TotalGoalsOU")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_TotalGoalsOU : EntityObject
@@ -8891,18 +9928,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_MyBets_Soccer_TotalGoalsOU", "MyBet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_MyBets_Soccer_TotalGoalsOU", "MyBet")]
         public EntityCollection<MyBet> MyBets
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "MyBet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_TotalGoalsOU", "MyBet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BetEXData.FK_MyBets_Soccer_TotalGoalsOU", "MyBet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MyBet>("BettingExchangeModel.FK_MyBets_Soccer_TotalGoalsOU", "MyBet", value);
                 }
             }
         }
@@ -8913,16 +9950,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -8934,13 +9971,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -8951,7 +9988,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Soccer_WinningMargin")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Soccer_WinningMargin")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Soccer_WinningMargin : EntityObject
@@ -9285,16 +10322,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -9306,13 +10343,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -9323,7 +10360,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SoccerCountry")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="SoccerCountry")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SoccerCountry : EntityObject
@@ -9495,12 +10532,37 @@ namespace BetEx247.Data.Model
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_SoccerCountries", "SoccerLeague")]
+        public EntityCollection<SoccerLeague> SoccerLeagues
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerLeague");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerLeague", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SoccerLeague")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="SoccerLeague")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SoccerLeague : EntityObject
@@ -9515,8 +10577,9 @@ namespace BetEx247.Data.Model
         /// <param name="countryID">Initial value of the CountryID property.</param>
         /// <param name="is_Soccer">Initial value of the Is_Soccer property.</param>
         /// <param name="leagueName_Goalserve">Initial value of the LeagueName_Goalserve property.</param>
+        /// <param name="leagueName_Betclick">Initial value of the LeagueName_Betclick property.</param>
         /// <param name="leagueName_WebDisplay">Initial value of the LeagueName_WebDisplay property.</param>
-        public static SoccerLeague CreateSoccerLeague(global::System.Int64 id, global::System.Int32 sportID, global::System.Int32 countryID, global::System.Boolean is_Soccer, global::System.String leagueName_Goalserve, global::System.String leagueName_WebDisplay)
+        public static SoccerLeague CreateSoccerLeague(global::System.Int64 id, global::System.Int32 sportID, global::System.Int32 countryID, global::System.Boolean is_Soccer, global::System.String leagueName_Goalserve, global::System.String leagueName_Betclick, global::System.String leagueName_WebDisplay)
         {
             SoccerLeague soccerLeague = new SoccerLeague();
             soccerLeague.ID = id;
@@ -9524,6 +10587,7 @@ namespace BetEx247.Data.Model
             soccerLeague.CountryID = countryID;
             soccerLeague.Is_Soccer = is_Soccer;
             soccerLeague.LeagueName_Goalserve = leagueName_Goalserve;
+            soccerLeague.LeagueName_Betclick = leagueName_Betclick;
             soccerLeague.LeagueName_WebDisplay = leagueName_WebDisplay;
             return soccerLeague;
         }
@@ -9561,7 +10625,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 SportID
         {
@@ -9571,14 +10635,11 @@ namespace BetEx247.Data.Model
             }
             set
             {
-                if (_SportID != value)
-                {
-                    OnSportIDChanging(value);
-                    ReportPropertyChanging("SportID");
-                    _SportID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("SportID");
-                    OnSportIDChanged();
-                }
+                OnSportIDChanging(value);
+                ReportPropertyChanging("SportID");
+                _SportID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SportID");
+                OnSportIDChanged();
             }
         }
         private global::System.Int32 _SportID;
@@ -9588,7 +10649,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryID
         {
@@ -9598,14 +10659,11 @@ namespace BetEx247.Data.Model
             }
             set
             {
-                if (_CountryID != value)
-                {
-                    OnCountryIDChanging(value);
-                    ReportPropertyChanging("CountryID");
-                    _CountryID = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CountryID");
-                    OnCountryIDChanged();
-                }
+                OnCountryIDChanging(value);
+                ReportPropertyChanging("CountryID");
+                _CountryID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CountryID");
+                OnCountryIDChanged();
             }
         }
         private global::System.Int32 _CountryID;
@@ -9663,7 +10721,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String LeagueName_Betclick
         {
@@ -9675,7 +10733,7 @@ namespace BetEx247.Data.Model
             {
                 OnLeagueName_BetclickChanging(value);
                 ReportPropertyChanging("LeagueName_Betclick");
-                _LeagueName_Betclick = StructuralObject.SetValidValue(value, true);
+                _LeagueName_Betclick = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("LeagueName_Betclick");
                 OnLeagueName_BetclickChanged();
             }
@@ -9854,12 +10912,135 @@ namespace BetEx247.Data.Model
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_SoccerCountries", "SoccerCountry")]
+        public SoccerCountry SoccerCountry
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SoccerCountry> SoccerCountryReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_Sports", "Sport")]
+        public Sport Sport
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Sport> SportReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_SoccerMatches_SoccerLeagues", "SoccerMatch")]
+        public EntityCollection<SoccerMatch> SoccerMatches
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerMatch>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerMatch");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerMatch>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerMatch", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Team_Leagues", "Team")]
+        public EntityCollection<Team> Teams
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Team>("BettingExchangeModel.FK_Team_Leagues", "Team");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Team>("BettingExchangeModel.FK_Team_Leagues", "Team", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SoccerMatch")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="SoccerMatch")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SoccerMatch : EntityObject
@@ -10453,18 +11634,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_CardsInfo_SoccerMatches", "CardsInfo")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_CardsInfo_SoccerMatches", "CardsInfo")]
         public EntityCollection<CardsInfo> CardsInfoes
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CardsInfo>("BetEXData.FK_CardsInfo_SoccerMatches", "CardsInfo");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CardsInfo>("BettingExchangeModel.FK_CardsInfo_SoccerMatches", "CardsInfo");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CardsInfo>("BetEXData.FK_CardsInfo_SoccerMatches", "CardsInfo", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CardsInfo>("BettingExchangeModel.FK_CardsInfo_SoccerMatches", "CardsInfo", value);
                 }
             }
         }
@@ -10475,18 +11656,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_ScoreInfo_SoccerMatches", "ScoreInfo")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_ScoreInfo_SoccerMatches", "ScoreInfo")]
         public EntityCollection<ScoreInfo> ScoreInfoes
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ScoreInfo>("BetEXData.FK_ScoreInfo_SoccerMatches", "ScoreInfo");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ScoreInfo>("BettingExchangeModel.FK_ScoreInfo_SoccerMatches", "ScoreInfo");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ScoreInfo>("BetEXData.FK_ScoreInfo_SoccerMatches", "ScoreInfo", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ScoreInfo>("BettingExchangeModel.FK_ScoreInfo_SoccerMatches", "ScoreInfo", value);
                 }
             }
         }
@@ -10497,18 +11678,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_AsianHandicap_SoccerMatches", "Soccer_AsianHandicap")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_AsianHandicap_SoccerMatches", "Soccer_AsianHandicap")]
         public EntityCollection<Soccer_AsianHandicap> Soccer_AsianHandicap
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_AsianHandicap>("BetEXData.FK_Soccer_AsianHandicap_SoccerMatches", "Soccer_AsianHandicap");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_AsianHandicap>("BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches", "Soccer_AsianHandicap");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_AsianHandicap>("BetEXData.FK_Soccer_AsianHandicap_SoccerMatches", "Soccer_AsianHandicap", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_AsianHandicap>("BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches", "Soccer_AsianHandicap", value);
                 }
             }
         }
@@ -10519,18 +11700,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_CorrectScores_SoccerMatches", "Soccer_CorrectScores")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_CorrectScores_SoccerMatches", "Soccer_CorrectScores")]
         public EntityCollection<Soccer_CorrectScores> Soccer_CorrectScores
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_CorrectScores>("BetEXData.FK_Soccer_CorrectScores_SoccerMatches", "Soccer_CorrectScores");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_CorrectScores>("BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches", "Soccer_CorrectScores");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_CorrectScores>("BetEXData.FK_Soccer_CorrectScores_SoccerMatches", "Soccer_CorrectScores", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_CorrectScores>("BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches", "Soccer_CorrectScores", value);
                 }
             }
         }
@@ -10541,18 +11722,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_DrawNoBet_SoccerMatches", "Soccer_DrawNoBet")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_DrawNoBet_SoccerMatches", "Soccer_DrawNoBet")]
         public EntityCollection<Soccer_DrawNoBet> Soccer_DrawNoBet
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_DrawNoBet>("BetEXData.FK_Soccer_DrawNoBet_SoccerMatches", "Soccer_DrawNoBet");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_DrawNoBet>("BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches", "Soccer_DrawNoBet");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_DrawNoBet>("BetEXData.FK_Soccer_DrawNoBet_SoccerMatches", "Soccer_DrawNoBet", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_DrawNoBet>("BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches", "Soccer_DrawNoBet", value);
                 }
             }
         }
@@ -10563,18 +11744,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_MatchOdds_SoccerMatches", "Soccer_MatchOdds")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_MatchOdds_SoccerMatches", "Soccer_MatchOdds")]
         public EntityCollection<Soccer_MatchOdds> Soccer_MatchOdds
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_MatchOdds>("BetEXData.FK_Soccer_MatchOdds_SoccerMatches", "Soccer_MatchOdds");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_MatchOdds>("BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches", "Soccer_MatchOdds");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_MatchOdds>("BetEXData.FK_Soccer_MatchOdds_SoccerMatches", "Soccer_MatchOdds", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_MatchOdds>("BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches", "Soccer_MatchOdds", value);
                 }
             }
         }
@@ -10585,18 +11766,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_TotalGoalsOE_SoccerMatches", "Soccer_TotalGoalsOE")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_TotalGoalsOE_SoccerMatches", "Soccer_TotalGoalsOE")]
         public EntityCollection<Soccer_TotalGoalsOE> Soccer_TotalGoalsOE
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_TotalGoalsOE>("BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches", "Soccer_TotalGoalsOE");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_TotalGoalsOE>("BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches", "Soccer_TotalGoalsOE");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_TotalGoalsOE>("BetEXData.FK_Soccer_TotalGoalsOE_SoccerMatches", "Soccer_TotalGoalsOE", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_TotalGoalsOE>("BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches", "Soccer_TotalGoalsOE", value);
                 }
             }
         }
@@ -10607,18 +11788,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_TotalGoalsOU_SoccerMatches", "Soccer_TotalGoalsOU")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_TotalGoalsOU_SoccerMatches", "Soccer_TotalGoalsOU")]
         public EntityCollection<Soccer_TotalGoalsOU> Soccer_TotalGoalsOU
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_TotalGoalsOU>("BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches", "Soccer_TotalGoalsOU");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_TotalGoalsOU>("BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches", "Soccer_TotalGoalsOU");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_TotalGoalsOU>("BetEXData.FK_Soccer_TotalGoalsOU_SoccerMatches", "Soccer_TotalGoalsOU", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_TotalGoalsOU>("BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches", "Soccer_TotalGoalsOU", value);
                 }
             }
         }
@@ -10629,18 +11810,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Soccer_WinningMargin_SoccerMatches", "Soccer_WinningMargin")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Soccer_WinningMargin_SoccerMatches", "Soccer_WinningMargin")]
         public EntityCollection<Soccer_WinningMargin> Soccer_WinningMargin
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_WinningMargin>("BetEXData.FK_Soccer_WinningMargin_SoccerMatches", "Soccer_WinningMargin");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Soccer_WinningMargin>("BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches", "Soccer_WinningMargin");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_WinningMargin>("BetEXData.FK_Soccer_WinningMargin_SoccerMatches", "Soccer_WinningMargin", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Soccer_WinningMargin>("BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches", "Soccer_WinningMargin", value);
                 }
             }
         }
@@ -10651,18 +11832,56 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_AsianHandicap_SoccerMatches", "Sports_AsianHandicap")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_AsianHandicap_SoccerMatches", "Sports_AsianHandicap")]
         public EntityCollection<Sports_AsianHandicap> Sports_AsianHandicap
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_AsianHandicap>("BetEXData.FK_Sports_AsianHandicap_SoccerMatches", "Sports_AsianHandicap");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_AsianHandicap>("BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches", "Sports_AsianHandicap");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_AsianHandicap>("BetEXData.FK_Sports_AsianHandicap_SoccerMatches", "Sports_AsianHandicap", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_AsianHandicap>("BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches", "Sports_AsianHandicap", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_SoccerMatches_SoccerLeagues", "SoccerLeague")]
+        public SoccerLeague SoccerLeague
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SoccerLeague> SoccerLeagueReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague", value);
                 }
             }
         }
@@ -10673,7 +11892,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Sport")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Sport")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Sport : EntityObject
@@ -10821,12 +12040,37 @@ namespace BetEx247.Data.Model
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_Sports", "SoccerLeague")]
+        public EntityCollection<SoccerLeague> SoccerLeagues
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_Sports", "SoccerLeague");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_Sports", "SoccerLeague", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SportLeague")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="SportLeague")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SportLeague : EntityObject
@@ -11011,7 +12255,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Sports_AsianHandicap")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Sports_AsianHandicap")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Sports_AsianHandicap : EntityObject
@@ -11291,16 +12535,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch")]
         public SoccerMatch SoccerMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch").Value = value;
             }
         }
         /// <summary>
@@ -11312,13 +12556,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BetEXData.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BetEXData.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerMatch>("BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches", "SoccerMatch", value);
                 }
             }
         }
@@ -11329,7 +12573,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Sports_MatchedBets")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Sports_MatchedBets")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Sports_MatchedBets : EntityObject
@@ -11540,7 +12784,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Sports_MoneyLine")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Sports_MoneyLine")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Sports_MoneyLine : EntityObject
@@ -11816,16 +13060,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_MoneyLine_SportsMatches", "SportsMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_MoneyLine_SportsMatches", "SportsMatch")]
         public SportsMatch SportsMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_MoneyLine_SportsMatches", "SportsMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches", "SportsMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_MoneyLine_SportsMatches", "SportsMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches", "SportsMatch").Value = value;
             }
         }
         /// <summary>
@@ -11837,13 +13081,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_MoneyLine_SportsMatches", "SportsMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches", "SportsMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SportsMatch>("BetEXData.FK_Sports_MoneyLine_SportsMatches", "SportsMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches", "SportsMatch", value);
                 }
             }
         }
@@ -11854,7 +13098,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Sports_Outright")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Sports_Outright")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Sports_Outright : EntityObject
@@ -12090,16 +13334,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_Outright_SportsMatches", "SportsMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_Outright_SportsMatches", "SportsMatch")]
         public SportsMatch SportsMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_Outright_SportsMatches", "SportsMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_Outright_SportsMatches", "SportsMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_Outright_SportsMatches", "SportsMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_Outright_SportsMatches", "SportsMatch").Value = value;
             }
         }
         /// <summary>
@@ -12111,13 +13355,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_Outright_SportsMatches", "SportsMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_Outright_SportsMatches", "SportsMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SportsMatch>("BetEXData.FK_Sports_Outright_SportsMatches", "SportsMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_Outright_SportsMatches", "SportsMatch", value);
                 }
             }
         }
@@ -12128,7 +13372,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Sports_TotalOU")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Sports_TotalOU")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Sports_TotalOU : EntityObject
@@ -12414,16 +13658,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_TotalOU_SportsMatches", "SportsMatch")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_TotalOU_SportsMatches", "SportsMatch")]
         public SportsMatch SportsMatch
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_TotalOU_SportsMatches", "SportsMatch").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_TotalOU_SportsMatches", "SportsMatch").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_TotalOU_SportsMatches", "SportsMatch").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_TotalOU_SportsMatches", "SportsMatch").Value = value;
             }
         }
         /// <summary>
@@ -12435,13 +13679,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BetEXData.FK_Sports_TotalOU_SportsMatches", "SportsMatch");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_TotalOU_SportsMatches", "SportsMatch");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SportsMatch>("BetEXData.FK_Sports_TotalOU_SportsMatches", "SportsMatch", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SportsMatch>("BettingExchangeModel.FK_Sports_TotalOU_SportsMatches", "SportsMatch", value);
                 }
             }
         }
@@ -12452,7 +13696,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="SportsMatch")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="SportsMatch")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class SportsMatch : EntityObject
@@ -12974,18 +14218,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_MoneyLine_SportsMatches", "Sports_MoneyLine")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_MoneyLine_SportsMatches", "Sports_MoneyLine")]
         public EntityCollection<Sports_MoneyLine> Sports_MoneyLine
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_MoneyLine>("BetEXData.FK_Sports_MoneyLine_SportsMatches", "Sports_MoneyLine");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_MoneyLine>("BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches", "Sports_MoneyLine");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_MoneyLine>("BetEXData.FK_Sports_MoneyLine_SportsMatches", "Sports_MoneyLine", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_MoneyLine>("BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches", "Sports_MoneyLine", value);
                 }
             }
         }
@@ -12996,18 +14240,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_Outright_SportsMatches", "Sports_Outright")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_Outright_SportsMatches", "Sports_Outright")]
         public EntityCollection<Sports_Outright> Sports_Outright
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_Outright>("BetEXData.FK_Sports_Outright_SportsMatches", "Sports_Outright");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_Outright>("BettingExchangeModel.FK_Sports_Outright_SportsMatches", "Sports_Outright");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_Outright>("BetEXData.FK_Sports_Outright_SportsMatches", "Sports_Outright", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_Outright>("BettingExchangeModel.FK_Sports_Outright_SportsMatches", "Sports_Outright", value);
                 }
             }
         }
@@ -13018,18 +14262,18 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Sports_TotalOU_SportsMatches", "Sports_TotalOU")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Sports_TotalOU_SportsMatches", "Sports_TotalOU")]
         public EntityCollection<Sports_TotalOU> Sports_TotalOU
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_TotalOU>("BetEXData.FK_Sports_TotalOU_SportsMatches", "Sports_TotalOU");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Sports_TotalOU>("BettingExchangeModel.FK_Sports_TotalOU_SportsMatches", "Sports_TotalOU");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_TotalOU>("BetEXData.FK_Sports_TotalOU_SportsMatches", "Sports_TotalOU", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Sports_TotalOU>("BettingExchangeModel.FK_Sports_TotalOU_SportsMatches", "Sports_TotalOU", value);
                 }
             }
         }
@@ -13040,7 +14284,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Statement")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Statement")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Statement : EntityObject
@@ -13558,16 +14802,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Statements_Members", "Member")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Statements_Members", "Member")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Statements_Members", "Member").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Statements_Members", "Member").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Statements_Members", "Member").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Statements_Members", "Member").Value = value;
             }
         }
         /// <summary>
@@ -13579,13 +14823,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Statements_Members", "Member");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Statements_Members", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_Statements_Members", "Member", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BettingExchangeModel.FK_Statements_Members", "Member", value);
                 }
             }
         }
@@ -13596,7 +14840,7 @@ namespace BetEx247.Data.Model
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Team")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Team")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Team : EntityObject
@@ -13744,12 +14988,53 @@ namespace BetEx247.Data.Model
 
         #endregion
     
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Team_Leagues", "SoccerLeague")]
+        public SoccerLeague SoccerLeague
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SoccerLeague> SoccerLeagueReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName="BetEXData", Name="Transaction")]
+    [EdmEntityTypeAttribute(NamespaceName="BettingExchangeModel", Name="Transaction")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
     public partial class Transaction : EntityObject
@@ -14081,16 +15366,16 @@ namespace BetEx247.Data.Model
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BetEXData", "FK_Transactions_Members", "Member")]
+        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Transactions_Members", "Member")]
         public Member Member
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Transactions_Members", "Member").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Transactions_Members", "Member").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Transactions_Members", "Member").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Transactions_Members", "Member").Value = value;
             }
         }
         /// <summary>
@@ -14102,13 +15387,13 @@ namespace BetEx247.Data.Model
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BetEXData.FK_Transactions_Members", "Member");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Member>("BettingExchangeModel.FK_Transactions_Members", "Member");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BetEXData.FK_Transactions_Members", "Member", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Member>("BettingExchangeModel.FK_Transactions_Members", "Member", value);
                 }
             }
         }

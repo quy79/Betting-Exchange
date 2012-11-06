@@ -1,4 +1,5 @@
 ﻿@using BetEx247.Data;
+@using BetEx247.Plugin.Resources;
 <div class="header_upper clearfix">
     <div class="grid_20">
         <h1 class="b_logo">
@@ -28,6 +29,11 @@
         }
     }
     <div id="userpanel" class="b_loginButtons clearfix">
+        <div class="lang-picker-wrapper">
+            <span class="lang-picker"><a class="en-us" href="javascript:void(0);">English</a> 
+            <a class="@(BetEx247.Core.Common.Utils.CultureHelper.GetNeutralCulture(Request.UserLanguages[0].ToLower()) == "es" ? Request.UserLanguages[0].ToLower() : "es")" href="javascript:void(0);">
+                Español</a> </span>
+        </div>
         <!--start_hideonlogin_UserPanel-->
         <div class="regFormTop"  @displayNotLogin>
             <ul>
@@ -37,14 +43,14 @@
                     Password?</a></li>
                 <li class="cnotlogin">
                     <label for="loginUser">
-                        Username:</label><input tabindex="1" id="LoginName" name="LoginName" type="text" style="color:Black"
-                           autocomplete="off" /></li>
+                        Username:</label><input tabindex="1" id="LoginName" name="LoginName" type="text"
+                            style="color: Black" autocomplete="off" /></li>
                 <li class="cnotlogin">
                     <label for="pswd">
-                        Password:</label><input tabindex="2" id="Password" name="Password" type="password" style="color:Black"
-                            autocomplete="off" /><input class="formsubmit" type="submit" /></li>
+                        Password:</label><input tabindex="2" id="Password" name="Password" type="password"
+                            style="color: Black" autocomplete="off" /><input class="formsubmit" type="submit" /></li>
                 <li class="cnotlogin"><a id="loginform_submit" href="javascript:void(0)" onclick="betex247.login()"
-                    class="b_button smallButton smallButtonGrey">Log In</a></li>
+                    class="b_button smallButton smallButtonGrey">@Resources.LogOn</a></li>
             </ul>
         </div>
         <div class="header-login-panel" @displayLogin>
@@ -60,7 +66,7 @@
             </p>
             <p>
                 <br />
-                <a href="javascript:void(0)" onclick="betex247.logout()">Logout</a>
+                <a href="javascript:void(0)" onclick="betex247.logout()">@Resources.LogOff</a>
             </p>
         </div>
         <!--end_hideonlogin_UserPanel-->
@@ -80,6 +86,6 @@
                 jQuery(this).blur();
                 jQuery('#loginform_submit').focus().click();
             }
-        }); 
+        });
     });
 </script>
