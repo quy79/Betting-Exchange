@@ -9,6 +9,7 @@ namespace ChilkatEmail.Utils
     {
         public static string ChilkatEmailUnlock = "ADROCKMAILQ_ZfyZ6ApxpU84";
         public static string ChilkatBounceUnlock = "ADROCKBOUNCE_GwsFyO2p8Hk6";
+        public static string EmailFrom = "ndhieuvn212@yahoo.com";
 
         public static string strSmtpHost = "localhost";
         public static string strSmtpUser = "";
@@ -17,7 +18,7 @@ namespace ChilkatEmail.Utils
         public static string bounceEmailPassword = "7PgpYnnCs7VCCOo9";
         public static int iSmtpPort = 587;
         public static int emailSentPerTime = 50;
-      //  public static string SERVER = "http://ns301845.ovh.net/OptMailMarketting";// "http://ns301845.ovh.net";
+
 
     }
 }
