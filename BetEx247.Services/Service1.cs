@@ -50,7 +50,7 @@ namespace BetEx247.Services
         {
             base.OnStart(args);
             // Sleep here for Debugging purpose
-            //Thread.Sleep(20 * 1000);
+           Thread.Sleep(20 * 1000);
             db.initConnection();
             //  while ( true)
             {
@@ -59,7 +59,7 @@ namespace BetEx247.Services
                 Thread t = new Thread(mainThread);
                 t.Start();
 
-                //SportsDataRenderManager renderMgr = new SportsDataRenderManager();
+              // SportsDataRenderManager renderMgr = new SportsDataRenderManager();
                 //List<Bet247xSport> list = renderMgr.refreshData();
                 Debug.WriteLine("OnStart:end onstart");
             }
@@ -194,13 +194,9 @@ namespace BetEx247.Services
         {
             while (true)
             {
-                try
-                {
-                    SportsDataRenderManager Mgr = new SportsDataRenderManager();
-                    Mgr.CollectInfoToSerialize();
-  
-                }
-                catch { } // In case data is not inited
+                SportsDataRenderManager Mgr = new SportsDataRenderManager();
+                Mgr.CollectInfoToSerialize();
+
                 Thread.Sleep(60 * 1000);
             }
 
