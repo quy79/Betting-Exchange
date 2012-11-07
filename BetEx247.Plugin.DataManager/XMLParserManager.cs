@@ -524,7 +524,15 @@ namespace BetEx247.Plugin.DataManager
             {
                 string folderPath = CommonHelper.CreateDirectory(Constant.PlaceFolder.BETCLICK_FOLDER, "XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
                  sFullPath = string.Format("{0}/{1}/{2}.xml", CommonHelper.getLocalPath(), folderPath, "betclick");
-                reader = new XmlTextReader(sFullPath);
+                 if (File.Exists(sFullPath))
+                 {
+                     reader = new XmlTextReader(sFullPath);
+                 }
+                 else
+                 {
+                     return null ;
+                 }
+               
             }
             catch (Exception ee)
             {

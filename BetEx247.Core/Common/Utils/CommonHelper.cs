@@ -13,6 +13,7 @@ using System.Collections.Specialized;
 using System.Xml;
 using System.IO;
 using System.Net;
+using BetEx247.Core.Common.Extensions;
 
 namespace BetEx247.Core.Common.Utils
 {
@@ -22,6 +23,36 @@ namespace BetEx247.Core.Common.Utils
     public partial class CommonHelper
     {
         #region Methods
+        public static void DefineSearchDate(string period,string startDate, string endDate, ref DateTime start, ref DateTime end)
+        {
+            if (startDate == "" && endDate == "")
+            {
+                end = DateTime.Now;
+                switch (period)
+                {
+                    case "Last48Hrs":
+                        start = end.AddHours(-48);
+                        break;
+                    case "Last7Days":
+                        start = end.AddDays(-7);
+                        break;
+                    case "Last30Days":
+                        start = end.AddDays(-30);
+                        break;
+                    case "Last3Months":
+                        start = end.AddDays(-90);
+                        break;
+                    case "Last6Months":
+                        start = end.AddDays(-180);
+                        break;
+                }
+            }
+            else
+            {
+                end = endDate.ToDateTime();
+                start = startDate.ToDateTime();
+            }
+        }
 
         /// <summary>
         /// Verifies that a string is in valid e-mail format
