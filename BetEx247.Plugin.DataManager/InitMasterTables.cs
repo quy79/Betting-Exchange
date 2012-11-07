@@ -23,6 +23,7 @@ namespace BetEx247.Plugin.DataManager
      //  public List<SoccerCountry> countries = new List<SoccerCountry>();
       // public List<SoccerLeague> leagues = new List<SoccerLeague>();
        // init Sport Table
+       public bool updateFromXML = true;
        public void InitSportTable()
        {
            String strPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
@@ -38,8 +39,10 @@ namespace BetEx247.Plugin.DataManager
                sport.ID = int.Parse( element.Attribute("id").Value);
                sport.SportName = element.Value;
                SportService sportSvr = new SportService();
-
-               sportSvr.Insert(sport.getSport());
+               if (updateFromXML)
+               {
+                   sportSvr.Insert(sport.getSport());
+               }
                sports.Add(sport);
 
            }
@@ -86,8 +89,10 @@ namespace BetEx247.Plugin.DataManager
                    Goalserve_OddsFeed = soccercountry.Goalserve_OddsFeed,
                    EntityKey = soccercountry.EntityKey
                };
-               soccerCountrySvr.Insert(soccercountry.getSoccerCountry());
-
+               if (updateFromXML)
+               {
+                   soccerCountrySvr.Insert(soccercountry.getSoccerCountry());
+               }
                //League
                IEnumerable<XElement> LeagueElements = element.XPathSelectElements("leagues");
                // 3 loop: 1 web, 2 feed, 3 betclick
@@ -133,12 +138,14 @@ namespace BetEx247.Plugin.DataManager
                }
                soccercountry.Bet247xSoccerLeagues.AddRange(_soccerLeagues);
                // Save to database
-               for (int l = 0; l < _soccerLeagues.Count;l++ )
-
+               if (updateFromXML)
                {
-                   SoccerLeagueService _soccerLeagueSvr = new SoccerLeagueService() ;
-                  
-                   _soccerLeagueSvr.Insert(_soccerLeagues[l].getSoccerLeague());
+                   for (int l = 0; l < _soccerLeagues.Count; l++)
+                   {
+                       SoccerLeagueService _soccerLeagueSvr = new SoccerLeagueService();
+
+                       _soccerLeagueSvr.Insert(_soccerLeagues[l].getSoccerLeague());
+                   }
                }
                sports[0].Bet247xSoccerCountries.Add(soccercountry);
               
@@ -160,8 +167,11 @@ namespace BetEx247.Plugin.DataManager
                MatchStatu obj = new MatchStatu();
                obj.ID = short.Parse(element.Attribute("id").Value);
                obj.Reason = element.Attribute("name").Value;
-               MatchStatusService sportSvr = new MatchStatusService();
-               sportSvr.Insert(obj);
+               if (updateFromXML)
+               {
+                   MatchStatusService sportSvr = new MatchStatusService();
+                   sportSvr.Insert(obj);
+               }
 
            }
 
@@ -181,8 +191,11 @@ namespace BetEx247.Plugin.DataManager
                BetStatu obj = new BetStatu();
                obj.ID = short.Parse(element.Attribute("id").Value);
                obj.Status = element.Attribute("name").Value;
-               BetStatusService sportSvr = new BetStatusService();
-               sportSvr.Insert(obj);
+               if (updateFromXML)
+               {
+                   BetStatusService sportSvr = new BetStatusService();
+                   sportSvr.Insert(obj);
+               }
 
            }
 
