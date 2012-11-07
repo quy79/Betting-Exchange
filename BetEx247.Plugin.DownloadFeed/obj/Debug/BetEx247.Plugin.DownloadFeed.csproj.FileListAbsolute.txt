@@ -32,3 +32,29 @@ E:\Projects\modiface\Dropbox\Betting\newcode\BetEx247.Plugin.DownloadFeed\obj\De
 E:\Projects\modiface\Dropbox\Betting\newcode\BetEx247.Plugin.DownloadFeed\obj\Debug\BetEx247.Plugin.DownloadFeed.dll
 E:\Projects\modiface\Dropbox\Betting\newcode\BetEx247.Plugin.DownloadFeed\obj\Debug\BetEx247.Plugin.DownloadFeed.pdb
 E:\Projects\modiface\Dropbox\Betting\newcode\BetEx247.Plugin.DownloadFeed\bin\Debug\ChilkatDotNet4.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Plugin.DownloadFeed.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Plugin.DownloadFeed.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Core.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.Unity.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\ChilkatDotNet4.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.Unity.Configuration.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\BetEx247.Core.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.Unity.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.xml
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.Unity.Configuration.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.xml
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.Unity.Interception.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\obj\Debug\ResolveAssemblyReference.cache
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\obj\Debug\BetEx247.Plugin.DownloadFeed.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.DownloadFeed\obj\Debug\BetEx247.Plugin.DownloadFeed.pdb
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\ChilkatDotNet4.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Plugin.DownloadFeed\bin\Debug\Microsoft.Practices.Unity.Interception.dll

@@ -13,3 +13,8 @@ E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Nettell
 E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\ResolveAssemblyReference.cache
 E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.dll
 E:\beauty\Dropbox\Betting\code\Betting-Exchange\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Payments.Netteller\bin\Debug\BetEx247.Plugin.Payments.Netteller.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Payments.Netteller\bin\Debug\BetEx247.Plugin.Payments.Netteller.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Payments.Netteller\obj\Debug\ResolveAssemblyReference.cache
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.dll
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Plugin.Payments.Netteller\obj\Debug\BetEx247.Plugin.Payments.Netteller.pdb

@@ -13,3 +13,7 @@ D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\BetEx247.Core.pdb
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\EntityFramework.xml
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.dll
 D:\Project\PN Technologies\BetEx247\BetEx247.Data\obj\Debug\BetEx247.Data.pdb
+E:\beauty\dropbox\betting\code\code 115\BetEx247.Data\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\ChilkatDotNet4.dll
+D:\Project\PN Technologies\BetEx247\BetEx247.Data\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
