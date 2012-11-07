@@ -68,8 +68,6 @@
     <Compile Include="DAL\Betting\IBettingService.cs" />
     <Compile Include="DAL\Common\CommonService.cs" />
     <Compile Include="DAL\Common\ICommonService.cs" />
-    <Compile Include="DAL\GUI\GuiService.cs" />
-    <Compile Include="DAL\GUI\IGuiService.cs" />
     <Compile Include="DAL\Payment\IPaymentService.cs">
       <SubType>Code</SubType>
     </Compile>
