@@ -6731,8 +6731,43 @@ a.cssSubmitButton:hover {
 
 
 
-
-
 .lookup-submit{float: left; position:relative; left: 10px; margin-left:10px;}
 .lookup-submit a{border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;color:#000!important;cursor:pointer;display:inline-block;width:auto;font-weight:bold;font-size:1.0em;background:url(../images/themes/overlay-button.png) repeat-x scroll #f90;text-shadow:0 -1px 1px rgba(0,0,0,0.25);border-bottom:1px solid rgba(0,0,0,0.25);padding:3px 10px;}
 .lookup-submit a:hover{background:url(../images/themes/overlay-button.png) repeat-x scroll #999;}
+
+.lang-picker-wrapper {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    z-index: 1000;
+}
+.lang-picker {
+    background: url("../images/themes/lang-picker-arrow-down.png") no-repeat scroll right top #A5D03C;
+    border-radius: 6px 6px 6px 6px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 24px;
+    line-height: 12px;
+    margin: -2px 0 0 5px;
+    overflow: hidden;
+    padding: 0 7px;
+    position: relative;
+}
+.lang-picker a {
+    border-bottom: 1px solid #98C038;
+    border-top: 1px solid #BAD836;
+    color: #FFFFFF;
+    display: block;
+    line-height: 22px;
+    padding: 0 16px 0 20px;
+    text-align: left;
+    text-decoration: none;
+}
+.lang-picker a:hover {
+    color: #003300;
+}
+.lang-picker.hover {
+    background-image: url("../images/themes/lang-picker-arrow-up.png");
+}

@@ -193,6 +193,8 @@
     <Content Include="Content\Images\themes\icon_visa.gif" />
     <Content Include="Content\Images\themes\in.png" />
     <Content Include="Content\Images\themes\jp.png" />
+    <Content Include="Content\Images\themes\lang-picker-arrow-down.png" />
+    <Content Include="Content\Images\themes\lang-picker-arrow-up.png" />
     <Content Include="Content\Images\themes\laybet_arrow.png" />
     <Content Include="Content\Images\themes\lga.png" />
     <Content Include="Content\Images\themes\lga_malta.gif" />

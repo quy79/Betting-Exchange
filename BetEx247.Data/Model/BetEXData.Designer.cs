@@ -43,10 +43,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Sports_MoneyLine_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_MoneyLine", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_MoneyLine), true)]
 [assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Sports_Outright_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_Outright", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_Outright), true)]
 [assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Sports_TotalOU_SportsMatches", "SportsMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SportsMatch), "Sports_TotalOU", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Sports_TotalOU), true)]
-[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Leagues_SoccerCountries", "SoccerCountry", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.SoccerCountry), "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerLeague), true)]
-[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Leagues_Sports", "Sport", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(BetEx247.Data.Model.Sport), "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerLeague), true)]
-[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_SoccerMatches_SoccerLeagues", "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerLeague), "SoccerMatch", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.SoccerMatch), true)]
-[assembly: EdmRelationshipAttribute("BettingExchangeModel", "FK_Team_Leagues", "SoccerLeague", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(BetEx247.Data.Model.SoccerLeague), "Team", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(BetEx247.Data.Model.Team), true)]
 
 #endregion
 
@@ -501,22 +497,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SoccerCountry> SoccerCountries
-        {
-            get
-            {
-                if ((_SoccerCountries == null))
-                {
-                    _SoccerCountries = base.CreateObjectSet<SoccerCountry>("SoccerCountries");
-                }
-                return _SoccerCountries;
-            }
-        }
-        private ObjectSet<SoccerCountry> _SoccerCountries;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<SoccerMatch> SoccerMatches
         {
             get
@@ -545,22 +525,6 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<SportLeague> _SportLeagues;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<Sport> Sports
-        {
-            get
-            {
-                if ((_Sports == null))
-                {
-                    _Sports = base.CreateObjectSet<Sport>("Sports");
-                }
-                return _Sports;
-            }
-        }
-        private ObjectSet<Sport> _Sports;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -757,6 +721,22 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<SoccerCountry> SoccerCountries
+        {
+            get
+            {
+                if ((_SoccerCountries == null))
+                {
+                    _SoccerCountries = base.CreateObjectSet<SoccerCountry>("SoccerCountries");
+                }
+                return _SoccerCountries;
+            }
+        }
+        private ObjectSet<SoccerCountry> _SoccerCountries;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<SoccerLeague> SoccerLeagues
         {
             get
@@ -769,6 +749,22 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<SoccerLeague> _SoccerLeagues;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Sport> Sports
+        {
+            get
+            {
+                if ((_Sports == null))
+                {
+                    _Sports = base.CreateObjectSet<Sport>("Sports");
+                }
+                return _Sports;
+            }
+        }
+        private ObjectSet<Sport> _Sports;
 
         #endregion
         #region AddTo Methods
@@ -974,14 +970,6 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SoccerCountries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSoccerCountries(SoccerCountry soccerCountry)
-        {
-            base.AddObject("SoccerCountries", soccerCountry);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the SoccerMatches EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToSoccerMatches(SoccerMatch soccerMatch)
@@ -995,14 +983,6 @@ namespace BetEx247.Data.Model
         public void AddToSportLeagues(SportLeague sportLeague)
         {
             base.AddObject("SportLeagues", sportLeague);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Sports EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSports(Sport sport)
-        {
-            base.AddObject("Sports", sport);
         }
     
         /// <summary>
@@ -1102,11 +1082,27 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the SoccerCountries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSoccerCountries(SoccerCountry soccerCountry)
+        {
+            base.AddObject("SoccerCountries", soccerCountry);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the SoccerLeagues EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToSoccerLeagues(SoccerLeague soccerLeague)
         {
             base.AddObject("SoccerLeagues", soccerLeague);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Sports EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSports(Sport sport)
+        {
+            base.AddObject("Sports", sport);
         }
 
         #endregion
@@ -10413,7 +10409,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Country
         {
@@ -10423,11 +10419,14 @@ namespace BetEx247.Data.Model
             }
             set
             {
-                OnCountryChanging(value);
-                ReportPropertyChanging("Country");
-                _Country = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("Country");
-                OnCountryChanged();
+                if (_Country != value)
+                {
+                    OnCountryChanging(value);
+                    ReportPropertyChanging("Country");
+                    _Country = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("Country");
+                    OnCountryChanged();
+                }
             }
         }
         private global::System.String _Country;
@@ -10532,31 +10531,6 @@ namespace BetEx247.Data.Model
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_SoccerCountries", "SoccerLeague")]
-        public EntityCollection<SoccerLeague> SoccerLeagues
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerLeague");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerLeague", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -10625,7 +10599,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 SportID
         {
@@ -10635,11 +10609,14 @@ namespace BetEx247.Data.Model
             }
             set
             {
-                OnSportIDChanging(value);
-                ReportPropertyChanging("SportID");
-                _SportID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("SportID");
-                OnSportIDChanged();
+                if (_SportID != value)
+                {
+                    OnSportIDChanging(value);
+                    ReportPropertyChanging("SportID");
+                    _SportID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("SportID");
+                    OnSportIDChanged();
+                }
             }
         }
         private global::System.Int32 _SportID;
@@ -10649,7 +10626,7 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 CountryID
         {
@@ -10659,11 +10636,14 @@ namespace BetEx247.Data.Model
             }
             set
             {
-                OnCountryIDChanging(value);
-                ReportPropertyChanging("CountryID");
-                _CountryID = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("CountryID");
-                OnCountryIDChanged();
+                if (_CountryID != value)
+                {
+                    OnCountryIDChanging(value);
+                    ReportPropertyChanging("CountryID");
+                    _CountryID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CountryID");
+                    OnCountryIDChanged();
+                }
             }
         }
         private global::System.Int32 _CountryID;
@@ -10912,129 +10892,6 @@ namespace BetEx247.Data.Model
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_SoccerCountries", "SoccerCountry")]
-        public SoccerCountry SoccerCountry
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SoccerCountry> SoccerCountryReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerCountry>("BettingExchangeModel.FK_Leagues_SoccerCountries", "SoccerCountry", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_Sports", "Sport")]
-        public Sport Sport
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Sport> SportReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Sport>("BettingExchangeModel.FK_Leagues_Sports", "Sport", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_SoccerMatches_SoccerLeagues", "SoccerMatch")]
-        public EntityCollection<SoccerMatch> SoccerMatches
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerMatch>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerMatch");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerMatch>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerMatch", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Team_Leagues", "Team")]
-        public EntityCollection<Team> Teams
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Team>("BettingExchangeModel.FK_Team_Leagues", "Team");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Team>("BettingExchangeModel.FK_Team_Leagues", "Team", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -11847,44 +11704,6 @@ namespace BetEx247.Data.Model
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_SoccerMatches_SoccerLeagues", "SoccerLeague")]
-        public SoccerLeague SoccerLeague
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SoccerLeague> SoccerLeagueReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerLeague>("BettingExchangeModel.FK_SoccerMatches_SoccerLeagues", "SoccerLeague", value);
-                }
-            }
-        }
 
         #endregion
     }
@@ -12040,31 +11859,6 @@ namespace BetEx247.Data.Model
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Leagues_Sports", "SoccerLeague")]
-        public EntityCollection<SoccerLeague> SoccerLeagues
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_Sports", "SoccerLeague");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SoccerLeague>("BettingExchangeModel.FK_Leagues_Sports", "SoccerLeague", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>
@@ -14988,47 +14782,6 @@ namespace BetEx247.Data.Model
 
         #endregion
     
-        #region Navigation Properties
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("BettingExchangeModel", "FK_Team_Leagues", "SoccerLeague")]
-        public SoccerLeague SoccerLeague
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SoccerLeague> SoccerLeagueReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SoccerLeague>("BettingExchangeModel.FK_Team_Leagues", "SoccerLeague", value);
-                }
-            }
-        }
-
-        #endregion
     }
     
     /// <summary>

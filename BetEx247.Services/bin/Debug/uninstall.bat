@@ -6,6 +6,6 @@ set PATH=%PATH%;%DOTNETFX2%
 
 echo Installing EmailServices...
 echo ---------------------------------------------------
-InstallUtil /u  E:\beauty\Dropbox\Betting\newcode\BetEx247.Services\bin\Debug\BetEx247Services.exe
+InstallUtil /u  BetEx247Services.exe
 echo ---------------------------------------------------
 echo Done.
