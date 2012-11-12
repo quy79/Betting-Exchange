@@ -29,6 +29,11 @@ namespace BetEx247.Web
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
             );
 
+            routes.MapRoute(
+                "League", // Route name
+                "{controller}/{action}/{id}/{cid}/{sid}", // URL with parameters
+                new { controller = "League", action = "Index", id = UrlParameter.Optional,cid=UrlParameter.Optional,sid=UrlParameter.Optional } // Parameter defaults
+            );
         }
 
         protected void Session_Start(object src, EventArgs e)

@@ -20,7 +20,7 @@ namespace ChilkatEmail
 
 
        }
-       private const string ChilkatEmailUnlock = "ADROCKMAILQ_ZfyZ6ApxpU84";
+      // private  string ChilkatEmailUnlock = "ADROCKMAILQ_ZfyZ6ApxpU84";
        /// <summary>
        /// SendMail is to send emails to a list of recipients; 
        ///
@@ -32,9 +32,9 @@ namespace ChilkatEmail
        /// <param name="subject"></param>
        /// <param name="body"></param>
        /// <returns></returns>
-        public bool SendEmail(String emailFrom, List<String> emailsTo, List<String> emailsCC, List<String> emailsBCC,string subject, string body)
+        public bool SendEmail( List<String> emailsTo, List<String> emailsCC, List<String> emailsBCC,string subject, string body)
         {
-            this.mailFrom = emailFrom;
+            this.mailFrom = Constants.EmailFrom;
             this.listMailTo = emailsTo;
             this.listMailCC = emailsCC;
             this.listMailBCC = emailsBCC;
@@ -44,7 +44,7 @@ namespace ChilkatEmail
            
 
             bool success;
-            success = mailman.UnlockComponent(ChilkatEmailUnlock);
+            success = mailman.UnlockComponent(Constants.ChilkatEmailUnlock );
             if (success != true) return false;
 
             Chilkat.Email email = new Chilkat.Email();
@@ -98,9 +98,9 @@ namespace ChilkatEmail
        /// <param name="subject"></param>
        /// <param name="htmlBody"></param>
        /// <returns></returns>
-        public bool SendHTMLEmail(String emailFrom, List<String> emailsTo, List<String> emailsCC, List<String> emailsBCC, string subject, string htmlBody)
+        public bool SendHTMLEmail( List<String> emailsTo, List<String> emailsCC, List<String> emailsBCC, string subject, string htmlBody)
         {
-            this.mailFrom = emailFrom;
+            this.mailFrom = Constants.EmailFrom;
             this.listMailTo = emailsTo;
             this.listMailCC = emailsCC;
             this.listMailBCC = emailsBCC;
@@ -110,7 +110,7 @@ namespace ChilkatEmail
             
 
             bool success;
-            success = mailman.UnlockComponent(ChilkatEmailUnlock);
+            success = mailman.UnlockComponent(Constants.ChilkatEmailUnlock);
             if (success != true) return false;
 
             Chilkat.Email email = new Chilkat.Email();

@@ -52,6 +52,7 @@
           <EntitySet Name="Sports_TotalOU" EntityType="BettingExchangeModel.Store.Sports_TotalOU" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SportsMatches" EntityType="BettingExchangeModel.Store.SportsMatches" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Statements" EntityType="BettingExchangeModel.Store.Statements" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="BettingExchangeModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Teams" EntityType="BettingExchangeModel.Store.Teams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Transactions" EntityType="BettingExchangeModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PSV_ALLTOURNAMENT" EntityType="BettingExchangeModel.Store.PSV_ALLTOURNAMENT" store:Type="Views" store:Schema="dbo" store:Name="PSV_ALLTOURNAMENT">
@@ -125,14 +126,6 @@
             <End Role="SoccerMatches" EntitySet="SoccerMatches" />
             <End Role="CardsInfo" EntitySet="CardsInfo" />
           </AssociationSet>
-          <AssociationSet Name="FK_Leagues_SoccerCountries" Association="BettingExchangeModel.Store.FK_Leagues_SoccerCountries">
-            <End Role="SoccerCountries" EntitySet="SoccerCountries" />
-            <End Role="SoccerLeagues" EntitySet="SoccerLeagues" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Leagues_Sports" Association="BettingExchangeModel.Store.FK_Leagues_Sports">
-            <End Role="Sports" EntitySet="Sports" />
-            <End Role="SoccerLeagues" EntitySet="SoccerLeagues" />
-          </AssociationSet>
           <AssociationSet Name="FK_LoginHistory_Members" Association="BettingExchangeModel.Store.FK_LoginHistory_Members">
             <End Role="Members" EntitySet="Members" />
             <End Role="LoginHistory" EntitySet="LoginHistory" />
@@ -205,10 +198,6 @@
             <End Role="SoccerMatches" EntitySet="SoccerMatches" />
             <End Role="Soccer_WinningMargin" EntitySet="Soccer_WinningMargin" />
           </AssociationSet>
-          <AssociationSet Name="FK_SoccerMatches_SoccerLeagues" Association="BettingExchangeModel.Store.FK_SoccerMatches_SoccerLeagues">
-            <End Role="SoccerLeagues" EntitySet="SoccerLeagues" />
-            <End Role="SoccerMatches" EntitySet="SoccerMatches" />
-          </AssociationSet>
           <AssociationSet Name="FK_Sports_AsianHandicap_SoccerMatches" Association="BettingExchangeModel.Store.FK_Sports_AsianHandicap_SoccerMatches">
             <End Role="SoccerMatches" EntitySet="SoccerMatches" />
             <End Role="Sports_AsianHandicap" EntitySet="Sports_AsianHandicap" />
@@ -228,10 +217,6 @@
           <AssociationSet Name="FK_Statements_Members" Association="BettingExchangeModel.Store.FK_Statements_Members">
             <End Role="Members" EntitySet="Members" />
             <End Role="Statements" EntitySet="Statements" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Team_Leagues" Association="BettingExchangeModel.Store.FK_Team_Leagues">
-            <End Role="SoccerLeagues" EntitySet="SoccerLeagues" />
-            <End Role="Teams" EntitySet="Teams" />
           </AssociationSet>
           <AssociationSet Name="FK_Transactions_Members" Association="BettingExchangeModel.Store.FK_Transactions_Members">
             <End Role="Members" EntitySet="Members" />
@@ -605,13 +590,15 @@
         <EntityType Name="SoccerLeagues">
           <Key>
             <PropertyRef Name="ID" />
+            <PropertyRef Name="SportID" />
+            <PropertyRef Name="CountryID" />
           </Key>
           <Property Name="ID" Type="bigint" Nullable="false" />
           <Property Name="SportID" Type="int" Nullable="false" />
           <Property Name="CountryID" Type="int" Nullable="false" />
           <Property Name="Is_Soccer" Type="bit" Nullable="false" />
           <Property Name="LeagueName_Goalserve" Type="nvarchar" Nullable="false" MaxLength="200" />
-          <Property Name="LeagueName_Betclick" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="LeagueName_Betclick" Type="nvarchar" MaxLength="200" />
           <Property Name="LeagueName_WebDisplay" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="Description" Type="ntext" />
           <Property Name="StartDate" Type="datetime" />
@@ -642,6 +629,8 @@
           <Property Name="Soccer_MatchStats_XMLFile" Type="nvarchar" MaxLength="255" />
           <Property Name="MatchStatusID" Type="smallint" />
           <Property Name="LeagueID" Type="bigint" />
+          <Property Name="SportID" Type="int" />
+          <Property Name="CountryID" Type="int" />
           <Property Name="StartDate" Type="datetime" Nullable="false" />
           <Property Name="StartTime" Type="smalldatetime" Nullable="false" />
           <Property Name="PlayET1" Type="bit" />
@@ -668,7 +657,7 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ID" Type="int" Nullable="false" />
           <Property Name="SportName" Type="nvarchar" Nullable="false" MaxLength="100" />
           <Property Name="SportName_Goalserve" Type="nvarchar" MaxLength="100" />
           <Property Name="SportName_Pinacle" Type="nvarchar" MaxLength="100" />
@@ -794,6 +783,16 @@
           <Property Name="Reason" Type="ntext" />
           <Property Name="DisplayId" Type="int" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Teams">
           <Key>
             <PropertyRef Name="ID" />
@@ -918,30 +917,6 @@
             </Principal>
             <Dependent Role="CardsInfo">
               <PropertyRef Name="MatchID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Leagues_SoccerCountries">
-          <End Role="SoccerCountries" Type="BettingExchangeModel.Store.SoccerCountries" Multiplicity="1" />
-          <End Role="SoccerLeagues" Type="BettingExchangeModel.Store.SoccerLeagues" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SoccerCountries">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SoccerLeagues">
-              <PropertyRef Name="CountryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Leagues_Sports">
-          <End Role="Sports" Type="BettingExchangeModel.Store.Sports" Multiplicity="1" />
-          <End Role="SoccerLeagues" Type="BettingExchangeModel.Store.SoccerLeagues" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sports">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SoccerLeagues">
-              <PropertyRef Name="SportID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1161,18 +1136,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_SoccerMatches_SoccerLeagues">
-          <End Role="SoccerLeagues" Type="BettingExchangeModel.Store.SoccerLeagues" Multiplicity="0..1" />
-          <End Role="SoccerMatches" Type="BettingExchangeModel.Store.SoccerMatches" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SoccerLeagues">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SoccerMatches">
-              <PropertyRef Name="LeagueID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Sports_AsianHandicap_SoccerMatches">
           <End Role="SoccerMatches" Type="BettingExchangeModel.Store.SoccerMatches" Multiplicity="0..1" />
           <End Role="Sports_AsianHandicap" Type="BettingExchangeModel.Store.Sports_AsianHandicap" Multiplicity="*" />
@@ -1233,18 +1196,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Team_Leagues">
-          <End Role="SoccerLeagues" Type="BettingExchangeModel.Store.SoccerLeagues" Multiplicity="0..1" />
-          <End Role="Teams" Type="BettingExchangeModel.Store.Teams" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SoccerLeagues">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Teams">
-              <PropertyRef Name="LeagueID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Transactions_Members">
           <End Role="Members" Type="BettingExchangeModel.Store.Members" Multiplicity="1" />
           <End Role="Transactions" Type="BettingExchangeModel.Store.Transactions" Multiplicity="*" />
@@ -1263,6 +1214,7 @@
           <Parameter Name="stake" Type="money" Mode="In" />
           <Parameter Name="odds" Type="decimal" Mode="In" />
         </Function>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="fn_MATCHEDTURNOVER" ReturnType="bigint" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="matketId" Type="bigint" Mode="In" />
           <Parameter Name="memberId" Type="bigint" Mode="In" />
@@ -1279,6 +1231,8 @@
         </Function>
         <Function Name="PSP_GETCOUNTRYBYLEAGUE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="leagueId" Type="bigint" Mode="In" />
+          <Parameter Name="cid" Type="int" Mode="In" />
+          <Parameter Name="sid" Type="int" Mode="In" />
         </Function>
         <Function Name="PSP_LIVEINPLAYMATCHES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="isSoccer" Type="bit" Mode="In" />
@@ -1306,6 +1260,14 @@
         <Function Name="PSP_UPCOMMINGMATCHES" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="isSoccer" Type="bit" Mode="In" />
           <Parameter Name="leagueId" Type="bigint" Mode="In" />
+          <Parameter Name="cid" Type="int" Mode="In" />
+          <Parameter Name="sid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
         </Function>
         <Function Name="sp_betstatusmst_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="smallint" Mode="In" />
@@ -1343,6 +1305,12 @@
           <Parameter Name="ID" Type="bigint" Mode="In" />
           <Parameter Name="Country" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
         <Function Name="sp_discountratemst_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="bigint" Mode="In" />
         </Function>
@@ -1355,8 +1323,20 @@
           <Parameter Name="Points" Type="bigint" Mode="In" />
           <Parameter Name="DiscountRate" Type="smallint" Mode="In" />
         </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
         <Function Name="sp_et_create_sps_for_table" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tblName" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_leagues_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="bigint" Mode="In" />
@@ -1667,6 +1647,11 @@
           <Parameter Name="Porfolio" Type="ntext" Mode="In" />
           <Parameter Name="ThumbnailPhoto" Type="ntext" Mode="In" />
           <Parameter Name="TeamID" Type="bigint" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_scoreinfo_delete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="bigint" Mode="In" />
@@ -2186,6 +2171,7 @@
           <Parameter Name="Status" Type="nchar" Mode="In" />
           <Parameter Name="MemberId" Type="bigint" Mode="In" />
         </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -2210,13 +2196,6 @@
           </FunctionImport>
           <FunctionImport Name="PSP_GETCOUNTLEAGUEBYCOUNTRY" EntitySet="PSV_ALLTOURNAMENT" ReturnType="Collection(BettingExchangeModel.PSV_ALLTOURNAMENT)">
           <Parameter Name="countryId" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="PSP_UPCOMMINGMATCHES" EntitySet="SoccerMatches" ReturnType="Collection(BettingExchangeModel.SoccerMatch)">
-            <Parameter Name="isSoccer" Mode="In" Type="Boolean" />
-            <Parameter Name="leagueId" Mode="In" Type="Int64" />
-          </FunctionImport>
-          <FunctionImport Name="PSP_GETCOUNTRYBYLEAGUE" EntitySet="SoccerCountries" ReturnType="Collection(BettingExchangeModel.SoccerCountry)">
-          <Parameter Name="leagueId" Mode="In" Type="Int64" />
           </FunctionImport>
           <EntitySet Name="BetStatus" EntityType="BettingExchangeModel.BetStatu" />
           <EntitySet Name="BookMakers" EntityType="BettingExchangeModel.BookMaker" />
@@ -2244,7 +2223,6 @@
           <EntitySet Name="Soccer_TotalGoalsOU" EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" />
           <EntitySet Name="Soccer_WinningMargin" EntityType="BettingExchangeModel.Soccer_WinningMargin" />
           <EntitySet Name="SoccerCountries" EntityType="BettingExchangeModel.SoccerCountry" />
-          <EntitySet Name="SoccerMatches" EntityType="BettingExchangeModel.SoccerMatch" />
           <EntitySet Name="SportLeagues" EntityType="BettingExchangeModel.SportLeague" />
           <EntitySet Name="Sports" EntityType="BettingExchangeModel.Sport" />
           <EntitySet Name="Sports_AsianHandicap" EntityType="BettingExchangeModel.Sports_AsianHandicap" />
@@ -2254,15 +2232,12 @@
           <EntitySet Name="Sports_TotalOU" EntityType="BettingExchangeModel.Sports_TotalOU" />
           <EntitySet Name="SportsMatches" EntityType="BettingExchangeModel.SportsMatch" />
           <EntitySet Name="Statements" EntityType="BettingExchangeModel.Statement" />
+          <EntitySet Name="sysdiagrams" EntityType="BettingExchangeModel.sysdiagram" />
           <EntitySet Name="Teams" EntityType="BettingExchangeModel.Team" />
           <EntitySet Name="Transactions" EntityType="BettingExchangeModel.Transaction" />
           <EntitySet Name="PSV_ALLTOURNAMENT" EntityType="BettingExchangeModel.PSV_ALLTOURNAMENT" />
           <EntitySet Name="PSV_MYBET" EntityType="BettingExchangeModel.PSV_MYBET" />
           <EntitySet Name="PSV_STATEMENTS" EntityType="BettingExchangeModel.PSV_STATEMENTS" />
-          <AssociationSet Name="FK_CardsInfo_SoccerMatches" Association="BettingExchangeModel.FK_CardsInfo_SoccerMatches">
-            <End Role="SoccerMatch" EntitySet="SoccerMatches" />
-            <End Role="CardsInfo" EntitySet="CardsInfoes" />
-          </AssociationSet>
           <AssociationSet Name="FK_LoginHistory_Members" Association="BettingExchangeModel.FK_LoginHistory_Members">
             <End Role="Member" EntitySet="Members" />
             <End Role="LoginHistory" EntitySet="LoginHistories" />
@@ -2311,6 +2286,24 @@
             <End Role="PaymentMethod" EntitySet="PaymentMethods" />
             <End Role="MyCard" EntitySet="MyCards" />
           </AssociationSet>
+          <AssociationSet Name="FK_Sports_MoneyLine_SportsMatches" Association="BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches">
+            <End Role="SportsMatch" EntitySet="SportsMatches" />
+            <End Role="Sports_MoneyLine" EntitySet="Sports_MoneyLine" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sports_Outright_SportsMatches" Association="BettingExchangeModel.FK_Sports_Outright_SportsMatches">
+            <End Role="SportsMatch" EntitySet="SportsMatches" />
+            <End Role="Sports_Outright" EntitySet="Sports_Outright" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sports_TotalOU_SportsMatches" Association="BettingExchangeModel.FK_Sports_TotalOU_SportsMatches">
+            <End Role="SportsMatch" EntitySet="SportsMatches" />
+            <End Role="Sports_TotalOU" EntitySet="Sports_TotalOU" />
+          </AssociationSet>
+          <EntitySet Name="SoccerLeagues" EntityType="BettingExchangeModel.SoccerLeague" />
+          <EntitySet Name="SoccerMatches" EntityType="BettingExchangeModel.SoccerMatch" />
+          <AssociationSet Name="FK_CardsInfo_SoccerMatches" Association="BettingExchangeModel.FK_CardsInfo_SoccerMatches">
+            <End Role="SoccerMatch" EntitySet="SoccerMatches" />
+            <End Role="CardsInfo" EntitySet="CardsInfoes" />
+          </AssociationSet>
           <AssociationSet Name="FK_ScoreInfo_SoccerMatches" Association="BettingExchangeModel.FK_ScoreInfo_SoccerMatches">
             <End Role="SoccerMatch" EntitySet="SoccerMatches" />
             <End Role="ScoreInfo" EntitySet="ScoreInfoes" />
@@ -2347,36 +2340,18 @@
             <End Role="SoccerMatch" EntitySet="SoccerMatches" />
             <End Role="Sports_AsianHandicap" EntitySet="Sports_AsianHandicap" />
           </AssociationSet>
-          <AssociationSet Name="FK_Sports_MoneyLine_SportsMatches" Association="BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches">
-            <End Role="SportsMatch" EntitySet="SportsMatches" />
-            <End Role="Sports_MoneyLine" EntitySet="Sports_MoneyLine" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sports_Outright_SportsMatches" Association="BettingExchangeModel.FK_Sports_Outright_SportsMatches">
-            <End Role="SportsMatch" EntitySet="SportsMatches" />
-            <End Role="Sports_Outright" EntitySet="Sports_Outright" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sports_TotalOU_SportsMatches" Association="BettingExchangeModel.FK_Sports_TotalOU_SportsMatches">
-            <End Role="SportsMatch" EntitySet="SportsMatches" />
-            <End Role="Sports_TotalOU" EntitySet="Sports_TotalOU" />
-          </AssociationSet>
-          <EntitySet Name="SoccerLeagues" EntityType="BettingExchangeModel.SoccerLeague" />
-          <AssociationSet Name="FK_Leagues_SoccerCountries" Association="BettingExchangeModel.FK_Leagues_SoccerCountries">
-            <End Role="SoccerCountry" EntitySet="SoccerCountries" />
-            <End Role="SoccerLeague" EntitySet="SoccerLeagues" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Leagues_Sports" Association="BettingExchangeModel.FK_Leagues_Sports">
-            <End Role="Sport" EntitySet="Sports" />
-            <End Role="SoccerLeague" EntitySet="SoccerLeagues" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SoccerMatches_SoccerLeagues" Association="BettingExchangeModel.FK_SoccerMatches_SoccerLeagues">
-            <End Role="SoccerLeague" EntitySet="SoccerLeagues" />
-            <End Role="SoccerMatch" EntitySet="SoccerMatches" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Team_Leagues" Association="BettingExchangeModel.FK_Team_Leagues">
-            <End Role="SoccerLeague" EntitySet="SoccerLeagues" />
-            <End Role="Team" EntitySet="Teams" />
-          </AssociationSet>
-        </EntityContainer>
+          <FunctionImport Name="PSP_GETCOUNTRYBYLEAGUE" EntitySet="SoccerCountries" ReturnType="Collection(BettingExchangeModel.SoccerCountry)">
+            <Parameter Name="leagueId" Mode="In" Type="Int64" />
+            <Parameter Name="cid" Mode="In" Type="Int32" />
+            <Parameter Name="sid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PSP_UPCOMMINGMATCHES" EntitySet="SoccerMatches" ReturnType="Collection(BettingExchangeModel.SoccerMatch)">
+            <Parameter Name="isSoccer" Mode="In" Type="Boolean" />
+            <Parameter Name="leagueId" Mode="In" Type="Int64" />
+            <Parameter Name="cid" Mode="In" Type="Int32" />
+            <Parameter Name="sid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          </EntityContainer>
         <EntityType Name="BetStatu">
           <Key>
             <PropertyRef Name="ID" />
@@ -2771,46 +2746,6 @@
           <Property Type="String" Name="Goalserve_LivescoreFeed" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Betclick_OddsFeed" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="International" />
-          <NavigationProperty Name="SoccerLeagues" Relationship="BettingExchangeModel.FK_Leagues_SoccerCountries" FromRole="SoccerCountry" ToRole="SoccerLeague" />
-        </EntityType>
-        <EntityType Name="SoccerMatch">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int16" Name="HomeTeam_1stHalfGoals" />
-          <Property Type="Int16" Name="AwayTeam_1stHalfGoals" />
-          <Property Type="Int16" Name="HomeTeam_2ndHalfGoals" />
-          <Property Type="Int16" Name="AwayTeam_2ndHalfGoals" />
-          <Property Type="Int16" Name="HomeTeam_ET1Goals" />
-          <Property Type="Int16" Name="AwayTeam_ET1Goals" />
-          <Property Type="Int16" Name="HomeTeam_FTGoals" />
-          <Property Type="Int16" Name="AwayTeam_FTGoals" />
-          <Property Type="Int16" Name="HomeTeam_PKGoals" />
-          <Property Type="Int16" Name="AwayTeam_PKGoals" />
-          <Property Type="Boolean" Name="WinningTeam" />
-          <Property Type="Boolean" Name="IsDraw" />
-          <Property Type="String" Name="HomeTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="AwayTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Soccer_MatchStats_XMLFile" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="Int16" Name="MatchStatusID" />
-          <Property Type="Int64" Name="LeagueID" />
-          <Property Type="DateTime" Name="StartDate" Nullable="false" />
-          <Property Type="DateTime" Name="StartTime" Nullable="false" />
-          <Property Type="Boolean" Name="PlayET1" />
-          <Property Type="Boolean" Name="PlayET2" />
-          <Property Type="Boolean" Name="PlayPK" />
-          <NavigationProperty Name="CardsInfoes" Relationship="BettingExchangeModel.FK_CardsInfo_SoccerMatches" FromRole="SoccerMatch" ToRole="CardsInfo" />
-          <NavigationProperty Name="ScoreInfoes" Relationship="BettingExchangeModel.FK_ScoreInfo_SoccerMatches" FromRole="SoccerMatch" ToRole="ScoreInfo" />
-          <NavigationProperty Name="Soccer_AsianHandicap" Relationship="BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_AsianHandicap" />
-          <NavigationProperty Name="Soccer_CorrectScores" Relationship="BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_CorrectScores" />
-          <NavigationProperty Name="Soccer_DrawNoBet" Relationship="BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_DrawNoBet" />
-          <NavigationProperty Name="Soccer_MatchOdds" Relationship="BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_MatchOdds" />
-          <NavigationProperty Name="Soccer_TotalGoalsOE" Relationship="BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_TotalGoalsOE" />
-          <NavigationProperty Name="Soccer_TotalGoalsOU" Relationship="BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_TotalGoalsOU" />
-          <NavigationProperty Name="Soccer_WinningMargin" Relationship="BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_WinningMargin" />
-          <NavigationProperty Name="Sports_AsianHandicap" Relationship="BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches" FromRole="SoccerMatch" ToRole="Sports_AsianHandicap" />
-          <NavigationProperty Name="SoccerLeague" Relationship="BettingExchangeModel.FK_SoccerMatches_SoccerLeagues" FromRole="SoccerMatch" ToRole="SoccerLeague" />
         </EntityType>
         <EntityType Name="SportLeague">
           <Key>
@@ -2829,12 +2764,11 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
           <Property Type="String" Name="SportName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="SportName_Goalserve" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="SportName_Pinacle" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="SportName_Betclick" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="SoccerLeagues" Relationship="BettingExchangeModel.FK_Leagues_Sports" FromRole="Sport" ToRole="SoccerLeague" />
         </EntityType>
         <EntityType Name="Sports_AsianHandicap">
           <Key>
@@ -2964,6 +2898,16 @@
           <Property Type="Int32" Name="DisplayId" />
           <NavigationProperty Name="Member" Relationship="BettingExchangeModel.FK_Statements_Members" FromRole="Statement" ToRole="Member" />
         </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Team">
           <Key>
             <PropertyRef Name="ID" />
@@ -2973,7 +2917,6 @@
           <Property Type="String" Name="Coach" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="Ranking" />
           <Property Type="Int64" Name="LeagueID" />
-          <NavigationProperty Name="SoccerLeague" Relationship="BettingExchangeModel.FK_Team_Leagues" FromRole="Team" ToRole="SoccerLeague" />
         </EntityType>
         <EntityType Name="Transaction">
           <Key>
@@ -3072,18 +3015,6 @@
           <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DisplayId" />
         </EntityType>
-        <Association Name="FK_CardsInfo_SoccerMatches">
-          <End Type="BettingExchangeModel.SoccerMatch" Role="SoccerMatch" Multiplicity="0..1" />
-          <End Type="BettingExchangeModel.CardsInfo" Role="CardsInfo" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SoccerMatch">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="CardsInfo">
-              <PropertyRef Name="MatchID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_LoginHistory_Members">
           <End Type="BettingExchangeModel.Member" Role="Member" Multiplicity="0..1" />
           <End Type="BettingExchangeModel.LoginHistory" Role="LoginHistory" Multiplicity="*" />
@@ -3228,6 +3159,114 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Sports_MoneyLine_SportsMatches">
+          <End Type="BettingExchangeModel.SportsMatch" Role="SportsMatch" Multiplicity="1" />
+          <End Type="BettingExchangeModel.Sports_MoneyLine" Role="Sports_MoneyLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SportsMatch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sports_MoneyLine">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sports_Outright_SportsMatches">
+          <End Type="BettingExchangeModel.SportsMatch" Role="SportsMatch" Multiplicity="1" />
+          <End Type="BettingExchangeModel.Sports_Outright" Role="Sports_Outright" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SportsMatch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sports_Outright">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sports_TotalOU_SportsMatches">
+          <End Type="BettingExchangeModel.SportsMatch" Role="SportsMatch" Multiplicity="1" />
+          <End Type="BettingExchangeModel.Sports_TotalOU" Role="Sports_TotalOU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SportsMatch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sports_TotalOU">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SoccerLeague">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SportID" />
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="SportID" Nullable="false" />
+          <Property Type="Int32" Name="CountryID" Nullable="false" />
+          <Property Type="Boolean" Name="Is_Soccer" Nullable="false" />
+          <Property Type="String" Name="LeagueName_Goalserve" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LeagueName_Betclick" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LeagueName_WebDisplay" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="String" Name="ChampionTitle" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="TotalTeams" />
+          <Property Type="Int64" Name="TotalPlayers" />
+        </EntityType>
+        <EntityType Name="SoccerMatch">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int16" Name="HomeTeam_1stHalfGoals" />
+          <Property Type="Int16" Name="AwayTeam_1stHalfGoals" />
+          <Property Type="Int16" Name="HomeTeam_2ndHalfGoals" />
+          <Property Type="Int16" Name="AwayTeam_2ndHalfGoals" />
+          <Property Type="Int16" Name="HomeTeam_ET1Goals" />
+          <Property Type="Int16" Name="AwayTeam_ET1Goals" />
+          <Property Type="Int16" Name="HomeTeam_FTGoals" />
+          <Property Type="Int16" Name="AwayTeam_FTGoals" />
+          <Property Type="Int16" Name="HomeTeam_PKGoals" />
+          <Property Type="Int16" Name="AwayTeam_PKGoals" />
+          <Property Type="Boolean" Name="WinningTeam" />
+          <Property Type="Boolean" Name="IsDraw" />
+          <Property Type="String" Name="HomeTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AwayTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Soccer_MatchStats_XMLFile" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="MatchStatusID" />
+          <Property Type="Int64" Name="LeagueID" />
+          <Property Type="Int32" Name="SportID" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+          <Property Type="Boolean" Name="PlayET1" />
+          <Property Type="Boolean" Name="PlayET2" />
+          <Property Type="Boolean" Name="PlayPK" />
+          <NavigationProperty Name="CardsInfoes" Relationship="BettingExchangeModel.FK_CardsInfo_SoccerMatches" FromRole="SoccerMatch" ToRole="CardsInfo" />
+          <NavigationProperty Name="ScoreInfoes" Relationship="BettingExchangeModel.FK_ScoreInfo_SoccerMatches" FromRole="SoccerMatch" ToRole="ScoreInfo" />
+          <NavigationProperty Name="Soccer_AsianHandicap" Relationship="BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_AsianHandicap" />
+          <NavigationProperty Name="Soccer_CorrectScores" Relationship="BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_CorrectScores" />
+          <NavigationProperty Name="Soccer_DrawNoBet" Relationship="BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_DrawNoBet" />
+          <NavigationProperty Name="Soccer_MatchOdds" Relationship="BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_MatchOdds" />
+          <NavigationProperty Name="Soccer_TotalGoalsOE" Relationship="BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_TotalGoalsOE" />
+          <NavigationProperty Name="Soccer_TotalGoalsOU" Relationship="BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_TotalGoalsOU" />
+          <NavigationProperty Name="Soccer_WinningMargin" Relationship="BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches" FromRole="SoccerMatch" ToRole="Soccer_WinningMargin" />
+          <NavigationProperty Name="Sports_AsianHandicap" Relationship="BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches" FromRole="SoccerMatch" ToRole="Sports_AsianHandicap" />
+        </EntityType>
+        <Association Name="FK_CardsInfo_SoccerMatches">
+          <End Type="BettingExchangeModel.SoccerMatch" Role="SoccerMatch" Multiplicity="0..1" />
+          <End Type="BettingExchangeModel.CardsInfo" Role="CardsInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SoccerMatch">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CardsInfo">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_ScoreInfo_SoccerMatches">
           <End Type="BettingExchangeModel.SoccerMatch" Role="SoccerMatch" Multiplicity="1" />
           <End Type="BettingExchangeModel.ScoreInfo" Role="ScoreInfo" Multiplicity="*" />
@@ -3336,112 +3375,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Sports_MoneyLine_SportsMatches">
-          <End Type="BettingExchangeModel.SportsMatch" Role="SportsMatch" Multiplicity="1" />
-          <End Type="BettingExchangeModel.Sports_MoneyLine" Role="Sports_MoneyLine" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SportsMatch">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Sports_MoneyLine">
-              <PropertyRef Name="MatchID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sports_Outright_SportsMatches">
-          <End Type="BettingExchangeModel.SportsMatch" Role="SportsMatch" Multiplicity="1" />
-          <End Type="BettingExchangeModel.Sports_Outright" Role="Sports_Outright" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SportsMatch">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Sports_Outright">
-              <PropertyRef Name="MatchID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Sports_TotalOU_SportsMatches">
-          <End Type="BettingExchangeModel.SportsMatch" Role="SportsMatch" Multiplicity="1" />
-          <End Type="BettingExchangeModel.Sports_TotalOU" Role="Sports_TotalOU" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SportsMatch">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Sports_TotalOU">
-              <PropertyRef Name="MatchID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="SoccerLeague">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" />
-          <Property Type="Int32" Name="SportID" Nullable="false" />
-          <Property Type="Int32" Name="CountryID" Nullable="false" />
-          <Property Type="Boolean" Name="Is_Soccer" Nullable="false" />
-          <Property Type="String" Name="LeagueName_Goalserve" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LeagueName_Betclick" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LeagueName_WebDisplay" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="StartDate" />
-          <Property Type="DateTime" Name="EndDate" />
-          <Property Type="String" Name="ChampionTitle" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="Int64" Name="TotalTeams" />
-          <Property Type="Int64" Name="TotalPlayers" />
-          <NavigationProperty Name="SoccerCountry" Relationship="BettingExchangeModel.FK_Leagues_SoccerCountries" FromRole="SoccerLeague" ToRole="SoccerCountry" />
-          <NavigationProperty Name="Sport" Relationship="BettingExchangeModel.FK_Leagues_Sports" FromRole="SoccerLeague" ToRole="Sport" />
-          <NavigationProperty Name="SoccerMatches" Relationship="BettingExchangeModel.FK_SoccerMatches_SoccerLeagues" FromRole="SoccerLeague" ToRole="SoccerMatch" />
-          <NavigationProperty Name="Teams" Relationship="BettingExchangeModel.FK_Team_Leagues" FromRole="SoccerLeague" ToRole="Team" />
-        </EntityType>
-        <Association Name="FK_Leagues_SoccerCountries">
-          <End Type="BettingExchangeModel.SoccerCountry" Role="SoccerCountry" Multiplicity="1" />
-          <End Type="BettingExchangeModel.SoccerLeague" Role="SoccerLeague" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SoccerCountry">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SoccerLeague">
-              <PropertyRef Name="CountryID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Leagues_Sports">
-          <End Type="BettingExchangeModel.Sport" Role="Sport" Multiplicity="1" />
-          <End Type="BettingExchangeModel.SoccerLeague" Role="SoccerLeague" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sport">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SoccerLeague">
-              <PropertyRef Name="SportID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SoccerMatches_SoccerLeagues">
-          <End Type="BettingExchangeModel.SoccerLeague" Role="SoccerLeague" Multiplicity="0..1" />
-          <End Type="BettingExchangeModel.SoccerMatch" Role="SoccerMatch" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SoccerLeague">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="SoccerMatch">
-              <PropertyRef Name="LeagueID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Team_Leagues">
-          <End Type="BettingExchangeModel.SoccerLeague" Role="SoccerLeague" Multiplicity="0..1" />
-          <End Type="BettingExchangeModel.Team" Role="Team" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SoccerLeague">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Team">
-              <PropertyRef Name="LeagueID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3453,8 +3386,6 @@
           <FunctionImportMapping FunctionImportName="PSP_SEARCHSTATEMENTPAGESIZE" FunctionName="BettingExchangeModel.Store.PSP_SEARCHSTATEMENTPAGESIZE" />
           <FunctionImportMapping FunctionImportName="PSP_LIVEINPLAYMATCHES" FunctionName="BettingExchangeModel.Store.PSP_LIVEINPLAYMATCHES" />
           <FunctionImportMapping FunctionImportName="PSP_GETCOUNTLEAGUEBYCOUNTRY" FunctionName="BettingExchangeModel.Store.PSP_GETCOUNTLEAGUEBYCOUNTRY" />
-          <FunctionImportMapping FunctionImportName="PSP_UPCOMMINGMATCHES" FunctionName="BettingExchangeModel.Store.PSP_UPCOMMINGMATCHES" />
-          <FunctionImportMapping FunctionImportName="PSP_GETCOUNTRYBYLEAGUE" FunctionName="BettingExchangeModel.Store.PSP_GETCOUNTRYBYLEAGUE" />
           <EntitySetMapping Name="BetStatus">
             <EntityTypeMapping TypeName="BettingExchangeModel.BetStatu">
               <MappingFragment StoreEntitySet="BetStatus">
@@ -3845,35 +3776,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SoccerMatches">
-            <EntityTypeMapping TypeName="BettingExchangeModel.SoccerMatch">
-              <MappingFragment StoreEntitySet="SoccerMatches">
-                <ScalarProperty Name="PlayPK" ColumnName="PlayPK" />
-                <ScalarProperty Name="PlayET2" ColumnName="PlayET2" />
-                <ScalarProperty Name="PlayET1" ColumnName="PlayET1" />
-                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="LeagueID" ColumnName="LeagueID" />
-                <ScalarProperty Name="MatchStatusID" ColumnName="MatchStatusID" />
-                <ScalarProperty Name="Soccer_MatchStats_XMLFile" ColumnName="Soccer_MatchStats_XMLFile" />
-                <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
-                <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
-                <ScalarProperty Name="IsDraw" ColumnName="IsDraw" />
-                <ScalarProperty Name="WinningTeam" ColumnName="WinningTeam" />
-                <ScalarProperty Name="AwayTeam_PKGoals" ColumnName="AwayTeam_PKGoals" />
-                <ScalarProperty Name="HomeTeam_PKGoals" ColumnName="HomeTeam_PKGoals" />
-                <ScalarProperty Name="AwayTeam_FTGoals" ColumnName="AwayTeam_FTGoals" />
-                <ScalarProperty Name="HomeTeam_FTGoals" ColumnName="HomeTeam_FTGoals" />
-                <ScalarProperty Name="AwayTeam_ET1Goals" ColumnName="AwayTeam_ET1Goals" />
-                <ScalarProperty Name="HomeTeam_ET1Goals" ColumnName="HomeTeam_ET1Goals" />
-                <ScalarProperty Name="AwayTeam_2ndHalfGoals" ColumnName="AwayTeam_2ndHalfGoals" />
-                <ScalarProperty Name="HomeTeam_2ndHalfGoals" ColumnName="HomeTeam_2ndHalfGoals" />
-                <ScalarProperty Name="AwayTeam_1stHalfGoals" ColumnName="AwayTeam_1stHalfGoals" />
-                <ScalarProperty Name="HomeTeam_1stHalfGoals" ColumnName="HomeTeam_1stHalfGoals" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SportLeagues">
             <EntityTypeMapping TypeName="BettingExchangeModel.SportLeague">
               <MappingFragment StoreEntitySet="SportLeagues">
@@ -4024,6 +3926,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BettingExchangeModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Teams">
             <EntityTypeMapping TypeName="BettingExchangeModel.Team">
               <MappingFragment StoreEntitySet="Teams">
@@ -4145,7 +4058,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="SoccerMatches">
+            <EntityTypeMapping TypeName="BettingExchangeModel.SoccerMatch">
+              <MappingFragment StoreEntitySet="SoccerMatches">
+                <ScalarProperty Name="PlayPK" ColumnName="PlayPK" />
+                <ScalarProperty Name="PlayET2" ColumnName="PlayET2" />
+                <ScalarProperty Name="PlayET1" ColumnName="PlayET1" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="LeagueID" ColumnName="LeagueID" />
+                <ScalarProperty Name="MatchStatusID" ColumnName="MatchStatusID" />
+                <ScalarProperty Name="Soccer_MatchStats_XMLFile" ColumnName="Soccer_MatchStats_XMLFile" />
+                <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+                <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+                <ScalarProperty Name="IsDraw" ColumnName="IsDraw" />
+                <ScalarProperty Name="WinningTeam" ColumnName="WinningTeam" />
+                <ScalarProperty Name="AwayTeam_PKGoals" ColumnName="AwayTeam_PKGoals" />
+                <ScalarProperty Name="HomeTeam_PKGoals" ColumnName="HomeTeam_PKGoals" />
+                <ScalarProperty Name="AwayTeam_FTGoals" ColumnName="AwayTeam_FTGoals" />
+                <ScalarProperty Name="HomeTeam_FTGoals" ColumnName="HomeTeam_FTGoals" />
+                <ScalarProperty Name="AwayTeam_ET1Goals" ColumnName="AwayTeam_ET1Goals" />
+                <ScalarProperty Name="HomeTeam_ET1Goals" ColumnName="HomeTeam_ET1Goals" />
+                <ScalarProperty Name="AwayTeam_2ndHalfGoals" ColumnName="AwayTeam_2ndHalfGoals" />
+                <ScalarProperty Name="HomeTeam_2ndHalfGoals" ColumnName="HomeTeam_2ndHalfGoals" />
+                <ScalarProperty Name="AwayTeam_1stHalfGoals" ColumnName="AwayTeam_1stHalfGoals" />
+                <ScalarProperty Name="HomeTeam_1stHalfGoals" ColumnName="HomeTeam_1stHalfGoals" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="PSP_GETCOUNTRYBYLEAGUE" FunctionName="BettingExchangeModel.Store.PSP_GETCOUNTRYBYLEAGUE" />
+          <FunctionImportMapping FunctionImportName="PSP_UPCOMMINGMATCHES" FunctionName="BettingExchangeModel.Store.PSP_UPCOMMINGMATCHES" />
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -4166,195 +4112,175 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="BetEXData">
-        <EntityTypeShape EntityType="BettingExchangeModel.BetStatu" Width="1.5" PointX="5.75" PointY="0.75" Height="1.4033821614583246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.BookMaker" Width="1.5" PointX="7.75" PointY="0.75" Height="1.4033821614583246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.CardsInfo" Width="1.5" PointX="7.5" PointY="4.25" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Country" Width="1.5" PointX="9.75" PointY="0.75" Height="1.4033821614583246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.DataControlStatu" Width="1.5" PointX="9.75" PointY="3.75" Height="1.4033821614583246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.DiscountRate" Width="1.5" PointX="9.75" PointY="6.75" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.LoginHistory" Width="1.5" PointX="9.75" PointY="37.75" Height="2.557190755208353" />
-        <EntityTypeShape EntityType="BettingExchangeModel.MatchStatu" Width="1.5" PointX="9.75" PointY="9.75" Height="1.5956835937499818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Member" Width="1.5" PointX="7.5" PointY="43.25" Height="9.0954394531249818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Message" Width="1.5" PointX="9.75" PointY="41" Height="3.710999348958353" />
-        <EntityTypeShape EntityType="BettingExchangeModel.MyBet" Width="1.5" PointX="9.75" PointY="18.875" Height="5.8263151041666674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.MyCard" Width="1.5" PointX="12.75" PointY="46.5" Height="2.7494921874999818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.MyWallet" Width="1.5" PointX="9.75" PointY="49" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.PaymentMethod" Width="1.5" PointX="10.5" PointY="30.75" Height="6.018616536458353" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Player" Width="1.5" PointX="11.75" PointY="0.75" Height="2.9417936197916674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.ScoreInfo" Width="1.5" PointX="7.5" PointY="7.125" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.ScoreTypeMST" Width="1.5" PointX="11.75" PointY="4.75" Height="1.4033821614583246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_AsianHandicap" Width="1.5" PointX="7.5" PointY="10.25" Height="3.3263964843749818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_CorrectScores" Width="1.5" PointX="7.5" PointY="14.375" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_DrawNoBet" Width="1.5" PointX="7.5" PointY="18.25" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_MatchedBets" Width="1.5" PointX="11.75" PointY="7.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_MatchOdds" Width="1.5" PointX="7.5" PointY="22.125" Height="3.134095052083353" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOE" Width="1.5" PointX="7.5" PointY="26" Height="3.3263964843749818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" Width="1.5" PointX="7.5" PointY="30" Height="3.3263964843749818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_WinningMargin" Width="1.5" PointX="7.5" PointY="34.125" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.SoccerCountry" Width="1.5" PointX="0.75" PointY="23.125" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.SoccerMatch" Width="1.5" PointX="5.25" PointY="19.125" Height="7.5570279947916674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.SportLeague" Width="1.5" PointX="11.75" PointY="11.75" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Sport" Width="1.5" PointX="0.75" PointY="19.25" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Sports_AsianHandicap" Width="1.5" PointX="7.5" PointY="38.375" Height="3.134095052083353" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Sports_MatchedBets" Width="1.5" PointX="0.75" PointY="12.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Sports_MoneyLine" Width="1.5" PointX="3" PointY="1.375" Height="3.134095052083353" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Sports_Outright" Width="1.5" PointX="3" PointY="5.25" Height="2.7494921874999818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Sports_TotalOU" Width="1.5" PointX="3" PointY="8.75" Height="3.134095052083353" />
-        <EntityTypeShape EntityType="BettingExchangeModel.SportsMatch" Width="1.5" PointX="0.75" PointY="3.875" Height="5.4417122395833237" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Statement" Width="1.5" PointX="9.75" PointY="52.125" Height="5.0571093749999818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Team" Width="1.5" PointX="5.25" PointY="42.25" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Transaction" Width="1.5" PointX="9.75" PointY="57.875" Height="3.5186979166666674" />
-        <EntityTypeShape EntityType="BettingExchangeModel.PSV_ALLTOURNAMENT" Width="1.5" PointX="2.75" PointY="12.75" Height="1.9802864583333246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.PSV_MYBET" Width="1.5" PointX="13.75" PointY="0.75" Height="6.5955208333333246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.PSV_STATEMENTS" Width="1.5" PointX="4.75" PointY="12.75" Height="5.0571093749999818" />
-        <AssociationConnector Association="BettingExchangeModel.FK_CardsInfo_SoccerMatches" >
-          <ConnectorPoint PointX="6.53125" PointY="19.125" />
-          <ConnectorPoint PointX="6.53125" PointY="5.3362939453124909" />
-          <ConnectorPoint PointX="7.5" PointY="5.3362939453124909" />
-        </AssociationConnector>
+        <EntityTypeShape EntityType="BettingExchangeModel.BetStatu" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.BookMaker" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.CardsInfo" Width="1.5" PointX="3" PointY="4.125" Height="2.1725878906249818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Country" Width="1.5" PointX="5.25" PointY="0.875" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.DataControlStatu" Width="1.5" PointX="10.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.DiscountRate" Width="1.5" PointX="10.75" PointY="3.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.LoginHistory" Width="1.5" PointX="5.25" PointY="37.625" Height="2.557190755208353" />
+        <EntityTypeShape EntityType="BettingExchangeModel.MatchStatu" Width="1.5" PointX="10.75" PointY="6.75" Height="1.5956835937499818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Member" Width="1.5" PointX="3" PointY="43.125" Height="9.0954394531249818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Message" Width="1.5" PointX="5.25" PointY="40.875" Height="3.710999348958353" />
+        <EntityTypeShape EntityType="BettingExchangeModel.MyBet" Width="1.5" PointX="5.25" PointY="18.75" Height="5.8263151041666674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.MyCard" Width="1.5" PointX="8.25" PointY="46.25" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.MyWallet" Width="1.5" PointX="5.25" PointY="48.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PaymentMethod" Width="1.5" PointX="6" PointY="30.625" Height="6.018616536458353" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Player" Width="1.5" PointX="10.75" PointY="9.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.ScoreInfo" Width="1.5" PointX="3" PointY="7" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.ScoreTypeMST" Width="1.5" PointX="12.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_AsianHandicap" Width="1.5" PointX="3" PointY="10.125" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_CorrectScores" Width="1.5" PointX="3" PointY="14.125" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_DrawNoBet" Width="1.5" PointX="3" PointY="18.125" Height="3.1340950520833246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_MatchedBets" Width="1.5" PointX="12.75" PointY="3.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_MatchOdds" Width="1.5" PointX="3" PointY="22" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOE" Width="1.5" PointX="3" PointY="25.875" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" Width="1.5" PointX="3" PointY="29.875" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_WinningMargin" Width="1.5" PointX="3" PointY="34" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.SoccerCountry" Width="1.5" PointX="5.75" PointY="12.75" Height="2.1725878906249818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.SportLeague" Width="1.5" PointX="7.75" PointY="12.75" Height="2.1725878906249818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Sport" Width="1.5" PointX="12.75" PointY="12.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Sports_AsianHandicap" Width="1.5" PointX="3" PointY="38.25" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Sports_MatchedBets" Width="1.5" PointX="9.75" PointY="13.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Sports_MoneyLine" Width="1.5" PointX="8" PointY="1.375" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Sports_Outright" Width="1.5" PointX="8" PointY="5.25" Height="2.7494921874999818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Sports_TotalOU" Width="1.5" PointX="8" PointY="8.75" Height="3.134095052083353" />
+        <EntityTypeShape EntityType="BettingExchangeModel.SportsMatch" Width="1.5" PointX="5.75" PointY="3.875" Height="5.4417122395833237" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Statement" Width="1.5" PointX="5.25" PointY="52" Height="5.0571093749999818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.sysdiagram" Width="1.5" PointX="14.75" PointY="0.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Team" Width="1.5" PointX="14.75" PointY="3.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Transaction" Width="1.5" PointX="5.25" PointY="57.75" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_ALLTOURNAMENT" Width="1.5" PointX="14.75" PointY="6.75" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_MYBET" Width="1.5" PointX="14.75" PointY="9.75" Height="6.5955208333333246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_STATEMENTS" Width="1.5" PointX="11.75" PointY="15.75" Height="5.0571093749999818" />
         <AssociationConnector Association="BettingExchangeModel.FK_LoginHistory_Members" >
-          <ConnectorPoint PointX="9" PointY="43.306537461538461" />
-          <ConnectorPoint PointX="9.53125" PointY="42.775287461538461" />
-          <ConnectorPoint PointX="9.53125" PointY="39.028595377604177" />
-          <ConnectorPoint PointX="9.75" PointY="39.028595377604177" />
+          <ConnectorPoint PointX="4.5" PointY="43.181537461538461" />
+          <ConnectorPoint PointX="5.03125" PointY="42.650287461538461" />
+          <ConnectorPoint PointX="5.03125" PointY="38.903595377604177" />
+          <ConnectorPoint PointX="5.25" PointY="38.903595377604177" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Messages_Members" >
-          <ConnectorPoint PointX="9" PointY="44.011752174479227" />
-          <ConnectorPoint PointX="9.75" PointY="44.011752174479227" />
+          <ConnectorPoint PointX="4.5" PointY="43.886752174479227" />
+          <ConnectorPoint PointX="5.25" PointY="43.886752174479227" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyBets_Members" >
-          <ConnectorPoint PointX="8.9757692307692327" PointY="43.25" />
-          <ConnectorPoint PointX="9.375" PointY="42.850769230769231" />
-          <ConnectorPoint PointX="9.375" PointY="21.788157552083334" />
-          <ConnectorPoint PointX="9.75" PointY="21.788157552083334" />
+          <ConnectorPoint PointX="4.4757692307692318" PointY="43.125" />
+          <ConnectorPoint PointX="4.875" PointY="42.725769230769231" />
+          <ConnectorPoint PointX="4.875" PointY="22.32168331510416" />
+          <ConnectorPoint PointX="5.25" PointY="22.32168331510416" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyCards_Members" >
-          <ConnectorPoint PointX="9" PointY="47.71875" />
-          <ConnectorPoint PointX="12.75" PointY="47.71875" />
+          <ConnectorPoint PointX="4.5" PointY="47.53125" />
+          <ConnectorPoint PointX="8.25" PointY="47.53125" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyWallet_Members" >
-          <ConnectorPoint PointX="9" PointY="50.182444661458334" />
-          <ConnectorPoint PointX="9.75" PointY="50.182444661458334" />
+          <ConnectorPoint PointX="4.5" PointY="50.057444661458334" />
+          <ConnectorPoint PointX="5.25" PointY="50.057444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Statements_Members" >
-          <ConnectorPoint PointX="8.25" PointY="52.345439453124982" />
-          <ConnectorPoint PointX="8.25" PointY="54.763774914062481" />
-          <ConnectorPoint PointX="8.5729191666666669" PointY="54.763774914062481" />
-          <ConnectorPoint PointX="8.7395858333333347" PointY="54.763774914062481" />
-          <ConnectorPoint PointX="9.75" PointY="54.763774914062481" />
+          <ConnectorPoint PointX="3.75" PointY="52.220439453124982" />
+          <ConnectorPoint PointX="3.75" PointY="54.638774914062481" />
+          <ConnectorPoint PointX="4.0729191666666669" PointY="54.638774914062481" />
+          <ConnectorPoint PointX="4.2395858333333329" PointY="54.638774914062481" />
+          <ConnectorPoint PointX="5.25" PointY="54.638774914062481" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Transactions_Members" >
-          <ConnectorPoint PointX="8.6562525" PointY="52.345439453124982" />
-          <ConnectorPoint PointX="8.6562525" PointY="59.634348958333334" />
-          <ConnectorPoint PointX="9.75" PointY="59.634348958333334" />
+          <ConnectorPoint PointX="4.1562525" PointY="52.220439453124982" />
+          <ConnectorPoint PointX="4.1562525" PointY="59.509348958333334" />
+          <ConnectorPoint PointX="5.25" PointY="59.509348958333334" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyBets_Soccer_AsianHandicap" >
-          <ConnectorPoint PointX="9" PointY="13.514087792067292" />
-          <ConnectorPoint PointX="9.4375" PointY="13.951587792067292" />
-          <ConnectorPoint PointX="9.4375" PointY="20.300326776041615" />
-          <ConnectorPoint PointX="9.75" PointY="20.300326776041615" />
+          <ConnectorPoint PointX="4.5" PointY="11.40625" />
+          <ConnectorPoint PointX="5.5566421875" PointY="11.40625" />
+          <ConnectorPoint PointX="5.5566421875" PointY="18.75" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyBets_Soccer_CorrectScores" >
-          <ConnectorPoint PointX="9" PointY="15.942047526041662" />
-          <ConnectorPoint PointX="9.3541666666666661" PointY="15.942047526041662" />
-          <ConnectorPoint PointX="9.5208333333333339" PointY="15.942047526041662" />
-          <ConnectorPoint PointX="10.5" PointY="15.942047526041662" />
-          <ConnectorPoint PointX="10.5" PointY="18.875" />
+          <ConnectorPoint PointX="4.5" PointY="16.12209147135416" />
+          <ConnectorPoint PointX="5.37206859375" PointY="16.12209147135416" />
+          <ConnectorPoint PointX="5.37206859375" PointY="18.75" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyBets_Soccer_DrawNoBet" >
-          <ConnectorPoint PointX="9" PointY="19.525163388020808" />
-          <ConnectorPoint PointX="9.3541666666666661" PointY="19.525163388020808" />
-          <ConnectorPoint PointX="9.5208333333333339" PointY="19.525163388020808" />
-          <ConnectorPoint PointX="9.75" PointY="19.525163388020808" />
+          <ConnectorPoint PointX="4.5" PointY="20.004547526041669" />
+          <ConnectorPoint PointX="5.25" PointY="20.004547526041669" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyBets_Soccer_TotalGoalsOU" >
-          <ConnectorPoint PointX="9" PointY="30.34375" />
-          <ConnectorPoint PointX="9.2916666666666661" PointY="30.34375" />
-          <ConnectorPoint PointX="9.4583333333333339" PointY="30.34375" />
-          <ConnectorPoint PointX="10.09375" PointY="30.34375" />
-          <ConnectorPoint PointX="10.09375" PointY="24.701315104166667" />
+          <ConnectorPoint PointX="4.5" PointY="30.21875" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="30.21875" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="30.21875" />
+          <ConnectorPoint PointX="5.59375" PointY="30.21875" />
+          <ConnectorPoint PointX="5.59375" PointY="24.576315104166667" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyCards_PaymentMethods" >
-          <ConnectorPoint PointX="11.65625" PointY="36.768616536458353" />
-          <ConnectorPoint PointX="11.65625" PointY="47.078122500000006" />
-          <ConnectorPoint PointX="12.75" PointY="47.078122500000006" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_ScoreInfo_SoccerMatches" >
-          <ConnectorPoint PointX="6.640625" PointY="19.125" />
-          <ConnectorPoint PointX="6.640625" PointY="8.3074446614583337" />
-          <ConnectorPoint PointX="7.5" PointY="8.3074446614583337" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches" >
-          <ConnectorPoint PointX="6.3906225" PointY="19.125" />
-          <ConnectorPoint PointX="6.3906225" PointY="11.46875" />
-          <ConnectorPoint PointX="6.447916666666667" PointY="11.468749999999998" />
-          <ConnectorPoint PointX="6.723958333333333" PointY="11.46875" />
-          <ConnectorPoint PointX="7.5" PointY="11.46875" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches" >
-          <ConnectorPoint PointX="6.75" PointY="19.126152846153843" />
-          <ConnectorPoint PointX="7.125" PointY="18.751152846153843" />
-          <ConnectorPoint PointX="7.125" PointY="15.942047526041662" />
-          <ConnectorPoint PointX="7.5" PointY="15.942047526041662" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches" >
-          <ConnectorPoint PointX="6.75" PointY="20.286376449118634" />
-          <ConnectorPoint PointX="7.5" PointY="20.286376449118634" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches" >
-          <ConnectorPoint PointX="6.75" PointY="23.692047526041677" />
-          <ConnectorPoint PointX="7.5" PointY="23.692047526041677" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches" >
-          <ConnectorPoint PointX="6.75" PointY="26.341013997395834" />
-          <ConnectorPoint PointX="7.5" PointY="26.341013997395834" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches" >
-          <ConnectorPoint PointX="6" PointY="26.682027994791667" />
-          <ConnectorPoint PointX="6" PointY="31.663198242187491" />
-          <ConnectorPoint PointX="6.3229191666666669" PointY="31.663198242187491" />
-          <ConnectorPoint PointX="6.4895858333333329" PointY="31.663198242187491" />
-          <ConnectorPoint PointX="7.5" PointY="31.663198242187491" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches" >
-          <ConnectorPoint PointX="6.4062525" PointY="26.682027994791667" />
-          <ConnectorPoint PointX="6.4062525" PointY="35.884348958333334" />
-          <ConnectorPoint PointX="7.5" PointY="35.884348958333334" />
-        </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches" >
-          <ConnectorPoint PointX="5.5937475" PointY="26.682027994791667" />
-          <ConnectorPoint PointX="5.5937475" PointY="39.942047526041677" />
-          <ConnectorPoint PointX="7.5" PointY="39.942047526041677" />
+          <ConnectorPoint PointX="7.15625" PointY="36.643616536458353" />
+          <ConnectorPoint PointX="7.15625" PointY="46.859372500000006" />
+          <ConnectorPoint PointX="8.25" PointY="46.859372500000006" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Sports_MoneyLine_SportsMatches" >
-          <ConnectorPoint PointX="2.25" PointY="4.1920475260416765" />
-          <ConnectorPoint PointX="3" PointY="4.1920475260416765" />
+          <ConnectorPoint PointX="7.25" PointY="4.1920475260416765" />
+          <ConnectorPoint PointX="8" PointY="4.1920475260416765" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Sports_Outright_SportsMatches" >
-          <ConnectorPoint PointX="2.25" PointY="6.6247460937499909" />
-          <ConnectorPoint PointX="3" PointY="6.6247460937499909" />
+          <ConnectorPoint PointX="7.25" PointY="6.6247460937499909" />
+          <ConnectorPoint PointX="8" PointY="6.6247460937499909" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Sports_TotalOU_SportsMatches" >
-          <ConnectorPoint PointX="2.25" PointY="9.0333561197916623" />
-          <ConnectorPoint PointX="3" PointY="9.0333561197916623" />
+          <ConnectorPoint PointX="7.25" PointY="9.0333561197916623" />
+          <ConnectorPoint PointX="8" PointY="9.0333561197916623" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="BettingExchangeModel.SoccerLeague" Width="1.5" PointX="3" PointY="20.25" Height="4.2879036458333388" />
-        <AssociationConnector Association="BettingExchangeModel.FK_Leagues_SoccerCountries" >
-          <ConnectorPoint PointX="2.25" PointY="23.831451822916669" />
-          <ConnectorPoint PointX="3" PointY="23.831451822916669" />
+        <EntityTypeShape EntityType="BettingExchangeModel.SoccerLeague" Width="1.5" PointX="17.375" PointY="0.75" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.SoccerMatch" Width="1.5" PointX="0.75" PointY="18.875" Height="7.7493294270833246" />
+        <AssociationConnector Association="BettingExchangeModel.FK_CardsInfo_SoccerMatches" >
+          <ConnectorPoint PointX="1.5" PointY="18.875" />
+          <ConnectorPoint PointX="1.5" PointY="5.2112939453125" />
+          <ConnectorPoint PointX="3" PointY="5.2112939453125" />
         </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Leagues_Sports" >
-          <ConnectorPoint PointX="2.25" PointY="20.8362939453125" />
-          <ConnectorPoint PointX="3" PointY="20.8362939453125" />
+        <AssociationConnector Association="BettingExchangeModel.FK_ScoreInfo_SoccerMatches" >
+          <ConnectorPoint PointX="1.9062525" PointY="18.875" />
+          <ConnectorPoint PointX="1.9062525" PointY="8.1824446614583337" />
+          <ConnectorPoint PointX="3" PointY="8.1824446614583337" />
         </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_SoccerMatches_SoccerLeagues" >
-          <ConnectorPoint PointX="4.5" PointY="22.393951822916669" />
-          <ConnectorPoint PointX="5.25" PointY="22.393951822916669" />
+        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_AsianHandicap_SoccerMatches" >
+          <ConnectorPoint PointX="1.0937475" PointY="18.875" />
+          <ConnectorPoint PointX="1.0937475" PointY="11.7881982421875" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="11.7881982421875" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="11.7881982421875" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="11.7881982421875" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="11.7881982421875" />
+          <ConnectorPoint PointX="3" PointY="11.7881982421875" />
         </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_Team_Leagues" >
-          <ConnectorPoint PointX="3.75" PointY="24.537903645833339" />
-          <ConnectorPoint PointX="3.75" PointY="43.3362939453125" />
-          <ConnectorPoint PointX="5.25" PointY="43.3362939453125" />
+        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_CorrectScores_SoccerMatches" >
+          <ConnectorPoint PointX="2.10937875" PointY="18.875" />
+          <ConnectorPoint PointX="2.10937875" PointY="15.692047526041668" />
+          <ConnectorPoint PointX="3" PointY="15.692047526041668" />
+        </AssociationConnector>
+        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_DrawNoBet_SoccerMatches" >
+          <ConnectorPoint PointX="2.25" PointY="20.067047526041669" />
+          <ConnectorPoint PointX="3" PointY="20.067047526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_MatchOdds_SoccerMatches" >
+          <ConnectorPoint PointX="2.25" PointY="23.567047526041669" />
+          <ConnectorPoint PointX="3" PointY="23.567047526041669" />
+        </AssociationConnector>
+        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_TotalGoalsOE_SoccerMatches" >
+          <ConnectorPoint PointX="2.25" PointY="26.249664713541662" />
+          <ConnectorPoint PointX="3" PointY="26.249664713541662" />
+        </AssociationConnector>
+        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_TotalGoalsOU_SoccerMatches" >
+          <ConnectorPoint PointX="1.5" PointY="26.624329427083325" />
+          <ConnectorPoint PointX="1.5" PointY="31.5381982421875" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="31.5381982421875" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="31.5381982421875" />
+          <ConnectorPoint PointX="3" PointY="31.5381982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="BettingExchangeModel.FK_Soccer_WinningMargin_SoccerMatches" >
+          <ConnectorPoint PointX="1.9062525" PointY="26.624329427083325" />
+          <ConnectorPoint PointX="1.9062525" PointY="35.759348958333334" />
+          <ConnectorPoint PointX="3" PointY="35.759348958333334" />
+        </AssociationConnector>
+        <AssociationConnector Association="BettingExchangeModel.FK_Sports_AsianHandicap_SoccerMatches" >
+          <ConnectorPoint PointX="1.0937475" PointY="26.624329427083325" />
+          <ConnectorPoint PointX="1.0937475" PointY="39.817047526041662" />
+          <ConnectorPoint PointX="3" PointY="39.817047526041662" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

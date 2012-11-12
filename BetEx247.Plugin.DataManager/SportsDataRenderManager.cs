@@ -50,7 +50,7 @@ namespace BetEx247.Plugin.DataManager
         {
 
             List<Bet247xSport> _sports = this.DeSerializeObject();
-            if (_sports == null)
+            if (_sports == null || _sports.Count ==0)
             {
                 SportService sportSvr = new SportService();
                 List<Sport> _sports1 = sportSvr.Sports();

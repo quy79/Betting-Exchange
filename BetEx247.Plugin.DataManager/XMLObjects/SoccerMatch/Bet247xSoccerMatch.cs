@@ -53,6 +53,8 @@ namespace BetEx247.Plugin.DataManager.XMLObjects.SoccerMatch
             obj.LeagueID = this.LeagueID;
              obj.StartDate = StartDate;
              obj.StartTime = StartTime;
+             obj.SportID = SportID;
+             obj.CountryID = CountryID;
             // obj.Sports_AsianHandicap=spo
              return obj;
          }

@@ -64,12 +64,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\Betting\BettingService.cs" />
-    <Compile Include="DAL\Betting\IBettingService.cs" />
+    <Compile Include="DAL\Betting\BettingService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Betting\IBettingService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DAL\Common\CommonService.cs" />
     <Compile Include="DAL\Common\ICommonService.cs" />
-    <Compile Include="DAL\GUI\GuiService.cs" />
-    <Compile Include="DAL\GUI\IGuiService.cs" />
+    <Compile Include="DAL\GUI\GuiService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\GUI\IGuiService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DAL\Payment\IPaymentService.cs">
       <SubType>Code</SubType>
     </Compile>

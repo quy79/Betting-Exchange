@@ -1,66 +1,112 @@
-﻿var country_list = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua &amp; Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas"
-		, "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia &amp; Herzegovina", "Botswana", "Brazil", "British Virgin Islands"
-		, "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Chad", "Chile", "China", "Colombia", "Congo", "Cook Islands", "Costa Rica"
-		, "Cote D Ivoire", "Croatia", "Cruise Ship", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea"
-		, "Estonia", "Ethiopia", "Falkland Islands", "Faroe Islands", "Fiji", "Finland", "France", "French Polynesia", "French West Indies", "Gabon", "Gambia", "Georgia", "Germany", "Ghana"
-		, "Gibraltar", "Greece", "Greenland", "Grenada", "Guam", "Guatemala", "Guernsey", "Guinea", "Guinea Bissau", "Guyana", "Haiti", "Honduras", "Hong Kong", "Hungary", "Iceland", "India"
-		, "Indonesia", "Iran", "Iraq", "Ireland", "Isle of Man", "Israel", "Italy", "Jamaica", "Japan", "Jersey", "Jordan", "Kazakhstan", "Kenya", "Kuwait", "Kyrgyz Republic", "Laos", "Latvia"
-		, "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Mauritania"
-		, "Mauritius", "Mexico", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique", "Namibia", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia"
-		, "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway", "Oman", "Pakistan", "Palestine", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal"
-		, "Puerto Rico", "Qatar", "Reunion", "Romania", "Russia", "Rwanda", "Saint Pierre &amp; Miquelon", "Samoa", "San Marino", "Satellite", "Saudi Arabia", "Senegal", "Serbia", "Seychelles"
-		, "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "South Africa", "South Korea", "Spain", "Sri Lanka", "St Kitts &amp; Nevis", "St Lucia", "St Vincent", "St. Lucia", "Sudan"
-		, "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor L'Este", "Togo", "Tonga", "Trinidad &amp; Tobago", "Tunisia"
-		, "Turkey", "Turkmenistan", "Turks &amp; Caicos", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "Uzbekistan", "Venezuela", "Vietnam", "Virgin Islands (US)"
-		, "Yemen", "Zambia", "Zimbabwe"];
-
-var national_list = "World cup,Asian cup";
+﻿var national_list = "World cup,Asian cup";
 betex247 = {
     Url: 'http://localhost:4262/',
+    tempCountryId: 0,
+    tempLeagueId: 0,
+    cache: {},
     init: function () { },
     //#region common function
     //#region Sport GUI
     getallsport: function () {
-        //        var key = "sportlist";
-        //        if (checkCookie(key)) {
-        //            var jData = $.parseJSON(getCookie(key));
-        //            var output = betex247.bindsport(jData);
-        //            $("#left_column").html(output);
-        //            //hide all league
-        //            $(".navsports").hide();
-        //            //toggle the componenet with class msg_body
-        //            $(".sport-heading").click(function () {
-        //                $(".navsports").hide();
-        //                $(this).next(".navsports").slideToggle(250);
-        //            });
+        //        //temp code
+        //        $.cookie("_iLength", null);
+        //        var iLength = $.cookie("_iLength");
+        //        var mLength = $.cookie("_mLength");  
+        //        var sb = new StringBuilder();
+        //        if (parseInt(iLength) > 0) {
+        //            if (parseInt(mLength) > 0) {
+        //                for (var i = 0; i <= parseInt(iLength); i++) {
+        //                    var ckey = "_sportdatalist" + i;
+        //                    var scValue = $.cookie(ckey);
+        //                    sb.append(scValue);
+        //                }
+        //            } else {
+        //                for (var i = 0; i <= parseInt(iLength) - 1; i++) {
+        //                    var ckey = "_sportdatalist" + i;
+        //                    var scValue = $.cookie(ckey);
+        //                    sb.append(scValue);
+        //                }
+        //            }
         //        }
+        //        if (iLength != null) {
+        //            var dataJson = $.parseJSON(sb.toString());
+        //            betex247.excutejsonData(dataJson);
+        //        }
+        //        else {
 
         $.ajax({
             type: "GET",
             url: this.Url + 'common/getAllSport', // {"content"="Hello!"}
             dataType: 'json',
+            ifModified: true,
             cache: true,
             success: function (data) {
-                //                setCookie(key, data, 1);
-                var output = betex247.bindsport(data);
-                $("#left_column").html(output);
-                //hide all league
-                $(".navsports").slideUp(500);
-                $(".navsportssub").slideUp(500);
-                //toggle the componenet with class msg_body
-                $(".sport-heading").click(function () {
-                    $(".navsports").hide();
-                    $(this).next(".navsports").slideToggle(500);
-                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-                });
+                //temp code                    
+                //                    var stringdata = betex247.stripJsonToString(data);                   
+                //                    var textlength = stringdata.length;
+                //                    var iLength = parseInt(textlength / 2000);
+                //                    var mLength = textlength % 2000;       
+                //                    $.cookie("_iLength", iLength, { expires: 1 });
+                //                    $.cookie("_mLength", mLength, { expires: 1 });   
+                //                    var text;
+                //                    if (mLength > 0) {
+                //                        for (var i = 0; i < iLength + 1; i++) {
+                //                            if (i < iLength) {
+                //                                text = stringdata.substring(i * 2000, (i + 1) * 2000);
+                //                                $.cookie("_sportdatalist" + i, text, { expires: 0.1 });
+                //                            } else {
+                //                                text = stringdata.substring(i * 2000, textlength);
+                //                                $.cookie("_sportdatalist" + i, text, { expires: 0.1 });
+                //                            }
+                //                        }
+                //                    } else {
+                //                        for (var i = 0; i < iLength; i++) {
+                //                            text = stringdata.substring(i * 2000, (i + 1) * 2000);
+                //                            $.cookie("_sportdatalist" + i, text, { expires: 0.1 });
+                //                        }
+                //                    }
 
-                $(".league-heading").click(function () {
-                    $(".navsportssub").slideUp(500);
-                    $(this).children(".navsportssub").slideToggle(500);
-                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-                });
+                betex247.excutejsonData(data);
             }
         });
+        //        }
+    },
+
+    stripJsonToString: function (json) {
+        return JSON.stringify(json);
+    },
+
+    excutejsonData: function (data) {
+        var output = betex247.bindsportnew(data);
+        $("#left_column").html(output);
+        //hide all league
+        $(".navsports").slideUp(500);
+        $(".navsportssub").slideUp(500);
+        //toggle the componenet with class msg_body
+        $(".sport-heading").click(function () {
+            $(".navsports").hide();
+            $(this).next(".navsports").slideToggle(500);
+            $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+        });
+
+        $(".league-heading").click(function () {
+            $(".navsportssub").slideUp(500);
+            $(this).children(".navsportssub").slideToggle(500);
+            $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+        });
+
+        if (betex247.tempCountryId > 0) {
+            var listactive = $(".league-heading > a");
+            for (var i = 0; i < listactive.length; i++) {
+                var temp = $(listactive[i]).attr('href');
+                var currentUrl = betex247.Url + 'league/bycountry/' + betex247.tempCountryId;
+                if (temp == currentUrl) {
+                    $(listactive[i]).closest('div').prev().trigger('click');
+                    $(listactive[i]).trigger('click');
+                }
+                //alert(temp);
+            }
+        }
     },
 
     getsport: function (id) {
@@ -79,7 +125,7 @@ betex247 = {
     myaccount: function () {
         $.ajax({
             type: "GET",
-            url: this.Url + 'common/MyAccount', 
+            url: this.Url + 'common/MyAccount',
             cache: true,
             success: function (data) {
                 $("#left_column").html(data);
@@ -152,66 +198,117 @@ betex247 = {
         for (var i = 0; i < obj.length; i++) {
             var twt = obj[i];
             //check sport name
-            if (twt.Name.length > 0) {
+            if (twt.SportName.length > 0) {
                 var listCountry = "";
                 var listNational = "";
-                var countLeague = twt.Leagues.length;
+                var countLeague = twt.Bet247xSoccerCountries.length;
                 var activeCountLeague = 0;
                 //count active league on sport
                 if (countLeague > 0) {
                     for (var j = 0; j < countLeague; j++) {
-                        var twtLeague = twt.Leagues[j];
-                        if (twtLeague.Matches != null) {
-                            activeCountLeague++;
+                        var twtLeague = twt.Bet247xSoccerCountries[j];
+                        if (twtLeague.Bet247xSoccerLeagues.length != null) {
+                            activeCountLeague += twtLeague.Bet247xSoccerLeagues.length;
                         }
                     }
                 }
                 //add sport name to list menu
-                sb.append(this.addStringSport(twt.Name, activeCountLeague));
+                sb.append(this.addStringSport(twt.SportName, activeCountLeague));
                 if (countLeague > 0) {
-                    listCountry = this.bindLeagueCountry(twt.Leagues);
-                    listNational = this.bindLeagueNational(twt.Leagues);
+                    //                    listCountry = this.bindLeagueCountry(twt.Leagues);
+                    //                    listNational = this.bindLeagueNational(twt.Leagues);
                     //add start div league
                     sb.append(this.addStringStartLeague());
                     //add National league
 
-                    sb.append(this.addStringLeague("#", "International"));
-                    if (listNational.length > 1) {
-                        for (var j = 0; j < countLeague; j++) {
+                    //                    sb.append(this.addStringLeague("#", "International"));
+                    //                    if (listNational.length > 1) {
+                    //                        for (var j = 0; j < countLeague; j++) {
+                    //                            sb.append(this.addStringStartSubLeague());
+                    //                            var twtLeague = twt.Leagues[j];
+                    //                            if (twtLeague.Matches != null && listNational.indexOf(twtLeague.Name) > -1) {
+                    //                                sb.append(this.addStringSubLeague("#", twtLeague.Name));
+                    //                            }
+                    //                            sb.append(this.addStringEndSubLeague());
+                    //                            sb.append("</li>");
+                    //                        }
+                    //                    }
+                    //add Country league
+                    for (var k = 0; k < countLeague; k++) {
+                        var Country = twt.Bet247xSoccerCountries[k];
+                        var sCountry = Country.Country;
+                        var contentLeague = Country.Bet247xSoccerLeagues.length;
+                        var urlcountry = '';
+                        var urlleague = '';
+                        if (sCountry.length > 0 && contentLeague > 0) {
+                            urlcountry = betex247.Url + 'league/bycountry/' + Country.Bet247xSoccerLeagues[0].CountryID;
+                            sb.append(this.addStringLeague(urlcountry, sCountry));
                             sb.append(this.addStringStartSubLeague());
-                            var twtLeague = twt.Leagues[j];
-                            if (twtLeague.Matches != null && listNational.indexOf(twtLeague.Name) > -1) {
-                                sb.append(this.addStringSubLeague("#", twtLeague.Name));
+                            for (var j = 0; j < contentLeague; j++) {
+                                var twtLeagueDetail = Country.Bet247xSoccerLeagues[j];
+                                if (twtLeagueDetail.LeagueName_WebDisplay != null) {
+                                    urlleague = betex247.Url + 'league/byleague/' + twtLeagueDetail.ID + "/" + twtLeagueDetail.CountryID + "/" + twtLeagueDetail.SportID;
+                                    if (twtLeagueDetail.LeagueName_WebDisplay.length > -1) {
+                                        sb.append(this.addStringSubLeague(urlleague, twtLeagueDetail.LeagueName_WebDisplay));
+                                    }
+                                }
                             }
                             sb.append(this.addStringEndSubLeague());
                             sb.append("</li>");
                         }
                     }
-                    //add Country league
-                    if (listCountry.length > 1) {
-                        var arrList = listCountry.split(',');
-                        for (var k = 0; k < arrList.length; k++) {
-                            var sCountry = arrList[k];
-                            if (sCountry.length > 0) {
-                                sb.append(this.addStringLeague("#", sCountry));
-                                sb.append(this.addStringStartSubLeague());
-                                for (var j = 0; j < countLeague; j++) {
-                                    var twtLeague = twt.Leagues[j];
-                                    if (twtLeague.Matches != null) {
-                                        if (twtLeague.Name.indexOf(sCountry) > -1) {
-                                            sb.append(this.addStringSubLeague("#", twtLeague.Name));
-                                        }
-                                    }
-                                }
-                                sb.append(this.addStringEndSubLeague());
-                                sb.append("</li>");
-                            }
-                        }
-                    }
+
                     //add end div league
                     sb.append(this.addStringEndLeague());
                 }
             }
+        }
+        return sb.toString();
+    },
+
+    bindsportnew: function (data) {
+        var sb = new StringBuilder();
+        sb.append("<div>");
+        sb.append("    <div class=\"ChooseSportsHeader\">");
+        sb.append("        <span class=\"orange\">Sports offer</span>");
+        sb.append("    </div>");
+        sb.append("</div>");
+        var obj = data;
+        var urlcountry = '';
+        var urlleague = '';
+        var countrycount = 0;
+        for (var i = 0; i < obj.length; i++) {
+            countrycount = parseInt(obj[i].sc);
+            //add sport name to list menu
+            sb.append(this.addStringSport(obj[i].sn, 0));
+            //add start div league
+            sb.append(this.addStringStartLeague());
+            for (var k = 0; k < countrycount; k++) {
+                var sCountry = obj[i].cn;
+                var contentLeague = parseInt(obj[i].cl);
+
+                if (sCountry.length > 0 && contentLeague > 0) {
+                    urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid;
+                    //add countryleague
+                    sb.append(this.addStringLeague(urlcountry, sCountry));                        
+                    //start sub league
+                    sb.append(this.addStringStartSubLeague());
+                    for (var j = 0; j < contentLeague; j++) {
+                        if (obj[i].ln != null) {
+                            urlleague = betex247.Url + 'league/byleague/' + obj[i].lId + "/" + obj[i].cid + "/" + obj[i].sid;
+                            //league
+                            sb.append(this.addStringSubLeague(urlleague, obj[i].ln));
+                        }
+                        i++;
+                    }
+                    //i--;
+                    //end subleague
+                    sb.append(this.addStringEndSubLeague());                    
+                    sb.append("</li>");
+                }
+            }               
+            //add end div league
+            sb.append(this.addStringEndLeague());
         }
         return sb.toString();
     },

@@ -33,9 +33,9 @@ namespace BetEx247.Data.DAL
 
         List<SoccerMatch> LiveInMatches(bool isSoccer);
 
-        List<SoccerMatch> UpCommingMatches(bool isSoccer, long? leagueId);
+        List<SoccerMatch> UpCommingMatches(bool isSoccer, long? leagueId, int? countryId, int? sportId);
 
-        SoccerCountry GetCountryByLeage(long leagueId);
+        SoccerCountry GetCountryByLeage(long leagueId,int countryId,int sportId);
 
         SoccerCountry GetCountryByCountry(int countryId);
 

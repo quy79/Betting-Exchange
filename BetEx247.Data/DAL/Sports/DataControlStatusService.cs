@@ -29,8 +29,9 @@ namespace BetEx247.Data.DAL.Sports
                  DataControlStatu _obj = dba.DataControlStatus.Where(w => w.ID == 1).SingleOrDefault();
                  if (_obj == null)
                  {
-                     _obj.ID = 1;
-                     dba.AddToDataControlStatus(_obj);
+                   //  _obj.ID = 1;
+                     status.ID = 1;
+                     dba.AddToDataControlStatus(status);
                      dba.SaveChanges();
                  }
                  else

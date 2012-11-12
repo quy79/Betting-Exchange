@@ -37,7 +37,7 @@
                 {
                     if (i < countRow)
                     {
-                        @Html.Raw("<tr><td width=\"33%\"><a href=\"\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td>")
+                        @Html.Raw("<tr><td width=\"33%\"><a href=\"" + Url.Content("~/league/byleague/") + @list[i].ID + "/" + @list[i].CountryID + "/" + @list[i].SportID + "\" class=\"country-league-lnk\">" + @list[i].LeagueName_WebDisplay + "(" + list[i].Total + ")</a></td>")
                     }
                     else                    
                     {
@@ -49,7 +49,7 @@
                 {
                     if (i < countRow)
                     {
-                        @Html.Raw("<td width=\"33%\"><a href=\"\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td></tr>")
+                        @Html.Raw("<td width=\"33%\"><a href=\"" + Url.Content("~/league/byleague/") + @list[i].ID + "/" + @list[i].CountryID + "/" + @list[i].SportID + "\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td></tr>")
                     }
                     else
                     {
@@ -61,7 +61,7 @@
                 {
                     if (i < countRow)
                     {
-                        @Html.Raw("<td width=\"34%\"><a href=\"\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td>")
+                        @Html.Raw("<td width=\"34%\"><a href=\"" + Url.Content("~/league/byleague/") + @list[i].ID + "/" + @list[i].CountryID + "/" + @list[i].SportID + "\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td>")
                     }
                     else
                     {

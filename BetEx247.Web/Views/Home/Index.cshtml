@@ -6,13 +6,13 @@
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/right_col.css")" media="screen" />
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/jquery-ui-slides.min.css")" media="screen" />
 <script type="text/javascript" src="@Url.Content("~/Content/Scripts/jquery/jquery-ui-slides.min.js")"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        betex247.getallsport();
+<script type="text/javascript">        
+    $(document).ready(function () {          
         $(".liverow:even").addClass("row_odd");
     });
     /*odds-commentaries slides*/
     $(function () {
+        betex247.getallsport();      
         $('#slides').slides({
             preload: true,
             preloadImage: '@Url.Content("~/Content/images/themes/loading.gif")',
@@ -54,8 +54,3 @@
     </div>
 </div>
 @Html.Partial("_RightColumn")
-<script type="text/javascript">
-    $(document).ready(function () {
-        //betex247.getsport(1);
-    });
-</script>

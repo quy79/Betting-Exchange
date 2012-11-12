@@ -37,17 +37,16 @@
         <!--start_hideonlogin_UserPanel-->
         <div class="regFormTop"  @displayNotLogin>
             <ul>
-                <li class="reg_link cnotlogin"><a href="@Url.Content("~/account/register")">Register
-                    Now!</a></li>
+                <li class="reg_link cnotlogin"><a href="@Url.Content("~/account/register")">@Resources.Register!</a></li>
                 <li class="cnotlogin"><a href="@Url.Content("~/account/forgetpassword")">Forgot Your
                     Password?</a></li>
                 <li class="cnotlogin">
                     <label for="loginUser">
-                        Username:</label><input tabindex="1" id="LoginName" name="LoginName" type="text"
+                        @Resources.ModelUsername:</label><input tabindex="1" id="LoginName" name="LoginName" type="text"
                             style="color: Black" autocomplete="off" /></li>
                 <li class="cnotlogin">
                     <label for="pswd">
-                        Password:</label><input tabindex="2" id="Password" name="Password" type="password"
+                        @Resources.ModelPassword:</label><input tabindex="2" id="Password" name="Password" type="password"
                             style="color: Black" autocomplete="off" /><input class="formsubmit" type="submit" /></li>
                 <li class="cnotlogin"><a id="loginform_submit" href="javascript:void(0)" onclick="betex247.login()"
                     class="b_button smallButton smallButtonGrey">@Resources.LogOn</a></li>

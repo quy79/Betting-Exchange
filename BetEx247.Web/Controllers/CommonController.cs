@@ -10,6 +10,7 @@ using System.Web.UI;
 using BetEx247.Data.Model;
 using BetEx247.Plugin.DataManager;
 using BetEx247.Plugin.DataManager.XMLObjects.Sport;
+using BetEx247.Core.Common.Utils;
 
 namespace BetEx247.Web.Controllers
 {
@@ -28,11 +29,13 @@ namespace BetEx247.Web.Controllers
         public JsonResult getAllSport()
         {
             renderMgr = new SportsDataRenderManager();
-            List<Bet247xSport> sportList = renderMgr.refreshData();
-
-            //List<Sport> sportList = IoC.Resolve<IGuiService>().GetAllSport();
-
-            return Json(sportList, JsonRequestBehavior.AllowGet);
+            List<Bet247xSport> sportList = renderMgr.refreshData();         
+            var test = sportList.SelectMany(a => a.Bet247xSoccerCountries.SelectMany(b=> 
+                b.Bet247xSoccerLeagues.Select(c=>
+                    new { sid = a.ID, si = a.Is_Soccer == true ? 1 : 0, sn = a.SportName,sc=a.Bet247xSoccerCountries.Count, cid = c.CountryID, cn = b.Country, ci = b.International == true ? 1 : 0, cl=b.Bet247xSoccerLeagues.Count, lId = c.ID, ln = c.LeagueName_WebDisplay }))).ToList();
+            //TimeSpan ts = new TimeSpan(0, 30, 0);
+            //CommonHelper.SetCookie("testet", test.ToString(),ts);
+            return Json(test, JsonRequestBehavior.AllowGet);
         }
 
         [OutputCache(Duration = 1800, Location = OutputCacheLocation.Client, VaryByParam = "none")]

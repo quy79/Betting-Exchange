@@ -81,17 +81,22 @@ namespace BetEx247.Plugin.DataManager
                {
                    element.SetValue("No");
                    doc.Save(Constant.SourceXML.MASTERXMLSOURCE + "\\update.xml");
-                  
+                   masterTableManager.updateFromXML = false;
                }
                else
                {
+                   masterTableManager.updateFromXML = true;
+               }
+               //If initiated then return.
+               if (masterTableManager.sports.Count>0)
+               {
+                   return;
                }
                masterTableManager.InitBetStatusTable();
                masterTableManager.InitMatchStatusTable();
                masterTableManager.InitSportTable();
                masterTableManager.InitSoccerCountryTable();
                updatedMastertable = true;
-               
            }
           
           
@@ -221,6 +226,8 @@ namespace BetEx247.Plugin.DataManager
                        SoccerLeague _tempSoccerLeague = (SoccerLeague)bet247xSoccerCountry.Bet247xSoccerLeagues[indexLeague];
                        SoccerMatch _tempSoccerMatch = _soccerMatchSvr.SoccerMatch(_tempSoccerLeague.ID, _bet247xSoccerMatch.HomeTeam, _bet247xSoccerMatch.AwayTeam, _bet247xSoccerMatch.StartDate, _bet247xSoccerMatch.StartTime);
                        _bet247xSoccerMatch.MatchStatusID = 11;// Not stated
+                       _bet247xSoccerMatch.SportID = _tempSoccerLeague.SportID;
+                       _bet247xSoccerMatch.CountryID = _tempSoccerLeague.CountryID;
                        _soccerMatchSvr.Update(_bet247xSoccerMatch.getMatch());
                        _bet247xSoccerMatch.ID = _soccerMatchSvr.SoccerMatch(_bet247xSoccerMatch.getMatch());
                        IEnumerable<XElement> _eventElements = _matchDetail.XPathSelectElements("events");
@@ -523,10 +530,14 @@ namespace BetEx247.Plugin.DataManager
             try
             {
                 string folderPath = CommonHelper.CreateDirectory(Constant.PlaceFolder.BETCLICK_FOLDER, "XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
-                 sFullPath = string.Format("{0}/{1}/{2}.xml", CommonHelper.getLocalPath(), folderPath, "betclick");
+                sFullPath = string.Format("{0}/{1}/{2}.xml", CommonHelper.getLocalPath(), folderPath, "betclick");
+                if (!File.Exists(sFullPath))
+                {
+                    return null;
+                }
                 reader = new XmlTextReader(sFullPath);
             }
-            catch (Exception ee)
+            catch 
             {
                 return null;
             }

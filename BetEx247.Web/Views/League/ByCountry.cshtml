@@ -1,5 +1,6 @@
 ﻿@{
     ViewBag.Title = "ByCountry";
+    int tempId = ViewBag.tempCountry != null ? ViewBag.tempCountry : 0;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/sports-ex.css")" media="screen" />
@@ -7,8 +8,12 @@
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/css/right_col.css")" media="screen" />  
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(function () {
         betex247.getallsport();
+    });
+    $(document).ready(function () {
+        $(".liverow:even").addClass("row_odd");
+        betex247.tempCountryId = @tempId;
     });
 </script>
 <div id="middle_column">

@@ -50,17 +50,17 @@ namespace BetEx247.Services
         {
             base.OnStart(args);
             // Sleep here for Debugging purpose
-            Thread.Sleep(20 * 1000);
+           Thread.Sleep(20 * 1000);
             db.initConnection();
             //  while ( true)
             {
                 Debug.WriteLine("OnStart: start refresh data");
 
-               // Thread t = new Thread(mainThread);
-               // t.Start();
+                Thread t = new Thread(mainThread);
+                t.Start();
 
-                SportsDataRenderManager renderMgr = new SportsDataRenderManager();
-                List<Bet247xSport> list = renderMgr.refreshData();
+              // SportsDataRenderManager renderMgr = new SportsDataRenderManager();
+                //List<Bet247xSport> list = renderMgr.refreshData();
                 Debug.WriteLine("OnStart:end onstart");
             }
         }

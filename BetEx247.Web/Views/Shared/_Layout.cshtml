@@ -132,8 +132,7 @@
             //culture change 
             $(".lang-picker a").click(function () {
                 if ($(this).hasClass(Globalize.culture().name.toLowerCase()))
-                    return false; // do nothing
-                alert($(this).attr("class"));
+                    return false; // do nothing                      
                 $.cookie("_culture", $(this).attr("class"), { expires: 365, path: '/' });
                 window.location.reload(); // reload 
 

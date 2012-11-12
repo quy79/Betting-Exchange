@@ -88,26 +88,26 @@ namespace BetEx247.Data.DAL
             }            
         }
 
-        public List<SoccerMatch> UpCommingMatches(bool isSoccer,long? leagueId)
+        public List<SoccerMatch> UpCommingMatches(bool isSoccer,long? leagueId,int? countryId,int? sportId)
         {
             using (var dba = new BetEXDataContainer())
             {
                 if (leagueId == null || leagueId == 0)
                 {
-                    return dba.PSP_UPCOMMINGMATCHES(isSoccer,0).ToList();
+                    return dba.PSP_UPCOMMINGMATCHES(isSoccer,0,0,0).ToList();
                 }
                 else
                 {
-                    return dba.PSP_UPCOMMINGMATCHES(isSoccer, leagueId).ToList();
+                    return dba.PSP_UPCOMMINGMATCHES(isSoccer, leagueId,countryId,sportId).ToList();
                 }
             }   
         }
 
-        public SoccerCountry GetCountryByLeage(long leagueId)
+        public SoccerCountry GetCountryByLeage(long leagueId,int countryId,int sportId)
         {
             using (var dba = new BetEXDataContainer())
             {
-                return dba.PSP_GETCOUNTRYBYLEAGUE(leagueId).First();
+                return dba.PSP_GETCOUNTRYBYLEAGUE(leagueId,countryId,sportId).First();
             }
         }
 
