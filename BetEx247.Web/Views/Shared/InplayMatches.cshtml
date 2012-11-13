@@ -5,6 +5,7 @@
 
 @{
     List<SoccerMatch> list = ViewBag.ListSoccerLive;
+    SoccerLeague league = ViewBag.LeagueDetail;
 }
 <div class="events-live">
     <div style="position: absolute; margin-top: 8px; padding-left: 15px">
@@ -12,7 +13,11 @@
     </div>
     <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
         color: #fff">
-        Premier League</div>
+        @{
+            if(league!=null){
+                @Html.Raw(league.LeagueName_WebDisplay)
+            }
+            }</div>
 </div>
 <div class="alt_content_live bdr_btm">
     <div class="event_wrap">

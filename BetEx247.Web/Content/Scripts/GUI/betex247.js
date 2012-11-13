@@ -7,69 +7,17 @@ betex247 = {
     init: function () { },
     //#region common function
     //#region Sport GUI
-    getallsport: function () {
-        //        //temp code
-        //        $.cookie("_iLength", null);
-        //        var iLength = $.cookie("_iLength");
-        //        var mLength = $.cookie("_mLength");  
-        //        var sb = new StringBuilder();
-        //        if (parseInt(iLength) > 0) {
-        //            if (parseInt(mLength) > 0) {
-        //                for (var i = 0; i <= parseInt(iLength); i++) {
-        //                    var ckey = "_sportdatalist" + i;
-        //                    var scValue = $.cookie(ckey);
-        //                    sb.append(scValue);
-        //                }
-        //            } else {
-        //                for (var i = 0; i <= parseInt(iLength) - 1; i++) {
-        //                    var ckey = "_sportdatalist" + i;
-        //                    var scValue = $.cookie(ckey);
-        //                    sb.append(scValue);
-        //                }
-        //            }
-        //        }
-        //        if (iLength != null) {
-        //            var dataJson = $.parseJSON(sb.toString());
-        //            betex247.excutejsonData(dataJson);
-        //        }
-        //        else {
-
+    getallsport: function () {        
         $.ajax({
             type: "GET",
             url: this.Url + 'common/getAllSport', // {"content"="Hello!"}
             dataType: 'json',
             ifModified: true,
             cache: true,
-            success: function (data) {
-                //temp code                    
-                //                    var stringdata = betex247.stripJsonToString(data);                   
-                //                    var textlength = stringdata.length;
-                //                    var iLength = parseInt(textlength / 2000);
-                //                    var mLength = textlength % 2000;       
-                //                    $.cookie("_iLength", iLength, { expires: 1 });
-                //                    $.cookie("_mLength", mLength, { expires: 1 });   
-                //                    var text;
-                //                    if (mLength > 0) {
-                //                        for (var i = 0; i < iLength + 1; i++) {
-                //                            if (i < iLength) {
-                //                                text = stringdata.substring(i * 2000, (i + 1) * 2000);
-                //                                $.cookie("_sportdatalist" + i, text, { expires: 0.1 });
-                //                            } else {
-                //                                text = stringdata.substring(i * 2000, textlength);
-                //                                $.cookie("_sportdatalist" + i, text, { expires: 0.1 });
-                //                            }
-                //                        }
-                //                    } else {
-                //                        for (var i = 0; i < iLength; i++) {
-                //                            text = stringdata.substring(i * 2000, (i + 1) * 2000);
-                //                            $.cookie("_sportdatalist" + i, text, { expires: 0.1 });
-                //                        }
-                //                    }
-
+            success: function (data) {                     
                 betex247.excutejsonData(data);
             }
         });
-        //        }
     },
 
     stripJsonToString: function (json) {
@@ -78,35 +26,35 @@ betex247 = {
 
     excutejsonData: function (data) {
         var output = betex247.bindsportnew(data);
-        $("#left_column").html(output);
+        $("div.loadoffermenu").html(output);
         //hide all league
         $(".navsports").slideUp(500);
         $(".navsportssub").slideUp(500);
         //toggle the componenet with class msg_body
         $(".sport-heading").click(function () {
-            $(".navsports").hide();
+            //$(".navsports").hide();                
             $(this).next(".navsports").slideToggle(500);
             $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
         });
 
         $(".league-heading").click(function () {
-            $(".navsportssub").slideUp(500);
-            $(this).children(".navsportssub").slideToggle(500);
+            //$(".navsportssub").slideUp(500);
+            $(this).next(".navsportssub").slideToggle(500);
             $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-        });
+        });   
 
-        if (betex247.tempCountryId > 0) {
-            var listactive = $(".league-heading > a");
-            for (var i = 0; i < listactive.length; i++) {
-                var temp = $(listactive[i]).attr('href');
-                var currentUrl = betex247.Url + 'league/bycountry/' + betex247.tempCountryId;
-                if (temp == currentUrl) {
-                    $(listactive[i]).closest('div').prev().trigger('click');
-                    $(listactive[i]).trigger('click');
-                }
-                //alert(temp);
-            }
-        }
+//        if (betex247.tempCountryId > 0) {
+//            var listactive = $(".league-heading > a");
+//            for (var i = 0; i < listactive.length; i++) {
+//                var temp = $(listactive[i]).attr('href');
+//                var currentUrl = betex247.Url + 'league/bycountry/' + betex247.tempCountryId;
+//                if (temp == currentUrl) {
+//                    $(listactive[i]).closest('div').prev().trigger('click');
+//                    $(listactive[i]).trigger('click');
+//                }
+//                //alert(temp);
+//            }
+//        }
     },
 
     getsport: function (id) {
@@ -280,7 +228,7 @@ betex247 = {
         for (var i = 0; i < obj.length; i++) {
             countrycount = parseInt(obj[i].sc);
             //add sport name to list menu
-            sb.append(this.addStringSport(obj[i].sn, 0));
+            sb.append(this.addStringSport(obj[i].sn, 187));
             //add start div league
             sb.append(this.addStringStartLeague());
             for (var k = 0; k < countrycount; k++) {
@@ -290,7 +238,7 @@ betex247 = {
                 if (sCountry.length > 0 && contentLeague > 0) {
                     urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid;
                     //add countryleague
-                    sb.append(this.addStringLeague(urlcountry, sCountry));                        
+                    sb.append(this.addStringLeague(urlcountry, sCountry));
                     //start sub league
                     sb.append(this.addStringStartSubLeague());
                     for (var j = 0; j < contentLeague; j++) {
@@ -303,10 +251,10 @@ betex247 = {
                     }
                     //i--;
                     //end subleague
-                    sb.append(this.addStringEndSubLeague());                    
+                    sb.append(this.addStringEndSubLeague());
                     sb.append("</li>");
                 }
-            }               
+            }
             //add end div league
             sb.append(this.addStringEndLeague());
         }
@@ -422,7 +370,7 @@ betex247 = {
 
     addStringLeague: function (url, leagueName) {
         var sb = new StringBuilder();
-        sb.append("        <li class=\"league-heading\"><a href=\"" + url + "\">");
+        sb.append("        <li><a  class=\"league-heading\" onclick=\"betex247.loadleague('"+url+"')\" href=\"javascript:void(0)\">");
         sb.append("            <div style=\"padding: 3px 0px 3px 8px;\">+&nbsp;<b>");
         sb.append("                " + leagueName + "</b></div>");
         //sb.append("        </a></li>");
@@ -432,7 +380,7 @@ betex247 = {
 
     addStringSubLeague: function (url, leagueName) {
         var sb = new StringBuilder();
-        sb.append("        <li><a href=\"" + url + "\">");
+        sb.append("        <li><a  onclick=\"betex247.loadleague('"+url+"')\" href=\"javascript:void(0)\">");
         sb.append("            <div style=\"padding: 3px 0px 3px 26px;\">");
         sb.append("                <i>" + leagueName + "</i></div>");
         sb.append("        </a></li>");
@@ -623,7 +571,20 @@ betex247 = {
         sb.append("                </td>");
 
         return sb.toString();
-    }
+    },
     //#endregion
     //#endregion
+
+    //#region ajax
+    loadleague: function (surl) {          
+        $.ajax({
+            type: "GET",
+            url: surl, // {"content"="Hello!"}     
+            cache: true,
+            success: function (data) {
+                $("#middle_column").html(data);
+            }
+        });        
+    },     
+    //#enregion
 }

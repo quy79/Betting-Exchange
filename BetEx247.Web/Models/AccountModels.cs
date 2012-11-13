@@ -63,13 +63,13 @@ namespace BetEx247.Web.Models
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-        public string ConfirmPassword { get; set; }             
+        public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "You must select sucurity question before continue!")]
         [Display(Name = "Security Question 1")]
         public string SecurityQuestion1 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "You must enter a sucurity answer before continue!")]
         [Display(Name = "Security Answer 1")]
         public string SecurityAnswer1 { get; set; }
                            
@@ -84,7 +84,7 @@ namespace BetEx247.Web.Models
         //public IEnumerable<SelectListItem> Currency { get; set; }
         public int Currency { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please input your first name!")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
@@ -92,25 +92,13 @@ namespace BetEx247.Web.Models
         [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please input your last name!")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         //[Required]
         //[Display(Name = "Address")]
-        //public string Address { get; set; }
-
-        //[Display(Name = "City")]
-        //public string City { get; set; }
-        //[Required]
-        //[Display(Name = "Postal Code")]
-        //public string PostalCode { get; set; }
-
-        //[Display(Name = "Telephone")]
-        //public string Telephone { get; set; }
-
-        //[Display(Name = "Cellphone")]
-        //public string Cellphone { get; set; }
+        //public string Address { get; set; }     
 
         //[Required]
         //[Display(Name = "Country")]
@@ -118,7 +106,7 @@ namespace BetEx247.Web.Models
 
         public int Country { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "You must enter a your email address!")]
         [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -139,13 +127,7 @@ namespace BetEx247.Web.Models
      
         [Display(Name = "Suffix")]
         public string Suffix { get; set; }
-
-        //[Display(Name = "Betting Region")]
-        //public string BettingRegion { get; set; } 
-    
-        //[Display(Name = "Timezone")]
-        //public string Timezone { get; set; }
-
+                                                
         [Required(ErrorMessage = "You must enter your birthday!")]
         [DataType(DataType.Date)]
         [Display(Name = "Date of birth")]

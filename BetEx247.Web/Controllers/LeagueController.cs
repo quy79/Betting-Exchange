@@ -29,14 +29,13 @@ namespace BetEx247.Web.Controllers
                 SoccerCountry country = IoC.Resolve<IGuiService>().GetCountryByLeage(id.Value,cid.Value,sid.Value);
                 ViewBag.SoccerCountries = country;
                 ViewBag.AllTournaments = IoC.Resolve<IGuiService>().GetTournamentByCountry(country.ID);
-                ViewBag.tempCountry = country.ID;
+                ViewBag.LeagueDetail = IoC.Resolve<IGuiService>().GetSoccerLeague(id.Value, cid.Value, sid.Value); 
             }
             return View();
         }
 
         public ActionResult ByCountry(int? id)
-        {
-            ViewBag.tempCountry = id;
+        {                               
             ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true);
             ViewBag.ListSoccerComming = IoC.Resolve<IGuiService>().UpCommingMatches(true, id,0,0);
             if (id != null)

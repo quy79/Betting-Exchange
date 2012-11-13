@@ -40,6 +40,8 @@ namespace BetEx247.Data.DAL
         SoccerCountry GetCountryByCountry(int countryId);
 
         List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId);
+
+        SoccerLeague GetSoccerLeague(long leagueId, int countryId, int sportId);
         #endregion
     }
 }

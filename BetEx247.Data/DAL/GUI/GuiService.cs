@@ -126,6 +126,14 @@ namespace BetEx247.Data.DAL
                 return dba.PSP_GETCOUNTLEAGUEBYCOUNTRY(countryId).ToList();
             }
         }
+
+        public SoccerLeague GetSoccerLeague(long leagueId, int countryId, int sportId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.SoccerLeagues.Where(w => w.ID == leagueId && w.CountryID == countryId && w.SportID == sportId).SingleOrDefault();
+            }
+        }
         #endregion
     }
 }
