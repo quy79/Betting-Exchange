@@ -1,59 +1,214 @@
-﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
+﻿@using BetEx247.Data.Model;
 
+@model List<PSV_MYBET>
 @{
     ViewBag.Title = "VoidBets";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
-
-<h2>VoidBets</h2>
-
-
-<table width="70%">
-    <tr>        
-        <th>
-            Date
-        </th>              
-        <th>
-            Bet ID
-        </th>
-        <th>
-            Market
-        </th>        
-        <th>
-            Entrant
-        </th>        
-        <th>
-            B/L
-        </th>          
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SubmitedTime)
-        </td> 
-        <td>
-            @Html.DisplayFor(modelItem => item.BetId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SportName+" - "+item.LeagueName)
-        </td>                   
-        <td>
-           @Html.DisplayFor(modelItem=>item.Entrant) 
-        </td>          
-        <td>
-            @{
-                if (item.BL != null && item.BL.Value)
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
+<link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
+<div class="clearfix">
+    <h1 class="sports_header1">
+        MY ACCOUNT</h1>
+    <div class="create-account-box">
+        <div class="account-box-title">
+            Void Bets
+        </div>
+        <div class="account-box-filter AccountRegForm">
+            <table id="filter-tbl">
+                <tr>
+                    <td class="col1">
+                        Date placed
+                    </td>
+                    <td class="col2">
+                        <table>
+                            <tr>
+                                <td align="right" width="1%" style="padding: 0px 0px;">
+                                    <input type="radio" name="DateFilter" value="1" checked style="border: 0px !important;" />
+                                </td>
+                                <td align="left" width="99%" style="padding: 0px 0px;">
+                                    <select name="ByPeriod" id="ByPeriod" style="border: 1px solid black; font-size: 0.9em;">
+                                        <option value="24h">Last 24 hours</option>
+                                        <option value="48h">Last 48 hours</option>
+                                        <option value="7d">Last 7 days</option>
+                                        <option value="30d">Last 30 days</option>
+                                        <option value="3m">Last 3 months</option>
+                                        <option value="6m">Last 6 months</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right" width="1%" style="padding: 0px 0px; margin: 0 auto;">
+                                    <input type="radio" name="DateFilter" value="2" style="border: 0px !important;" />
+                                </td>
+                                <td align="left" width="99%" style="padding: 0px 0px; margin: 0 auto;">
+                                    <input id="date1" type="text" class="text-input-date" />&nbsp;&nbsp;<input id="date2"
+                                        type="text" class="text-input-date" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="col3" align="left">
+                        <table>
+                            <tr>
+                                <td align="left" style="padding: 0px 0px;">
+                                    Bet Category
+                                </td>
+                                <td align="left" style="padding: 0px 0px;">
+                                    <select name="BetCategory" id="BetCategory" style="width: 150px; border: 1px solid black;
+                                        font-size: 0.9em;">
+                                        <option value="0" selected>All</option>
+                                        <option value="1">Soccer</option>
+                                        <option value="4">Baseball</option>
+                                        <option value="6">Tennis</option>
+                                        <option value="11">Horse Race</option>
+                                        <option value="2">American Football</option>
+                                        <option value="10">Cricket</option>
+                                        <option value="5">Hockey</option>
+                                        <option value="9">Handball</option>
+                                        <option value="12">Volleyball</option>
+                                        <option value="8">Rugby League</option>
+                                        <option value="7">Rugby Union</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="col4" align="left">
+                        <table>
+                            <tr>
+                                <td align="left" style="padding: 0px 0px;">
+                                    <span class="lookup-submit"><a href="/" id="lookuplink" onclick="document.forms[0].submit(); return false;">
+                                        Show records</a>
+                                        <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display: none">
+                                            Show records</button></span>
+                                </td>
+                                <td align="left" style="padding: 0px 0px;">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="account-box-result-heading">
+            <div class="dvFilterTitle">
+                Show &nbsp;
+                <select name="rowspage">
+                    <option value="20" selected>20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                records / page
+            </div>
+            <div class="PgCounter">
+                Page 1/12 <span class="paging">1</span> <a title="201 - 400" href="javascript:{}"
+                    onclick="load_pg(24780,200,2)">2</a> <a title="401 - 600" href="javascript:{}" onclick="load_pg(24780,200,3)">
+                        3</a> <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,4)">4</a>
+                <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,11)">11</a>
+                <a title="201 - 400" href="javascript:{}" onclick="load_pg(24780,200,2)">»</a> <a
+                    title="24600 - 24780" href="javascript:{}" onclick="load_pg(24780,200,124)">».</a>
+            </div>
+        </div>
+        <!--DIV COMMISSION-->
+        <div id="dv-commission" style="clear: both; position: relative;">
+            <table class="gridtable">
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Match / Event
+                    </th>
+                    <th>
+                        Market
+                    </th>
+                    <th>
+                        B/L
+                    </th>
+                    <th>
+                        Stake
+                    </th>
+                    <th>
+                        Odds
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+                @foreach (var item in Model)
                 {
-                    @Html.Raw("Bet")
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BetId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MarketID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+                        </td>                         
+                        <td>
+                            @{
+                            if (item.BL != null && item.BL.Value)
+                            {
+                                @Html.Raw("Bet")
+                            }
+                            else
+                            {
+                                @Html.Raw("Lay")
+                            }
+                            }
+                        </td>
+                         <td>
+                            @Html.DisplayFor(modelItem => item.Stake)
+                        </td>
+                         <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                         <td>
+                            @Html.DisplayFor(modelItem => item.BetStatusID)
+                        </td>
+                    </tr>
                 }
-                else
-                {
-                    @Html.Raw("Lay")
-                }
-            }        
-        </td>                      
-    </tr>
-}
-
-</table>
+                <tr>
+                    <td>
+                        2012-10-30
+                    </td>
+                    <td>
+                        e72da32
+                    </td>
+                    <td>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000;">
+                            Oct 19, 2012 17:30</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000; font-weight: bold;">
+                            Manchester Utd v Chelsea</div>
+                    </td>
+                    <td>
+                        Total goals Over 2/2.5 (First Half)
+                    </td>
+                    <td>
+                        B
+                    </td>
+                    <td>
+                        100.00
+                    </td>
+                    <td>
+                        1.87
+                    </td>
+                    <td>
+                        <span class="cancelled">Void</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

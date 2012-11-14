@@ -1,70 +1,155 @@
 ﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
 @{
     ViewBag.Title = "UnsettledBets";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
-<h2>
-    UnsettledBets</h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table width="70%">
-    <tr>
-        <th>
-            Date
-        </th>
-        <th>
-            Bet ID
-        </th>
-        <th>
-            Market
-        </th>
-        <th>
-            Entrant
-        </th>
-        <th>
-            B/L
-        </th>        
-        <th>
-            Stake
-        </th>  
-        <th>
-            Odds
-        </th>        
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubmitedTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BetId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Entrant)
-            </td>
-            <td>
-                @{
-                    if (item.BL!=null && item.BL.Value)
-                    {
-                        @Html.Raw("Bet")
-                    }
-                    else
-                    {
-                        @Html.Raw("Lay")
-                    }
-                }                       
-            </td>               
-            <td>
-                @Html.DisplayFor(modelItem => item.Stake)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>               
-        </tr>
-    }
-</table>
+<div class="clearfix">
+    <h1 class="sports_header1">
+        MY ACCOUNT</h1>
+    <div class="create-account-box">
+        <div class="account-box-title">
+            Unmatched Bets
+        </div>
+        <!--DIV EXPOSURE-->
+        <div id="dv-exposure" style="clear: both; position: relative;">
+            <table class="gridtable">
+                <tr>
+                    <th width="10%">
+                        Date
+                    </th>
+                    <th width="5%">
+                        ID
+                    </th>
+                    <th width="20%">
+                        Match / Event
+                    </th>
+                    <th width="20%">
+                        Market
+                    </th>
+                    <th width="3%">
+                        B/L
+                    </th>
+                    <th width="8%">
+                        Stake
+                    </th>
+                    <th width="8%">
+                        Odds
+                    </th>
+                    <th width="26%">
+                        Status
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BetId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MarketID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+                        </td>                        
+                        <td>
+                            @{
+                            if (item.BL != null && item.BL.Value)
+                            {
+                                @Html.Raw("Bet")
+                            }
+                            else
+                            {
+                                @Html.Raw("Lay")
+                            }
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stake)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsWon)
+                        </td>
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        2012-10-30 17:35
+                    </td>
+                    <td>
+                        2983472349
+                    </td>
+                    <td>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000;">
+                            Oct 19, 2012 17:30</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000; font-weight: bold;">
+                            Manchester Utd v Chelsea</div>
+                    </td>
+                    <td>
+                        Total goals Over 2/2.5 (First Half)
+                    </td>
+                    <td>
+                        B
+                    </td>
+                    <td>
+                        50.00
+                    </td>
+                    <td>
+                        1.87
+                    </td>
+                    <td>
+                        <div class="actions">
+                            Matched ! (wait for settlement)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        2012-11-01 15:07
+                    </td>
+                    <td>
+                        23423424993
+                    </td>
+                    <td>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000;">
+                            Nov 1, 2012 14:21</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000; font-weight: bold;">
+                            Jubilo Iwata fc v Cerezo Osaka FC</div>
+                    </td>
+                    <td>
+                        Jubilo Iwata fc v Cerezo Osaka FC: CRS 2-0 (FT)
+                    </td>
+                    <td>
+                        B
+                    </td>
+                    <td>
+                        70.00
+                    </td>
+                    <td>
+                        2.15
+                    </td>
+                    <td>
+                        <div class="actions">
+                            <div class="actions">
+                                Matched ! (wait for settlement)
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="dv-exposuretotal" style="clear: both; position: relative; text-align: right;
+            font-weight: bold; padding-right: 10px; padding-top: 10px; padding-bottom: 15px;
+            background-color: #fff; color: #000;">
+        </div>
+    </div>
+</div>

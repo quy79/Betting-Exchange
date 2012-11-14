@@ -1,75 +1,52 @@
 ﻿@using System.Collections;
 @using BetEx247.Data.Model;
 @using System.Data;
-
 @{
     SoccerCountry country = ViewBag.SoccerCountries;
     List<PSV_ALLTOURNAMENT> list = ViewBag.AllTournaments;
 }
-
 <div id="coupon-container" class="clearfix">
     <div class="coupon-title">
         <h3 class="sports">
             @{
                 if (country != null)
                 {
-                    @Html.Raw(country.Country.ToUpper() + "'S ALL TOURNAMENTS")
+                @Html.Raw(country.Country.ToUpper() + "'S ALL TOURNAMENTS")
                 }
                 else
                 {
-                    @Html.Raw("ALL TOURNAMENTS")
+                @Html.Raw("ALL TOURNAMENTS")
                 }
             }
-        </h3>    
+        </h3>
     </div>
     <div class="leagues-box">
         <table width="100%">
-        @{
-            int tempRow = 0;
-            bool start = true;
-            int countRow = list.Count;
-            int totalRow = list.Count % 3 > 0 ? list.Count + (3 - list.Count) : list.Count;
+            @{                            
+                int countRow = list.Count;
+                int totalRow = list.Count % 3 > 0 ? list.Count / 3 + 1 : list.Count / 3;
 
-            for (int i = 0; i < totalRow; i++)
-            {
-                tempRow = i % 3;
-                if (tempRow == 0 && start)
+                for (int i = 0; i < totalRow; i++)
                 {
-                    if (i < countRow)
-                    {
-                        @Html.Raw("<tr><td width=\"33%\"><a href=\"" + Url.Content("~/league/byleague/") + @list[i].ID + "/" + @list[i].CountryID + "/" + @list[i].SportID + "\" class=\"country-league-lnk\">" + @list[i].LeagueName_WebDisplay + "(" + list[i].Total + ")</a></td>")
-                    }
-                    else                    
-                    {
-                        @Html.Raw("<tr><td width=\"33%\"></td>")
-                    }
-                    start = false;
-                }
-                else if (tempRow == 0 && !start)
-                {
-                    if (i < countRow)
-                    {
-                        @Html.Raw("<td width=\"33%\"><a href=\"" + Url.Content("~/league/byleague/") + @list[i].ID + "/" + @list[i].CountryID + "/" + @list[i].SportID + "\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td></tr>")
-                    }
-                    else
-                    {
-                        @Html.Raw("<tr><td width=\"33%\"></td>")
-                    }
-                    start = true;
-                }
-                else
-                {
-                    if (i < countRow)
-                    {
-                        @Html.Raw("<td width=\"34%\"><a href=\"" + Url.Content("~/league/byleague/") + @list[i].ID + "/" + @list[i].CountryID + "/" + @list[i].SportID + "\" class=\"country-league-lnk\">" +@list[i].LeagueName_WebDisplay+"("+list[i].Total+")</a></td>")
-                    }
-                    else
-                    {
-                        @Html.Raw("<td width=\"34%\"></td>")
-                    }
-                }
+                    string value1 = i * 3 < countRow ? list[(i * 3)].LeagueName_WebDisplay + "(" + list[(i * 3)].Total + ")" : "";
+                    string value2 = (i * 3) + 1 < countRow ? list[(i * 3) + 1].LeagueName_WebDisplay + "(" + list[(i * 3) + 1].Total + ")" : "";
+                    string value3 = (i * 3) + 2 < countRow ? list[(i * 3) + 2].LeagueName_WebDisplay + "(" + list[(i * 3) + 2].Total + ")" : "";
+                    string url1 = i * 3 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3)].ID + "/" + @list[(i * 3)].CountryID + "/" + @list[(i * 3)].SportID : "";
+                    string url2 = (i * 3) + 1 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 1].ID + "/" + @list[(i * 3) + 1].CountryID + "/" + @list[(i * 3) + 1].SportID : "";
+                    string url3 = (i * 3) + 2 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 2].ID + "/" + @list[(i * 3) + 2].CountryID + "/" + @list[(i * 3) + 2].SportID : "";
+                <tr>
+                    <td width="33%">
+                        <a href="javascript:void(0)" onclick="betex247.loadleague('@url1')" class="country-league-lnk">@value1</a>
+                    </td>
+                    <td width="34%">
+                        <a href="javascript:void(0)" onclick="betex247.loadleague('@url2')" href="" class="country-league-lnk">@value2</a>
+                    </td>
+                    <td width="33%">
+                        <a href="javascript:void(0)" onclick="betex247.loadleague('@url3')" href="" class="country-league-lnk">@value3</a>
+                    </td>
+                </tr>
+                }                     
             }
-            }            
         </table>
     </div>
 </div>

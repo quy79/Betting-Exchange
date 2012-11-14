@@ -312,6 +312,14 @@ namespace BetEx247.Web.Controllers
         }
 
         [Authorize]
+        public ActionResult Account()
+        {
+            long memberId = SessionManager.USER_ID;
+            var mywallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
+            return View(mywallet);
+        }
+
+        [Authorize]
         public ActionResult Statement()
         {               
             long memberId = SessionManager.USER_ID;

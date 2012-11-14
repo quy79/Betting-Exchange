@@ -4,87 +4,80 @@
 @model BetEx247.Data.Model.MyWallet
 @{
     ViewBag.Title = "Balances";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
     string Available = "0";
     string Exposure = "0";
-    string Balance = "0";    
-    if(Model!=null)
+    string Balance = "0";
+    if (Model != null)
     {
         Available = Model.Available != null ? Model.Available.Value.ToString() : "0";
         Exposure = Model.Exposure != null ? Model.Exposure.Value.ToString() : "0";
-        Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";        
+        Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";
     } 
 }
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
-<div id="middle_column_1">
-    <div class="clearfix">
-        <h1 class="sports_header1">
-            MY ACCOUNT</h1>
-        <form action="" method="post" class="AccountRegForm">
-        <div class="create-account-box">
-            <div class="dvBody">
-                <table cellpadding="0" cellspacing="0" border="0" width="100%">
-                    <tr>
-                        <td class="tdPageHeader">
-                            Account Balances
-                        </td>
-                    </tr>
-                </table>
-                <table id="tblBalances" class="stdLabelValueTable" cellpadding="0" cellspacing="0"
-                    border="0" width="100%">
-                    <tr>
-                        <td class="LabelCell" width="30%">
-                            Available:
-                        </td>
-                        <td class="ValueCell">
-                            £@Available
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="LabelCell">
-                            Exposure:
-                        </td>
-                        <td class="ValueCell">
-                            £@Exposure
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="LabelCell">
-                            Balance:
-                        </td>
-                        <td class="ValueCell">
-                            £@Balance
-                        </td>
-                    </tr>                    
-                    <tr>
-                        <td class="LabelCell">
-                            Loyalty Discount Rate:
-                        </td>
-                        <td class="ValueCell">
-                            0%
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="LabelCell">
-                            Total Betex247 Points:
-                        </td>
-                        <td class="ValueCell">
-                            0.00
-                        </td>
-                    </tr>
-                    <tr class="stdControlsBar">
-                        <td colspan="2" align="center">
-                        </td>
-                    </tr>
-                </table>
-            </div>
+<div class="clearfix">
+    <h1 class="sports_header1">
+        MY ACCOUNT</h1>
+    <form action="" method="post" class="AccountRegForm">
+    <div class="create-account-box">
+        <div class="dvBody">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr>
+                    <td class="tdPageHeader">
+                        Account Balances
+                    </td>
+                </tr>
+            </table>
+            <table id="tblBalances" class="stdLabelValueTable" cellpadding="0" cellspacing="0"
+                border="0" width="100%">
+                <tr>
+                    <td class="LabelCell" width="30%">
+                        Available:
+                    </td>
+                    <td class="ValueCell">
+                        £@Available
+                    </td>
+                </tr>
+                <tr>
+                    <td class="LabelCell">
+                        Exposure:
+                    </td>
+                    <td class="ValueCell">
+                        £@Exposure
+                    </td>
+                </tr>
+                <tr>
+                    <td class="LabelCell">
+                        Balance:
+                    </td>
+                    <td class="ValueCell">
+                        £@Balance
+                    </td>
+                </tr>
+                <tr>
+                    <td class="LabelCell">
+                        Loyalty Discount Rate:
+                    </td>
+                    <td class="ValueCell">
+                        0%
+                    </td>
+                </tr>
+                <tr>
+                    <td class="LabelCell">
+                        Total Betex247 Points:
+                    </td>
+                    <td class="ValueCell">
+                        0.00
+                    </td>
+                </tr>
+                <tr class="stdControlsBar">
+                    <td colspan="2" align="center">
+                    </td>
+                </tr>
+            </table>
         </div>
-        </form>
     </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        betex247.myaccount();
-    });
-</script>
+    </form>
+</div>   

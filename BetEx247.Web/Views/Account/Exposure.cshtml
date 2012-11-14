@@ -1,292 +1,128 @@
-﻿@model IEnumerable<BetEx247.Data.Model.MyBet>
+﻿@using BetEx247.Data.Model;
+@model List<PSV_MYBET>
 @{
     ViewBag.Title = "Exposure";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
-<div id="middle_column_1">
-    <div class="clearfix">
-        <h1 class="sports_header1">
-            MY ACCOUNT</h1>
-        <form action="/Exposure" method="post" class="AccountRegForm">
-        <div class="create-account-box">
-            <div class="account-box-title">
-                Exposure
-            </div>
-            <!--DIV EXPOSURE-->
-            <div id="dv-exposure" style="clear: both; position: relative;">
-                <table class="gridtable">
-                    <tr>
-                        <th>
-                            Date
-                        </th>
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            Match / Event
-                        </th>
-                        <th>
-                            Market
-                        </th>
-                        <th>
-                            B/L
-                        </th>
-                        <th>
-                            Stake
-                        </th>
-                        <th>
-                            Odds
-                        </th>
-                        <th>
-                            Status
-                        </th>
-                        <th>
-                            Exposure
-                        </th>
-                    </tr>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SubmitedTime)
-                            </td> 
-                            <td>
-                               
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.MarketID)
-                            </td>                            
-                            <td>
-                                @Html.DisplayFor(modelItem => item.MarketID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BL)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.IsWon)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Price)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Stake)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.GrossProfit)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.NetProfit)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Exposure)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Liability)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Payouts)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.GrossWinning)
-                            </td>
-                            
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CancelledTime)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.SettledTime)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Commission)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.BetStatusID)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.InPlayBet)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.PointsRefunded)
-                            </td>                             
-                        </tr>
-                    }
-                    <tr>
-                        <td>
-                            2012-10-30 17:35
-                        </td>
-                        <td>
-                            2983472349
-                        </td>
-                        <td>
-                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                color: #000;">
-                                Oct 19, 2012 17:30</div>
-                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                color: #000; font-weight: bold;">
-                                Manchester Utd v Chelsea</div>
-                        </td>
-                        <td>
-                            Manchester to win (FT)
-                        </td>
-                        <td>
-                            L
-                        </td>
-                        <td>
-                            50.00
-                        </td>
-                        <td>
-                            1.68
-                        </td>
-                        <td>
-                            <span class="won">Unsettled</span>
-                        </td>
-                        <td>
-                            84.00
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div id="dv-exposure" style="clear: both; position: relative; text-align: right;
-                font-weight: bold; padding-right: 10px; padding-top: 10px; padding-bottom: 15px;
-                background-color: #fff; color: #000;">
-                Total Exposure:&nbsp;&nbsp;&nbsp; USD 755.00
-            </div>
-        </div>
-        </form>
-    </div>
-</div>
-<h2>
-    Exposure</h2>
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table>
-    <tr>
-        <th>
-            MemberID
-        </th>
-        <th>
-            MarketID
-        </th>
-        <th>
-            BL
-        </th>
-        <th>
-            IsWon
-        </th>
-        <th>
-            Price
-        </th>
-        <th>
-            Stake
-        </th>
-        <th>
-            GrossProfit
-        </th>
-        <th>
-            NetProfit
-        </th>
-        <th>
+<div class="clearfix">
+    <h1 class="sports_header1">
+        MY ACCOUNT</h1>
+    <form action="/Exposure" method="post" class="AccountRegForm">
+    <div class="create-account-box">
+        <div class="account-box-title">
             Exposure
-        </th>
-        <th>
-            Liability
-        </th>
-        <th>
-            Payouts
-        </th>
-        <th>
-            GrossWinning
-        </th>
-        <th>
-            SubmitedTime
-        </th>
-        <th>
-            CancelledTime
-        </th>
-        <th>
-            SettledTime
-        </th>
-        <th>
-            Commission
-        </th>
-        <th>
-            BetStatusID
-        </th>
-        <th>
-            InPlayBet
-        </th>
-        <th>
-            PointsRefunded
-        </th>
-        <th>
-        </th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MemberID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MarketID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BL)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsWon)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stake)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GrossProfit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NetProfit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Exposure)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Liability)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Payouts)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GrossWinning)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubmitedTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CancelledTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SettledTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Commission)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BetStatusID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.InPlayBet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PointsRefunded)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
-    }
-</table>
+        </div>
+        <!--DIV EXPOSURE-->
+        <div id="dv-exposure" style="clear: both; position: relative;">
+            <table class="gridtable">
+                <tr>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Match / Event
+                    </th>
+                    <th>
+                        Market
+                    </th>
+                    <th>
+                        B/L
+                    </th>
+                    <th>
+                        Stake
+                    </th>
+                    <th>
+                        Odds
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Exposure
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BetId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MarketID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MarketID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stake)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IsWon)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Exposure)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NetProfit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Exposure)
+                        </td>                        
+                    </tr>
+                }
+                <tr>
+                    <td>
+                        2012-10-30 17:35
+                    </td>
+                    <td>
+                        2983472349
+                    </td>
+                    <td>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000;">
+                            Oct 19, 2012 17:30</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000; font-weight: bold;">
+                            Manchester Utd v Chelsea</div>
+                    </td>
+                    <td>
+                        Manchester to win (FT)
+                    </td>
+                    <td>
+                        L
+                    </td>
+                    <td>
+                        50.00
+                    </td>
+                    <td>
+                        1.68
+                    </td>
+                    <td>
+                        <span class="won">Unsettled</span>
+                    </td>
+                    <td>
+                        84.00
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="dv-exposuretotal" style="clear: both; position: relative; text-align: right;
+            font-weight: bold; padding-right: 10px; padding-top: 10px; padding-bottom: 15px;
+            background-color: #fff; color: #000;">
+            Total Exposure:&nbsp;&nbsp;&nbsp; USD 755.00
+        </div>
+    </div>
+    </form>
+</div>

@@ -79,7 +79,7 @@ betex247 = {
                 $("#left_column").html(data);
 
                 $(".accordion-header").click(function () {
-                    $(".accordion-content").hide();
+                    //$(".accordion-content").hide();
                     $(this).next(".accordion-content").slideToggle(500);
                     $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
                 });
@@ -103,18 +103,34 @@ betex247 = {
                     $('#LoginName').val('');
                     $('#Password').val('');
                     if (arrData[0] == "success") {
+                        //window.location.href=betex247.Url+"";
                         $("div.regFormTop").hide();
                         $("div.header-login-panel").show();
                         $("p strong").html(arrData[1]);
-                        $("ul.topnav > li")[0].html(arrData[2]);
-                        $("ul.topnav > li")[1].html(arrData[3]);
-                        $("ul.topnav > li")[2].html(arrData[4]);
+                        $("ul.account-balance li strong")[0].html(arrData[2]);
+                        $("ul.account-balance li strong")[1].html(arrData[3]);
+                        $("ul.account-balance li strong")[2].html(arrData[4]);
                     } else {
                         alert(data);
                     }
                 }
             }
         });
+    },
+
+    accountpanel:function(){
+        window.location.href=betex247.Url+"account/account";  
+    },
+
+    accountpage:function(surl){
+        $.ajax({
+            type: "GET",
+            url: surl, // {"content"="Hello!"}     
+            cache: true,
+            success: function (data) {
+                $("#middle_column_1").html(data);
+            }
+        });         
     },
 
     logout: function () {

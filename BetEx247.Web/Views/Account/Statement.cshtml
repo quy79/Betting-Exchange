@@ -2,7 +2,7 @@
 @{
     DataTable statement = ViewBag.lstStatement;
     ViewBag.Title = "Statement";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/datepicker.css")" media="screen" />
@@ -68,58 +68,57 @@
     datePickerController.addEvent(window, 'load', initialiseInputs);
     datePickerController.addEvent(window, 'unload', removeInputEvents);
 
-//]]>
+    //]]>
 </script>
-<div id="middle_column_1">
-    <div class="clearfix">
-        <h1 class="sports_header1">
-            MY ACCOUNT</h1>
-        <div class="AccountRegForm">
-            <div class="create-account-box">
-                <div class="account-box-title">
-                    Statements
-                </div>
-                <div class="account-box-filter">
-                    <table id="filter-tbl">
-                        <tr>
-                            <td class="col1">
-                                Date
-                            </td>
-                            <td class="col2">
-                                <table>
-                                    <tr>
-                                        <td align="right" width="1%" style="padding: 0px 0px;">
-                                            <input type="radio" checked="true" value="Predefined" name="rdoPeriodType" id="rdoPredefined">
-                                        </td>
-                                        <td align="left" width="99%" style="padding: 0px 0px;">
-                                            @Html.DropDownList("selPeriod", ViewBag.lstDateSearchType as SelectList, new { @id = "selPeriod", width = "192px", onclick = "Common.SetSelectedRadio('rdoPredefined','rdoCustom')" })
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td align="right" width="1%" style="padding: 0px 0px; margin: 0 auto;">
-                                            <input type="radio" style="vertical-align: middle" value="Custom" name="rdoPeriodType"
-                                                id="rdoCustom">
-                                        </td>
-                                        <td align="left" width="99%" style="padding: 0px 0px; margin: 0 auto;">
-                                            <p>
-                                                <input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today text-input-date"
-                                                    name="sd" id="sd" value="" maxlength="10" /></p>
-                                            &nbsp;&nbsp;
-                                            <p class="lastup">
-                                                <input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today text-input-date"
-                                                    name="ed" id="ed" value="" maxlength="10" /></p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td class="col3" align="left">
-                                <table>
-                                    <tr>
-                                        <td align="left" style="padding: 0px 0px;">
-                                            <!--Bet Category-->
-                                        </td>
-                                        <td align="left" style="padding: 0px 0px;">
-                                            <!--
+<div class="clearfix">
+    <h1 class="sports_header1">
+        MY ACCOUNT</h1>
+    <div class="AccountRegForm">
+        <div class="create-account-box">
+            <div class="account-box-title">
+                Statements
+            </div>
+            <div class="account-box-filter">
+                <table id="filter-tbl">
+                    <tr>
+                        <td class="col1">
+                            Date
+                        </td>
+                        <td class="col2">
+                            <table>
+                                <tr>
+                                    <td align="right" width="1%" style="padding: 0px 0px;">
+                                        <input type="radio" checked="true" value="Predefined" name="rdoPeriodType" id="rdoPredefined">
+                                    </td>
+                                    <td align="left" width="99%" style="padding: 0px 0px;">
+                                        @Html.DropDownList("selPeriod", ViewBag.lstDateSearchType as SelectList, new { @id = "selPeriod", width = "192px", onclick = "Common.SetSelectedRadio('rdoPredefined','rdoCustom')" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" width="1%" style="padding: 0px 0px; margin: 0 auto;">
+                                        <input type="radio" style="vertical-align: middle" value="Custom" name="rdoPeriodType"
+                                            id="rdoCustom">
+                                    </td>
+                                    <td align="left" width="99%" style="padding: 0px 0px; margin: 0 auto;">
+                                        <p>
+                                            <input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today text-input-date"
+                                                name="sd" id="sd" value="" maxlength="10" /></p>
+                                        &nbsp;&nbsp;
+                                        <p class="lastup">
+                                            <input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today text-input-date"
+                                                name="ed" id="ed" value="" maxlength="10" /></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="col3" align="left">
+                            <table>
+                                <tr>
+                                    <td align="left" style="padding: 0px 0px;">
+                                        <!--Bet Category-->
+                                    </td>
+                                    <td align="left" style="padding: 0px 0px;">
+                                        <!--
                                                             <select name="BetCategory" id="BetCategory" style="width: 150px; border: 1px solid black; font-size: 0.9em;">
                                                                 <option value="0" selected>All</option>
                                                                 <option value="1">Soccer</option>
@@ -135,367 +134,61 @@
                                                                 <option value="7">Rugby Union</option>
                                                             </select>        
                                                         -->
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td align="left" style="padding: 0px 0px;">
-                                            Display
-                                        </td>
-                                        <td align="left" style="padding: 0px 0px;">
-                                            @Html.DropDownList("selDisplay", ViewBag.lstDisplaySearch as SelectList, new { @id = "selDisplay", width = "140px", onchange = "ShowBetCategory()" })
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                            <td class="col4" align="left">
-                                <table>
-                                    <tr>
-                                        <td align="left" style="padding: 0px 0px;">
-                                        </td>
-                                        <td align="left" style="padding: 0px 0px;">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td align="left" style="padding: 0px 0px;">
-                                            <span class="lookup-submit"><a href="javascript:void(0)" id="lookuplink" onclick="AccountHistory.ui_doSearch('statement');return false;">
-                                                Show records</a> </span>
-                                        </td>
-                                        <td align="left" style="padding: 0px 0px;">
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="account-box-result-heading">
-                    <div class="dvFilterTitle">
-                        Display: <span id="spanFilterTitle" style="color: yellow; font-weight: bold;">Commission</span>
-                        | &nbsp;show &nbsp;
-                        <select name="rowspage">
-                            <option value="20" selected>20</option>
-                            <option value="50">50</option>
-                            <option value="100">100</option>
-                        </select>
-                        records / page
-                    </div>
-                    <div class="PgCounter">
-                        Page 1/12 <span class="paging">1</span> <a title="201 - 400" href="javascript:{}"
-                            onclick="load_pg(24780,200,2)">2</a> <a title="401 - 600" href="javascript:{}" onclick="load_pg(24780,200,3)">
-                                3</a> <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,4)">4</a>
-                        <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,11)">11</a>
-                        <a title="201 - 400" href="javascript:{}" onclick="load_pg(24780,200,2)">»</a> <a
-                            title="24600 - 24780" href="javascript:{}" onclick="load_pg(24780,200,124)">».</a></div>
-                </div>
-                <!--DIV COMMISSION-->
-                <div id="result" style="clear: both; position: relative;">
-                    <table class="gridtable">
-                        <table class="gridtable">
-                            <tr>
-                                <th>
-                                    Date
-                                </th>
-                                <th>
-                                    ID
-                                </th>
-                                <th>
-                                    Match / Event
-                                </th>
-                                <th>
-                                    Market
-                                </th>
-                                <th>
-                                    B/L
-                                </th>
-                                <th>
-                                    Stake
-                                </th>
-                                <th>
-                                    Odds
-                                </th>
-                                <th>
-                                    Result
-                                </th>
-                                <th>
-                                    Net P/L(USD)
-                                </th>
-                                <th>
-                                    Commission charged
-                                </th>                                
-                            </tr>
-                            @foreach (DataRow item in statement.Rows)
-                            {
-                                <tr>
-                                    <td>
-                                        @item["StatementTime"]
-                                    </td>
-                                    <td>
-                                        @item["BetId"]
-                                    </td>
-                                    <td>
-                                        @item["BetId"]
-                                    </td>
-                                    <td>
-                                        @item["Selection"]
-                                    </td>
-                                    <td>
-                                        @item["BackOrLay"]
-                                    </td>
-                                    <td>
-                                        @item["Stake"]
-                                    </td>
-                                    <td>
-                                        @item["Odds"]
-                                    </td>
-                                    <td>
-                                        @item["Type_Result"]
-                                    </td>
-                                    <td>
-                                        @item["Amount"]
-                                    </td>
-                                    <td>
-                                        @item["NetProfit"]
                                     </td>
                                 </tr>
-                            }
-                            <tr>
-                                <td>
-                                    2012-10-30
-                                </td>
-                                <td>
-                                    e72da32
-                                </td>
-                                <td>
-                                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                        color: #000;">
-                                        Oct 19, 2012 17:30</div>
-                                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                        color: #000; font-weight: bold;">
-                                        Manchester Utd v Chelsea</div>
-                                </td>
-                                <td>
-                                    Manchester Utd -1/2 (First Half)
-                                </td>
-                                <td>
-                                    B
-                                </td>
-                                <td>
-                                    20
-                                </td>
-                                <td>
-                                    1.88
-                                </td>
-                                <td>
-                                    <span class="lost">Lost</span>
-                                </td>
-                                <td>
-                                    <span class="lost">-20.00</span>
-                                </td>
-                                <td>
-                                    0.00
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    2012-10-30
-                                </td>
-                                <td>
-                                    e72da32
-                                </td>
-                                <td>
-                                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                        color: #000;">
-                                        Oct 19, 2012 17:30</div>
-                                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                        color: #000; font-weight: bold;">
-                                        Manchester Utd v Chelsea</div>
-                                </td>
-                                <td>
-                                    Manchester Utd v Chelseas: 3-1 (FT)
-                                </td>
-                                <td>
-                                    B
-                                </td>
-                                <td>
-                                    10
-                                </td>
-                                <td>
-                                    2.17
-                                </td>
-                                <td>
-                                    <span class="lost">Lost</span>
-                                </td>
-                                <td>
-                                    <span class="lost">-10.00</span>
-                                </td>
-                                <td>
-                                    0.00
-                                </td>
-                            </tr>
-                        </table>
+                                <tr>
+                                    <td align="left" style="padding: 0px 0px;">
+                                        Display
+                                    </td>
+                                    <td align="left" style="padding: 0px 0px;">
+                                        @Html.DropDownList("selDisplay", ViewBag.lstDisplaySearch as SelectList, new { @id = "selDisplay", width = "140px", onchange = "ShowBetCategory()" })
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="col4" align="left">
+                            <table>
+                                <tr>
+                                    <td align="left" style="padding: 0px 0px;">
+                                    </td>
+                                    <td align="left" style="padding: 0px 0px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left" style="padding: 0px 0px;">
+                                        <span class="lookup-submit"><a href="javascript:void(0)" id="lookuplink" onclick="AccountHistory.ui_doSearch('statement');return false;">
+                                            Show records</a> </span>
+                                    </td>
+                                    <td align="left" style="padding: 0px 0px;">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="account-box-result-heading">
+                <div class="dvFilterTitle">
+                    Display: <span id="spanFilterTitle" style="color: yellow; font-weight: bold;">Commission</span>
+                    | &nbsp;show &nbsp;
+                    <select name="rowspage">
+                        <option value="20" selected>20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    records / page
                 </div>
-                <!--DIV DEPOSIT-->
-                <div id="dv-deposit" style="clear: both; position: relative; display: none;">
-                    <table class="gridtable">
-                        <tr>
-                            <th>
-                                Date
-                            </th>
-                            <th>
-                                Transaction ID
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                Amount
-                            </th>
-                            <th>
-                                Card
-                            </th>
-                            <th>
-                                Status
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                2012-10-31 12:30
-                            </td>
-                            <td>
-                                234927438
-                            </td>
-                            <td>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000; font-weight: bold;">
-                                    [Statement]: Deposit</div>
-                            </td>
-                            <td>
-                                USD 150.00
-                            </td>
-                            <td>
-                                My Skrill Card
-                            </td>
-                            <td>
-                                transaction completed
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                2012-10-31 13:15
-                            </td>
-                            <td>
-                                323952907
-                            </td>
-                            <td>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000; font-weight: bold;">
-                                    [Statement]: Deposit</div>
-                            </td>
-                            <td>
-                                JPY 20,000.00
-                            </td>
-                            <td>
-                                My NETeller Card
-                            </td>
-                            <td>
-                                transaction completed
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                2012-11-01 11:22
-                            </td>
-                            <td>
-                                899203484
-                            </td>
-                            <td>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000; font-weight: bold;">
-                                    [Statement]: Deposit</div>
-                            </td>
-                            <td>
-                                EUR 50.00
-                            </td>
-                            <td>
-                                MasterCard
-                            </td>
-                            <td>
-                                being processed...
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <!--DIV WITHDRAWAL-->
-                <div id="dv-withdrawal" style="clear: both; position: relative; display: none;">
-                    <table class="gridtable">
-                        <tr>
-                            <th>
-                                Date
-                            </th>
-                            <th>
-                                Transaction ID
-                            </th>
-                            <th>
-                                Description
-                            </th>
-                            <th>
-                                Amount
-                            </th>
-                            <th>
-                                Card
-                            </th>
-                            <th>
-                                Status
-                            </th>
-                        </tr>
-                        <tr>
-                            <td>
-                                2012-10-31 12:30
-                            </td>
-                            <td>
-                                0987826833
-                            </td>
-                            <td>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000; font-weight: bold;">
-                                    [Statement]: Withdrawal</div>
-                            </td>
-                            <td>
-                                USD 150.00
-                            </td>
-                            <td>
-                                My Skrill Card
-                            </td>
-                            <td>
-                                transaction completed
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                2012-10-31 13:15
-                            </td>
-                            <td>
-                                343763453
-                            </td>
-                            <td>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000; font-weight: bold;">
-                                    [Statement]: Withdrawal</div>
-                            </td>
-                            <td>
-                                USD 100.00
-                            </td>
-                            <td>
-                                Visa Card
-                            </td>
-                            <td>
-                                transaction completed
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <!--DIV MARKET REFUND-->
-                <div id="dv-marketrefund" style="clear: both; position: relative; display: none;">
+                <div class="PgCounter">
+                    Page 1/12 <span class="paging">1</span> <a title="201 - 400" href="javascript:{}"
+                        onclick="load_pg(24780,200,2)">2</a> <a title="401 - 600" href="javascript:{}" onclick="load_pg(24780,200,3)">
+                            3</a> <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,4)">4</a>
+                    <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,11)">11</a>
+                    <a title="201 - 400" href="javascript:{}" onclick="load_pg(24780,200,2)">»</a> <a
+                        title="24600 - 24780" href="javascript:{}" onclick="load_pg(24780,200,124)">».</a></div>
+            </div>
+            <!--DIV COMMISSION-->
+            <div id="result" style="clear: both; position: relative;">
+                <table class="gridtable">
                     <table class="gridtable">
                         <tr>
                             <th>
@@ -520,14 +213,86 @@
                                 Odds
                             </th>
                             <th>
-                                Refunding Reason
+                                Result
                             </th>
                             <th>
-                                Amount refunded
+                                Net P/L(USD)
                             </th>
                             <th>
-                                Status
+                                Commission charged
                             </th>
+                        </tr>
+                        @foreach (DataRow item in statement.Rows)
+                        {
+                            <tr>
+                                <td>
+                                    @item["StatementTime"]
+                                </td>
+                                <td>
+                                    @item["BetId"]
+                                </td>
+                                <td>
+                                    @item["BetId"]
+                                </td>
+                                <td>
+                                    @item["Selection"]
+                                </td>
+                                <td>
+                                    @item["BackOrLay"]
+                                </td>
+                                <td>
+                                    @item["Stake"]
+                                </td>
+                                <td>
+                                    @item["Odds"]
+                                </td>
+                                <td>
+                                    @item["Type_Result"]
+                                </td>
+                                <td>
+                                    @item["Amount"]
+                                </td>
+                                <td>
+                                    @item["NetProfit"]
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                2012-10-30
+                            </td>
+                            <td>
+                                e72da32
+                            </td>
+                            <td>
+                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                    color: #000;">
+                                    Oct 19, 2012 17:30</div>
+                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                    color: #000; font-weight: bold;">
+                                    Manchester Utd v Chelsea</div>
+                            </td>
+                            <td>
+                                Manchester Utd -1/2 (First Half)
+                            </td>
+                            <td>
+                                B
+                            </td>
+                            <td>
+                                20
+                            </td>
+                            <td>
+                                1.88
+                            </td>
+                            <td>
+                                <span class="lost">Lost</span>
+                            </td>
+                            <td>
+                                <span class="lost">-20.00</span>
+                            </td>
+                            <td>
+                                0.00
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -542,89 +307,266 @@
                                     Oct 19, 2012 17:30</div>
                                 <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                     color: #000; font-weight: bold;">
-                                    Djokovic v Federer</div>
+                                    Manchester Utd v Chelsea</div>
                             </td>
                             <td>
-                                Djokovic to win
+                                Manchester Utd v Chelseas: 3-1 (FT)
                             </td>
                             <td>
                                 B
                             </td>
                             <td>
-                                50.00
+                                10
                             </td>
                             <td>
-                                1.35
+                                2.17
                             </td>
                             <td>
-                                This match has been postponed.
+                                <span class="lost">Lost</span>
                             </td>
                             <td>
-                                50.00
+                                <span class="lost">-10.00</span>
                             </td>
                             <td>
-                                Transaction completed.
+                                0.00
                             </td>
                         </tr>
                     </table>
-                </div>
+            </div>
+            <!--DIV DEPOSIT-->
+            <div id="dv-deposit" style="clear: both; position: relative; display: none;">
+                <table class="gridtable">
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Transaction ID
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Card
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2012-10-31 12:30
+                        </td>
+                        <td>
+                            234927438
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                [Statement]: Deposit</div>
+                        </td>
+                        <td>
+                            USD 150.00
+                        </td>
+                        <td>
+                            My Skrill Card
+                        </td>
+                        <td>
+                            transaction completed
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2012-10-31 13:15
+                        </td>
+                        <td>
+                            323952907
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                [Statement]: Deposit</div>
+                        </td>
+                        <td>
+                            JPY 20,000.00
+                        </td>
+                        <td>
+                            My NETeller Card
+                        </td>
+                        <td>
+                            transaction completed
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2012-11-01 11:22
+                        </td>
+                        <td>
+                            899203484
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                [Statement]: Deposit</div>
+                        </td>
+                        <td>
+                            EUR 50.00
+                        </td>
+                        <td>
+                            MasterCard
+                        </td>
+                        <td>
+                            being processed...
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--DIV WITHDRAWAL-->
+            <div id="dv-withdrawal" style="clear: both; position: relative; display: none;">
+                <table class="gridtable">
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            Transaction ID
+                        </th>
+                        <th>
+                            Description
+                        </th>
+                        <th>
+                            Amount
+                        </th>
+                        <th>
+                            Card
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2012-10-31 12:30
+                        </td>
+                        <td>
+                            0987826833
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                [Statement]: Withdrawal</div>
+                        </td>
+                        <td>
+                            USD 150.00
+                        </td>
+                        <td>
+                            My Skrill Card
+                        </td>
+                        <td>
+                            transaction completed
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2012-10-31 13:15
+                        </td>
+                        <td>
+                            343763453
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                [Statement]: Withdrawal</div>
+                        </td>
+                        <td>
+                            USD 100.00
+                        </td>
+                        <td>
+                            Visa Card
+                        </td>
+                        <td>
+                            transaction completed
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!--DIV MARKET REFUND-->
+            <div id="dv-marketrefund" style="clear: both; position: relative; display: none;">
+                <table class="gridtable">
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Match / Event
+                        </th>
+                        <th>
+                            Market
+                        </th>
+                        <th>
+                            B/L
+                        </th>
+                        <th>
+                            Stake
+                        </th>
+                        <th>
+                            Odds
+                        </th>
+                        <th>
+                            Refunding Reason
+                        </th>
+                        <th>
+                            Amount refunded
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            2012-10-30
+                        </td>
+                        <td>
+                            e72da32
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000;">
+                                Oct 19, 2012 17:30</div>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                Djokovic v Federer</div>
+                        </td>
+                        <td>
+                            Djokovic to win
+                        </td>
+                        <td>
+                            B
+                        </td>
+                        <td>
+                            50.00
+                        </td>
+                        <td>
+                            1.35
+                        </td>
+                        <td>
+                            This match has been postponed.
+                        </td>
+                        <td>
+                            50.00
+                        </td>
+                        <td>
+                            Transaction completed.
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 </div>
-@*<table width="70%" cellspacing="0" cellpadding="0" border="0">
-    <tbody>
-        <tr>
-            <td width="50px" valign="middle" style="text-align: left" rowspan="2" class="tdPageFilters">
-                Date:
-            </td>
-            <td valign="middle" style="text-align: left" class="tdPageFilters">
-                <input type="radio" checked="true" value="Predefined" name="rdoPeriodType" id="rdoPredefined">
-                @Html.DropDownList("selPeriod", ViewBag.lstDateSearchType as SelectList, new { @id = "selPeriod", width = "192px", onclick = "Common.SetSelectedRadio('rdoPredefined','rdoCustom')" })
-            </td>
-            <td valign="middle" style="text-align: left" class="tdPageFilters">
-                Bet Category:
-            </td>
-            <td valign="middle" style="text-align: left" class="tdPageFilters">
-                @Html.DropDownList("selBetCategory", ViewBag.lstSportData as SelectList, "--Select--", new { width = "140px" })
-            </td>
-            <td valign="middle" rowspan="2" class="tdPageFilters">
-                <a onclick="AccountHistory.ui_doSearch('statement');return false;" href="javascript:void(0)"
-                    class="ImgBtn">Show Records</a>
-            </td>
-            <td valign="middle" rowspan="2" class="tdPageFilters">
-                <select id="selExport">
-                    <option value="csv">CSV</option>
-                    <option value="xls">Excel</option>
-                </select><a onclick="ui_doExcelDownload(document.getElementById('selExport').value);return false;"
-                    href="javascript:void(0)" class="ImgBtn">Export</a>
-            </td>
-            <td width="1%" rowspan="2" class="tdPageFilters">
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td valign="middle" style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
-                <input type="radio" style="vertical-align: middle" value="Custom" name="rdoPeriodType"
-                    id="rdoCustom">
-                <p>
-                    <input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today" name="sd"
-                        id="sd" value="" maxlength="10" /></p>
-                <p class="lastup">
-                    <input type="text" class="w8em format-d-m-y highlight-days-67 range-low-today" name="ed"
-                        id="ed" value="" maxlength="10" /></p>
-            </td>
-            <td valign="middle" style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
-                Display:
-            </td>
-            <td style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
-                @Html.DropDownList("selDisplay", ViewBag.lstDisplaySearch as SelectList, new { @id = "selDisplay", width = "140px", onchange = "ShowBetCategory()" })
-            </td>
-        </tr>
-    </tbody>
-</table>*@ 
-<script type="text/javascript">
-    $(document).ready(function () {
-        betex247.myaccount();
-    });
-</script>

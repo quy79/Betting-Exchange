@@ -125,6 +125,9 @@
     <Content Include="Content\Images\themes\75.png" />
     <Content Include="Content\Images\themes\ab18.png" />
     <Content Include="Content\Images\themes\account-title-bg.jpg" />
+    <Content Include="Content\Images\themes\amfootball-bg.png" />
+    <Content Include="Content\Images\themes\amfootball-icon.png" />
+    <Content Include="Content\Images\themes\amfootball.png" />
     <Content Include="Content\Images\themes\arrow-acc.png" />
     <Content Include="Content\Images\themes\arrow-down.gif" />
     <Content Include="Content\Images\themes\arrow-light.gif" />
@@ -134,6 +137,8 @@
     <Content Include="Content\Images\themes\backbet_arrow.png" />
     <Content Include="Content\Images\themes\backstripes.gif" />
     <Content Include="Content\Images\themes\badges.gif" />
+    <Content Include="Content\Images\themes\baseball-bg.png" />
+    <Content Include="Content\Images\themes\baseball-icon.png" />
     <Content Include="Content\Images\themes\betex247_logo.png" />
     <Content Include="Content\Images\themes\betslip_header.png" />
     <Content Include="Content\Images\themes\bettech.gif" />
@@ -170,9 +175,12 @@
     <Content Include="Content\Images\themes\cell-div.gif" />
     <Content Include="Content\Images\themes\cell-live-bg.gif" />
     <Content Include="Content\Images\themes\choose_sport_header.png" />
+    <Content Include="Content\Images\themes\cricket-bg.png" />
+    <Content Include="Content\Images\themes\cricket-icon.png" />
     <Content Include="Content\Images\themes\cs.png" />
     <Content Include="Content\Images\themes\DatePicker.gif" />
     <Content Include="Content\Images\themes\de.png" />
+    <Content Include="Content\Images\themes\delete-icon.png" />
     <Content Include="Content\Images\themes\delete.gif" />
     <Content Include="Content\Images\themes\flash.gif" />
     <Content Include="Content\Images\themes\fr.png" />
@@ -180,7 +188,13 @@
     <Content Include="Content\Images\themes\gradient-e5e5e5-ffffff.gif" />
     <Content Include="Content\Images\themes\grass-bg.jpg" />
     <Content Include="Content\Images\themes\h300.png" />
+    <Content Include="Content\Images\themes\handball-bg.png" />
+    <Content Include="Content\Images\themes\handball-icon.png" />
     <Content Include="Content\Images\themes\header_bg.jpg" />
+    <Content Include="Content\Images\themes\hockey-bg.png" />
+    <Content Include="Content\Images\themes\hockey-icon.png" />
+    <Content Include="Content\Images\themes\horserace-bg.png" />
+    <Content Include="Content\Images\themes\horserace-icon.png" />
     <Content Include="Content\Images\themes\icon_bank_transfer.gif" />
     <Content Include="Content\Images\themes\icon_giropay.gif" />
     <Content Include="Content\Images\themes\icon_mastercard.gif" />
@@ -203,7 +217,28 @@
     <Content Include="Content\Images\themes\livenow.gif" />
     <Content Include="Content\Images\themes\loading.gif" />
     <Content Include="Content\Images\themes\loading1.gif" />
+    <Content Include="Content\Images\themes\logoBANK.gif" />
+    <Content Include="Content\Images\themes\logoCSI.gif" />
+    <Content Include="Content\Images\themes\logoDIN.gif" />
+    <Content Include="Content\Images\themes\logoDNK.gif" />
+    <Content Include="Content\Images\themes\logoENT.gif" />
+    <Content Include="Content\Images\themes\logoEPY.gif" />
+    <Content Include="Content\Images\themes\logoGIR.gif" />
+    <Content Include="Content\Images\themes\logoIDL.gif" />
+    <Content Include="Content\Images\themes\logoMASTERCARD.gif" />
+    <Content Include="Content\Images\themes\logoMASTERCARDDEBIT.gif" />
+    <Content Include="Content\Images\themes\logoMONEYBOOKERS.gif" />
+    <Content Include="Content\Images\themes\logoNETELLER.gif" />
+    <Content Include="Content\Images\themes\logoOBT.gif" />
+    <Content Include="Content\Images\themes\logoPLI.gif" />
+    <Content Include="Content\Images\themes\logoPSP.gif" />
+    <Content Include="Content\Images\themes\logoPWY.gif" />
     <Content Include="Content\Images\themes\logos.gif" />
+    <Content Include="Content\Images\themes\logoSFT.gif" />
+    <Content Include="Content\Images\themes\logoSWITCH.gif" />
+    <Content Include="Content\Images\themes\logoVISA.gif" />
+    <Content Include="Content\Images\themes\logoVISADEBIT.gif" />
+    <Content Include="Content\Images\themes\logoVISAELECTRON.gif" />
     <Content Include="Content\Images\themes\mainbg.jpg" />
     <Content Include="Content\Images\themes\mainSecHdrBg.gif" />
     <Content Include="Content\Images\themes\menu_bg.jpg" />
@@ -351,6 +386,8 @@
     <Content Include="Content\Images\themes\misc\systats-segments-icon.png" />
     <Content Include="Content\Images\themes\misc\template-message.jpg" />
     <Content Include="Content\Images\themes\misc\warning.png" />
+    <Content Include="Content\Images\themes\modify-icon.png" />
+    <Content Include="Content\Images\themes\moneybooker-register.jpg" />
     <Content Include="Content\Images\themes\my_fav_button.png" />
     <Content Include="Content\Images\themes\navbg.png" />
     <Content Include="Content\Images\themes\navbg_hover.png" />
@@ -358,6 +395,8 @@
     <Content Include="Content\Images\themes\odds_header.png" />
     <Content Include="Content\Images\themes\overlay-button.png" />
     <Content Include="Content\Images\themes\rot-odds1.jpg" />
+    <Content Include="Content\Images\themes\rugby-bg.png" />
+    <Content Include="Content\Images\themes\rugby.png" />
     <Content Include="Content\Images\themes\search_odds_but.png" />
     <Content Include="Content\Images\themes\seperator.gif" />
     <Content Include="Content\Images\themes\slides\slide-1.jpg" />
@@ -368,14 +407,19 @@
     <Content Include="Content\Images\themes\slides\slide-6.jpg" />
     <Content Include="Content\Images\themes\slip-header.gif" />
     <Content Include="Content\Images\themes\SL_178x82_Sportbonus_50_1er.gif" />
+    <Content Include="Content\Images\themes\soccer-bg.png" />
+    <Content Include="Content\Images\themes\soccer-icon.png" />
     <Content Include="Content\Images\themes\SOCCER13.jpg" />
     <Content Include="Content\Images\themes\soccerbg.png" />
     <Content Include="Content\Images\themes\spirte.png" />
     <Content Include="Content\Images\themes\sports-live.gif" />
     <Content Include="Content\Images\themes\sports.gif" />
     <Content Include="Content\Images\themes\sports_sprites1.png" />
+    <Content Include="Content\Images\themes\sprite-icons.png" />
     <Content Include="Content\Images\themes\sprite_sport_icons40px.png" />
     <Content Include="Content\Images\themes\tbsprite.png" />
+    <Content Include="Content\Images\themes\tennis-bg.png" />
+    <Content Include="Content\Images\themes\tennis-icon.png" />
     <Content Include="Content\Images\themes\thawte.gif" />
     <Content Include="Content\Images\themes\thawte.png" />
     <Content Include="Content\Images\themes\trust_LGA_en.png" />
@@ -385,6 +429,8 @@
     <Content Include="Content\Images\themes\trust_virus_free_seal_en.png" />
     <Content Include="Content\Images\themes\trust_virus_free_seal_small.png" />
     <Content Include="Content\Images\themes\us.png" />
+    <Content Include="Content\Images\themes\volleyball-bg.png" />
+    <Content Include="Content\Images\themes\volleyball-icon.png" />
     <Content Include="Content\Scripts\Cultures\globalize.culture.af-ZA.js" />
     <Content Include="Content\Scripts\Cultures\globalize.culture.af.js" />
     <Content Include="Content\Scripts\Cultures\globalize.culture.am-ET.js" />
@@ -769,6 +815,25 @@
     <Content Include="Content\Scripts\GUI\sports.js" />
     <Content Include="Content\Scripts\GUI\standards.js" />
     <Content Include="Content\Scripts\GUI\StringBuilder.js" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\Scripts\JQuery\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Scripts\JQuery\css\jquery-ui-slides.min.css" />
+    <Content Include="Content\Scripts\JQuery\css\jquery-ui.1.8.17.custom.css" />
+    <Content Include="Content\Scripts\JQuery\css\jquery-ui.css" />
+    <Content Include="Content\Scripts\JQuery\css\pagination.png" />
+    <Content Include="Content\Scripts\JQuery\css\tabs-noimages.css" />
     <Content Include="Content\Scripts\JQuery\custom-theme\jquery-ui-slides.min.css" />
     <Content Include="Content\Scripts\JQuery\custom-theme\jquery-ui.1.8.17.custom.css" />
     <Content Include="Content\Scripts\JQuery\custom-theme\pagination.png" />
@@ -854,6 +919,7 @@
     <Folder Include="App_Data\XMLFEED\BETCLICK\" />
     <Folder Include="App_Data\XMLFEED\PINNACLE\" />
     <Folder Include="App_Data\XMLFEED\TITANBET\" />
+    <Folder Include="Content\Scripts\JQuery\css\custom-theme\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -995,6 +1061,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\MyAccount.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Account.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
