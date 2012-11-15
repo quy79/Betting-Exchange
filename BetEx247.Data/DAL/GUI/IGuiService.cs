@@ -33,13 +33,19 @@ namespace BetEx247.Data.DAL
 
         List<SoccerMatch> LiveInMatches(bool isSoccer);
 
-        List<SoccerMatch> UpCommingMatches(bool isSoccer, long? leagueId, int? countryId, int? sportId);
+        List<PSV_MATCHES> UpCommingMatches(bool isSoccer, long? leagueId, int? countryId, int? sportId, int day);
 
         SoccerCountry GetCountryByLeage(long leagueId,int countryId,int sportId);
 
         SoccerCountry GetCountryByCountry(int countryId);
 
         List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId);
+
+        /// <summary>
+        /// Get top league set by admin
+        /// </summary>
+        /// <returns>list psv_top_event</returns>
+        List<PSV_TOP_EVENT> GetTopEvent();
 
         SoccerLeague GetSoccerLeague(long leagueId, int countryId, int sportId);
         #endregion

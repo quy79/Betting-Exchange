@@ -39,6 +39,14 @@ namespace BetEx247.Web.Controllers
         }
 
         [OutputCache(Duration = 1800, Location = OutputCacheLocation.Client, VaryByParam = "none")]
+        public JsonResult getTopEvent()
+        {
+            List<PSV_TOP_EVENT> list = new List<PSV_TOP_EVENT>();
+            list = IoC.Resolve<IGuiService>().GetTopEvent();
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        [OutputCache(Duration = 1800, Location = OutputCacheLocation.Client, VaryByParam = "none")]
         public JsonResult getSport()
         {
             Sport sport = IoC.Resolve<IGuiService>().GetSport(Constant.SportType.SOCCER);

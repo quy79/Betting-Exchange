@@ -20,12 +20,44 @@ betex247 = {
         });
     },
 
+    gettopevent:function(){
+        $.ajax({
+            type: "GET",
+            url: this.Url + 'common/getTopEvent', // {"content"="Hello!"}
+            dataType: 'json',
+            ifModified: true,
+            cache: true,
+            success: function (data) {                     
+                if(data!=null && data.length>0){
+                    var sb = new StringBuilder();
+                    sb.append("<div id=\"top_events\" class=\"module\">");             
+                    sb.append("<h3 class=\"bdr_tr\">Top Events</h3>");
+                    sb.append("<div class=\"inner bdr_btm\">");
+                    sb.append("     <ul class=\"listings\">");
+                    for (var i = 0; i < data.length; i++) {
+                        var twt = data[i];
+                        var urlLeague= betex247.Url+"league/byleague/"+twt.ID+"/"+twt.CountryID+"/"+twt.SportID;
+                        sb.append("<li class=\"sesame\"><a href=\"javascript:void(0)\" onclick=\"betex247.loadleague('"+urlLeague+"')\"  class=\"level1\">"+twt.LeagueName_WebDisplay+"</a> </li>");
+                    }
+                    sb.append("     </ul>");
+                    sb.append("</div>");
+                    sb.append("</div>");
+
+                    $('#top_eventstop').html(sb.toString());
+                } 
+                
+                $('#top_events').find('.listings > li:last').addClass('last');               
+            }
+        });
+    },
+
     stripJsonToString: function (json) {
         return JSON.stringify(json);
     },
 
     excutejsonData: function (data) {
         var output = betex247.bindsportnew(data);
+        $('#top_events').show();
         $("div.loadoffermenu").html(output);
         //hide all league
         $(".navsports").slideUp(500);

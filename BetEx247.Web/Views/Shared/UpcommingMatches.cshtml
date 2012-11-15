@@ -1,51 +1,62 @@
 ﻿@using System.Collections;
 @using BetEx247.Data.Model;
 @using System.Data;
-
 @{
-    List<SoccerMatch> list = ViewBag.ListSoccerComming;
+    List<PSV_MATCHES> list = ViewBag.ListSoccerComming;
     DateTime DateNow = DateTime.Now;
     SoccerLeague league = ViewBag.LeagueDetail;
+    SoccerCountry country = ViewBag.SoccerCountries;
 }
 <div class="events">
     <div style="position: absolute; margin-top: 8px; padding-left: 15px">
         Upcomming Matches
     </div>
     <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
-        color: #fff">
-        @{
-            if(league!=null){
+        color: #fff; text-transform: none;">
+         @{
+            if (league != null)
+            {
                 @Html.Raw(league.LeagueName_WebDisplay)
             }
-            }</div>
+            else if(country!=null){
+                @Html.Raw(country.Country)
+            }
+            else
+            {
+                @Html.Raw("next 24 hours")
+            }
+        }</div>
 </div>
 <div class="alt_content bdr_btm">
     <div class="event_wrap">
         @{   
-            for(int i=0;i<7;i++)
+            for (int i = 0; i < 7; i++)
             {
-                List<SoccerMatch> temp = list.Where(w => w.StartDate.Date == DateNow.Date).ToList();
-                if(temp.Count>0)
+                List<PSV_MATCHES> temp = list.Where(w => w.StartDate.Date == DateNow.Date).ToList();
+                if (temp.Count > 0)
                 {
-                    @Html.Raw("<span class=\"headerExtra couponDate\">"+@DateNow.ToLongDateString()+"</span>")
+                    @Html.Raw("<p><br /><span style=\"font-size: 1.1em; font-weight: bold; color: yellow; display: inline;float: left;\">" + temp[0].LeagueName + "</span><br />")
+                    @Html.Raw("<span class=\"couponDate\" style=\"font-size: 1.1em !important;\">" + @DateNow.ToLongDateString() + "</span>")
+
+           
                     
-                    foreach(SoccerMatch item in temp)
+                    foreach (PSV_MATCHES item in temp)
                     {   
-                        @Html.Raw("<p>")
-                        <div class="betting_row clearfix">
-                            <div style="float: left; padding: 5px 5px 5px 0px;">
-                                @item.StartTime.ToString("HH:mm")</div>
-                            <a href="#" class="betLink cell fifty" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
-                                @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> <a href="#"
+            @Html.Raw("<p>")
+            <div class="betting_row clearfix">
+                <div style="float: left; padding: 5px 5px 5px 0px;">
+                    @item.StartTime.ToString("HH:mm")</div>
+                <a href="#" class="betLink cell fifty" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
+                    @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> <a href="#"
                                     class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
-                                    View all markets >> </a>
-                        </div>
+                        View all markets >> </a>
+            </div>
                         
                     }
-                    
+
                 }
-                DateNow= DateNow.AddDays(1); 
+                DateNow = DateNow.AddDays(1);
             }
-        }   
+        }
     </div>
 </div>

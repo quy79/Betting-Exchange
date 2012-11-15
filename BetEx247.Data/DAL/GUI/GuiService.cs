@@ -88,17 +88,17 @@ namespace BetEx247.Data.DAL
             }            
         }
 
-        public List<SoccerMatch> UpCommingMatches(bool isSoccer,long? leagueId,int? countryId,int? sportId)
+        public List<PSV_MATCHES> UpCommingMatches(bool isSoccer,long? leagueId,int? countryId,int? sportId,int day)
         {
             using (var dba = new BetEXDataContainer())
             {
                 if (leagueId == null || leagueId == 0)
                 {
-                    return dba.PSP_UPCOMMINGMATCHES(isSoccer,0,0,0).ToList();
+                    return dba.PSP_UPCOMMINGMATCHES(isSoccer,0,0,0,day).ToList();
                 }
                 else
                 {
-                    return dba.PSP_UPCOMMINGMATCHES(isSoccer, leagueId,countryId,sportId).ToList();
+                    return dba.PSP_UPCOMMINGMATCHES(isSoccer, leagueId, countryId, sportId, day).ToList();
                 }
             }   
         }
@@ -124,6 +124,18 @@ namespace BetEx247.Data.DAL
             using (var dba = new BetEXDataContainer())
             {
                 return dba.PSP_GETCOUNTLEAGUEBYCOUNTRY(countryId).ToList();
+            }
+        }
+
+        /// <summary>
+        /// Get top league set by admin
+        /// </summary>
+        /// <returns>list psv_top_event</returns>
+        public List<PSV_TOP_EVENT> GetTopEvent()
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.PSV_TOP_EVENT.ToList();
             }
         }
 

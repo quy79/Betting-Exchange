@@ -41,7 +41,8 @@
       [SportLeagues].[LeagueName] AS [LeagueName], 
       [SportLeagues].[Description] AS [Description], 
       [SportLeagues].[StartDate] AS [StartDate], 
-      [SportLeagues].[EndDate] AS [EndDate]
+      [SportLeagues].[EndDate] AS [EndDate], 
+      [SportLeagues].[TopEvent] AS [TopEvent]
       FROM [dbo].[SportLeagues] AS [SportLeagues]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Sports" EntityType="BettingExchangeModel.Store.Sports" store:Type="Tables" Schema="dbo" />
@@ -52,7 +53,6 @@
           <EntitySet Name="Sports_TotalOU" EntityType="BettingExchangeModel.Store.Sports_TotalOU" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SportsMatches" EntityType="BettingExchangeModel.Store.SportsMatches" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Statements" EntityType="BettingExchangeModel.Store.Statements" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="sysdiagrams" EntityType="BettingExchangeModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Teams" EntityType="BettingExchangeModel.Store.Teams" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Transactions" EntityType="BettingExchangeModel.Store.Transactions" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PSV_ALLTOURNAMENT" EntityType="BettingExchangeModel.Store.PSV_ALLTOURNAMENT" store:Type="Views" store:Schema="dbo" store:Name="PSV_ALLTOURNAMENT">
@@ -63,6 +63,22 @@
       [PSV_ALLTOURNAMENT].[LeagueName_WebDisplay] AS [LeagueName_WebDisplay], 
       [PSV_ALLTOURNAMENT].[Total] AS [Total]
       FROM [dbo].[PSV_ALLTOURNAMENT] AS [PSV_ALLTOURNAMENT]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PSV_MATCHES" EntityType="BettingExchangeModel.Store.PSV_MATCHES" store:Type="Views" store:Schema="dbo" store:Name="PSV_MATCHES">
+            <DefiningQuery>SELECT 
+      [PSV_MATCHES].[ID] AS [ID], 
+      [PSV_MATCHES].[HomeTeam] AS [HomeTeam], 
+      [PSV_MATCHES].[AwayTeam] AS [AwayTeam], 
+      [PSV_MATCHES].[MatchStatusID] AS [MatchStatusID], 
+      [PSV_MATCHES].[LeagueID] AS [LeagueID], 
+      [PSV_MATCHES].[LeagueName] AS [LeagueName], 
+      [PSV_MATCHES].[SportID] AS [SportID], 
+      [PSV_MATCHES].[SportName] AS [SportName], 
+      [PSV_MATCHES].[CountryID] AS [CountryID], 
+      [PSV_MATCHES].[Country] AS [Country], 
+      [PSV_MATCHES].[StartDate] AS [StartDate], 
+      [PSV_MATCHES].[StartTime] AS [StartTime]
+      FROM [dbo].[PSV_MATCHES] AS [PSV_MATCHES]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="PSV_MYBET" EntityType="BettingExchangeModel.Store.PSV_MYBET" store:Type="Views" store:Schema="dbo" store:Name="PSV_MYBET">
             <DefiningQuery>SELECT 
@@ -121,6 +137,17 @@
       [PSV_STATEMENTS].[Reason] AS [Reason], 
       [PSV_STATEMENTS].[DisplayId] AS [DisplayId]
       FROM [dbo].[PSV_STATEMENTS] AS [PSV_STATEMENTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PSV_TOP_EVENT" EntityType="BettingExchangeModel.Store.PSV_TOP_EVENT" store:Type="Views" store:Schema="dbo" store:Name="PSV_TOP_EVENT">
+            <DefiningQuery>SELECT 
+      [PSV_TOP_EVENT].[ID] AS [ID], 
+      [PSV_TOP_EVENT].[SportID] AS [SportID], 
+      [PSV_TOP_EVENT].[CountryID] AS [CountryID], 
+      [PSV_TOP_EVENT].[Is_Soccer] AS [Is_Soccer], 
+      [PSV_TOP_EVENT].[LeagueName_WebDisplay] AS [LeagueName_WebDisplay], 
+      [PSV_TOP_EVENT].[StartDate] AS [StartDate], 
+      [PSV_TOP_EVENT].[EndDate] AS [EndDate]
+      FROM [dbo].[PSV_TOP_EVENT] AS [PSV_TOP_EVENT]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_CardsInfo_SoccerMatches" Association="BettingExchangeModel.Store.FK_CardsInfo_SoccerMatches">
             <End Role="SoccerMatches" EntitySet="SoccerMatches" />
@@ -606,6 +633,7 @@
           <Property Name="ChampionTitle" Type="nvarchar" MaxLength="200" />
           <Property Name="TotalTeams" Type="bigint" />
           <Property Name="TotalPlayers" Type="bigint" />
+          <Property Name="TopEvent" Type="bit" />
         </EntityType>
         <EntityType Name="SoccerMatches">
           <Key>
@@ -652,6 +680,7 @@
           <Property Name="Description" Type="ntext" />
           <Property Name="StartDate" Type="datetime" />
           <Property Name="EndDate" Type="datetime" />
+          <Property Name="TopEvent" Type="bit" />
         </EntityType>
         <EntityType Name="Sports">
           <Key>
@@ -783,16 +812,6 @@
           <Property Name="Reason" Type="ntext" />
           <Property Name="DisplayId" Type="int" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Teams">
           <Key>
             <PropertyRef Name="ID" />
@@ -833,6 +852,33 @@
           <Property Name="CountryID" Type="int" />
           <Property Name="LeagueName_WebDisplay" Type="nvarchar" Nullable="false" MaxLength="200" />
           <Property Name="Total" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BettingExchange.dbo.PSV_MATCHES' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PSV_MATCHES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="HomeTeam" />
+            <PropertyRef Name="AwayTeam" />
+            <PropertyRef Name="LeagueName" />
+            <PropertyRef Name="SportName" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="StartTime" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="HomeTeam" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="AwayTeam" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="MatchStatusID" Type="smallint" />
+          <Property Name="LeagueID" Type="bigint" />
+          <Property Name="LeagueName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="SportID" Type="int" />
+          <Property Name="SportName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="StartTime" Type="smalldatetime" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'BettingExchange.dbo.PSV_MYBET' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -907,6 +953,25 @@
           <Property Name="MarketAmountRefund" Type="money" />
           <Property Name="Reason" Type="ntext" />
           <Property Name="DisplayId" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BettingExchange.dbo.PSV_TOP_EVENT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PSV_TOP_EVENT">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SportID" />
+            <PropertyRef Name="CountryID" />
+            <PropertyRef Name="Is_Soccer" />
+            <PropertyRef Name="LeagueName_WebDisplay" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" />
+          <Property Name="SportID" Type="int" Nullable="false" />
+          <Property Name="CountryID" Type="int" Nullable="false" />
+          <Property Name="Is_Soccer" Type="bit" Nullable="false" />
+          <Property Name="LeagueName_WebDisplay" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
         </EntityType>
         <Association Name="FK_CardsInfo_SoccerMatches">
           <End Role="SoccerMatches" Type="BettingExchangeModel.Store.SoccerMatches" Multiplicity="0..1" />
@@ -1262,6 +1327,7 @@
           <Parameter Name="leagueId" Type="bigint" Mode="In" />
           <Parameter Name="cid" Type="int" Mode="In" />
           <Parameter Name="sid" Type="int" Mode="In" />
+          <Parameter Name="day" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -2223,7 +2289,6 @@
           <EntitySet Name="Soccer_TotalGoalsOU" EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" />
           <EntitySet Name="Soccer_WinningMargin" EntityType="BettingExchangeModel.Soccer_WinningMargin" />
           <EntitySet Name="SoccerCountries" EntityType="BettingExchangeModel.SoccerCountry" />
-          <EntitySet Name="SportLeagues" EntityType="BettingExchangeModel.SportLeague" />
           <EntitySet Name="Sports" EntityType="BettingExchangeModel.Sport" />
           <EntitySet Name="Sports_AsianHandicap" EntityType="BettingExchangeModel.Sports_AsianHandicap" />
           <EntitySet Name="Sports_MatchedBets" EntityType="BettingExchangeModel.Sports_MatchedBets" />
@@ -2232,7 +2297,6 @@
           <EntitySet Name="Sports_TotalOU" EntityType="BettingExchangeModel.Sports_TotalOU" />
           <EntitySet Name="SportsMatches" EntityType="BettingExchangeModel.SportsMatch" />
           <EntitySet Name="Statements" EntityType="BettingExchangeModel.Statement" />
-          <EntitySet Name="sysdiagrams" EntityType="BettingExchangeModel.sysdiagram" />
           <EntitySet Name="Teams" EntityType="BettingExchangeModel.Team" />
           <EntitySet Name="Transactions" EntityType="BettingExchangeModel.Transaction" />
           <EntitySet Name="PSV_ALLTOURNAMENT" EntityType="BettingExchangeModel.PSV_ALLTOURNAMENT" />
@@ -2298,7 +2362,6 @@
             <End Role="SportsMatch" EntitySet="SportsMatches" />
             <End Role="Sports_TotalOU" EntitySet="Sports_TotalOU" />
           </AssociationSet>
-          <EntitySet Name="SoccerLeagues" EntityType="BettingExchangeModel.SoccerLeague" />
           <EntitySet Name="SoccerMatches" EntityType="BettingExchangeModel.SoccerMatch" />
           <AssociationSet Name="FK_CardsInfo_SoccerMatches" Association="BettingExchangeModel.FK_CardsInfo_SoccerMatches">
             <End Role="SoccerMatch" EntitySet="SoccerMatches" />
@@ -2345,12 +2408,17 @@
             <Parameter Name="cid" Mode="In" Type="Int32" />
             <Parameter Name="sid" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="PSP_UPCOMMINGMATCHES" EntitySet="SoccerMatches" ReturnType="Collection(BettingExchangeModel.SoccerMatch)">
+          <EntitySet Name="SoccerLeagues" EntityType="BettingExchangeModel.SoccerLeague" />
+          <EntitySet Name="SportLeagues" EntityType="BettingExchangeModel.SportLeague" />
+          <EntitySet Name="PSV_TOP_EVENT" EntityType="BettingExchangeModel.PSV_TOP_EVENT" />
+          <FunctionImport Name="PSP_UPCOMMINGMATCHES" EntitySet="PSV_MATCHES" ReturnType="Collection(BettingExchangeModel.PSV_MATCHES)">
             <Parameter Name="isSoccer" Mode="In" Type="Boolean" />
             <Parameter Name="leagueId" Mode="In" Type="Int64" />
             <Parameter Name="cid" Mode="In" Type="Int32" />
             <Parameter Name="sid" Mode="In" Type="Int32" />
+            <Parameter Name="day" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="PSV_MATCHES" EntityType="BettingExchangeModel.PSV_MATCHES" />
           </EntityContainer>
         <EntityType Name="BetStatu">
           <Key>
@@ -2747,19 +2815,6 @@
           <Property Type="String" Name="Betclick_OddsFeed" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="International" />
         </EntityType>
-        <EntityType Name="SportLeague">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="SportID" />
-            <PropertyRef Name="LeagueName" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" />
-          <Property Type="Int32" Name="SportID" Nullable="false" />
-          <Property Type="String" Name="LeagueName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="StartDate" />
-          <Property Type="DateTime" Name="EndDate" />
-        </EntityType>
         <EntityType Name="Sport">
           <Key>
             <PropertyRef Name="ID" />
@@ -2897,16 +2952,6 @@
           <Property Type="String" Name="Reason" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="DisplayId" />
           <NavigationProperty Name="Member" Relationship="BettingExchangeModel.FK_Statements_Members" FromRole="Statement" ToRole="Member" />
-        </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="principal_id" Nullable="false" />
-          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="version" />
-          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Team">
           <Key>
@@ -3195,26 +3240,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="SoccerLeague">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="SportID" />
-            <PropertyRef Name="CountryID" />
-          </Key>
-          <Property Type="Int64" Name="ID" Nullable="false" />
-          <Property Type="Int32" Name="SportID" Nullable="false" />
-          <Property Type="Int32" Name="CountryID" Nullable="false" />
-          <Property Type="Boolean" Name="Is_Soccer" Nullable="false" />
-          <Property Type="String" Name="LeagueName_Goalserve" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LeagueName_Betclick" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="LeagueName_WebDisplay" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="StartDate" />
-          <Property Type="DateTime" Name="EndDate" />
-          <Property Type="String" Name="ChampionTitle" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Type="Int64" Name="TotalTeams" />
-          <Property Type="Int64" Name="TotalPlayers" />
-        </EntityType>
         <EntityType Name="SoccerMatch">
           <Key>
             <PropertyRef Name="ID" />
@@ -3375,6 +3400,81 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="SoccerLeague">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SportID" />
+            <PropertyRef Name="CountryID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="SportID" Nullable="false" />
+          <Property Type="Int32" Name="CountryID" Nullable="false" />
+          <Property Type="Boolean" Name="Is_Soccer" Nullable="false" />
+          <Property Type="String" Name="LeagueName_Goalserve" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LeagueName_Betclick" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LeagueName_WebDisplay" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="String" Name="ChampionTitle" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="TotalTeams" />
+          <Property Type="Int64" Name="TotalPlayers" />
+          <Property Type="Boolean" Name="TopEvent" />
+        </EntityType>
+        <EntityType Name="SportLeague">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SportID" />
+            <PropertyRef Name="LeagueName" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="SportID" Nullable="false" />
+          <Property Type="String" Name="LeagueName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="EndDate" />
+          <Property Type="Boolean" Name="TopEvent" />
+        </EntityType>
+        <EntityType Name="PSV_TOP_EVENT">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="SportID" />
+            <PropertyRef Name="CountryID" />
+            <PropertyRef Name="Is_Soccer" />
+            <PropertyRef Name="LeagueName_WebDisplay" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="SportID" Nullable="false" />
+          <Property Type="Int32" Name="CountryID" Nullable="false" />
+          <Property Type="Boolean" Name="Is_Soccer" Nullable="false" />
+          <Property Type="String" Name="LeagueName_WebDisplay" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" />
+          <Property Type="DateTime" Name="EndDate" />
+        </EntityType>
+        <EntityType Name="PSV_MATCHES">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="HomeTeam" />
+            <PropertyRef Name="AwayTeam" />
+            <PropertyRef Name="LeagueName" />
+            <PropertyRef Name="SportName" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="StartTime" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" />
+          <Property Type="String" Name="HomeTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AwayTeam" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="MatchStatusID" />
+          <Property Type="Int64" Name="LeagueID" />
+          <Property Type="String" Name="LeagueName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="SportID" />
+          <Property Type="String" Name="SportName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CountryID" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3776,18 +3876,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SportLeagues">
-            <EntityTypeMapping TypeName="BettingExchangeModel.SportLeague">
-              <MappingFragment StoreEntitySet="SportLeagues">
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
-                <ScalarProperty Name="SportID" ColumnName="SportID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Sports">
             <EntityTypeMapping TypeName="BettingExchangeModel.Sport">
               <MappingFragment StoreEntitySet="Sports">
@@ -3926,17 +4014,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="BettingExchangeModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Teams">
             <EntityTypeMapping TypeName="BettingExchangeModel.Team">
               <MappingFragment StoreEntitySet="Teams">
@@ -4039,25 +4116,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SoccerLeagues">
-            <EntityTypeMapping TypeName="BettingExchangeModel.SoccerLeague">
-              <MappingFragment StoreEntitySet="SoccerLeagues">
-                <ScalarProperty Name="TotalPlayers" ColumnName="TotalPlayers" />
-                <ScalarProperty Name="TotalTeams" ColumnName="TotalTeams" />
-                <ScalarProperty Name="ChampionTitle" ColumnName="ChampionTitle" />
-                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
-                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="LeagueName_WebDisplay" ColumnName="LeagueName_WebDisplay" />
-                <ScalarProperty Name="LeagueName_Betclick" ColumnName="LeagueName_Betclick" />
-                <ScalarProperty Name="LeagueName_Goalserve" ColumnName="LeagueName_Goalserve" />
-                <ScalarProperty Name="Is_Soccer" ColumnName="Is_Soccer" />
-                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
-                <ScalarProperty Name="SportID" ColumnName="SportID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SoccerMatches">
             <EntityTypeMapping TypeName="BettingExchangeModel.SoccerMatch">
               <MappingFragment StoreEntitySet="SoccerMatches">
@@ -4090,7 +4148,71 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PSP_GETCOUNTRYBYLEAGUE" FunctionName="BettingExchangeModel.Store.PSP_GETCOUNTRYBYLEAGUE" />
+          <EntitySetMapping Name="SoccerLeagues">
+            <EntityTypeMapping TypeName="BettingExchangeModel.SoccerLeague">
+              <MappingFragment StoreEntitySet="SoccerLeagues">
+                <ScalarProperty Name="TopEvent" ColumnName="TopEvent" />
+                <ScalarProperty Name="TotalPlayers" ColumnName="TotalPlayers" />
+                <ScalarProperty Name="TotalTeams" ColumnName="TotalTeams" />
+                <ScalarProperty Name="ChampionTitle" ColumnName="ChampionTitle" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LeagueName_WebDisplay" ColumnName="LeagueName_WebDisplay" />
+                <ScalarProperty Name="LeagueName_Betclick" ColumnName="LeagueName_Betclick" />
+                <ScalarProperty Name="LeagueName_Goalserve" ColumnName="LeagueName_Goalserve" />
+                <ScalarProperty Name="Is_Soccer" ColumnName="Is_Soccer" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SportLeagues">
+            <EntityTypeMapping TypeName="BettingExchangeModel.SportLeague">
+              <MappingFragment StoreEntitySet="SportLeagues">
+                <ScalarProperty Name="TopEvent" ColumnName="TopEvent" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PSV_TOP_EVENT">
+            <EntityTypeMapping TypeName="BettingExchangeModel.PSV_TOP_EVENT">
+              <MappingFragment StoreEntitySet="PSV_TOP_EVENT">
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="LeagueName_WebDisplay" ColumnName="LeagueName_WebDisplay" />
+                <ScalarProperty Name="Is_Soccer" ColumnName="Is_Soccer" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="PSP_UPCOMMINGMATCHES" FunctionName="BettingExchangeModel.Store.PSP_UPCOMMINGMATCHES" />
+          <EntitySetMapping Name="PSV_MATCHES">
+            <EntityTypeMapping TypeName="BettingExchangeModel.PSV_MATCHES">
+              <MappingFragment StoreEntitySet="PSV_MATCHES">
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="SportName" ColumnName="SportName" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
+                <ScalarProperty Name="LeagueID" ColumnName="LeagueID" />
+                <ScalarProperty Name="MatchStatusID" ColumnName="MatchStatusID" />
+                <ScalarProperty Name="AwayTeam" ColumnName="AwayTeam" />
+                <ScalarProperty Name="HomeTeam" ColumnName="HomeTeam" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -4138,7 +4260,6 @@
         <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" Width="1.5" PointX="3" PointY="29.875" Height="3.3263964843749818" />
         <EntityTypeShape EntityType="BettingExchangeModel.Soccer_WinningMargin" Width="1.5" PointX="3" PointY="34" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="BettingExchangeModel.SoccerCountry" Width="1.5" PointX="5.75" PointY="12.75" Height="2.1725878906249818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.SportLeague" Width="1.5" PointX="7.75" PointY="12.75" Height="2.1725878906249818" />
         <EntityTypeShape EntityType="BettingExchangeModel.Sport" Width="1.5" PointX="12.75" PointY="12.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="BettingExchangeModel.Sports_AsianHandicap" Width="1.5" PointX="3" PointY="38.25" Height="3.134095052083353" />
         <EntityTypeShape EntityType="BettingExchangeModel.Sports_MatchedBets" Width="1.5" PointX="9.75" PointY="13.75" Height="2.3648893229166674" />
@@ -4147,7 +4268,6 @@
         <EntityTypeShape EntityType="BettingExchangeModel.Sports_TotalOU" Width="1.5" PointX="8" PointY="8.75" Height="3.134095052083353" />
         <EntityTypeShape EntityType="BettingExchangeModel.SportsMatch" Width="1.5" PointX="5.75" PointY="3.875" Height="5.4417122395833237" />
         <EntityTypeShape EntityType="BettingExchangeModel.Statement" Width="1.5" PointX="5.25" PointY="52" Height="5.0571093749999818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.sysdiagram" Width="1.5" PointX="14.75" PointY="0.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="BettingExchangeModel.Team" Width="1.5" PointX="14.75" PointY="3.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="BettingExchangeModel.Transaction" Width="1.5" PointX="5.25" PointY="57.75" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="BettingExchangeModel.PSV_ALLTOURNAMENT" Width="1.5" PointX="14.75" PointY="6.75" Height="1.9802864583333246" />
@@ -4227,7 +4347,6 @@
           <ConnectorPoint PointX="7.25" PointY="9.0333561197916623" />
           <ConnectorPoint PointX="8" PointY="9.0333561197916623" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="BettingExchangeModel.SoccerLeague" Width="1.5" PointX="17.375" PointY="0.75" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="BettingExchangeModel.SoccerMatch" Width="1.5" PointX="0.75" PointY="18.875" Height="7.7493294270833246" />
         <AssociationConnector Association="BettingExchangeModel.FK_CardsInfo_SoccerMatches" >
           <ConnectorPoint PointX="1.5" PointY="18.875" />
@@ -4282,6 +4401,10 @@
           <ConnectorPoint PointX="1.0937475" PointY="39.817047526041662" />
           <ConnectorPoint PointX="3" PointY="39.817047526041662" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="BettingExchangeModel.SoccerLeague" Width="1.5" PointX="17.375" PointY="0.75" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.SportLeague" Width="1.5" PointX="17.375" PointY="5.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_TOP_EVENT" Width="1.5" PointX="7.375" PointY="17.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_MATCHES" Width="1.5" PointX="17.375" PointY="9.75" Height="3.3263964843750102" />
       </Diagram>
     </Diagrams>
   </Designer>

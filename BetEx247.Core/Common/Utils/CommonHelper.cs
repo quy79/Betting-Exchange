@@ -23,7 +23,7 @@ namespace BetEx247.Core.Common.Utils
     public partial class CommonHelper
     {
         #region Methods
-        public static void DefineSearchDate(string period,string startDate, string endDate, ref DateTime start, ref DateTime end)
+        public static void DefineSearchDate(string period, string startDate, string endDate, ref DateTime start, ref DateTime end)
         {
             if (startDate == "" && endDate == "")
             {
@@ -67,6 +67,56 @@ namespace BetEx247.Core.Common.Utils
             email = email.Trim();
             result = Regex.IsMatch(email, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
             return result;
+        }
+
+        /// <summary>
+        /// Get class name from sportId input
+        /// </summary>
+        /// <param name="sportId">sportId</param>
+        /// <returns>string of class name in css</returns>
+        public static string AddHeadingClass(string sportname)
+        {
+            string className = string.Empty;
+            switch (sportname.ToLower())
+            {
+                case "soccer":
+                    className = "soccer-heading";
+                    break;
+                case "baseball":
+                    className = "baseball-heading";
+                    break;
+                case "tennis":
+                    className = "tennis-heading";
+                    break;
+                case "horse racing":
+                    className = "horserace-heading";
+                    break;
+                case "american football":
+                    className = "amfootball-heading";
+                    break;
+                case "cricket":
+                    className = "cricket-heading";
+                    break;
+                case "sports-hockey":
+                    className = "hockey-heading";
+                    break;
+                case "handball":
+                    className = "handball-heading";
+                    break;
+                case "volleyball":
+                    className = "volleyball-heading";
+                    break;
+                case "rugby league":
+                    className = "rugby-heading";
+                    break;
+                case "rugby union":
+                    className = "rugby-heading";
+                    break;
+                default:
+                    className = "soccer-heading";
+                    break;
+            }
+            return className;
         }
 
         /// <summary>
@@ -406,7 +456,7 @@ namespace BetEx247.Core.Common.Utils
         /// <returns>Store location</returns>
         public static string GetRequestIP()
         {
-            return HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"]; 
+            return HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
         }
 
         /// <summary>
@@ -941,9 +991,9 @@ namespace BetEx247.Core.Common.Utils
             }
         }
 
-        public static void DownloadXML(string sUrl,String sSource, int? level, string downloadTime)
+        public static void DownloadXML(string sUrl, String sSource, int? level, string downloadTime)
         {
-            string pathLocal = string.Empty;               
+            string pathLocal = string.Empty;
             switch (sSource)
             {
                 case Constant.SourceXML.BETCLICK:
@@ -977,7 +1027,7 @@ namespace BetEx247.Core.Common.Utils
             {
                 case Constant.SourceXML.BETCLICK:
                 case Constant.SourceXML.GOALSERVE:
-                    fileName =string.Format("{0}.xml",  downloadTime);// string.Format("{0}_{1}.xml", sSource, downloadTime);
+                    fileName = string.Format("{0}.xml", downloadTime);// string.Format("{0}_{1}.xml", sSource, downloadTime);
                     break;
                 case Constant.SourceXML.PINNACLESPORTS:
                     if (level != null)
@@ -1009,7 +1059,7 @@ namespace BetEx247.Core.Common.Utils
                     break;
             }
 
-            string folderPath = CommonHelper.CreateDirectory(pathLocal,"XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
+            string folderPath = CommonHelper.CreateDirectory(pathLocal, "XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
             string sFullPath = string.Format("{0}/{1}/{2}", CommonHelper.getLocalPath(), folderPath, fileName);
             contentSave.Save(sFullPath);
         }
@@ -1052,7 +1102,7 @@ namespace BetEx247.Core.Common.Utils
             {
                 Directory.CreateDirectory(sfullPath);
             }
-            return string.Format("{0}/{1}",sPathFolder,sfolderName);
+            return string.Format("{0}/{1}", sPathFolder, sfolderName);
         }
 
         /// <summary>
