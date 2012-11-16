@@ -12,52 +12,8 @@
         <div class="account-box-title">
             Betting P/L
         </div>
-        <div class="account-box-filter">
-            <table id="filter-tbl" style="width: 90% !important;">
-                <tr>
-                    <td style="width: 15%; text-align: right;">
-                        Date Setled
-                    </td>
-                    <td style="width: 20%;">
-                        <table>
-                            <tr>
-                                <td align="right" style="width: 1%; padding: 0px 0px; text-align: left;">
-                                    <input type="radio" name="DateFilter" value="1" checked style="border: 0px !important;" />
-                                </td>
-                                <td align="left" width="99%" style="padding: 0px 0px;">
-                                    <select name="ByPeriod" id="ByPeriod" style="border: 1px solid black; font-size: 0.9em;">
-                                        <option value="24h">Last 24 hours</option>
-                                        <option value="48h">Last 48 hours</option>
-                                        <option value="7d">Last 7 days</option>
-                                        <option value="30d">Last 30 days</option>
-                                        <option value="3m">Last 3 months</option>
-                                        <option value="6m">Last 6 months</option>
-                                    </select>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td width="45%" align="left">
-                        <table>
-                            <tr>
-                                <td align="right" width="1%" style="padding: 0px 0px; margin: 0 auto;">
-                                    <input type="radio" name="DateFilter" value="2" style="border: 0px !important;" />
-                                </td>
-                                <td align="left" width="99%" style="padding: 0px 0px; margin: 0 auto;">
-                                    <input id="date1" type="textbox" class="text-input-date" />&nbsp;&nbsp;<input id="date2"
-                                        type="textbox" class="text-input-date" />
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td width="20%" align="left" style="text-align: left;">
-                        <span class="lookup-submit" style="float: left;"><a href="/" id="lookuplink" onclick="document.forms[0].submit(); return false;">
-                            Show records</a>
-                            <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display: none">
-                                Show records</button></span>
-                    </td>
-                </tr>
-            </table>
+        <div class="account-box-filter AccountRegForm">           
+            @Html.Partial("AccountReportSearch2")
         </div>
         <div class="account-box-result-heading">
             <div class="dvFilterTitle">

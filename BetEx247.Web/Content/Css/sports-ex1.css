@@ -1,11 +1,11 @@
-@charset "utf-8";
+@charset utf-8;
 /* CSS Document */
 
 /* homepage */
 
 	
 #contentbox .eventListings{border:1px solid #323232; padding:11px 9px; margin-bottom:12px;
-	background:#000 url(../images/themes/bg-table.gif) left top repeat-x; }
+	background:#000url(../images/themes/bg-table.gif) left top repeat-x; }
 	#contentbox .eventListings table{width:100%;}
 	#contentbox .eventListings table td{vertical-align:middle; padding:6px; border-bottom:1px dotted #636363;}
 	#contentbox .eventListings table td.icon{padding-left:0; padding-right:0; width:25px;}
@@ -112,7 +112,7 @@
 	#contentbox .signup_content form.std_form{}
 	#contentbox .signup_content form.std_form p{font-size:1.09em; border-bottom:1px dotted #7e7e7e; margin:5px 0 25px;}
 	#contentbox .signup_content form.std_form p strong{float:left; background:#000; padding-right:7px; position:relative; top:0.6em;}
-	#contentbox .signup_content form.std_form p:after{content: "."; display: block; height: 0; clear: both; visibility: hidden;}
+	#contentbox .signup_content form.std_form p:after{content: .; display: block; height: 0; clear: both; visibility: hidden;}
 	.ie6 #contentbox .signup_content form.std_form p,
 	.ie7 #contentbox .signup_content form.std_form p{zoom:1;}	
 	
@@ -176,7 +176,13 @@ div.couponOutrights{
     margin-bottom: 0.8em;
     color: #F2DE00;
     text-decoration: none;}
-span.couponDate{color: #F2DE00;}
+div.couponTitle{font-size: 1.0em !important; font-weight: bold; color: white; float: right; text-transform: uppercase;
+ font-size: 1.1em; padding: 5px 5px 0px 5px; text-align: right;
+}
+span.couponDate{color: yellow !important; font-size: 0.9em !important; font-weight: normal !important;  float: right; text-transform: none;
+ font-size: 0.9em !important; padding: 10px 5px 0px 5px;text-align: right;
+}
+
 
 #contentbox .betting_wrap .currentMatch{width:100%; margin-bottom:10px;}
 	#contentbox .betting_wrap .currentMatch td{line-height:16px; text-align:center; padding:2px 0 3px;}
@@ -194,10 +200,10 @@ span.couponDate{color: #F2DE00;}
 	#contentbox .betting_wrap .currentMatch td .scoreContainer{height:48px;position:relative;}
 	
 	/* default/coupons */
-	#contentbox .betting_row{border-bottom:1px dotted #636363; padding-bottom:5px; margin-bottom:8px; margin-top:-5px;}
+	#contentbox .betting_row{border-bottom:1px dotted #636363; padding-bottom:5px; margin-bottom:8px; margin-top:-5px}
 	#contentbox .betting_row.last{border-bottom:0; padding-bottom:0; margin-bottom:0;}
-		#contentbox .betting_row a.cell{float:left; display:inline; color:#fff; padding:5px 5px 5px 5px; margin:0 3px 3px 0; position:relative;
-		background:#000 url(../images/themes/cell-bg.gif) left -30px repeat-x; border:1px solid #525252;}
+		#contentbox .betting_row a.cell{float:left; display:inline; color:#fff;  padding:5px 5px 5px 5px; margin:0 3px 3px 0; position:relative;
+		background:#000url(../images/themes/cell-bg.gif) left -30px repeat-x; border:1px solid #525252;}
 		#contentbox .betting_row a.cell:hover{background-position:left top;}
 		#contentbox .betting_row a.cell strong.odds{font-size:1.09em; position:absolute; right:5px; top:4px;}
         #contentbox .betting_row a.head{float:left; display:inline; color:#fff; padding:5px; margin:0 3px 3px 0; position:relative;
@@ -205,7 +211,7 @@ span.couponDate{color: #F2DE00;}
 		
 		#contentbox .betting_row a.cell.win{width:207px;}
 		#contentbox .betting_row a.cell.draw{width:67px;}
-		#contentbox .betting_row a.cell.fifty{width:340px;}
+		#contentbox .betting_row a.cell.fifty{width:340px; font: 1.0em; font-weight: bold;}
 		#contentbox .betting_row a.cell.third{width:100px;}
 		#contentbox .betting_row a.cell.quarter{width:95px;}
 		#contentbox .betting_row a.cell.fifth{width:68px;}
@@ -238,7 +244,7 @@ span.couponDate{color: #F2DE00;}
 	
 	#contentbox .live_content .betting_row{border-bottom:none; padding-bottom:0; margin-bottom:8px; margin-top:-5px;}
 		#contentbox .live_content .betting_row.last{border-bottom:0; padding-bottom:0; margin-bottom:0;}
-		#contentbox .live_content .betting_row a.cell{background:#027525 url(../images/themes/cell-live-bg.gif) left -30px repeat-x;
+		#contentbox .live_content .betting_row a.cell{background:#027525url(../images/themes/cell-live-bg.gif) left -30px repeat-x;
 			border:1px solid #077629; border-bottom-color:#004817; border-right-color:#004817;}
 		#contentbox .live_content .betting_row a.cell:hover{background-color:#209444; background-position:left top; }
     #contentbox .live_content .betting_row a.head{background:#027525;
@@ -302,7 +308,7 @@ span.couponDate{color: #F2DE00;}
 	
 	
 #contentbox table.eventDates{width:100%; margin-bottom:9px;
-	background:#093345 url(../images/themes/bg-eventdates.gif) left top repeat-x;}
+	background:#093345url(../images/themes/bg-eventdates.gif) left top repeat-x;}
 	#contentbox table.eventDates td{text-align:center; padding:11px;}
 	#contentbox table.eventDates td.first{padding-left:35px;}
 	#contentbox table.eventDates td.last{padding-right:35px;}
@@ -341,7 +347,7 @@ span.couponDate{color: #F2DE00;}
 	#contentbox .event_row.last{border:none; padding-bottom:0;}
 	#contentbox .event_row span,
 	#contentbox .event_row a{padding:0 9px; float:left;
-	background:url(../images/themes/cell-div.gif") left 0.4em no-repeat;}
+	background:url(../images/themes/cell-div.gif) left 0.4em no-repeat;}
 	
 	#contentbox .event_row span.first,
 	#contentbox .event_row a.first{background:none; padding-left:0;color: #f2de00;}
@@ -381,16 +387,16 @@ span.couponDate{color: #F2DE00;}
 #contentbox h1.sports{font-size:28px; height:63px; line-height:62px;  text-align:center; border:none;
 	background:none 3px 3px no-repeat;}
 	#contentbox h1.sports_long {font-size:18px;}
-	#contentbox h1.sports.f1{background-image:url(../images/themes/f1.gif);}
-	#contentbox h1.sports.soccer{background-image:url(../images/themes/soccer.gif);}
-	#contentbox h1.sports.rugby{background-image:url(../images/themes/rugby.gif);}
-	#contentbox h1.sports.cricket{background-image:url(../images/themes/cricket.gif);}
-	#contentbox h1.sports.tennis{background-image:url(../images/themes/tennis.gif);}
-	#contentbox h1.sports.nfl{background-image:url(../images/themes/nfl.gif);}
-	#contentbox h1.sports.boxing{background-image:url(../images/themes/boxing.gif);}
-	#contentbox h1.sports.basketball{background-image:url(../images/themes/basketball.gif);}
-	#contentbox h1.sports.golf{background-image:url(../images/themes/golf.gif);}
-	#contentbox h1.sports.cycling{background-image:url(../images/themes/cycling.gif);}
+	#contentbox h1.sports.f1{background-image:url(../images/themes/sportsheaders/f1.gif);}
+	#contentbox h1.sports.soccer{background-image:url(../images/themes/sportsheaders/soccer.gif);}
+	#contentbox h1.sports.rugby{background-image:url(../images/themes/sportsheaders/rugby.gif);}
+	#contentbox h1.sports.cricket{background-image:url(../images/themes/sportsheaders/cricket.gif);}
+	#contentbox h1.sports.tennis{background-image:url(../images/themes/sportsheaders/tennis.gif);}
+	#contentbox h1.sports.nfl{background-image:url(../images/themes/sportsheaders/nfl.gif);}
+	#contentbox h1.sports.boxing{background-image:url(../images/themes/sportsheaders/boxing.gif);}
+	#contentbox h1.sports.basketball{background-image:url(../images/themes/sportsheaders/basketball.gif);}
+	#contentbox h1.sports.golf{background-image:url(../images/themes/sportsheaders/golf.gif);}
+	#contentbox h1.sports.cycling{background-image:url(../images/themes/sportsheaders/cycling.gif);}
 	
 	#contentbox .rel a.view_coupons{position:absolute; right:0; top:-35px; height:26px; line-height:26px; padding:0 16px;
 		background:#222;}
@@ -436,15 +442,15 @@ span.couponDate{color: #F2DE00;}
 .clear {clear:both;}
 
 .headerSort {
-    background-image: url(../images/themes/sort.gif");
+    background-image: url(../images/themes/sort.gif);
     background-position: right center;
     background-repeat: no-repeat;
     cursor: pointer;
 }
 
 .headerSortDsc {
-    background-image: url(../images/themes/dsc.gif");
+    background-image: url(../images/themes/dsc.gif);
 }
 .headerSortAsc {
-    background-image: url(../images/themes/asc.gif");
+    background-image: url(../images/themes/asc.gif);
 }

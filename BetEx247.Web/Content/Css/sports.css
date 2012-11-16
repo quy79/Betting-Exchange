@@ -1,7 +1,7 @@
-@charset "utf-8";
+@charset utf-8;
 /* CSS Document */
 
-@charset "utf-8";
+@charset utf-8;
 /* CSS Document */
 
 
@@ -460,7 +460,7 @@ td.SuperSlipBg {
 
 input.PresetBetButton {
     border: 0px;
-    background: url("/images/betslip/orange_but.png") no-repeat scroll 0 -29px transparent;
+    background: url(/images/betslip/orange_but.png) no-repeat scroll 0 -29px transparent;
 	border:medium none;
 	color:#FFFFFF;
 	font-size:10px;
@@ -1383,7 +1383,7 @@ table.MyBets_Totals td {
 	
 	color:#f98200;
 	font-size:14px;
-	background-image: url(..../tpl/bets/images/themes/promotion_header.png);
+	background-image: url(../images/themes/promotion_header.png);
 	background-repeat: no-repeat;
 	padding:3px 0px 3px 6px;
 	width:399px;
@@ -1716,11 +1716,11 @@ border-radius: 0px 0px 5px 5px;
 margin-bottom: 5px;    
 clear: both;
 /* Mozilla ignores crazy MS image filters, so it will skip the following */
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../tpl/bets/images/themes/75.png');
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src=../images/themes/75.png);
 	background-image:url(../images/themes/75.png);
 }
 .myaccount-box >ul li{
-	background:url("../tpl/bets/images/themes/arrow-acc.png") no-repeat -5px 5px;
+	background:url(../images/themes/arrow-acc.png) no-repeat -5px 5px;
 }
 .myaccount-box >ul li a{
 	font: 10px Arial,Helvetica,sans-serif;
@@ -1998,7 +1998,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 
 .row-odds{
 	position: relative;
-	width: 100%; /* The menu should be the entire width of it's surrounding object, in this case the whole page */
+	width: 100%; /* The menu should be the entire width of its surrounding object, in this case the whole page */
 	margin: 0 auto; margin-top: 0px !important; } /* dark grey bg */
 
 .row-odds ul{
@@ -2018,7 +2018,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 	padding: 3px 8px; /* 10.5px of padding to the right and left of the link and 11px to the top and bottom */
 	}
 
-.row-odds ul li a:visited{ /* This bit just makes sure the text color doesn't change once you've visited a link */
+.row-odds ul li a:visited{ /* This bit just makes sure the text color doesnt change once youve visited a link */
 	color: #000;
 	text-decoration: none;}
 
@@ -2028,7 +2028,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 	
 	
 .test {
-	height: 22px; display: inline; position: relative; margin: 0 auto;"
+	height: 22px; display: inline; position: relative; margin: 0 auto;
 	color: #000;	
 }
 .test span { display: block;}
@@ -2044,10 +2044,10 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 }
 	
 div.highlights span.sitemap {
-	/*background: url("../images/bg_titleleft.jpg") no-repeat top right #000000;*/
+	/*background: url(../images/bg_titleleft.jpg) no-repeat top right #000000;*/
 	color: #000;
 	display: inline-block;
-	font: 1.3em 'UTMCafetaRegular';
+	font: 1.3em UTMCafetaRegular;
 	font-weight: bold;		
 	text-transform:uppercase;
 }
@@ -2088,7 +2088,7 @@ clear: both;
 border: 1px solid #fff;
 min-height: 150px;
 /* Mozilla ignores crazy MS image filters, so it will skip the following */
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../tpl/bets/images/themes/75.png');
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src=../images/themes/75.png);
 	background-image:url(../images/themes/75.png);
 }
 
@@ -2163,12 +2163,12 @@ img.inline,img.tooltip,.info img{margin-left:3px;display:inline;vertical-align:t
 	margin-top: 0px;
 	border: 1px solid #000;
 	/* Mozilla ignores crazy MS image filters, so it will skip the following */
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../tpl/bets/images/themes/75.png');
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src=../images/themes/75.png);
 	background-image:url(../images/themes/75.png);
 }
 
 .header-login-panel .account-balance {
-	color: yellow;
+	color: #000;
 		
 }
 
@@ -2326,7 +2326,7 @@ div.dvBody table tr td.tdPager
 
 }
 .account-box-filter #filter-tbl td.col2 { 
-	width: 35%;
+	width: 38%;
 	text-align: left;
 
 }
@@ -2484,8 +2484,8 @@ div.dvBody table tr td.tdPager
 			  background-color: #f2e308;
   background-image: -moz-linear-gradient(top, #f2e308, #c4b911);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f2e308),color-stop(1, #c4b911));
-            filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2e308', EndColorStr='#c4b911');
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2e308', EndColorStr='#c4b911')";
+            filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr=#f2e308, EndColorStr=#c4b911);
+        -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#f2e308, EndColorStr=#c4b911);
 		}
 
 
@@ -2514,6 +2514,7 @@ table.gridtable td {
 	border-color: #666666;
 	background-color: #ffffff;
 	height: 18px !important;
+	padding-left: 0px !important;
 }
 span.lost {
 	color: #000;	
@@ -2521,6 +2522,10 @@ span.lost {
 }
 span.won {
 	color: #F00;	
+	font-weight: bold;
+}
+span.cancelled {
+	color: #999;	
 	font-weight: bold;
 }
 
@@ -2556,3 +2561,169 @@ display: inline; position: relative; text-align: left; padding:0px; margin-top: 
 .PgCounter a:hover {text-decoration:none;border:solid 1px #000;background-color:brown;font-weight:normal;color:#ffffff;}
 .PgCounter span.paging {text-decoration:none;border:solid 1px #000;font-size:0.9em;background-color:#f7f7f7;padding:3px 3px 3px 3px;font-weight:normal;color:#996633;font-weight:bold;}
 .PgCounter div.stats {font-size:0.9em;color:#ff0000;text-decoration:underline;padding:0px}
+
+
+
+
+
+span.icon-edit, span.icon-delete {background:url(../images/themes/sprite-icons.png) no-repeat 0 0}
+
+span.icon-edit {background-position:0px 0px; float:left; width:24px; height:20px; display:block; margin: 0px 0px 0 0;}
+a:hover span.icon-edit {background-position:0px -21px;}
+span.icon-delete {background-position:0px -41px; float:left; width:24px; height:20px; display:block; margin: 0px 0px 0 0;}
+a:hover span.icon-delete {background-position:0px -64px;}
+
+a.action-lnk {
+  color: #000;
+  display: block;
+  text-decoration: none;
+  font-weight: normal;
+}
+a.action-lnk:hover{
+  color: red;
+  text-decoration: underline; 
+ }
+
+.dv-edit {
+padding: 0px 0px;
+float:left;
+left: 20px;
+margin: 0 auto;
+color : #000;
+position: relative;
+display: inline-block;
+}
+
+.dv-delete {
+padding: 0px 0px;
+float:right;
+margin: 0 auto;
+right: 25px;
+color : #000;
+position: relative;
+display: inline-block;
+}
+
+.actions {
+position: relative;
+background-color:#fff;
+}
+
+
+.payment-cell{
+position: relative;
+display: block;
+text-align: center;
+width: 100%;
+padding: 5px 5px;
+}
+.payment-cell a {
+display: block; 
+color: #000;
+}
+
+.payment-cell a:hover {
+text-decoration: underline; 
+color: #F00; 
+}
+
+
+table.gridtable td >table{
+	border-width: 0px !important;
+	padding: 2px 0px 2px 0px !important;
+	background-color: #ffffff;
+}
+
+table.gridtable td >table tr td{
+	border-width: 0px !important;
+	padding: 2px 0px 2px 0px !important;
+	background-color: #ffffff;
+	height: 18px !important;
+}
+
+div.soccer-heading {
+background:url(../images/themes/soccer-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.baseball-heading {
+background:url(../images/themes/baseball-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.tennis-heading {
+background:url(../images/themes/tennis-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.horserace-heading {
+background:url(../images/themes/horserace-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.amfootball-heading {
+background:url(../images/themes/amfootball-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.cricket-heading {
+background:url(../images/themes/cricket-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.handball-heading {
+background:url(../images/themes/handball-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.hockey-heading {
+background:url(../images/themes/hockey-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.volleyball-heading {
+background:url(../images/themes/volleyball-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+div.rugby-heading {
+background:url(../images/themes/rugby-bg.png) no-repeat 0 0;
+background-position:0px 0px; width: auto; height:46px;  margin: 10px 0px 0px; text-transform: uppercase; font-size: 1.1em;
+border: 1px solid #fff;
+font-size:15px;  /* font-size:20px; - adjusted to 20px with cufon */
+			font-weight:bold; color:#fff; text-transform:uppercase; text-shadow: 1px 1px 1px #000; border-bottom:1px solid #fff;
+}
+
+
+span.sports-icon {
+display: inline-block;
+padding: 25px 0px 0px 5px; color: #fff;}
+
+

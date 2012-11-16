@@ -66,27 +66,14 @@ betex247 = {
         $(".sport-heading").click(function () {
             //$(".navsports").hide();                
             $(this).next(".navsports").slideToggle(500);
-            $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+            //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
         });
 
         $(".league-heading").click(function () {
             //$(".navsportssub").slideUp(500);
             $(this).next(".navsportssub").slideToggle(500);
-            $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-        });   
-
-//        if (betex247.tempCountryId > 0) {
-//            var listactive = $(".league-heading > a");
-//            for (var i = 0; i < listactive.length; i++) {
-//                var temp = $(listactive[i]).attr('href');
-//                var currentUrl = betex247.Url + 'league/bycountry/' + betex247.tempCountryId;
-//                if (temp == currentUrl) {
-//                    $(listactive[i]).closest('div').prev().trigger('click');
-//                    $(listactive[i]).trigger('click');
-//                }
-//                //alert(temp);
-//            }
-//        }
+            //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+        });    
     },
 
     getsport: function (id) {
@@ -118,6 +105,72 @@ betex247 = {
             }
         });
     },
+
+    myaccountindex: function () {
+        $.ajax({
+            type: "GET",
+            url: this.Url + 'common/MyAccountIndex',
+            cache: true,
+            success: function (data) {
+                $("#accountpanel").html(data);
+
+                $(".accordion-header").click(function () {
+                    //$(".accordion-content").hide();
+                    $(this).next(".accordion-content").slideToggle(500);
+                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+                });
+            }
+        });
+    },
+
+    excuteaccountype:function(type){
+        switch(type){
+            case 1:
+                betex247.accountpage(betex247.Url+"account/balances");               
+                setTimeout(function(){$('#displayblock1').show()},800);
+                break;
+            case 2:
+                betex247.accountpage(betex247.Url+"account/statement");
+                setTimeout(function(){$('#displayblock1').show()},800);
+                break;
+            case 3:
+                betex247.accountpage(betex247.Url+"account/exposure");
+                setTimeout(function(){$('#displayblock2').show()},800);
+                break;
+            case 4:
+                betex247.accountpage(betex247.Url+"account/unmatchedbets");  
+                setTimeout(function(){$('#displayblock2').show()},800);
+                break;
+            case 5:
+                betex247.accountpage(betex247.Url+"account/unsettledbets");
+                setTimeout(function(){$('#displayblock2').show()},800);
+                break;
+            case 6:
+                betex247.accountpage(betex247.Url+"account/bettingpl");
+                setTimeout(function(){$('#displayblock3').show()},800);
+                break;
+            case 7:
+                betex247.accountpage(betex247.Url+"account/settledbets");
+                setTimeout(function(){$('#displayblock3').show()},800);
+                break;
+            case 8:
+                betex247.accountpage(betex247.Url+"account/cancelledbets");
+                setTimeout(function(){$('#displayblock3').show()},800);
+                break;
+            case 9:
+                betex247.accountpage(betex247.Url+"account/lapsedbets");
+                setTimeout(function(){$('#displayblock3').show()},800);
+                break;
+            case 10:
+                betex247.accountpage(betex247.Url+"account/voidbets");
+                setTimeout(function(){$('#displayblock3').show()},800);
+                break;
+            default:
+                betex247.accountpage(betex247.Url+"account/balances");
+                setTimeout(function(){$('#displayblock1').show()},800);
+                break;
+        }
+    },
     //#endregion
 
     //#region account
@@ -136,6 +189,7 @@ betex247 = {
                     $('#Password').val('');
                     if (arrData[0] == "success") {
                         //window.location.href=betex247.Url+"";
+                        betex247.myaccountindex();
                         $("div.regFormTop").hide();
                         $("div.header-login-panel").show();
                         $("p strong").html(arrData[1]);
@@ -174,6 +228,7 @@ betex247 = {
                 if (data == "success") {
                     $("div.regFormTop").show();
                     $("div.header-login-panel").hide();
+                    window.location.href=betex247.Url;
                 }
             }
         });

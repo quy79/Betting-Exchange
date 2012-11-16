@@ -1,8 +1,23 @@
-﻿<div id="left_column">
+﻿@using BetEx247.Data;
+<div id="left_column">
     <div id="top_eventstop">
-        
     </div>
+    <!--account panel start-->
+    <div id="accountpanel">
+    
+    </div>
+    <!--account panel end-->
     <div class="loadoffermenu">
         <img src="@Url.Content("~/Content/Images/themes/loading1.gif")" width="30" height="30" />
     </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () { 
+        @{
+        if(SessionManager.UserLoggedIn())
+        {
+            @Html.Raw("betex247.myaccountindex();")
+        }
+        }
+    });
+</script>

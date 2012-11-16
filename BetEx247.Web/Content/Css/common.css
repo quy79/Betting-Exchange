@@ -2006,19 +2006,19 @@ a.b_quicklinks_darts{background-position: 9px -453px;}
     padding-left:0;
 }
 #liveperson_left{
-    background:ur../en/images/chat/left-panel/reponline.gif) left top no-repeat;
+    background:url(../images/themes/chat/left-panel/reponline.gif) left top no-repeat;
 }
 .de #liveperson_left{
-    background:ur../de/images/chat/left-panel/reponline.gif) left top no-repeat;
+    background:url(../images/themes/chat/left-panel/reponline.gif) left top no-repeat;
 }
 .fr #liveperson_left{
-    background:ur../fr/images/chat/left-panel/reponline.gif) left top no-repeat;
+    background:url(../images/themes/chat/left-panel/reponline.gif) left top no-repeat;
 }
 .es #liveperson_left{
-    background:ur../es/images/chat/left-panel/reponline.gif) left top no-repeat;
+    background:url(../images/themes/chat/left-panel/reponline.gif) left top no-repeat;
 }
 .it #liveperson_left{
-    background:ur../it/images/chat/left-panel/reponline.gif) left top no-repeat;
+    background:url(../images/themes/chat/left-panel/reponline.gif) left top no-repeat;
 }
 .b_support ul li {
     height: 41px;
@@ -2853,18 +2853,18 @@ a.b_quicklinks_darts{background-position: 9px -453px;}
 	background:transparent url(../images/themes/tbsprite.png) left -538px  no-repeat ;
 }
 #betslip #payout .loading{
-    background:url(../images/themes/betslip/ajax-loader_placebet.gif) no-repeat 50% 50%, -o-linear-gradient(top, #2579cc, #065989) !important;
-    background:url(../images/themes/betslip/ajax-loader_placebet.gif) no-repeat 50% 50%, -moz-linear-gradient(top, #2579cc, #065989) !important; /*gecko*/
-    background:url(../images/themes/betslip/ajax-loader_placebet.gif) no-repeat  50% 50%,-webkit-gradient(linear,left top,left bottom,color-stop(0, #2579cc),color-stop(1, #065989)) !important; /*webkit*/
+    background:url(../images/themes/ajax-loader_placebet.gif) no-repeat 50% 50%, -o-linear-gradient(top, #2579cc, #065989) !important;
+    background:url(../images/themes/ajax-loader_placebet.gif) no-repeat 50% 50%, -moz-linear-gradient(top, #2579cc, #065989) !important; /*gecko*/
+    background:url(../images/themes/ajax-loader_placebet.gif) no-repeat  50% 50%,-webkit-gradient(linear,left top,left bottom,color-stop(0, #2579cc),color-stop(1, #065989)) !important; /*webkit*/
 }
 #betslip .top_controls{
-    background:#fff url(../images/themes/betslip/receipt_main_title.gif) 0 0 repeat-x;
+    background:#fff url(../images/themes/receipt_main_title.gif) 0 0 repeat-x;
 	height:19px;
 	padding:0 8px;
 	display:none;
 }
 #betslip .top_controls span{
-	background:transparent url(../images/themes/betslip/include_multiples.gif) left top no-repeat;
+	background:transparent url(../images/themes/include_multiples.gif) left top no-repeat;
 	padding-left:15px;
 	display:block;
 	line-height:19px;
@@ -2885,7 +2885,7 @@ a.b_quicklinks_darts{background-position: 9px -453px;}
 }
 #betslip #bets{
 	clear:both;
-	background:#fff url(../images/themes/betslip/betslip_footer.gif) left bottom no-repeat;
+	background:#fff url(../images/themes/betslip_footer.gif) left bottom no-repeat;
 }
 #betslip dl.no_bets{
     border-bottom:1px solid #c4c4c4;
@@ -2904,7 +2904,7 @@ a.b_quicklinks_darts{background-position: 9px -453px;}
 	padding:0 10px;
 	font-weight:bold;
 	line-height:19px;
-    background:#fff url(../images/themes/betslip/receipt_main_title.gif) 0 0  repeat-x;
+    background:#fff url(../images/themes/receipt_main_title.gif) 0 0  repeat-x;
 	color:#000;
 }
 dl.bets_receipt_title dt{
@@ -2970,7 +2970,7 @@ dl.bets_receipt_title dt{
 	padding:6px;
 }
 #betslip #bets_receipt{
-	background:#fff url(../images/themes/betslip/receipt_main_title.gif) 0 0 repeat-x;
+	background:#fff url(../images/themes/receipt_main_title.gif) 0 0 repeat-x;
 	margin:0;
 	padding:6px;
 }
@@ -3020,7 +3020,7 @@ dl.bets_receipt_title dt{
 }
 #betslip dl.bets_receipt_summary dt.total{
     /*background-color:#D2D2D2;*/
-    background:url(../images/themes/betslip/receipt_total_stake.gif) no-repeat 0 0;
+    background:url(../images/themes/receipt_total_stake.gif) no-repeat 0 0;
     line-height:20px;
     height:20px;
     padding:0 5px;
@@ -3048,7 +3048,7 @@ dl.bets_receipt .receipt_status{
     display:inline;
     width:15px;
     height:17px;
-    background-image:url(../images/themes/betslip/betslip_recip_good_error.png);
+    background-image:url(../images/themes/betslip_recip_good_error.png);
     background-color:transparent;
     background-repeat:no-repeat;
     overflow:hidden;
@@ -3070,7 +3070,7 @@ dl.bets_receipt span.good{
 }
 dl.bets_receipt_combo{ display:none;}
 dl.single_bet dt, dl.bets_receipt dt, dl.bets_receipt_combo dt, .single_hbet dt, .receipt h5 {
-   background:transparent url(../images/themes/betslip/single_bet_heading_new.gif) left top no-repeat;
+   background:transparent url(../images/themes/single_bet_heading_new.gif) left top no-repeat;
 	height:22px;
 	display:block;
 	padding:3px 0 0;
@@ -3103,7 +3103,7 @@ dl.single_bet dt a.bet_close, dl.bets_receipt dt a, dl.single_hbet dt a.bet_clos
 	width:17px;
 	height:15px;
 	text-indent:-9999px;
-	background:transparent url(../images/themes/betslip/single_bet_close_icon.gif) left top no-repeat;
+	background:transparent url(../images/themes/single_bet_close_icon.gif) left top no-repeat;
 	margin:3px 3px 0 1px;
 }
 dl.single_bet dd, dl.bets_receipt dd, dl.bets_receipt_combo dd, dl.single_hbet dd {
@@ -3174,7 +3174,7 @@ dl.single_bet dd.bet_stake input, dl.single_hbet dd.bet_stake input{
 	display: none;
 }
 #multiple_bet_calculations dt{
-	background: transparent url(../images/themes/betslip/combined_heading.gif) left top no-repeat;
+	background: transparent url(../images/themes/combined_heading.gif) left top no-repeat;
 	line-height:25px;
 	color:#484848;
 	padding-left:6px;
@@ -3190,7 +3190,7 @@ dl.single_bet dd.bet_stake input, dl.single_hbet dd.bet_stake input{
 	text-indent:-9999px;
 	top:4px;
 	width:13px;
-	background: transparent url(../images/themes/betslip/bankers_help_icon.gif) left top no-repeat;
+	background: transparent url(../images/themes/bankers_help_icon.gif) left top no-repeat;
 }
 /*turn bankers of temporary*/#bankers_help_icon{display:none!important;}
 #multiple_bet_calculations #number_of_selections span#selections, #multiple_bet_calculations #number_of_selections span#bankers{
@@ -3199,7 +3199,7 @@ dl.single_bet dd.bet_stake input, dl.single_hbet dd.bet_stake input{
 #multiple_bet_calculations #number_of_combined{
 	padding-top:5px;
 	height:20px;
-	background: transparent url(../images/themes/betslip/dots_orange_gray.gif) left bottom repeat-x;
+	background: transparent url(../images/themes/dots_orange_gray.gif) left bottom repeat-x;
 }
 #multiple_bet_calculations #number_of_combined span{
 	font-weight:bold;
@@ -3370,14 +3370,14 @@ dl.single_bet dd.bet_stake input, dl.single_hbet dd.bet_stake input{
 	margin-left:5px;
 }
 #betslip dl.bets_receipt_combo dd.error span.status-icon {
-	background:url(../images/themes/betslip/betslip_recip_good_error.png) no-repeat -15px 0;
+	background:url(../images/themes/betslip_recip_good_error.png) no-repeat -15px 0;
 }
 #betslip dl.bets_receipt_combo dd.good span.status-icon {
-	background:url(../images/themes/betslip/betslip_recip_good_error.png) no-repeat 0 0;
+	background:url(../images/themes/betslip_recip_good_error.png) no-repeat 0 0;
 }
 /*tooltip for receipt*/
 #tooltip.error h3{
-    background-image:url(../images/themes/betslip/tooltip_error_heading_bg.gif);
+    background-image:url(../images/themes/tooltip_error_heading_bg.gif);
     color:#fff;
 }
 #betslip a.betslipErrorIcon, #betslip a.betslipWarnIcon{
@@ -3386,7 +3386,7 @@ dl.single_bet dd.bet_stake input, dl.single_hbet dd.bet_stake input{
     position:relative;
     text-indent:-7777px;
     float:right;
-    background-image:url(../images/themes/betslip/err_warn_boxes_sprite.png);
+    background-image:url(../images/themes/err_warn_boxes_sprite.png);
     background-repeat:no-repeat;
     display:none;
 }
@@ -3487,27 +3487,27 @@ dl.single_bet dd.bet_stake input, dl.single_hbet dd.bet_stake input{
     vertical-align: top;
 }
 .en #symbols li a {
-	background-image: ur../en/images/symbols_sprite.gif);
+	background-image: url(../images/themes/symbols_sprite.gif);
 	background-repeat: no-repeat;
 }
 .es #symbols li a {
-	background-image: ur../es/images/symbols_sprite.gif);
+	background-image: url(../images/themes/symbols_sprite.gif);
 	background-repeat: no-repeat;
 }
 .de #symbols li a {
-	background-image: ur../de/images/symbols_sprite.gif);
+	background-image: url(../images/themes/symbols_sprite.gif);
 	background-repeat: no-repeat;
 }
 .fr #symbols li a {
-	background-image: ur../fr/images/symbols_sprite.gif);
+	background-image: url(../images/themes/symbols_sprite.gif);
 	background-repeat: no-repeat;
 }
 .it #symbols li a {
-	background-image: ur../it/images/symbols_sprite.gif);
+	background-image: url(../images/themes/symbols_sprite.gif);
 	background-repeat: no-repeat;
 }
 .ru #symbols li a {
-	background-image: ur../ru/images/symbols_sprite.gif);
+	background-image: url(../images/themes/symbols_sprite.gif);
 	background-repeat: no-repeat;
 }
 #symbols li a#tst {
@@ -5069,7 +5069,7 @@ h5.event .full_description{
 .sidebarRight #mainSkin, .sidebarRight .b_deposit_bonus_banner {
     text-align:center;
     /*background: url(../images/themes/sidebarSkin.png) left top no-repeat;*/
-    background:url(../images/themes/gradients/bounsSkinBKG.png) -226px top repeat-y;
+    background:url(../images/themes/bounsSkinBKG.png) -226px top repeat-y;
     position: relative;
     padding-left:0;
     padding-right:0;
@@ -5079,14 +5079,14 @@ h5.event .full_description{
     position:relative;
     display:block;
     height:30px;
-    background:url(../images/themes/gradients/bounsSkinBKG.png) left top no-repeat;
+    background:url(../images/themes/bounsSkinBKG.png) left top no-repeat;
 }
 
 .sidebarRight #mainSkin .skinBottom, .b_deposit_bonus_banner #register .skinBottom, .b_deposit_bonus_banner #successful .skinBottom{
     position:relative;
     display:block;
     height:30px;
-    background:url(../images/themes/gradients/bounsSkinBKG.png) right top no-repeat;
+    background:url(../images/themes/bounsSkinBKG.png) right top no-repeat;
 }
 .sidebarRight #mainSkin .skinMiddle, .b_deposit_bonus_banner #register .skinMiddle, .b_deposit_bonus_banner #successful .skinMiddle{
     position:relative;
@@ -5133,22 +5133,22 @@ h5.event .full_description{
 }
  /* Multivariate Experiment V1 join */
 .en .sidebarRight #mainSkin a.button {
-    background-image: ur../en/images/skinJoin.gif);
+    background-image: url(../images/themes/skinJoin.gif);
 }
 .es .sidebarRight #mainSkin a.button {
-    background-image: ur../es/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .de .sidebarRight #mainSkin a.button {
-    background-image: ur../de/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .fr .sidebarRight #mainSkin a.button {
-    background-image: ur../fr/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .it .sidebarRight #mainSkin a.button {
-    background-image: ur../it/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .ru .sidebarRight #mainSkin a.button {
-    background-image: ur../ru/images/skinRegister.gif);
+    background-image: url(../images/themes/skinRegister.gif);
 }
 .sidebarRight #mainSkin a{
     display:block;
@@ -5259,22 +5259,22 @@ h5.event .full_description{
     background-position: left bottom;
 }
 .en #floating_banner a {
-    background-image: ur../en/images/floating_banner_btn_bg.gif);
+    background-image: url(../images/themes/floating_banner_btn_bg.gif);
 }
 .es #floating_banner a {
-    background-image: ur../es/images/floating_banner_btn_bg.gif);
+    background-image: url(../images/themes/floating_banner_btn_bg.gif);
 }
 .de #floating_banner a {
-    background-image: ur../de/images/floating_banner_btn_bg.gif);
+    background-image: url(../images/themes/floating_banner_btn_bg.gif);
 }
 .fr #floating_banner a {
-    background-image: ur../fr/images/floating_banner_btn_bg.gif);
+    background-image: url(../images/themes/floating_banner_btn_bg.gif);
 }
 .it #floating_banner a {
-    background-image: ur../it/images/floating_banner_btn_bg.gif);
+    background-image: url(../images/themes/floating_banner_btn_bg.gif);
 }
 .ru #floating_banner a {
-    background-image: ur../ru/images/floating_banner_btn_bg.gif);
+    background-image: url(../images/themes/floating_banner_btn_bg.gif);
 }
 /*FLOATING BANNER - END*/
 /*End Skins*/
@@ -5459,7 +5459,7 @@ h5.event .full_description{
     margin-top: 10px;
 }
 .multiples dt {
-    background: url(../images/themes/betslip/multiplesHeading.jpg) left top no-repeat;
+    background: url(../images/themes/multiplesHeading.jpg) left top no-repeat;
     height: 25px;
     line-height: 25px;
     overflow: hidden;
@@ -5545,7 +5545,7 @@ h5.event .full_description{
     margin-top: 10px;
 }
 .forecast dt {
-    background: url(../images/themes/betslip/forecastHeading.jpg) left top no-repeat;
+    background: url(../images/themes/forecastHeading.jpg) left top no-repeat;
     height: 25px;
     line-height: 25px;
     color: #fff;
@@ -5577,7 +5577,7 @@ h5.event .full_description{
     height: 17px;
     overflow: hidden;
     text-indent: -9999px;
-    background-image: url(../images/themes/betslip/forecastButtons.gif);
+    background-image: url(../images/themes/forecastButtons.gif);
     background-repeat: no-repeat;
 }
 .inactiveUp {
@@ -5668,7 +5668,7 @@ h5.event .full_description{
 
 .receipt dd.multiples{
     display:block;
-    background: url(../images/themes/betslip/receipt_multiples_title.gif) no-repeat 0 0;
+    background: url(../images/themes/receipt_multiples_title.gif) no-repeat 0 0;
     font-weight:bold;
     height: 19px;
     margin-top: 0;
@@ -5703,7 +5703,7 @@ h5.event .full_description{
 }
 .betslipErrorBox .left, .betslipWarnBox .left,.betslipErrorBox .right, .betslipWarnBox .right{
     height:55px;
-    background-image:url(../images/themes/betslip/err_warn_boxes_sprite.png);
+    background-image:url(../images/themes/err_warn_boxes_sprite.png);
     background-repeat:no-repeat;
     width:30px;
 }
@@ -6554,7 +6554,7 @@ UserPersonalization - START
     overflow-y: 11px;
     padding: 10px;
     border-radius: 10px;
-    background: url(../images/themes/betslip/receipt_main_title.gif) repeat-x scroll 0 0 #FFFFFF;
+    background: url(../images/themes/receipt_main_title.gif) repeat-x scroll 0 0 #FFFFFF;
 }
 #eventNotes input{
     width:100%;

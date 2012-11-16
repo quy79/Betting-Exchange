@@ -302,7 +302,8 @@ namespace BetEx247.Web.Controllers
         }
         #endregion
 
-        #region Account Info
+        #region Account Info         
+
         [Authorize]
         public ActionResult Balances()
         {
@@ -312,9 +313,10 @@ namespace BetEx247.Web.Controllers
         }
 
         [Authorize]
-        public ActionResult Account()
+        public ActionResult Account(int? id)
         {
             long memberId = SessionManager.USER_ID;
+            ViewBag.Type = id;
             var mywallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
             return View(mywallet);
         }
@@ -361,6 +363,11 @@ namespace BetEx247.Web.Controllers
         {
             long memberId = SessionManager.USER_ID;
             var lstBettingPL = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.BETTINGPL);
+
+            var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
+            ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
+            ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch(); 
+
             return View(lstBettingPL);
         }
 

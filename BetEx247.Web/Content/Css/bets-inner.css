@@ -732,7 +732,7 @@ dl.expandable dd.hidden{
     background-image: url(../images/themes/sbmRegister.gif);
 }
 .it #regform .sbmRegister {
-    background-image:url(../images/themes/sbmRegister.gif);
+    background-image: url(../images/themes/sbmRegister.gif);
 }
 .ru #regform .sbmRegister {
     background-image: url(../images/themes/sbmRegister.gif);
@@ -758,7 +758,7 @@ dl.expandable dd.hidden{
     bottom: 5px;
 }
 #supportInfo:after{
-    content:'';
+    content:;
     border-bottom: 1px solid #bababa;
     width: 204px;
     display: block;
@@ -771,7 +771,7 @@ dl.expandable dd.hidden{
     padding: 10px 0 0 10px;
 }
 #supportInfo h4:after{
-    content:'';
+    content:;
     border-bottom: 7px solid #484848;
     border-left: 7px solid transparent;
     border-right: 7px solid transparent;
@@ -1258,7 +1258,7 @@ ul.b_myAccountTabs li.last{
     padding: 0 28px; /* W3C */
 }
 .form_holder label.error:before{
-    content:'';
+    content:;
     position: absolute;
     top: 12px;
     left: -5px;
@@ -1940,7 +1940,7 @@ ul.b_myAccountTabs li.last{
     left:-240px;
     z-index:1;
 }
-/* body_$sportalias is a class added to body on new sport to load up it's spesific sport background */
+/* body_$sportalias is a class added to body on new sport to load up its spesific sport background */
 #live.body_soccer #scoreboard_bg{background-image:url(../images/themes/score_boards/soccer.jpg)}
 #live.body_basketball #scoreboard_bg{background-image:url(../images/themes/score_boards/basketball.jpg)}
 #live.body_tennis #scoreboard_bg{background-image:url(../images/themes/score_boards/tennis.jpg)}
@@ -2965,7 +2965,7 @@ div.jqmDialog {
 
 /* [[[ Title / Top Classes ]]] */
 div.jqmdTC {
-    background: #000 url(../images/themes/modal_title_sprite.gif) repeat-x 0px -100px;
+    background: #000 url(../images/themes/modal/modal_title_sprite.gif) repeat-x 0px -100px;
     color: #FFF;
     padding: 7px 22px 5px 110px;
     font-weight: bold;
@@ -2974,11 +2974,11 @@ div.jqmdTC {
     font-size:12px;
 }
 div.jqmdTL {
-    background: url(../images/themes/modal_title_sprite.gif) no-repeat 0px -50px;
+    background: url(../images/themes/modal/modal_title_sprite.gif) no-repeat 0px -50px;
     padding-left: 5px;
 }
 div.jqmdTR {
-    background: url(../images/themes/modal_title_sprite.gif) no-repeat right 0px;
+    background: url(../images/themes/modal/modal_title_sprite.gif) no-repeat right 0px;
     padding-right: 5px;
 }
 img.jqmLogo{
@@ -2993,7 +2993,7 @@ input.jqmdX{
 }
 /* [[[ Body / Message Classes ]]] */
 div.jqmdBC {
-    background: url(../images/themes/modal_bc_bg.gif) repeat-x center bottom;
+    background: url(../images/themes/modal/modal_bc_bg.gif) repeat-x center bottom;
     padding: 7px 5px 7px;
     height: 530px;
     overflow: auto;
@@ -3012,7 +3012,7 @@ div.jqmdBR {
     position:absolute;
     right:5px;
     top:5px;
-    background:#EEE url(../images/themes/close.gif) no-repeat top left;
+    background:#EEE url(../images/themes/modal/close.gif) no-repeat top left;
     width:22px;
     height:21px;
     display:block;
@@ -3025,7 +3025,7 @@ div.jqmdBR {
     position:absolute;
     left:1px;
     top:13px;
-    background:#EEE url(../images/themes/modal_logo.gif) no-repeat top left;
+    background:#EEE url(../images/themes/modal/modal_logo.gif) no-repeat top left;
     text-indent:-7777px;
 }
 /*MODAL - END*/
@@ -3432,7 +3432,7 @@ a.successDeposit:hover {
     color:#656565;
 }
 #mobile_link{
-    background-image:url(../images/themes/drogba.jpg);
+    background-image:url(../images/themes/mobile/drogba.jpg);
     background-position:right bottom;
     background-repeat:no-repeat;
 }
@@ -4640,7 +4640,7 @@ body#live-betting .jqmOverlay{
     background: -webkit-linear-gradient(top, #08a3f5 0%, #1062bc 100%);
     background: -o-linear-gradient(top, #08a3f5 0%, #1062bc 100%);
     background: -ms-linear-gradient(top, #08a3f5 0%, #1062bc 100%);
-    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#08a3f5', endColorstr='#1062bc',GradientType=0 );*/
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#08a3f5, endColorstr=#1062bc,GradientType=0 );*/
     background: linear-gradient(top, #08a3f5 0%, #1062bc 100%);
     border: 1px solid #4f93de;
     -moz-border-radius: 5px 5px 5px 5px;
@@ -4686,7 +4686,7 @@ body#live-betting .jqmOverlay{
     background: -webkit-linear-gradient(top, #2b292a 0%, #302e2f 100%);
     background: -o-linear-gradient(top, #2b292a 0%, #302e2f 100%);
     background: -ms-linear-gradient(top, #2b292a 0%, #302e2f 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b292a', endColorstr='#302e2f',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#2b292a, endColorstr=#302e2f,GradientType=0 );
     background: linear-gradient(top, #2b292a 0%, #302e2f 100%);
     -moz-border-radius: 0 0 5px 5px;
     -webkit-border-radius: 0 0 5px 5px;
@@ -5322,7 +5322,7 @@ body#live-betting .jqmOverlay{
     background: -webkit-linear-gradient(top, #ececec 0%, #cfcfcf 100%);
     background: -o-linear-gradient(top, #ececec 0%, #cfcfcf 100%);
     background: -ms-linear-gradient(top, #ececec 0%, #cfcfcf 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#cfcfcf',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#ececec, endColorstr=#cfcfcf,GradientType=0 );
     background: linear-gradient(top, #ececec 0%, #cfcfcf 100%);
     border: none;
     border-bottom: 1px solid #dcdcdc;
@@ -5495,7 +5495,7 @@ body#live-betting .jqmOverlay{
     background: -webkit-linear-gradient(top, #ececec 0%, #cfcfcf 100%);
     background: -o-linear-gradient(top, #ececec 0%, #cfcfcf 100%);
     background: -ms-linear-gradient(top, #ececec 0%, #cfcfcf 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ececec', endColorstr='#cfcfcf',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#ececec, endColorstr=#cfcfcf,GradientType=0 );
     background: linear-gradient(top, #ececec 0%, #cfcfcf 100%);
     height: 30px;
 }
@@ -5524,7 +5524,7 @@ body#live-betting .jqmOverlay{
     font-size: 12px;
 }
 #general_inner_page .leagues_cont ul li a:first-child:after{
-    content: ', ';
+    content: , ;
 }
 
 #search-results .two_way_lines,
@@ -5884,7 +5884,7 @@ body#account .jqmOverlay{
     background: -webkit-linear-gradient(#595959, #000000);/*Webkit (Chrome 11+)*/
     background: linear-gradient(top, #595959, #000000);/* Proposed W3C Markup */
     background: -ms-linear-gradient(top, #595959 0%, #000000 100%);/*IE*/
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#595959', endColorstr='#000000',GradientType=0 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#595959, endColorstr=#000000,GradientType=0 );
     height:20px;
     line-height:20px;
     position: relative;
@@ -6354,12 +6354,12 @@ body#account .jqmOverlay{
     font-size: 18px;
 }
 
-#regform fieldset div input[type='text']{
+#regform fieldset div input[type=text]{
     float: right;
     width: 159px;
 }
-#regform fieldset div input[type='text']:focus,
-#regform fieldset div input[type='password']:focus{
+#regform fieldset div input[type=text]:focus,
+#regform fieldset div input[type=password]:focus{
     background:#effccb;
 }
 

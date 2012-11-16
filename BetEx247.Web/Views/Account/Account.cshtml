@@ -5,20 +5,21 @@
 @{
     ViewBag.Title = "Account";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    string Available = "0";
-    string Exposure = "0";
-    string Balance = "0";    
-    if(Model!=null)
-    {
-        Available = Model.Available != null ? Model.Available.Value.ToString() : "0";
-        Exposure = Model.Exposure != null ? Model.Exposure.Value.ToString() : "0";
-        Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";        
-    } 
+    //string Available = "0";
+    //string Exposure = "0";
+    //string Balance = "0";
+    int accountType = ViewBag.Type != null ? ViewBag.Type : 1;
+            //if(Model!=null)
+            //{
+            //    Available = Model.Available != null ? Model.Available.Value.ToString() : "0";
+            //    Exposure = Model.Exposure != null ? Model.Exposure.Value.ToString() : "0";
+            //    Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";        
+            //} 
 }
-<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
-<link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
+@*<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
+<link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />*@
 <div id="middle_column_1">
-    <div class="clearfix">
+    @*<div class="clearfix">
         <h1 class="sports_header1">
             MY ACCOUNT</h1>
         <form action="" method="post" class="AccountRegForm">
@@ -81,10 +82,15 @@
             </div>
         </div>
         </form>
-    </div>
+    </div>*@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
         betex247.myaccount();
+        if(@accountType!=null){
+            betex247.excuteaccountype(@accountType);
+        }else{
+            betex247.excuteaccountype(1);
+        }
     });
 </script>

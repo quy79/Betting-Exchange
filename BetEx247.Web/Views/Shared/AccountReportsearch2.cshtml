@@ -1,0 +1,46 @@
+﻿<script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Scripts/GUI/lang/en.js")" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#sd").datepicker({ dateFormat: 'yy-mm-dd', showOn: 'button', buttonImageOnly: true, buttonImage: '@Url.Content("~/Content/images/themes/misc/icon_cal.png")' });
+        $("#ed").datepicker({ dateFormat: 'yy-mm-dd', showOn: 'button', buttonImageOnly: true, buttonImage: '@Url.Content("~/Content/images/themes/misc/icon_cal.png")' });
+    });
+</script>
+<table id="filter-tbl" style="width: 90% !important;">
+    <tr>
+        <td style="width: 15%; text-align: right;">
+            Date Setled
+        </td>
+        <td style="width: 20%;">
+            <table>
+                <tr>
+                    <td align="right" style="width: 1%; padding: 0px 0px; text-align: left;">
+                        <input type="radio" name="rdoPeriodType" id="rdoPredefined" value="1" checked style="border: 0px !important;" />
+                    </td>
+                    <td align="left" width="99%" style="padding: 0px 0px;">
+                        @Html.DropDownList("selPeriod", ViewBag.lstDateSearchType as SelectList, new { @id = "selPeriod", style = "border: 1px solid black; font-size: 0.9em;", onclick = "Common.SetSelectedRadio('rdoPredefined','rdoCustom')" })
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td width="45%" align="left">
+            <table>
+                <tr>
+                    <td align="right" width="1%" style="padding: 0px 0px; margin: 0 auto;">
+                        <input type="radio" style="border: 0px !important;" value="2" name="rdoPeriodType" id="rdoCustom">
+                    </td>
+                    <td align="left" width="99%" style="padding: 0px 0px; margin: 0 auto;">
+                        <input type="text" class="text-input-date" name="sd" id="sd" value="" maxlength="10" />
+                        &nbsp;&nbsp;
+                        <input type="text" class="text-input-date" name="ed" id="ed" value="" maxlength="10" />
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td width="20%" align="left" style="text-align: left;">
+           <span class="lookup-submit"><a onclick="ui_doSearch();return false;" href="javascript:void(0)"
+                            id="lookuplink">Show records</a> @*<button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display: none">
+                                Show records</button>*@</span>
+        </td>
+    </tr>
+</table>

@@ -58,5 +58,11 @@ namespace BetEx247.Web.Controllers
         {
             return PartialView("MyAccount");
         }
+
+        [OutputCache(Duration = 1800, Location = OutputCacheLocation.Client, VaryByParam = "none")]
+        public ActionResult MyAccountIndex()
+        {
+            return PartialView("MyAccountIndex");
+        }
     }
 }
