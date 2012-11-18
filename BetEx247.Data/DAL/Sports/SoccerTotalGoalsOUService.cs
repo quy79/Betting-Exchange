@@ -72,7 +72,7 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_TotalGoalsOU soccerTotalGoalsOU)
         {
             Soccer_TotalGoalsOU _obj = new Soccer_TotalGoalsOU();
-            _obj = _context.Soccer_TotalGoalsOU.Where(w => w.ID == soccerTotalGoalsOU.ID).SingleOrDefault();
+            _obj = _context.Soccer_TotalGoalsOU.Where(w => w.MatchID == soccerTotalGoalsOU.MatchID & w.UnderPrice == soccerTotalGoalsOU.UnderPrice & w.OverPrice == soccerTotalGoalsOU.OverPrice & w.OU == soccerTotalGoalsOU.OU & w.MarketCloseTime == soccerTotalGoalsOU.MarketCloseTime).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerTotalGoalsOU;

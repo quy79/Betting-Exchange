@@ -226,6 +226,8 @@ namespace BetEx247.Plugin.DataManager
                        SoccerLeague _tempSoccerLeague = (SoccerLeague)bet247xSoccerCountry.Bet247xSoccerLeagues[indexLeague];
                        SoccerMatch _tempSoccerMatch = _soccerMatchSvr.SoccerMatch(_tempSoccerLeague.ID, _bet247xSoccerMatch.HomeTeam, _bet247xSoccerMatch.AwayTeam, _bet247xSoccerMatch.StartDate, _bet247xSoccerMatch.StartTime);
                        _bet247xSoccerMatch.MatchStatusID = 11;// Not stated
+                       _bet247xSoccerMatch.SportID = _tempSoccerLeague.SportID;
+                       _bet247xSoccerMatch.CountryID = _tempSoccerLeague.CountryID;
                        _soccerMatchSvr.Update(_bet247xSoccerMatch.getMatch());
                        _bet247xSoccerMatch.ID = _soccerMatchSvr.SoccerMatch(_bet247xSoccerMatch.getMatch());
                        IEnumerable<XElement> _eventElements = _matchDetail.XPathSelectElements("events");
@@ -270,7 +272,7 @@ namespace BetEx247.Plugin.DataManager
                                              }
                                              _bet247xSoccerMatch.Bet247xSoccerMatchOdds.Add(_soccer_MatchOddsTable);
                                              SoccerMatchOddsService _soccermatchOddsSvr = new SoccerMatchOddsService();
-                                             _soccermatchOddsSvr.Insert(_soccer_MatchOddsTable);
+                                             _soccermatchOddsSvr.Update(_soccer_MatchOddsTable);
                                          }
                                         
                                         
@@ -305,7 +307,7 @@ namespace BetEx247.Plugin.DataManager
                                          }
 
                                          SoccerDrawNoBetService _soccerDrawNoBetSvr = new SoccerDrawNoBetService();
-                                         _soccerDrawNoBetSvr.Insert(_soccer_DrawNoBetTable);
+                                         _soccerDrawNoBetSvr.Update(_soccer_DrawNoBetTable);
 
                                      }
                                  }
@@ -323,6 +325,7 @@ namespace BetEx247.Plugin.DataManager
                                              String OU = _bookerOddElementDetail.Attribute("name").Value;
                                              Soccer_TotalGoalsOU _soccer_TotalGoalsOU = new Soccer_TotalGoalsOU();
                                              _soccer_TotalGoalsOU.Period = 0;
+                                             _soccer_TotalGoalsOU.OU = decimal.Parse(OU);
                                              _soccer_TotalGoalsOU.Entrants = 2;
                                              _soccer_TotalGoalsOU.LastUpdated = DateTime.Now;
                                              _soccer_TotalGoalsOU.InPlay = false;
@@ -330,7 +333,7 @@ namespace BetEx247.Plugin.DataManager
                                              _soccer_TotalGoalsOU.MatchID = _bet247xSoccerMatch.ID;
                                              foreach (XElement _totalOddElementDetail in _bookerToalOddElement)
                                              {
-                                                 String oddName = _bookerOddElementDetail.Attribute("name").Value;
+                                                 String oddName = _totalOddElementDetail.Attribute("name").Value;
                                                  if (oddName.Equals("Under"))
                                                  { //(HomeWin price
                                                      _soccer_TotalGoalsOU.UnderPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
@@ -347,7 +350,7 @@ namespace BetEx247.Plugin.DataManager
                                              }
                                              _bet247xSoccerMatch.Bet247xSoccerTotalGoalsOUs.Add(_soccer_TotalGoalsOU);
                                              SoccerTotalGoalsOUService _soccerTotalOUSvr = new SoccerTotalGoalsOUService();
-                                             _soccerTotalOUSvr.Insert(_soccer_TotalGoalsOU);
+                                             _soccerTotalOUSvr.Update(_soccer_TotalGoalsOU);
                                          }
 
 
@@ -393,7 +396,7 @@ namespace BetEx247.Plugin.DataManager
                                              _bet247xSoccerMatch.Bet247xSoccerAsianHandicaps.Add(_soccer_AsianHandicap);
 
                                              SoccerAsianHandicapService _soccerHandicapSvr = new SoccerAsianHandicapService();
-                                             _soccerHandicapSvr.Insert(_soccer_AsianHandicap);
+                                             _soccerHandicapSvr.Update(_soccer_AsianHandicap);
                                          }
 
 
@@ -429,7 +432,7 @@ namespace BetEx247.Plugin.DataManager
                                               }
                                               _bet247xSoccerMatch.Bet247xSoccerMatchOdds.Add(_soccer_MatchOddsTable);
                                               SoccerMatchOddsService _soccerMatchOddSvr = new SoccerMatchOddsService();
-                                              _soccerMatchOddSvr.Insert(_soccer_MatchOddsTable);
+                                              _soccerMatchOddSvr.Update(_soccer_MatchOddsTable);
                                           }
                                       }
                                  }
@@ -447,6 +450,7 @@ namespace BetEx247.Plugin.DataManager
                                              String OU = _bookerOddElementDetail.Attribute("name").Value;
                                              Soccer_TotalGoalsOU _soccer_TotalGoalsOU = new Soccer_TotalGoalsOU();
                                              _soccer_TotalGoalsOU.Period = 1;
+                                             _soccer_TotalGoalsOU.OU = decimal.Parse(OU);
                                              _soccer_TotalGoalsOU.Entrants = 2;
                                              _soccer_TotalGoalsOU.LastUpdated = DateTime.Now;
                                              _soccer_TotalGoalsOU.InPlay = false;
@@ -454,7 +458,7 @@ namespace BetEx247.Plugin.DataManager
                                              _soccer_TotalGoalsOU.MatchID = _bet247xSoccerMatch.ID;
                                              foreach (XElement _totalOddElementDetail in _bookerToalOddElement)
                                              {
-                                                 String oddName = _bookerOddElementDetail.Attribute("name").Value;
+                                                 String oddName = _totalOddElementDetail.Attribute("name").Value;
                                                  if (oddName.Equals("Under"))
                                                  { //(HomeWin price
                                                      _soccer_TotalGoalsOU.UnderPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
@@ -471,7 +475,7 @@ namespace BetEx247.Plugin.DataManager
                                              }
                                              _bet247xSoccerMatch.Bet247xSoccerTotalGoalsOUs.Add(_soccer_TotalGoalsOU);
                                              SoccerTotalGoalsOUService _soccerTotalOUSvr = new SoccerTotalGoalsOUService();
-                                             _soccerTotalOUSvr.Insert(_soccer_TotalGoalsOU);
+                                             _soccerTotalOUSvr.Update(_soccer_TotalGoalsOU);
                                          }
 
 

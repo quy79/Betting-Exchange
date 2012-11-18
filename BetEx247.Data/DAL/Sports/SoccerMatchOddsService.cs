@@ -72,7 +72,9 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_MatchOdds soccerMatchOdds)
         {
             Soccer_MatchOdds _obj = new Soccer_MatchOdds();
-            _obj = _context.Soccer_MatchOdds.Where(w => w.ID == soccerMatchOdds.ID).SingleOrDefault();
+           // _obj = _context.Soccer_MatchOdds.Where(w => w.ID == soccerMatchOdds.ID).SingleOrDefault();
+            _obj = _context.Soccer_MatchOdds.Where(w=>w.HomePrice == soccerMatchOdds.HomePrice & w.AwayPrice== soccerMatchOdds.AwayPrice & w.DrawPrice == soccerMatchOdds.DrawPrice &  w.MarketCloseTime == soccerMatchOdds.MarketCloseTime).SingleOrDefault();
+  
             if (_obj != null) // Update
             {
                 _obj = soccerMatchOdds;
@@ -83,7 +85,7 @@ namespace BetEx247.Data.DAL.Sports
             {
                 return Insert(soccerMatchOdds);
             }
-        }
+         }
         /// <summary>
         /// 
         /// </summary>

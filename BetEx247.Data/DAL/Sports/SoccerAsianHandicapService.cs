@@ -76,7 +76,7 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_AsianHandicap soccerAsianHandicap)
         {
             Soccer_AsianHandicap _obj = new Soccer_AsianHandicap();
-            _obj = _context.Soccer_AsianHandicap.Where(w => w.ID == soccerAsianHandicap.ID).SingleOrDefault();
+            _obj = _context.Soccer_AsianHandicap.Where(w => w.MatchID == soccerAsianHandicap.MatchID & w.HomePrice == soccerAsianHandicap.HomePrice & w.AwayPrice == soccerAsianHandicap.AwayPrice & w.HomePrice == soccerAsianHandicap.HomePrice & w.MarketCloseTime == soccerAsianHandicap.MarketCloseTime).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerAsianHandicap;

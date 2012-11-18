@@ -52,7 +52,7 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_DrawNoBet soccerDrawNoBet)
         {
             Soccer_DrawNoBet _obj = new Soccer_DrawNoBet();
-            _obj = _context.Soccer_DrawNoBet.Where(w => w.ID == soccerDrawNoBet.ID).SingleOrDefault();
+            _obj = _context.Soccer_DrawNoBet.Where(w => w.MatchID == soccerDrawNoBet.MatchID & w.HomePrice == soccerDrawNoBet.HomePrice & w.AwayPrice == soccerDrawNoBet.AwayPrice & w.MarketCloseTime == soccerDrawNoBet.MarketCloseTime).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerDrawNoBet;

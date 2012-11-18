@@ -63,6 +63,8 @@ namespace BetEx247.Data.DAL.Sports
         /// <returns></returns>
          public bool Insert(Soccer_CorrectScores soccerCorrectScores)
         {
+           
+
             _context.AddToSoccer_CorrectScores(soccerCorrectScores);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
@@ -75,7 +77,7 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_CorrectScores soccerCorrectScores)
         {
             Soccer_CorrectScores _obj = new Soccer_CorrectScores();
-            _obj = _context.Soccer_CorrectScores.Where(w => w.ID == soccerCorrectScores.ID).SingleOrDefault();
+            _obj = _context.Soccer_CorrectScores.Where(w => w.MatchID == soccerCorrectScores.MatchID & w.CorrectScore == soccerCorrectScores.CorrectScore & w.Price == soccerCorrectScores.Price).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerCorrectScores;
