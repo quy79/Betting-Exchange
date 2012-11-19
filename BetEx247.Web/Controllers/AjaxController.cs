@@ -24,7 +24,7 @@ namespace BetEx247.Web.Controllers
             string period = HttpHelper.GetQueryStringString(Constant.QueryString.Period);
             string startDate = HttpHelper.GetQueryStringString(Constant.QueryString.StartDate);
             string endDate = HttpHelper.GetQueryStringString(Constant.QueryString.EndDate);
-            int betCategory = HttpHelper.GetQueryStringInt(Constant.QueryString.BetCategory);
+            //int betCategory = HttpHelper.GetQueryStringInt(Constant.QueryString.BetCategory);
             int betDisplay = HttpHelper.GetQueryStringInt(Constant.QueryString.BetDisplay);
             int pageNo = HttpHelper.GetQueryStringInt(Constant.QueryString.PageNo);
             int recordPerpage = HttpHelper.GetQueryStringInt(Constant.QueryString.RecordPerPage);
@@ -40,24 +40,24 @@ namespace BetEx247.Web.Controllers
 
             switch (betDisplay)
             {
-                case (int)Constant.StatementDisplayType.ADJUSTMENT:
-                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.ADJUSTMENT + " ");
-                    break;
-                case (int)Constant.StatementDisplayType.BETSONLY:
-                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.BETSONLY + " ");
-                    break;
+                //case (int)Constant.StatementDisplayType.ADJUSTMENT:
+                //    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.ADJUSTMENT + " ");
+                //    break;
+                //case (int)Constant.StatementDisplayType.BETSONLY:
+                //    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.BETSONLY + " ");
+                //    break;
                 case (int)Constant.StatementDisplayType.COMMISSIONS:
                     sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.COMMISSIONS + " ");
                     break;
                 case (int)Constant.StatementDisplayType.DEPOIST:
                     sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.DEPOIST + " ");
                     break;
-                case (int)Constant.StatementDisplayType.FEE:
-                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.FEE + " ");
-                    break;
-                case (int)Constant.StatementDisplayType.FREEBETS:
-                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.FREEBETS + " ");
-                    break;
+                //case (int)Constant.StatementDisplayType.FEE:
+                //    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.FEE + " ");
+                //    break;
+                //case (int)Constant.StatementDisplayType.FREEBETS:
+                //    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.FREEBETS + " ");
+                //    break;
                 case (int)Constant.StatementDisplayType.LOYALTYREFUND:
                     sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.LOYALTYREFUND + " ");
                     break;
@@ -69,10 +69,10 @@ namespace BetEx247.Web.Controllers
                     break;
             }
 
-            if (betCategory > 0)
-            {
-                sb.Append(" and t.CardId=" + betCategory + " ");
-            }
+            //if (betCategory > 0)
+            //{
+            //    sb.Append(" and t.CardId=" + betCategory + " ");
+            //}
 
             long memberId = SessionManager.USER_ID;
             var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId, sb.ToString(), pageNo, recordPerpage);

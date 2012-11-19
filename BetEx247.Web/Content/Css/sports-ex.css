@@ -3,7 +3,7 @@ select, input, textarea { font:99% Verdana, sans-serif; line-height:1.09;}
  * minimal base styles 
  */
 
-body, select, input, textarea { color:#fff; }
+body, select, input, textarea { /*color:#fff;*/ }
 h1,h2,h3,h4,h5,h6 { font-weight: bold; text-rendering: optimizeLegibility; }
 html { -webkit-font-smoothing: antialiased; }
 

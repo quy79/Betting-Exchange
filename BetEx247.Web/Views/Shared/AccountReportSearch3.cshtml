@@ -1,9 +1,8 @@
-﻿<script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
-<script type="text/javascript" src="@Url.Content("~/Content/Scripts/GUI/lang/en.js")" charset="utf-8"></script>
-<script type="text/javascript">
+﻿<script type="text/javascript">
     $(document).ready(function () {
         $("#sd").datepicker({ dateFormat: 'yy-mm-dd', showOn: 'button', buttonImageOnly: true, buttonImage: '@Url.Content("~/Content/images/themes/misc/icon_cal.png")' });
         $("#ed").datepicker({ dateFormat: 'yy-mm-dd', showOn: 'button', buttonImageOnly: true, buttonImage: '@Url.Content("~/Content/images/themes/misc/icon_cal.png")' });
+
         $("#selPeriod").click(function () {
             AccountHistory.ui_selPeriod();
         });
@@ -15,30 +14,31 @@
         $("#ed").change(function () {
             AccountHistory.ui_popEndDate();
         });
+
+        $("#selDisplay").bind("change", function () {
+            AccountHistory.ui_doDisplayChange($(this).val());
+        });
     });
 </script>
-<table id="filter-tbl" style="width: 90% !important;">
+<table id="filter-tbl">
     <tr>
-        <td style="width: 15%; text-align: right;">
-            Date Setled
+        <td class="col1">
+            Date placed
         </td>
-        <td style="width: 20%;">
+        <td class="col2">
             <table>
                 <tr>
-                    <td align="right" style="width: 1%; padding: 0px 0px; text-align: left;">
+                    <td align="right" width="1%" style="padding: 0px 0px;">
                         <input type="radio" name="rdoPeriodType" id="rdoPredefined" value="1" checked style="border: 0px !important;" />
                     </td>
                     <td align="left" width="99%" style="padding: 0px 0px;">
                         @Html.DropDownList("selPeriod", ViewBag.lstDateSearchType as SelectList, new { @id = "selPeriod", style = "border: 1px solid black; font-size: 0.9em;", onclick = "Common.SetSelectedRadio('rdoPredefined','rdoCustom')" })
                     </td>
                 </tr>
-            </table>
-        </td>
-        <td width="45%" align="left">
-            <table>
                 <tr>
                     <td align="right" width="1%" style="padding: 0px 0px; margin: 0 auto;">
-                        <input type="radio" style="border: 0px !important;" value="2" name="rdoPeriodType" id="rdoCustom">
+                        <input type="radio" style="border: 0px !important;" value="2" name="rdoPeriodType"
+                            id="rdoCustom">
                     </td>
                     <td align="left" width="99%" style="padding: 0px 0px; margin: 0 auto;">
                         <input type="text" class="text-input-date" name="sd" id="sd" value="" maxlength="10" />
@@ -48,10 +48,31 @@
                 </tr>
             </table>
         </td>
-        <td width="20%" align="left" style="text-align: left;">
-           <span class="lookup-submit"><a onclick="AccountHistory.ui_doSearch();return false;" href="javascript:void(0)"
+        <td class="col3" align="left">
+            <table>
+                <tr>
+                    <td align="left" style="padding: 0px 0px;">
+                        Display
+                    </td>
+                    <td align="left" style="padding: 0px 0px;">
+                        @Html.DropDownList("selDisplay", ViewBag.lstDisplaySearch as SelectList, new { width = "140px" })
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td class="col4" align="left">
+            <table>
+                <tr>
+                    <td align="left" style="padding: 0px 0px;">
+                        <span class="lookup-submit"><a onclick="AccountHistory.ui_doSearch();" href="javascript:void(0)"
                             id="lookuplink">Show records</a> @*<button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display: none">
                                 Show records</button>*@</span>
+                    </td>
+                    <td align="left" style="padding: 0px 0px;">
+                    </td>
+                </tr>
+            </table>
         </td>
     </tr>
 </table>
+

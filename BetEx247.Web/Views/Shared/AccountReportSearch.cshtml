@@ -1,9 +1,23 @@
-﻿<script src="http://cdn.jquerytools.org/1.2.7/all/jquery.tools.min.js"></script>
-<script type="text/javascript" src="@Url.Content("~/Content/Scripts/GUI/lang/en.js")" charset="utf-8"></script>
-<script type="text/javascript">
+﻿<script type="text/javascript">
     $(document).ready(function () {
         $("#sd").datepicker({ dateFormat: 'yy-mm-dd', showOn: 'button', buttonImageOnly: true, buttonImage: '@Url.Content("~/Content/images/themes/misc/icon_cal.png")' });
         $("#ed").datepicker({ dateFormat: 'yy-mm-dd', showOn: 'button', buttonImageOnly: true, buttonImage: '@Url.Content("~/Content/images/themes/misc/icon_cal.png")' });
+
+        $("#selPeriod").click(function () {
+            AccountHistory.ui_selPeriod();
+        });
+
+        $("#sd").change(function () {
+            AccountHistory.ui_popStartDate();
+        });
+
+        $("#ed").change(function () {
+            AccountHistory.ui_popEndDate();
+        });
+
+        $("#selBetCategory").bind("change",function () {
+            AccountHistory.ui_doBetCatChange($(this).val());
+        });
     });
 </script>
 <table id="filter-tbl">
@@ -50,7 +64,7 @@
             <table>
                 <tr>
                     <td align="left" style="padding: 0px 0px;">
-                        <span class="lookup-submit"><a onclick="ui_doSearch();return false;" href="javascript:void(0)"
+                        <span class="lookup-submit"><a onclick="AccountHistory.ui_doSearch();" href="javascript:void(0)"
                             id="lookuplink">Show records</a> @*<button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display: none">
                                 Show records</button>*@</span>
                     </td>
@@ -61,39 +75,4 @@
         </td>
     </tr>
 </table>
-@*<table id="filter-tbl">
-    <tbody>
-        <tr>
-            
-            <td valign="middle" style="text-align: left" rowspan="2" class="tdPageFilters">
-                Bet Category:
-            </td>
-            <td valign="middle" style="text-align: left" rowspan="2" class="tdPageFilters">
-                
-            </td>
-            <td valign="middle" rowspan="2" class="tdPageFilters">
-                <a onclick="ui_doSearch();return false;" href="javascript:void(0)" class="ImgBtn">Show
-                    Records</a>
-            </td>
-            <td valign="middle" rowspan="2" class="tdPageFilters">
-                <select onchange="ui_doExcelDownload(this.value)" id="selExport">
-                    <option value="">&lt;Export to&gt;</option>
-                    <option value="csv">CSV</option>
-                    <option value="xls">Excel</option>
-                </select>
-            </td>
-            <td width="1%" rowspan="2" class="tdPageFilters">
-                &nbsp;
-            </td>
-        </tr>
-        <tr>
-            <td valign="middle" style="text-align: left; background: #DFDFDF; padding: 4px 7px 4px 7px">
-                
-                <p>
-                   </p>
-                <p class="lastup">
-                    </p>
-            </td>
-        </tr>
-    </tbody>
-</table>*@ 
+

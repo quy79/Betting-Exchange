@@ -16,23 +16,7 @@
             @Html.Partial("AccountReportSearch")
         </div>
         <div class="account-box-result-heading">
-            <div class="dvFilterTitle">
-                Show &nbsp;
-                <select name="rowspage">
-                    <option value="20" selected>20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                records / page
-            </div>
-            <div class="PgCounter">
-                Page 1/12 <span class="paging">1</span> <a title="201 - 400" href="javascript:{}"
-                    onclick="load_pg(24780,200,2)">2</a> <a title="401 - 600" href="javascript:{}" onclick="load_pg(24780,200,3)">
-                        3</a> <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,4)">4</a>
-                <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,11)">11</a>
-                <a title="201 - 400" href="javascript:{}" onclick="load_pg(24780,200,2)">»</a> <a
-                    title="24600 - 24780" href="javascript:{}" onclick="load_pg(24780,200,124)">».</a>
-            </div>
+            @Html.Partial("PaggerControl")
         </div>
         <!--DIV COMMISSION-->
         <div id="dv-commission" style="clear: both; position: relative;">
@@ -85,7 +69,7 @@
                             @Html.DisplayFor(modelItem => item.Price)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetStatusID)
+                           <span class="cancelled">Lapsed</span>
                         </td>
                     </tr>
                 }
@@ -124,3 +108,5 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="txtaction" name="txtaction" value="MyBetHistory"/>
+<input type="hidden" id="txtrpType" name="txtrpType" value="7"/>

@@ -4,11 +4,9 @@
     ViewBag.Title = "Statement";
     Layout = null;
 }
-  
 <script src="@Url.Content("~/Content/Scripts/GUI/AccountHistory.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Content/Scripts/GUI/Common.js")" type="text/javascript"></script>
 <script type="text/javascript" src="@Url.Content("~/Content/Scripts/GUI/lang/en.js")" charset="utf-8"></script>
-
 <div class="clearfix">
     <h1 class="sports_header1">
         MY ACCOUNT</h1>
@@ -17,174 +15,120 @@
             <div class="account-box-title">
                 Statements
             </div>
-            <div class="account-box-filter AccountRegForm">           
-                @Html.Partial("AccountReportSearch")
+            <div class="account-box-filter AccountRegForm">
+                @Html.Partial("AccountReportSearch3")
             </div>
             <div class="account-box-result-heading">
-                <div class="dvFilterTitle">
-                    Display: <span id="spanFilterTitle" style="color: yellow; font-weight: bold;">Commission</span>
-                    | &nbsp;show &nbsp;
-                    <select name="rowspage">
-                        <option value="20" selected>20</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    </select>
-                    records / page
-                </div>
-                <div class="PgCounter">
-                    Page 1/12 <span class="paging">1</span> <a title="201 - 400" href="javascript:{}"
-                        onclick="load_pg(24780,200,2)">2</a> <a title="401 - 600" href="javascript:{}" onclick="load_pg(24780,200,3)">
-                            3</a> <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,4)">4</a>
-                    <a title="601 - 800" href="javascript:{}" onclick="load_pg(24780,200,11)">11</a>
-                    <a title="201 - 400" href="javascript:{}" onclick="load_pg(24780,200,2)">»</a> <a
-                        title="24600 - 24780" href="javascript:{}" onclick="load_pg(24780,200,124)">».</a></div>
+                @Html.Partial("PaggerControl")
             </div>
             <!--DIV COMMISSION-->
-            <div id="result" style="clear: both; position: relative;">
+            <div id="dv-commission" style="clear: both; position: relative;">
                 <table class="gridtable">
-                    <table class="gridtable">
-                        <tr>
-                            <th>
-                                Date
-                            </th>
-                            <th>
-                                ID
-                            </th>
-                            <th>
-                                Match / Event
-                            </th>
-                            <th>
-                                Market
-                            </th>
-                            <th>
-                                B/L
-                            </th>
-                            <th>
-                                Stake
-                            </th>
-                            <th>
-                                Odds
-                            </th>
-                            <th>
-                                Result
-                            </th>
-                            <th>
-                                Net P/L(USD)
-                            </th>
-                            <th>
-                                Commission charged
-                            </th>
-                        </tr>
-                        @foreach (DataRow item in statement.Rows)
-                        {
-                            <tr>
-                                <td>
-                                    @item["StatementTime"]
-                                </td>
-                                <td>
-                                    @item["BetId"]
-                                </td>
-                                <td>
-                                    @item["BetId"]
-                                </td>
-                                <td>
-                                    @item["Selection"]
-                                </td>
-                                <td>
-                                    @item["BackOrLay"]
-                                </td>
-                                <td>
-                                    @item["Stake"]
-                                </td>
-                                <td>
-                                    @item["Odds"]
-                                </td>
-                                <td>
-                                    @item["Type_Result"]
-                                </td>
-                                <td>
-                                    @item["Amount"]
-                                </td>
-                                <td>
-                                    @item["NetProfit"]
-                                </td>
-                            </tr>
-                        }
+                    <tr>
+                        <th>
+                            Date
+                        </th>
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Match / Event
+                        </th>
+                        <th>
+                            Market
+                        </th>
+                        <th>
+                            B/L
+                        </th>
+                        <th>
+                            Stake
+                        </th>
+                        <th>
+                            Odds
+                        </th>
+                        <th>
+                            Result
+                        </th>
+                        <th>
+                            Net P/L(USD)
+                        </th>
+                        <th>
+                            Commission charged
+                        </th>
+                    </tr>
+                    @foreach (DataRow item in statement.Rows)
+                    {
                         <tr>
                             <td>
-                                2012-10-30
+                                @item["StatementTime"]
                             </td>
                             <td>
-                                e72da32
+                                @item["BetId"]
                             </td>
                             <td>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000;">
-                                    Oct 19, 2012 17:30</div>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000; font-weight: bold;">
-                                    Manchester Utd v Chelsea</div>
+                                @item["BetId"]
                             </td>
                             <td>
-                                Manchester Utd -1/2 (First Half)
+                                @item["Selection"]
                             </td>
                             <td>
-                                B
+                                @item["BackOrLay"]
                             </td>
                             <td>
-                                20
+                                @item["Stake"]
                             </td>
                             <td>
-                                1.88
+                                @item["Odds"]
                             </td>
                             <td>
-                                <span class="lost">Lost</span>
+                                @item["Type_Result"]
                             </td>
                             <td>
-                                <span class="lost">-20.00</span>
+                                @item["Amount"]
                             </td>
                             <td>
-                                0.00
+                                @item["NetProfit"]
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                2012-10-30
-                            </td>
-                            <td>
-                                e72da32
-                            </td>
-                            <td>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000;">
-                                    Oct 19, 2012 17:30</div>
-                                <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                    color: #000; font-weight: bold;">
-                                    Manchester Utd v Chelsea</div>
-                            </td>
-                            <td>
-                                Manchester Utd v Chelseas: 3-1 (FT)
-                            </td>
-                            <td>
-                                B
-                            </td>
-                            <td>
-                                10
-                            </td>
-                            <td>
-                                2.17
-                            </td>
-                            <td>
-                                <span class="lost">Lost</span>
-                            </td>
-                            <td>
-                                <span class="lost">-10.00</span>
-                            </td>
-                            <td>
-                                0.00
-                            </td>
-                        </tr>
-                    </table>
+                    }
+                    <tr>
+                        <td>
+                            2012-10-30
+                        </td>
+                        <td>
+                            e72da32
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000;">
+                                Oct 19, 2012 17:30</div>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                Manchester Utd v Chelsea</div>
+                        </td>
+                        <td>
+                            Manchester Utd -1/2 (First Half)
+                        </td>
+                        <td>
+                            B
+                        </td>
+                        <td>
+                            20
+                        </td>
+                        <td>
+                            1.88
+                        </td>
+                        <td>
+                            <span class="lost">Lost</span>
+                        </td>
+                        <td>
+                            <span class="lost">-20.00</span>
+                        </td>
+                        <td>
+                            0.00
+                        </td>
+                    </tr>                    
+                </table>
             </div>
             <!--DIV DEPOSIT-->
             <div id="dv-deposit" style="clear: both; position: relative; display: none;">
@@ -423,3 +367,5 @@
         </div>
     </div>
 </div>
+<input type="hidden" id="txtaction" name="txtaction" value="Statement" />
+<input type="hidden" id="txtrpType" name="txtrpType" value="6" />

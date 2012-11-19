@@ -220,18 +220,18 @@ namespace BetEx247.Data.DAL
             AddItem.Value = "";
             Items.Add(AddItem);
 
-            AddItem = new SelectListItem();
-            AddItem.Text = "Adjustment";
-            AddItem.Value = "Adjustment";
-            Items.Add(AddItem);
+            //AddItem = new SelectListItem();
+            //AddItem.Text = "Adjustment";
+            //AddItem.Value = "Adjustment";
+            //Items.Add(AddItem);
+
+            //AddItem = new SelectListItem();
+            //AddItem.Text = "Bets Only";
+            //AddItem.Value = "Settlement";
+            //Items.Add(AddItem);
 
             AddItem = new SelectListItem();
-            AddItem.Text = "Bets Only";
-            AddItem.Value = "Settlement";
-            Items.Add(AddItem);
-
-            AddItem = new SelectListItem();
-            AddItem.Text = "Commission";
+            AddItem.Text = "Charged Commission";
             AddItem.Value = "Commission";
             Items.Add(AddItem);
 
@@ -240,15 +240,20 @@ namespace BetEx247.Data.DAL
             AddItem.Value = "Deposit";
             Items.Add(AddItem);
 
-            AddItem = new SelectListItem();
-            AddItem.Text = "Fee";
-            AddItem.Value = "Fee";
-            Items.Add(AddItem);
+            //AddItem = new SelectListItem();
+            //AddItem.Text = "Fee";
+            //AddItem.Value = "Fee";
+            //Items.Add(AddItem);
 
             AddItem = new SelectListItem();
-            AddItem.Text = "Free Bets";
-            AddItem.Value = "FBSettlement";
+            AddItem.Text = "Withdraw";
+            AddItem.Value = "Withdraw";
             Items.Add(AddItem);
+
+            //AddItem = new SelectListItem();
+            //AddItem.Text = "Free Bets";
+            //AddItem.Value = "FBSettlement";
+            //Items.Add(AddItem);
 
             AddItem = new SelectListItem();
             AddItem.Text = "Loyalty Refund";
@@ -259,11 +264,7 @@ namespace BetEx247.Data.DAL
             AddItem.Text = "Market Refund";
             AddItem.Value = "MarketRebate";
             Items.Add(AddItem);
-
-            AddItem = new SelectListItem();
-            AddItem.Text = "Withdraw";
-            AddItem.Value = "Withdraw";
-            Items.Add(AddItem);
+                                             
 
             SelectList Res = new SelectList(Items, "Value", "Text");
             return Res;
