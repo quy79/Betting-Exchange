@@ -156,7 +156,7 @@ namespace BetEx247.Data.DAL
                 SelectListItem AddItem = new SelectListItem();
                 AddItem.Text = i.ToString();
                 AddItem.Value = i.ToString();
-                Items.Add(AddItem);
+                Items.Add(AddItem);           
             }
 
             SelectList Res = new SelectList(Items, "Value", "Text");
@@ -215,10 +215,10 @@ namespace BetEx247.Data.DAL
             List<SelectListItem> Items = new List<SelectListItem>();
             SelectListItem AddItem;
 
-            AddItem = new SelectListItem();
-            AddItem.Text = "All";
-            AddItem.Value = "";
-            Items.Add(AddItem);
+            //AddItem = new SelectListItem();
+            //AddItem.Text = "All";
+            //AddItem.Value = "";
+            //Items.Add(AddItem);
 
             //AddItem = new SelectListItem();
             //AddItem.Text = "Adjustment";

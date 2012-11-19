@@ -19,6 +19,7 @@ using BetEx247.Core.Payment;
 using System.Text;
 using CaptchaMvc.Attributes;
 using CaptchaMvc.Infrastructure;
+using ChilkatEmail;
 
 namespace BetEx247.Web.Controllers
 {
@@ -207,6 +208,16 @@ namespace BetEx247.Web.Controllers
 
                     IoC.Resolve<ICustomerService>().Insert(member);
                     createStatus = MembershipCreateStatus.Success;
+
+                    //send mail to user
+                    MailServices mailService = new MailServices();
+                    List<String> mailTo= new List<string>();
+                    mailTo.Add(member.Email1);
+                    List<String> mailCC= new List<string>();
+                    mailCC.Add("chantinh2204@gmail.com");
+                    List<String> mailBBC= new List<string>();
+
+                    mailService.SendEmail(mailTo, mailCC, mailBBC, "Register Successfully", "Your account had been successfully to create account on BetEx 247. Please login and Enjoy it.");
                 }
 
                 if (createStatus == MembershipCreateStatus.Success)

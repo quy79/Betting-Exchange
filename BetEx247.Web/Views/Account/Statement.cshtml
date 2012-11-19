@@ -72,7 +72,16 @@
                                 @item["Selection"]
                             </td>
                             <td>
-                                @item["BackOrLay"]
+                                @{
+                                if (@item["BackOrLay"].ToString() == "1")
+                                {
+                                    @Html.Raw("B")
+                                }
+                                else
+                                {
+                                    @Html.Raw("L")
+                                }
+                                }
                             </td>
                             <td>
                                 @item["Stake"]
@@ -88,6 +97,9 @@
                             </td>
                             <td>
                                 @item["NetProfit"]
+                            </td>
+                            <td>
+                                @item["Commission"]
                             </td>
                         </tr>
                     }
@@ -153,6 +165,41 @@
                             Status
                         </th>
                     </tr>
+                    @foreach (DataRow item in statement.Rows)
+                    {
+                        <tr>
+                            <td>
+                                @item["StatementTime"]
+                            </td>
+                            <td>
+                                @item["BetId"]
+                            </td>
+                            <td>
+                                @item["BetId"]
+                            </td>
+                            <td>
+                                @item["Selection"]
+                            </td>
+                            <td>
+                                @item["BackOrLay"]
+                            </td>
+                            <td>
+                                @item["Stake"]
+                            </td>
+                            <td>
+                                @item["Odds"]
+                            </td>
+                            <td>
+                                @item["Type_Result"]
+                            </td>
+                            <td>
+                                @item["Amount"]
+                            </td>
+                            <td>
+                                @item["NetProfit"]
+                            </td>
+                        </tr>
+                    }
                     <tr>
                         <td>
                             2012-10-31 12:30
@@ -196,29 +243,7 @@
                         <td>
                             transaction completed
                         </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            2012-11-01 11:22
-                        </td>
-                        <td>
-                            899203484
-                        </td>
-                        <td>
-                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                color: #000; font-weight: bold;">
-                                [Statement]: Deposit</div>
-                        </td>
-                        <td>
-                            EUR 50.00
-                        </td>
-                        <td>
-                            MasterCard
-                        </td>
-                        <td>
-                            being processed...
-                        </td>
-                    </tr>
+                    </tr>                    
                 </table>
             </div>
             <!--DIV WITHDRAWAL-->
@@ -244,28 +269,41 @@
                             Status
                         </th>
                     </tr>
-                    <tr>
-                        <td>
-                            2012-10-31 12:30
-                        </td>
-                        <td>
-                            0987826833
-                        </td>
-                        <td>
-                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                color: #000; font-weight: bold;">
-                                [Statement]: Withdrawal</div>
-                        </td>
-                        <td>
-                            USD 150.00
-                        </td>
-                        <td>
-                            My Skrill Card
-                        </td>
-                        <td>
-                            transaction completed
-                        </td>
-                    </tr>
+                    @foreach (DataRow item in statement.Rows)
+                    {
+                        <tr>
+                            <td>
+                                @item["StatementTime"]
+                            </td>
+                            <td>
+                                @item["BetId"]
+                            </td>
+                            <td>
+                                @item["BetId"]
+                            </td>
+                            <td>
+                                @item["Selection"]
+                            </td>
+                            <td>
+                                @item["BackOrLay"]
+                            </td>
+                            <td>
+                                @item["Stake"]
+                            </td>
+                            <td>
+                                @item["Odds"]
+                            </td>
+                            <td>
+                                @item["Type_Result"]
+                            </td>
+                            <td>
+                                @item["Amount"]
+                            </td>
+                            <td>
+                                @item["NetProfit"]
+                            </td>
+                        </tr>
+                    }
                     <tr>
                         <td>
                             2012-10-31 13:15
@@ -325,6 +363,41 @@
                             Status
                         </th>
                     </tr>
+                    @foreach (DataRow item in statement.Rows)
+                    {
+                        <tr>
+                            <td>
+                                @item["StatementTime"]
+                            </td>
+                            <td>
+                                @item["BetId"]
+                            </td>
+                            <td>
+                                @item["BetId"]
+                            </td>
+                            <td>
+                                @item["Selection"]
+                            </td>
+                            <td>
+                                @item["BackOrLay"]
+                            </td>
+                            <td>
+                                @item["Stake"]
+                            </td>
+                            <td>
+                                @item["Odds"]
+                            </td>
+                            <td>
+                                @item["Type_Result"]
+                            </td>
+                            <td>
+                                @item["Amount"]
+                            </td>
+                            <td>
+                                @item["NetProfit"]
+                            </td>
+                        </tr>
+                    }
                     <tr>
                         <td>
                             2012-10-30
