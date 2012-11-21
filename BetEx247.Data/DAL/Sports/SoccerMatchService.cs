@@ -39,11 +39,11 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
-        public List<SoccerMatch> SoccerMatches(long leagueID , String status)
+        public List<SoccerMatch> SoccerMatches(long sportID,long countryID,long leagueID , String status)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.SoccerMatches.Where(w => w.LeagueID == leagueID & w.MatchStatus.Equals(status)).ToList();
+                var list = dba.SoccerMatches.Where(w => w.LeagueID == leagueID &w.CountryID==countryID&w.SportID==sportID & w.MatchStatus.Equals(status)).ToList();
 
                 return list;
             }

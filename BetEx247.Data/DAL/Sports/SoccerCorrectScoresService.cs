@@ -33,11 +33,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public List<Soccer_CorrectScores> SoccerCorrectScoreses(Guid matchID)
+        public List<Soccer_CorrectScores> SoccerCorrectScoreses(long sportID, long countryID, long LeagueID, Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Soccer_CorrectScores.Where(w => w.ID == matchID).ToList();
+                var list = dba.Soccer_CorrectScores.Where(w => w.ID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
 
                 return list;
             }
