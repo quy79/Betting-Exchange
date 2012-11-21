@@ -34,7 +34,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public  List<Soccer_AsianHandicap> SoccerAsianHandicaps(long matchID)
+       public List<Soccer_AsianHandicap> SoccerAsianHandicaps(Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -48,7 +48,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Soccer_AsianHandicap SoccerAsianHandicap(int ID)
+       public Soccer_AsianHandicap SoccerAsianHandicap(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -64,6 +64,7 @@ namespace BetEx247.Data.DAL.Sports
         /// <returns></returns>
          public bool Insert(Soccer_AsianHandicap soccerAsianHandicap)
         {
+            soccerAsianHandicap.ID = Guid.NewGuid();
             _context.AddToSoccer_AsianHandicap(soccerAsianHandicap);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;

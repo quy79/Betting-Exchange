@@ -7,9 +7,9 @@ namespace BetEx247.Data.DAL.Sports.Interfaces
 {
     public partial interface IMatchStatusService : IBase<Sport>   
     {
-        List<MatchStatu> MatchStatues();
-        MatchStatu MatchStatus(int ID);
-        MatchStatu MatchStatus(String name);
+        //List<MatchStatu> MatchStatues();
+        //MatchStatu MatchStatus(int ID);
+        //MatchStatu MatchStatus(String name);
 
     }
 }

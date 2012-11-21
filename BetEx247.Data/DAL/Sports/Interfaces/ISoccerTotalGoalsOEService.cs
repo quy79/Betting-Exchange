@@ -7,9 +7,9 @@ namespace BetEx247.Data.DAL.Sports.Interfaces
 {
     public partial interface ISoccerTotalGoalsOEService : IBase<Soccer_TotalGoalsOE>   
     {
-        List<Soccer_TotalGoalsOE> SoccerTotalGoalsOEs();
-        List<Soccer_TotalGoalsOE> SoccerTotalGoalsOEs(int matchID);
-        Soccer_TotalGoalsOE SoccerTotalGoalsOE(int ID);
+        //List<Soccer_TotalGoalsOE> SoccerTotalGoalsOEs();
+        //List<Soccer_TotalGoalsOE> SoccerTotalGoalsOEs(int matchID);
+        //Soccer_TotalGoalsOE SoccerTotalGoalsOE(int ID);
         //bool Insert(Soccer_TotalGoalsOE soccerTotalGoalsOE);
         //bool Update(Soccer_TotalGoalsOE soccerTotalGoalsOE);
        // bool Delete(Soccer_TotalGoalsOE soccerTotalGoalsOE);

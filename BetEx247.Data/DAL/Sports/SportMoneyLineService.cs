@@ -30,7 +30,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public List<Sports_MoneyLine> SportsMoneyLines(int matchID)
+        public List<Sports_MoneyLine> SportsMoneyLines(Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -44,7 +44,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-       public Sports_MoneyLine SportsMoneyLine(int ID)
+        public Sports_MoneyLine SportsMoneyLine(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {

@@ -25,7 +25,7 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
-        public  List<Soccer_DrawNoBet> SoccerDrawNoBets(long matchID)
+        public List<Soccer_DrawNoBet> SoccerDrawNoBets(Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -34,7 +34,7 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
-        public Soccer_DrawNoBet SoccerDrawNoBet(long ID)
+        public Soccer_DrawNoBet SoccerDrawNoBet(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -45,6 +45,7 @@ namespace BetEx247.Data.DAL.Sports
         }
          public bool Insert(Soccer_DrawNoBet soccerDrawNoBet)
         {
+            soccerDrawNoBet.ID = Guid.NewGuid();
             _context.AddToSoccer_DrawNoBet(soccerDrawNoBet);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;

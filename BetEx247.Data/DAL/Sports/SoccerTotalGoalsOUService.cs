@@ -30,7 +30,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public  List<Soccer_TotalGoalsOU> SoccerTotalGoalsOUs(long matchID)
+        public List<Soccer_TotalGoalsOU> SoccerTotalGoalsOUs(Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -44,7 +44,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Soccer_TotalGoalsOU SoccerTotalGoalsOU(int ID)
+        public Soccer_TotalGoalsOU SoccerTotalGoalsOU(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -60,6 +60,7 @@ namespace BetEx247.Data.DAL.Sports
         /// <returns></returns>
          public bool Insert(Soccer_TotalGoalsOU soccerTotalGoalsOU)
         {
+            soccerTotalGoalsOU.ID = Guid.NewGuid();
             _context.AddToSoccer_TotalGoalsOU(soccerTotalGoalsOU);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;

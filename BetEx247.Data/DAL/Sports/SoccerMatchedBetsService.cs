@@ -30,7 +30,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public  List<Soccer_MatchedBets> SoccerMatchedBetses(int matchID)
+        public List<Soccer_MatchedBets> SoccerMatchedBetses(Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -44,7 +44,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Soccer_MatchedBets SoccerMatchedBets(int ID)
+        public Soccer_MatchedBets SoccerMatchedBets(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {

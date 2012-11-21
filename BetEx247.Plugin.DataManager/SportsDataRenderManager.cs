@@ -129,7 +129,7 @@ namespace BetEx247.Plugin.DataManager
         void loadMatch(ref Bet247xSoccerLeague _soccerLeague)
         {
             List<Bet247xSoccerMatch> _soccerMatches = new List<Bet247xSoccerMatch>();
-            long _matchStatus = 11; // not started
+            String _matchStatus = ""; // not started
             SoccerMatchService _soccerMatchSvr = new SoccerMatchService();
             List<SoccerMatch> _matches = _soccerMatchSvr.SoccerMatches(_soccerLeague.ID, _matchStatus);
 
@@ -140,10 +140,10 @@ namespace BetEx247.Plugin.DataManager
                      ID = sp.ID,
                      AwayTeam = sp.AwayTeam,
                      HomeTeam = sp.HomeTeam,
-                     MatchStatusID = sp.MatchStatusID,
+                     MatchStatus = sp.MatchStatus,
                      LeagueID = sp.LeagueID,
-                     StartDate = sp.StartDate,
-                     StartTime = sp.StartTime
+                     StartDateTime = sp.StartDateTime
+    
                 };
 
                 loadDrawNoBet(ref _obj);

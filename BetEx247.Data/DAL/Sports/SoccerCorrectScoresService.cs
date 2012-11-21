@@ -33,7 +33,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public  List<Soccer_CorrectScores> SoccerCorrectScoreses(long matchID)
+        public List<Soccer_CorrectScores> SoccerCorrectScoreses(Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -47,7 +47,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-       public  Soccer_CorrectScores SoccerCorrectScores(int ID)
+        public Soccer_CorrectScores SoccerCorrectScores(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -63,8 +63,8 @@ namespace BetEx247.Data.DAL.Sports
         /// <returns></returns>
          public bool Insert(Soccer_CorrectScores soccerCorrectScores)
         {
-           
 
+            soccerCorrectScores.ID = Guid.NewGuid();
             _context.AddToSoccer_CorrectScores(soccerCorrectScores);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
