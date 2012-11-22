@@ -144,6 +144,20 @@ namespace BetEx247.Data.DAL
             }
         }
 
+        /// <summary>
+        /// Get List Transaction by MemberId
+        /// </summary>
+        /// <param name="memberId">login memberid</param>
+        /// <param name="type">1:Deposit, 2: Withdraw</param>
+        /// <returns>list transaction</returns>
+        public List<PSV_TRANSACTION> GetTransaction(long memberId, Int16 type)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.PSV_TRANSACTION.Where(w => w.MemberId == memberId && w.Type == type).ToList();
+            }
+        }
+
         #region base menthod
         public IList<MyBet> GetAll()
         {

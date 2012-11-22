@@ -59,17 +59,17 @@
                             @Html.DisplayFor(modelItem => item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetId)
+                            @Html.DisplayFor(modelItem => item.ID)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.MarketID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
                         </td>                         
                         <td>
                             @{
-                            if (item.BL != null && item.BL.Value)
+                            if (item.BL != null && item.BL=="B")
                             {
                                 @Html.Raw("Bet")
                             }

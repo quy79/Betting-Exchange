@@ -75,5 +75,13 @@ namespace BetEx247.Data.DAL
         /// <param name="dateTo">date end to search</param>
         /// <returns>List mybet</returns>
         List<PSV_MYBET> GetMyBetByMemberId(long memberId,DateTime? dateFrom, DateTime? dateTo);
+
+        /// <summary>
+        /// Get List Transaction by MemberId
+        /// </summary>
+        /// <param name="memberId">login memberid</param>
+        /// <param name="type">1:Deposit, 2: Withdraw</param>
+        /// <returns>list transaction</returns>
+        List<PSV_TRANSACTION> GetTransaction(long memberId, Int16 type);
     }
 }
