@@ -1,77 +1,475 @@
-﻿@model IEnumerable<BetEx247.Data.Model.Statement>
+﻿@using System.Data;
+@using BetEx247.Core;
 @{
     Layout = null;
+    DataTable statement = ViewBag.lstStatement;
+    int betDisplay = ViewBag.betDisplay;
 }
 
-<table width="70%">
-    <tr>
-        <th>
-            Date
-        </th>
-        <th>
-            ID
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Selection
-        </th>
-        <th>
-            B/L
-        </th>
-        <th>
-            Stake
-        </th>
-        <th>
-            Odds
-        </th>
-        <th>
-            Type_Result
-        </th>
-        <th>
-            Amount
-        </th>
-        <th>
-            NetProfit
-        </th>
-        <th>
-            Commission
-        </th>
-    </tr>
-    @foreach (var item in Model)
+@{
+    if (statement != null)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StatementTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BetId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BetId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Selection)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BackOrLay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stake)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Odds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type_Result)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NetProfit)
-            </td>
-        </tr>
+        <div class="account-box-result-heading">
+            @Html.Partial("PaggerControl")
+        </div>
+        switch (betDisplay)
+        {
+            case (int)Constant.StatementDisplayType.COMMISSIONS:
+    <!--DIV COMMISSION-->
+    <div id="dv-commission" style="clear: both; position: relative;">
+        <table class="gridtable">
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Match / Event
+                </th>
+                <th>
+                    Market
+                </th>
+                <th>
+                    B/L
+                </th>
+                <th>
+                    Stake
+                </th>
+                <th>
+                    Odds
+                </th>
+                <th>
+                    Result
+                </th>
+                <th>
+                    Net P/L(USD)
+                </th>
+                <th>
+                    Commission charged
+                </th>
+            </tr>
+            @foreach (DataRow item in statement.Rows)
+            {
+                <tr>
+                    <td>
+                        @item["StatementTime"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["Selection"]
+                    </td>
+                    <td>
+                        @{
+                if (@item["BackOrLay"].ToString() == "1")
+                {
+                            @Html.Raw("B")
+                }
+                else
+                {
+                            @Html.Raw("L")
+                }
+                        }
+                    </td>
+                    <td>
+                        @item["Stake"]
+                    </td>
+                    <td>
+                        @item["Odds"]
+                    </td>
+                    <td>
+                        @item["Type_Result"]
+                    </td>
+                    <td>
+                        @item["Amount"]
+                    </td>
+                    <td>
+                        @item["NetProfit"]
+                    </td>
+                    <td>
+                        @item["Commission"]
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    2012-10-30
+                </td>
+                <td>
+                    e72da32
+                </td>
+                <td>
+                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                        color: #000;">
+                        Oct 19, 2012 17:30</div>
+                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                        color: #000; font-weight: bold;">
+                        Manchester Utd v Chelsea</div>
+                </td>
+                <td>
+                    Manchester Utd -1/2 (First Half)
+                </td>
+                <td>
+                    B
+                </td>
+                <td>
+                    20
+                </td>
+                <td>
+                    1.88
+                </td>
+                <td>
+                    <span class="lost">Lost</span>
+                </td>
+                <td>
+                    <span class="lost">-20.00</span>
+                </td>
+                <td>
+                    0.00
+                </td>
+            </tr>
+        </table>
+    </div>
+            break;
+            case (int)Constant.StatementDisplayType.DEPOIST:
+        
+    <!--DIV DEPOSIT-->
+    <div id="dv-deposit" style="clear: both; position: relative;">
+        <table class="gridtable">
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Transaction ID
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Card
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+            @foreach (DataRow item in statement.Rows)
+            {
+                <tr>
+                    <td>
+                        @item["StatementTime"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["Selection"]
+                    </td>
+                    <td>
+                         @{
+                        if (@item["BackOrLay"].ToString() == "1")
+                        {
+                            @Html.Raw("B")
+                        }
+                        else
+                        {
+                            @Html.Raw("L")
+                        }
+                        }
+                    </td>
+                    <td>
+                        @item["Stake"]
+                    </td>
+                    <td>
+                        @item["Odds"]
+                    </td>
+                    <td>
+                        @item["Type_Result"]
+                    </td>
+                    <td>
+                        @item["Amount"]
+                    </td>
+                    <td>
+                        @item["NetProfit"]
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    2012-10-31 12:30
+                </td>
+                <td>
+                    234927438
+                </td>
+                <td>
+                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                        color: #000; font-weight: bold;">
+                        [Statement]: Deposit</div>
+                </td>
+                <td>
+                    USD 150.00
+                </td>
+                <td>
+                    My Skrill Card
+                </td>
+                <td>
+                    transaction completed
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    2012-10-31 13:15
+                </td>
+                <td>
+                    323952907
+                </td>
+                <td>
+                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                        color: #000; font-weight: bold;">
+                        [Statement]: Deposit</div>
+                </td>
+                <td>
+                    JPY 20,000.00
+                </td>
+                <td>
+                    My NETeller Card
+                </td>
+                <td>
+                    transaction completed
+                </td>
+            </tr>
+        </table>
+    </div>
+            break;
+            case (int)Constant.StatementDisplayType.LOYALTYREFUND:
+                break;
+            case (int)Constant.StatementDisplayType.MARKETREFUND:
+        
+    <!--DIV MARKET REFUND-->
+    <div id="dv-marketrefund" style="clear: both; position: relative;">
+        <table class="gridtable">
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Match / Event
+                </th>
+                <th>
+                    Market
+                </th>
+                <th>
+                    B/L
+                </th>
+                <th>
+                    Stake
+                </th>
+                <th>
+                    Odds
+                </th>
+                <th>
+                    Refunding Reason
+                </th>
+                <th>
+                    Amount refunded
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+            @foreach (DataRow item in statement.Rows)
+            {
+                <tr>
+                    <td>
+                        @item["StatementTime"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["Selection"]
+                    </td>
+                    <td>
+                         @{
+                if (@item["BackOrLay"].ToString() == "1")
+                {
+                            @Html.Raw("B")
+                }
+                else
+                {
+                            @Html.Raw("L")
+                }
+                        }
+                    </td>
+                    <td>
+                        @item["Stake"]
+                    </td>
+                    <td>
+                        @item["Odds"]
+                    </td>
+                    <td>
+                        @item["Reason"]
+                    </td>
+                    <td>
+                        @item["MarketAmountRefund"]
+                    </td>
+                    <td>
+                        @item["NetProfit"]
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    2012-10-30
+                </td>
+                <td>
+                    e72da32
+                </td>
+                <td>
+                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                        color: #000;">
+                        Oct 19, 2012 17:30</div>
+                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                        color: #000; font-weight: bold;">
+                        Djokovic v Federer</div>
+                </td>
+                <td>
+                    Djokovic to win
+                </td>
+                <td>
+                    B
+                </td>
+                <td>
+                    50.00
+                </td>
+                <td>
+                    1.35
+                </td>
+                <td>
+                    This match has been postponed.
+                </td>
+                <td>
+                    50.00
+                </td>
+                <td>
+                    Transaction completed.
+                </td>
+            </tr>
+        </table>
+    </div>
+            break;
+            case (int)Constant.StatementDisplayType.WITHDRAW:
+        
+    <!--DIV WITHDRAWAL-->
+    <div id="dv-withdrawal" style="clear: both; position: relative;">
+        <table class="gridtable">
+            <tr>
+                <th>
+                    Date
+                </th>
+                <th>
+                    Transaction ID
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Amount
+                </th>
+                <th>
+                    Card
+                </th>
+                <th>
+                    Status
+                </th>
+            </tr>
+            @foreach (DataRow item in statement.Rows)
+            {
+                <tr>
+                    <td>
+                        @item["StatementTime"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["BetId"]
+                    </td>
+                    <td>
+                        @item["Selection"]
+                    </td>
+                    <td>
+                         @{
+                if (@item["BackOrLay"].ToString() == "1")
+                {
+                            @Html.Raw("B")
+                }
+                else
+                {
+                            @Html.Raw("L")
+                }
+                        }
+                    </td>
+                    <td>
+                        @item["Stake"]
+                    </td>
+                    <td>
+                        @item["Odds"]
+                    </td>
+                    <td>
+                        @item["Type_Result"]
+                    </td>
+                    <td>
+                        @item["Amount"]
+                    </td>
+                    <td>
+                        @item["NetProfit"]
+                    </td>
+                </tr>
+            }
+            <tr>
+                <td>
+                    2012-10-31 13:15
+                </td>
+                <td>
+                    343763453
+                </td>
+                <td>
+                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                        color: #000; font-weight: bold;">
+                        [Statement]: Withdrawal</div>
+                </td>
+                <td>
+                    USD 100.00
+                </td>
+                <td>
+                    Visa Card
+                </td>
+                <td>
+                    transaction completed
+                </td>
+            </tr>
+        </table>
+    </div>
+            break;
+        }
     }
-</table>       
+}

@@ -106,6 +106,8 @@ namespace BetEx247.Core
             public static string GOALSERVE_FOLDER = "App_Data/XMLFEED/GOALSERVE";
         }
 
+        public enum eLANGUAGE { NONE, EN, VI }
+
         public enum BetType
         {
             MONEY_LINE = 154,
@@ -146,15 +148,15 @@ namespace BetEx247.Core
 
         public enum StatementDisplayType
         {
-            ADJUSTMENT = 1,
-            BETSONLY = 2,
-            COMMISSIONS  = 3,
-            DEPOIST  = 4,
-            FEE  = 5,
-            FREEBETS = 6,
-            LOYALTYREFUND = 7,
-            MARKETREFUND = 8,
-            WITHDRAW =9
+            ADJUSTMENT = 11,
+            BETSONLY = 12,
+            COMMISSIONS  = 13,
+            DEPOIST  = 14,
+            FEE  = 15,
+            FREEBETS = 16,
+            LOYALTYREFUND = 17,
+            MARKETREFUND = 18,
+            WITHDRAW =19
         }
 
         public enum ChoiceType

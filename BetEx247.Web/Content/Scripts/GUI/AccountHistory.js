@@ -57,7 +57,12 @@ AccountHistory = {
             sResultID = "";
             sShowWarning = true;
             if (g_currentView == "All") {
-                this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
+                if (display != "") {
+                    rptype = display;
+                    this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
+                } else {
+                    this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
+                }
             } else { }
         }
     },
@@ -95,17 +100,17 @@ AccountHistory = {
     },
 
     server_getAllData: function (action, periodType, startDate, endDate, betCategory, displayType, pageNo, noOfPages, rptype) {
-        if (this.BeginProcessing()) {
-            var surl = this.Url + '';
-            $.ajax({
-                url: this.Url + 'ajax/' + action,
-                type: 'GET',
-                data: { pr: periodType, sd: startDate, ed: endDate, bcate: betCategory, bdis: displayType, pNo: pageNo, row: noOfPages, type: rptype },
-                success: function (result) {
-                    AccountHistory.server_receiveAllData(result, rptype);
-                }
-            });
-        }
+        //if (this.BeginProcessing()) {
+        var surl = this.Url + '';
+        $.ajax({
+            url: this.Url + 'ajax/' + action,
+            type: 'GET',
+            data: { pr: periodType, sd: startDate, ed: endDate, bcate: betCategory, bdis: displayType, pNo: pageNo, row: noOfPages, type: rptype },
+            success: function (result) {
+                AccountHistory.server_receiveAllData(result, rptype);
+            }
+        });
+        //}
     },
 
     server_receiveAllData: function (data, action) {
@@ -118,22 +123,19 @@ AccountHistory = {
                 case "8":
                     $("#dv-commission").html(data);
                     break;
-                case "statement":
-                case "Adjustment":
-                case "Fee":
+                case "13":
+                case "14":
+                case "17":
+                case "18":
+                case "19":
                     $('#result').html(data);
                     break;
                 case "FBSettlement":
                 case "Settlement":
                     historyHTML += html_getAllSettlementRow(arrAllData[i], numDec, oddsFormat);
                     break;
-                case "Commission":
-                case "MarketRebate":
-                case "LoyaltyRebate":
-                    historyHTML += html_getAllOthersRow(arrAllData[i], numDec);
-                    break
             }
-            betex247.EndProcessing();
+            //betex247.EndProcessing();
         } catch (e) {
 
         }

@@ -232,12 +232,12 @@ namespace BetEx247.Data.DAL
 
             AddItem = new SelectListItem();
             AddItem.Text = "Charged Commission";
-            AddItem.Value = "Commission";
+            AddItem.Value = ((int)Constant.StatementDisplayType.COMMISSIONS).ToString();
             Items.Add(AddItem);
 
             AddItem = new SelectListItem();
             AddItem.Text = "Deposit";
-            AddItem.Value = "Deposit";
+            AddItem.Value = ((int)Constant.StatementDisplayType.DEPOIST).ToString();
             Items.Add(AddItem);
 
             //AddItem = new SelectListItem();
@@ -246,8 +246,8 @@ namespace BetEx247.Data.DAL
             //Items.Add(AddItem);
 
             AddItem = new SelectListItem();
-            AddItem.Text = "Withdraw";
-            AddItem.Value = "Withdraw";
+            AddItem.Text = "Withdraw";      
+            AddItem.Value = ((int)Constant.StatementDisplayType.WITHDRAW).ToString();// "Withdraw";
             Items.Add(AddItem);
 
             //AddItem = new SelectListItem();
@@ -257,12 +257,12 @@ namespace BetEx247.Data.DAL
 
             AddItem = new SelectListItem();
             AddItem.Text = "Loyalty Refund";
-            AddItem.Value = "LoyaltyRebate";
+            AddItem.Value = ((int)Constant.StatementDisplayType.LOYALTYREFUND).ToString();
             Items.Add(AddItem);
 
             AddItem = new SelectListItem();
             AddItem.Text = "Market Refund";
-            AddItem.Value = "MarketRebate";
+            AddItem.Value = ((int)Constant.StatementDisplayType.MARKETREFUND).ToString();
             Items.Add(AddItem);
                                              
 

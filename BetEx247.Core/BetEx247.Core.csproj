@@ -89,6 +89,7 @@
     <Compile Include="Common\Utils\HttpHelper.cs" />
     <Compile Include="Common\Utils\IWebHelper.cs" />
     <Compile Include="Common\Utils\JSONObject.cs" />
+    <Compile Include="Common\Utils\Pager.cs" />
     <Compile Include="Common\Utils\RemotePost.cs" />
     <Compile Include="Common\Utils\TypeConvertor.cs" />
     <Compile Include="Common\Utils\WebHelper.cs" />

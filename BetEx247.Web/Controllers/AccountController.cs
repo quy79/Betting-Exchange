@@ -335,13 +335,13 @@ namespace BetEx247.Web.Controllers
         [Authorize]
         public ActionResult Statement()
         {               
-            long memberId = SessionManager.USER_ID;
-            var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
-            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId,"",1,Constant.DefaultRow);
-            ViewBag.lstSportData =new SelectList(lstSportData,"ID","SportName");
+            //long memberId = SessionManager.USER_ID;
+            //var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
+            
+            //ViewBag.lstSportData =new SelectList(lstSportData,"ID","SportName");
             ViewBag.lstDateSearchType = IoC.Resolve<ICommonService>().MakeSelectListDateSearch();
             ViewBag.lstDisplaySearch = IoC.Resolve<ICommonService>().MakeSelectListBetDisplay();
-            ViewBag.lstStatement = lstStatement;
+            //ViewBag.lstStatement = lstStatement;
             return View();
         }
 

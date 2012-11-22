@@ -73,14 +73,19 @@ namespace BetEx247.Web.Controllers
             //{
             //    sb.Append(" and t.CardId=" + betCategory + " ");
             //}
-
+            ViewBag.betDisplay = betDisplay;
             long memberId = SessionManager.USER_ID;
             var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId, sb.ToString(), pageNo, recordPerpage);
-
+            //var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId, "", 1, Constant.DefaultRow);
             int totalRow = IoC.Resolve<IBettingService>().CountRowStatementByMemberId(memberId, sb.ToString());
             ViewBag.TotalRow = totalRow;
+            ViewBag.lstStatement = lstStatement;
 
-            return View(lstStatement);
+            ViewBag.i_Total = totalRow;
+            ViewBag.PageSize = recordPerpage;
+            ViewBag.PageNum = pageNo;
+
+            return View();
         }
 
         [Authorize]
@@ -144,6 +149,10 @@ namespace BetEx247.Web.Controllers
             ViewBag.ReportType = reportType;
 
             int totalRow = IoC.Resolve<IBettingService>().CountRowBetByMemberId(memberId, sb.ToString());
+
+            ViewBag.i_Total = totalRow;
+            ViewBag.PageSize = recordPerpage;
+            ViewBag.PageNum = pageNo;
 
             return View(lstStatement);
         }
