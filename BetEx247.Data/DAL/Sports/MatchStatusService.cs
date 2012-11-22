@@ -100,21 +100,7 @@ namespace BetEx247.Data.DAL.Sports
              get { throw new NotImplementedException(); }
          }
 
-         List<MatchStatu> IMatchStatusService.MatchStatues()
-         {
-             throw new NotImplementedException();
-         }
-
-         MatchStatu IMatchStatusService.MatchStatus(int ID)
-         {
-             throw new NotImplementedException();
-         }
-
-         MatchStatu IMatchStatusService.MatchStatus(string name)
-         {
-             throw new NotImplementedException();
-         }
-
+        
 
          void IBase<Sport>.Insert(Sport entity)
          {

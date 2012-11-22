@@ -349,7 +349,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult Exposure()
         {
             long memberId = SessionManager.USER_ID;
-            var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.EXPOSURE);
+            var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.EXPOSURE.ToString());
             return View(lstExposure);
         }
 
@@ -357,7 +357,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult UnmatchedBets()
         {
             long memberId = SessionManager.USER_ID;
-            var lstUnmatchedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.UNMATCHEDBETS);
+            var lstUnmatchedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.UNMATCHEDBETS.ToString());
             return View(lstUnmatchedBet);
         }
 
@@ -365,7 +365,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult UnsettledBets()
         {
             long memberId = SessionManager.USER_ID;
-            var lstUnSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.UNSETTLEDBETS);
+            var lstUnSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.UNSETTLEDBETS.ToString());
             return View(lstUnSettledBet);
         }
 
@@ -373,7 +373,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult BettingPL()
         {
             long memberId = SessionManager.USER_ID;
-            var lstBettingPL = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.BETTINGPL);
+            var lstBettingPL = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.BETTINGPL.ToString());
 
             var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
             ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
@@ -386,7 +386,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult SettledBets()
         {
             long memberId = SessionManager.USER_ID;
-            var lstSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.SETTLEDBETS);
+            var lstSettledBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.SETTLEDBETS.ToString());
 
             var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
             ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
@@ -399,7 +399,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult CancelledBets()
         {
             long memberId = SessionManager.USER_ID;
-            var lstCancelBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.CANCELLEDBETS);
+            var lstCancelBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.CANCELLEDBETS.ToString());
 
             var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
             ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
@@ -413,7 +413,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult LapsedBets()
         {
             long memberId = SessionManager.USER_ID;
-            var lstLapsedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.LAPSEDBETS);
+            var lstLapsedBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.LAPSEDBETS.ToString());
 
             var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
             ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
@@ -426,7 +426,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult VoidBets()
         {
             long memberId = SessionManager.USER_ID;
-            var lstVoidBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, (short)Constant.MyBetStatus.VOIDBETS);
+            var lstVoidBet = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.VOIDBETS.ToString());
 
             var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
             ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");

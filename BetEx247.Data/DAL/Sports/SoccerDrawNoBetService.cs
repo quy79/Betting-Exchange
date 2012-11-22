@@ -25,16 +25,16 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
-        public  List<Soccer_DrawNoBet> SoccerDrawNoBets(long matchID)
+        public List<Soccer_DrawNoBet> SoccerDrawNoBets(long sportID,long countryID,long LeagueID,Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Soccer_DrawNoBet.Where(w => w.ID == matchID).ToList();
+                var list = dba.Soccer_DrawNoBet.Where(w => w.ID == matchID & w.SportID==sportID &w.CountryID==countryID&w.LeagueID==LeagueID).ToList();
 
                 return list;
             }
         }
-        public Soccer_DrawNoBet SoccerDrawNoBet(long ID)
+        public Soccer_DrawNoBet SoccerDrawNoBet(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -45,6 +45,7 @@ namespace BetEx247.Data.DAL.Sports
         }
          public bool Insert(Soccer_DrawNoBet soccerDrawNoBet)
         {
+            soccerDrawNoBet.ID = Guid.NewGuid();
             _context.AddToSoccer_DrawNoBet(soccerDrawNoBet);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
@@ -52,7 +53,7 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_DrawNoBet soccerDrawNoBet)
         {
             Soccer_DrawNoBet _obj = new Soccer_DrawNoBet();
-            _obj = _context.Soccer_DrawNoBet.Where(w => w.ID == soccerDrawNoBet.ID).SingleOrDefault();
+            _obj = _context.Soccer_DrawNoBet.Where(w => w.MatchID == soccerDrawNoBet.MatchID & w.HomePrice == soccerDrawNoBet.HomePrice & w.AwayPrice == soccerDrawNoBet.AwayPrice & w.MarketCloseTime == soccerDrawNoBet.MarketCloseTime).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerDrawNoBet;

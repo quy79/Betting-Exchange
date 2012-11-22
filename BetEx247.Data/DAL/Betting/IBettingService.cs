@@ -15,7 +15,7 @@ namespace BetEx247.Data.DAL
         /// <param name="memberId">memberId</param>
         /// <param name="type">type</param>
         /// <returns>List mybet</returns>
-        List<PSV_MYBET> GetMyBetByType(long memberId, Int16 type);
+        List<PSV_MYBET> GetMyBetByType(long memberId, string type);
 
         /// <summary>
         /// Get Bet for User login

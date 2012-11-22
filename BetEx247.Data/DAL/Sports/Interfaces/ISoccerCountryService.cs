@@ -7,7 +7,7 @@ namespace BetEx247.Data.DAL.Sports.Interfaces
 {
     public partial interface ISoccerCountryService : IBase<Country>   
     {
-        SoccerCountry SoccerCountry();
+       // SoccerCountry SoccerCountry();
        // Country Country(int ID);
        // Country Country(String name);
         //Country	

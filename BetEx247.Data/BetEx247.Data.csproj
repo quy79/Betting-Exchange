@@ -94,8 +94,12 @@
     <Compile Include="DAL\Payment\RecurringPayment.cs" />
     <Compile Include="DAL\Payment\RecurringPaymentHistory.cs" />
     <Compile Include="DAL\Payment\ReturnRequest.cs" />
-    <Compile Include="DAL\Sports\BetStatusService.cs" />
-    <Compile Include="DAL\Sports\DataControlStatusService.cs" />
+    <Compile Include="DAL\Sports\BetStatusService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\DataControlStatusService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DAL\Sports\Interfaces\IBetStatusService.cs" />
     <Compile Include="DAL\Sports\Interfaces\IDataControlStatusService.cs" />
     <Compile Include="DAL\Sports\Interfaces\IMatchStatusService.cs" />
@@ -115,23 +119,57 @@
     <Compile Include="DAL\Sports\Interfaces\ISportOutRightService.cs" />
     <Compile Include="DAL\Sports\Interfaces\ISportService.cs" />
     <Compile Include="DAL\Sports\Interfaces\ISportTotalOUService.cs" />
-    <Compile Include="DAL\Sports\MatchStatusService.cs" />
-    <Compile Include="DAL\Sports\SoccerAsianHandicapService.cs" />
-    <Compile Include="DAL\Sports\SoccerCorrectScoresService.cs" />
-    <Compile Include="DAL\Sports\SoccerCountryService.cs" />
-    <Compile Include="DAL\Sports\SoccerDrawNoBetService.cs" />
-    <Compile Include="DAL\Sports\SoccerLeagueService.cs" />
-    <Compile Include="DAL\Sports\SoccerMatchedBetsService.cs" />
-    <Compile Include="DAL\Sports\SoccerMatchOddsService.cs" />
-    <Compile Include="DAL\Sports\SoccerMatchService.cs" />
-    <Compile Include="DAL\Sports\SoccerTotalGoalsOEService.cs" />
-    <Compile Include="DAL\Sports\SoccerTotalGoalsOUService.cs" />
-    <Compile Include="DAL\Sports\SoccerWinningMarginService.cs" />
-    <Compile Include="DAL\Sports\SportAsianHandicapService.cs" />
-    <Compile Include="DAL\Sports\SportMoneyLineService.cs" />
-    <Compile Include="DAL\Sports\SportOutRightService.cs" />
-    <Compile Include="DAL\Sports\SportService.cs" />
-    <Compile Include="DAL\Sports\SportTotalOUService.cs" />
+    <Compile Include="DAL\Sports\MatchStatusService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerAsianHandicapService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerCorrectScoresService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerCountryService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerDrawNoBetService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerLeagueService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerMatchedBetsService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerMatchOddsService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerMatchService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerTotalGoalsOEService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerTotalGoalsOUService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SoccerWinningMarginService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SportAsianHandicapService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SportMoneyLineService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SportOutRightService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SportService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\Sports\SportTotalOUService.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Model\BetEXData.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

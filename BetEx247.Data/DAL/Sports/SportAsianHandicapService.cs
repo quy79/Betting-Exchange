@@ -30,7 +30,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public List<Sports_AsianHandicap> SportsAsianHandicaps(int matchID)
+        public List<Sports_AsianHandicap> SportsAsianHandicaps(Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -44,7 +44,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Sports_AsianHandicap SportsAsianHandicap(int ID)
+        public Sports_AsianHandicap SportsAsianHandicap(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {

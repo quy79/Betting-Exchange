@@ -7,9 +7,9 @@ namespace BetEx247.Data.DAL.Sports.Interfaces
 {
     public partial interface ISportService : IBase<Sport>   
     {
-        List<Sport> Sports();
-        Sport Sport(int ID);
-        Sport Sport(String name);
+        //List<Sport> Sports();
+        //Sport Sport(int ID);
+        //Sport Sport(String name);
 
     }
 }

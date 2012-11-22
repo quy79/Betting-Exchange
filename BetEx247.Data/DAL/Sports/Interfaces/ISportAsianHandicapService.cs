@@ -7,9 +7,9 @@ namespace BetEx247.Data.DAL.Sports.Interfaces
 {
     public partial interface ISportAsianHandicapService : IBase<Sports_AsianHandicap>   
     {
-        List<Sports_AsianHandicap> SportsAsianHandicaps();
-        List<Sports_AsianHandicap> SportsAsianHandicaps(int matchID);
-        Sports_AsianHandicap SportsAsianHandicap(int ID);
+       // List<Sports_AsianHandicap> SportsAsianHandicaps();
+       // List<Sports_AsianHandicap> SportsAsianHandicaps(int matchID);
+       // Sports_AsianHandicap SportsAsianHandicap(int ID);
        // bool Insert(Sports_AsianHandicap sportsAsianHandicap);
         //bool Update(Sports_AsianHandicap sportsAsianHandicap);
         //bool Delete(Sports_AsianHandicap sportsAsianHandicap);

@@ -49,10 +49,10 @@ namespace BetEx247.Plugin.DataManager.XMLObjects.SoccerMatch
              obj.ID = ID;
              obj.AwayTeam = AwayTeam;
              obj.HomeTeam = HomeTeam;
-             obj.MatchStatusID = MatchStatusID;
+            // obj.MatchStatusID = MatchStatusID;
             obj.LeagueID = this.LeagueID;
-             obj.StartDate = StartDate;
-             obj.StartTime = StartTime;
+             obj.StartDateTime = StartDateTime;
+            // obj.StartTim = StartTime;
              obj.SportID = SportID;
              obj.CountryID = CountryID;
             // obj.Sports_AsianHandicap=spo

@@ -33,11 +33,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public  List<Soccer_CorrectScores> SoccerCorrectScoreses(long matchID)
+        public List<Soccer_CorrectScores> SoccerCorrectScoreses(long sportID, long countryID, long LeagueID, Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Soccer_CorrectScores.Where(w => w.ID == matchID).ToList();
+                var list = dba.Soccer_CorrectScores.Where(w => w.ID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
 
                 return list;
             }
@@ -47,7 +47,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-       public  Soccer_CorrectScores SoccerCorrectScores(int ID)
+        public Soccer_CorrectScores SoccerCorrectScores(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -63,6 +63,8 @@ namespace BetEx247.Data.DAL.Sports
         /// <returns></returns>
          public bool Insert(Soccer_CorrectScores soccerCorrectScores)
         {
+
+            soccerCorrectScores.ID = Guid.NewGuid();
             _context.AddToSoccer_CorrectScores(soccerCorrectScores);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
@@ -75,7 +77,7 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_CorrectScores soccerCorrectScores)
         {
             Soccer_CorrectScores _obj = new Soccer_CorrectScores();
-            _obj = _context.Soccer_CorrectScores.Where(w => w.ID == soccerCorrectScores.ID).SingleOrDefault();
+            _obj = _context.Soccer_CorrectScores.Where(w => w.MatchID == soccerCorrectScores.MatchID & w.CorrectScore == soccerCorrectScores.CorrectScore & w.Price == soccerCorrectScores.Price).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerCorrectScores;

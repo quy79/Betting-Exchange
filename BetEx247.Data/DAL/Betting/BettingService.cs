@@ -17,11 +17,11 @@ namespace BetEx247.Data.DAL
         /// <param name="memberId">memberId</param>
         /// <param name="type">type</param>
         /// <returns>List mybet</returns>
-        public List<PSV_MYBET> GetMyBetByType(long memberId, Int16 type)
+        public List<PSV_MYBET> GetMyBetByType(long memberId, string type)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var mybet = dba.PSV_MYBET.Where(w => w.BetStatusID == type && w.MemberID == memberId).Take(Constant.DefaultRow).ToList();
+                var mybet = dba.PSV_MYBET.Where(w => w.BetStatus == type && w.MemberID == memberId).Take(Constant.DefaultRow).ToList();
                 return mybet;
             }
         }

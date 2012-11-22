@@ -34,11 +34,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public  List<Soccer_AsianHandicap> SoccerAsianHandicaps(long matchID)
+       public List<Soccer_AsianHandicap> SoccerAsianHandicaps(long sportID, long countryID, long LeagueID, Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Soccer_AsianHandicap.Where(w => w.ID == matchID).ToList();
+                var list = dba.Soccer_AsianHandicap.Where(w => w.ID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
 
                 return list;
             }
@@ -48,7 +48,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Soccer_AsianHandicap SoccerAsianHandicap(int ID)
+       public Soccer_AsianHandicap SoccerAsianHandicap(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -64,6 +64,7 @@ namespace BetEx247.Data.DAL.Sports
         /// <returns></returns>
          public bool Insert(Soccer_AsianHandicap soccerAsianHandicap)
         {
+            soccerAsianHandicap.ID = Guid.NewGuid();
             _context.AddToSoccer_AsianHandicap(soccerAsianHandicap);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
@@ -76,7 +77,7 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(Soccer_AsianHandicap soccerAsianHandicap)
         {
             Soccer_AsianHandicap _obj = new Soccer_AsianHandicap();
-            _obj = _context.Soccer_AsianHandicap.Where(w => w.ID == soccerAsianHandicap.ID).SingleOrDefault();
+            _obj = _context.Soccer_AsianHandicap.Where(w => w.MatchID == soccerAsianHandicap.MatchID & w.HomePrice == soccerAsianHandicap.HomePrice & w.AwayPrice == soccerAsianHandicap.AwayPrice & w.HomePrice == soccerAsianHandicap.HomePrice & w.MarketCloseTime == soccerAsianHandicap.MarketCloseTime).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerAsianHandicap;
