@@ -1,11 +1,13 @@
 ﻿@using BetEx247.Data.Model;
-
 @model List<PSV_MYBET>
 @{
     ViewBag.Title = "BettingPL";
     Layout = null;
+    decimal SettledGross = 0;
+    decimal Commissionpaid = 0;
+    decimal SettledNet = 0;
+    decimal MatchedTurnover = 0;
 }
-
 <div class="clearfix">
     <h1 class="sports_header1">
         MY ACCOUNT</h1>
@@ -13,14 +15,14 @@
         <div class="account-box-title">
             Betting P/L
         </div>
-        <div class="account-box-filter AccountRegForm">           
+        <div class="account-box-filter AccountRegForm">
             @Html.Partial("AccountReportSearch2")
         </div>
         <div class="account-box-result-heading">
             @Html.Partial("PaggerControl")
         </div>
         <!--DIV BETTING P/L-->
-        <div id="dv-commission" style="clear: both; position: relative;">
+        @*<div id="dv-commission" style="clear: both; position: relative;">
             <table class="gridtable">
                 <tr>
                     <th>
@@ -86,8 +88,238 @@
                     </td>
                 </tr>
             </table>
+        </div>*@
+        <div id="dv-commission" style="clear: both; position: relative;">
+            <table class="gridtable">
+                <tr>
+                    <th width="26%">
+                        Description
+                    </th>
+                    <th width="10%">
+                        No. of Bets
+                    </th>
+                    <th width="16%">
+                        Matched Turnover
+                    </th>
+                    <th width="16%">
+                        Settled Gross P/L
+                    </th>
+                    <th width="16%">
+                        Commission paid
+                    </th>
+                    <th width="16%">
+                        Settled Net P/L
+                    </th>
+                </tr>
+                <tr>
+                    <td colspan="6">
+                        <table class="gridtable-sub1">
+                            <tr>
+                                <td width="26%" style="background-color: #fff !important">
+                                    All Sports
+                                </td>
+                                <td width="10%" style="background-color: #fff !important">
+                                    @Model.Count
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbMatchedTurnover">
+                                    </label>
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbSettledGross">
+                                    </label>
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbCommissionpaid">
+                                    </label>
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbSettledNet">
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                @{                       
+                    foreach (var item in Model)
+                    {
+                        MatchedTurnover += item.Stake;
+                        if (item.IsWon)
+                        {
+                            SettledGross += item.GrossProfit != null ? item.GrossProfit.Value : 0;
+                        }
+                        else
+                        {
+                            SettledGross -= item.GrossProfit != null ? item.GrossProfit.Value : 0;
+                        }
+
+                        if (item.IsWon)
+                        {
+                            SettledNet += item.NetProfit != null ? item.NetProfit.Value : 0;
+                        }
+                        else
+                        {
+                            SettledGross -= item.NetProfit != null ? item.NetProfit.Value : 0;
+                        }
+                    <tr>
+                        <td colspan="6" style="padding-left: 0px !important;">
+                            <table class="gridtable-sub1">
+                                <tr>
+                                    <td width="100%">
+                                        <span style="padding-left: 25px; display: inline;"><b>[Soccer]</b>&nbsp;:&nbsp; @item.HomeTeam
+                                            vs @item.AwayTeam</span> <span style="display: inline; padding-left: 30px;"><b>[Market]</b>&nbsp;:&nbsp;
+                                                Match Odds</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="margin-left: 0px !important; padding-left: 35px !important;">
+                            <table class="gridtable-sub">
+                                <tr>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Date</div>
+                                    </th>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Entrant</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            B/L</div>
+                                    </th>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Amount matched</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Result</div>
+                                    </th>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Settled Gross P/L</div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td width="20%">
+                                        @item.SubmitedTime
+                                    </td>
+                                    <td width="20%">
+                                        @item.MyEntrant
+                                    </td>
+                                    <td width="10%" align="center">
+                                        @item.BL
+                                    </td>
+                                    <td width="20%">
+                                        USD @item.Stake
+                                    </td>
+                                    <td width="10%" align="center">
+                                        @item.IsWon
+                                    </td>
+                                    <td width="20%">
+                                        USD @item.GrossWinning
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    }
+                    Commissionpaid = SettledNet - SettledGross;
+                }
+                <tr>
+                    <td colspan="6" style="padding-left: 0px !important;">
+                        <table class="gridtable-sub1">
+                            <tr>
+                                <td width="100%">
+                                    <span style="padding-left: 25px; display: inline;"><b>[Soccer]</b>&nbsp;:&nbsp; Lazio
+                                        vs Chelsea</span> <span style="display: inline; padding-left: 30px;"><b>[Market]</b>&nbsp;:&nbsp;
+                                            Match Odds</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="margin-left: 0px !important; padding-left: 35px !important;">
+                        <table class="gridtable-sub">
+                            <tr>
+                                <th width="20%">
+                                    <div style="padding: 2px 2px; text-align: center;">
+                                        Date</div>
+                                </th>
+                                <th width="20%">
+                                    <div style="padding: 2px 2px; text-align: center;">
+                                        Entrant</div>
+                                </th>
+                                <th width="10%">
+                                    <div style="padding: 2px 2px; text-align: center;">
+                                        B/L</div>
+                                </th>
+                                <th width="20%">
+                                    <div style="padding: 2px 2px; text-align: center;">
+                                        Amount matched</div>
+                                </th>
+                                <th width="10%">
+                                    <div style="padding: 2px 2px; text-align: center;">
+                                        Result</div>
+                                </th>
+                                <th width="20%">
+                                    <div style="padding: 2px 2px; text-align: center;">
+                                        Settled Gross P/L</div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td width="20%">
+                                    2012-11-21 19:20:40
+                                </td>
+                                <td width="20%">
+                                    Lazio(1.92)
+                                </td>
+                                <td width="10%" align="center">
+                                    Back
+                                </td>
+                                <td width="20%">
+                                    USD5.00
+                                </td>
+                                <td width="10%" align="center">
+                                    Won
+                                </td>
+                                <td width="20%">
+                                    USD4.60
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
-<input type="hidden" id="txtaction" name="txtaction" value="MyBetHistory"/>
-<input type="hidden" id="txtrpType" name="txtrpType" value="4"/>
+<input type="hidden" id="MatchedTurnover" name="MatchedTurnover" value="USD@{@MatchedTurnover}" />
+@{
+    String sCommissionpaid = @Commissionpaid >= 0 ? "USD" + @Commissionpaid : "-USD" + @Commissionpaid.ToString().Replace("-", "");
+    String sSettledGross = SettledGross>=0?"USD"+ @SettledGross:"-USD"+@SettledGross.ToString().Replace("-", "");
+    String sSettledNet = SettledNet>=0?"USD"+ @SettledNet:"-USD"+@SettledNet.ToString().Replace("-", "");
+}
+<input type="hidden" id="Commissionpaid" name="Commissionpaid" value="@sCommissionpaid" />
+<input type="hidden" id="SettledGross" name="SettledGross" value="@sSettledGross" />
+<input type="hidden" id="SettledNet" name="SettledNet" value="@sSettledNet" />
+<input type="hidden" id="txtaction" name="txtaction" value="MyBetHistory" />
+<input type="hidden" id="txtrpType" name="txtrpType" value="4" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        var MatchedTurnover = $("#MatchedTurnover").val();
+        var SettledGross = $("#SettledGross").val();
+        var Commissionpaid = $("#Commissionpaid").val();
+        var SettledNet = $("#SettledNet").val();
+
+        $("#lbMatchedTurnover").html(MatchedTurnover);
+        $("#lbSettledGross").html(SettledGross);
+        $("#lbCommissionpaid").html(Commissionpaid);
+        $("#lbSettledNet").html(SettledNet);
+    });
+</script>

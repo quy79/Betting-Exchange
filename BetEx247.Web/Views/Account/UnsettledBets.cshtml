@@ -46,25 +46,21 @@
                             @Html.DisplayFor(modelItem => item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetId)
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000;">
+                                @Html.DisplayFor(modelItem => item.StartDateTime)</div>
+                            <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                color: #000; font-weight: bold;">
+                                @Html.DisplayFor(modelItem => item.HomeTeam) v @Html.DisplayFor(modelItem => item.AwayTeam)</div>
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.MarketID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
-                        </td>                        
-                        <td>
-                            @{
-                            if (item.BL != null && item.BL.Value)
-                            {
-                                @Html.Raw("Bet")
-                            }
-                            else
-                            {
-                                @Html.Raw("Lay")
-                            }
-                            }
+                            @Html.DisplayFor(modelItem => item.BL)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Stake)
@@ -73,7 +69,7 @@
                             @Html.DisplayFor(modelItem => item.Price)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.IsWon)
+                            @Html.DisplayFor(modelItem => item.BetStatus)
                         </td>
                     </tr>
                 }

@@ -81,7 +81,9 @@ namespace BetEx247.Data.DAL
         /// </summary>
         /// <param name="memberId">login memberid</param>
         /// <param name="type">1:Deposit, 2: Withdraw</param>
+        /// <param name="pageNo">pageNo for search</param>
+        /// <param name="recordPerpage">recordPerpage for search</param>
         /// <returns>list transaction</returns>
-        List<PSV_TRANSACTION> GetTransaction(long memberId, Int16 type);
+        List<PSV_TRANSACTION> GetTransaction(long memberId, Int16 type, int pageNo, int recordPerpage, ref int totalRow);
     }
 }

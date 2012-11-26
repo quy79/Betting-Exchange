@@ -1,7 +1,7 @@
-@charset utf-8;
+@charset "utf-8";
 /* CSS Document */
 
-@charset utf-8;
+@charset "utf-8";
 /* CSS Document */
 
 
@@ -460,7 +460,7 @@ td.SuperSlipBg {
 
 input.PresetBetButton {
     border: 0px;
-    background: url(/images/betslip/orange_but.png) no-repeat scroll 0 -29px transparent;
+    background: url("/images/betslip/orange_but.png") no-repeat scroll 0 -29px transparent;
 	border:medium none;
 	color:#FFFFFF;
 	font-size:10px;
@@ -1716,11 +1716,11 @@ border-radius: 0px 0px 5px 5px;
 margin-bottom: 5px;    
 clear: both;
 /* Mozilla ignores crazy MS image filters, so it will skip the following */
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src=../images/themes/75.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../images/themes/75.png');
 	background-image:url(../images/themes/75.png);
 }
 .myaccount-box >ul li{
-	background:url(../images/themes/arrow-acc.png) no-repeat -5px 5px;
+	background:url("../images/themes/arrow-acc.png") no-repeat -5px 5px;
 }
 .myaccount-box >ul li a{
 	font: 10px Arial,Helvetica,sans-serif;
@@ -1998,7 +1998,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 
 .row-odds{
 	position: relative;
-	width: 100%; /* The menu should be the entire width of its surrounding object, in this case the whole page */
+	width: 100%; /* The menu should be the entire width of it's surrounding object, in this case the whole page */
 	margin: 0 auto; margin-top: 0px !important; } /* dark grey bg */
 
 .row-odds ul{
@@ -2018,7 +2018,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 	padding: 3px 8px; /* 10.5px of padding to the right and left of the link and 11px to the top and bottom */
 	}
 
-.row-odds ul li a:visited{ /* This bit just makes sure the text color doesnt change once youve visited a link */
+.row-odds ul li a:visited{ /* This bit just makes sure the text color doesn't change once you've visited a link */
 	color: #000;
 	text-decoration: none;}
 
@@ -2028,7 +2028,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 	
 	
 .test {
-	height: 22px; display: inline; position: relative; margin: 0 auto;
+	height: 22px; display: inline; position: relative; margin: 0 auto;"
 	color: #000;	
 }
 .test span { display: block;}
@@ -2044,10 +2044,10 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 }
 	
 div.highlights span.sitemap {
-	/*background: url(../images/bg_titleleft.jpg) no-repeat top right #000000;*/
+	/*background: url("../images/bg_titleleft.jpg") no-repeat top right #000000;*/
 	color: #000;
 	display: inline-block;
-	font: 1.3em UTMCafetaRegular;
+	font: 1.3em 'UTMCafetaRegular';
 	font-weight: bold;		
 	text-transform:uppercase;
 }
@@ -2088,7 +2088,7 @@ clear: both;
 border: 1px solid #fff;
 min-height: 150px;
 /* Mozilla ignores crazy MS image filters, so it will skip the following */
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src=../images/themes/75.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../images/themes/75.png');
 	background-image:url(../images/themes/75.png);
 }
 
@@ -2129,7 +2129,7 @@ text-align: left;
 
 
 .create-account-box {
- display: block; position: relative; margin: 0 auto; background-color:#000; padding: 0px; border: 1px solid #fff;
+ display: block; position: relative; margin: 0 auto; background-color:#000; padding: 0px; border: 1px solid #fff;color: white;
 font-size: 1.0em; 
 }
 .rb {
@@ -2163,7 +2163,7 @@ img.inline,img.tooltip,.info img{margin-left:3px;display:inline;vertical-align:t
 	margin-top: 0px;
 	border: 1px solid #000;
 	/* Mozilla ignores crazy MS image filters, so it will skip the following */
-    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src=../images/themes/75.png);
+    filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src='../images/themes/75.png');
 	background-image:url(../images/themes/75.png);
 }
 
@@ -2326,7 +2326,7 @@ div.dvBody table tr td.tdPager
 
 }
 .account-box-filter #filter-tbl td.col2 { 
-	width: 38%;
+	width: 35%;
 	text-align: left;
 
 }
@@ -2484,10 +2484,57 @@ div.dvBody table tr td.tdPager
 			  background-color: #f2e308;
   background-image: -moz-linear-gradient(top, #f2e308, #c4b911);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f2e308),color-stop(1, #c4b911));
-            filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr=#f2e308, EndColorStr=#c4b911);
-        -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#f2e308, EndColorStr=#c4b911);
+            filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2e308', EndColorStr='#c4b911');
+        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2e308', EndColorStr='#c4b911')";
 		}
 
+
+
+table.gridtable td > table.gridtable-sub {
+	font-family: verdana,arial,sans-serif;
+	font-size:0.9em;
+	color:#333333;
+	width: 100%;
+}
+table.gridtable td > table.gridtable-sub th {
+	border-width: 1px;
+	padding: 1px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.gridtable td > table.gridtable-sub td {
+	border-width: 1px !important;
+	padding: 2px 0px 2px 3px !important;
+	border-style: solid !important;
+	border-color: #000 !important;
+	background-color: #fff;;
+	height: 18px !important;
+	padding-left: 3px !important;
+}
+
+
+table.gridtable td > table.gridtable-sub1 {
+	font-family: verdana,arial,sans-serif;
+	font-size:0.9em;
+	padding : 0px 0px 0px 0px;
+	background-color: #CF6 !important;
+	color: #000 !important;	
+	width: 100%;
+}
+table.gridtable td > table.gridtable-sub1 tr th {
+	background-color: #dedede;
+}
+table.gridtable td > table.gridtable-sub1 tr td {
+	border-width: 1px;
+	padding: 2px 0px 2px 0px !important;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #FF9;
+	height: 18px !important;
+	padding-left: 0px !important;
+	
+}
 
 
 

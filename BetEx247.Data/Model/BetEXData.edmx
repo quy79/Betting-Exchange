@@ -184,6 +184,7 @@
           </EntitySet>
           <EntitySet Name="PSV_TRANSACTION" EntityType="BettingExchangeModel.Store.PSV_TRANSACTION" store:Type="Views" store:Schema="dbo" store:Name="PSV_TRANSACTION">
             <DefiningQuery>SELECT 
+      [PSV_TRANSACTION].[Row] AS [Row], 
       [PSV_TRANSACTION].[ID] AS [ID], 
       [PSV_TRANSACTION].[Name] AS [Name], 
       [PSV_TRANSACTION].[Description] AS [Description], 
@@ -1068,6 +1069,7 @@
             <PropertyRef Name="MemberId" />
             <PropertyRef Name="PaymentMenthodID" />
           </Key>
+          <Property Name="Row" Type="bigint" />
           <Property Name="ID" Type="bigint" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="ntext" />
@@ -3156,6 +3158,7 @@
             <PropertyRef Name="MemberId" />
             <PropertyRef Name="PaymentMenthodID" />
           </Key>
+          <Property Type="Int64" Name="Row" />
           <Property Type="Int64" Name="ID" Nullable="false" />
           <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -4005,6 +4008,7 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Row" ColumnName="Row" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -4107,7 +4111,7 @@
           <ConnectorPoint PointX="6" PointY="14.730649472656239" />
         </AssociationConnector>
         <EntityTypeShape EntityType="BettingExchangeModel.PSV_MATCHES" Width="1.5" PointX="19.375" PointY="12.75" Height="3.3263964843749818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.PSV_TRANSACTION" Width="1.5" PointX="21.375" PointY="0.75" Height="5.63401367187501" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_TRANSACTION" Width="1.5" PointX="21.375" PointY="0.75" Height="5.8263151041666674" />
       </Diagram>
     </Diagrams>
   </Designer>

@@ -7,6 +7,7 @@ using BetEx247.Core;
 using BetEx247.Core.Common.Utils;
 using System.Web.Security;
 using BetEx247.Core.Infrastructure;
+using ChilkatEmail;
 
 namespace BetEx247.Data.DAL
 {
@@ -138,6 +139,26 @@ namespace BetEx247.Data.DAL
         public void Logout()
         {
             SessionManager.Logout();
+        }
+
+        public void ForgetPassword(string email)
+        {
+            Member memProfile = IoC.Resolve<ICustomerService>().GetCustomerByEmail(email);
+            if (memProfile != null)
+            {
+                string newPass= CommonHelper.RandomString(8);
+                memProfile.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(newPass, "sha1");
+                Update(memProfile);
+                //send mail to user
+                MailServices mailService = new MailServices();
+                List<String> mailTo = new List<string>();
+                mailTo.Add(memProfile.Email1);
+                List<String> mailCC = new List<string>();
+                mailCC.Add("chantinh2204@gmail.com");
+                List<String> mailBBC = new List<string>();
+
+                mailService.SendEmail(mailTo, mailCC, mailBBC, "Forget Password", "Your Pass new update pass: " + newPass + ".");
+            }
         }
 
         public IList<Member> GetAll()

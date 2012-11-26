@@ -260,8 +260,8 @@ namespace BetEx247.Web.Controllers
         public ActionResult ChangePassword()
         {
             return View();
-        }
-
+        }     
+       
         //
         // POST: /Account/ChangePassword
 
@@ -277,8 +277,20 @@ namespace BetEx247.Web.Controllers
                 bool changePasswordSucceeded;
                 try
                 {
-                    MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
-                    changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
+                    string currentPass = FormsAuthentication.HashPasswordForStoringInConfigFile(model.ConfirmPassword.Trim(), "sha1");
+                    Member memProfile = IoC.Resolve<ICustomerService>().GetCustomerById(SessionManager.USER_ID);
+                    if (currentPass.Equals(memProfile.Password))
+                    {
+                        memProfile.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(model.NewPassword, "sha1");
+                        IoC.Resolve<ICustomerService>().Update(memProfile);
+                        changePasswordSucceeded = true;
+                    }
+                    else
+                    {
+                        changePasswordSucceeded = false;
+                    }
+                    //MembershipUser currentUser = Membership.GetUser(User.Identity.Name, true /* userIsOnline */);
+                    //changePasswordSucceeded = currentUser.ChangePassword(model.OldPassword, model.NewPassword);
                 }
                 catch (Exception)
                 {
@@ -308,6 +320,19 @@ namespace BetEx247.Web.Controllers
         }
 
         public ActionResult ForgetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgetPassword(FormCollection collection)
+        {
+            string email = collection["email"].ToString();
+            IoC.Resolve<ICustomerService>().ForgetPassword(email);
+            return RedirectToAction("ForgetPasswordSuccess");
+        }
+
+        public ActionResult ForgetPasswordSuccess()
         {
             return View();
         }

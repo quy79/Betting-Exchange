@@ -1,20 +1,29 @@
 ﻿@using System.Data;
+@using BetEx247.Data.Model;
 @using BetEx247.Core;
 @{
     Layout = null;
-    DataTable statement = ViewBag.lstStatement;
+    DataTable statement = new DataTable();
+    List<PSV_TRANSACTION> data = new List<PSV_TRANSACTION>();
     int betDisplay = ViewBag.betDisplay;
-}
 
-@{
-    if (statement != null)
+    if (betDisplay != (int)Constant.StatementDisplayType.DEPOIST && betDisplay != (int)Constant.StatementDisplayType.WITHDRAW)
     {
-        <div class="account-box-result-heading">
-            @Html.Partial("PaggerControl")
-        </div>
-        switch (betDisplay)
-        {
-            case (int)Constant.StatementDisplayType.COMMISSIONS:
+        statement = ViewBag.lstStatement;
+    }
+    else
+    {
+        data = ViewBag.lstStatement;
+    }
+}
+@{
+                
+    switch (betDisplay)
+    {
+        case (int)Constant.StatementDisplayType.COMMISSIONS:
+    <div class="account-box-result-heading">
+        @Html.Partial("PaggerControl")
+    </div>
     <!--DIV COMMISSION-->
     <div id="dv-commission" style="clear: both; position: relative;">
         <table class="gridtable">
@@ -50,8 +59,11 @@
                     Commission charged
                 </th>
             </tr>
-            @foreach (DataRow item in statement.Rows)
-            {
+            @{
+   if (statement != null)
+   {
+       foreach (DataRow item in statement.Rows)
+       {
                 <tr>
                     <td>
                         @item["StatementTime"]
@@ -67,14 +79,14 @@
                     </td>
                     <td>
                         @{
-                if (@item["BackOrLay"].ToString() == "1")
-                {
+           if (@item["BackOrLay"].ToString() == "1")
+           {
                             @Html.Raw("B")
-                }
-                else
-                {
+           }
+           else
+           {
                             @Html.Raw("L")
-                }
+           }
                         }
                     </td>
                     <td>
@@ -96,6 +108,8 @@
                         @item["Commission"]
                     </td>
                 </tr>
+       }
+   }
             }
             <tr>
                 <td>
@@ -136,9 +150,11 @@
             </tr>
         </table>
     </div>
-            break;
-            case (int)Constant.StatementDisplayType.DEPOIST:
-        
+   break;
+        case (int)Constant.StatementDisplayType.DEPOIST:
+    <div class="account-box-result-heading">
+        @Html.Partial("PaggerControl")
+    </div>
     <!--DIV DEPOSIT-->
     <div id="dv-deposit" style="clear: both; position: relative;">
         <table class="gridtable">
@@ -162,49 +178,35 @@
                     Status
                 </th>
             </tr>
-            @foreach (DataRow item in statement.Rows)
-            {
+            @{
+   if (data != null)
+   {
+       foreach (PSV_TRANSACTION item in statement.Rows)
+       {
                 <tr>
                     <td>
-                        @item["StatementTime"]
+                        @item.AddedDate
                     </td>
                     <td>
-                        @item["BetId"]
+                        @item.ResponeTranId
                     </td>
                     <td>
-                        @item["BetId"]
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000; font-weight: bold;">
+                            [Statement]: Deposit</div>
                     </td>
                     <td>
-                        @item["Selection"]
+                        USD @item.Amount
                     </td>
                     <td>
-                         @{
-                        if (@item["BackOrLay"].ToString() == "1")
-                        {
-                            @Html.Raw("B")
-                        }
-                        else
-                        {
-                            @Html.Raw("L")
-                        }
-                        }
+                        @item.Name
                     </td>
                     <td>
-                        @item["Stake"]
-                    </td>
-                    <td>
-                        @item["Odds"]
-                    </td>
-                    <td>
-                        @item["Type_Result"]
-                    </td>
-                    <td>
-                        @item["Amount"]
-                    </td>
-                    <td>
-                        @item["NetProfit"]
+                        @item.Status
                     </td>
                 </tr>
+       }
+   }
             }
             <tr>
                 <td>
@@ -252,11 +254,13 @@
             </tr>
         </table>
     </div>
-            break;
-            case (int)Constant.StatementDisplayType.LOYALTYREFUND:
-                break;
-            case (int)Constant.StatementDisplayType.MARKETREFUND:
-        
+   break;
+        case (int)Constant.StatementDisplayType.LOYALTYREFUND:
+   break;
+        case (int)Constant.StatementDisplayType.MARKETREFUND:
+    <div class="account-box-result-heading">
+        @Html.Partial("PaggerControl")
+    </div>
     <!--DIV MARKET REFUND-->
     <div id="dv-marketrefund" style="clear: both; position: relative;">
         <table class="gridtable">
@@ -292,8 +296,11 @@
                     Status
                 </th>
             </tr>
-            @foreach (DataRow item in statement.Rows)
-            {
+            @{
+   if (statement != null)
+   {
+       foreach (DataRow item in statement.Rows)
+       {
                 <tr>
                     <td>
                         @item["StatementTime"]
@@ -308,15 +315,15 @@
                         @item["Selection"]
                     </td>
                     <td>
-                         @{
-                if (@item["BackOrLay"].ToString() == "1")
-                {
+                        @{
+           if (@item["BackOrLay"].ToString() == "1")
+           {
                             @Html.Raw("B")
-                }
-                else
-                {
+           }
+           else
+           {
                             @Html.Raw("L")
-                }
+           }
                         }
                     </td>
                     <td>
@@ -335,6 +342,8 @@
                         @item["NetProfit"]
                     </td>
                 </tr>
+       }
+   }
             }
             <tr>
                 <td>
@@ -375,9 +384,11 @@
             </tr>
         </table>
     </div>
-            break;
-            case (int)Constant.StatementDisplayType.WITHDRAW:
-        
+   break;
+        case (int)Constant.StatementDisplayType.WITHDRAW:
+    <div class="account-box-result-heading">
+        @Html.Partial("PaggerControl")
+    </div>
     <!--DIV WITHDRAWAL-->
     <div id="dv-withdrawal" style="clear: both; position: relative;">
         <table class="gridtable">
@@ -401,49 +412,35 @@
                     Status
                 </th>
             </tr>
-            @foreach (DataRow item in statement.Rows)
-            {
+            @{
+   if (data != null)
+   {
+       foreach (PSV_TRANSACTION item in statement.Rows)
+       {
                 <tr>
                     <td>
-                        @item["StatementTime"]
+                        @item.AddedDate
                     </td>
                     <td>
-                        @item["BetId"]
+                        @item.ResponeTranId
                     </td>
                     <td>
-                        @item["BetId"]
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                            color: #000; font-weight: bold;">
+                            [Statement]: Withdraw</div>
                     </td>
                     <td>
-                        @item["Selection"]
+                        USD @item.Amount
                     </td>
                     <td>
-                         @{
-                if (@item["BackOrLay"].ToString() == "1")
-                {
-                            @Html.Raw("B")
-                }
-                else
-                {
-                            @Html.Raw("L")
-                }
-                        }
+                        @item.Name
                     </td>
                     <td>
-                        @item["Stake"]
-                    </td>
-                    <td>
-                        @item["Odds"]
-                    </td>
-                    <td>
-                        @item["Type_Result"]
-                    </td>
-                    <td>
-                        @item["Amount"]
-                    </td>
-                    <td>
-                        @item["NetProfit"]
+                        @item.Status
                     </td>
                 </tr>
+       }
+   }
             }
             <tr>
                 <td>
@@ -469,7 +466,7 @@
             </tr>
         </table>
     </div>
-            break;
-        }
+   break;
     }
+    
 }

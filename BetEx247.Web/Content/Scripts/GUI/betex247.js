@@ -193,9 +193,22 @@ betex247 = {
                         $("div.regFormTop").hide();
                         $("div.header-login-panel").show();
                         $("p strong").html(arrData[1]);
-                        $("ul.account-balance li strong")[0].html(arrData[2]);
-                        $("ul.account-balance li strong")[1].html(arrData[3]);
-                        $("ul.account-balance li strong")[2].html(arrData[4]);
+                        var arrIndex =2;
+                        var rowIndex=0;
+                        var myballance = new Array();
+                        myballance[0] = "Available";
+                        myballance[1] = "Exposure";
+                        myballance[2] = "Balance";
+
+                        $("ul.account-balance li").each(function() {                            
+                            var t = $(this);
+                            t.html("<em>"+myballance[rowIndex]+":</em><strong>$"+arrData[arrIndex]+"</strong>");
+                            rowIndex++;
+                            arrIndex++;
+                        });
+//                        $("ul.account-balance li")[0].html();
+//                        $("ul.account-balance li")[1].html("<em>Exposure:</em><strong>"+arrData[3]+"</strong>");
+//                        $("ul.account-balance li")[2].html("<em>Balance:</em><strong>"+arrData[4]+"</strong>");
                     } else {
                         alert(data);
                     }

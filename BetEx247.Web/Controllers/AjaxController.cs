@@ -49,9 +49,9 @@ namespace BetEx247.Web.Controllers
                 case (int)Constant.StatementDisplayType.COMMISSIONS:
                     sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.COMMISSIONS + " ");
                     break;
-                case (int)Constant.StatementDisplayType.DEPOIST:
-                    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.DEPOIST + " ");
-                    break;
+                //case (int)Constant.StatementDisplayType.DEPOIST:
+                //    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.DEPOIST + " ");
+                //    break;
                 //case (int)Constant.StatementDisplayType.FEE:
                 //    sb.Append(" and t.DisplayId=" + (int)Constant.StatementDisplayType.FEE + " ");
                 //    break;
@@ -75,13 +75,23 @@ namespace BetEx247.Web.Controllers
             //}
             ViewBag.betDisplay = betDisplay;
             long memberId = SessionManager.USER_ID;
-            var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId, sb.ToString(), pageNo, recordPerpage);
-            //var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId, "", 1, Constant.DefaultRow);
-            int totalRow = IoC.Resolve<IBettingService>().CountRowStatementByMemberId(memberId, sb.ToString());
-            ViewBag.TotalRow = totalRow;
-            ViewBag.lstStatement = lstStatement;
 
-            ViewBag.i_Total = totalRow;
+            if (betDisplay != (int)Constant.StatementDisplayType.DEPOIST && betDisplay != (int)Constant.StatementDisplayType.WITHDRAW)
+            {
+                var lstStatement = IoC.Resolve<IBettingService>().GetStatementByMemberId(memberId, sb.ToString(), pageNo, recordPerpage);
+                int totalRow = IoC.Resolve<IBettingService>().CountRowStatementByMemberId(memberId, sb.ToString());
+                ViewBag.TotalRow = totalRow;
+                ViewBag.lstStatement = lstStatement;
+                ViewBag.i_Total = totalRow;
+            }
+            else
+            {
+                int outRow=0;
+                var lstStatement = IoC.Resolve<IBettingService>().GetTransaction(memberId,Int16.Parse(betDisplay.ToString()), pageNo, recordPerpage,ref outRow);
+                ViewBag.TotalRow = outRow;
+                ViewBag.lstStatement = lstStatement;
+                ViewBag.i_Total = outRow;
+            }
             ViewBag.PageSize = recordPerpage;
             ViewBag.PageNum = pageNo;
 

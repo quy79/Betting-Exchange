@@ -61,7 +61,9 @@ namespace BetEx247.Data.DAL
         /// <summary>
         /// Logout customer
         /// </summary>
-        void Logout();            
+        void Logout();
+        
+        void ForgetPassword(string email);
         #endregion 
     
         #region Check Data

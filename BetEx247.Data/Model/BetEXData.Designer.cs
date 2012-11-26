@@ -8752,6 +8752,30 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> Row
+        {
+            get
+            {
+                return _Row;
+            }
+            set
+            {
+                OnRowChanging(value);
+                ReportPropertyChanging("Row");
+                _Row = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Row");
+                OnRowChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _Row;
+        partial void OnRowChanging(Nullable<global::System.Int64> value);
+        partial void OnRowChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int64 ID
