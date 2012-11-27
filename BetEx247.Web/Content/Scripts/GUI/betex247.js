@@ -352,7 +352,7 @@ betex247 = {
                 var contentLeague = parseInt(obj[i].cl);
 
                 if (sCountry.length > 0 && contentLeague > 0) {
-                    urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid;
+                    urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid+"/"+ obj[i].sid;
                     //add countryleague
                     sb.append(this.addStringLeague(urlcountry, sCountry));
                     //start sub league

@@ -1,8 +1,10 @@
 ﻿@using System.Collections;
 @using BetEx247.Data.Model;
+@using BetEx247.Core.Common.Utils;
 @using System.Data;
 @{
     List<PSV_MATCHES> list = ViewBag.ListSoccerComming;
+    List<Sport> sportList = ViewBag.AllSport != null ? ViewBag.AllSport : null;
     DateTime DateNow = DateTime.Now;
     SoccerLeague league = ViewBag.LeagueDetail;
     SoccerCountry country = ViewBag.SoccerCountries;
@@ -13,58 +15,67 @@
     </div>
     <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
         color: #fff; text-transform: none;">
-         @{
+        @{
             if (league != null)
             {
-                @Html.Raw(league.LeagueName_WebDisplay)
+            @Html.Raw(league.LeagueName_WebDisplay)
             }
-            else if(country!=null){
-                @Html.Raw(country.Country)
+            else if (country != null)
+            {
+            @Html.Raw(country.Country)
             }
             else
             {
-                @Html.Raw("next 24 hours")
+            @Html.Raw("next 24 hours")
             }
-        }</div>
+        }
+    </div>
 </div>
 <div class="alt_content bdr_btm">
     <div class="event_wrap">
-        <div class="soccer-heading">
-            <div class="headerExtra couponTitle">
-                Soccer<br />
-                <span class="couponDate"></span>
-            </div>
-        </div>
-        <p><br />
-        @{   
-            for (int i = 0; i < 7; i++)
+        @{
+            if (sportList != null)
             {
-                List<PSV_MATCHES> temp = list.Where(w => w.StartDateTime.Value == DateNow.Date).ToList();
-                if (temp.Count > 0)
+                foreach (Sport itemsport in sportList)
                 {
-                    var tempLeague = temp.Select(w=>new{w.LeagueID,w.LeagueName}).Distinct();//.Where(w => w.StartDate.Date == DateNow.Date).ToList();
-                    foreach(var itemleague in tempLeague){
-                        @Html.Raw("<span style=\"font-size: 1.1em; font-weight: bold; color: yellow; display: inline;float: left;\">" + itemleague.LeagueName + "</span><br />")
-                        @Html.Raw("<span class=\"couponDate\" style=\"font-size: 1.1em !important;\">" + DateNow.ToLongDateString() + "</span><br />")
+                    List<PSV_MATCHES> tempSport = list.Where(w => w.SportID == itemsport.ID).ToList();
+                    if (tempSport != null && tempSport.Count > 0)
+                    {
+            @Html.Raw("<div class=\"" + CommonHelper.AddHeadingClass(itemsport.SportName.ToLower()) + "\"><div class=\"headerExtra couponTitle\">" + itemsport.SportName + "<br /><span class=\"couponDate\"></span></div></div><p><br />")
                     
-                        foreach (PSV_MATCHES item in temp)
-                        {        
-                            if(item.LeagueID==itemleague.LeagueID){         
-                                <div class="betting_row clearfix">
-                                    <div style="float: left; padding: 5px 5px 5px 0px;">
-                                        @item.StartDateTime.Value.ToString("HH:mm")</div>
-                                    <a href="#" class="betLink cell fifty" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
-                                        @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> <a href="#"
-                                                        class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
-                                            View all markets >> </a>
-                                </div>
-                               @Html.Raw("<p>") 
+                        for (int i = 0; i < 7; i++)
+                        {
+                            List<PSV_MATCHES> temp = tempSport.Where(w => w.StartDateTime.Value == DateNow.Date).ToList();
+                            if (temp.Count > 0)
+                            {
+                                var tempLeague = temp.Select(w => new { w.LeagueID, w.LeagueName }).Distinct();//.Where(w => w.StartDate.Date == DateNow.Date).ToList();
+                                foreach (var itemleague in tempLeague)
+                                {
+            @Html.Raw("<span style=\"font-size: 1.1em; font-weight: bold; color: yellow; display: inline;float: left;\">" + itemleague.LeagueName + "</span><br />")
+            @Html.Raw("<span class=\"couponDate\" style=\"font-size: 1.1em !important;\">" + DateNow.ToLongDateString() + "</span><br />")
+                    
+                                    foreach (PSV_MATCHES item in temp)
+                                    {
+                                        if (item.LeagueID == itemleague.LeagueID)
+                                        {         
+            <div class="betting_row clearfix">
+                <div style="float: left; padding: 5px 5px 5px 0px;">
+                    @item.StartDateTime.Value.ToString("HH:mm")</div>
+                <a href="#" class="betLink cell fifty" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
+                    @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> <a href="#"
+                                                                class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
+                        View all markets >> </a>
+            </div>
+            @Html.Raw("<p>") 
+                                        }
+                                    }
+                                }
+
                             }
+                            DateNow = DateNow.AddDays(1);
                         }
                     }
-
                 }
-                DateNow = DateNow.AddDays(1);
             }
         }
     </div>

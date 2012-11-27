@@ -50,13 +50,15 @@ namespace BetEx247.Data.DAL
         /// get all sport in system
         /// </summary>
         /// <returns>list sport</returns>
-        public List<Sport> GetAllSport()
+        public List<Sport> GetAllSport(int? sportId)
         {
-            //if (CacheManager.IsSet(key))
-            //    return CacheManager.Get<List<Sport>>(key);
-            //return obj.Sports.Where(w => w.Leagues != null).ToList<Sport>();
-            
-            return null;
+            using (var dba = new BetEXDataContainer())
+            {
+                if (sportId == null)
+                    return dba.Sports.ToList();
+                else
+                    return dba.Sports.Where(w => w.ID == sportId.Value).ToList();
+            }
         }
 
         /// <summary>

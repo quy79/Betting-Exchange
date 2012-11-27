@@ -14,7 +14,7 @@ namespace BetEx247.Data.DAL
         /// get all sport in system
         /// </summary>
         /// <returns>list sport</returns>
-        List<Sport> GetAllSport();
+        List<Sport> GetAllSport(int? sportId);
 
         /// <summary>
         /// Get Sport

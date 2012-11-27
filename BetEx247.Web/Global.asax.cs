@@ -30,6 +30,12 @@ namespace BetEx247.Web
             );
 
             routes.MapRoute(
+                "LeagueCountry", // Route name
+                "{controller}/{action}/{id}/{sid}", // URL with parameters
+                new { controller = "League", action = "Index", id = UrlParameter.Optional, sid = UrlParameter.Optional } // Parameter defaults
+            );
+
+            routes.MapRoute(
                 "League", // Route name
                 "{controller}/{action}/{id}/{cid}/{sid}", // URL with parameters
                 new { controller = "League", action = "Index", id = UrlParameter.Optional,cid=UrlParameter.Optional,sid=UrlParameter.Optional } // Parameter defaults

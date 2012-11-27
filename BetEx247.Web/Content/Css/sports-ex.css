@@ -135,8 +135,8 @@ background-image: -moz-linear-gradient(top, #888888, #686868);
 		#contentbox h1,
 		#contentbox h2{ font-size:17px;  /* font-size:20px; - adjusted to 20px with cufon */
 			font-weight:bold; color:#fff; text-transform:uppercase; padding:0 12px; height:28px; line-height:25px;
-			text-shadow: 1px 1px 1px #000; border-bottom:1px solid #000;
-			background:url(../images/themes/bg-title.gif) no-repeat;}	
+			text-shadow: 1px 1px 1px #000; /*border-bottom:1px solid #000; */
+			/*bbackground:url(../images/themes/bg-title.gif) no-repeat;*/}	
 		.ie8 #contentbox h1,
 		.ie8 #contentbox h2{padding:2px 12px 1px; height:25px;}
 		#contentbox h2.smaller{font-size:13px; text-transform:none;}

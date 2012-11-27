@@ -29,12 +29,13 @@ namespace BetEx247.Web.Controllers
                 SoccerCountry country = IoC.Resolve<IGuiService>().GetCountryByLeage(id.Value,cid.Value,sid.Value);
                 ViewBag.SoccerCountries = country;
                 ViewBag.AllTournaments = IoC.Resolve<IGuiService>().GetTournamentByCountry(country.ID);
-                ViewBag.LeagueDetail = IoC.Resolve<IGuiService>().GetSoccerLeague(id.Value, cid.Value, sid.Value); 
+                ViewBag.LeagueDetail = IoC.Resolve<IGuiService>().GetSoccerLeague(id.Value, cid.Value, sid.Value);
+                ViewBag.AllSport = IoC.Resolve<IGuiService>().GetAllSport(sid);
             }
             return View();
         }
 
-        public ActionResult ByCountry(int? id)
+        public ActionResult ByCountry(int? id, int? sid)
         {                               
             ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true);
             ViewBag.ListSoccerComming = IoC.Resolve<IGuiService>().UpCommingMatches(true, id,0,0,7);
@@ -43,6 +44,7 @@ namespace BetEx247.Web.Controllers
                 SoccerCountry country = IoC.Resolve<IGuiService>().GetCountryByCountry(id.Value);
                 ViewBag.SoccerCountries = country;
                 ViewBag.AllTournaments = IoC.Resolve<IGuiService>().GetTournamentByCountry(id.Value);
+                ViewBag.AllSport = IoC.Resolve<IGuiService>().GetAllSport(sid);
             }
             return View();
         }
