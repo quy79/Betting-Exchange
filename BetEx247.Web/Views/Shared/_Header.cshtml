@@ -1,5 +1,7 @@
 ﻿@using BetEx247.Data;
 @using BetEx247.Plugin.Resources;
+@using BetEx247.Core.Common.Utils;
+
 <div class="header_upper clearfix">
     <div class="grid_20">
         <h1 class="b_logo">
@@ -18,9 +20,9 @@
             userName = SessionManager.USER_NAME;
             if (SessionManager.WalletUserLogged != null)
             {
-                Available = SessionManager.WalletUserLogged.Available != null ? SessionManager.WalletUserLogged.Available.ToString() : "0";
-                Exposure = SessionManager.WalletUserLogged.Exposure != null ? SessionManager.WalletUserLogged.Exposure.ToString() : "0";
-                Balance = SessionManager.WalletUserLogged.Balance != null ? SessionManager.WalletUserLogged.Balance.ToString() : "0";
+                Available = SessionManager.WalletUserLogged.Available != null ? CommonHelper.FormatMoney(SessionManager.WalletUserLogged.Available) : "0";
+                Exposure = SessionManager.WalletUserLogged.Exposure != null ? CommonHelper.FormatMoney(SessionManager.WalletUserLogged.Exposure) : "0";
+                Balance = SessionManager.WalletUserLogged.Balance != null ? CommonHelper.FormatMoney(SessionManager.WalletUserLogged.Balance) : "0";
             }
         }
         else

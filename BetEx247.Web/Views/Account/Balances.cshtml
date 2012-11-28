@@ -1,6 +1,7 @@
 ﻿@using BetEx247.Core.Infrastructure;
 @using BetEx247.Data.DAL;
 @using BetEx247.Data;
+@using BetEx247.Data.Model;
 @model BetEx247.Data.Model.MyWallet
 @{
     ViewBag.Title = "Balances";
@@ -8,12 +9,21 @@
     string Available = "0";
     string Exposure = "0";
     string Balance = "0";
+    string DiscountRate = "0";
+    string TotalPoint = "0";
+    Member member = IoC.Resolve<ICustomerService>().GetCustomerById(SessionManager.USER_ID);
     if (Model != null)
     {
         Available = Model.Available != null ? Model.Available.Value.ToString() : "0";
         Exposure = Model.Exposure != null ? Model.Exposure.Value.ToString() : "0";
         Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";
-    } 
+    }
+
+    if (member != null)
+    {
+        DiscountRate = member.DiscountRate != null ? member.DiscountRate.ToString() : "0";
+        TotalPoint = member.TotalPoints != null ? member.TotalPoints.ToString() : "0";
+    }
 }
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/form-validate.css")" media="screen" />
 <link rel="stylesheet" href="@Url.Content("~/Content/css/tabs-general.css")" type="text/css" media="screen" />
@@ -61,7 +71,7 @@
                         Loyalty Discount Rate:
                     </td>
                     <td class="ValueCell">
-                        0%
+                        @Html.Raw(DiscountRate+"%")
                     </td>
                 </tr>
                 <tr>
@@ -69,7 +79,7 @@
                         Total Betex247 Points:
                     </td>
                     <td class="ValueCell">
-                        0.00
+                        @TotalPoint
                     </td>
                 </tr>
                 <tr class="stdControlsBar">
@@ -80,4 +90,4 @@
         </div>
     </div>
     </form>
-</div>   
+</div>

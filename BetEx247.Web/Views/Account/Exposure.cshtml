@@ -1,7 +1,10 @@
 ﻿@using BetEx247.Data.Model;
+@using BetEx247.Core.Common.Utils;
+
 @model List<PSV_MYBET>
 @{
     ViewBag.Title = "Exposure";
+    decimal exposure = 0;
     Layout = null;
 }
 <div class="clearfix">
@@ -46,6 +49,7 @@
                 </tr>
                 @foreach (var item in Model)
                 {
+                    exposure += item.Stake;
                     <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.SubmitedTime)
@@ -120,7 +124,7 @@
         <div id="dv-exposuretotal" style="clear: both; position: relative; text-align: right;
             font-weight: bold; padding-right: 10px; padding-top: 10px; padding-bottom: 15px;
             background-color: #fff; color: #000;">
-            Total Exposure:&nbsp;&nbsp;&nbsp; USD 755.00
+            Total Exposure:&nbsp;&nbsp;&nbsp; USD @CommonHelper.FormatMoney(exposure)
         </div>
     </div>
     </form>

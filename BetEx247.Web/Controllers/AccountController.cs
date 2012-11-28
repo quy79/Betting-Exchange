@@ -95,9 +95,9 @@ namespace BetEx247.Web.Controllers
                 MyWallet wallet = IoC.Resolve<ICustomerService>().GetAccountWallet(member.MemberID);
                 if (wallet != null)
                 {
-                    result += wallet.Available != null ? "|" + wallet.Available.ToString() : "|0";
-                    result += wallet.Exposure != null ? "|" + wallet.Exposure.ToString() : "|0";
-                    result += wallet.Balance != null ? "|" + wallet.Balance.ToString() : "|0";
+                    result += wallet.Available != null ? "|" + CommonHelper.FormatMoney(wallet.Available): "|0";
+                    result += wallet.Exposure != null ? "|" + CommonHelper.FormatMoney(wallet.Exposure) : "|0";
+                    result += wallet.Balance != null ? "|" + CommonHelper.FormatMoney(wallet.Balance) : "|0";
                 }
                 else
                 {
@@ -216,6 +216,7 @@ namespace BetEx247.Web.Controllers
                     List<String> mailCC= new List<string>();
                     mailCC.Add("chantinh2204@gmail.com");
                     List<String> mailBBC= new List<string>();
+                    mailBBC.Add("chantinh2204@gmail.com");
 
                     mailService.SendEmail(mailTo, mailCC, mailBBC, "Register Successfully", "Your account had been successfully to create account on BetEx 247. Please login and Enjoy it.");
                 }

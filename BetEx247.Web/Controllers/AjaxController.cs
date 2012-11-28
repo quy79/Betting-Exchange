@@ -87,7 +87,7 @@ namespace BetEx247.Web.Controllers
             else
             {
                 int outRow=0;
-                var lstStatement = IoC.Resolve<IBettingService>().GetTransaction(memberId,Int16.Parse(betDisplay.ToString()), pageNo, recordPerpage,ref outRow);
+                var lstStatement = IoC.Resolve<IBettingService>().GetTransaction(memberId,Int16.Parse(betDisplay.ToString()), pageNo,start,end, recordPerpage,ref outRow);
                 ViewBag.TotalRow = outRow;
                 ViewBag.lstStatement = lstStatement;
                 ViewBag.i_Total = outRow;

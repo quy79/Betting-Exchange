@@ -150,15 +150,16 @@ namespace BetEx247.Data.DAL
         /// <param name="memberId">login memberid</param>
         /// <param name="type">1:Deposit, 2: Withdraw</param>
         /// <returns>list transaction</returns>
-        public List<PSV_TRANSACTION> GetTransaction(long memberId, Int16 type, int pageNo, int recordPerpage,ref int totalRow)
+        public List<PSV_TRANSACTION> GetTransaction(long memberId, Int16 type, int pageNo, DateTime startDate, DateTime endDate, int recordPerpage, ref int totalRow)
         {
             List<PSV_TRANSACTION> result = new List<PSV_TRANSACTION>();
             totalRow = 0;
+            Int16 convertType = type == 14 ? (Int16)1 : (Int16)2;
             using (var dba = new BetEXDataContainer())
             {
                 int from = (pageNo - 1) * recordPerpage + 1;
                 int to = pageNo * recordPerpage;
-                var list = dba.PSV_TRANSACTION.Where(w => w.MemberId == memberId && w.Type == type).ToList();
+                var list = dba.PSV_TRANSACTION.Where(w => w.MemberId == memberId && w.Type == convertType && w.AddedDate>=startDate && w.AddedDate<=endDate).ToList();
                 if (list != null)
                 {
                     totalRow = list.Count;

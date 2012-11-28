@@ -37,6 +37,18 @@ namespace BetEx247.Core.Common.Utils
             return new string(buffer);
         }
 
+        public static string FormatMoney(decimal? money)
+        {
+            if (money != null)
+            {
+                return String.Format("{0:#,###.00}", money);
+            }
+            else
+            {
+                return String.Format("{0:#,###.00}", 0);
+            }
+        }
+
         public static void DefineSearchDate(string period, string startDate, string endDate, ref DateTime start, ref DateTime end)
         {
             if (startDate == "" && endDate == "")

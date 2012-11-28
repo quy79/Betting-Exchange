@@ -64,6 +64,12 @@ namespace BetEx247.Plugin.DataManager
                     // _bet247xSport = sp;
                     if (_bet247xSport.ID == 1) //Soccer
                         loadCountry(ref _bet247xSport);
+                    if (_bet247xSport.ID == 1) //Soccer
+                        loadCountry(ref _bet247xSport);
+                    if (_bet247xSport.ID == 1) //Soccer
+                        loadCountry(ref _bet247xSport);
+                    if (_bet247xSport.ID == 1) //Soccer
+                        loadCountry(ref _bet247xSport);
                     sports.Add(_bet247xSport);
                 }
                 return sports;
