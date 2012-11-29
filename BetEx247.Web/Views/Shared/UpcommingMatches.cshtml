@@ -45,7 +45,7 @@
                     
                         for (int i = 0; i < 7; i++)
                         {
-                            List<PSV_MATCHES> temp = tempSport.Where(w => w.StartDateTime.Value == DateNow.Date).ToList();
+                            List<PSV_MATCHES> temp = tempSport.Where(w => w.StartDateTime.Value.Date == DateNow.Date).ToList();
                             if (temp.Count > 0)
                             {
                                 var tempLeague = temp.Select(w => new { w.LeagueID, w.LeagueName }).Distinct();//.Where(w => w.StartDate.Date == DateNow.Date).ToList();
