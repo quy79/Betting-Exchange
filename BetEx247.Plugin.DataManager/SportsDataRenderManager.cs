@@ -48,6 +48,7 @@ namespace BetEx247.Plugin.DataManager
         }
         public List<Bet247xSport> refreshData()
         {
+            //List<Bet247xSport> _tempsports = new List<Bet247xSport>();
             List<Bet247xSport> _sports = this.DeSerializeObject();
             if (_sports == null || _sports.Count == 0)
             {
@@ -65,6 +66,11 @@ namespace BetEx247.Plugin.DataManager
                         loadCountry(ref _bet247xSport);
                     sports.Add(_bet247xSport);
                 }
+
+                //foreach (Sport sp in _sports1)
+                //{
+                //    List<Bet247xSport> temp = sports;
+                //}
                 return sports;
             }
             else
