@@ -51,6 +51,7 @@ namespace BetEx247.Web.Models
 
         [Required(ErrorMessage = "You must enter a nick name for this service!!")]
         [DataType(DataType.Text)]
+        
         [Display(Name = "Nick Name")]
         public string NickName { get; set; }
 
@@ -65,11 +66,11 @@ namespace BetEx247.Web.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required(ErrorMessage = "You must select sucurity question before continue!")]
+        //[Required(ErrorMessage = "You must select sucurity question before continue!")]
         [Display(Name = "Security Question 1")]
         public string SecurityQuestion1 { get; set; }
 
-        [Required(ErrorMessage = "You must enter a sucurity answer before continue!")]
+        //[Required(ErrorMessage = "You must enter a sucurity answer before continue!")]
         [Display(Name = "Security Answer 1")]
         public string SecurityAnswer1 { get; set; }
                            

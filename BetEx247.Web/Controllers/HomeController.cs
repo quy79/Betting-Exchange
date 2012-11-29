@@ -20,16 +20,16 @@ namespace BetEx247.Web.Controllers
     {
         public ActionResult Index()
         {                     
-            Debug.WriteLine("Init XMLParserObjectManager");
-            //XMLParserObjectManager obj = new XMLParserObjectManager();
-            //obj.Parse();
+            //Debug.WriteLine("Init XMLParserObjectManager");
+            ////XMLParserObjectManager obj = new XMLParserObjectManager();
+            ////obj.Parse();
 
-            SportsDataRenderManager renderMgr = new SportsDataRenderManager();
-            List<Bet247xSport> list = renderMgr.refreshData();
+            //SportsDataRenderManager renderMgr = new SportsDataRenderManager();
+            //List<Bet247xSport> list = renderMgr.refreshData();
 
-            List<Bet247xSport> sport = list;// obj.Sports;
-            ViewBag.SportList = sport;
-            Debug.WriteLine("End XMLParserObjectManager ");
+            //List<Bet247xSport> sport = list;// obj.Sports;
+            //ViewBag.SportList = sport;
+            //Debug.WriteLine("End XMLParserObjectManager ");
 
             ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true);
             ViewBag.ListSoccerComming = IoC.Resolve<IGuiService>().UpCommingMatches(true,0,0,0,1);

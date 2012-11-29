@@ -48,9 +48,8 @@ namespace BetEx247.Plugin.DataManager
         }
         public List<Bet247xSport> refreshData()
         {
-
             List<Bet247xSport> _sports = this.DeSerializeObject();
-            if (_sports == null && _sports.Count>0)
+            if (_sports == null || _sports.Count == 0)
             {
                 SportService sportSvr = new SportService();
                 List<Sport> _sports1 = sportSvr.Sports();
@@ -62,12 +61,6 @@ namespace BetEx247.Plugin.DataManager
                         SportName = sp.SportName
                     };
                     // _bet247xSport = sp;
-                    if (_bet247xSport.ID == 1) //Soccer
-                        loadCountry(ref _bet247xSport);
-                    if (_bet247xSport.ID == 1) //Soccer
-                        loadCountry(ref _bet247xSport);
-                    if (_bet247xSport.ID == 1) //Soccer
-                        loadCountry(ref _bet247xSport);
                     if (_bet247xSport.ID == 1) //Soccer
                         loadCountry(ref _bet247xSport);
                     sports.Add(_bet247xSport);

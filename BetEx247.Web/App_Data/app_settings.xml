@@ -28,4 +28,17 @@
   <!--end source xml-->
 
   <add key="dependencyResolverTypeName" value="BetEx247.Data.UnityDependencyResolver, BetEx247.Data" />
+  <add key="SmtpServer" value="adrocks.bz" />
+
+  <add key="AuthenticationMailUser" value="ms1@adrocks.bz" />
+  <add key="AuthenticationMailPassword" value="SOZKPmBLeau9ptTx" />
+  <add key="SmtpPort" value="587"/>
+
+  <add key="emailSentPerTime" value="50" />
+  <add key="PopServer" value="adrocks.bz" />
+  <add key="BounceAddress" value="ms2@adrocks.bz" />
+  <add key="BounceEmailPassword" value="7PgpYnnCs7VCCOo9" />
+  <add key="PopPort" value="587"/>
+  <add key="ChilkatEmailUnlock" value="ADROCKMAILQ_ZfyZ6ApxpU84"/>
+  <add key="EmailFrom" value="ndhieuvn212@yahoo.com"/>
 </appSettings>

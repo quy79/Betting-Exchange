@@ -37,7 +37,7 @@ betex247 = {
                     for (var i = 0; i < data.length; i++) {
                         var twt = data[i];
                         var urlLeague= betex247.Url+"league/byleague/"+twt.ID+"/"+twt.CountryID+"/"+twt.SportID;
-                        sb.append("<li class=\"sesame\"><a href=\"javascript:void(0)\" onclick=\"betex247.loadleague('"+urlLeague+"')\"  class=\"level1\">"+twt.LeagueName_WebDisplay+"</a> </li>");
+                        sb.append("<li class=\"sesame\"><a href=\"javascript:void(0)\" onclick=\"betex247.loadleague('"+urlLeague+"')\"  class=\"level1\">"+twt.LeagueName_WebDisplay+"("+twt.SportName+")</a> </li>");
                     }
                     sb.append("     </ul>");
                     sb.append("</div>");
@@ -100,7 +100,7 @@ betex247 = {
                 $(".accordion-header").click(function () {
                     //$(".accordion-content").hide();
                     $(this).next(".accordion-content").slideToggle(500);
-                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+                    //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
                 });
             }
         });
@@ -117,7 +117,7 @@ betex247 = {
                 $(".accordion-header").click(function () {
                     //$(".accordion-content").hide();
                     $(this).next(".accordion-content").slideToggle(500);
-                    $('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+                    //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
                 });
             }
         });

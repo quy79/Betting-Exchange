@@ -1,6 +1,8 @@
-﻿@{
+﻿@using BetEx247.Data.Model;
+@{
     ViewBag.Title = "ByLeague";
-    Layout = null;   
+    Layout = null;
+    SoccerLeague league = ViewBag.LeagueDetail;
 }  
 <script type="text/javascript">         
     $(document).ready(function () {
@@ -11,7 +13,11 @@
 
 <div id="contentbox" class="clearfix">
     <h1 class="sports_header">
-        Premier League Coupons</h1>
+        @{
+            if(league!=null){
+                @Html.Raw(league.LeagueName_WebDisplay)
+            }
+            }</h1>
     @Html.Partial("InplayMatches")  
     @Html.Partial("UpcommingMatches")
     @Html.Partial("ALLTOURNAMENTS")

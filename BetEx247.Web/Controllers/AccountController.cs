@@ -210,6 +210,15 @@ namespace BetEx247.Web.Controllers
                     createStatus = MembershipCreateStatus.Success;
 
                     //send mail to user
+                    ChilkatEmail.Utils.Constants.strSmtpHost = System.Configuration.ConfigurationManager.AppSettings["SmtpServer"].ToString();
+                    ChilkatEmail.Utils.Constants.strSmtpUser = System.Configuration.ConfigurationManager.AppSettings["AuthenticationMailUser"].ToString();
+                    ChilkatEmail.Utils.Constants.strSmtpPass = System.Configuration.ConfigurationManager.AppSettings["AuthenticationMailPassword"].ToString();
+                    ChilkatEmail.Utils.Constants.emailSentPerTime = int.Parse(System.Configuration.ConfigurationManager.AppSettings["emailSentPerTime"].ToString());
+                    ChilkatEmail.Utils.Constants.bounceEmailAddress = System.Configuration.ConfigurationManager.AppSettings["BounceAddress"].ToString();
+                    ChilkatEmail.Utils.Constants.bounceEmailPassword = System.Configuration.ConfigurationManager.AppSettings["BounceEmailPassword"].ToString();
+                    ChilkatEmail.Utils.Constants.ChilkatEmailUnlock = System.Configuration.ConfigurationManager.AppSettings["ChilkatEmailUnlock"].ToString();
+                    ChilkatEmail.Utils.Constants.EmailFrom = System.Configuration.ConfigurationManager.AppSettings["EmailFrom"].ToString();
+                   
                     MailServices mailService = new MailServices();
                     List<String> mailTo= new List<string>();
                     mailTo.Add(member.Email1);
