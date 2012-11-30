@@ -46,10 +46,11 @@ namespace BetEx247.Plugin.DataManager
             SerializeObject(sports);
 
         }
+
         public List<Bet247xSport> refreshData()
         {
-            //List<Bet247xSport> _tempsports = new List<Bet247xSport>();
-            List<Bet247xSport> _sports = this.DeSerializeObject();
+            List<Bet247xSport> _tempsports = new List<Bet247xSport>();
+            List<Bet247xSport> _sports = null;// this.DeSerializeObject();
             if (_sports == null || _sports.Count == 0)
             {
                 SportService sportSvr = new SportService();
@@ -67,11 +68,35 @@ namespace BetEx247.Plugin.DataManager
                     sports.Add(_bet247xSport);
                 }
 
-                //foreach (Sport sp in _sports1)
-                //{
-                //    List<Bet247xSport> temp = sports;
-                //}
-                return sports;
+                if (sports.Count > 10)
+                {
+                    return sports;
+                }
+                else
+                {
+                    foreach (Sport sp in _sports1)
+                    {
+                        List<Bet247xSport> temp = sports;
+                        if (sp.ID == 1)
+                        {
+                            foreach (Bet247xSport it in temp)
+                            {
+                                _tempsports.Add(it);
+                            }
+                        }
+                        else
+                        {
+                            foreach (Bet247xSport it in temp)
+                            {
+                                it.ID = sp.ID;
+                                it.SportName = sp.SportName;
+                                _tempsports.Add(it);
+                            }
+                        }
+                    }
+                    //return sports;
+                    return _tempsports;
+                }
             }
             else
             {
@@ -79,8 +104,37 @@ namespace BetEx247.Plugin.DataManager
                 this.sports = _sports;
             }
             return sports;
-
         }
+
+        //public List<Bet247xSport> refreshData()
+        //{
+        //    List<Bet247xSport> _sports = this.DeSerializeObject();
+        //    if (_sports == null || _sports.Count == 0)
+        //    {
+        //        SportService sportSvr = new SportService();
+        //        List<Sport> _sports1 = sportSvr.Sports();
+        //        foreach (Sport sp in _sports1)
+        //        {
+        //            Bet247xSport _bet247xSport = new DataManager.XMLObjects.Sport.Bet247xSport()
+        //            {
+        //                ID = sp.ID,
+        //                SportName = sp.SportName
+        //            };
+                    
+        //            if (_bet247xSport.ID == 1) //Soccer
+        //                loadCountry(ref _bet247xSport);
+        //            sports.Add(_bet247xSport);
+        //        }
+        //        return sports;
+        //    }
+        //    else
+        //    {
+
+        //        this.sports = _sports;
+        //    }
+        //    return sports;  
+        //}
+
         void loadCountry(ref  Bet247xSport _bet247xSport)
         {
             List<Bet247xSoccerCountry> _soccerCountries = new List<Bet247xSoccerCountry>();
