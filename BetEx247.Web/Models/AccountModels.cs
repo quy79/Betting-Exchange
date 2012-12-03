@@ -108,7 +108,7 @@ namespace BetEx247.Web.Models
         public int Country { get; set; }
 
         [Required(ErrorMessage = "You must enter a your email address!")]
-        [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*", ErrorMessage = "The email address not valid!")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

@@ -240,6 +240,9 @@ namespace BetEx247.Web.Controllers
                     ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
 
+                ViewBag.ListCountry = IoC.Resolve<ICommonService>().getAllCountry();
+                ViewBag.Gender = IoC.Resolve<ICommonService>().MakeSelectListGender();
+                ViewBag.CurrencyList = IoC.Resolve<ICommonService>().MakeSelectListCurrency(); 
                 // If we got this far, something failed, redisplay form
                 return View(model);
             }

@@ -203,7 +203,7 @@ span.couponDate{color: yellow !important; font-size: 0.9em !important; font-weig
 	#contentbox .betting_row{border-bottom:1px dotted #636363; padding-bottom:5px; margin-bottom:8px; margin-top:-5px}
 	#contentbox .betting_row.last{border-bottom:0; padding-bottom:0; margin-bottom:0;}
 		#contentbox .betting_row a.cell{float:left; display:inline; color:#fff;  padding:5px 5px 5px 5px; margin:0 3px 3px 0; position:relative;
-		background:#000url(../images/themes/cell-bg.gif) left -30px repeat-x; border:1px solid #525252;}
+		background:#000 url(../images/themes/cell-bg.gif) left -30px repeat-x; border:1px solid #525252;}
 		#contentbox .betting_row a.cell:hover{background-position:left top;}
 		#contentbox .betting_row a.cell strong.odds{font-size:1.09em; position:absolute; right:5px; top:4px;}
         #contentbox .betting_row a.head{float:left; display:inline; color:#fff; padding:5px; margin:0 3px 3px 0; position:relative;

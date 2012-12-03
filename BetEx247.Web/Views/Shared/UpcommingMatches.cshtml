@@ -60,10 +60,11 @@
                                         {         
             <div class="betting_row clearfix">
                 <div style="float: left; padding: 5px 5px 5px 0px;">
-                    @item.StartDateTime.Value.ToString("HH:mm")</div>
+                    <span style="display: inline-block; position: relative; float: left; font-weight: bold;
+                                                    padding-left: 5px">@item.StartDateTime.Value.ToString("HH:mm")</span></div>
                 <a href="#" class="betLink cell fifty" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
-                    @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> <a href="#"
-                                                                class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
+                    @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> 
+                <a href="#" class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
                         View all markets >> </a>
             </div>
             @Html.Raw("<p>") 

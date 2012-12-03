@@ -818,6 +818,6 @@ betex247 = {
                 $("#middle_column").html(data);
             }
         });        
-    },     
+    }     
     //#enregion
 }

@@ -49,8 +49,8 @@ namespace BetEx247.Plugin.DataManager
 
         public List<Bet247xSport> refreshData()
         {
-            List<Bet247xSport> _tempsports = new List<Bet247xSport>();
-            List<Bet247xSport> _sports = null;// this.DeSerializeObject();
+            //List<Bet247xSport> _tempsports = new List<Bet247xSport>();
+            List<Bet247xSport> _sports = this.DeSerializeObject();
             if (_sports == null || _sports.Count == 0)
             {
                 SportService sportSvr = new SportService();
@@ -68,35 +68,37 @@ namespace BetEx247.Plugin.DataManager
                     sports.Add(_bet247xSport);
                 }
 
-                if (sports.Count > 10)
-                {
-                    return sports;
-                }
-                else
-                {
-                    foreach (Sport sp in _sports1)
-                    {
-                        List<Bet247xSport> temp = sports;
-                        if (sp.ID == 1)
-                        {
-                            foreach (Bet247xSport it in temp)
-                            {
-                                _tempsports.Add(it);
-                            }
-                        }
-                        else
-                        {
-                            foreach (Bet247xSport it in temp)
-                            {
-                                it.ID = sp.ID;
-                                it.SportName = sp.SportName;
-                                _tempsports.Add(it);
-                            }
-                        }
-                    }
-                    //return sports;
-                    return _tempsports;
-                }
+                return sports;
+
+                //if (sports.Count > 10)
+                //{
+                //    return sports;
+                //}
+                //else
+                //{
+                //    foreach (Sport sp in _sports1)
+                //    {
+                //        List<Bet247xSport> temp = sports;
+                //        if (sp.ID == 1)
+                //        {
+                //            foreach (Bet247xSport it in temp)
+                //            {
+                //                _tempsports.Add(it);
+                //            }
+                //        }
+                //        else
+                //        {
+                //            foreach (Bet247xSport it in temp)
+                //            {
+                //                it.ID = sp.ID;
+                //                it.SportName = sp.SportName;
+                //                _tempsports.Add(it);
+                //            }
+                //        }
+                //    }
+                //    //return sports;
+                //    return _tempsports;
+                //}
             }
             else
             {
