@@ -47,8 +47,24 @@ betex247 = {
                     //betex247.excutejsonData(data);
                     $("div.loadoffermenu").append(betex247.bindsportnew(data,id,name));   
                 }
-            });                            
-        }              
+            });
+        }
+        $('#top_events').show();
+        //hide all league
+        $(".navsports").slideUp(500);
+        $(".navsportssub").slideUp(500);
+        //toggle the componenet with class msg_body
+        $(".sport-heading").click(function () {
+            //$(".navsports").hide();                
+            $(this).next(".navsports").slideToggle(500);
+            //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+        });
+
+        $(".league-heading").click(function () {
+            //$(".navsportssub").slideUp(500);
+            $(this).next(".navsportssub").slideToggle(500);
+            //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+        });                        
     },
 
     showhidedata:function(){      
@@ -578,7 +594,7 @@ betex247 = {
                 break;
         }
         var sb = new StringBuilder();
-        sb.append("<div class=\"sport-heading\" onclick=\"$(this).next('.navsports').slideToggle(500);\">");
+        sb.append("<div class=\"sport-heading\">");
         sb.append("<a href=\"javascript:void(0)\" class=\"sportlnk\">");
         sb.append("    <div style=\"padding: 6px 0px\">");
         sb.append("        <span class=\"" + className + "\"></span>" + sportname + " <span style=\"float: right; margin-right: 4px;\">" + leagueCount + "</span>");
@@ -603,7 +619,7 @@ betex247 = {
 
     addStringLeague: function (url, leagueName) {
         var sb = new StringBuilder();
-        sb.append("        <li><a  class=\"league-heading\" onclick=\"betex247.loadleague('"+url+"'); $(this).next('.navsportssub').slideToggle(500);\" href=\"javascript:void(0)\">");
+        sb.append("        <li><a  class=\"league-heading\" onclick=\"betex247.loadleague('"+url+"');\" href=\"javascript:void(0)\">");
         sb.append("            <div style=\"padding: 3px 0px 3px 8px;\">+&nbsp;<b>");
         sb.append("                " + leagueName + "</b></div>");
         //sb.append("        </a></li>");
@@ -613,7 +629,7 @@ betex247 = {
 
     addStringSubLeague: function (url, leagueName) {
         var sb = new StringBuilder();
-        sb.append("        <li><a  onclick=\"betex247.loadleague('"+url+"')\" href=\"javascript:void(0)\">");
+        sb.append("        <li><a onclick=\"betex247.loadleague('" + url + "')\" href=\"javascript:void(0)\">");
         sb.append("            <div style=\"padding: 3px 0px 3px 26px;\">");
         sb.append("                <i>" + leagueName + "</i></div>");
         sb.append("        </a></li>");
@@ -622,7 +638,7 @@ betex247 = {
 
     addStringStartSubLeague: function () {
         var sb = new StringBuilder();
-        sb.append("<div class=\"navsportssub\" style=\"display:none\">");
+        sb.append("<div class=\"navsportssub\">");
         sb.append("    <ul>");
         return sb.toString();
     },
