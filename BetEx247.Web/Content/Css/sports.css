@@ -1,7 +1,7 @@
-@charset "utf-8";
+@charset utf-8;
 /* CSS Document */
 
-@charset "utf-8";
+@charset utf-8;
 /* CSS Document */
 
 
@@ -460,7 +460,7 @@ td.SuperSlipBg {
 
 input.PresetBetButton {
     border: 0px;
-    background: url("/images/betslip/orange_but.png") no-repeat scroll 0 -29px transparent;
+    background: url(/images/betslip/orange_but.png) no-repeat scroll 0 -29px transparent;
 	border:medium none;
 	color:#FFFFFF;
 	font-size:10px;
@@ -1720,7 +1720,7 @@ clear: both;
 	background-image:url(../images/themes/75.png);
 }
 .myaccount-box >ul li{
-	background:url("../images/themes/arrow-acc.png") no-repeat -5px 5px;
+	background:url(../images/themes/arrow-acc.png) no-repeat -5px 5px;
 }
 .myaccount-box >ul li a{
 	font: 10px Arial,Helvetica,sans-serif;
@@ -2028,7 +2028,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 	
 	
 .test {
-	height: 22px; display: inline; position: relative; margin: 0 auto;"
+	height: 22px; display: inline; position: relative; margin: 0 auto;
 	color: #000;	
 }
 .test span { display: block;}
@@ -2044,7 +2044,7 @@ padding:3px 0px 3px 5px;font-size: 1.1em; font-weight: bold; margin-right: 0px; 
 }
 	
 div.highlights span.sitemap {
-	/*background: url("../images/bg_titleleft.jpg") no-repeat top right #000000;*/
+	/*background: url(../images/bg_titleleft.jpg) no-repeat top right #000000;*/
 	color: #000;
 	display: inline-block;
 	font: 1.3em 'UTMCafetaRegular';
@@ -2365,7 +2365,7 @@ div.dvBody table tr td.tdPager
 			#footer1 .betting_links ul{list-style:circle;}
 			#footer1 .betting_links ul li{margin-left:15px; float:left; width:120px;}
 			.ie6 #footer1 .betting_links ul li,
-			.ie7 #footer1 .betting_links ul li{margin-left:0; padding-left:15px; background:url(../images/bullet.gif) 2px 6px no-repeat;}
+			.ie7 #footer1 .betting_links ul li{margin-left:0; padding-left:15px; background:url(../images/themes/bullet.gif) 2px 6px no-repeat;}
 			#footer1 .betting_links ul li a{color:#bcbcbc;}
 			#footer1 .betting_links ul li a:hover{color:#fff;}			
 		
@@ -2485,7 +2485,7 @@ div.dvBody table tr td.tdPager
   background-image: -moz-linear-gradient(top, #f2e308, #c4b911);
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f2e308),color-stop(1, #c4b911));
             filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2e308', EndColorStr='#c4b911');
-        -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2e308', EndColorStr='#c4b911')";
+        -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#f2e308', EndColorStr='#c4b911');
 		}
 
 
