@@ -48,6 +48,16 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
+
+        public List<SoccerMatch> SoccerMatches4Settle(bool settled)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var list = dba.SoccerMatches.Where(w => w.Settled == settled).ToList();
+
+                return list;
+            }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -108,7 +118,8 @@ namespace BetEx247.Data.DAL.Sports
          public bool Update(SoccerMatch soccerMatch)
         {
             SoccerMatch _obj = new SoccerMatch();
-            _obj = _context.SoccerMatches.Where(w => w.ID == soccerMatch.ID & w.SportID==soccerMatch.SportID & w.LeagueID == soccerMatch.LeagueID & w.CountryID == soccerMatch.CountryID).SingleOrDefault();
+
+            _obj = _context.SoccerMatches.Where(w => w.StartDateTime == soccerMatch.StartDateTime & w.AwayTeam == soccerMatch.AwayTeam & w.HomeTeam == soccerMatch.HomeTeam & w.SportID == soccerMatch.SportID & w.LeagueID == soccerMatch.LeagueID & w.CountryID == soccerMatch.CountryID).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerMatch;
@@ -120,6 +131,20 @@ namespace BetEx247.Data.DAL.Sports
                 return Insert(soccerMatch);
             }
         }
+
+         public void Update4Settle(SoccerMatch soccerMatch)
+         {
+             SoccerMatch _obj = new SoccerMatch();
+
+             _obj = _context.SoccerMatches.Where(w => w.ID == soccerMatch.ID & w.AwayTeam == soccerMatch.AwayTeam & w.HomeTeam == soccerMatch.HomeTeam & w.SportID == soccerMatch.SportID & w.LeagueID == soccerMatch.LeagueID & w.CountryID == soccerMatch.CountryID).SingleOrDefault();
+             if (_obj != null) // Update
+             {
+                 _obj = soccerMatch;
+                 int result = _context.SaveChanges();
+               //  return result > 0 ? true : false;
+             }
+            
+         }
         /// <summary>
         /// 
         /// </summary>

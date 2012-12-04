@@ -12,8 +12,11 @@ using BetEx247.Data.DAL.Sports;
 using BetEx247.Plugin.DataManager.XMLObjects.Sport;
 
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerCountry;
+using BetEx247.Plugin.DataManager.XMLObjects.SportCountry;
 
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerLeague;
+
+using BetEx247.Plugin.DataManager.XMLObjects.SportLeague;
 using BetEx247.Core;
 namespace BetEx247.Plugin.DataManager
 {
@@ -149,6 +152,107 @@ namespace BetEx247.Plugin.DataManager
                }
                sports[0].Bet247xSoccerCountries.Add(soccercountry);
               
+
+           }
+       }
+
+       // Init SoccerCountry , SoccerLeague
+       public void IniOtherSportsTable()
+       {
+           int indexSport = 1;
+           String strPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+           SportCountryService sportCountrySvr = new SportCountryService();
+           XDocument doc = XDocument.Load(Constant.SourceXML.MASTERXMLSOURCE + "\\countryleaguesport.xml");
+           //Sports
+           foreach (XElement element in doc.Root.Nodes())
+           {
+               Bet247xSportCountry sportcountry = new Bet247xSportCountry();
+               // Sports
+               long sportID = int.Parse(element.Attribute("id").Value);
+               // loop country
+               foreach (XElement country in element.Nodes())
+               {
+                  XElement urlelements = country.XPathSelectElement("urls");
+                  IEnumerable<XElement> LeagueElements = country.XPathSelectElements("leagues");
+                 
+                  SportCountry _sportcountry = new SportCountry();
+
+                  sportcountry.ID = int.Parse(country.Attribute("id").Value);
+                //  SportCountry _sportcountryTemp = sportCountrySvr.SportCountry(country.Attribute("name").Value);
+                  sportcountry.SportID =(int) sportID;
+                  sportcountry.Country = country.Attribute("name").Value;
+                  sportcountry.International = country.Attribute("international") == null || country.Attribute("international").ToString().Equals("0") ? false : true;
+
+                   foreach (XElement url in urlelements.Nodes())
+                   {
+                       if (url.Attribute("name").Value.Equals("Goalserve_OddsFeed"))
+                       {
+                           sportcountry.Goalserve_OddsFeed = url.Value;
+                       }
+                       if (url.Attribute("name").Value.Equals("Goalserve_LivescoreFeed"))
+                       {
+                           sportcountry.Goalserve_LivescoreFeed = url.Value;
+                       }
+                   }
+
+                   _sportcountry = new SportCountry()
+                   {
+                       ID = sportcountry.ID,
+                       Country = sportcountry.Country,
+                       International = sportcountry.International,
+                       SportID = sportcountry.SportID,
+                       Goalserve_LivescoreFeed = sportcountry.Goalserve_LivescoreFeed,
+                       Goalserve_OddsFeed = sportcountry.Goalserve_OddsFeed,
+                       EntityKey = sportcountry.EntityKey
+                   };
+                   if (updateFromXML)
+                   {
+                       sportCountrySvr.Insert(sportcountry.getSportCountry());
+                   }
+                   List<Bet247xSportLeague> _sportLeagues = new List<Bet247xSportLeague>();
+                   foreach (XElement leagueElement in LeagueElements)
+                   {
+                       foreach (XElement le in leagueElement.Nodes())
+                       {
+                           Bet247xSportLeague temp = new Bet247xSportLeague();
+                           _sportLeagues.Add(temp);
+                       }
+                       break;
+                   }
+                   foreach (XElement leagueElement in LeagueElements)
+                   {
+                       foreach (XElement le in leagueElement.Nodes())
+                       {
+                           _sportLeagues[int.Parse(le.Attribute("id").Value) - 1].CountryID = (int)sportcountry.ID;
+                           _sportLeagues[int.Parse(le.Attribute("id").Value) - 1].ID = int.Parse(le.Attribute("id").Value);
+                           _sportLeagues[int.Parse(le.Attribute("id").Value) - 1].SportID = (int)sportID;
+                           if (leagueElement.Attribute("name").Value.Equals("web"))
+                           {
+                               _sportLeagues[int.Parse(le.Attribute("id").Value) - 1].LeagueName = le.Attribute("name").Value;
+                           }
+                       }
+
+                   }
+                   sportcountry.Bet247xSportLeagues.AddRange(_sportLeagues);
+                   // Save to database
+                   if (updateFromXML)
+                   {
+                       for (int l = 0; l < _sportLeagues.Count; l++)
+                       {
+                           SportLeagueService _sportLeagueSvr = new SportLeagueService();
+
+                           _sportLeagueSvr.Insert(_sportLeagues[l].getSportLeague());
+                       }
+                   }
+
+                  
+
+               }
+
+
+
+               sports[indexSport].Bet247xSportCountries.Add(sportcountry);
+               indexSport++;
 
            }
        }

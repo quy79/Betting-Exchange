@@ -20,5 +20,17 @@ namespace BetEx247.Plugin.DownloadFeed
             {
             }
         }
+
+        public void DownloadOtherSportXML(String url, String country, int sportID)
+        {
+            try
+            {
+                string downloadTime = country+"_sport_"+sportID;// +"_" + DateTime.Now.Ticks.ToString();
+                CommonHelper.DownloadXML(url, Constant.SourceXML.PINNACLESPORTS, null, downloadTime);
+            }
+            catch (Exception e)
+            {
+            }
+        }
     }
 }

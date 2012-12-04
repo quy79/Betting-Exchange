@@ -15,9 +15,13 @@ using BetEx247.Plugin.DataManager.XMLObjects.Sport;
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerMatch;
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerCountry;
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerLeague;
+using BetEx247.Plugin.DataManager.XMLObjects.SportMatch;
+using BetEx247.Plugin.DataManager.XMLObjects.SportCountry;
+using BetEx247.Plugin.DataManager.XMLObjects.SportLeague;
 using BetEx247.Core;
 using BetEx247.Data.Model;
 using BetEx247.Data.DAL.Sports;
+using BetEx247.Plugin.DataManager.Settle;
 
 
 namespace BetEx247.Plugin.DataManager
@@ -94,8 +98,10 @@ namespace BetEx247.Plugin.DataManager
                }
                //masterTableManager.InitBetStatusTable();
               // masterTableManager.InitMatchStatusTable();
+
                masterTableManager.InitSportTable();
                masterTableManager.InitSoccerCountryTable();
+               masterTableManager.IniOtherSportsTable();
                updatedMastertable = true;
            }
           
@@ -187,7 +193,32 @@ namespace BetEx247.Plugin.DataManager
               //  Bet247xSoccerLeague _bet247xSoccerLeague = new Bet247xSoccerLeague();
                 String _catogatry = element.Attribute("name").Value;
                 SoccerLeagueService _soccerLeagueSrv = new SoccerLeagueService();
-                long leagueCountryID = _soccerLeagueSrv.GoalServeSoccerLeague(_catogatry) == null ? 0 : _soccerLeagueSrv.GoalServeSoccerLeague(_catogatry).ID;
+                long leagueCountryID = 0;
+                SoccerLeague _soccerLeague = _soccerLeagueSrv.GoalServeSoccerLeague(bet247xSoccerCountry.ID, _catogatry);
+                if (_soccerLeague == null) // new League=> create a new League
+                {
+
+                    //SoccerLeagueService _soccerLeagueSvr = new SoccerLeagueService();
+                    SoccerLeague temp = new SoccerLeague();
+
+                    temp.CountryID = bet247xSoccerCountry.ID;
+                    temp.ID = _soccerLeagueSrv.GoalServeSoccerLeagueMaxIdByCountry(temp.CountryID)+1;
+                    temp.SportID = 1;
+
+                    temp.LeagueName_WebDisplay = _catogatry.Split(':')[1];
+
+                    temp.LeagueName_Goalserve = _catogatry;
+
+
+                    _soccerLeagueSrv.Insert(temp);
+
+                    leagueCountryID = temp.ID;
+                }else{
+
+                    leagueCountryID = _soccerLeague.ID;
+                }
+
+                 
                // Search All Matches of the Catagory
                IEnumerable<XElement> _matchElements = element.XPathSelectElements("matches");
               foreach (XElement _matchElement in _matchElements)
@@ -211,8 +242,16 @@ namespace BetEx247.Plugin.DataManager
                        hours = int.Parse(_startTime.Split(':')[0]);
                        minute = int.Parse(_startTime.Split(':')[1]);
 
+                       // if past date ignore
+                       DateTime passedDate = new DateTime(year, month, day, hours, minute, 0);
+
+                       if (passedDate.Millisecond< DateTime.Now.Millisecond)
+                       {
+                           continue;
+                       }
+
                        DateTime _marketCloseTime = new DateTime(year, month, day, hours, minute, 0); //formatted_date="27.10.2012" time="17:00"
-                       _marketCloseTime.AddMinutes(-5);
+                       _marketCloseTime=_marketCloseTime.AddMinutes(-5);
                        _bet247xSoccerMatch.HomeTeam = _localteamElement.Attribute("name").Value;
                      
                        //IEnumerable<XElement> _visitorteamElements = _matchDetail.XPathSelectElements("visitorteam");
@@ -228,6 +267,7 @@ namespace BetEx247.Plugin.DataManager
                        _bet247xSoccerMatch.MatchStatus = "";// Not stated
                        _bet247xSoccerMatch.SportID = _tempSoccerLeague.SportID;
                        _bet247xSoccerMatch.CountryID = _tempSoccerLeague.CountryID;
+                       _bet247xSoccerMatch.MarketCloseTime = _marketCloseTime;
                        _soccerMatchSvr.Update(_bet247xSoccerMatch.getMatch());
                        _bet247xSoccerMatch.ID = _soccerMatchSvr.SoccerMatch(_bet247xSoccerMatch.getMatch());
                        IEnumerable<XElement> _eventElements = _matchDetail.XPathSelectElements("events");
@@ -353,7 +393,7 @@ namespace BetEx247.Plugin.DataManager
                                                  {
                                                      _soccer_TotalGoalsOU.OverPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
                                                  }
-                                                 else
+                                                 else 
                                                  { //(HomeWin price
                                                      //_soccer_TotalGoalsOU.AwayPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
                                                  }
@@ -557,7 +597,7 @@ namespace BetEx247.Plugin.DataManager
                 // opened by another process. 
                 try
                 {
-                 //   System.IO.File.Delete(sFullPath);
+                   // System.IO.File.Delete(sFullPath);
                 }
                 catch (System.IO.IOException e)
                 {
@@ -716,7 +756,7 @@ namespace BetEx247.Plugin.DataManager
                     // opened by another process. 
                     try
                     {
-                     //   System.IO.File.Delete(sFullPath);
+                       // System.IO.File.Delete(sFullPath);
                     }
                     catch (System.IO.IOException e)
                     {
@@ -947,22 +987,421 @@ namespace BetEx247.Plugin.DataManager
         }*/
 
 #endregion
-        #region Render UI
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public String RenderJson()
+        #region Other sports
+
+        public void SoccerGoalServeOtherSportParser(ref Bet247xSportCountry bet247xSportCountry)
         {
-            return "not implemented";
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public String RenderXML()
-        {
-            return "not implementd";
+            // Bet247xSoccerCountry _bet247xSoccerCountry = new Bet247xSoccerCountry();
+            // List<Bet247xSoccerLeague> _bet247xSoccerLeagues = new List<Bet247xSoccerLeague>();
+            XDocument doc = null; ;
+            string sFullPath = "";
+            try
+            {
+                string folderPath = CommonHelper.CreateDirectory(Constant.PlaceFolder.PINNACLESPORTS_FOLDER, "XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
+                sFullPath = string.Format("{0}/{1}/{2}.xml", CommonHelper.getLocalPath(), folderPath, bet247xSportCountry.Country);
+                if (File.Exists(sFullPath))
+                {
+                    doc = XDocument.Load(sFullPath);
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+            catch (Exception ee)
+            {
+                return;
+            }
+            // XDocument doc = XDocument.Load(bet247xSoccerCountry.Goalserve_OddsFeed);
+
+            // Loop all catagories
+            int indexLeague = 0;
+            foreach (XElement element in doc.Root.Nodes())
+            {
+                //  Bet247xSoccerLeague _bet247xSoccerLeague = new Bet247xSoccerLeague();
+                String _catogatry = element.Attribute("name").Value;
+                SportLeagueService _sportLeagueSrv = new SportLeagueService();
+                long leagueCountryID = 0;
+                SportLeague _sportLeague = _sportLeagueSrv.GoalServeSportLeague(bet247xSportCountry.ID, _catogatry);
+                if (_sportLeague == null) // new League=> create a new League
+                {
+
+                    //SoccerLeagueService _soccerLeagueSvr = new SoccerLeagueService();
+                    SportLeague temp = new SportLeague();
+
+                    temp.CountryID = (int)bet247xSportCountry.ID;
+                    temp.ID = _sportLeagueSrv.GoalServeSportLeagueMaxIdByCountry(temp.CountryID) + 1;
+                    temp.SportID = 1;
+
+                    temp.LeagueName= _catogatry.Split(':')[1];
+
+                   // temp.LeagueName = _catogatry;
+
+
+                    _sportLeagueSrv.Insert(temp);
+
+                    leagueCountryID = temp.ID;
+                }
+                else
+                {
+
+                    leagueCountryID = _sportLeague.ID;
+                }
+
+
+                // Search All Matches of the Catagory
+                IEnumerable<XElement> _matchElements = element.XPathSelectElements("matches");
+                foreach (XElement _matchElement in _matchElements)
+                {
+                    List<Bet247xSoccerMatch> _bet247xSoccerMatches = new List<Bet247xSoccerMatch>();
+                    //String _localTeam = element.Attribute("localteam ").Value;
+                    IEnumerable<XElement> _matchElementDetail = _matchElement.XPathSelectElements("match");
+                    foreach (XElement _matchDetail in _matchElementDetail)
+                    {
+                        Bet247xSportMatch _bet247xSportMatch = new Bet247xSportMatch();
+                        // IEnumerable<XElement> _localteamElements = _matchDetail.XPathSelectElements("localteam");
+                        XElement _localteamElement = _matchDetail.XPathSelectElement("localteam");
+                        _bet247xSportMatch.LeagueID = (int)leagueCountryID;
+
+                        String _startDate = _matchDetail.Attribute("formatted_date").Value;
+                        String _startTime = _matchDetail.Attribute("time").Value;
+                        int year, month, day, hours, minute;
+                        year = int.Parse(_startDate.Split('.')[2]);
+                        month = int.Parse(_startDate.Split('.')[1]);
+                        day = int.Parse(_startDate.Split('.')[0]);
+                        hours = int.Parse(_startTime.Split(':')[0]);
+                        minute = int.Parse(_startTime.Split(':')[1]);
+
+                        // if past date ignore
+                        DateTime passedDate = new DateTime(year, month, day, hours, minute, 0);
+
+                        if (passedDate.Millisecond < DateTime.Now.Millisecond)
+                        {
+                            continue;
+                        }
+
+                        DateTime _marketCloseTime = new DateTime(year, month, day, hours, minute, 0); //formatted_date="27.10.2012" time="17:00"
+                        _marketCloseTime = _marketCloseTime.AddMinutes(-5);
+                        _bet247xSportMatch.HomeTeam = _localteamElement.Attribute("name").Value;
+
+                        //IEnumerable<XElement> _visitorteamElements = _matchDetail.XPathSelectElements("visitorteam");
+                        XElement _visitorteamElement = _matchDetail.XPathSelectElement("visitorteam");
+                        _bet247xSportMatch.AwayTeam = _visitorteamElement.Attribute("name").Value;
+                        _bet247xSportMatch.StartDateTime = new DateTime(year, month, day, hours, minute, 0);
+                        // _bet247xSoccerMatch.StartTime = new DateTime(year, month, day, hours, minute, 0);
+
+                        // Check and save or update to database
+                        SportMatchService _sportMatchSvr = new SportMatchService();
+                        SportLeague _tempSportLeague = (SportLeague)bet247xSportCountry.Bet247xSportLeagues[indexLeague];
+                        SportsMatch _tempSportsMatch = _sportMatchSvr.SportMatch(_tempSportLeague.ID, _bet247xSportMatch.HomeTeam, _bet247xSportMatch.AwayTeam, (DateTime)_bet247xSportMatch.StartDateTime);
+                        _bet247xSportMatch.MatchStatus = "";// Not stated
+                        _bet247xSportMatch.SportID = _tempSportLeague.SportID;
+                        _bet247xSportMatch.CountryID = _tempSportLeague.CountryID;
+                        _bet247xSportMatch.MarketCloseTime = _marketCloseTime;
+                        _sportMatchSvr.Update(_bet247xSportMatch.getMatch());
+                        _bet247xSportMatch.ID = _sportMatchSvr.SportMatch(_bet247xSportMatch.getMatch());
+                        IEnumerable<XElement> _eventElements = _matchDetail.XPathSelectElements("events");
+                        IEnumerable<XElement> _oddsElements = _matchDetail.XPathSelectElements("odds");
+
+                        // Loop to find Odds
+                        foreach (XElement _oddElement in _oddsElements)
+                        {
+                            IEnumerable<XElement> _oddElementDetail = _oddElement.XPathSelectElements("type");
+                            foreach (XElement _matchBookerDetail in _oddElementDetail)
+                            {
+                                String oddsName = _matchBookerDetail.Attribute("value").Value;
+                                if (oddsName.Equals("3Way Result"))
+                                {
+
+                                    IEnumerable<XElement> _bookmakerElements = _matchBookerDetail.XPathSelectElements("bookmaker");
+                                    foreach (XElement _bookmakerElementsDetail in _bookmakerElements)
+                                    {
+
+                                        IEnumerable<XElement> _bookerOddElement = _bookmakerElementsDetail.XPathSelectElements("odd");
+
+                                        foreach (XElement _bookerOddElementDetail in _bookerOddElement)
+                                        {
+                                            Sports_MoneyLine _Sports_MatchOddsTable = new Sports_MoneyLine();
+                                            _Sports_MatchOddsTable.Period = "0";
+                                            _Sports_MatchOddsTable.Entrants = 3;
+                                            _Sports_MatchOddsTable.LastUpdated = DateTime.Now;
+                                            _Sports_MatchOddsTable.MarketCloseTime = _marketCloseTime;//formatted_date="27.10.2012" time="17:00"
+                                            _Sports_MatchOddsTable.MatchID = _bet247xSportMatch.ID.ToString();
+                                            _Sports_MatchOddsTable.SportID = _bet247xSportMatch.SportID;
+                                            _Sports_MatchOddsTable.LeagueID = (int)_bet247xSportMatch.LeagueID;
+                                            _Sports_MatchOddsTable.CountryID = _bet247xSportMatch.CountryID;
+                                            String oddName = _bookerOddElementDetail.Attribute("name").Value;
+                                            if (oddName.Equals("1"))
+                                            { //(HomeWin price
+                                                _Sports_MatchOddsTable.HomePrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                            }
+                                            else if (oddName.Equals("X")) //(HomeWin price
+                                            {
+                                                _Sports_MatchOddsTable.DrawPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                            }
+                                            else
+                                            { //(HomeWin price
+                                                _Sports_MatchOddsTable.AwayPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                            }
+                                            _bet247xSportMatch.Bet247xSportMatchOdds.Add(_Sports_MatchOddsTable);
+                                            SportMatchOddsService _SportsmatchOddsSvr = new SportMatchOddsService();
+                                            _SportsmatchOddsSvr.Update(_Sports_MatchOddsTable);
+                                        }
+
+
+                                    }
+                                }
+                               
+                                else if (oddsName.Equals("Over/Under"))
+                                {
+                                    IEnumerable<XElement> _bookmakerElements = _matchBookerDetail.XPathSelectElements("bookmaker");
+                                    foreach (XElement _bookmakerElementsDetail in _bookmakerElements)
+                                    {
+
+                                        IEnumerable<XElement> _bookerOddElement = _bookmakerElementsDetail.XPathSelectElements("total");
+
+                                        foreach (XElement _bookerOddElementDetail in _bookerOddElement)
+                                        {
+                                            IEnumerable<XElement> _bookerToalOddElement = _bookerOddElementDetail.XPathSelectElements("odd");
+                                           // String OU = _bookerOddElementDetail.Attribute("name").Value;
+                                            Sports_TotalOU _Sports_TotalGoalsOU = new Sports_TotalOU();
+                                            _Sports_TotalGoalsOU.Period = 0;
+                                           // _Sports_TotalGoalsOU.OU = decimal.Parse(OU);
+                                            _Sports_TotalGoalsOU.Entrants = 2;
+                                            _Sports_TotalGoalsOU.LastUpdated = DateTime.Now;
+                                            _Sports_TotalGoalsOU.InPlay = false;
+                                            _Sports_TotalGoalsOU.MarketCloseTime = _marketCloseTime;//formatted_date="27.10.2012" time="17:00"
+                                            _Sports_TotalGoalsOU.MatchID = _bet247xSportMatch.ID.ToString();
+
+                                            _Sports_TotalGoalsOU.SportID = _bet247xSportMatch.SportID;
+                                            _Sports_TotalGoalsOU.LeagueID = (int)_bet247xSportMatch.LeagueID;
+                                            _Sports_TotalGoalsOU.CountryID = _bet247xSportMatch.CountryID;
+                                            foreach (XElement _totalOddElementDetail in _bookerToalOddElement)
+                                            {
+                                                String oddName = _totalOddElementDetail.Attribute("name").Value;
+                                                if (oddName.Equals("Under"))
+                                                { //(HomeWin price
+                                                    _Sports_TotalGoalsOU.UnderPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
+                                                }
+                                                else if (oddName.Equals("Over")) //(HomeWin price
+                                                {
+                                                    _Sports_TotalGoalsOU.OverPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
+                                                }
+                                                else
+                                                { //(HomeWin price
+                                                    //_Sports_TotalGoalsOU.AwayPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                                }
+                                                // _bet247xSportsMatch.Bet247xSportsMatchOdds.Add(_Sports_MatchOddsTable);
+                                            }
+                                            _bet247xSportMatch.Bet247xSportTotalGoalsOUs.Add(_Sports_TotalGoalsOU);
+                                            SportTotalGoalsOUService _SportsTotalOUSvr = new SportTotalGoalsOUService();
+                                            _SportsTotalOUSvr.Update(_Sports_TotalGoalsOU);
+                                        }
+
+
+                                    }
+                                }
+                                else if (oddsName.Equals("Handicap"))
+                                {
+                                    IEnumerable<XElement> _bookmakerElements = _matchBookerDetail.XPathSelectElements("bookmaker");
+                                    foreach (XElement _bookmakerElementsDetail in _bookmakerElements)
+                                    {
+
+                                        IEnumerable<XElement> _bookerOddElement = _bookmakerElementsDetail.XPathSelectElements("handicap");
+
+                                        foreach (XElement _bookerOddElementDetail in _bookerOddElement)
+                                        {
+                                            IEnumerable<XElement> _bookerToalOddElement = _bookerOddElementDetail.XPathSelectElements("odd");
+                                            String OU = _bookerOddElementDetail.Attribute("name").Value;
+
+                                            foreach (XElement _totalOddElementDetail in _bookerToalOddElement)
+                                            {
+                                                String oddName = _totalOddElementDetail.Attribute("name").Value;
+                                                if (oddName.Equals("1"))
+                                                { //(HomeWin price
+                                                    Sports_AsianHandicap _Sports_AsianHandicap = new Sports_AsianHandicap();
+                                                    _Sports_AsianHandicap.Period = 0;
+                                                    _Sports_AsianHandicap.Entrants = 2;
+                                                    _Sports_AsianHandicap.LastUpdated = DateTime.Now;
+                                                    // _Sports_AsianHandicap.InPlay = false;
+                                                    _Sports_AsianHandicap.MarketCloseTime = _marketCloseTime;//formatted_date="27.10.2012" time="17:00"
+                                                    _Sports_AsianHandicap.MatchID = _bet247xSportMatch.ID.ToString();
+
+                                                    _Sports_AsianHandicap.SportID = _bet247xSportMatch.SportID;
+                                                    _Sports_AsianHandicap.LeagueID = (int)_bet247xSportMatch.LeagueID;
+                                                    _Sports_AsianHandicap.CountryID = _bet247xSportMatch.CountryID;
+
+                                                   // _Sports_AsianHandicap.HomeHandicap = _bookerOddElementDetail.Attribute("name").Value;
+                                                    _Sports_AsianHandicap.HomePrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
+                                                    _bet247xSportMatch.Bet247xSportAsianHandicaps.Add(_Sports_AsianHandicap);
+
+                                                    SportAsianHandicapService _SportsHandicapSvr = new SportAsianHandicapService();
+                                                    _SportsHandicapSvr.Update(_Sports_AsianHandicap);
+
+                                                }
+                                                else if (oddName.Equals("2")) //(HomeWin price
+                                                {
+                                                    Sports_AsianHandicap _Sports_AsianHandicap = new Sports_AsianHandicap();
+                                                    _Sports_AsianHandicap.Period = 0;
+                                                    _Sports_AsianHandicap.Entrants = 2;
+                                                    _Sports_AsianHandicap.LastUpdated = DateTime.Now;
+                                                    // _Sports_AsianHandicap.InPlay = false;
+                                                    _Sports_AsianHandicap.MarketCloseTime = _marketCloseTime;//formatted_date="27.10.2012" time="17:00"
+                                                    _Sports_AsianHandicap.MatchID = _bet247xSportMatch.ID.ToString();
+
+                                                    _Sports_AsianHandicap.SportID = _bet247xSportMatch.SportID;
+                                                    _Sports_AsianHandicap.LeagueID = (int)_bet247xSportMatch.LeagueID;
+                                                    _Sports_AsianHandicap.CountryID = _bet247xSportMatch.CountryID;
+
+                                                   // _Sports_AsianHandicap.HomeHandicap = _bookerOddElementDetail.Attribute("name").Value;
+                                                    _Sports_AsianHandicap.AwayPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
+                                                    _bet247xSportMatch.Bet247xSportAsianHandicaps.Add(_Sports_AsianHandicap);
+
+                                                    SportAsianHandicapService _SportsHandicapSvr = new SportAsianHandicapService();
+                                                    _SportsHandicapSvr.Update(_Sports_AsianHandicap);
+                                                }
+                                                else
+                                                { //(HomeWin price
+                                                    //_Sports_TotalGoalsOU.AwayPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                                }
+                                                // _bet247xSportsMatch.Bet247xSportsMatchOdds.Add(_Sports_MatchOddsTable);
+                                            }
+
+                                        }
+
+
+                                    }
+                                }
+                                else if (oddsName.Equals("3Way Result 1st Half"))
+                                {
+                                    IEnumerable<XElement> _bookmakerElements = _matchBookerDetail.XPathSelectElements("bookmaker");
+                                    foreach (XElement _bookmakerElementsDetail in _bookmakerElements)
+                                    {
+
+                                        IEnumerable<XElement> _bookerOddElement = _bookmakerElementsDetail.XPathSelectElements("odd");
+
+                                        foreach (XElement _bookerOddElementDetail in _bookerOddElement)
+                                        {
+                                            String oddName = _bookerOddElementDetail.Attribute("name").Value;
+                                            Sports_MoneyLine _Sports_MatchOddsTable = new Sports_MoneyLine();
+                                            _Sports_MatchOddsTable.Period = "1";
+                                            _Sports_MatchOddsTable.Entrants = 3;
+                                            _Sports_MatchOddsTable.LastUpdated = DateTime.Now;
+                                            _Sports_MatchOddsTable.MarketCloseTime = _marketCloseTime;//formatted_date="27.10.2012" time="17:00"
+                                            _Sports_MatchOddsTable.MatchID = _bet247xSportMatch.ID.ToString();
+
+                                            _Sports_MatchOddsTable.SportID = _bet247xSportMatch.SportID;
+                                            _Sports_MatchOddsTable.LeagueID = (int)_bet247xSportMatch.LeagueID;
+                                            _Sports_MatchOddsTable.CountryID = _bet247xSportMatch.CountryID;
+
+                                            if (oddName.Equals("1"))
+                                            { //(HomeWin price
+                                                _Sports_MatchOddsTable.HomePrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                            }
+                                            else if (oddName.Equals("X")) //(HomeWin price
+                                            {
+                                                _Sports_MatchOddsTable.DrawPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                            }
+                                            else
+                                            { //(HomeWin price
+                                                _Sports_MatchOddsTable.AwayPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                            }
+                                            _bet247xSportMatch.Bet247xSportMatchOdds.Add(_Sports_MatchOddsTable);
+                                            SportMatchOddsService _SportsMatchOddSvr = new SportMatchOddsService();
+                                            _SportsMatchOddSvr.Update(_Sports_MatchOddsTable);
+                                        }
+                                    }
+                                }
+                                else if (oddsName.Equals("Over/Under 1st Half"))
+                                {
+                                    IEnumerable<XElement> _bookmakerElements = _matchBookerDetail.XPathSelectElements("bookmaker");
+                                    foreach (XElement _bookmakerElementsDetail in _bookmakerElements)
+                                    {
+
+                                        IEnumerable<XElement> _bookerOddElement = _bookmakerElementsDetail.XPathSelectElements("total");
+
+                                        foreach (XElement _bookerOddElementDetail in _bookerOddElement)
+                                        {
+                                            IEnumerable<XElement> _bookerToalOddElement = _bookerOddElementDetail.XPathSelectElements("odd");
+                                            String OU = _bookerOddElementDetail.Attribute("name").Value;
+                                            Sports_TotalOU _Sports_TotalGoalsOU = new Sports_TotalOU();
+                                            _Sports_TotalGoalsOU.Period = 1;
+                                           // _Sports_TotalGoalsOU.OU = decimal.Parse(OU);
+                                            _Sports_TotalGoalsOU.Entrants = 2;
+                                            _Sports_TotalGoalsOU.LastUpdated = DateTime.Now;
+                                            _Sports_TotalGoalsOU.InPlay = false;
+                                            _Sports_TotalGoalsOU.MarketCloseTime = _marketCloseTime;//formatted_date="27.10.2012" time="17:00"
+                                            _Sports_TotalGoalsOU.MatchID = _bet247xSportMatch.ID.ToString();
+
+                                            _Sports_TotalGoalsOU.SportID = _bet247xSportMatch.SportID;
+                                            _Sports_TotalGoalsOU.LeagueID = (int)_bet247xSportMatch.LeagueID;
+                                            _Sports_TotalGoalsOU.CountryID = _bet247xSportMatch.CountryID;
+
+                                            foreach (XElement _totalOddElementDetail in _bookerToalOddElement)
+                                            {
+                                                String oddName = _totalOddElementDetail.Attribute("name").Value;
+                                                if (oddName.Equals("Under"))
+                                                { //(HomeWin price
+                                                    _Sports_TotalGoalsOU.UnderPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
+                                                }
+                                                else if (oddName.Equals("Over")) //(HomeWin price
+                                                {
+                                                    _Sports_TotalGoalsOU.OverPrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
+                                                }
+                                                else
+                                                { //(HomeWin price
+                                                    //_Sports_TotalGoalsOU.AwayPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
+                                                }
+                                                // _bet247xSportsMatch.Bet247xSportsMatchOdds.Add(_Sports_MatchOddsTable);
+                                            }
+                                            _bet247xSportMatch.Bet247xSportTotalGoalsOUs.Add(_Sports_TotalGoalsOU);
+                                            SportTotalGoalsOUService _SportsTotalOUSvr = new SportTotalGoalsOUService();
+                                            _SportsTotalOUSvr.Update(_Sports_TotalGoalsOU);
+                                        }
+
+
+                                    }
+
+                                }
+
+                            }
+
+                            // Find CorrectScore in Betclick then Add to the Math
+                            //Soccer_CorrectScoresParser((Bet247xSoccerLeague)bet247xSoccerCountry.Bet247xSoccerLeagues[indexLeague], _bet247xSoccerMatch);
+                           // _bet247xSoccerMatches.Add(_bet247xSoccerMatch);
+                        }
+
+                        bet247xSportCountry.Bet247xSportLeagues[indexLeague].Bet247xSportMatches.Add(_bet247xSportMatch);
+                        // _bet247xSoccerLeague.Bet247xSoccerMatches.AddRange(_bet247xSoccerMatches);
+                    }
+
+                    // _bet247xSoccerLeagues.Add(_bet247xSoccerLeague);
+                }
+
+
+            }
+            // _bet247xSoccerCountry.Bet247xSoccerLeagues.AddRange(_bet247xSoccerLeagues);
+            // return _bet247xSoccerCountry;
+
+            // Remove the file
+
+            if (System.IO.File.Exists(sFullPath))
+            {
+                // Use a try block to catch IOExceptions, to 
+                // handle the case of the file already being 
+                // opened by another process. 
+                try
+                {
+                    // System.IO.File.Delete(sFullPath);
+                }
+                catch (System.IO.IOException e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+
         }
 
 

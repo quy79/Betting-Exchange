@@ -44,15 +44,31 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
-        public SoccerLeague GoalServeSoccerLeague(String name)
+        public SoccerLeague GoalServeSoccerLeague(long countryID,String name)
          {
              using (var dba = new BetEXDataContainer())
              {
-                 var _sport = dba.SoccerLeagues.Where(w => name.Contains(w.LeagueName_Goalserve)).ToList();
+                 var _sport = dba.SoccerLeagues.Where(w => name.Contains(w.LeagueName_Goalserve) & w.CountryID ==countryID).ToList();
 
                  return _sport.Count==0?null:_sport[0];
              }
          }
+
+        public long GoalServeSoccerLeagueMaxIdByCountry(long countryID)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var _sport = dba.SoccerLeagues.Where(w => w.CountryID == countryID ).ToList();
+                long maxID = 0;
+                foreach (SoccerLeague sl in _sport)
+                {
+                    if(sl.ID>maxID){
+                        maxID = sl.ID;
+                    }
+                }
+                return maxID;
+            }
+        }
         public SoccerLeague BetClickSoccerLeague(String name)
         {
             using (var dba = new BetEXDataContainer())

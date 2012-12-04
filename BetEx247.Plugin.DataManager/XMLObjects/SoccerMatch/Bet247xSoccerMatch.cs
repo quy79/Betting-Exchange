@@ -49,17 +49,18 @@ namespace BetEx247.Plugin.DataManager.XMLObjects.SoccerMatch
              obj.ID = ID;
              obj.AwayTeam = AwayTeam;
              obj.HomeTeam = HomeTeam;
-            // obj.MatchStatusID = MatchStatusID;
-            obj.LeagueID = this.LeagueID;
+             // obj.MatchStatusID = MatchStatusID;
+             obj.LeagueID = this.LeagueID;
              obj.StartDateTime = StartDateTime;
-            // obj.StartTim = StartTime;
+             obj.MarketCloseTime = MarketCloseTime;
+             obj.MatchStatus = MatchStatus;
+             obj.UpdateTime = DateTime.Now;
              obj.SportID = SportID;
              obj.CountryID = CountryID;
-            // obj.Sports_AsianHandicap=spo
+             obj.Settled = false;
+             obj.Updated = false;
              return obj;
          }
-       
-
-         
+    
     }
 }

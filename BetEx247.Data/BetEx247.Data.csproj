@@ -95,6 +95,14 @@
     <Compile Include="DAL\Payment\RecurringPaymentHistory.cs" />
     <Compile Include="DAL\Payment\ReturnRequest.cs" />
     <Compile Include="DAL\Sports\BetStatusService.cs" />
+    <Compile Include="DAL\Sports\SportTotalGoalsOUService.cs" />
+    <Compile Include="DAL\Sports\SportMatchOddsService.cs" />
+    <Compile Include="DAL\Sports\SportMatchService.cs" />
+    <Compile Include="DAL\Sports\SportLeagueService.cs" />
+    <Compile Include="DAL\Sports\SportCountryService.cs" />
+    <Compile Include="DAL\Sports\MyWalletService.cs" />
+    <Compile Include="DAL\Sports\MyBetService.cs" />
+    <Compile Include="DAL\Sports\MemberService.cs" />
     <Compile Include="DAL\Sports\DataControlStatusService.cs" />
     <Compile Include="DAL\Sports\Interfaces\IBetStatusService.cs" />
     <Compile Include="DAL\Sports\Interfaces\IDataControlStatusService.cs" />

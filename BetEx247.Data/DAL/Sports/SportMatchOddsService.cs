@@ -6,7 +6,7 @@ using BetEx247.Data.Model;
 using BetEx247.Data.DAL.Sports.Interfaces;
 namespace BetEx247.Data.DAL.Sports
 {
-    public partial class SportAsianHandicapService 
+    public partial class SportMatchOddsService 
     {
         /// <summary>
         /// 
@@ -16,11 +16,11 @@ namespace BetEx247.Data.DAL.Sports
         /// 
         /// </summary>
         /// <returns></returns>
-        public List<Sports_AsianHandicap> SportsAsianHandicaps()
+        public  List<Sports_MoneyLine> SportMatchOddses()
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Sports_AsianHandicap.ToList();
+                var list = dba.Sports_MoneyLine.ToList();
 
                 return list;
             }
@@ -30,11 +30,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public List<Sports_AsianHandicap> SportsAsianHandicaps(Guid matchID)
+        public List<Sports_MoneyLine> SportMatchOddses(long sportID, long countryID, long LeagueID, Guid matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Sports_AsianHandicap.Where(w => w.ID == matchID).ToList();
+                var list = dba.Sports_MoneyLine.Where(w => w.ID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
 
                 return list;
             }
@@ -44,11 +44,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="ID"></param>
         /// <returns></returns>
-        public Sports_AsianHandicap SportsAsianHandicap(Guid ID)
+        public Sports_MoneyLine SportMatchOdds(Guid ID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var obj = dba.Sports_AsianHandicap.Where(w => w.ID == ID).SingleOrDefault();
+                var obj = dba.Sports_MoneyLine.Where(w => w.ID == ID).SingleOrDefault();
 
                 return obj;
             }
@@ -56,61 +56,48 @@ namespace BetEx247.Data.DAL.Sports
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="soccerCorrectScores"></param>
+        /// <param name="SportCorrectScores"></param>
         /// <returns></returns>
-        public bool Insert(Sports_AsianHandicap soccerCorrectScores)
+        public bool Insert(Sports_MoneyLine SportMatchOdds)
         {
-            _context.AddToSports_AsianHandicap(soccerCorrectScores);
+            SportMatchOdds.ID = Guid.NewGuid();
+            _context.AddToSports_MoneyLine(SportMatchOdds);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
         }
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="soccerCorrectScores"></param>
+        /// <param name="SportCorrectScores"></param>
         /// <returns></returns>
-        public bool Update(Sports_AsianHandicap soccerCorrectScores)
+        public bool Update(Sports_MoneyLine SportMatchOdds)
         {
-            Sports_AsianHandicap _obj = new Sports_AsianHandicap();
-            _obj = _context.Sports_AsianHandicap.Where(w => w.ID == soccerCorrectScores.ID).SingleOrDefault();
+            Sports_MoneyLine _obj = new Sports_MoneyLine();
+           // _obj = _context.Sport_MatchOdds.Where(w => w.ID == SportMatchOdds.ID).SingleOrDefault();
+            _obj = _context.Sports_MoneyLine.Where(w => w.HomePrice == SportMatchOdds.HomePrice & w.AwayPrice == SportMatchOdds.AwayPrice & w.DrawPrice == SportMatchOdds.DrawPrice & w.MarketCloseTime == SportMatchOdds.MarketCloseTime).SingleOrDefault();
+  
             if (_obj != null) // Update
             {
-                _obj = soccerCorrectScores;
+                _obj = SportMatchOdds;
                 int result = _context.SaveChanges();
                 return result > 0 ? true : false;
             }
             else //Insert
             {
-                return Insert(soccerCorrectScores);
+                return Insert(SportMatchOdds);
             }
-        }
+         }
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="soccerCorrectScores"></param>
+        /// <param name="SportCorrectScores"></param>
         /// <returns></returns>
-        public bool Delete(Sports_AsianHandicap soccerCorrectScores)
+        public bool Delete(Sports_MoneyLine SportMatchOdds)
         {
-            _context.DeleteObject(soccerCorrectScores);
+            _context.DeleteObject(SportMatchOdds);
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
         }
-        public IQueryable<Sports_AsianHandicap> Table
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public IList<Sports_AsianHandicap> GetAll()
-        {
-            using (var dba = new BetEXDataContainer())
-            {
-                var list = dba.Sports_AsianHandicap.ToList();
-
-                return list;
-            }
-        }
-
-
-       
+      
     }
 }

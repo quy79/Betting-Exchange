@@ -6,7 +6,7 @@ using BetEx247.Data.Model;
 using BetEx247.Data.DAL.Sports.Interfaces;
 namespace BetEx247.Data.DAL.Sports
 {
-    public partial class SoccerMatchedBetsService : ISoccerMatchedBetsService
+    public partial class SoccerMatchedBetsService 
     {
         /// <summary>
         /// 
@@ -95,10 +95,7 @@ namespace BetEx247.Data.DAL.Sports
             int result = _context.SaveChanges();
             return result > 0 ? true : false;
         }
-        public IQueryable<Soccer_MatchedBets> Table
-        {
-            get { throw new NotImplementedException(); }
-        }
+        
 
         public IList<Soccer_MatchedBets> GetAll()
         {
@@ -110,11 +107,16 @@ namespace BetEx247.Data.DAL.Sports
             }
         }
 
-
-
-        void IBase<Soccer_MatchedBets>.Insert(Soccer_MatchedBets entity)
+        public List<Soccer_MatchedBets> SoccerMatchedBets(string matchID, long sportID, long countryID,long leageID)
         {
-            throw new NotImplementedException();
+            using (var dba = new BetEXDataContainer())
+            {
+                var list = dba.Soccer_MatchedBets.Where(w => w.MatchID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID ==leageID).ToList();
+
+                return list;
+            }
         }
+
+      
     }
 }
