@@ -28,9 +28,14 @@
 
                 for (int i = 0; i < totalRow; i++)
                 {
-                    string value1 = i * 3 < countRow ? list[(i * 3)].LeagueName_WebDisplay + "(" + list[(i * 3)].Total + ")" : "";
-                    string value2 = (i * 3) + 1 < countRow ? list[(i * 3) + 1].LeagueName_WebDisplay + "(" + list[(i * 3) + 1].Total + ")" : "";
-                    string value3 = (i * 3) + 2 < countRow ? list[(i * 3) + 2].LeagueName_WebDisplay + "(" + list[(i * 3) + 2].Total + ")" : "";
+                    string total1 = i * 3 < countRow && list[(i * 3)].Total > 0 ? "(" + list[(i * 3)].Total + ")" : "";
+                    string value1 = i * 3 < countRow ? list[(i * 3)].LeagueName_WebDisplay + total1 : "";
+
+                    string total2 = i * 3 < countRow && list[(i * 3) + 1].Total > 0 ? "(" + list[(i * 3) + 1].Total + ")" : "";
+                    string value2 = (i * 3) + 1 < countRow ? list[(i * 3) + 1].LeagueName_WebDisplay + total2 : "";
+
+                    string total3 = i * 3 < countRow && list[(i * 3) + 2].Total > 0 ? "(" + list[(i * 3) + 2].Total + ")" : "";
+                    string value3 = (i * 3) + 2 < countRow ? list[(i * 3) + 2].LeagueName_WebDisplay + total3 : "";
                     string url1 = i * 3 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3)].ID + "/" + @list[(i * 3)].CountryID + "/" + @list[(i * 3)].SportID : "";
                     string url2 = (i * 3) + 1 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 1].ID + "/" + @list[(i * 3) + 1].CountryID + "/" + @list[(i * 3) + 1].SportID : "";
                     string url3 = (i * 3) + 2 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 2].ID + "/" + @list[(i * 3) + 2].CountryID + "/" + @list[(i * 3) + 2].SportID : "";

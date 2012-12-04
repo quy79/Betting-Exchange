@@ -8,13 +8,15 @@ betex247 = {
     //#region common function
     //#region Sport GUI        
 
-    getallsport: function () {   
+    getallsport: function () {
+        $('#top_events').show();   
         $.ajax({
             type: "GET",
             url: this.Url + 'common/getListSport', // {"content"="Hello!"}
             dataType: 'json',
             ifModified: true,
             cache: true,
+            async: false,
             success: function (dataSportList) {    
                 betex247.getsubdata(dataSportList);
                 betex247.showhidedata();
@@ -48,27 +50,11 @@ betex247 = {
                     $("div.loadoffermenu").append(betex247.bindsportnew(data,id,name));   
                 }
             });
-        }
-        $('#top_events').show();
-        //hide all league
-        $(".navsports").slideUp(500);
-        $(".navsportssub").slideUp(500);
-        //toggle the componenet with class msg_body
-        $(".sport-heading").click(function () {
-            //$(".navsports").hide();                
-            $(this).next(".navsports").slideToggle(500);
-            //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-        });
-
-        $(".league-heading").click(function () {
-            //$(".navsportssub").slideUp(500);
-            $(this).next(".navsportssub").slideToggle(500);
-            //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-        });                        
+        }                              
     },
 
-    showhidedata:function(){      
-        $('#top_events').show();        
+    showhidedata:function(){     
+                
         //hide all league
         $(".navsports").slideUp(500);
         $(".navsportssub").slideUp(500);
@@ -83,6 +69,7 @@ betex247 = {
             //$(".navsportssub").slideUp(500);
             $(this).next(".navsportssub").slideToggle(500);
             //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
+            $('html,body').animate({ scrollTop: $('body').offset().top - 500 }, 1000);
         });                     
     },
 
@@ -832,6 +819,7 @@ betex247 = {
             cache: true,
             success: function (data) {
                 $("#middle_column").html(data);
+                $('html,body').animate({ scrollTop: $('body').offset().top - 500 }, 1000);
             }
         });        
     }     

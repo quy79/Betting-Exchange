@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;    
+using System.Text;
 using BetEx247.Core;
 using BetEx247.Core.Infrastructure;
 using BetEx247.Core.Caching;
@@ -87,29 +87,29 @@ namespace BetEx247.Data.DAL
             using (var dba = new BetEXDataContainer())
             {
                 return dba.PSP_LIVEINPLAYMATCHES(isSoccer).ToList();
-            }            
+            }
         }
 
-        public List<PSV_MATCHES> UpCommingMatches(bool isSoccer,long? leagueId,int? countryId,int? sportId,int day)
+        public List<PSV_MATCHES> UpCommingMatches(bool isSoccer, long? leagueId, int? countryId, int? sportId, int day)
         {
             using (var dba = new BetEXDataContainer())
             {
-                if (leagueId == null || leagueId == 0)
+                if ((leagueId == null || leagueId == 0) && (countryId == null || countryId == 0) && (sportId == null && sportId == 0))
                 {
-                    return dba.PSP_UPCOMMINGMATCHES(isSoccer,0,0,0,day).ToList();
+                    return dba.PSP_UPCOMMINGMATCHES(isSoccer, 0, 0, 0, day).ToList();
                 }
                 else
                 {
                     return dba.PSP_UPCOMMINGMATCHES(isSoccer, leagueId, countryId, sportId, day).ToList();
                 }
-            }   
+            }
         }
 
-        public SoccerCountry GetCountryByLeage(long leagueId,int countryId,int sportId)
+        public SoccerCountry GetCountryByLeage(long leagueId, int countryId, int sportId)
         {
             using (var dba = new BetEXDataContainer())
             {
-                return dba.PSP_GETCOUNTRYBYLEAGUE(leagueId,countryId,sportId).First();
+                return dba.PSP_GETCOUNTRYBYLEAGUE(leagueId, countryId, sportId).First();
             }
         }
 

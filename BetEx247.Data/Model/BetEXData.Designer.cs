@@ -447,22 +447,6 @@ namespace BetEx247.Data.Model
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Soccer_TotalGoalsOU> Soccer_TotalGoalsOU
-        {
-            get
-            {
-                if ((_Soccer_TotalGoalsOU == null))
-                {
-                    _Soccer_TotalGoalsOU = base.CreateObjectSet<Soccer_TotalGoalsOU>("Soccer_TotalGoalsOU");
-                }
-                return _Soccer_TotalGoalsOU;
-            }
-        }
-        private ObjectSet<Soccer_TotalGoalsOU> _Soccer_TotalGoalsOU;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Soccer_WinningMargin> Soccer_WinningMargin
         {
             get
@@ -811,6 +795,22 @@ namespace BetEx247.Data.Model
             }
         }
         private ObjectSet<SportLeague> _SportLeagues;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Soccer_TotalGoalsOU> Soccer_TotalGoalsOU
+        {
+            get
+            {
+                if ((_Soccer_TotalGoalsOU == null))
+                {
+                    _Soccer_TotalGoalsOU = base.CreateObjectSet<Soccer_TotalGoalsOU>("Soccer_TotalGoalsOU");
+                }
+                return _Soccer_TotalGoalsOU;
+            }
+        }
+        private ObjectSet<Soccer_TotalGoalsOU> _Soccer_TotalGoalsOU;
 
         #endregion
         #region AddTo Methods
@@ -1000,14 +1000,6 @@ namespace BetEx247.Data.Model
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the Soccer_TotalGoalsOU EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSoccer_TotalGoalsOU(Soccer_TotalGoalsOU soccer_TotalGoalsOU)
-        {
-            base.AddObject("Soccer_TotalGoalsOU", soccer_TotalGoalsOU);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Soccer_WinningMargin EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToSoccer_WinningMargin(Soccer_WinningMargin soccer_WinningMargin)
@@ -1181,6 +1173,14 @@ namespace BetEx247.Data.Model
         public void AddToSportLeagues(SportLeague sportLeague)
         {
             base.AddObject("SportLeagues", sportLeague);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Soccer_TotalGoalsOU EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSoccer_TotalGoalsOU(Soccer_TotalGoalsOU soccer_TotalGoalsOU)
+        {
+            base.AddObject("Soccer_TotalGoalsOU", soccer_TotalGoalsOU);
         }
 
         #endregion

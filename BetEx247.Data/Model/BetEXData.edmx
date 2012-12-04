@@ -2149,17 +2149,6 @@
           <Parameter Name="MemberId" Type="bigint" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <!--Errors Found During Generation:
-      warning 6013: The table/view 'BettingExchange.dbo.SportsCountries$' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-      
-      <EntityType Name="SportsCountries$">
-        <Property Name="ID" Type="float" />
-        <Property Name="SportID" Type="float" />
-        <Property Name="Country" Type="nvarchar" MaxLength="255" />
-        <Property Name="Goalserve_OddsFeed" Type="nvarchar" MaxLength="255" />
-        <Property Name="Goalserve_LivescoreFeed" Type="nvarchar" MaxLength="255" />
-        <Property Name="International" Type="float" />
-      </EntityType>-->
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -2217,7 +2206,6 @@
           <EntitySet Name="Soccer_MatchedBets" EntityType="BettingExchangeModel.Soccer_MatchedBets" />
           <EntitySet Name="Soccer_MatchOdds" EntityType="BettingExchangeModel.Soccer_MatchOdds" />
           <EntitySet Name="Soccer_TotalGoalsOE" EntityType="BettingExchangeModel.Soccer_TotalGoalsOE" />
-          <EntitySet Name="Soccer_TotalGoalsOU" EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" />
           <EntitySet Name="Soccer_WinningMargin" EntityType="BettingExchangeModel.Soccer_WinningMargin" />
           <EntitySet Name="SoccerCountries" EntityType="BettingExchangeModel.SoccerCountry" />
           <EntitySet Name="SoccerLeagues" EntityType="BettingExchangeModel.SoccerLeague" />
@@ -2271,6 +2259,7 @@
           <EntitySet Name="PSV_TOP_EVENT" EntityType="BettingExchangeModel.PSV_TOP_EVENT" />
           <EntitySet Name="SportCountries" EntityType="BettingExchangeModel.SportCountry" />
           <EntitySet Name="SportLeagues" EntityType="BettingExchangeModel.SportLeague" />
+          <EntitySet Name="Soccer_TotalGoalsOU" EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" />
           </EntityContainer>
         <EntityType Name="BetStatu">
           <Key>
@@ -2631,35 +2620,6 @@
           <Property Type="Boolean" Name="IsBestPrice" />
           <Property Type="Byte" Name="Period" Nullable="false" />
           <Property Type="String" Name="XMLFeedsFile" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="Entrants" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Soccer_TotalGoalsOU">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="MatchID" />
-            <PropertyRef Name="LeagueID" />
-            <PropertyRef Name="CountryID" />
-            <PropertyRef Name="SportID" />
-            <PropertyRef Name="OU" />
-            <PropertyRef Name="OverPrice" />
-            <PropertyRef Name="UnderPrice" />
-            <PropertyRef Name="LastUpdated" />
-            <PropertyRef Name="MarketCloseTime" />
-            <PropertyRef Name="Period" />
-            <PropertyRef Name="Entrants" />
-          </Key>
-          <Property Type="Guid" Name="ID" Nullable="false" />
-          <Property Type="String" Name="MatchID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="LeagueID" Nullable="false" />
-          <Property Type="Int32" Name="CountryID" Nullable="false" />
-          <Property Type="Int32" Name="SportID" Nullable="false" />
-          <Property Type="Decimal" Name="OU" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Decimal" Name="OverPrice" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Decimal" Name="UnderPrice" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="DateTime" Name="LastUpdated" Nullable="false" />
-          <Property Type="Boolean" Name="InPlay" />
-          <Property Type="DateTime" Name="MarketCloseTime" Nullable="false" />
-          <Property Type="Byte" Name="Period" Nullable="false" />
           <Property Type="Int32" Name="Entrants" Nullable="false" />
         </EntityType>
         <EntityType Name="Soccer_WinningMargin">
@@ -3217,6 +3177,35 @@
           <Property Type="DateTime" Name="EndDate" />
           <Property Type="Boolean" Name="TopEvent" />
         </EntityType>
+        <EntityType Name="Soccer_TotalGoalsOU">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MatchID" />
+            <PropertyRef Name="LeagueID" />
+            <PropertyRef Name="CountryID" />
+            <PropertyRef Name="SportID" />
+            <PropertyRef Name="OU" />
+            <PropertyRef Name="OverPrice" />
+            <PropertyRef Name="UnderPrice" />
+            <PropertyRef Name="LastUpdated" />
+            <PropertyRef Name="MarketCloseTime" />
+            <PropertyRef Name="Period" />
+            <PropertyRef Name="Entrants" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" />
+          <Property Type="String" Name="MatchID" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="LeagueID" Nullable="false" />
+          <Property Type="Int32" Name="CountryID" Nullable="false" />
+          <Property Type="Int32" Name="SportID" Nullable="false" />
+          <Property Type="Decimal" Name="OU" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="OverPrice" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="UnderPrice" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="LastUpdated" Nullable="false" />
+          <Property Type="Boolean" Name="InPlay" />
+          <Property Type="DateTime" Name="MarketCloseTime" Nullable="false" />
+          <Property Type="Byte" Name="Period" Nullable="false" />
+          <Property Type="Int32" Name="Entrants" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -3596,25 +3585,6 @@
                 <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
                 <ScalarProperty Name="EvenPrice" ColumnName="EvenPrice" />
                 <ScalarProperty Name="OddPrice" ColumnName="OddPrice" />
-                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Soccer_TotalGoalsOU">
-            <EntityTypeMapping TypeName="BettingExchangeModel.Soccer_TotalGoalsOU">
-              <MappingFragment StoreEntitySet="Soccer_TotalGoalsOU">
-                <ScalarProperty Name="Entrants" ColumnName="Entrants" />
-                <ScalarProperty Name="Period" ColumnName="Period" />
-                <ScalarProperty Name="MarketCloseTime" ColumnName="MarketCloseTime" />
-                <ScalarProperty Name="InPlay" ColumnName="InPlay" />
-                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
-                <ScalarProperty Name="UnderPrice" ColumnName="UnderPrice" />
-                <ScalarProperty Name="OverPrice" ColumnName="OverPrice" />
-                <ScalarProperty Name="OU" ColumnName="OU" />
-                <ScalarProperty Name="SportID" ColumnName="SportID" />
-                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
-                <ScalarProperty Name="LeagueID" ColumnName="LeagueID" />
                 <ScalarProperty Name="MatchID" ColumnName="MatchID" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
@@ -4063,6 +4033,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Soccer_TotalGoalsOU">
+            <EntityTypeMapping TypeName="BettingExchangeModel.Soccer_TotalGoalsOU">
+              <MappingFragment StoreEntitySet="Soccer_TotalGoalsOU">
+                <ScalarProperty Name="Entrants" ColumnName="Entrants" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+                <ScalarProperty Name="MarketCloseTime" ColumnName="MarketCloseTime" />
+                <ScalarProperty Name="InPlay" ColumnName="InPlay" />
+                <ScalarProperty Name="LastUpdated" ColumnName="LastUpdated" />
+                <ScalarProperty Name="UnderPrice" ColumnName="UnderPrice" />
+                <ScalarProperty Name="OverPrice" ColumnName="OverPrice" />
+                <ScalarProperty Name="OU" ColumnName="OU" />
+                <ScalarProperty Name="SportID" ColumnName="SportID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="LeagueID" ColumnName="LeagueID" />
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -4107,7 +4096,6 @@
         <EntityTypeShape EntityType="BettingExchangeModel.Soccer_MatchedBets" Width="1.5" PointX="12.75" PointY="10.75" Height="3.1340950520833246" />
         <EntityTypeShape EntityType="BettingExchangeModel.Soccer_MatchOdds" Width="1.5" PointX="14.75" PointY="0.75" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOE" Width="1.5" PointX="14.75" PointY="5.75" Height="3.1340950520833246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" Width="1.5" PointX="14.75" PointY="9.75" Height="3.5186979166666674" />
         <EntityTypeShape EntityType="BettingExchangeModel.Soccer_WinningMargin" Width="1.5" PointX="12.75" PointY="14.75" Height="3.3263964843749818" />
         <EntityTypeShape EntityType="BettingExchangeModel.SoccerCountry" Width="1.5" PointX="2.75" PointY="11.75" Height="2.1725878906249818" />
         <EntityTypeShape EntityType="BettingExchangeModel.SoccerLeague" Width="1.5" PointX="14.75" PointY="14.75" Height="3.7109993489583246" />
@@ -4164,6 +4152,7 @@
         <EntityTypeShape EntityType="BettingExchangeModel.PSV_TOP_EVENT" Width="1.5" PointX="5.375" PointY="21.75" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="BettingExchangeModel.SportCountry" Width="1.5" PointX="21.375" PointY="7.75" Height="2.1725878906249818" />
         <EntityTypeShape EntityType="BettingExchangeModel.SportLeague" Width="1.5" PointX="7.375" PointY="21.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.Soccer_TotalGoalsOU" Width="1.5" PointX="21.375" PointY="10.75" Height="3.5186979166666674" />
       </Diagram>
     </Diagrams>
   </Designer>

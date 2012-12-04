@@ -16,7 +16,7 @@ namespace BetEx247.Data.DAL.Sports
         /// 
         /// </summary>
         /// <returns></returns>
-        public  List<SoccerMatch> SoccerMatches()
+        public List<SoccerMatch> SoccerMatches()
         {
             using (var dba = new BetEXDataContainer())
             {
@@ -39,11 +39,11 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
-        public List<SoccerMatch> SoccerMatches(long sportID,long countryID,long leagueID , String status)
+        public List<SoccerMatch> SoccerMatches(long sportID, long countryID, long leagueID, String status)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.SoccerMatches.Where(w => w.LeagueID == leagueID &w.CountryID==countryID&w.SportID==sportID & w.MatchStatus.Equals(status)).ToList();
+                var list = dba.SoccerMatches.Where(w => w.LeagueID == leagueID & w.CountryID == countryID & w.SportID == sportID & w.MatchStatus.Equals(status)).ToList();
 
                 return list;
             }
@@ -71,9 +71,9 @@ namespace BetEx247.Data.DAL.Sports
         {
             using (var dba = new BetEXDataContainer())
             {
-                var obj = dba.SoccerMatches.Where(w => w.LeagueID == leagueID & w.HomeTeam.Equals(homeTeam) & w.AwayTeam.Equals(awayTeam) & w.StartDateTime == startDate ).ToList();
+                var obj = dba.SoccerMatches.Where(w => w.LeagueID == leagueID & w.HomeTeam.Equals(homeTeam) & w.AwayTeam.Equals(awayTeam) & w.StartDateTime == startDate).ToList();
 
-                return obj.Count==0?null:obj[0];
+                return obj.Count == 0 ? null : obj[0];
             }
         }
 
@@ -81,11 +81,10 @@ namespace BetEx247.Data.DAL.Sports
         public Guid SoccerMatch(SoccerMatch soccerMatch)
         {
             using (var dba = new BetEXDataContainer())
-
             {
                 var obj = dba.SoccerMatches.Where(w => w.LeagueID == soccerMatch.LeagueID & w.HomeTeam.Equals(soccerMatch.HomeTeam) & w.AwayTeam.Equals(soccerMatch.AwayTeam) & w.StartDateTime == soccerMatch.StartDateTime).ToList();
 
-                return  obj.Count==0?Guid.Empty:obj[0].ID;
+                return obj.Count == 0 ? Guid.Empty : obj[0].ID;
             }
         }
         /// <summary>
@@ -93,7 +92,7 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="soccerCorrectScores"></param>
         /// <returns></returns>
-         public bool Insert(SoccerMatch soccerMatch)
+        public bool Insert(SoccerMatch soccerMatch)
         {
             soccerMatch.ID = Guid.NewGuid();
             _context.AddToSoccerMatches(soccerMatch);
@@ -105,10 +104,10 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="soccerCorrectScores"></param>
         /// <returns></returns>
-         public bool Update(SoccerMatch soccerMatch)
+        public bool Update(SoccerMatch soccerMatch)
         {
             SoccerMatch _obj = new SoccerMatch();
-            _obj = _context.SoccerMatches.Where(w => w.ID == soccerMatch.ID & w.SportID==soccerMatch.SportID & w.LeagueID == soccerMatch.LeagueID & w.CountryID == soccerMatch.CountryID).SingleOrDefault();
+            _obj = _context.SoccerMatches.Where(w => w.StartDateTime == soccerMatch.StartDateTime & w.AwayTeam == soccerMatch.AwayTeam & w.HomeTeam == soccerMatch.HomeTeam & w.SportID == soccerMatch.SportID & w.LeagueID == soccerMatch.LeagueID & w.CountryID == soccerMatch.CountryID).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = soccerMatch;
