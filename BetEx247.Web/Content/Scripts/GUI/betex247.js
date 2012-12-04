@@ -9,7 +9,7 @@ betex247 = {
     //#region Sport GUI        
 
     getallsport: function () {
-        $('#top_events').show();   
+        $('#top_events').show();
         $.ajax({
             type: "GET",
             url: this.Url + 'common/getListSport', // {"content"="Hello!"}
@@ -17,16 +17,16 @@ betex247 = {
             ifModified: true,
             cache: true,
             async: false,
-            success: function (dataSportList) {    
+            success: function (dataSportList) {
                 betex247.getsubdata(dataSportList);
                 betex247.showhidedata();
             }
-        });                     
+        });
     },
 
-    getsubdata:function(dataSportList){
-        var sb = new StringBuilder();   
-        $("div.loadoffermenu").html('');    
+    getsubdata: function (dataSportList) {
+        var sb = new StringBuilder();
+        $("div.loadoffermenu").html('');
         sb.append("<div>");
         sb.append("    <div class=\"ChooseSportsHeader\">");
         sb.append("        <span class=\"orange\">Sports offer</span>");
@@ -35,26 +35,26 @@ betex247 = {
 
         $("div.loadoffermenu").html(sb.toString());
         for (var a = 0; a < dataSportList.length; a++) {
-            var id= dataSportList[a].id;
-            var name =  dataSportList[a].sn;
-                               
+            var id = dataSportList[a].id;
+            var name = dataSportList[a].sn;
+
             $.ajax({
                 type: "GET",
-                url: betex247.Url + 'common/getAllSport/'+id, // {"content"="Hello!"}
+                url: betex247.Url + 'common/getAllSport/' + id, // {"content"="Hello!"}
                 dataType: 'json',
                 ifModified: true,
                 cache: true,
                 async: false,
-                success: function (data) { 
+                success: function (data) {
                     //betex247.excutejsonData(data);
-                    $("div.loadoffermenu").append(betex247.bindsportnew(data,id,name));   
+                    $("div.loadoffermenu").append(betex247.bindsportnew(data, id, name));
                 }
             });
-        }                              
+        }
     },
 
-    showhidedata:function(){     
-                
+    showhidedata: function () {
+
         //hide all league
         $(".navsports").slideUp(500);
         $(".navsportssub").slideUp(500);
@@ -69,37 +69,37 @@ betex247 = {
             //$(".navsportssub").slideUp(500);
             $(this).next(".navsportssub").slideToggle(500);
             //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-            $('html,body').animate({ scrollTop: $('body').offset().top - 500 }, 1000);
-        });                     
+            //$('html,body').animate({ scrollTop: $('body').offset().top - 500 }, 1000);
+        });
     },
 
-    gettopevent:function(){
+    gettopevent: function () {
         $.ajax({
             type: "GET",
             url: this.Url + 'common/getTopEvent', // {"content"="Hello!"}
             dataType: 'json',
             ifModified: true,
             cache: true,
-            success: function (data) {                     
-                if(data!=null && data.length>0){
+            success: function (data) {
+                if (data != null && data.length > 0) {
                     var sb = new StringBuilder();
-                    sb.append("<div id=\"top_events\" class=\"module\">");             
+                    sb.append("<div id=\"top_events\" class=\"module\">");
                     sb.append("<h3 class=\"bdr_tr\">Top Events</h3>");
                     sb.append("<div class=\"inner bdr_btm\">");
                     sb.append("     <ul class=\"listings\">");
                     for (var i = 0; i < data.length; i++) {
                         var twt = data[i];
-                        var urlLeague= betex247.Url+"league/byleague/"+twt.ID+"/"+twt.CountryID+"/"+twt.SportID;
-                        sb.append("<li class=\"sesame\"><a href=\"javascript:void(0)\" onclick=\"betex247.loadleague('"+urlLeague+"')\"  class=\"level1\">"+twt.LeagueName_WebDisplay+"("+twt.SportName+")</a> </li>");
+                        var urlLeague = betex247.Url + "league/byleague/" + twt.ID + "/" + twt.CountryID + "/" + twt.SportID;
+                        sb.append("<li class=\"sesame\"><a href=\"javascript:void(0)\" onclick=\"betex247.loadleague('" + urlLeague + "',1)\"  class=\"level1\">" + twt.LeagueName_WebDisplay + "(" + twt.SportName + ")</a> </li>");
                     }
                     sb.append("     </ul>");
                     sb.append("</div>");
                     sb.append("</div>");
 
                     $('#top_eventstop').html(sb.toString());
-                } 
-                
-                $('#top_events').find('.listings > li:last').addClass('last');               
+                }
+
+                $('#top_events').find('.listings > li:last').addClass('last');
             }
         });
     },
@@ -126,7 +126,7 @@ betex247 = {
             //$(".navsportssub").slideUp(500);
             $(this).next(".navsportssub").slideToggle(500);
             //$('html,body').animate({ scrollTop: $(this).offset().top - 200 }, 1000);
-        });    
+        });
     },
 
     getsport: function (id) {
@@ -176,51 +176,51 @@ betex247 = {
         });
     },
 
-    excuteaccountype:function(type){
-        switch(type){
+    excuteaccountype: function (type) {
+        switch (type) {
             case 1:
-                betex247.accountpage(betex247.Url+"account/balances");               
-                setTimeout(function(){$('#displayblock1').show()},800);
+                betex247.accountpage(betex247.Url + "account/balances");
+                setTimeout(function () { $('#displayblock1').show() }, 800);
                 break;
             case 2:
-                betex247.accountpage(betex247.Url+"account/statement");
-                setTimeout(function(){$('#displayblock1').show()},800);
+                betex247.accountpage(betex247.Url + "account/statement");
+                setTimeout(function () { $('#displayblock1').show() }, 800);
                 break;
             case 3:
-                betex247.accountpage(betex247.Url+"account/exposure");
-                setTimeout(function(){$('#displayblock2').show()},800);
+                betex247.accountpage(betex247.Url + "account/exposure");
+                setTimeout(function () { $('#displayblock2').show() }, 800);
                 break;
             case 4:
-                betex247.accountpage(betex247.Url+"account/unmatchedbets");  
-                setTimeout(function(){$('#displayblock2').show()},800);
+                betex247.accountpage(betex247.Url + "account/unmatchedbets");
+                setTimeout(function () { $('#displayblock2').show() }, 800);
                 break;
             case 5:
-                betex247.accountpage(betex247.Url+"account/unsettledbets");
-                setTimeout(function(){$('#displayblock2').show()},800);
+                betex247.accountpage(betex247.Url + "account/unsettledbets");
+                setTimeout(function () { $('#displayblock2').show() }, 800);
                 break;
             case 6:
-                betex247.accountpage(betex247.Url+"account/bettingpl");
-                setTimeout(function(){$('#displayblock3').show()},800);
+                betex247.accountpage(betex247.Url + "account/bettingpl");
+                setTimeout(function () { $('#displayblock3').show() }, 800);
                 break;
             case 7:
-                betex247.accountpage(betex247.Url+"account/settledbets");
-                setTimeout(function(){$('#displayblock3').show()},800);
+                betex247.accountpage(betex247.Url + "account/settledbets");
+                setTimeout(function () { $('#displayblock3').show() }, 800);
                 break;
             case 8:
-                betex247.accountpage(betex247.Url+"account/cancelledbets");
-                setTimeout(function(){$('#displayblock3').show()},800);
+                betex247.accountpage(betex247.Url + "account/cancelledbets");
+                setTimeout(function () { $('#displayblock3').show() }, 800);
                 break;
             case 9:
-                betex247.accountpage(betex247.Url+"account/lapsedbets");
-                setTimeout(function(){$('#displayblock3').show()},800);
+                betex247.accountpage(betex247.Url + "account/lapsedbets");
+                setTimeout(function () { $('#displayblock3').show() }, 800);
                 break;
             case 10:
-                betex247.accountpage(betex247.Url+"account/voidbets");
-                setTimeout(function(){$('#displayblock3').show()},800);
+                betex247.accountpage(betex247.Url + "account/voidbets");
+                setTimeout(function () { $('#displayblock3').show() }, 800);
                 break;
             default:
-                betex247.accountpage(betex247.Url+"account/balances");
-                setTimeout(function(){$('#displayblock1').show()},800);
+                betex247.accountpage(betex247.Url + "account/balances");
+                setTimeout(function () { $('#displayblock1').show() }, 800);
                 break;
         }
     },
@@ -246,22 +246,22 @@ betex247 = {
                         $("div.regFormTop").hide();
                         $("div.header-login-panel").show();
                         $("p strong").html(arrData[1]);
-                        var arrIndex =2;
-                        var rowIndex=0;
+                        var arrIndex = 2;
+                        var rowIndex = 0;
                         var myballance = new Array();
                         myballance[0] = "Available";
                         myballance[1] = "Exposure";
                         myballance[2] = "Balance";
 
-                        $("ul.account-balance li").each(function() {                            
+                        $("ul.account-balance li").each(function () {
                             var t = $(this);
-                            t.html("<em>"+myballance[rowIndex]+":</em><strong>$"+arrData[arrIndex]+"</strong>");
+                            t.html("<em>" + myballance[rowIndex] + ":</em><strong>$" + arrData[arrIndex] + "</strong>");
                             rowIndex++;
                             arrIndex++;
                         });
-//                        $("ul.account-balance li")[0].html();
-//                        $("ul.account-balance li")[1].html("<em>Exposure:</em><strong>"+arrData[3]+"</strong>");
-//                        $("ul.account-balance li")[2].html("<em>Balance:</em><strong>"+arrData[4]+"</strong>");
+                        //                        $("ul.account-balance li")[0].html();
+                        //                        $("ul.account-balance li")[1].html("<em>Exposure:</em><strong>"+arrData[3]+"</strong>");
+                        //                        $("ul.account-balance li")[2].html("<em>Balance:</em><strong>"+arrData[4]+"</strong>");
                     } else {
                         alert(data);
                     }
@@ -270,11 +270,11 @@ betex247 = {
         });
     },
 
-    accountpanel:function(){
-        window.location.href=betex247.Url+"account/account";  
+    accountpanel: function () {
+        window.location.href = betex247.Url + "account/account";
     },
 
-    accountpage:function(surl){
+    accountpage: function (surl) {
         $.ajax({
             type: "GET",
             url: surl, // {"content"="Hello!"}     
@@ -282,7 +282,7 @@ betex247 = {
             success: function (data) {
                 $("#middle_column_1").html(data);
             }
-        });         
+        });
     },
 
     logout: function () {
@@ -294,7 +294,7 @@ betex247 = {
                 if (data == "success") {
                     $("div.regFormTop").show();
                     $("div.header-login-panel").hide();
-                    window.location.href=betex247.Url;
+                    window.location.href = betex247.Url;
                 }
             }
         });
@@ -336,7 +336,7 @@ betex247 = {
                     //                    listNational = this.bindLeagueNational(twt.Leagues);
                     //add start div league
                     sb.append(this.addStringStartLeague());
-                    
+
                     for (var k = 0; k < countLeague; k++) {
                         var Country = twt.Bet247xSoccerCountries[k];
                         var sCountry = Country.Country;
@@ -369,8 +369,8 @@ betex247 = {
         return sb.toString();
     },
 
-    bindsportnew: function (data,id,name) {
-        var sb = new StringBuilder();       
+    bindsportnew: function (data, id, name) {
+        var sb = new StringBuilder();
         var obj = data;
         var urlcountry = '';
         var urlleague = '';
@@ -380,18 +380,18 @@ betex247 = {
             //add sport name to list menu
             //temp for data
             //sb.append(this.addStringSport(obj[i].sn, 187));
-           
+
             sb.append(betex247.addStringSport(name, 187));
             //add start div league
             sb.append(this.addStringStartLeague());
 
             for (var k = 0; k < countrycount; k++) {
-                if(i<obj.length){
+                if (i < obj.length) {
                     var sCountry = obj[i].cn;
                     var contentLeague = parseInt(obj[i].cl);
 
                     if (sCountry.length > 0 && contentLeague > 0) {
-                        urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid+"/"+ obj[i].sid;
+                        urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid + "/" + obj[i].sid;
                         //add countryleague
                         sb.append(this.addStringLeague(urlcountry, sCountry));
                         //start sub league
@@ -401,8 +401,8 @@ betex247 = {
                                 urlleague = betex247.Url + 'league/byleague/' + obj[i].lId + "/" + obj[i].cid + "/" + obj[i].sid;
                                 //league
                                 sb.append(this.addStringSubLeague(urlleague, obj[i].ln));
-                                 i++;
-                            }                                   
+                                i++;
+                            }
                         }
                         //i--;
                         //end subleague
@@ -417,54 +417,52 @@ betex247 = {
         return sb.toString();
     },
 
-//    bindsportnew: function (bindsportnew,data) {
-//        var sb = new StringBuilder();
-//        sb.append("<div>");
-//        sb.append("    <div class=\"ChooseSportsHeader\">");
-//        sb.append("        <span class=\"orange\">Sports offer</span>");
-//        sb.append("    </div>");
-//        sb.append("</div>");        
-//        var urlcountry = '';
-//        var urlleague = '';
-//        var countrycount = 0;
-//        
-//        for (var a = 0; a < bindsportnew.length; a++) {
-//            var sport = bindsportnew[a];
-//                      
-//            //var jsontemp = betex247.parsteData(data,bindsportnew[a].id);
-//            $(function(){ 
-//                //add sport name to list menu
-//                sb.append(betex247.addStringSport(bindsportnew[a].sn, 187));  
-//                
-//                window.setTimeout($(function(){sb.append(betex247.bindluague(data,bindsportnew[a].id));}),2000);         
-//            });                                                  
-//        }
-//        return sb.toString();
-//    },
+    //    bindsportnew: function (bindsportnew,data) {
+    //        var sb = new StringBuilder();
+    //        sb.append("<div>");
+    //        sb.append("    <div class=\"ChooseSportsHeader\">");
+    //        sb.append("        <span class=\"orange\">Sports offer</span>");
+    //        sb.append("    </div>");
+    //        sb.append("</div>");        
+    //        var urlcountry = '';
+    //        var urlleague = '';
+    //        var countrycount = 0;
+    //        
+    //        for (var a = 0; a < bindsportnew.length; a++) {
+    //            var sport = bindsportnew[a];
+    //                      
+    //            //var jsontemp = betex247.parsteData(data,bindsportnew[a].id);
+    //            $(function(){ 
+    //                //add sport name to list menu
+    //                sb.append(betex247.addStringSport(bindsportnew[a].sn, 187));  
+    //                
+    //                window.setTimeout($(function(){sb.append(betex247.bindluague(data,bindsportnew[a].id));}),2000);         
+    //            });                                                  
+    //        }
+    //        return sb.toString();
+    //    },
 
-    parsteData:function(data,id){
-        var jsonObj = [];       
+    parsteData: function (data, id) {
+        var jsonObj = [];
         for (var b = 0; b < data.length; b++) {
-            if(data[b].sid== id)
-            {
-                jsonObj.push(data[b]);                
+            if (data[b].sid == id) {
+                jsonObj.push(data[b]);
             }
-        }      
+        }
     },
 
-    bindluague:function(data,id){
-        var jsonObj = [];  
+    bindluague: function (data, id) {
+        var jsonObj = [];
         for (var b = 0; b < data.length; b++) {
-            if(data[b].sid== id)
-            {
-                jsonObj.push(data[b]);                
+            if (data[b].sid == id) {
+                jsonObj.push(data[b]);
             }
-        }   
+        }
 
         var sb = new StringBuilder();
-        var obj = jsonObj;  
+        var obj = jsonObj;
         for (var i = 0; i < obj.length; i++) {
-            countrycount = parseInt(obj[i].sc);                    
+            countrycount = parseInt(obj[i].sc);
             //add start div league
             sb.append(this.addStringStartLeague());
             for (var k = 0; k < countrycount; k++) {
@@ -472,7 +470,7 @@ betex247 = {
                 var contentLeague = parseInt(obj[i].cl);
 
                 if (sCountry.length > 0 && contentLeague > 0) {
-                    urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid+"/"+ obj[i].sid;
+                    urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid + "/" + obj[i].sid;
                     //add countryleague
                     sb.append(this.addStringLeague(urlcountry, sCountry));
                     //start sub league
@@ -606,7 +604,7 @@ betex247 = {
 
     addStringLeague: function (url, leagueName) {
         var sb = new StringBuilder();
-        sb.append("        <li><a  class=\"league-heading\" onclick=\"betex247.loadleague('"+url+"');\" href=\"javascript:void(0)\">");
+        sb.append("        <li><a  class=\"league-heading\" onclick=\"betex247.loadleague('" + url + "',0);\" href=\"javascript:void(0)\">");
         sb.append("            <div style=\"padding: 3px 0px 3px 8px;\">+&nbsp;<b>");
         sb.append("                " + leagueName + "</b></div>");
         //sb.append("        </a></li>");
@@ -616,7 +614,7 @@ betex247 = {
 
     addStringSubLeague: function (url, leagueName) {
         var sb = new StringBuilder();
-        sb.append("        <li><a onclick=\"betex247.loadleague('" + url + "')\" href=\"javascript:void(0)\">");
+        sb.append("        <li><a onclick=\"betex247.loadleague('" + url + "',1)\" href=\"javascript:void(0)\">");
         sb.append("            <div style=\"padding: 3px 0px 3px 26px;\">");
         sb.append("                <i>" + leagueName + "</i></div>");
         sb.append("        </a></li>");
@@ -812,16 +810,18 @@ betex247 = {
     //#endregion
 
     //#region ajax
-    loadleague: function (surl) {          
+    loadleague: function (surl, isleague) {
         $.ajax({
             type: "GET",
             url: surl, // {"content"="Hello!"}     
             cache: true,
             success: function (data) {
                 $("#middle_column").html(data);
-                $('html,body').animate({ scrollTop: $('body').offset().top - 500 }, 1000);
+                if (isleague == 1) {
+                    $('html,body').animate({ scrollTop: $('body').offset().top - 500 }, 1000);
+                }
             }
-        });        
-    }     
+        });
+    }
     //#enregion
 }

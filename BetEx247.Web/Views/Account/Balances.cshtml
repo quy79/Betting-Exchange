@@ -2,6 +2,8 @@
 @using BetEx247.Data.DAL;
 @using BetEx247.Data;
 @using BetEx247.Data.Model;
+@using BetEx247.Core.Common.Utils;
+
 @model BetEx247.Data.Model.MyWallet
 @{
     ViewBag.Title = "Balances";
@@ -14,9 +16,9 @@
     Member member = IoC.Resolve<ICustomerService>().GetCustomerById(SessionManager.USER_ID);
     if (Model != null)
     {
-        Available = Model.Available != null ? Model.Available.Value.ToString() : "0";
-        Exposure = Model.Exposure != null ? Model.Exposure.Value.ToString() : "0";
-        Balance = Model.Balance != null ? Model.Balance.Value.ToString() : "0";
+        Available = Model.Available != null ? CommonHelper.FormatMoney(Model.Available.Value) : "0";
+        Exposure = Model.Exposure != null ? CommonHelper.FormatMoney(Model.Exposure.Value) : "0";
+        Balance = Model.Balance != null ? CommonHelper.FormatMoney(Model.Balance.Value) : "0";
     }
 
     if (member != null)
