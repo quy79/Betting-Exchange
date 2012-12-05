@@ -26,6 +26,15 @@ namespace BetEx247.Data.DAL.Sports
                  return _sport;
              }
          }
+        public SportCountry SportCountry(long ID,long sportID)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                SportCountry _sport = dba.SportCountries.Where(w => w.ID == ID & w.SportID == sportID).SingleOrDefault();
+
+                return _sport;
+            }
+        }
         public SportCountry SportCountry(String name)
          {
              using (var dba = new BetEXDataContainer())
@@ -43,7 +52,7 @@ namespace BetEx247.Data.DAL.Sports
          {
              using (var dba = new BetEXDataContainer())
              {
-                 SportCountry _country = SportCountry(country.ID);
+                 SportCountry _country = SportCountry(country.ID, country.SportID);
                  if (_country==null)
                  {
                      dba.AddToSportCountries(country);
@@ -59,7 +68,7 @@ namespace BetEx247.Data.DAL.Sports
          {
              using (var dba = new BetEXDataContainer())
              {
-                 var _country = dba.SportCountries.Where(w => w.ID == country.ID).SingleOrDefault();
+                 var _country = dba.SportCountries.Where(w => w.ID == country.ID & w.SportID == country.SportID).SingleOrDefault();
                  if (_country != null)
                  {
 

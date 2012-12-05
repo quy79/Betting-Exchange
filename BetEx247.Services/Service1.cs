@@ -212,9 +212,24 @@ namespace BetEx247.Services
 
                     mgr.SoccerGoalServeParser(ref _bet247xSoccerCountry);
                     // urlBetClick = _bet247xSoccerCountry.Betclick_OddsFeed;
-                    DateTime lastestTime = DateTime.Now;
+                   // DateTime lastestTime = DateTime.Now;
                     // if (currentTime.Minute - lastestTime.Minute)
                     // {
+                }
+
+                for (int k = 1; k < mgr.masterTableManager.sports.Count;k++ )
+                {
+                    for (int i = 0; i < mgr.masterTableManager.sports[k].Bet247xSportCountries.Count; i++)
+                    {
+                        Bet247xSportCountry _bet247xSoccerCountry = (Bet247xSportCountry)mgr.masterTableManager.sports[k].Bet247xSportCountries[i];
+
+
+                        mgr.SoccerGoalServeOtherSportParser(ref _bet247xSoccerCountry);
+                        // urlBetClick = _bet247xSoccerCountry.Betclick_OddsFeed;
+                        // DateTime lastestTime = DateTime.Now;
+                        // if (currentTime.Minute - lastestTime.Minute)
+                        // {
+                    }
                 }
 
             }

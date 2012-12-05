@@ -55,7 +55,7 @@ namespace BetEx247.Plugin.DataManager.Settle
         {
             double MaximumMarketRate = GetMaxMarketRate(0) / 100;
             // xu ly cho truong hop tran dau bi Postponed hoac bi Cancelled		
-            if (((SoccerMatchObj.MatchStatus.Equals("Postponed")) || ((SoccerMatchObj.MatchStatus.Equals("Postponed")))))
+            if (((SoccerMatchObj.MatchStatus.Equals("Postponed")) || ((SoccerMatchObj.MatchStatus.Equals("Cancelled")))))
             {
                 //xu ly giong nhu DRAW 	
                 string whichBetWin = "D"; bool Win100 = false; bool Win50 = false;

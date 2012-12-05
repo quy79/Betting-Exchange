@@ -942,41 +942,14 @@ namespace BetEx247.Core.Common.Utils
 
             contentSave.LoadXml(content);
             string fileName = string.Empty;
-            switch (sSource)
-            {
-                case Constant.SourceXML.BETCLICK:
-                case Constant.SourceXML.GOALSERVE:
+           // switch (sSource)
+           // {
+               // case Constant.SourceXML.BETCLICK:
+               // case Constant.SourceXML.GOALSERVE:
                     fileName =string.Format("{0}.xml",  downloadTime);// string.Format("{0}_{1}.xml", sSource, downloadTime);
-                    break;
-                case Constant.SourceXML.PINNACLESPORTS:
-                    if (level != null)
-                    {
-                        switch (level.Value)
-                        {
-                            case 1:
-                                fileName = string.Format("{0}_sport_{1}.xml", sSource, downloadTime);
-                                break;
-                            case 2:
-                                string leagueId = sUrl.Split('=')[1];
-                                fileName = string.Format("{0}_league_{1}_{2}.xml", sSource, leagueId, downloadTime);
-                                break;
-                            case 3:
-                                string[] arrUrl = sUrl.Split('=');
-                                string sportid = arrUrl[1].Split('&')[0];
-                                string leagueid = arrUrl[2].Split('&')[0];
-                                fileName = string.Format("{0}_feed_{1}_{2}_{3}.xml", sSource, sportid, leagueid, downloadTime);
-                                break;
-                            default:
-                                fileName = string.Format("{0}_sport_{1}.xml", sSource, downloadTime);
-                                break;
-                        }
-                    }
-                    else
-                    {
-                        fileName = string.Format("{0}_sport_{1}.xml", sSource, downloadTime);
-                    }
-                    break;
-            }
+                   // break;
+                
+           // }
 
             string folderPath = CommonHelper.CreateDirectory(pathLocal,"XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
             string sFullPath = string.Format("{0}/{1}/{2}", CommonHelper.getLocalPath(), folderPath, fileName);
