@@ -22,7 +22,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult ByLeague(long? id,int? cid,int? sid)
         {
             ViewBag.tempLeague = id;
-            ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true);
+            ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true,cid,sid);
             ViewBag.ListSoccerComming = IoC.Resolve<IGuiService>().UpCommingMatches(true, id,cid,sid,7);
             if (id != null)
             {
@@ -37,7 +37,7 @@ namespace BetEx247.Web.Controllers
 
         public ActionResult ByCountry(int? id, int? sid)
         {                               
-            ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true);
+            ViewBag.ListSoccerLive = IoC.Resolve<IGuiService>().LiveInMatches(true,id,sid);
             ViewBag.ListSoccerComming = IoC.Resolve<IGuiService>().UpCommingMatches(true, 0,id,sid,7);
             if (id != null)
             {

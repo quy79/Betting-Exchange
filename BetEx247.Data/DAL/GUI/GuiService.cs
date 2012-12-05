@@ -82,11 +82,11 @@ namespace BetEx247.Data.DAL
             }
         }
 
-        public List<SoccerMatch> LiveInMatches(bool isSoccer)
+        public List<SoccerMatch> LiveInMatches(bool isSoccer,int? countryId, int? sportId)
         {
             using (var dba = new BetEXDataContainer())
             {
-                return dba.PSP_LIVEINPLAYMATCHES(isSoccer).ToList();
+                return dba.PSP_LIVEINPLAYMATCHES(isSoccer,sportId,countryId).ToList();
             }
         }
 

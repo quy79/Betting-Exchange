@@ -31,7 +31,7 @@ namespace BetEx247.Data.DAL
         /// <returns>list sport</returns>
         IEnumerable<Sport> GetSportData();
 
-        List<SoccerMatch> LiveInMatches(bool isSoccer);
+        List<SoccerMatch> LiveInMatches(bool isSoccer,int? countryId, int? sportId);
 
         List<PSV_MATCHES> UpCommingMatches(bool isSoccer, long? leagueId, int? countryId, int? sportId, int day);
 
