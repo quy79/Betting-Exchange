@@ -26,10 +26,11 @@ using BetEx247.Plugin.DataManager.XMLObjects.SoccerCountry;
 
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerLeague;
 
-using BetEx247.Plugin.DataManager.XMLObjects.SoccerMatch;
+using BetEx247.Plugin.DataManager.XMLObjects.SportCountry;
 
 using BetEx247.Data.Model;
 using BetEx247.Services;
+
 namespace BetEx247.Services
 {
     public partial class Service1 : ServiceBase
@@ -79,6 +80,9 @@ namespace BetEx247.Services
                 UpdateOddsThread.Start();
                 Thread UpdateDataStatusThread = new Thread(checkResheshDataThread);
                 UpdateDataStatusThread.Start();
+                Thread SettleThread = new Thread(DoSettleThread);
+                SettleThread.Start();
+                
                 
                 while (true)
                 {
@@ -102,6 +106,11 @@ namespace BetEx247.Services
                     {
                         UpdateDataStatusThread = new Thread(checkResheshDataThread);
                         UpdateDataStatusThread.Start();
+                    }
+                    if (!SettleThread.IsAlive)
+                    {
+                        SettleThread = new Thread(DoSettleThread);
+                        SettleThread.Start();
                     }
 
                 }
@@ -127,16 +136,21 @@ namespace BetEx247.Services
         protected void checkDownloadXMLFeedsThread()
         {
             // checkInitUpdateMasterTablesThread();
-
+            Thread DownloadXMLFeedThread;
+            Thread DownloadOtherSportFeedThread;
+            Constant.PlaceFolder.GOALSERVE_FOLDER = "GOALSERVE\\SCHEDULES";
+            Constant.PlaceFolder.BETCLICK_FOLDER = "BETCLICK";
+            Constant.PlaceFolder.PINNACLESPORTS_FOLDER = "GOALSERVE\\SCHEDULES\\OTHERS";
+            Bet247xSoccerCountry _bet247xSoccerCountry;
+            Bet247xSportCountry _bet247xSportCountry;
             while (true)
             {
                 if (mgr.updatedMastertable)
                 {
-                    Constant.PlaceFolder.GOALSERVE_FOLDER = "GOALSERVE\\SCHEDULES";
-                    Constant.PlaceFolder.BETCLICK_FOLDER = "BETCLICK";
+                  
 
-                    Bet247xSoccerCountry _bet247xSoccerCountry = (Bet247xSoccerCountry)mgr.masterTableManager.sports[0].Bet247xSoccerCountries[0];
-                    Thread DownloadXMLFeedThread = new Thread(DownloadBetclickFeedThread);
+                     _bet247xSoccerCountry = (Bet247xSoccerCountry)mgr.masterTableManager.sports[0].Bet247xSoccerCountries[0];
+                    DownloadXMLFeedThread = new Thread(DownloadBetclickFeedThread);
                     DownloadXMLFeedThread.Start(_bet247xSoccerCountry);
                    
                     for (int i = 0; i < mgr.masterTableManager.sports[0].Bet247xSoccerCountries.Count; i++)
@@ -148,6 +162,18 @@ namespace BetEx247.Services
                         DownloadXMLFeedThread.Start(_bet247xSoccerCountry);
                        
                     }
+                    for (int k = 1; k < 9; k++)
+                    {
+                        for (int i = 0; i < mgr.masterTableManager.sports[k].Bet247xSportCountries.Count; i++)
+                        {
+                            _bet247xSportCountry = (Bet247xSportCountry)mgr.masterTableManager.sports[k].Bet247xSportCountries[i];
+
+                            // xmlGoalServeDownloadManager.DownloadXML(_bet247xSoccerCountry.Goalserve_OddsFeed, _bet247xSoccerCountry.Country);
+                            DownloadOtherSportFeedThread = new Thread(DownloadOtherSportFeed);
+                            DownloadOtherSportFeedThread.Start(_bet247xSportCountry);
+
+                        }
+                    }
 
                     Thread.Sleep(5 * 60 * 1000);
                    
@@ -156,7 +182,11 @@ namespace BetEx247.Services
 
             //checkUpdateOddsThread();
         }
-
+        protected void DownloadOtherSportFeed(object country)
+        {
+            Bet247xSportCountry _bet247xSportCountry = (Bet247xSportCountry)country;
+            xmlGoalServeDownloadManager.DownloadOtherSportXML(_bet247xSportCountry.Goalserve_OddsFeed, _bet247xSportCountry.Country, _bet247xSportCountry.SportID);
+        }
         protected void DownloadGoalFeedThread(object country)
         {
             Bet247xSoccerCountry _bet247xSoccerCountry = (Bet247xSoccerCountry)country;
@@ -192,17 +222,31 @@ namespace BetEx247.Services
 
         protected void checkResheshDataThread()
         {
+            SportsDataRenderManager Mgr = new SportsDataRenderManager();
             while (true)
             {
-                SportsDataRenderManager Mgr = new SportsDataRenderManager();
+                
                 Mgr.CollectInfoToSerialize();
 
                 Thread.Sleep(60 * 1000);
             }
 
         }
-        protected void scanOddsMatchsThread()
+        protected void DoSettleThread()
         {
+             BetSettlementSvc _betSettleSvr = new BetSettlementSvc();
+            while (true)
+            {
+                 
+                try
+                {
+                   _betSettleSvr.doSetle4Type1();
+                    _betSettleSvr.doSetle4Type2();
+                }catch(Exception ee){
+                }
+
+                Thread.Sleep(5*60 * 1000); // 5 minutes
+            }
         }
 
     }

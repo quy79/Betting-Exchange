@@ -122,6 +122,9 @@
     <Compile Include="DAL\Sports\MatchStatusService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAL\Sports\MemberService.cs" />
+    <Compile Include="DAL\Sports\MyBetService.cs" />
+    <Compile Include="DAL\Sports\MyWalletService.cs" />
     <Compile Include="DAL\Sports\SoccerAsianHandicapService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,6 +161,10 @@
     <Compile Include="DAL\Sports\SportAsianHandicapService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAL\Sports\SportCountryService.cs" />
+    <Compile Include="DAL\Sports\SportLeagueService.cs" />
+    <Compile Include="DAL\Sports\SportMatchOddsService.cs" />
+    <Compile Include="DAL\Sports\SportMatchService.cs" />
     <Compile Include="DAL\Sports\SportMoneyLineService.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -167,6 +174,7 @@
     <Compile Include="DAL\Sports\SportService.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAL\Sports\SportTotalGoalsOUService.cs" />
     <Compile Include="DAL\Sports\SportTotalOUService.cs">
       <SubType>Code</SubType>
     </Compile>

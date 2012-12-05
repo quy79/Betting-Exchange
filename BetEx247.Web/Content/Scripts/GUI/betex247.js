@@ -381,7 +381,7 @@ betex247 = {
             //temp for data
             //sb.append(this.addStringSport(obj[i].sn, 187));
 
-            sb.append(betex247.addStringSport(name, 187));
+            sb.append(betex247.addStringSport(name, obj.length));
             //add start div league
             sb.append(this.addStringStartLeague());
 

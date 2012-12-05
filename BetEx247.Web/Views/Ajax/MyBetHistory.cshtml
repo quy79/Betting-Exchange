@@ -1,8 +1,16 @@
-﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
+﻿@using BetEx247.Data.Model;
 @using BetEx247.Core;
+
+@model List<PSV_MYBET>
+           
+
 @{
     Layout = null;
     int type = ViewBag.ReportType;
+    decimal SettledGross = 0;
+    decimal Commissionpaid = 0;
+    decimal SettledNet = 0;
+    decimal MatchedTurnover = 0;
 }
 @{
     switch (type)
@@ -10,70 +18,147 @@
         case (int)Constant.MyBetStatus.BETTINGPL:
             <table class="gridtable">
                 <tr>
-                    <th>
+                    <th width="26%">
                         Description
                     </th>
-                    <th>
+                    <th width="10%">
                         No. of Bets
                     </th>
-                    <th>
+                    <th width="16%">
                         Matched Turnover
                     </th>
-                    <th>
+                    <th width="16%">
                         Settled Gross P/L
                     </th>
-                    <th>
+                    <th width="16%">
                         Commission paid
                     </th>
-                    <th>
+                    <th width="16%">
                         Settled Net P/L
                     </th>
                 </tr>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Description)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.BetId)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.MatchTurnOver)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GrossProfit)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Commission)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.NetProfit)
-                        </td>                        
-                    </tr>
-                }
                 <tr>
-                    <td>
-                        Test 24 hours
-                    </td>
-                    <td>
-                        3
-                    </td>
-                    <td>
-                        1/3
-                    </td>
-                    <td>
-                        57.25
-                    </td>
-                    <td>
-                        2.65
-                    </td>
-                    <td>
-                        54.39
+                    <td colspan="6">
+                        <table class="gridtable-sub1">
+                            <tr>
+                                <td width="26%" style="background-color: #fff !important">
+                                    All Sports
+                                </td>
+                                <td width="10%" style="background-color: #fff !important">
+                                    @Model.Count
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbMatchedTurnover">
+                                    </label>
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbSettledGross">
+                                    </label>
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbCommissionpaid">
+                                    </label>
+                                </td>
+                                <td width="16%" style="background-color: #fff !important">
+                                    <label id="lbSettledNet">
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
+                @{                       
+                               foreach (var item in Model)
+                               {
+                                   MatchedTurnover += item.Stake;
+                                   if (item.IsWon)
+                                   {
+                                       SettledGross += item.GrossProfit != null ? item.GrossProfit.Value : 0;
+                                   }
+                                   else
+                                   {
+                                       SettledGross -= item.GrossProfit != null ? item.GrossProfit.Value : 0;
+                                   }
+
+                                   if (item.IsWon)
+                                   {
+                                       SettledNet += item.NetProfit != null ? item.NetProfit.Value : 0;
+                                   }
+                                   else
+                                   {
+                                       SettledGross -= item.NetProfit != null ? item.NetProfit.Value : 0;
+                                   }
+                    <tr>
+                        <td colspan="6" style="padding-left: 0px !important;">
+                            <table class="gridtable-sub1">
+                                <tr>
+                                    <td width="100%">
+                                        <span style="padding-left: 25px; display: inline;"><b>[Soccer]</b>&nbsp;:&nbsp; @item.HomeTeam
+                                            vs @item.AwayTeam</span> <span style="display: inline; padding-left: 30px;"><b>[Market]</b>&nbsp;:&nbsp;
+                                                Match Odds</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" style="margin-left: 0px !important; padding-left: 35px !important;">
+                            <table class="gridtable-sub">
+                                <tr>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Date</div>
+                                    </th>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Entrant</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            B/L</div>
+                                    </th>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Amount matched</div>
+                                    </th>
+                                    <th width="10%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Result</div>
+                                    </th>
+                                    <th width="20%">
+                                        <div style="padding: 2px 2px; text-align: center;">
+                                            Settled Gross P/L</div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td width="20%">
+                                        @item.SubmitedTime
+                                    </td>
+                                    <td width="20%">
+                                        @item.MyEntrant
+                                    </td>
+                                    <td width="10%" align="center">
+                                        @item.BL
+                                    </td>
+                                    <td width="20%">
+                                        USD @item.Stake
+                                    </td>
+                                    <td width="10%" align="center">
+                                        @item.IsWon
+                                    </td>
+                                    <td width="20%">
+                                        USD @item.GrossWinning
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                               }
+                               Commissionpaid = SettledNet - SettledGross;
+                }
+                
             </table>
-                break;
+                               break;
         case (int)Constant.MyBetStatus.CANCELLEDBETS:
             <table class="gridtable">
                 <tr>
@@ -109,17 +194,17 @@
                             @Html.DisplayFor(modelItem => item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetId)
+                            @Html.DisplayFor(modelItem => item.ID)
                         </td>
                          <td>
                             @Html.DisplayFor(modelItem => item.MarketID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
                         </td>                        
                         <td>
                             @{
-                    if (item.BL != null && item.BL.Value)
+                    if (item.BL != null && item.BL == "B")
                     {
                                 @Html.Raw("Bet")
                     }
@@ -140,37 +225,7 @@
                         </td>
                     </tr>
                 }
-                <tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Total goals Over 2/2.5 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        100.00
-                    </td>
-                    <td>
-                        1.87
-                    </td>
-                    <td>
-                        <span class="cancelled">Cancelled</span>
-                    </td>
-                </tr>
+               
             </table>
                 break;
         case (int)Constant.MyBetStatus.EXPOSURE:
@@ -209,13 +264,13 @@
                             @Html.DisplayFor(modelItem => item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetId)
+                            @Html.DisplayFor(modelItem => item.ID)
                         </td>
                          <td>
                             @Html.DisplayFor(modelItem => item.MarketID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Stake)
@@ -224,41 +279,11 @@
                             @Html.DisplayFor(modelItem => item.Price)
                         </td>
                         <td>
-                            <span class="cancelled">Lapsed</span>
+                           <span class="cancelled">Lapsed</span>
                         </td>
                     </tr>
                 }
-                <tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Total goals Over 2/2.5 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        100.00
-                    </td>
-                    <td>
-                        1.87
-                    </td>
-                    <td>
-                        <span class="cancelled">Lapsed</span>
-                    </td>
-                </tr>
+                
             </table>
                 break;
         case (int)Constant.MyBetStatus.SETTLEDBETS:
@@ -302,17 +327,17 @@
                             @Html.DisplayFor(modelItem => item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetId)
+                            @Html.DisplayFor(modelItem => item.ID)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.MarketID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
                         </td>                         
                         <td>
                             @{
-                    if (item.BL != null && item.BL.Value)
+                    if (item.BL != null && item.BL == "B")
                     {
                                 @Html.Raw("Bet")
                     }
@@ -347,82 +372,8 @@
                             @Html.DisplayFor(modelItem => item.Commission)
                         </td>
                     </tr>
-                }
-                <tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Manchester Utd -1
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        50
-                    </td>
-                    <td>
-                        2.05
-                    </td>
-                    <td>
-                        <span class="won">Won</span>
-                    </td>
-                    <td>
-                        <span class="won">+52.50</span>
-                    </td>
-                    <td>
-                        2.62
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Manchester Utd -1/2 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        20
-                    </td>
-                    <td>
-                        1.88
-                    </td>
-                    <td>
-                        <span class="lost">Lost</span>
-                    </td>
-                    <td>
-                        <span class="lost">-20.00</span>
-                    </td>
-                    <td>
-                        0.00
-                    </td>
-                </tr>                 
-            </table>     
+                }                
+            </table>  
                 break;
         case (int)Constant.MyBetStatus.UNMATCHEDBETS:
         case (int)Constant.MyBetStatus.UNSETTLEDBETS:
@@ -461,17 +412,17 @@
                             @Html.DisplayFor(modelItem => item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetId)
+                            @Html.DisplayFor(modelItem => item.ID)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.MarketID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName)
+                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
                         </td>                         
                         <td>
                             @{
-                    if (item.BL != null && item.BL.Value)
+                    if (item.BL != null && item.BL == "B")
                     {
                                 @Html.Raw("Bet")
                     }
@@ -491,38 +442,7 @@
                             <span class="cancelled">Void</span>
                         </td>
                     </tr>
-                }
-                <tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Total goals Over 2/2.5 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        100.00
-                    </td>
-                    <td>
-                        1.87
-                    </td>
-                    <td>
-                        <span class="cancelled">Void</span>
-                    </td>
-                </tr>
+                }              
             </table>
                 break;
     }

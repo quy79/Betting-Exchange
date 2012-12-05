@@ -7,9 +7,8 @@
 	<sport id="5" name="Hockey">Hockey</sport>
 	<sport id="6" name="Tennis">Tennis</sport>
 	<sport id="7" name="Rugby Union">Rugby Union</sport>
-	<sport id="8" name="Rugby League">Rugby League</sport>
+	
 	<sport id="9" name="Handball">Handball</sport>
-	<sport id="10" name="Cricket">Cricket</sport>
-	<sport id="11" name="Horse Racing">Horse Racing</sport>
+	
 	<sport id="12" name="Volleyball">Volleyball</sport>
 </sports>

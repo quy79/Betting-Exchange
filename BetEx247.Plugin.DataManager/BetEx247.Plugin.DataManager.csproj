@@ -44,10 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetSettlementSvc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IGeneric.cs" />
     <Compile Include="InitMasterTables.cs" />
+    <Compile Include="Settle\BetSettlement.cs" />
+    <Compile Include="Settle\SoccerMatch4Settle.cs" />
     <Compile Include="SportsDataRenderManager.cs" />
+    <Compile Include="XMLObjects\SportCountry\Bet247xSportCountry.cs" />
+    <Compile Include="XMLObjects\SportLeague\Bet24xSportLeague.cs" />
+    <Compile Include="XMLObjects\SportMatch\Bet247xSportMatch.cs" />
     <Compile Include="XMLParserManager.cs" />
     <Compile Include="XMLObjects\SoccerCountry\Bet247xSoccerCountry.cs" />
     <Compile Include="XMLObjects\SoccerLeague\Bet24xSoccerLeague.cs" />
@@ -67,8 +73,10 @@
   <ItemGroup>
     <Content Include="MasterTableInitData\betstatus.xml" />
     <Content Include="MasterTableInitData\countryleague.xml" />
+    <Content Include="MasterTableInitData\countryleaguesport.xml" />
     <Content Include="MasterTableInitData\matchstatus.xml" />
     <Content Include="MasterTableInitData\sport.xml" />
+    <Content Include="MasterTableInitData\update.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

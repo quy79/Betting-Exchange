@@ -123,7 +123,7 @@ namespace BetEx247.Web.Controllers
 
             if (betCategory > 0)
             {
-                sb.Append(" and t.CardId=" + betCategory + " ");
+                sb.Append(" and t.SportId=" + betCategory + " ");
             }
 
             switch (reportType)
