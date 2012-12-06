@@ -998,7 +998,7 @@ namespace BetEx247.Plugin.DataManager
             try
             {
                 string folderPath = CommonHelper.CreateDirectory(Constant.PlaceFolder.PINNACLESPORTS_FOLDER, "XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
-                sFullPath = string.Format("{0}/{1}/{2}.xml", CommonHelper.getLocalPath(), folderPath, bet247xSportCountry.Country);
+                sFullPath = string.Format("{0}/{1}/{2}_sport_{3}.xml", CommonHelper.getLocalPath(), folderPath, bet247xSportCountry.Country, bet247xSportCountry.SportID);
                 if (File.Exists(sFullPath))
                 {
                     doc = XDocument.Load(sFullPath);
@@ -1096,6 +1096,7 @@ namespace BetEx247.Plugin.DataManager
                         SportLeague _tempSportLeague = (SportLeague)bet247xSportCountry.Bet247xSportLeagues[indexLeague];
                         SportsMatch _tempSportsMatch = _sportMatchSvr.SportMatch(_tempSportLeague.ID, _bet247xSportMatch.HomeTeam, _bet247xSportMatch.AwayTeam, (DateTime)_bet247xSportMatch.StartDateTime);
                         _bet247xSportMatch.MatchStatus = "";// Not stated
+                        _bet247xSportMatch.MatchName = "";
                         _bet247xSportMatch.SportID = _tempSportLeague.SportID;
                         _bet247xSportMatch.CountryID = _tempSportLeague.CountryID;
                         _bet247xSportMatch.MarketCloseTime = _marketCloseTime;
@@ -1225,6 +1226,7 @@ namespace BetEx247.Plugin.DataManager
                                                     _Sports_AsianHandicap.Entrants = 2;
                                                     _Sports_AsianHandicap.LastUpdated = DateTime.Now;
                                                     // _Sports_AsianHandicap.InPlay = false;
+                                                    //_Sports_AsianHandicap.Handicap = "";
                                                     _Sports_AsianHandicap.MarketCloseTime = _marketCloseTime;//formatted_date="27.10.2012" time="17:00"
                                                     _Sports_AsianHandicap.MatchID = _bet247xSportMatch.ID.ToString();
 
@@ -1232,7 +1234,7 @@ namespace BetEx247.Plugin.DataManager
                                                     _Sports_AsianHandicap.LeagueID = (int)_bet247xSportMatch.LeagueID;
                                                     _Sports_AsianHandicap.CountryID = _bet247xSportMatch.CountryID;
 
-                                                   // _Sports_AsianHandicap.HomeHandicap = _bookerOddElementDetail.Attribute("name").Value;
+                                                    _Sports_AsianHandicap.Handicap = _bookerOddElementDetail.Attribute("name").Value;
                                                     _Sports_AsianHandicap.HomePrice = decimal.Parse(_totalOddElementDetail.Attribute("value").Value);
                                                     _bet247xSportMatch.Bet247xSportAsianHandicaps.Add(_Sports_AsianHandicap);
 

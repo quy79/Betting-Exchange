@@ -37,12 +37,13 @@ namespace BetEx247.Plugin.DataManager.XMLObjects.SportMatch
          {
              BetEx247.Data.Model.SportsMatch obj = new Data.Model.SportsMatch();
              obj.ID = ID;
+             obj.MatchName = MatchName;
              obj.AwayTeam = AwayTeam;
              obj.HomeTeam = HomeTeam;
              // obj.MatchStatusID = MatchStatusID;
              obj.LeagueID = this.LeagueID;
              obj.StartDateTime = StartDateTime;
-             //obj.MarketCloseTime = MarketCloseTime;
+             obj.MarketCloseTime = MarketCloseTime;
              obj.MatchStatus = MatchStatus;
              obj.UpdateTime = DateTime.Now;
              obj.SportID = SportID;

@@ -39,6 +39,16 @@ namespace BetEx247.Data.DAL.Sports
                  return mb;
              }
          }
+
+         public List<MyBet> MyBetsByMatch(SoccerMatch _soccerMatch)
+         {
+             using (var dba = new BetEXDataContainer())
+             {
+                 var mb = dba.MyBets.Where(w => w.MatchID == _soccerMatch.ID.ToString() & w.LeagueID == _soccerMatch.LeagueID & w.CountryID == _soccerMatch.CountryID & w.SportID == _soccerMatch.SportID).ToList();
+
+                 return mb;
+             }
+         }
          public List<MyBet> MyBetExposuresList(Guid ID, String match)
          {
              using (var dba = new BetEXDataContainer())

@@ -10,8 +10,13 @@ using BetEx247.Plugin.DataManager.XMLObjects.Sport;
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerCountry;
 
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerLeague;
-using BetEx247.Plugin.DataManager.XMLObjects;
 using BetEx247.Plugin.DataManager.XMLObjects.SoccerMatch;
+using BetEx247.Plugin.DataManager.XMLObjects.SportCountry;
+
+using BetEx247.Plugin.DataManager.XMLObjects.SportLeague;
+using BetEx247.Plugin.DataManager.XMLObjects.SportMatch;
+using BetEx247.Plugin.DataManager.XMLObjects;
+
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using BetEx247.Core;
@@ -39,8 +44,15 @@ namespace BetEx247.Plugin.DataManager
                         SportName = sp.SportName
                     };
                     // _bet247xSport = sp;
-                    if (_bet247xSport.ID == 1) //Soccer
+                    if (_bet247xSport.ID == 1)
+                    {//Soccer{
+
                         loadCountry(ref _bet247xSport);
+                    }
+                    else
+                    {
+                        loadSportsCountry(ref _bet247xSport);
+                    }
                     sports.Add(_bet247xSport);
                 }
                 SerializeObject(sports);
@@ -62,8 +74,14 @@ namespace BetEx247.Plugin.DataManager
                         SportName = sp.SportName
                     };
                     // _bet247xSport = sp;
-                    if (_bet247xSport.ID == 1) //Soccer
+                    if (_bet247xSport.ID == 1)
+                    {//Soccer
                         loadCountry(ref _bet247xSport);
+                    }
+                    else
+                    {
+                        loadSportsCountry(ref _bet247xSport);
+                    }
                     sports.Add(_bet247xSport);
                 }
                 return sports;
@@ -76,6 +94,7 @@ namespace BetEx247.Plugin.DataManager
             return sports;
            
         }
+        #region Soccer
         void loadCountry(ref  Bet247xSport _bet247xSport)
         {
             List<Bet247xSoccerCountry> _soccerCountries = new List<Bet247xSoccerCountry>();
@@ -205,8 +224,125 @@ namespace BetEx247.Plugin.DataManager
 
             _soccerMatch.Bet247xSoccerCorrectScores.AddRange(_objs);
         }
-     
-           #region Serialier
+        #endregion
+        #region Other Sport
+        void loadSportsCountry(ref  Bet247xSport _bet247xSport)
+        {
+            List<Bet247xSportCountry> _soccerCountries = new List<Bet247xSportCountry>();
+
+            SportCountryService _soccerCountrySvr = new SportCountryService();
+            List<SportCountry> _countries = _soccerCountrySvr.SportCountries();
+
+            foreach (SportCountry sp in _countries)
+            {
+                Bet247xSportCountry _obj = new DataManager.XMLObjects.SportCountry.Bet247xSportCountry()
+                {
+                    ID = sp.ID,
+                    Country = sp.Country,
+                    // Bet247xSoccerLeagues = sp.Bet247xSoccerLeagues,
+                   //Betclick_OddsFeed = sp.Betclick_OddsFeed,
+                    Goalserve_LivescoreFeed = sp.Goalserve_LivescoreFeed,
+                    Goalserve_OddsFeed = sp.Goalserve_OddsFeed,
+                    International = sp.International
+                };
+                //  _obj = (Bet247xSoccerCountry)sp;
+                loadSportsLeague(_bet247xSport, ref _obj);
+                _soccerCountries.Add(_obj);
+            }
+            _bet247xSport.Bet247xSportCountries.AddRange(_soccerCountries);
+        }
+
+        void loadSportsLeague(Bet247xSport _bet247xSport, ref  Bet247xSportCountry _country)
+        {
+            List<Bet247xSportLeague> _soccerLeagues = new List<Bet247xSportLeague>();
+
+            SportLeagueService _soccerLeagueSvr = new SportLeagueService();
+            List<SportLeague> _leagues = _soccerLeagueSvr.SportLeagues(_bet247xSport.ID, _country.ID);
+
+            foreach (SportLeague sp in _leagues)
+            {
+                Bet247xSportLeague _obj = new DataManager.XMLObjects.SportLeague.Bet247xSportLeague()
+                {
+                    ID = sp.ID,
+                    CountryID = sp.CountryID,
+                    SportID = sp.SportID,
+                    LeagueName = sp.LeagueName,
+                    //LeagueName_Goalserve = sp.LeagueName_Goalserve,
+                   // LeagueName_WebDisplay = sp.LeagueName_WebDisplay
+                };
+                //_obj = (Bet247xSoccerLeague)sp;
+                _soccerLeagues.Add(_obj);
+            }
+            _country.Bet247xSportLeagues.AddRange(_soccerLeagues);
+        }
+
+        void loadSportsMatch(ref Bet247xSportLeague _soccerLeague)
+        {
+            List<Bet247xSportMatch> _soccerMatches = new List<Bet247xSportMatch>();
+            String _matchStatus = ""; // not started
+            SportMatchService _soccerMatchSvr = new SportMatchService();
+            List<SportsMatch> _matches = _soccerMatchSvr.SportMatches(_soccerLeague.SportID, _soccerLeague.CountryID, _soccerLeague.ID, _matchStatus);
+
+            foreach (SportsMatch sp in _matches)
+            {
+                Bet247xSportMatch _obj = new DataManager.XMLObjects.SportMatch.Bet247xSportMatch()
+                {
+                    ID = sp.ID,
+                    AwayTeam = sp.AwayTeam,
+                    HomeTeam = sp.HomeTeam,
+                    MatchStatus = sp.MatchStatus,
+                    LeagueID = sp.LeagueID,
+                    SportID = sp.SportID,
+                    CountryID = sp.CountryID,
+                    StartDateTime = sp.StartDateTime
+
+                };
+
+               
+                loadSportsTotalOUBet(ref _obj);
+                loadSportsHandicapBet(ref _obj);
+                loadSportsMatchOddBet(ref _obj);
+               
+                _soccerMatches.Add(_obj);
+            }
+
+
+
+
+
+            //Over/Under 1st Half
+            //  SoccerTotalGoalsOUService _soccerTotalOUSvr = new SoccerTotalGoalsOUService();
+            //  _soccerTotalOUSvr.Insert(_soccer_TotalGoalsOU);
+
+        }
+      
+        void loadSportsTotalOUBet(ref Bet247xSportMatch _soccerMatch)
+        {
+            //Over/Under
+            SportTotalGoalsOUService _soccerTotalOUSvr = new SportTotalGoalsOUService();
+            List<Sports_TotalOU> _objs = _soccerTotalOUSvr.SportTotalGoalsOUs(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+
+            _soccerMatch.Bet247xSportTotalGoalsOUs.AddRange(_objs);
+        }
+        void loadSportsHandicapBet(ref Bet247xSportMatch _soccerMatch)
+        {
+            //Handicap
+            SportAsianHandicapService _soccerHandicapSvr = new SportAsianHandicapService();
+            List<Sports_AsianHandicap> _objs = _soccerHandicapSvr.SportsAsianHandicaps(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+
+            _soccerMatch.Bet247xSportAsianHandicaps.AddRange(_objs);
+        }
+        void loadSportsMatchOddBet(ref Bet247xSportMatch _sportMatch)
+        {
+            //3Way Result 1st Half
+            SportMatchOddsService _soccerMatchOddSvr = new SportMatchOddsService();
+            List<Sports_MoneyLine> _objs = _soccerMatchOddSvr.SportMatchOddses(_sportMatch.SportID, _sportMatch.CountryID, _sportMatch.LeagueID, _sportMatch.ID);
+
+            _sportMatch.Bet247xSportMatchOdds.AddRange(_objs);
+        }
+       
+        #endregion
+        #region Serialier
         /// <summary>
         /// 
         /// </summary>

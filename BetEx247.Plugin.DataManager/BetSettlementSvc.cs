@@ -24,6 +24,18 @@ namespace BetEx247.Plugin.DataManager
                 if (dateCompare > 0)
                 {
 
+                    	//UPDATE MyBets SET BetStatus="Lapsed" WHERE MyBets.MatchID = SoccerMatch._MatchID												
+							//AND MyBets.BetStatus = "UnMatched";			
+			        MyBetService _mbSvr = new MyBetService();
+
+                    List<MyBet> betMatch = _mbSvr.MyBetsByMatch(_soccerMatch);
+
+                    foreach (MyBet mb in betMatch)
+                    {
+                        mb.BetStatus = "UnMatched";
+                        _mbSvr.Update(mb);
+                    }
+
                     // cap nhat BetStatus cua nhung UnMatched Bets →　"Lapsed"	
 
                     _soccerMatch.Settled = true;
