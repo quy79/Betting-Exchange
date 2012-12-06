@@ -50,7 +50,7 @@ namespace BetEx247.Web.Controllers
             var returnData = test.Where(w => w.sid == id);
             //TimeSpan ts = new TimeSpan(0, 30, 0);
             //CommonHelper.SetCookie("testet", test.ToString(),ts);
-            return Json(test, JsonRequestBehavior.AllowGet);
+            return Json(returnData, JsonRequestBehavior.AllowGet);
         }
 
 

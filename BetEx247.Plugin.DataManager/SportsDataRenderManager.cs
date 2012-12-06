@@ -140,6 +140,7 @@ namespace BetEx247.Plugin.DataManager
                      LeagueName_WebDisplay = sp.LeagueName_WebDisplay
                 };
                 //_obj = (Bet247xSoccerLeague)sp;
+                loadMatch(ref _obj);
                 _soccerLeagues.Add(_obj);
             }
             _country.Bet247xSoccerLeagues.AddRange(_soccerLeagues);
@@ -271,6 +272,7 @@ namespace BetEx247.Plugin.DataManager
                    // LeagueName_WebDisplay = sp.LeagueName_WebDisplay
                 };
                 //_obj = (Bet247xSoccerLeague)sp;
+                loadSportsMatch(ref _obj);
                 _soccerLeagues.Add(_obj);
             }
             _country.Bet247xSportLeagues.AddRange(_soccerLeagues);
