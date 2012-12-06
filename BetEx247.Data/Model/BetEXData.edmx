@@ -4235,8 +4235,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
       <Diagram Name="BetEXData">
-        <EntityTypeShape EntityType="BettingExchangeModel.BetStatu" Width="1.5" PointX="0.75" PointY="0.75" Height="1.4033821614583246" />
-        <EntityTypeShape EntityType="BettingExchangeModel.BookMaker" Width="1.5" PointX="2.75" PointY="0.75" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.BetStatu" Width="1.5" PointX="1.25" PointY="0.875" Height="1.4033821614583246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.BookMaker" Width="1.5" PointX="3.625" PointY="1.875" Height="1.4033821614583246" />
         <EntityTypeShape EntityType="BettingExchangeModel.CardsInfo" Width="1.5" PointX="5.75" PointY="0.75" Height="2.5571907552083246" />
         <EntityTypeShape EntityType="BettingExchangeModel.Country" Width="1.5" PointX="5.75" PointY="4.75" Height="1.4033821614583246" />
         <EntityTypeShape EntityType="BettingExchangeModel.DataControlStatu" Width="1.5" PointX="7.75" PointY="0.75" Height="1.4033821614583246" />
