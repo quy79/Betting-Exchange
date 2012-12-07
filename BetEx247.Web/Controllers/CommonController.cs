@@ -18,12 +18,7 @@ namespace BetEx247.Web.Controllers
     {
         //
         // GET: /Common/
-        SportsDataRenderManager renderMgr;
-        private static List<Bet247xSport> data;
-        public CommonController()
-        {
-            data = getData();
-        }
+        SportsDataRenderManager renderMgr;         
 
         public ActionResult Index()
         {
@@ -51,16 +46,13 @@ namespace BetEx247.Web.Controllers
             return sportList;
         }
 
+         [OutputCache(Duration = 1800, Location = OutputCacheLocation.Client, VaryByParam = "none")]
         public JsonResult getAllSport(int? id)
-        {
-            var dba = new BetEXDataContainer();
-            //
-            renderMgr = new SportsDataRenderManager();
-            List<Bet247xSport> sportList = renderMgr.refreshData();
-
-
+        {       
             if (id == 1)
             {
+                renderMgr = new SportsDataRenderManager();
+                List<Bet247xSport> sportList = renderMgr.refreshData();
                 var soccer = sportList.SelectMany(a => a.Bet247xSoccerCountries.SelectMany(b =>
                 b.Bet247xSoccerLeagues.Select(c =>
                  new { sid = a.ID, si = a.Is_Soccer == true ? 1 : 0, sn = a.SportName, sc = a.Bet247xSoccerCountries.Count, cid = c.CountryID, cn = b.Country, ci = b.International == true ? 1 : 0, cl = b.Bet247xSoccerLeagues.Count, lId = c.ID, ln = c.LeagueName_WebDisplay }))).ToList();
@@ -69,17 +61,20 @@ namespace BetEx247.Web.Controllers
                 //CommonHelper.SetCookie("testet", test.ToString(),ts);
                 return Json(returnData, JsonRequestBehavior.AllowGet);
             }
-            else
-            {
-                var other = sportList.SelectMany(a => a.Bet247xSportCountries.SelectMany(b =>
-                b.Bet247xSportLeagues.Select(c =>
-                   new { sid = a.ID, si = a.Is_Soccer == true ? 1 : 0, sn = a.SportName, sc = a.Bet247xSoccerCountries.Count, cid = c.CountryID, cn = b.Country, ci = b.International == true ? 1 : 0, cl = b.Bet247xSportLeagues.Count, lId = c.ID, ln = c.LeagueName }))).ToList();
+            return Json(null, JsonRequestBehavior.AllowGet);
+            //else
+            //{
+            //    renderMgr = new SportsDataRenderManager();
+            //    List<Bet247xSport> sportList = renderMgr.refreshData();
+            //    var other = sportList.SelectMany(a => a.Bet247xSportCountries.SelectMany(b =>
+            //    b.Bet247xSportLeagues.Select(c =>
+            //       new { sid = a.ID, si = a.Is_Soccer == true ? 1 : 0, sn = a.SportName, sc = a.Bet247xSoccerCountries.Count, cid = c.CountryID, cn = b.Country, ci = b.International == true ? 1 : 0, cl = b.Bet247xSportLeagues.Count, lId = c.ID, ln = c.LeagueName }))).ToList();
 
-                var returnDataother = other.Where(w => w.sid == id);
-                //TimeSpan ts = new TimeSpan(0, 30, 0);
-                //CommonHelper.SetCookie("testet", test.ToString(),ts);
-                return Json(returnDataother, JsonRequestBehavior.AllowGet);
-            }
+            //    var returnDataother = other.Where(w => w.sid == id);
+            //    //TimeSpan ts = new TimeSpan(0, 30, 0);
+            //    //CommonHelper.SetCookie("testet", test.ToString(),ts);
+            //    return Json(returnDataother, JsonRequestBehavior.AllowGet);
+            //}
         }
 
 

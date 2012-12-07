@@ -375,44 +375,46 @@ betex247 = {
         var urlcountry = '';
         var urlleague = '';
         var countrycount = 0;
-        for (var i = 0; i < obj.length; i++) {
-            countrycount = parseInt(obj[i].sc);
-            //add sport name to list menu
-            //temp for data
-            //sb.append(this.addStringSport(obj[i].sn, 187));
+        if (obj != null) {
+            for (var i = 0; i < obj.length; i++) {
+                countrycount = parseInt(obj[i].sc);
+                //add sport name to list menu
+                //temp for data
+                //sb.append(this.addStringSport(obj[i].sn, 187));
 
-            sb.append(betex247.addStringSport(name, obj.length));
-            //add start div league
-            sb.append(this.addStringStartLeague());
+                sb.append(betex247.addStringSport(name, obj.length));
+                //add start div league
+                sb.append(this.addStringStartLeague());
 
-            for (var k = 0; k < countrycount; k++) {
-                if (i < obj.length) {
-                    var sCountry = obj[i].cn;
-                    var contentLeague = parseInt(obj[i].cl);
+                for (var k = 0; k < countrycount; k++) {
+                    if (i < obj.length) {
+                        var sCountry = obj[i].cn;
+                        var contentLeague = parseInt(obj[i].cl);
 
-                    if (sCountry.length > 0 && contentLeague > 0) {
-                        urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid + "/" + obj[i].sid;
-                        //add countryleague
-                        sb.append(this.addStringLeague(urlcountry, sCountry));
-                        //start sub league
-                        sb.append(this.addStringStartSubLeague());
-                        for (var j = 0; j < contentLeague; j++) {
-                            if (obj[i].ln != null) {
-                                urlleague = betex247.Url + 'league/byleague/' + obj[i].lId + "/" + obj[i].cid + "/" + obj[i].sid;
-                                //league
-                                sb.append(this.addStringSubLeague(urlleague, obj[i].ln));
-                                i++;
+                        if (sCountry.length > 0 && contentLeague > 0) {
+                            urlcountry = betex247.Url + 'league/bycountry/' + obj[i].cid + "/" + obj[i].sid;
+                            //add countryleague
+                            sb.append(this.addStringLeague(urlcountry, sCountry));
+                            //start sub league
+                            sb.append(this.addStringStartSubLeague());
+                            for (var j = 0; j < contentLeague; j++) {
+                                if (obj[i].ln != null) {
+                                    urlleague = betex247.Url + 'league/byleague/' + obj[i].lId + "/" + obj[i].cid + "/" + obj[i].sid;
+                                    //league
+                                    sb.append(this.addStringSubLeague(urlleague, obj[i].ln));
+                                    i++;
+                                }
                             }
+                            //i--;
+                            //end subleague
+                            sb.append(this.addStringEndSubLeague());
+                            sb.append("</li>");
                         }
-                        //i--;
-                        //end subleague
-                        sb.append(this.addStringEndSubLeague());
-                        sb.append("</li>");
                     }
                 }
+                //add end div league
+                sb.append(this.addStringEndLeague());
             }
-            //add end div league
-            sb.append(this.addStringEndLeague());
         }
         return sb.toString();
     },

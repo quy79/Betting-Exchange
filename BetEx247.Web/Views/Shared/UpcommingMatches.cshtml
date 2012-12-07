@@ -3,7 +3,7 @@
 @using BetEx247.Core.Common.Utils;
 @using System.Data;
 @{
-    List<PSV_MATCHES> list = ViewBag.ListSoccerComming;
+   
     List<Sport> sportList = ViewBag.AllSport != null ? ViewBag.AllSport : null;
     DateTime DateNow = DateTime.Now;
     SoccerLeague league = ViewBag.LeagueDetail;
@@ -40,6 +40,7 @@
                 foreach (Sport itemsport in sportList)
                 {
                     //get all data by sport id
+                    List<PSV_MATCHES> list = ViewBag.ListSoccerComming;
                     List<PSV_MATCHES> tempSport = list.Where(w => w.SportID == itemsport.ID).ToList();
                     if (tempSport != null && tempSport.Count > 0)
                     {
