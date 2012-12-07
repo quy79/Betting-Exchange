@@ -34,11 +34,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-       public List<Soccer_AsianHandicap> SoccerAsianHandicaps(long sportID, long countryID, long LeagueID, Guid matchID)
+       public List<Soccer_AsianHandicap> SoccerAsianHandicaps(long sportID, long countryID, long LeagueID, string matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Soccer_AsianHandicap.Where(w => w.ID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
+                var list = dba.Soccer_AsianHandicap.Where(w => w.MatchID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
 
                 return list;
             }

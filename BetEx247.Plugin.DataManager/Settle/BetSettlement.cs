@@ -71,7 +71,7 @@ namespace BetEx247.Plugin.DataManager.Settle
 
                 SoccerMatchOddsService _soccerMatchOddsSvr = new SoccerMatchOddsService();
                 Soccer_MatchOdds _soccerMatchOdds = new Soccer_MatchOdds();
-                List<Soccer_MatchOdds> _SoccerMatchOddsesList = _soccerMatchOddsSvr.SoccerMatchOddses((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, Guid.Parse(BackBetObj.MatchID));
+                List<Soccer_MatchOdds> _SoccerMatchOddsesList = _soccerMatchOddsSvr.SoccerMatchOddses((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, BackBetObj.MatchID);
                 _soccerMatchOdds = _SoccerMatchOddsesList[0];
 
 
@@ -172,7 +172,7 @@ namespace BetEx247.Plugin.DataManager.Settle
             else if (BackBetObj.OddsTable.Equals("[dbo].[Soccer_TotalGoalsOU]"))
             {
                 SoccerTotalGoalsOUService _soccerTotalGoalOUSvr = new SoccerTotalGoalsOUService();
-                List<Soccer_TotalGoalsOU> _soccerTotalGoalsOUs = _soccerTotalGoalOUSvr.SoccerTotalGoalsOUs((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, Guid.Parse(BackBetObj.MatchID));
+                List<Soccer_TotalGoalsOU> _soccerTotalGoalsOUs = _soccerTotalGoalOUSvr.SoccerTotalGoalsOUs((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, BackBetObj.MatchID);
 
                 Soccer_TotalGoalsOU _soccerTotalGoalsOU = _soccerTotalGoalsOUs[0];
 
@@ -278,7 +278,7 @@ namespace BetEx247.Plugin.DataManager.Settle
                     SoccerAsianHandicapService _soccerHandicapSvr = new SoccerAsianHandicapService();
 
 
-                    List<Soccer_AsianHandicap> _soccerAsianHandicaps = _soccerHandicapSvr.SoccerAsianHandicaps((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, Guid.Parse(BackBetObj.MatchID));
+                    List<Soccer_AsianHandicap> _soccerAsianHandicaps = _soccerHandicapSvr.SoccerAsianHandicaps((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, BackBetObj.MatchID);
 
                     Soccer_AsianHandicap _soccerAsianHandicap = _soccerAsianHandicaps[0];
 
@@ -491,7 +491,7 @@ namespace BetEx247.Plugin.DataManager.Settle
                     SoccerDrawNoBetService _soccerDrawpSvr = new SoccerDrawNoBetService();
 
 
-                    List<Soccer_DrawNoBet> _soccerAsianHandicaps = _soccerDrawpSvr.SoccerDrawNoBets((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, Guid.Parse(BackBetObj.MatchID));
+                    List<Soccer_DrawNoBet> _soccerAsianHandicaps = _soccerDrawpSvr.SoccerDrawNoBets((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, BackBetObj.MatchID);
 
                     Soccer_DrawNoBet _soccerDrawNoBet = _soccerAsianHandicaps[0];
 

@@ -199,6 +199,24 @@ namespace BetEx247.Services
             String urlBetClick = urlBetClick = _bet247xSoccerCountry.Betclick_OddsFeed;
             xmlBetClickDownloadManager.DownloadXML(urlBetClick);
         }
+
+        protected void ParseThread(object country)
+        {
+           lock(this){
+            Bet247xSoccerCountry _bet247xSoccerCountry = (Bet247xSoccerCountry)country;
+            mgr.SoccerGoalServeParser(ref _bet247xSoccerCountry);
+        }
+
+        }
+
+        protected void ParseSportThread(object country)
+        {
+            lock (this)
+            {
+                Bet247xSportCountry _bet247xSoccerCountry = (Bet247xSportCountry)country;
+                mgr.SoccerGoalServeOtherSportParser(ref _bet247xSoccerCountry);
+            }
+        }
         protected void checkUpdateOddsThread()
         {
             if (mgr.updatedMastertable)
@@ -209,7 +227,8 @@ namespace BetEx247.Services
                 {
                     Bet247xSoccerCountry _bet247xSoccerCountry = (Bet247xSoccerCountry)mgr.masterTableManager.sports[0].Bet247xSoccerCountries[i];
 
-
+                   // Thread Thread = new Thread(ParseThread);
+                    //Thread.Start(_bet247xSoccerCountry);
                     mgr.SoccerGoalServeParser(ref _bet247xSoccerCountry);
                     // urlBetClick = _bet247xSoccerCountry.Betclick_OddsFeed;
                    // DateTime lastestTime = DateTime.Now;
@@ -223,7 +242,8 @@ namespace BetEx247.Services
                     {
                         Bet247xSportCountry _bet247xSoccerCountry = (Bet247xSportCountry)mgr.masterTableManager.sports[k].Bet247xSportCountries[i];
 
-
+                       // Thread Thread = new Thread(ParseSportThread);
+                       // Thread.Start(_bet247xSoccerCountry);
                         mgr.SoccerGoalServeOtherSportParser(ref _bet247xSoccerCountry);
                         // urlBetClick = _bet247xSoccerCountry.Betclick_OddsFeed;
                         // DateTime lastestTime = DateTime.Now;

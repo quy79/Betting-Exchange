@@ -30,11 +30,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public List<Soccer_TotalGoalsOU> SoccerTotalGoalsOUs(long sportID, long countryID, long LeagueID, Guid matchID)
+        public List<Soccer_TotalGoalsOU> SoccerTotalGoalsOUs(long sportID, long countryID, long LeagueID, string matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Soccer_TotalGoalsOU.Where(w => w.ID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
+                var list = dba.Soccer_TotalGoalsOU.Where(w => w.MatchID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
 
                 return list;
             }

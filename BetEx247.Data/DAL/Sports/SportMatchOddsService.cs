@@ -30,11 +30,11 @@ namespace BetEx247.Data.DAL.Sports
         /// </summary>
         /// <param name="matchID"></param>
         /// <returns></returns>
-        public List<Sports_MoneyLine> SportMatchOddses(long sportID, long countryID, long LeagueID, Guid matchID)
+        public List<Sports_MoneyLine> SportMatchOddses(long sportID, long countryID, long LeagueID, string matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Sports_MoneyLine.Where(w => w.ID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
+                var list = dba.Sports_MoneyLine.Where(w => w.MatchID == matchID & w.SportID == sportID & w.CountryID == countryID & w.LeagueID == LeagueID).ToList();
 
                 return list;
             }

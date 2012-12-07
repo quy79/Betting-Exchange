@@ -25,11 +25,11 @@ namespace BetEx247.Data.DAL.Sports
                 return list;
             }
         }
-        public List<Soccer_DrawNoBet> SoccerDrawNoBets(long sportID,long countryID,long LeagueID,Guid matchID)
+        public List<Soccer_DrawNoBet> SoccerDrawNoBets(long sportID,long countryID,long LeagueID,String matchID)
         {
             using (var dba = new BetEXDataContainer())
             {
-                var list = dba.Soccer_DrawNoBet.Where(w => w.ID == matchID & w.SportID==sportID &w.CountryID==countryID&w.LeagueID==LeagueID).ToList();
+                var list = dba.Soccer_DrawNoBet.Where(w => w.MatchID == matchID & w.SportID==sportID &w.CountryID==countryID&w.LeagueID==LeagueID).ToList();
 
                 return list;
             }
