@@ -51,7 +51,7 @@
                             List<PSV_MATCHES> temp = tempSport.Where(w => w.StartDateTime.Value.Date == DateNow.Date).ToList();
                             if (temp.Count > 0)
                             {
-                                var tempLeague = temp.Select(w => new { w.LeagueID, w.LeagueName }).Distinct();//.Where(w => w.StartDate.Date == DateNow.Date).ToList();
+                                var tempLeague = temp.Select(w => new { w.LeagueID, w.LeagueName,w.SportID,w.CountryID }).Distinct();//.Where(w => w.StartDate.Date == DateNow.Date).ToList();
                                 foreach (var itemleague in tempLeague)
                                 {
             @Html.Raw("<span style=\"font-size: 1.1em; font-weight: bold; color: yellow; display: inline;float: left;\">" + itemleague.LeagueName + "</span><br />")
@@ -59,7 +59,7 @@
                     
                                     foreach (PSV_MATCHES item in temp)
                                     {
-                                        if (item.LeagueID == itemleague.LeagueID)
+                                        if (item.LeagueID == itemleague.LeagueID && item.CountryID==itemleague.CountryID && item.SportID==itemleague.SportID)
                                         {         
             <div class="betting_row clearfix">
                 <div style="float: left; padding: 5px 5px 5px 0px;">
