@@ -104,6 +104,22 @@ betex247 = {
         });
     },
 
+    getmatch: function (mid, scrollTop) {
+        //surl = betex247.Url + "match/allmarket/" + mid;
+        $.ajax({
+            type: "GET",
+            url: betex247.Url + "match/allmarket/" + mid, // {"content"="Hello!"}     
+            cache: false,
+            success: function (data) {
+                $("#middle_column").html(data);
+                if (scrollTop == 1) {
+                    $('html,body').animate({ scrollTop: $('body').offset().top - 500 }, 1000);
+                }
+            }
+        });
+    },
+
+
     stripJsonToString: function (json) {
         return JSON.stringify(json);
     },
@@ -399,7 +415,7 @@ betex247 = {
                             sb.append(this.addStringStartSubLeague());
                             for (var j = 0; j < contentLeague; j++) {
                                 if (obj[i].ln != null) {
-                                    urlleague = betex247.Url + 'league/byleague/' + obj[i].lId + "/" + obj[i].cid + "/" + obj[i].sid;
+                                    urlleague = betex247.Url + 'league/byleague/' + obj[i].lid + "/" + obj[i].cid + "/" + obj[i].sid;
                                     //league
                                     sb.append(this.addStringSubLeague(urlleague, obj[i].ln));
                                     i++;

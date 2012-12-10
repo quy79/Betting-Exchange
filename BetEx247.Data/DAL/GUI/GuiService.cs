@@ -161,6 +161,30 @@ namespace BetEx247.Data.DAL
                 return dba.SoccerLeagues.Where(w => w.ID == leagueId && w.CountryID == countryId && w.SportID == sportId).SingleOrDefault();
             }
         }
+
+        public List<Soccer_DrawNoBet> getSoccerDrawNoBet(Guid id)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.Soccer_DrawNoBet.Where(w => w.ID == id).ToList();
+            }
+        }
+
+        public List<Soccer_MatchOdds> getSoccerMatchOdd(Guid id)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.Soccer_MatchOdds.Where(w => w.ID == id).ToList();
+            }
+        }
+
+        public SoccerMatch getSoccerMatch(Guid id)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                return dba.SoccerMatches.Where(w => w.ID == id).SingleOrDefault();
+            }
+        }
         #endregion
     }
 }

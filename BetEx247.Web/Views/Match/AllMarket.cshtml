@@ -2,738 +2,117 @@
 @{
     ViewBag.Title = "Match Markets";
     Layout = null;
+    SoccerMatch match = ViewBag.Match;    
+}
+<style>
+    #tblcommon
+    {
+        width: 100%;
+        border-collapse: collapse !important;
+    }
+    #tblcommon td, #tblcommon th
+    {
+        font-size: 1.2em !important;
+        border: 1px solid #000 !important;
+        padding: 3px 7px 2px 7px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    #tblcommon th
+    {
+        font-size: 1.4em !important;
+        text-align: left !important;
+        padding-top: 5px !important;
+        padding-bottom: 4px !important;
+        background-color: #CCC !important;
+        color: #fff;
+    }
+    #tblcommon tr.alt td
+    {
+        color: #000 !important;
+        background-color: #EAF2D3 !important;
+        padding: 0px 0px;
+    }
     
-} 
-
-        
-               		<div id="contentbox" class="clearfix">
-                    	<style>
-                    	    #tblcommon
-{
-width:100%;
-border-collapse:collapse !important;
-}
-#tblcommon td, #tblcommon th 
-{
-font-size:1.2em !important;
-border:1px solid #000 !important;
-padding:3px 7px 2px 7px;
-text-align: center;
-text-transform: uppercase;
-font-weight: bold;
-}
-#tblcommon th 
-{
-font-size:1.4em !important;
-text-align:left !important;
-padding-top:5px !important;
-padding-bottom:4px !important;
-background-color:#CCC !important;
-color:#fff;
-}
-#tblcommon tr.alt td 
-{
-color:#000 !important;
-background-color:#EAF2D3 !important;
-padding: 0px 0px;
-}
-
-#tblcommon-sub
-{
-width:100%;
-background-color:#FF6 !important;	
-border-collapse:collapse !important;
-
-}
-#tblcommon-sub tr td 
-{
-font-size: 0.9em !important;
-color:#000 !important;
-border-top:0px !important;
-border-right: 0px !important;
-border-bottom:1px solid #000 !important;
-border-left:0px !important;
-
-
-height: 22px;
-
-}
-
-                        </style>
-
-                        
-                        <h1 class="sports_header">Premier League</h1>
-                        <div class="alt_content bdr_btm">
-				            <div class="event_wrap">   
-                            	<div class="soccer-heading">
-                                	
-	                                <div class="headerExtra couponTitle">
-                                    Soccer<br/>
-                              		<span class="couponDate">England</span>      
-                                    </div>
-                                    
-                                </div>   
-                                                 	
-                            	
-                                <br/>
-                                <div class="match-bigtitle">
-                                    <table width="100%">
-                                        <tr>
-                                            <td width="45%">
-                                                <span style="font-size: 1.2em; font-weight:bold; color: #CF0; display: inline; float:right;">Manchester Utd.</span>
-                                            </td>
-                                            <td width="10%" style="text-align: center; color: #fff; font-size: 1.0em; height: 22px;">:</td>
-                                            <td width="45%">
-                                                <span style="font-size: 1.2em; font-weight:bold; color: #CF0; display: inline; float:left;">Arsenal</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td width="45%">
-                                                <span style="font-size: 1.2em; font-weight:bold; color: #fff; display: inline; float:right;">0</span>
-                                            </td>
-                                            <td width="10%" style="text-align: center; color: #CF0; font-size: 1.0em; height: 22px;"></td>
-                                            <td width="45%">
-                                                <span style="font-size: 1.2em; font-weight:bold; color: #fff; display: inline; float:left;">1&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 0.8em; font-weight: normal">( 78' )</span></span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                           
-                                            <td colspan="3" width="100%" style="text-align: left; color: #fff; font-size: 0.9em; height: 22px; padding-top: 4px;"><b>Match start time :</b>  2012-12-11 18:30 (GMT)</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                           
-                                            <td colspan="3" width="100%" style="text-align: left; color: #fff; font-size: 0.9em; height: 22px; padding-top: 4px;"><b>Market suspended time :</b>  2012-12-11 18:30 (GMT)</td>
-                                            
-                                        </tr>
-                                    </table>
-                                      
-                                        
-                                </div>
-                                
-                               
-                                <div style="position:relative; width: 508px; height: 28px; background: transparent url('@Url.Content("~/Content/Images/themes/bg-title.gif")') no-repeat; font-size:15px;
-			font-weight:bold; color:#fff; text-transform:uppercase;  border-bottom:1px solid #000;text-shadow: 1px 1px 1px #000;">
-                                    <div style="position: absolute; margin-top: 8px; padding-left: 15px; text-transform:uppercase; color: yellow;">Match odds</div>
-                                    <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px ; color: #fff">Total matched $5,784 / $12,783</div>
-                                </div>
-                                
-                                <table id="tblcommon">
-                                   
-                                    <tr class="alt">
-                                        <td style="width: 180px; padding-top: 5px !important; padding-bottom: 5px !important">arsenal</td>
-                                        <td style="width: 146px; padding-top: 5px !important; padding-bottom: 5px !important">draw</td>
-                                        <td style="width: 180px; padding-top: 5px !important; padding-bottom: 5px !important">Manchester Utd </td>
-                                    </tr>
-                                    <tr class="alt">
-                                        <td style="width: 180px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>                                                
-                                            </table>
-                                        
-                                        </td>
-                                        <td style="width: 146px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%"  style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width: 180px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important;border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                    <tr class="alt">
-                                        <td style="width: 180px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%" style="border-bottom: 0px !important">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; border-bottom: 0px !important">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                
-                                            </table>
-                                        
-                                        </td>
-                                        <td style="width: 146px;">
-                                            <table id="tblcommon-sub">
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        <td style="width: 180px;">
-                                            <table id="tblcommon-sub">
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    
-                                </table>  
-                                   
-                                <br/>   
-                                                                 
-                              	<div class="oddstype-heading">
-                                    <div style="position: absolute; margin-top: 8px; padding-left: 15px; text-transform:uppercase; color: yellow;">DRAW NO BET</div>
-                                    <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px ; color: #fff">Total matched $5,784 / $12,783</div>
-                                </div>
-                                
-                                
-                                <table id="tblcommon">
-                                   
-                                    <tr class="alt">
-                                        <td style="width: 253px;padding-top: 5px !important; padding-bottom: 5px !important">arsenal</td>
-                                        <td style="width: 253px;padding-top: 5px !important; padding-bottom: 5px !important">Manchester Utd </td>
-                                    </tr>
-                                    <tr class="alt">
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>                                                
-                                            </table>
-                                        
-                                        </td>
-                                        
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important;border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                    <tr class="alt">
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                
-                                                
-                                            </table>
-                                        
-                                        </td>
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        
-                                    </tr>
-                                    
-                                </table>   
-                                
-                                <br/>
-                                                                                                 
-                              	<div class="oddstype-heading">
-                                    <div style="position: absolute; margin-top: 8px; padding-left: 15px; text-transform:uppercase; color: yellow;">ASIAN HANDICAP</div>
-                                    <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px ; color: #fff">Total matched $5,784 / $12,783</div>
-                                </div>
-                                
-                                
-                                <table id="tblcommon">
-                                   
-                                    <tr class="alt">
-                                        <td style="width: 253px; padding-top: 5px !important; padding-bottom: 5px !important">arsenal +0.5</td>
-                                        <td style="width: 253px; padding-top: 5px !important; padding-bottom: 5px !important">Manchester Utd -0.5</td>
-                                    </tr>
-                                    <tr class="alt">
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>                                                
-                                            </table>
-                                        
-                                        </td>
-                                        
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important;border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                    <tr class="alt">
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                
-                                            </table>
-                                        
-                                        </td>
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        
-                                    </tr>
-                                    
-                                    <tr class="alt">
-                                        <td style="width: 253px;padding-top: 5px !important; padding-bottom: 5px !important">arsenal +0</td>
-                                        <td style="width: 253px;padding-top: 5px !important; padding-bottom: 5px !important">Manchester Utd -0</td>
-                                    </tr>
-                                    <tr class="alt">
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>                                                
-                                            </table>
-                                        
-                                        </td>
-                                        
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%" style="border: none !important">
-                                                        <div style="position: relative; display:block; width: 100%; height: 22px; margin-left: 0px; left: 0px;  background-color:#CCC;  text-align: center;  background-color: #09F;border-right: 1px solid #000; ">
-                                                        Back
-                                                        </div>
-                                                    </td>
-                                                    <td width="50%" style="background-color: #FF6 !important;border: none !important">
-                                                        LAY
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                    </tr>
-                                    
-                                    
-                                    <tr class="alt">
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                
-                                            </table>
-                                        
-                                        </td>
-                                        <td style="width: 253px;">
-                                            <table id="tblcommon-sub">
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                                 <tr>
-                                                    <td width="50%">
-                                                    
-                                                        <div style="position: relative; display:block; width: 100%; height: auto; margin-left: 0px; left: 0px;  text-align: center;  background-color: #C5DBEF;border-right: 1px solid #000;">
-                                                    	<a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                        </div>
-                                                         
-                                                    </td>
-                                                    <td width="50%" style="background-color: #f8f2d6 !important; ">
-                                                        <a href="" class="price-cell-back">	    
-                                                        1.83
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </td>
-                                        
-                                    </tr>
-                                    
-                                </table>  
-                                   
-									
-                                
-                                
-                              
-                              
-                            </div>
-                        </div>
-                        
-                        
-                        
-     					
-                       
-					</div>
+    #tblcommon-sub
+    {
+        width: 100%;
+        background-color: #FF6 !important;
+        border-collapse: collapse !important;
+    }
+    #tblcommon-sub tr td
+    {
+        font-size: 0.9em !important;
+        color: #000 !important;
+        border-top: 0px !important;
+        border-right: 0px !important;
+        border-bottom: 1px solid #000 !important;
+        border-left: 0px !important;
+        height: 22px;
+    }
+</style>
+<div id="contentbox" class="clearfix">
+    <h1 class="sports_header">
+        Premier League Coupons</h1>
+    <div class="alt_content bdr_btm">
+        <div class="event_wrap">
+            <div class="soccer-heading">
+                <div class="headerExtra couponTitle">
+                    Soccer<br>
+                    <span class="couponDate">Colombia</span>
+                </div>
+            </div>
+            <p>
+                <div class="match-bigtitle">
+                    <table width="100%">
+                        <tr>
+                            <td width="45%">
+                                <span style="font-size: 1.2em; font-weight: bold; color: #CF0; display: inline; float: right;">
+                                    @match.HomeTeam</span>
+                            </td>
+                            <td width="10%" style="text-align: center; color: #fff; font-size: 1.0em; height: 22px;">
+                                :
+                            </td>
+                            <td width="45%">
+                                <span style="font-size: 1.2em; font-weight: bold; color: #CF0; display: inline; float: left;">
+                                    @match.AwayTeam</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="45%">
+                                <span style="font-size: 1.2em; font-weight: bold; color: #fff; display: inline; float: right;">
+                                    0</span>
+                            </td>
+                            <td width="10%" style="text-align: center; color: #CF0; font-size: 1.0em; height: 22px;">
+                            </td>
+                            <td width="45%">
+                                <span style="font-size: 1.2em; font-weight: bold; color: #fff; display: inline; float: left;">
+                                    0&nbsp;&nbsp;&nbsp;&nbsp;
+                                    @*<span style="font-size: 0.8em; font-weight: normal">( 78' )</span>*@
+                                    </span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" width="100%" style="text-align: left; color: #fff; font-size: 0.9em;
+                                height: 22px; padding-top: 4px;">
+                                <b>Match start time :</b> @match.StartDateTime.Value.ToString("yyyy-MM-dd hh:mm") (GMT)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" width="100%" style="text-align: left; color: #fff; font-size: 0.9em;
+                                height: 22px; padding-top: 4px;">
+                                <b>Market suspended time :</b> @match.MarketCloseTime.Value.ToString("yyyy-MM-dd hh:mm") (GMT)
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <!--match odds-->
+                @Html.Partial("MATCHODDS")
+                <br />
+                <!--home/away-->
+                @Html.Partial("DRAWNOBET")
+               
+        </div>
+    </div>
+</div>

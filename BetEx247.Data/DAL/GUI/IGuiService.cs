@@ -41,6 +41,12 @@ namespace BetEx247.Data.DAL
 
         SportCountry GetCountryByCountry(int countryId,int sportId);
 
+        List<Soccer_DrawNoBet> getSoccerDrawNoBet(Guid id);
+
+        List<Soccer_MatchOdds> getSoccerMatchOdd(Guid id);
+
+        SoccerMatch getSoccerMatch(Guid id);
+
         List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId, int? sportId);
 
         /// <summary>

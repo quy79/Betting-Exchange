@@ -34,18 +34,19 @@ namespace BetEx247.Web.Controllers
             return View();
         }
 
-        public ActionResult AllMarket(string mid)
+        public ActionResult AllMarket(string id)
         {
-            long memberId = SessionManager.USER_ID;
+            //long memberId = SessionManager.USER_ID;
             ViewBag.Type = 12;
-            
-            //using (var dba = new BetEXDataContainer())
-            //{
-            //    List<PSV_MATCHES> soccerMatchList = dba.PSV_MATCHES.Where(w => w.ID == mid).ToList();
-            //    ViewBag.SoccerMatchInfo = soccerMatchList;
-            //}
+            Guid gid = Guid.Parse(id);
+            List<Soccer_DrawNoBet> drawOdds = IoC.Resolve<IGuiService>().getSoccerDrawNoBet(gid);
+            List<Soccer_MatchOdds> matchOdds = IoC.Resolve<IGuiService>().getSoccerMatchOdd(gid);
+            SoccerMatch match = IoC.Resolve<IGuiService>().getSoccerMatch(gid);
 
-            
+            ViewBag.MatchOdd = matchOdds;
+            ViewBag.DrawNoBetOdd = drawOdds;
+            ViewBag.Match = match;
+                        
             return View();
         }
 

@@ -1,0 +1,148 @@
+﻿@using BetEx247.Data.Model;
+@{
+    List<Soccer_MatchOdds> odds = ViewBag.MatchOdd;
+    SoccerMatch match = ViewBag.Match;
+}
+<div class="oddstype-heading">
+    <div style="position: absolute; margin-top: 8px; padding-left: 15px; text-transform: uppercase;
+        color: yellow;">
+        Match odds
+    </div>
+    <div style="position: relative; float: right; margin-top: 8px; padding-right: 15px;
+        color: #fff">
+        Total matched $0 / $0</div>
+</div>
+<table id="tblcommon">
+    <tr class="alt">
+        <td style="width: 180px; padding-top: 5px !important; padding-bottom: 5px !important">
+            @match.HomeTeam
+        </td>
+        <td style="width: 146px; padding-top: 5px !important; padding-bottom: 5px !important">
+            draw
+        </td>
+        <td style="width: 180px; padding-top: 5px !important; padding-bottom: 5px !important">
+            @match.AwayTeam
+        </td>
+    </tr>
+    <tr class="alt">
+        <td style="width: 180px;">
+            <table id="tblcommon-sub">
+                <tr>
+                    <td width="50%" style="border: none !important">
+                        <div style="position: relative; display: block; width: 100%; height: 22px; margin-left: 0px;
+                            left: 0px; background-color: #CCC; text-align: center; background-color: #09F;
+                            border-right: 1px solid #000;">
+                            Back
+                        </div>
+                    </td>
+                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
+                        LAY
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 146px;">
+            <table id="tblcommon-sub">
+                <tr>
+                    <td width="50%" style="border: none !important">
+                        <div style="position: relative; display: block; width: 100%; height: 22px; margin-left: 0px;
+                            left: 0px; background-color: #CCC; text-align: center; background-color: #09F;
+                            border-right: 1px solid #000;">
+                            Back
+                        </div>
+                    </td>
+                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
+                        LAY
+                    </td>
+                </tr>
+            </table>
+        </td>
+        <td style="width: 180px;">
+            <table id="tblcommon-sub">
+                <tr>
+                    <td width="50%" style="border: none !important">
+                        <div style="position: relative; display: block; width: 100%; height: 22px; margin-left: 0px;
+                            left: 0px; background-color: #CCC; text-align: center; background-color: #09F;
+                            border-right: 1px solid #000;">
+                            Back
+                        </div>
+                    </td>
+                    <td width="50%" style="background-color: #FF6 !important; border: none !important">
+                        LAY
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr class="alt">
+        <td style="width: 180px;">
+            <table id="tblcommon-sub">
+                @{
+                    foreach (Soccer_MatchOdds item in odds)
+                    {
+                        if (item.HomePrice != null && item.HomePrice > 0)
+                        {
+                             <tr>
+                                <td width="50%">
+                                    <div style="position: relative; display: block; width: 100%; height: auto; margin-left: 0px;
+                                        left: 0px; text-align: center; background-color: #C5DBEF; border-right: 1px solid #000;">
+                                        <a href="" class="price-cell-back">@item.HomePrice </a>
+                                    </div>
+                                </td>
+                                <td width="50%" style="background-color: #f8f2d6 !important;">
+                                    <a href="" class="price-cell-back">@item.HomePrice</a>
+                                </td>
+                            </tr>
+                        }
+                        }
+                    }                     
+            </table>
+        </td>
+        <td style="width: 146px;">
+            <table id="tblcommon-sub">
+                @{
+                    foreach (Soccer_MatchOdds item in odds)
+                    {
+                        if (item.DrawPrice != null && item.DrawPrice > 0)
+                        {
+                            <tr>
+                                <td width="50%">
+                                    <div style="position: relative; display: block; width: 100%; height: auto; margin-left: 0px;
+                                        left: 0px; text-align: center; background-color: #C5DBEF; border-right: 1px solid #000;">
+                                        <a href="" class="price-cell-back">@item.DrawPrice </a>
+                                    </div>
+                                </td>
+                                <td width="50%" style="background-color: #f8f2d6 !important;">
+                                    <a href="" class="price-cell-back">@item.DrawPrice</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }                 
+            </table>
+        </td>
+        <td style="width: 180px;">
+            <table id="tblcommon-sub">
+                 @{
+                     foreach (Soccer_MatchOdds item in odds)
+                     {
+                         if (item.HomePrice != null && item.HomePrice > 0)
+                         {
+                            <tr>
+                                <td width="50%">
+                                    <div style="position: relative; display: block; width: 100%; height: auto; margin-left: 0px;
+                                        left: 0px; text-align: center; background-color: #C5DBEF; border-right: 1px solid #000;">
+                                        <a href="" class="price-cell-back">@item.AwayPrice </a>
+                                    </div>
+                                </td>
+                                <td width="50%" style="background-color: #f8f2d6 !important;">
+                                    <a href="" class="price-cell-back">@item.AwayPrice </a>
+                                </td>
+                            </tr>
+                         }
+                     }
+                 }
+            </table>
+        </td>
+    </tr>
+</table>
