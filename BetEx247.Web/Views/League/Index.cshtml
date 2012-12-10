@@ -1,0 +1,57 @@
+﻿@using BetEx247.Core;
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/right_col.css")" media="screen" />
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Css/jquery-ui-slides.min.css")" media="screen" />
+<script type="text/javascript" src="@Url.Content("~/Content/Scripts/jquery/jquery-ui-slides.min.js")"></script>
+<script type="text/javascript">        
+    $(document).ready(function () {          
+        $(".liverow:even").addClass("row_odd");
+    });
+    /*odds-commentaries slides*/
+    $(function () {
+        betex247.getallsport();
+        betex247.gettopevent();
+        $('#slides').slides({
+            preload: true,
+            preloadImage: '@Url.Content("~/Content/images/themes/loading.gif")',
+            play: 5000,
+            pause: 2500,
+            hoverPause: true,
+            generatePagination: false,
+            animationStart: function (current) {
+                $('.caption').animate({
+                    bottom: -35
+                }, 100);
+                if (window.console && console.log) {
+                    // example return of current slide number
+                    console.log('animationStart on slide: ', current);
+                };
+            },
+            animationComplete: function (current) {
+                $('.caption').animate({
+                    bottom: 0
+                }, 200);
+                if (window.console && console.log) {
+                    // example return of current slide number
+                    console.log('animationComplete on slide: ', current);
+                };
+            },
+            slidesLoaded: function () {
+                $('.caption').animate({
+                    bottom: 0
+                }, 200);
+            }
+        });
+    });      
+</script>
+<div id="middle_column">
+    @Html.Partial("Slides")
+    <div id="contentbox" class="clearfix">
+        @Html.Partial("InplayMatches")
+        @Html.Partial("UpcommingMatches")
+    </div>
+</div>
+@Html.Partial("_RightColumn")

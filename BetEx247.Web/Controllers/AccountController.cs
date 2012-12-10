@@ -265,6 +265,109 @@ namespace BetEx247.Web.Controllers
         }
         #endregion
 
+        #region Neteller
+        [Authorize]
+        public ActionResult AddNeteller()
+        {
+            long memberId = SessionManager.USER_ID;
+            ViewBag.Type = 12;
+            var mywallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
+            return View(mywallet);
+        }
+
+        [Authorize]
+        public ActionResult FormAddNeteller()
+        {
+            NetellerModel model = new NetellerModel();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult FormAddNeteller(NetellerModel model)
+        {
+            long memberId = SessionManager.USER_ID;
+            if (ModelState.IsValid)
+            {
+                var mycard = new MyCard();
+                var neteller = new Neteller();
+                using (var dba = new BetEXDataContainer())
+                {
+                    neteller.AccountID = model.AccountID;
+                    neteller.Neteller_Version = "4.1";
+                    neteller.MerchantID = "";
+                    neteller.MerchantKey = "";
+                    neteller.AccountID = CommonHelper.EnsureNotNull(model.AccountID);
+                    neteller.SecureID = "";
+                    neteller.MerchanTransID = "";
+                    neteller.Currency = "USD";
+                    neteller.MemberID = memberId;
+                    dba.AddToNetellers(neteller);
+                    dba.SaveChanges();
+
+                    var current_card = dba.Netellers.Where(w => w.MemberID == memberId && w.AccountID == model.AccountID).SingleOrDefault();
+
+                    mycard.NickName = CommonHelper.EnsureNotNull(model.Nickname);
+                    mycard.DepositAndWithdraw = true;
+                    mycard.MemberID = memberId;
+                    mycard.NetellerID = current_card.ID;
+                    mycard.PaymentMethodId = 1;
+                    dba.AddToMyCards(mycard);
+                    dba.SaveChanges();
+
+                    ViewBag.addSuccess = 1;
+                    return View(model);
+                    //return RedirectToAction("AddNetellerDone");
+
+                    //return RedirectToAction("addnetellerdone", "account");
+                    //return Redirect("http://localhost:7386/account/addnetellerdone");
+                    //return RedirectToAction("AddNetellerDone", new RouteValueDictionary(
+                    //    new { controller = "Account", action = "AddNetellerDone"}));
+                }
+            }
+            else
+            {
+                return PartialView(model);
+            }
+
+
+        }
+
+        [ActionName("AddNetellerDone")]
+        public ActionResult AddNetellerDone()
+        {
+            long memberId = SessionManager.USER_ID;
+            var mywallet = IoC.Resolve<ICustomerService>().GetAccountWallet(memberId);
+            return View(mywallet);
+
+        }
+
+
+        [Authorize]
+        public ActionResult UpdateCards()
+        {
+            long memberId = SessionManager.USER_ID;
+            //var lstMyCards = IoC.Resolve<ICardService>().GetCards(memberId);
+            using (var dba = new BetEXDataContainer())
+            {
+                //List<PSV_MYBET> mybets = dba.PSV_MYBET.Where(w => w.BetStatus == Constant.MyBetStatus.EXPOSURE.ToString() && w.MemberID == memberId).Take(Constant.DefaultRow).ToList();
+                List<PSV_MyCards> mycard = dba.PSV_MyCards.Where(w => w.MemberID == memberId).ToList();
+                //var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.EXPOSURE.ToString());
+                //ViewBag.MyCards = mycard;
+                //Console.WriteLine("ok roi ne !!");
+                //load all registered Cards
+
+                return View(mycard);
+
+            }
+
+
+            //long memberId = SessionManager.USER_ID;
+            //var lstExposure = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.EXPOSURE.ToString());
+
+        }
+        #endregion
+
+
         #region Change & Update Pass
         //
         // GET: /Account/ChangePassword
@@ -473,11 +576,6 @@ namespace BetEx247.Web.Controllers
             return View(lstVoidBet);
         }
 
-        [Authorize]
-        public ActionResult UpdateCards()
-        {
-            return View();
-        }
 
         [Authorize]
         public ActionResult UpdateCreditCard(long id)

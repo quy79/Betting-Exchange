@@ -7,7 +7,29 @@
     List<Sport> sportList = ViewBag.AllSport != null ? ViewBag.AllSport : null;
     DateTime DateNow = DateTime.Now;
     SoccerLeague league = ViewBag.LeagueDetail;
-    SoccerCountry country = ViewBag.SoccerCountries;
+    string name = string.Empty;
+    if(ViewBag.SoccerCountries!=null)
+    {
+    if (ViewBag.SportId != null)
+    {
+        int sportId = ViewBag.SportId;
+        if (sportId == 1)
+        {
+            SoccerCountry country = ViewBag.SoccerCountries;
+            name = country.Country;
+        }
+        else
+        {
+            SportCountry country = ViewBag.SoccerCountries;
+            name = country.Country;
+        }
+    }
+    else
+    {
+        SoccerCountry country = ViewBag.SoccerCountries;
+        name = country.Country;
+    }
+    }
 }
 <div class="events">
     <div style="position: absolute; margin-top: 8px; padding-left: 15px">
@@ -20,9 +42,9 @@
             {
             @Html.Raw(league.LeagueName_WebDisplay)
             }
-            else if (country != null)
+            else if (name != null)
             {
-            @Html.Raw(country.Country)
+            @Html.Raw(name)
             }
             else
             {
@@ -52,10 +74,11 @@
                             List<PSV_MATCHES> temp = tempSport.Where(w => w.StartDateTime.Value.Date == DateNow.Date).ToList();
                             if (temp.Count > 0)
                             {
-                                var tempLeague = temp.Select(w => new { w.LeagueID, w.LeagueName,w.SportID,w.CountryID }).Distinct();//.Where(w => w.StartDate.Date == DateNow.Date).ToList();
+                                var tempLeague = temp.Select(w => new { w.LeagueID, w.LeagueName,w.SportID,w.CountryID, w.Country }).Distinct();//.Where(w => w.StartDate.Date == DateNow.Date).ToList();
+                                
                                 foreach (var itemleague in tempLeague)
                                 {
-            @Html.Raw("<span style=\"font-size: 1.1em; font-weight: bold; color: yellow; display: inline;float: left;\">" + itemleague.LeagueName + "</span><br />")
+            @Html.Raw("<span style=\"font-size: 1.1em; font-weight: bold; color: yellow; display: inline;float: left;\">" + itemleague.Country + " - " + itemleague.LeagueName + "</span><br />")
             @Html.Raw("<span class=\"couponDate\" style=\"font-size: 1.1em !important;\">" + DateNow.ToLongDateString() + "</span><br />")
                     
                                     foreach (PSV_MATCHES item in temp)
@@ -66,9 +89,9 @@
                 <div style="float: left; padding: 5px 5px 5px 0px;">
                     <span style="display: inline-block; position: relative; float: left; font-weight: bold; color:White;
                                                     padding-left: 5px">@item.StartDateTime.Value.ToString("HH:mm")</span></div>
-                <a href="#" class="betLink cell fifty" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
+                <a class="betLink cell fifty" id="@item.ID" onclick="betex247.getmatch('@item.ID', 1)" href="javascript:void(0)">
                     @item.HomeTeam &nbsp;&nbsp;&nbsp;vs&nbsp;&nbsp;&nbsp; @item.AwayTeam</a> 
-                <a href="#" class="betLink cell third last_cell" id="@item.ID" onclick="addToBettingSlip('@item.ID');">
+                <a class="betLink cell third last_cell" id="@item.ID" onclick="betex247.getmatch('@item.ID', 1)" href="javascript:void(0)">
                         View all markets >> </a>
             </div>
             @Html.Raw("<p>") 

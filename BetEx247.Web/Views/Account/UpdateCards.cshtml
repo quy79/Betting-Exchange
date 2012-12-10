@@ -1,6 +1,169 @@
-﻿@{
-    ViewBag.Title = "UpdateCards";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+﻿@using System.Collections;
+@using BetEx247.Data.Model;
+@using BetEx247.Core.Common.Utils;
+@using System.Data;
+@{
+Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+    Response.Cache.SetCacheability(HttpCacheability.NoCache);
+    Response.Cache.SetNoStore(); 
+    }
+@model List<PSV_MyCards>
+@{
+    
+    ViewBag.Title = "Update Cards";
+    Layout = null;
 
-<h2>UpdateCards</h2>
+}
+<form action="/Updatecards" method="post" class="AccountRegForm">
+<div class="clearfix">
+                    	<h1 class="sports_header1">MY ACCOUNT</h1>
+                        <div class="create-account-box">
+							<div class="account-box-title">
+                                Update Cards
+							</div>
+
+							<div style="clear:both;position:relative; background-color: #88867f;">
+								<ul class="css-tabs skin2">
+									<li><a href="#">Modify Existing Options</a></li>
+									<li><a href="#">Register New Options</a></li>
+								</ul>
+								<div class="css-panes skin2">
+                                	<div>
+                                    
+                                    
+										<table class="gridtable">
+                                            <tr>
+                                                <th>Card Nick Name</th>
+                                                <th>Payment Method</th>
+                                                <th>Verified</th>
+                                                <th></th>
+                                            </tr>
+                                            @foreach (var item in Model)
+                                            {
+                                            <tr>
+                                                <td width="20%">@Html.DisplayFor(modelItem => item.NickName)</td>
+                                                <td width="20%">
+													<p align="center">
+                                                        @if (item.NetellerID != null)
+                                                        {                   
+														<img height="29" alt="NETeller" width="54"  src="@Url.Content("~/Content/Images/Themes/logoNETELLER.gif")" border="0"/>
+                                                        <br/>
+                                                        @item.AccountID   
+                                                        }
+                                                        else if (item.CreditCardID != null)
+                                                        {
+                                                        <img height="29" alt="VISA CREDIT" width="54"  src="@Url.Content("~/Content/Images/Themes/logoVISA.gif")" border="0"/>        
+                                                        <br/>
+                                                        @item.CardNumber
+                                                        }        
+                                                        
+													</p>
+												</td>
+                                                <td width="8%">No</td>
+												<td width="52%" align="center">
+        											<table width="100%">
+											            <tr>
+                                                            <td width="25%">
+                                                                <span class="lookup-submit1" ><a href="/" id="lookuplink" onClick="document.forms[0].submit(); return false;">Withdrawal</a>
+                                                                    <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display:none">Withdrawal</button></span>                
+                                                            </td>
+                                                            <td width="25%">
+                                                                <span class="lookup-submit1" ><a href="/" id="lookuplink" onClick="document.forms[0].submit(); return false;">Deposit</a>
+                                                                    <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display:none">Deposit</button></span>                
+                                                            </td>
+                                                            <td width="25%">
+                                                                <span class="lookup-submit1" ><a href="/" id="lookuplink" onClick="document.forms[0].submit(); return false;">Modify</a>
+                                                                    <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display:none">Modify</button></span>                
+                                                            </td>
+                                                            <td width="25%">
+                                                                <span class="lookup-submit1" ><a href="/" id="lookuplink" onClick="document.forms[0].submit(); return false;">Unregister</a>
+                                                                    <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display:none">Unregister</button></span>                
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+											    </td>
+											</tr>
+                                            }
+
+										</table>
+    
+    
+									</div>
+
+									<div>
+
+    									<table class="gridtable">
+                                            <tr>
+                                                <th colspan="4" style="background-color: #FFC; text-align: left;">Deposit and Withdrawal Options</th>
+                                            </tr>
+											<tr>
+                                                <td>
+                                                	<table width="100%" style="border: 0px; border-collapse:collapse;">
+														<tr>
+                                                        	<td width="33%">
+                                                            	
+                                                                    <div style="padding: 0px 0px; margin: 0 auto; float: right; margin-right: 20px; color : #000; position: relative;display: inline-block; text-align: center;">                             
+                                                                        <a href="/Delete?id=2329878" class="action-lnk">
+                                                                        
+                                                                        <img height="29" alt="creditcard_visa" width="54"  src="@Url.Content("~/Content/Images/Themes/logoVISA.gif")" border="0"/><br/>VISA Credit
+                                                                        
+                                                                        </a>               
+                                                                    </div>
+                                                                    
+                                                                
+                                                            </td>
+                                                            <td width="34%" align="center">
+                                                            		<div style="padding: 0px 0px; margin: 0 auto; float: none;  color : #000; position: relative;display: inline-block; text-align: center;">                                                                                                    
+                                                                        <a href = '@Url.Content("~/account/addneteller")'  class="action-lnk">
+                                                                        <img height="29" alt="NETeller" width="54"  src="@Url.Content("~/Content/Images/Themes/logoNETELLER.gif")" border="0"/><br/>NETeller
+                                                                        </a>
+                                                                    </div>
+                                                            </td>
+                                                            <td width="33%">
+                                                            	
+                                                                    <div style="padding: 0px 0px; margin: 0 auto; float: left; margin-left: 10px; color : #000; position: relative;display: inline-block; text-align: center;">                             
+                                                                        <a href="/Delete?id=2329878" class="action-lnk">
+                                                                        
+                                                                        <img height="29" alt="MoneyBookers" width="54"  src="@Url.Content("~/Content/Images/Themes/logoMONEYBOOKERS.gif")" border="0"/><br/>Skrill (Moneybookers)
+                                                                        
+                                                                        </a>               
+                                                                    </div>
+                                                                    
+                                                                
+                                                            </td>
+                                                        </tr>                                                    	
+                                                    </table>
+
+                                                </td>
+                                                
+											</tr>
+										</table>
+
+
+									</div>
+
+
+							</div>
+					
+
+	
+                        
+                        <script>
+                            $(function () {
+                                $("ul.skin2").tabs("div.skin2 > div");
+                            });
+</script>
+                                        
+                                        
+                                </div>
+
+                                    
+                                                                    
+                            
+                        </div>
+                                
+                            
+						
+                       
+					</div>
+</form>

@@ -39,7 +39,9 @@ namespace BetEx247.Data.DAL
 
         SoccerCountry GetCountryByCountry(int countryId);
 
-        List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId);
+        SportCountry GetCountryByCountry(int countryId,int sportId);
+
+        List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId, int? sportId);
 
         /// <summary>
         /// Get top league set by admin

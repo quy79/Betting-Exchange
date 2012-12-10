@@ -2,57 +2,80 @@
 @using BetEx247.Data.Model;
 @using System.Data;
 @{
-    SoccerCountry country = ViewBag.SoccerCountries;
+    string name = string.Empty;
+    if (ViewBag.SportId != null)
+    {
+        int sportId = ViewBag.SportId;
+        if (sportId == 1)
+        {
+            SoccerCountry country = ViewBag.SoccerCountries;
+            name = country.Country;
+        }
+        else
+        {
+            SportCountry country = ViewBag.SoccerCountries;
+            name = country.Country;
+        }
+    }
+    else
+    {
+        SoccerCountry country = ViewBag.SoccerCountries;
+        name = country.Country;
+    }
     List<PSV_ALLTOURNAMENT> list = ViewBag.AllTournaments;
 }
-<div id="coupon-container" class="clearfix">
-    <div class="coupon-title">
-        <h3 class="sports">
-            @{
-                if (country != null)
-                {
-                @Html.Raw(country.Country.ToUpper() + "'S ALL TOURNAMENTS")
+@if (list != null)
+{
+    <div id="coupon-container" class="clearfix">
+        <div class="coupon-title">
+            <h3 class="sports">
+                @{
+    if (name != null)
+    {
+                    @Html.Raw(name.ToUpper() + "'S ALL TOURNAMENTS")
+    }
+    else
+    {
+                    @Html.Raw("ALL TOURNAMENTS")
+    }
                 }
-                else
-                {
-                @Html.Raw("ALL TOURNAMENTS")
+            </h3>
+        </div>
+        <div class="leagues-box">
+            <table width="100%">
+                @{                            
+    int countRow = list.Count;
+    int totalRow = list.Count % 3 > 0 ? list.Count / 3 + 1 : list.Count / 3;
+    if (countRow > 0)
+    {
+        for (int i = 0; i < totalRow; i++)
+        {
+            string total1 = i * 3 < countRow && list[(i * 3)].Total > 0 ? "(" + list[(i * 3)].Total + ")" : "";
+            string value1 = i * 3 < countRow ? list[(i * 3)].LeagueName_WebDisplay + total1 : "";
+
+            string total2 = i * 3 + 1 < countRow && list[(i * 3) + 1].Total > 0 ? "(" + list[(i * 3) + 1].Total + ")" : "";
+            string value2 = (i * 3) + 1 < countRow ? list[(i * 3) + 1].LeagueName_WebDisplay + total2 : "";
+
+            string total3 = i * 3 + 2 < countRow && list[(i * 3) + 2].Total > 0 ? "(" + list[(i * 3) + 2].Total + ")" : "";
+            string value3 = (i * 3) + 2 < countRow ? list[(i * 3) + 2].LeagueName_WebDisplay + total3 : "";
+            string url1 = i * 3 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3)].ID + "/" + @list[(i * 3)].CountryID + "/" + @list[(i * 3)].SportID : "";
+            string url2 = (i * 3) + 1 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 1].ID + "/" + @list[(i * 3) + 1].CountryID + "/" + @list[(i * 3) + 1].SportID : "";
+            string url3 = (i * 3) + 2 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 2].ID + "/" + @list[(i * 3) + 2].CountryID + "/" + @list[(i * 3) + 2].SportID : "";
+                    <tr>
+                        <td width="33%">
+                            <a href="javascript:void(0)" onclick="betex247.loadleague('@url1')" class="country-league-lnk">@value1</a>
+                        </td>
+                        <td width="34%">
+                            <a href="javascript:void(0)" onclick="betex247.loadleague('@url2')" href="" class="country-league-lnk">@value2</a>
+                        </td>
+                        <td width="33%">
+                            <a href="javascript:void(0)" onclick="betex247.loadleague('@url3')" href="" class="country-league-lnk">@value3</a>
+                        </td>
+                    </tr>
+        }
+    }                  
                 }
-            }
-        </h3>
+            </table>
+        </div>
     </div>
-    <div class="leagues-box">
-        <table width="100%">
-            @{                            
-                int countRow = list.Count;
-                int totalRow = list.Count % 3 > 0 ? list.Count / 3 + 1 : list.Count / 3;
-                if(countRow>0){
-                for (int i = 0; i < totalRow; i++)
-                {
-                    string total1 = i * 3 < countRow && list[(i * 3)].Total > 0 ? "(" + list[(i * 3)].Total + ")" : "";
-                    string value1 = i * 3 < countRow ? list[(i * 3)].LeagueName_WebDisplay + total1 : "";
-
-                    string total2 = i * 3+1 < countRow && list[(i * 3) + 1].Total > 0 ? "(" + list[(i * 3) + 1].Total + ")" : "";
-                    string value2 = (i * 3) + 1 < countRow ? list[(i * 3) + 1].LeagueName_WebDisplay + total2 : "";
-
-                    string total3 = i * 3 +2< countRow && list[(i * 3) + 2].Total > 0 ? "(" + list[(i * 3) + 2].Total + ")" : "";
-                    string value3 = (i * 3) + 2 < countRow ? list[(i * 3) + 2].LeagueName_WebDisplay + total3 : "";
-                    string url1 = i * 3 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3)].ID + "/" + @list[(i * 3)].CountryID + "/" + @list[(i * 3)].SportID : "";
-                    string url2 = (i * 3) + 1 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 1].ID + "/" + @list[(i * 3) + 1].CountryID + "/" + @list[(i * 3) + 1].SportID : "";
-                    string url3 = (i * 3) + 2 < countRow ? Url.Content("~/league/byleague/") + @list[(i * 3) + 2].ID + "/" + @list[(i * 3) + 2].CountryID + "/" + @list[(i * 3) + 2].SportID : "";
-                <tr>
-                    <td width="33%">
-                        <a href="javascript:void(0)" onclick="betex247.loadleague('@url1')" class="country-league-lnk">@value1</a>
-                    </td>
-                    <td width="34%">
-                        <a href="javascript:void(0)" onclick="betex247.loadleague('@url2')" href="" class="country-league-lnk">@value2</a>
-                    </td>
-                    <td width="33%">
-                        <a href="javascript:void(0)" onclick="betex247.loadleague('@url3')" href="" class="country-league-lnk">@value3</a>
-                    </td>
-                </tr>
-                }   
-                }                  
-            }
-        </table>
-    </div>
-</div>
+}

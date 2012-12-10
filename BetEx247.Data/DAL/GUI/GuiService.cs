@@ -121,11 +121,24 @@ namespace BetEx247.Data.DAL
             }
         }
 
-        public List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId)
+        public SportCountry GetCountryByCountry(int countryId, int sportId)
         {
             using (var dba = new BetEXDataContainer())
             {
-                return dba.PSP_GETCOUNTLEAGUEBYCOUNTRY(countryId).ToList();
+                return dba.SportCountries.Where(w => w.ID == countryId && w.SportID==sportId).SingleOrDefault();
+            }
+        }
+
+        public List<PSV_ALLTOURNAMENT> GetTournamentByCountry(int countryId, int? sportId)
+        {
+            using (var dba = new BetEXDataContainer())
+            {
+                var list = dba.PSP_GETCOUNTLEAGUEBYCOUNTRY(countryId).ToList();
+                if (sportId != null && sportId != 0)
+                {
+                    return list.Where(w => w.SportID == sportId.Value).ToList();
+                }
+                return list;
             }
         }
 

@@ -1,0 +1,136 @@
+﻿@model BetEx247.Web.Models.NetellerModel
+@{    
+    ViewBag.Title = "Account";
+    Layout = null;
+
+    int addSuccess = ViewBag.addSuccess != null ? ViewBag.addSuccess : 0;     
+    
+}
+<script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/JQuery/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Content/Scripts/JQuery/jquery.maskedinput.min.js")" type="text/javascript"></script>
+<div class="clearfix">
+
+    @if (addSuccess == 0)
+    {
+                    	<h1 class="sports_header1">MY ACCOUNT</h1>
+                        
+                        <div class="create-account-box">
+				            
+                            	<div class="account-box-title">
+	                                Register New Cards
+                                </div>
+                                
+                                
+                                 @using (Html.BeginForm("formaddneteller", "account", FormMethod.Post, new { @id = "FormAddNeteller", @class = "AccountRegForm" }))
+                                 {
+                                     
+                                     <div style="color: Red;padding:5px 10px 0 10px;">@Html.ValidationSummary(false)</div>
+                                     <table cellpadding="3" cellspacing="2">
+                                        <tr>
+                                            <td width="150">
+                                            <p align="right">
+                                                    <img height="29" alt="creditcard_visa" width="54"  src="@Url.Content("~/Content/Images/Themes/logoNETELLER.gif")" border="0"/>
+                                            </td>
+                                            <td width="350">
+                                                NETeller
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="150" style="text-align:right">
+                                                (*)Nick Name
+                                            </td>
+                                            <td width="350">
+                                                 @Html.EditorFor(model => model.Nickname, new { @class = "text-input" })
+                                                 @Html.ValidationMessageFor(model => model.Nickname)
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="150" style="text-align:right">
+                                                (*)NETeller Account ID
+                                            </td>
+                                            <td width="350">
+                                                 @Html.EditorFor(model => model.AccountID, new { @class = "text-input" })
+                                                 @Html.ValidationMessageFor(model => model.AccountID)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="150">
+                                                *
+                                            </td>
+                                            <td width="350">
+                                                Please ensure that your Given name, Family name and verified e-mail address/es registered with BETEX247 matches those registered on your NETeller (1-PAY) account. You will not be able to withdraw funds to your NETeller account until this requirement has been met. 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="150">
+                                                
+                                            </td>
+                                            <td width="350">
+                                                <span class="lookup-submit" ><a href="/" id="lookuplink" >Back</a>
+                                                                    <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display:none">Back</button></span>   
+												<span class="lookup-submit" ><a href="/" id="smAddNeteller">Register</a>
+                                                                    <button name="lookupbutton" id="lookupbutton" value="Lookup" type="submit" style="display:none">Register</button></span>        
+                                            </td>
+                                        </tr>
+                                     </table>
+                                     
+                                 }
+                                      
+                            
+                        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#smAddNeteller").click(function () {
+                    var nickname = $("#Nickname").val();
+                    var accountid = $("#AccountID").val();
+                    if (!$('#FormAddNeteller').valid()) {
+                        var x = $(".validation-summary-errors").offset().left;
+                        var y = $(".validation-summary-errors").offset().top;
+                        $(".validation-summary-errors").css('background', 'white');
+                        window.scrollTo(x, y);
+                    } else {
+                        $("#FormAddNeteller").submit();
+                        //$.ajax({
+                        //    type: "POST",
+                        //    url: 'http://localhost:7386/account/formaddneteller', // {"content"="Hello!"}     
+                        //    cache: true,
+                        //    data: { Nickname: nickname, AccountID: accountid },
+                        //    success: function (data) {
+                        //        //$("#middle_column_1").html(data);
+                        //    }
+                        //});
+                    }
+
+                });
+            });    
+                    </script>
+        
+        
+    }
+    else if (addSuccess == 1) 
+    { 
+    
+    <h1 class="sports_header1">MY ACCOUNT</h1>
+                        
+        <div class="create-account-box">
+				            
+                <div class="account-box-title">
+	                Register New Cards
+                </div>
+                                
+                <div style="clear:both;position:relative; background-color: #fff;"> 
+                <br/> DA OK !
+                </div> 
+                                      
+                            
+        </div>
+
+    }
+
+                       
+					</div>
+
+                    

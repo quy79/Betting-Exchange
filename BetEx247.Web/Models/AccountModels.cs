@@ -134,4 +134,19 @@ namespace BetEx247.Web.Models
         [Display(Name = "Date of birth")]
         public string Birthday { get; set; }         
     }
+
+
+    public class NetellerModel
+    {
+        public NetellerModel()
+        {
+        }
+        [Required(ErrorMessage = "You must enter a Nick Name !")]
+        [Display(Name = "(*) Nick Name")]
+        public string Nickname { get; set; }
+
+        [Required(ErrorMessage = "You must enter your NETeller Account ID !")]
+        [Display(Name = "(*) NETeller Account ID")]
+        public string AccountID { get; set; }
+    }
 }

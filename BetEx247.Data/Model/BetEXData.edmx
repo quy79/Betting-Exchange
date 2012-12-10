@@ -10,6 +10,7 @@
           <EntitySet Name="BookMakers" EntityType="BettingExchangeModel.Store.BookMakers" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="CardsInfo" EntityType="BettingExchangeModel.Store.CardsInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Countries" EntityType="BettingExchangeModel.Store.Countries" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CreditCard" EntityType="BettingExchangeModel.Store.CreditCard" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DataControlStatus" EntityType="BettingExchangeModel.Store.DataControlStatus" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="DiscountRate" EntityType="BettingExchangeModel.Store.DiscountRate" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="LoginHistory" EntityType="BettingExchangeModel.Store.LoginHistory" store:Type="Tables" Schema="dbo" />
@@ -19,6 +20,7 @@
           <EntitySet Name="MyBets" EntityType="BettingExchangeModel.Store.MyBets" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MyCards" EntityType="BettingExchangeModel.Store.MyCards" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="MyWallet" EntityType="BettingExchangeModel.Store.MyWallet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Neteller" EntityType="BettingExchangeModel.Store.Neteller" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PaymentMethods" EntityType="BettingExchangeModel.Store.PaymentMethods" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Players" EntityType="BettingExchangeModel.Store.Players" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ScoreInfo" EntityType="BettingExchangeModel.Store.ScoreInfo" store:Type="Tables" Schema="dbo" />
@@ -132,6 +134,50 @@
       [PSV_MYBET].[InPlayBet] AS [InPlayBet], 
       [PSV_MYBET].[PointsRefunded] AS [PointsRefunded]
       FROM [dbo].[PSV_MYBET] AS [PSV_MYBET]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PSV_MyCards" EntityType="BettingExchangeModel.Store.PSV_MyCards" store:Type="Views" store:Schema="dbo" store:Name="PSV_MyCards">
+            <DefiningQuery>SELECT 
+      [PSV_MyCards].[ID] AS [ID], 
+      [PSV_MyCards].[NickName] AS [NickName], 
+      [PSV_MyCards].[DepositOnly] AS [DepositOnly], 
+      [PSV_MyCards].[WithdrawOnly] AS [WithdrawOnly], 
+      [PSV_MyCards].[MemberID] AS [MemberID], 
+      [PSV_MyCards].[NetellerID] AS [NetellerID], 
+      [PSV_MyCards].[CreditCardID] AS [CreditCardID], 
+      [PSV_MyCards].[NameOnCard] AS [NameOnCard], 
+      [PSV_MyCards].[FirstName] AS [FirstName], 
+      [PSV_MyCards].[LastName] AS [LastName], 
+      [PSV_MyCards].[CardNumber] AS [CardNumber], 
+      [PSV_MyCards].[CardVcc2] AS [CardVcc2], 
+      [PSV_MyCards].[CardType] AS [CardType], 
+      [PSV_MyCards].[AccountID] AS [AccountID], 
+      [PSV_MyCards].[SecureID] AS [SecureID], 
+      [PSV_MyCards].[Neteller_Version] AS [Neteller_Version]
+      FROM [dbo].[PSV_MyCards] AS [PSV_MyCards]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PSV_SOCCER_LEAGUE" EntityType="BettingExchangeModel.Store.PSV_SOCCER_LEAGUE" store:Type="Views" store:Schema="dbo" store:Name="PSV_SOCCER_LEAGUE">
+            <DefiningQuery>SELECT 
+      [PSV_SOCCER_LEAGUE].[sid] AS [sid], 
+      [PSV_SOCCER_LEAGUE].[sn] AS [sn], 
+      [PSV_SOCCER_LEAGUE].[cid] AS [cid], 
+      [PSV_SOCCER_LEAGUE].[cn] AS [cn], 
+      [PSV_SOCCER_LEAGUE].[lid] AS [lid], 
+      [PSV_SOCCER_LEAGUE].[ln] AS [ln], 
+      [PSV_SOCCER_LEAGUE].[sc] AS [sc], 
+      [PSV_SOCCER_LEAGUE].[lc] AS [lc]
+      FROM [dbo].[PSV_SOCCER_LEAGUE] AS [PSV_SOCCER_LEAGUE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PSV_SPORT_LUAGUE" EntityType="BettingExchangeModel.Store.PSV_SPORT_LUAGUE" store:Type="Views" store:Schema="dbo" store:Name="PSV_SPORT_LUAGUE">
+            <DefiningQuery>SELECT 
+      [PSV_SPORT_LUAGUE].[sid] AS [sid], 
+      [PSV_SPORT_LUAGUE].[sn] AS [sn], 
+      [PSV_SPORT_LUAGUE].[cid] AS [cid], 
+      [PSV_SPORT_LUAGUE].[cn] AS [cn], 
+      [PSV_SPORT_LUAGUE].[lid] AS [lid], 
+      [PSV_SPORT_LUAGUE].[ln] AS [ln], 
+      [PSV_SPORT_LUAGUE].[sc] AS [sc], 
+      [PSV_SPORT_LUAGUE].[lc] AS [lc]
+      FROM [dbo].[PSV_SPORT_LUAGUE] AS [PSV_SPORT_LUAGUE]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="PSV_STATEMENTS" EntityType="BettingExchangeModel.Store.PSV_STATEMENTS" store:Type="Views" store:Schema="dbo" store:Name="PSV_STATEMENTS">
             <DefiningQuery>SELECT 
@@ -286,6 +332,23 @@
           <Property Name="ID" Type="bigint" Nullable="false" />
           <Property Name="Country" Type="nvarchar" Nullable="false" MaxLength="100" />
         </EntityType>
+        <EntityType Name="CreditCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NameOnCard" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ExpireYear" Type="nchar" MaxLength="4" />
+          <Property Name="ExpireMonth" Type="nchar" MaxLength="2" />
+          <Property Name="CardVcc2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardType" Type="nvarchar" MaxLength="50" />
+          <Property Name="IssueBank" Type="nvarchar" MaxLength="50" />
+          <Property Name="Branch" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberID" Type="bigint" Nullable="false" />
+        </EntityType>
         <EntityType Name="DataControlStatus">
           <Key>
             <PropertyRef Name="ID" />
@@ -422,6 +485,9 @@
           <Property Name="DepositAndWithdraw" Type="bit" />
           <Property Name="PaymentMethodId" Type="smallint" Nullable="false" />
           <Property Name="MemberID" Type="bigint" />
+          <Property Name="NetellerID" Type="bigint" />
+          <Property Name="CreditCardID" Type="bigint" />
+          <Property Name="MoneyBookersID" Type="bigint" />
         </EntityType>
         <EntityType Name="MyWallet">
           <Key>
@@ -433,6 +499,24 @@
           <Property Name="Exposure" Type="money" />
           <Property Name="Balance" Type="money" />
           <Property Name="UpdatedTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Neteller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecureID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="20" />
+          <Property Name="Neteller_Version" Type="nchar" MaxLength="10" />
+          <Property Name="MerchantID" Type="nvarchar" MaxLength="50" />
+          <Property Name="MerchantKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="MerchanTransID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Currency" Type="nchar" MaxLength="10" />
+          <Property Name="Test" Type="bit" />
+          <Property Name="Error" Type="nvarchar" MaxLength="50" />
+          <Property Name="MemberID" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="PaymentMethods">
           <Key>
@@ -1036,6 +1120,73 @@
           <Property Name="BetStatus" Type="varchar" MaxLength="50" />
           <Property Name="InPlayBet" Type="bit" />
           <Property Name="PointsRefunded" Type="decimal" Scale="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BettingExchange.dbo.PSV_MyCards' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PSV_MyCards">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NickName" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NickName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="DepositOnly" Type="bit" />
+          <Property Name="WithdrawOnly" Type="bit" />
+          <Property Name="MemberID" Type="bigint" />
+          <Property Name="NetellerID" Type="bigint" />
+          <Property Name="CreditCardID" Type="bigint" />
+          <Property Name="NameOnCard" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardVcc2" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardType" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecureID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Neteller_Version" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BettingExchange.dbo.PSV_SOCCER_LEAGUE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PSV_SOCCER_LEAGUE">
+          <Key>
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="sn" />
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="cn" />
+            <PropertyRef Name="lid" />
+            <PropertyRef Name="ln" />
+          </Key>
+          <Property Name="sid" Type="int" Nullable="false" />
+          <Property Name="sn" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="cid" Type="int" Nullable="false" />
+          <Property Name="cn" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="lid" Type="bigint" Nullable="false" />
+          <Property Name="ln" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="sc" Type="int" />
+          <Property Name="lc" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'BettingExchange.dbo.PSV_SPORT_LUAGUE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="PSV_SPORT_LUAGUE">
+          <Key>
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="sn" />
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="cn" />
+            <PropertyRef Name="lid" />
+            <PropertyRef Name="ln" />
+          </Key>
+          <Property Name="sid" Type="int" Nullable="false" />
+          <Property Name="sn" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="cid" Type="int" Nullable="false" />
+          <Property Name="cn" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="lid" Type="bigint" Nullable="false" />
+          <Property Name="ln" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="sc" Type="int" />
+          <Property Name="lc" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
       warning 6002: The table/view 'BettingExchange.dbo.PSV_STATEMENTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
@@ -2269,7 +2420,6 @@
           <EntitySet Name="Members" EntityType="BettingExchangeModel.Member" />
           <EntitySet Name="Messages" EntityType="BettingExchangeModel.Message" />
           <EntitySet Name="MyBets" EntityType="BettingExchangeModel.MyBet" />
-          <EntitySet Name="MyCards" EntityType="BettingExchangeModel.MyCard" />
           <EntitySet Name="MyWallets" EntityType="BettingExchangeModel.MyWallet" />
           <EntitySet Name="PaymentMethods" EntityType="BettingExchangeModel.PaymentMethod" />
           <EntitySet Name="Players" EntityType="BettingExchangeModel.Player" />
@@ -2314,10 +2464,6 @@
             <End Role="Member" EntitySet="Members" />
             <End Role="Message" EntitySet="Messages" />
           </AssociationSet>
-          <AssociationSet Name="FK_MyCards_Members" Association="BettingExchangeModel.FK_MyCards_Members">
-            <End Role="Member" EntitySet="Members" />
-            <End Role="MyCard" EntitySet="MyCards" />
-          </AssociationSet>
           <AssociationSet Name="FK_MyWallet_Members" Association="BettingExchangeModel.FK_MyWallet_Members">
             <End Role="Member" EntitySet="Members" />
             <End Role="MyWallet" EntitySet="MyWallets" />
@@ -2329,6 +2475,16 @@
           <AssociationSet Name="FK_Transactions_Members" Association="BettingExchangeModel.FK_Transactions_Members">
             <End Role="Member" EntitySet="Members" />
             <End Role="Transaction" EntitySet="Transactions" />
+          </AssociationSet>
+          <EntitySet Name="Netellers" EntityType="BettingExchangeModel.Neteller" />
+          <EntitySet Name="PSV_SOCCER_LEAGUE" EntityType="BettingExchangeModel.PSV_SOCCER_LEAGUE" />
+          <EntitySet Name="PSV_SPORT_LUAGUE" EntityType="BettingExchangeModel.PSV_SPORT_LUAGUE" />
+          <EntitySet Name="CreditCards" EntityType="BettingExchangeModel.CreditCard" />
+          <EntitySet Name="MyCards" EntityType="BettingExchangeModel.MyCard" />
+          <EntitySet Name="PSV_MyCards" EntityType="BettingExchangeModel.PSV_MyCards" />
+          <AssociationSet Name="FK_MyCards_Members" Association="BettingExchangeModel.FK_MyCards_Members">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="MyCard" EntitySet="MyCards" />
           </AssociationSet>
           <AssociationSet Name="FK_MyCards_PaymentMethods" Association="BettingExchangeModel.FK_MyCards_PaymentMethods">
             <End Role="PaymentMethod" EntitySet="PaymentMethods" />
@@ -2446,10 +2602,10 @@
           <Property Type="DateTime" Name="Updatedate" />
           <NavigationProperty Name="LoginHistories" Relationship="BettingExchangeModel.FK_LoginHistory_Members" FromRole="Member" ToRole="LoginHistory" />
           <NavigationProperty Name="Messages" Relationship="BettingExchangeModel.FK_Messages_Members" FromRole="Member" ToRole="Message" />
-          <NavigationProperty Name="MyCards" Relationship="BettingExchangeModel.FK_MyCards_Members" FromRole="Member" ToRole="MyCard" />
           <NavigationProperty Name="MyWallets" Relationship="BettingExchangeModel.FK_MyWallet_Members" FromRole="Member" ToRole="MyWallet" />
           <NavigationProperty Name="Statements" Relationship="BettingExchangeModel.FK_Statements_Members" FromRole="Member" ToRole="Statement" />
           <NavigationProperty Name="Transactions" Relationship="BettingExchangeModel.FK_Transactions_Members" FromRole="Member" ToRole="Transaction" />
+          <NavigationProperty Name="MyCards" Relationship="BettingExchangeModel.FK_MyCards_Members" FromRole="Member" ToRole="MyCard" />
         </EntityType>
         <EntityType Name="Message">
           <Key>
@@ -2501,20 +2657,6 @@
           <Property Type="String" Name="BetStatus" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Boolean" Name="InPlayBet" />
           <Property Type="Decimal" Name="PointsRefunded" Precision="18" Scale="2" />
-        </EntityType>
-        <EntityType Name="MyCard">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="NickName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="Boolean" Name="DepositOnly" />
-          <Property Type="Boolean" Name="WithdrawOnly" />
-          <Property Type="Boolean" Name="DepositAndWithdraw" />
-          <Property Type="Int16" Name="PaymentMethodId" Nullable="false" />
-          <Property Type="Int64" Name="MemberID" />
-          <NavigationProperty Name="Member" Relationship="BettingExchangeModel.FK_MyCards_Members" FromRole="MyCard" ToRole="Member" />
-          <NavigationProperty Name="PaymentMethod" Relationship="BettingExchangeModel.FK_MyCards_PaymentMethods" FromRole="MyCard" ToRole="PaymentMethod" />
         </EntityType>
         <EntityType Name="MyWallet">
           <Key>
@@ -3265,18 +3407,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_MyCards_Members">
-          <End Type="BettingExchangeModel.Member" Role="Member" Multiplicity="0..1" />
-          <End Type="BettingExchangeModel.MyCard" Role="MyCard" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Member">
-              <PropertyRef Name="MemberID" />
-            </Principal>
-            <Dependent Role="MyCard">
-              <PropertyRef Name="MemberID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MyWallet_Members">
           <End Type="BettingExchangeModel.Member" Role="Member" Multiplicity="0..1" />
           <End Type="BettingExchangeModel.MyWallet" Role="MyWallet" Multiplicity="*" />
@@ -3310,6 +3440,128 @@
             </Principal>
             <Dependent Role="Transaction">
               <PropertyRef Name="MemberId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Neteller">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="AccountID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecureID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Neteller_Version" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="MerchantID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MerchantKey" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MerchanTransID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Currency" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Type="Boolean" Name="Test" />
+          <Property Type="String" Name="Error" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="MemberID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PSV_SOCCER_LEAGUE">
+          <Key>
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="sn" />
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="cn" />
+            <PropertyRef Name="lid" />
+            <PropertyRef Name="ln" />
+          </Key>
+          <Property Type="Int32" Name="sid" Nullable="false" />
+          <Property Type="String" Name="sn" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="cid" Nullable="false" />
+          <Property Type="String" Name="cn" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="lid" Nullable="false" />
+          <Property Type="String" Name="ln" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="sc" />
+          <Property Type="Int32" Name="lc" />
+        </EntityType>
+        <EntityType Name="PSV_SPORT_LUAGUE">
+          <Key>
+            <PropertyRef Name="sid" />
+            <PropertyRef Name="sn" />
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="cn" />
+            <PropertyRef Name="lid" />
+            <PropertyRef Name="ln" />
+          </Key>
+          <Property Type="Int32" Name="sid" Nullable="false" />
+          <Property Type="String" Name="sn" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="cid" Nullable="false" />
+          <Property Type="String" Name="cn" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="lid" Nullable="false" />
+          <Property Type="String" Name="ln" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="sc" />
+          <Property Type="Int32" Name="lc" />
+        </EntityType>
+        <EntityType Name="CreditCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NameOnCard" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ExpireYear" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="ExpireMonth" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Type="String" Name="CardVcc2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="IssueBank" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Branch" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="MemberID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MyCard">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="NickName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="DepositOnly" />
+          <Property Type="Boolean" Name="WithdrawOnly" />
+          <Property Type="Boolean" Name="DepositAndWithdraw" />
+          <Property Type="Int16" Name="PaymentMethodId" Nullable="false" />
+          <Property Type="Int64" Name="MemberID" />
+          <Property Type="Int64" Name="NetellerID" />
+          <Property Type="Int64" Name="CreditCardID" />
+          <Property Type="Int64" Name="MoneyBookersID" />
+          <NavigationProperty Name="Member" Relationship="BettingExchangeModel.FK_MyCards_Members" FromRole="MyCard" ToRole="Member" />
+          <NavigationProperty Name="PaymentMethod" Relationship="BettingExchangeModel.FK_MyCards_PaymentMethods" FromRole="MyCard" ToRole="PaymentMethod" />
+        </EntityType>
+        <EntityType Name="PSV_MyCards">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NickName" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="NickName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="DepositOnly" />
+          <Property Type="Boolean" Name="WithdrawOnly" />
+          <Property Type="Int64" Name="MemberID" />
+          <Property Type="Int64" Name="NetellerID" />
+          <Property Type="Int64" Name="CreditCardID" />
+          <Property Type="String" Name="NameOnCard" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardVcc2" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="CardType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="AccountID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SecureID" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Neteller_Version" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_MyCards_Members">
+          <End Type="BettingExchangeModel.Member" Role="Member" Multiplicity="0..1" />
+          <End Type="BettingExchangeModel.MyCard" Role="MyCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="MemberID" />
+            </Principal>
+            <Dependent Role="MyCard">
+              <PropertyRef Name="MemberID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -3504,19 +3756,6 @@
                 <ScalarProperty Name="OddsTable" ColumnName="OddsTable" />
                 <ScalarProperty Name="MarketID" ColumnName="MarketID" />
                 <ScalarProperty Name="MemberID" ColumnName="MemberID" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="MyCards">
-            <EntityTypeMapping TypeName="BettingExchangeModel.MyCard">
-              <MappingFragment StoreEntitySet="MyCards">
-                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
-                <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
-                <ScalarProperty Name="DepositAndWithdraw" ColumnName="DepositAndWithdraw" />
-                <ScalarProperty Name="WithdrawOnly" ColumnName="WithdrawOnly" />
-                <ScalarProperty Name="DepositOnly" ColumnName="DepositOnly" />
-                <ScalarProperty Name="NickName" ColumnName="NickName" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -4214,6 +4453,109 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Netellers">
+            <EntityTypeMapping TypeName="BettingExchangeModel.Neteller">
+              <MappingFragment StoreEntitySet="Neteller">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Error" ColumnName="Error" />
+                <ScalarProperty Name="Test" ColumnName="Test" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="MerchanTransID" ColumnName="MerchanTransID" />
+                <ScalarProperty Name="MerchantKey" ColumnName="MerchantKey" />
+                <ScalarProperty Name="MerchantID" ColumnName="MerchantID" />
+                <ScalarProperty Name="Neteller_Version" ColumnName="Neteller_Version" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SecureID" ColumnName="SecureID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PSV_SOCCER_LEAGUE">
+            <EntityTypeMapping TypeName="BettingExchangeModel.PSV_SOCCER_LEAGUE">
+              <MappingFragment StoreEntitySet="PSV_SOCCER_LEAGUE">
+                <ScalarProperty Name="lc" ColumnName="lc" />
+                <ScalarProperty Name="sc" ColumnName="sc" />
+                <ScalarProperty Name="ln" ColumnName="ln" />
+                <ScalarProperty Name="lid" ColumnName="lid" />
+                <ScalarProperty Name="cn" ColumnName="cn" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PSV_SPORT_LUAGUE">
+            <EntityTypeMapping TypeName="BettingExchangeModel.PSV_SPORT_LUAGUE">
+              <MappingFragment StoreEntitySet="PSV_SPORT_LUAGUE">
+                <ScalarProperty Name="lc" ColumnName="lc" />
+                <ScalarProperty Name="sc" ColumnName="sc" />
+                <ScalarProperty Name="ln" ColumnName="ln" />
+                <ScalarProperty Name="lid" ColumnName="lid" />
+                <ScalarProperty Name="cn" ColumnName="cn" />
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="sn" ColumnName="sn" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CreditCards">
+            <EntityTypeMapping TypeName="BettingExchangeModel.CreditCard">
+              <MappingFragment StoreEntitySet="CreditCard">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="IssueBank" ColumnName="IssueBank" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="CardVcc2" ColumnName="CardVcc2" />
+                <ScalarProperty Name="ExpireMonth" ColumnName="ExpireMonth" />
+                <ScalarProperty Name="ExpireYear" ColumnName="ExpireYear" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyCards">
+            <EntityTypeMapping TypeName="BettingExchangeModel.MyCard">
+              <MappingFragment StoreEntitySet="MyCards">
+                <ScalarProperty Name="MoneyBookersID" ColumnName="MoneyBookersID" />
+                <ScalarProperty Name="CreditCardID" ColumnName="CreditCardID" />
+                <ScalarProperty Name="NetellerID" ColumnName="NetellerID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="PaymentMethodId" ColumnName="PaymentMethodId" />
+                <ScalarProperty Name="DepositAndWithdraw" ColumnName="DepositAndWithdraw" />
+                <ScalarProperty Name="WithdrawOnly" ColumnName="WithdrawOnly" />
+                <ScalarProperty Name="DepositOnly" ColumnName="DepositOnly" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PSV_MyCards">
+            <EntityTypeMapping TypeName="BettingExchangeModel.PSV_MyCards">
+              <MappingFragment StoreEntitySet="PSV_MyCards">
+                <ScalarProperty Name="Neteller_Version" ColumnName="Neteller_Version" />
+                <ScalarProperty Name="SecureID" ColumnName="SecureID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="CardType" ColumnName="CardType" />
+                <ScalarProperty Name="CardVcc2" ColumnName="CardVcc2" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="NameOnCard" ColumnName="NameOnCard" />
+                <ScalarProperty Name="CreditCardID" ColumnName="CreditCardID" />
+                <ScalarProperty Name="NetellerID" ColumnName="NetellerID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="WithdrawOnly" ColumnName="WithdrawOnly" />
+                <ScalarProperty Name="DepositOnly" ColumnName="DepositOnly" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -4246,7 +4588,6 @@
         <EntityTypeShape EntityType="BettingExchangeModel.Member" Width="1.5" PointX="0.75" PointY="9.375" Height="8.9031380208333246" />
         <EntityTypeShape EntityType="BettingExchangeModel.Message" Width="1.5" PointX="3" PointY="7.125" Height="3.710999348958353" />
         <EntityTypeShape EntityType="BettingExchangeModel.MyBet" Width="1.5" PointX="8.75" PointY="6.75" Height="6.2109179687499818" />
-        <EntityTypeShape EntityType="BettingExchangeModel.MyCard" Width="1.5" PointX="6" PointY="12.5" Height="2.7494921874999818" />
         <EntityTypeShape EntityType="BettingExchangeModel.MyWallet" Width="1.5" PointX="3" PointY="15" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BettingExchangeModel.PaymentMethod" Width="1.5" PointX="3.75" PointY="28.875" Height="6.0186165364583495" />
         <EntityTypeShape EntityType="BettingExchangeModel.Player" Width="1.5" PointX="9.75" PointY="0.75" Height="2.9417936197916674" />
@@ -4292,30 +4633,37 @@
           <ConnectorPoint PointX="2.25" PointY="10.105499674479177" />
           <ConnectorPoint PointX="3" PointY="10.105499674479177" />
         </AssociationConnector>
-        <AssociationConnector Association="BettingExchangeModel.FK_MyCards_Members" >
-          <ConnectorPoint PointX="2.25" PointY="14.461293945312491" />
-          <ConnectorPoint PointX="6" PointY="14.461293945312491" />
-        </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyWallet_Members" >
           <ConnectorPoint PointX="2.25" PointY="16.182444661458334" />
           <ConnectorPoint PointX="3" PointY="16.182444661458334" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Statements_Members" >
-          <ConnectorPoint PointX="1.5" PointY="18.278138020833325" />
-          <ConnectorPoint PointX="1.5" PointY="20.730124197916652" />
-          <ConnectorPoint PointX="1.8229191666666667" PointY="20.730124197916652" />
-          <ConnectorPoint PointX="1.9895858333333332" PointY="20.730124197916652" />
-          <ConnectorPoint PointX="3" PointY="20.730124197916652" />
+          <ConnectorPoint PointX="1.2773446875" PointY="18.278138020833335" />
+          <ConnectorPoint PointX="1.2773446875" PointY="20.730124197916659" />
+          <ConnectorPoint PointX="1.7115915104166668" PointY="20.730124197916659" />
+          <ConnectorPoint PointX="1.8782581770833333" PointY="20.730124197916659" />
+          <ConnectorPoint PointX="3" PointY="20.730124197916659" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_Transactions_Members" >
-          <ConnectorPoint PointX="1.9062525" PointY="18.278138020833325" />
-          <ConnectorPoint PointX="1.9062525" PointY="25.759348958333305" />
+          <ConnectorPoint PointX="1.79492484375" PointY="18.278138020833335" />
+          <ConnectorPoint PointX="1.79492484375" PointY="25.759348958333305" />
           <ConnectorPoint PointX="3" PointY="25.759348958333305" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="BettingExchangeModel.Neteller" Width="1.5" PointX="8.375" PointY="21.75" Height="3.5186979166666674" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_SOCCER_LEAGUE" Width="1.5" PointX="21.375" PointY="18.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_SPORT_LUAGUE" Width="1.5" PointX="10.375" PointY="22.75" Height="2.5571907552083246" />
+        <EntityTypeShape EntityType="BettingExchangeModel.CreditCard" Width="1.5" PointX="5.375" PointY="10.75" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.MyCard" Width="1.5" PointX="6" PointY="24.5" Height="3.3263964843749818" />
+        <EntityTypeShape EntityType="BettingExchangeModel.PSV_MyCards" Width="1.5" PointX="21.375" PointY="22.75" Height="4.0956022135416674" />
+        <AssociationConnector Association="BettingExchangeModel.FK_MyCards_Members" >
+          <ConnectorPoint PointX="0.98241984375" PointY="18.278138020833335" />
+          <ConnectorPoint PointX="0.98241984375" PointY="27.703797200520796" />
+          <ConnectorPoint PointX="6" PointY="27.703797200520796" />
         </AssociationConnector>
         <AssociationConnector Association="BettingExchangeModel.FK_MyCards_PaymentMethods" >
           <ConnectorPoint PointX="4.90625" PointY="28.875" />
-          <ConnectorPoint PointX="4.90625" PointY="14.730649472656239" />
-          <ConnectorPoint PointX="6" PointY="14.730649472656239" />
+          <ConnectorPoint PointX="4.90625" PointY="27.73504970052079" />
+          <ConnectorPoint PointX="6" PointY="27.73504970052079" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
