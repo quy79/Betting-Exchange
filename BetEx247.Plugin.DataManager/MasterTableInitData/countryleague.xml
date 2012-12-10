@@ -1108,10 +1108,16 @@
 			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
 		</urls>
 		<leagues id="1" name="web">
-			<league id="1" name="Latvia">Latvia</league>
+			<league id="1" name="Premier">Premier</league>
+			<league id="2" name="Division 1">Division 1</league>
+			<league id="3" name="Fa Cup">Fa Cup</league>
+			<league id="4" name="League Cup">League Cup</league>
 		</leagues>
 		<leagues id="2" name="feed">
-			<league id="1" name="Latvia">Latvia</league>
+			<league id="1" name="Wales: Premier">Wales: Premier</league>
+			<league id="2" name="Wales: Division 1">Wales: Division 1</league>
+			<league id="3" name="Wales: Fa Cup">Wales: Fa Cup</league>
+			<league id="4" name="Wales: League Cup">Wales: League Cup</league>
 		</leagues>
 	</country>
 	
@@ -1122,10 +1128,14 @@
 			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
 		</urls>
 		<leagues id="1" name="web">
-			<league id="1" name="Africa">Africa</league>
+			<league id="1" name="Africa Cup Of Nations">Africa Cup Of Nations</league>
+			<league id="2" name="World Cup - Qualification - Second Stage">World Cup - Qualification - Second Stage</league>
+			<league id="3" name="African Nations Championship - Qualification">African Nations Championship - Qualification</league>
 		</leagues>
 		<leagues id="2" name="feed">
-			<league id="1" name="Africa">Africa</league>
+			<league id="1" name="Africa: Africa Cup Of Nations">Africa: Africa Cup Of Nations</league>
+			<league id="2" name="Africa: World Cup - Qualification - Second Stage">Africa: World Cup - Qualification - Second Stage</league>
+			<league id="3" name="Africa: African Nations Championship - Qualification">Africa: African Nations Championship - Qualification</league>
 		</leagues>
 	</country>
 	
@@ -1136,10 +1146,20 @@
 			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
 		</urls>
 		<leagues id="1" name="web">
-			<league id="1" name="Asia">Asia</league>
+			<league id="1" name="Asia: World Cup - Qualification - Third Stage">Asia: World Cup - Qualification - Third Stage</league>
+			<league id="2" name="Asia: Asian Cup - Qualification">Asia: Asian Cup - Qualification</league>
+			<league id="3" name="Asia: East Asian Championship - Qualification - Second Stage">Asia: East Asian Championship - Qualification - Second Stage</league>
+			<league id="4" name="Asia: Aff Suzuki Cup - Play Offs">Asia: Aff Suzuki Cup - Play Offs</league>
+			<league id="5" name="Asia: Gulf Cup Of Nations">Asia: Gulf Cup Of Nations</league>
+			<league id="6" name="Asia: West Asian Football Championship">Asia: West Asian Football Championship</league>
 		</leagues>
 		<leagues id="2" name="feed">
-			<league id="1" name="Asia">Asia</league>
+			<league id="1" name="Asia: World Cup - Qualification - Third Stage">Asia: World Cup - Qualification - Third Stage</league>
+			<league id="2" name="Asia: Asian Cup - Qualification">Asia: Asian Cup - Qualification</league>
+			<league id="3" name="Asia: East Asian Championship - Qualification - Second Stage">Asia: East Asian Championship - Qualification - Second Stage</league>
+			<league id="4" name="Asia: Aff Suzuki Cup - Play Offs">Asia: Aff Suzuki Cup - Play Offs</league>
+			<league id="5" name="Asia: Gulf Cup Of Nations">Asia: Gulf Cup Of Nations</league>
+			<league id="6" name="Asia: West Asian Football Championship">Asia: West Asian Football Championship</league>
 		</leagues>
 	</country>
 	
@@ -1150,10 +1170,16 @@
 			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
 		</urls>
 		<leagues id="1" name="web">
-			<league id="1" name="North &amp; Central America">North &amp; Central America</league>
+			<league id="1" name="Caribbean Cup">Caribbean Cup</league>
+			<league id="2" name="World Cup - Qualification - Fourth Stage">World Cup - Qualification - Fourth Stage</league>
+			<league id="3" name="Central American Cup - Group Stage">Central American Cup - Group Stage</league>
+			<league id="4" name="Concacaf Champions League - Play Offs">Concacaf Champions League - Play Offs</league>
 		</leagues>
 		<leagues id="2" name="feed">
-			<league id="1" name="North &amp; Central America">North &amp; Central America</league>
+			<league id="1" name="North amp;  Central America: Caribbean Cup">North amp;  Central America: Caribbean Cup</league>
+			<league id="2" name="North amp;  Central America: World Cup - Qualification - Fourth Stage">North amp;  Central America: World Cup - Qualification - Fourth Stage</league>
+			<league id="3" name="North amp;  Central America: Central American Cup - Group Stage">North amp;  Central America: Central American Cup - Group Stage</league>
+			<league id="4" name="North amp;  Central America: Concacaf Champions League - Play Offs">North amp;  Central America: Concacaf Champions League - Play Offs</league>
 		</leagues>
 	</country>
 	
@@ -1164,10 +1190,14 @@
 			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
 		</urls>
 		<leagues id="1" name="web">
-			<league id="1" name="Europe">Europe</league>
+			<league id="1" name="Euro U21">Euro U21</league>
+			<league id="2" name="Nextgen Series - Group Stage">Nextgen Series - Group Stage</league>
+			<league id="3" name="World Cup - Qualification">World Cup - Qualification</league>
 		</leagues>
 		<leagues id="2" name="feed">
-			<league id="1" name="Europe">Europe</league>
+			<league id="1" name="Europe: Euro U21">Europe: Euro U21</league>
+			<league id="2" name="Europe: Nextgen Series - Group Stage">Europe: Nextgen Series - Group Stage</league>
+			<league id="3" name="Europe: World Cup - Qualification">Europe: World Cup - Qualification</league>
 		</leagues>
 	</country>
 	
@@ -1178,10 +1208,12 @@
 			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
 		</urls>
 		<leagues id="1" name="web">
-			<league id="1" name="South America">South America</league>
+			<league id="1" name="World Cup - Qualification">World Cup - Qualification</league>
+			<league id="2" name="Copa Sudamericana">Copa Sudamericana</league>
 		</leagues>
 		<leagues id="2" name="feed">
-			<league id="1" name="South America">South America</league>
+			<league id="1" name="South America: World Cup - Qualification">South America: World Cup - Qualification</league>
+			<league id="2" name="South America: Copa Sudamericana">South America: Copa Sudamericana</league>
 		</leagues>
 	</country>
 	
@@ -1192,10 +1224,24 @@
 			<url id="3" name="Betclick_OddsFeed">http://xml.betclick.com/odds_en.xml</url>
 		</urls>
 		<leagues id="1" name="web">
-			<league id="1" name="International Specials">International Specials</league>
+			<league id="1" name="World Cup - Qualification - Fourth Stage"> World Cup - Qualification - Fourth Stage</league>
+			<league id="2" name="World Cup - Qualification - Third Stage"> World Cup - Qualification - Third Stage</league>
+			<league id="3" name="World Cup - Qualification - Second Stage"> World Cup - Qualification - Second Stage</league>
+			<league id="4" name="World Cup - Qualification - Third Stage"> World Cup - Qualification - Third Stage</league>
+			<league id="5" name="Club Friendly"> Club Friendly</league>
+			<league id="6" name="Fifa Club World Cup"> Fifa Club World Cup</league>
+			<league id="7" name="Fifa Confederations Cup">Fifa Confederations Cup</league>
+			<league id="8" name="Friendly International">Friendly International</league>
 		</leagues>
 		<leagues id="2" name="feed">
-			<league id="1" name="International Specials">International Specials</league>
+			<league id="1" name="North amp; Central America: World Cup - Qualification - Fourth Stage">North amp; Central America: World Cup - Qualification - Fourth Stage</league>
+			<league id="2" name="Australia amp; Oceania: World Cup - Qualification - Third Stage">Australia amp; Oceania: World Cup - Qualification - Third Stage</league>
+			<league id="3" name="Africa: World Cup - Qualification - Second Stage">Africa: World Cup - Qualification - Second Stage</league>
+			<league id="4" name="Asia: World Cup - Qualification - Third Stage">Asia: World Cup - Qualification - Third Stage</league>
+			<league id="5" name="World: Club Friendly">World: Club Friendly</league>
+			<league id="6" name="World: Fifa Club World Cup">World: Fifa Club World Cup</league>
+			<league id="7" name="World: Fifa Confederations Cup">World: Fifa Confederations Cup</league>
+			<league id="8" name="World: Friendly International">World: Friendly International</league>
 		</leagues>
 	</country>
 							

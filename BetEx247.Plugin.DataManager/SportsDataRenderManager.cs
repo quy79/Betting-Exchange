@@ -36,6 +36,7 @@ namespace BetEx247.Plugin.DataManager
         {
             SportService sportSvr = new SportService();
                 List<Sport> _sports1 = sportSvr.Sports();
+                sports.Clear();
                 foreach (Sport sp in _sports1)
                 {
                     Bet247xSport _bet247xSport = new DataManager.XMLObjects.Sport.Bet247xSport()
@@ -140,6 +141,7 @@ namespace BetEx247.Plugin.DataManager
                      LeagueName_WebDisplay = sp.LeagueName_WebDisplay
                 };
                 //_obj = (Bet247xSoccerLeague)sp;
+                loadMatch(ref _obj);
                 _soccerLeagues.Add(_obj);
             }
             _country.Bet247xSoccerLeagues.AddRange(_soccerLeagues);
@@ -172,7 +174,7 @@ namespace BetEx247.Plugin.DataManager
                 loadHandicapBet(ref _obj);
                 loadMatchOddBet(ref _obj);
                 loadCorrectScoreBet(ref _obj);
-                _soccerMatches.Add(_obj);
+                _soccerLeague.Bet247xSoccerMatches.Add(_obj);
             }
 
            
@@ -188,7 +190,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //Home/Away
             SoccerDrawNoBetService _soccerDrawNoBetSvr = new SoccerDrawNoBetService();
-            List<Soccer_DrawNoBet> _objs = _soccerDrawNoBetSvr.SoccerDrawNoBets(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID,_soccerMatch.ID);
+            List<Soccer_DrawNoBet> _objs = _soccerDrawNoBetSvr.SoccerDrawNoBets(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID,_soccerMatch.ID.ToString());
 
            _soccerMatch.Bet247xSoccerDrawNoBets.AddRange(_objs);
         }
@@ -196,7 +198,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //Over/Under
             SoccerTotalGoalsOUService _soccerTotalOUSvr = new SoccerTotalGoalsOUService();
-            List<Soccer_TotalGoalsOU> _objs = _soccerTotalOUSvr.SoccerTotalGoalsOUs(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+            List<Soccer_TotalGoalsOU> _objs = _soccerTotalOUSvr.SoccerTotalGoalsOUs(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID.ToString());
 
            _soccerMatch.Bet247xSoccerTotalGoalsOUs.AddRange(_objs);
         }
@@ -204,7 +206,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //Handicap
             SoccerAsianHandicapService _soccerHandicapSvr = new SoccerAsianHandicapService();
-            List<Soccer_AsianHandicap> _objs = _soccerHandicapSvr.SoccerAsianHandicaps(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+            List<Soccer_AsianHandicap> _objs = _soccerHandicapSvr.SoccerAsianHandicaps(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID.ToString());
 
             _soccerMatch.Bet247xSoccerAsianHandicaps.AddRange(_objs);
         }
@@ -212,7 +214,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //3Way Result 1st Half
             SoccerMatchOddsService _soccerMatchOddSvr = new SoccerMatchOddsService();
-            List<Soccer_MatchOdds> _objs = _soccerMatchOddSvr.SoccerMatchOddses(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+            List<Soccer_MatchOdds> _objs = _soccerMatchOddSvr.SoccerMatchOddses(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID.ToString());
 
             _soccerMatch.Bet247xSoccerMatchOdds.AddRange(_objs);
         }
@@ -220,7 +222,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //Correct
             SoccerCorrectScoresService _soccerCorectSvr = new SoccerCorrectScoresService();
-            List<Soccer_CorrectScores> _objs = _soccerCorectSvr.SoccerCorrectScoreses(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+            List<Soccer_CorrectScores> _objs = _soccerCorectSvr.SoccerCorrectScoreses(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID.ToString());
 
             _soccerMatch.Bet247xSoccerCorrectScores.AddRange(_objs);
         }
@@ -271,6 +273,7 @@ namespace BetEx247.Plugin.DataManager
                    // LeagueName_WebDisplay = sp.LeagueName_WebDisplay
                 };
                 //_obj = (Bet247xSoccerLeague)sp;
+                loadSportsMatch(ref _obj);
                 _soccerLeagues.Add(_obj);
             }
             _country.Bet247xSportLeagues.AddRange(_soccerLeagues);
@@ -302,8 +305,8 @@ namespace BetEx247.Plugin.DataManager
                 loadSportsTotalOUBet(ref _obj);
                 loadSportsHandicapBet(ref _obj);
                 loadSportsMatchOddBet(ref _obj);
-               
-                _soccerMatches.Add(_obj);
+
+                _soccerLeague.Bet247xSportMatches.Add(_obj);
             }
 
 
@@ -320,7 +323,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //Over/Under
             SportTotalGoalsOUService _soccerTotalOUSvr = new SportTotalGoalsOUService();
-            List<Sports_TotalOU> _objs = _soccerTotalOUSvr.SportTotalGoalsOUs(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+            List<Sports_TotalOU> _objs = _soccerTotalOUSvr.SportTotalGoalsOUs(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID.ToString());
 
             _soccerMatch.Bet247xSportTotalGoalsOUs.AddRange(_objs);
         }
@@ -328,7 +331,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //Handicap
             SportAsianHandicapService _soccerHandicapSvr = new SportAsianHandicapService();
-            List<Sports_AsianHandicap> _objs = _soccerHandicapSvr.SportsAsianHandicaps(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID);
+            List<Sports_AsianHandicap> _objs = _soccerHandicapSvr.SportsAsianHandicaps(_soccerMatch.SportID, _soccerMatch.CountryID, _soccerMatch.LeagueID, _soccerMatch.ID.ToString());
 
             _soccerMatch.Bet247xSportAsianHandicaps.AddRange(_objs);
         }
@@ -336,7 +339,7 @@ namespace BetEx247.Plugin.DataManager
         {
             //3Way Result 1st Half
             SportMatchOddsService _soccerMatchOddSvr = new SportMatchOddsService();
-            List<Sports_MoneyLine> _objs = _soccerMatchOddSvr.SportMatchOddses(_sportMatch.SportID, _sportMatch.CountryID, _sportMatch.LeagueID, _sportMatch.ID);
+            List<Sports_MoneyLine> _objs = _soccerMatchOddSvr.SportMatchOddses(_sportMatch.SportID, _sportMatch.CountryID, _sportMatch.LeagueID, _sportMatch.ID.ToString());
 
             _sportMatch.Bet247xSportMatchOdds.AddRange(_objs);
         }

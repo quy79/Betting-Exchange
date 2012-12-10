@@ -1,0 +1,1094 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sports>
+<sport id = "2">
+	<country id="1" name="Canada" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/football_odds/canada_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/football/canada</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Canada: Cfl - Play Offs">Canada: Cfl - Play Offs</league>
+			<league id="2" name="Canada: Cfl">Canada: Cfl</league>
+			<league id="3" name="Canada: Cfl - Pre-Season">Canada: Cfl - Pre-Season</league>
+		</leagues>
+	</country>
+	<country id="2" name="Europe" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/football_odds/europe_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/football/europe</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Europe">Europe</league>
+		</leagues>
+	</country>
+	<country id="3" name="USA" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/football_odds/usa_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/football/usa</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Usa: Nfl">Usa: Nfl</league>
+			<league id="2" name="Usa: Ncaa I-A">Usa: Ncaa I-A</league>
+		</leagues>
+	</country>
+</sport>
+<sport id="3">
+
+	<country id="1" name="Argentina" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/argentina_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/argentina</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Argentina: Liga A - Second Stage">Argentina: Liga A - Second Stage</league>
+		</leagues>
+	</country>
+	<country id="2" name="Australia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/australia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/australia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Australia: Nbl">Australia: Nbl</league>
+		</leagues>
+	</country>
+	<country id="3" name="Austria" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/austria_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/austria</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Austria: Abl">Austria: Abl</league>
+			<league id="2" name="Austria: Austria Cup">Austria: Austria Cup</league>
+		</leagues>
+	</country>
+	<country id="4" name="Belgium" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/belgium_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/belgium</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Belgium: Ethias League">Belgium: Ethias League</league>
+			<league id="2" name="Belgium: Belgian Cup">Belgium: Belgian Cup</league>
+		</leagues>
+	</country>
+	<country id="5" name="Brazil" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/brazil_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/brazil</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Brazil: Nbb">Brazil: Nbb</league>
+		</leagues>
+	</country>
+	<country id="6" name="Bulgaria" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/bulgaria_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/bulgaria</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Bulgaria: Nbl">Bulgaria: Nbl</league>
+		</leagues>
+	</country>
+	<country id="7" name="Croatia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/croatia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/croatia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Croatia: A1 Liga">Croatia: A1 Liga</league>
+		</leagues>
+	</country>
+	<country id="8" name="Cyprus" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/cyprus_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/cyprus</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Cyprus: Division A">Cyprus: Division A</league>
+		</leagues>
+	</country>
+	<country id="9" name="Czechia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/czechia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/czechia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Czech Republic: Mattoni Nbl">Czech Republic: Mattoni Nbl</league>
+			<league id="2" name="Czech Republic">Czech Republic</league>
+		</leagues>
+	</country>
+	<country id="10" name="Denmark" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/denmark_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/denmark</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Denmark: Dameligaen Women">Denmark: Dameligaen Women</league>
+			<league id="2" name="Denmark: Canal Digital Ligaen">Denmark: Canal Digital Ligaen</league>
+		</leagues>
+	</country>
+	<country id="11" name="England" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/england_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/england</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="England: Bbl Cup">England: Bbl Cup</league>
+			<league id="2" name="England: Bbl">England: Bbl</league>
+		</leagues>
+	</country>
+	<country id="12" name="Estonia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/estonia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/estonia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Estonia: Korvpalli Meistriliiga">Estonia: Korvpalli Meistriliiga</league>
+		</leagues>
+	</country>
+	<country id="13" name="Europe" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/eurocups_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/eurocups</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Europe: Eurobasket - First Stage">Europe: Eurobasket - First Stage</league>
+			<league id="2" name="Europe: Euroleague">Europe: Euroleague</league>
+			<league id="3" name="Europe: Eurocup - Preliminary">Europe: Eurocup - Preliminary</league>
+			<league id="4" name="Europe: Eurochallenge - First Stage">Europe: Eurochallenge - First Stage</league>
+			<league id="5" name="Europe: Aba League">Europe: Aba League</league>
+			<league id="6" name="Europe: Bibl">Europe: Bibl</league>
+			<league id="7" name="Europe: Baltic League">Europe: Baltic League</league>
+			<league id="8" name="Europe: Vtb Promo Cup">Europe: Vtb Promo Cup</league>
+			<league id="9" name="Europe: European Championship Women - Preliminary">Europe: European Championship Women - Preliminary</league>
+			<league id="10" name="Europe: Euroleague Women - First Stage">Europe: Euroleague Women - First Stage</league>
+			<league id="11" name="Europe: Eurocup Women">Europe: Eurocup Women</league>
+		</leagues>
+	</country>
+	<country id="14" name="Finland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/finland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/finland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Finland: Korisliiga">Finland: Korisliiga</league>
+		</leagues>
+	</country>
+	<country id="15" name="France" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/france_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/france</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="France: Lnb">France: Lnb</league>
+			<league id="2" name="France: Pro B">France: Pro B</league>
+			<league id="3" name="France: Lfb Women">France: Lfb Women</league>
+			<league id="4" name="France: All Stars">France: All Stars</league>
+		</leagues>
+	</country>
+	<country id="16" name="Germany" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/germany_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/germany</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Germany: Bbl">Germany: Bbl</league>
+			<league id="2" name="Germany: Bbl - All Stars">Germany: Bbl - All Stars</league>
+			<league id="3" name="Germany: Dbbl Women">Germany: Dbbl Women</league>
+			<league id="4" name="Germany: Pro A">Germany: Pro A</league>
+		</leagues>
+	</country>
+	<country id="17" name="Greece" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/greece_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/greece</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Greece: A1">Greece: A1</league>
+			<league id="2" name="Greece: Greek Cup">Greece: Greek Cup</league>
+			<league id="3" name="Greece: A2">Greece: A2</league>
+		</leagues>
+	</country>
+	<country id="18" name="Holland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/holland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/holland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Netherlands: Eredivisie">Netherlands: Eredivisie</league>
+		</leagues>
+	</country>
+	<country id="19" name="Israel" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/israel_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/israel</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Israel: Super League">Israel: Super League</league>
+		</leagues>
+	</country>
+	<country id="20" name="Italy" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/italy_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/italy</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Italy: Lega A">Italy: Lega A</league>
+			<league id="2" name="Italy: Lega A - All Stars">Italy: Lega A - All Stars</league>
+			<league id="3" name="Italy: Lega 2">Italy: Lega 2</league>
+			<league id="4" name="Italy: Serie A1 Women">Italy: Serie A1 Women</league>
+		</leagues>
+	</country>
+	<country id="21" name="Japan" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/japan</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/japan</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Japan:bl League">Japan:bl League</league>
+			<league id="2" name="Japan: Bj League">Japan: Bj Leaguee</league>
+		</leagues>
+	</country>
+	<country id="22" name="Norway" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/norway_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/norway</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Norway: Blno">Norway: Blno</league>
+			<league id="2" name="Norway: Kvinneligaen Women">Norway: Kvinneligaen Women</league>
+		</leagues>
+	</country>
+	<country id="23" name="Poland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/poland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/poland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Poland: Tauron Basket Liga">Poland: Tauron Basket Liga</league>
+			<league id="2" name="Poland: Tauron Basket Liga">Poland: Tauron Basket Liga</league>
+			<league id="3" name="Poland: Polish Cup">Poland: Polish Cup</league>
+			<league id="4" name="Poland: Ekstraklasa Women">Poland: Ekstraklasa Women</league>
+		</leagues>
+	</country>
+	<country id="24" name="Russia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/russia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/russia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Russia: Pbl">Russia: Pbl</league>
+			<league id="2" name="Russia: Superleague A Women">Russia: Superleague A Women</league>
+		</leagues>
+	</country>
+	<country id="25" name="Serbia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/serbia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/serbia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Serbia: First League">Serbia: First League</league>
+		</leagues>
+	</country>
+	<country id="26" name="Slovakia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/slovakia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/slovakia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Slovakia: Extraliga">Slovakia: Extraliga</league>
+		</leagues>
+	</country>
+	<country id="27" name="Slovenia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/slovenia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/slovenia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Slovenia: Liga Upc">Slovenia: Liga Upc</league>
+		</leagues>
+	</country>
+	<country id="28" name="Spain" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/spain_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/spain</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Spain: Acb">Spain: Acb</league>
+			<league id="2" name="Spain: Adecco Oro">Spain: Adecco Oro</league>
+			<league id="3" name="Spain: Liga Femenina Women">Spain: Liga Femenina Women</league>
+			<league id="4" name="Spain: Adecco Plata">Spain: Adecco Plata</league>
+		</leagues>
+	</country>
+	<country id="29" name="Sweden" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/sweden_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/sweden</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Sweden">Sweden: Ligan</league>
+		</leagues>
+	</country>
+	<country id="30" name="Turkey" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/turkey_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/turkey</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Turkey: Tbl">Turkey: Tbl</league>
+			<league id="2" name="Turkey: Turkish Cup - Play Offs">Turkey: Turkish Cup - Play Offs</league>
+			<league id="3" name="Turkey: Tkbl">Turkey: Tkbl</league>
+		</leagues>
+	</country>
+	<country id="31" name="Ukraine" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/ukraine_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/ukraine</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Ukraine: Superleague">Ukraine: Superleague</league>
+		</leagues>
+	</country>
+	<country id="32" name="USA" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/usa_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/usa</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Usa: Nba">Usa: Nba</league>
+			<league id="2" name="Usa: Nba - All Stars">Usa: Nba - All Stars</league>
+			<league id="3" name="Usa: Ncaa I-A">Usa: Ncaa I-A</league>
+		</leagues>
+	</country>
+	<country id="33" name="Worldcup" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl_odds/worldcup_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/bsktbl/worldcup</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Worldcup">Worldcup</league>
+		</leagues>
+	</country>
+
+	</sport>
+	<sport id="4">
+	
+	<country id="1" name="Japan" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball_odds/japan_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball/japan</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Japan">Japan</league>
+		</leagues>
+	</country>	
+	<country id="2" name="Mexico" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball_odds/mexico_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball/mexico</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Mexico">Mexico</league>
+		</leagues>
+	</country>
+	<country id="3" name="USA" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball_odds/usa_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball_odds/mlb</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="USA">USA</league>
+		</leagues>
+	</country>
+	<country id="4" name="Worldcup" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball_odds/worldcup_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/baseball/worldcup</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Worldcup">Worldcup</league>
+		</leagues>
+	</country>
+	
+	</sport>
+	<sport id="5">
+	
+	
+	<country id="1" name="Austria" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/austria_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/austria</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Austria: Ebel">Austria: Ebel</league>
+			<league id="2" name="Austria: National League">Austria: National League</league>
+		</leagues>
+	</country>
+	<country id="2" name="Czechia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/czechia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/czechia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Czech Republic: Extraliga">Czech Republic: Extraliga</league>
+			<league id="2" name="Czech Republic: Czech 1.Liga">Czech Republic: Czech 1.Liga</league>
+		</leagues>
+	</country>
+	<country id="3" name="Denmark" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/denmark_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/denmark</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Denmark: Al-Bank Ligaen">Denmark: Al-Bank Ligaen</league>
+			<league id="2" name="Denmark: Danish Cup">Denmark: Danish Cup</league>
+		</leagues>
+	</country>
+	<country id="4" name="Europe" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/europe_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/europe</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Europe: Channel One Cup">Europe: Channel One Cup</league>
+			<league id="2" name="Europe: Oddset Hockey Games">Europe: Oddset Hockey Games</league>
+			<league id="3" name="Europe: Kajotbet Hockey Games">Europe: Kajotbet Hockey Games</league>
+			<league id="4" name="Europe: Spengler Cup (Davos)">Europe: Spengler Cup (Davos)</league>
+			<league id="5" name="Europe: European Trophy">Europe: European Trophy</league>
+			<league id="6" name="Europe: Mol Liga">Europe: Mol Liga</league>
+			<league id="7" name="Europe: International Tournament (France)">Europe: International Tournament (France)</league>
+			<league id="8" name="Europe: International Tournament (Switzerland)">Europe: International Tournament (Switzerland)</league>
+		</leagues>
+	</country>
+	<country id="5" name="Finland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/finland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/finland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Finland: Sm-Liiga">Finland: Sm-Liiga</league>
+			<league id="2" name="Finland: Mestis">Finland: Mestis</league>
+		</leagues>
+	</country>
+	<country id="6" name="France" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/france_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/france</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="France: Ligue Magnus">France: Ligue Magnus</league>
+			<league id="2" name="France: French Cup">France: French Cup</league>
+			<league id="3" name="France: League Cup - Play Offs">France: League Cup - Play Offs</league>
+		</leagues>
+	</country>
+	<country id="7" name="Germany" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/germany_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/germany</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Germany: Del">Germany: Del</league>
+			<league id="2" name="Germany: German Cup">Germany: German Cup</league>
+			<league id="3" name="Germany: 2. Bundesliga">Germany: 2. Bundesliga</league>
+			<league id="4" name="Germany: Oberliga West">Germany: Oberliga West</league>
+			<league id="5" name="Germany: Oberliga East">Germany: Oberliga East</league>
+			<league id="6" name="Germany: Oberliga North">Germany: Oberliga North</league>
+			<league id="7" name="Germany: Oberliga South">Germany: Oberliga South</league>
+		</leagues>
+	</country>
+	<country id="8" name="Italy" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/italy_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/italy</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Italy: Serie A">Italy: Serie A</league>
+		</leagues>
+	</country>
+	<country id="9" name="Norway" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/norway_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/norway</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Norway: Eliteserien">Norway: Eliteserien</league>
+			<league id="2" name="Norway: Division 1">Norway: Division 1</league>
+		</leagues>
+	</country>
+	<country id="10" name="Poland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/poland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/poland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Poland: Polish Hockey League">Poland: Polish Hockey League</league>
+		</leagues>
+	</country>
+	<country id="11" name="Russia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/russia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/russia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Poland: Polish Hockey League">Poland: Polish Hockey League</league>
+			<league id="2" name="Russia: Khl">Russia: Khl</league>
+			<league id="3" name="Russia: Vhl">Russia: Vhl</league>
+			<league id="4" name="Russia: Mhl">Russia: Mhl</league>
+		</leagues>
+	</country>
+	<country id="12" name="Slovakia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/slovakia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/slovakia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Slovakia: Extraliga">Slovakia: Extraliga</league>
+			<league id="2" name="Slovakia: 1. Liga">Slovakia: 1. Liga</league>
+			<league id="3" name="Slovenia: Hokejska Liga">Slovenia: Hokejska Liga</league>
+		</leagues>
+	</country>
+	<country id="13" name="Sweden" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/sweden_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/sweden</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Sweden: Elitserien">Sweden: Elitserien</league>
+			<league id="2" name="Sweden: Hockeyallsvenskan">Sweden: Hockeyallsvenskan</league>
+			<league id="3" name="Sweden: Division 1 A">Sweden: Division 1 A</league>
+			<league id="4" name="Sweden: Division 1 B">Sweden: Division 1 B</league>
+			<league id="5" name="Sweden: Division 1 C">Sweden: Division 1 C</league>
+			<league id="6" name="Sweden: Division 1 D">Sweden: Division 1 D</league>
+			<league id="7" name="Sweden: Division 1 E">Sweden: Division 1 E</league>
+			<league id="8" name="Sweden: Division 1 F">Sweden: Division 1 F</league>
+		</leagues>
+	</country>
+	<country id="14" name="Switzerland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/switzerland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/switzerland_shedule</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Switzerland: Nla">Switzerland: Nla</league>
+			<league id="2" name="Switzerland: Nlb">Switzerland: Nlb</league>
+		</leagues>
+	</country>
+	<country id="15" name="USA" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/usa_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/usa</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Usa: Nhl">Usa: Nhl</league>
+			<league id="2" name="Usa: Ahl">Usa: Ahl</league>
+			<league id="3" name="Usa: Echl">Usa: Echl</league>
+			<league id="4" name="Usa: Chl">Usa: Chl</league>
+			<league id="5" name="Usa: Fhl">Usa: Fhl</league>
+			<league id="6" name="Usa: Sphl">Usa: Sphl</league>
+		</leagues>
+	</country>
+	<country id="16" name="Worldcup" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey_odds/worldcup_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/hockey/worldcup</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="World: World Championship">World: World Championship</league>
+			<league id="2" name="World: Wch B">World: Wch B</league>
+			<league id="3" name="World: Olympic Games - Qualification - Third Stage">World: Olympic Games - Qualification - Third Stage</league>
+			<league id="4" name="World: Friendly International">World: Friendly International</league>
+			<league id="5" name="World: Wch U20">World: Wch U20</league>
+			<league id="6" name="World: Wch U18">World: Wch U18</league>
+		</leagues>
+	</country>
+	
+</sport>
+<sport id="6">
+	<country id="1" name="ATP Doubles" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_odds/atp_doubles_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_scores/atp_doubles</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="ATP Doubles Atp - Doubles">ATP Doubles	Atp - Doubles</league>
+		</leagues>
+	</country>
+	<country id="2" name="ATP Singles" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_odds/atp_singles_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_scores/atp_singles</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="ATP Singles Atp - Singles">ATP Singles	Atp - Singles</league>
+		</leagues>
+	</country>
+	<country id="3" name="Challenger" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_odds/challenger_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_scores/challenger</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Challenger - Singles">Challenger - Singles</league>
+		</leagues>
+	</country>
+	<country id="4" name="Mixed Doubles" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_odds/mixed_doubles_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_scores/mixed_doubles</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Mixed - Doubles">Mixed - Doubles</league>
+		</leagues>
+	</country>
+	<country id="5" name="WTA Doubles" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_odds/wta_doubles_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_scores/wta_doubles</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="ATP Doubles Atp - Doubles">ATP Doubles	Atp - Doubles</league>
+		</leagues>
+	</country>
+	<country id="6" name="WTA Singles" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_odds/wta_singles_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/tennis_scores/wta_singles</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="WTA Singles Wta - Singles">WTA Singles	Wta - Singles</league>
+		</leagues>
+	</country>
+</sport>
+<sport id="7">
+
+	<country id="1" name="Australia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby_odds/australasia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby/australasia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Australia">Australia</league>
+		</leagues>
+
+	</country>
+	<country id="2" name="England" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby_odds/england_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby/england</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="England: Aviva Premiership Rugby">England: Aviva Premiership Rugby</league>
+		</leagues>
+	</country>
+	<country id="3" name="Europe" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby_odds/europe_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby/europe</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Europe: Pro 12">Europe: Pro 12</league>
+			<league id="2" name="Europe: Heineken Cup">Europe: Heineken Cup</league>
+			<league id="3" name="Europe: Challenge Cup">Europe: Challenge Cup</league>
+		</leagues>
+	</country>
+	<country id="4" name="France" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby_odds/france_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby/france</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="France: Top 14">France: Top 14</league>
+			<league id="2" name="France: Pro D2">France: Pro D2</league>
+		</leagues>
+	</country>
+	<country id="5" name="Italy" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby_odds/italy_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/rugby/italy</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Italy: Super 12">Italy: Super 12</league>
+		</leagues>
+	</country>
+</sport>
+<sport id="9">	
+	<country id="1" name="Austria" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/austria_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/austria</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Austria: Hla">Austria: Hla</league>
+			<league id="2" name="Austria: Wha Women">Austria: Wha Women</league>
+			<league id="3" name="Austria: Ohb Cup">Austria: Ohb Cup</league>
+			<league id="4" name="Austria: Ohb Cup Women">Austria: Ohb Cup Women</league>
+		</leagues>
+	</country>
+	<country id="2" name="Croatia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/croatia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/croatia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Croatia: Dukat Premijer Liga">Croatia: Dukat Premijer Liga</league>
+		</leagues>
+	</country>
+	<country id="3" name="Czechia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/czechia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/czechia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Czech Republic: Extraliga">Czech Republic: Extraliga</league>
+		</leagues>
+	</country>
+	<country id="4" name="Denmark" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/denmark_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/denmark</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Denmark: Jack &amp; Jones Ligaen">Denmark: Jack &amp; Jones Ligaen</league>
+			<league id="2" name="Denmark: 1. Division">Denmark: 1. Division</league>
+			<league id="3" name="Denmark: Guldbageren Ligaen">Denmark: Guldbageren Ligaen</league>
+			<league id="4" name="Denmark: 1. Division Women">Denmark: 1. Division Women</league>
+			<league id="5" name="Denmark: Nordea Cup">Denmark: Nordea Cup</league>
+			<league id="6" name="Denmark: Nordea Cup Women">Denmark: Nordea Cup Women</league>
+		</leagues>
+	</country>
+	<country id="5" name="Europe" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/eurocups_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/eurocups</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Europe: Champions League">Europe: Champions League</league>
+			<league id="2" name="Europe: Ehf Championship Trophy - Preliminary">Europe: Ehf Championship Trophy - Preliminary</league>
+			<league id="3" name="Europe: Challenge Cup">Europe: Challenge Cup</league>
+			<league id="4" name="Europe: Baltic League">Europe: Baltic League</league>
+			<league id="5" name="Europe: European Championship Women - Preliminary">Europe: European Championship Women - Preliminary</league>
+			<league id="6" name="Europe: Wrhl Women">Europe: Wrhl Women</league>
+			<league id="7" name="Europe: Seha Liga">Europe: Seha Liga</league>
+		</leagues>
+	</country>
+	<country id="6" name="Finland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/finland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/finland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Finland: Sm-Sarja">Finland: Sm-Sarja</league>
+			<league id="2" name="Finland: Sm-Sarja Women">Finland: Sm-Sarja Women</league>
+		</leagues>
+	</country>
+	<country id="7" name="France" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/france_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/france</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="France: Division 1">France: Division 1</league>
+		</leagues>
+	</country>
+	<country id="8" name="Germany" international="0">Germany: Bundesliga
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/germany_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/germany</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Germany: Bundesliga">Germany: Bundesliga</league>
+			<league id="2" name="Germany: Dhb Pokal">Germany: Dhb Pokal</league>
+			<league id="3" name="Germany: 1. Bundesliga Women">Germany: 1. Bundesliga Women</league>
+			<league id="4" name="Germany: 2. Bundesliga">Germany: 2. Bundesliga</league>
+		</leagues>
+	</country>
+	<country id="9" name="Norway" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/norway_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/norway</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Norway: Postenligaen">Norway: Postenligaen</league>
+			<league id="2" name="Norway: 1. Division">Norway: 1. Division</league>
+			<league id="3" name="Norway: 1. Division Women">Norway: 1. Division Women</league>
+		</leagues>
+	</country>
+	<country id="10" name="Poland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/poland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/poland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Poland: Ekstraklasa">Poland: Ekstraklasa</league>
+			<league id="2" name="Poland: Superliga Women">Poland: Superliga Women</league>
+		</leagues>
+	</country>
+	<country id="11" name="Romania" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/romania_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/romania</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Romania: Liga Nationala">Romania: Liga Nationala</league>
+		</leagues>
+	</country>
+	<country id="12" name="Serbia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/serbia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/serbia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Serbia: Superliga">Serbia: Superliga</league>
+		</leagues>
+	</country>
+	<country id="13" name="Slovakia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/slovakia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/slovakia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Slovakia: Extraliga">Slovakia: Extraliga</league>
+		</leagues>
+	</country>
+	<country id="14" name="Slovenia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/slovenia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/slovenia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Slovenia: Mik 1.Liga">Slovenia: Mik 1.Liga</league>
+			<league id="2" name="Slovenia: 1.A Drl Women">Slovenia: 1.A Drl Women</league>
+		</leagues>
+	</country>
+	<country id="15" name="Spain" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/spain_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/spain</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Spain: Liga Asobal">Spain: Liga Asobal</league>
+			<league id="2" name="Spain: Division De Honor Plata">Spain: Division De Honor Plata</league>
+		</leagues>
+	</country>
+	<country id="16" name="Sweden" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/sweden_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/sweden</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Sweden: Elitserien">Sweden: Elitserien</league>
+		</leagues>
+	</country>
+	<country id="17" name="Switzerland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/switzerland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/switzerland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Sweden: Elitserien">Sweden: Elitserien</league>
+			<league id="2" name="Sweden: Allsvenskan">Sweden: Allsvenskan</league>
+			<league id="3" name="Sweden: Allsvenskan Women">Sweden: Allsvenskan Women</league>
+		</leagues>
+	</country>
+	<country id="18" name="Worldcup" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball_odds/worldcup_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/handball/worldcup</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="World: World Championship Women - Qualification - First Stage">World: World Championship Women - Qualification - First Stage</league>
+		</leagues>
+	</country>
+	
+	</sport>
+	<sport id="12">
+	
+	<country id="1" name="Croatia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/croatia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/croatia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Croatia: 1.A Liga">Croatia: 1.A Liga</league>
+			<league id="2" name="Croatia: 1.A Liga Women">Croatia: 1.A Liga Women</league>
+		</leagues>
+	</country>
+	<country id="2" name="Czechia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/czechia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/czechia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Czech Republic: Extraliga">Czech Republic: Extraliga</league>
+			<league id="2" name="Czech Republic: Extraliga Women">Czech Republic: Extraliga Women</league>
+		</leagues>
+	</country>
+	<country id="3" name="Denmark" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/denmark</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/denmark</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Denmark: Elitedivision">Denmark: Elitedivision</league>
+			<league id="2" name="Denmark: Elitedivision Women">Denmark: Elitedivision Women</league>
+			<league id="3" name="Denmark: Landspokal Cup Women">Denmark: Landspokal Cup Women</league>
+			<league id="4" name="Denmark: Landspokal Cup">Denmark: Landspokal Cup</league>
+			<league id="5" name="Denmark: 1. Division West Women">Denmark: 1. Division West Women</league>
+			<league id="6" name="Denmark: 1. Division East Women">Denmark: 1. Division East Women</league>
+			<league id="7" name="Denmark: 1. Division West">Denmark: 1. Division West</league>
+		</leagues>
+	</country>
+	<country id="4" name="Europe" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/eurocups_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/eurocups</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Women">Women</league>
+			<league id="2" name="Europe: Schenker League">Europe: Schenker League</league>
+			<league id="3" name="Europe: Champions League">Europe: Champions League</league>
+			<league id="4" name="Europe: Champions League Women">Europe: Champions League Women</league>
+			<league id="5" name="Europe: Cev Cup">Europe: Cev Cup</league>
+			<league id="6" name="Europe: Cev Cup Women">Europe: Cev Cup Women</league>
+			<league id="7" name="Europe: Challenge Cup">Europe: Challenge Cup</league>
+			<league id="8" name="Europe: Challenge Cup Women">Europe: Challenge Cup Women</league>
+		</leagues>
+	</country>
+	<country id="5" name="Finland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/finland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/finland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Finland: Sm-Liiga">Finland: Sm-Liiga</league>
+			<league id="2" name="Finland: Sm-Liiga Women">Finland: Sm-Liiga Women</league>
+		</leagues>
+	</country>
+	<country id="6" name="France" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/france_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/france</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="France: Pro A">France: Pro A</league>
+			<league id="2" name="France: Pro A Women">France: Pro A Women</league>
+			<league id="3" name="France: Pro B">France: Pro B</league>
+		</leagues>
+	</country>
+	<country id="7" name="Germany" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/germany_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/germany</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Germany: 1. Bundesliga">Germany: 1. Bundesliga</league>
+			<league id="2" name="Germany: 1. Bundesliga Women">Germany: 1. Bundesliga Women</league>
+			<league id="3" name="Germany: Dvv Cup">Germany: Dvv Cup</league>
+			<league id="4" name="Germany: Dvv Cup Women">Germany: Dvv Cup Women</league>
+			<league id="5" name="Germany: 2. Bundesliga South">Germany: 2. Bundesliga South</league>
+			<league id="6" name="Germany: 2. Bundesliga North">Germany: 2. Bundesliga North</league>
+			<league id="7" name="Germany: 2. Bundesliga North Women">Germany: 2. Bundesliga North Women</league>
+			<league id="8" name="Germany: 2. Bundesliga South Women">Germany: 2. Bundesliga South Women</league>
+		</leagues>
+	</country>
+	<country id="8" name="Greece" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/greece_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/greece</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Greece: A1">Greece: A1</league>
+			<league id="2" name="Greece: A1 Women">Greece: A1 Women</league>
+		</leagues>
+	</country>
+	<country id="9" name="Italy" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/italy_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/italy</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Italy: Serie A1">Italy: Serie A1</league>
+			<league id="2" name="Italy: Serie A1 Women">Italy: Serie A1 Women</league>
+			<league id="3" name="Italy: Serie A2">Italy: Serie A2</league>
+			<league id="4" name="Italy: Serie A2 Women">Italy: Serie A2 Women</league>
+		</leagues>
+	</country>
+	<country id="10" name="Norway" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/norway_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/norway</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Norway: Eliteserien">Norway: Eliteserien</league>
+			<league id="2" name="Norway: Eliteserien Women">Norway: Eliteserien Women</league>
+		</leagues>
+	</country>
+	<country id="11" name="Poland" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/poland_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/poland</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Poland: Plusliga">Poland: Plusliga</league>
+			<league id="2" name="Poland: Plusliga Women">Poland: Plusliga Women</league>
+		</leagues>
+	</country>
+	<country id="12" name="Russia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/russia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/russia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Russia: Superleague">Russia: Superleague</league>
+			<league id="2" name="Russia: Superleague Women">Russia: Superleague Women</league>
+			<league id="3" name="Russia: Russia Cup Women">Russia: Russia Cup Women</league>
+			<league id="4" name="Russia: Russia Cup">Russia: Russia Cup</league>
+		</leagues>
+	</country>
+	<country id="13" name="Slovenia" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/slovenia_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/slovenia</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Slovenia: 1. Dol">Slovenia: 1. Dol</league>
+			<league id="2" name="Slovenia: 1. Dol Women">Slovenia: 1. Dol Women</league>
+			<league id="3" name="Slovenia: Slovenia Cup">Slovenia: Slovenia Cup</league>
+			<league id="4" name="Slovenia: Slovenia Cup Women">Slovenia: Slovenia Cup Women</league>
+		</leagues>
+	</country>
+	<country id="14" name="Spain" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/spain_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/spain</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Spain: Superliga">Spain: Superliga</league>
+			<league id="2" name="Spain: Superliga Women">Spain: Superliga Women</league>
+		</leagues>
+	</country>
+	<country id="15" name="Turkey" international="0">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/turkey_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/turkey</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="Turkey: Division 1">Turkey: Division 1</league>
+			<league id="2" name="Turkey: Division 1 Women">Turkey: Division 1 Women</league>
+			<league id="3" name="Turkey: Turkish Cup Women">Turkey: Turkish Cup Women</league>
+		</leagues>
+	</country>
+	<country id="16" name="Worldcup" international="1">
+		<urls name="url">
+			<url id="1" name="Goalserve_OddsFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball_odds/worldcup_shedule</url>
+			<url id="2" name="Goalserve_LivescoreFeed">http://www.goalserve.com/getfeed/6eddeb6cd8f14740b4590bca6ba06fbb/volleyball/worldcup</url>
+		</urls>
+		<leagues id="1" name="web">
+			<league id="1" name="World Cup">World Cup</league>
+		</leagues>
+	</country>
+	</sport>
+</sports>
+
+

@@ -166,12 +166,13 @@ namespace BetEx247.Plugin.DataManager
            //Sports
            foreach (XElement element in doc.Root.Nodes())
            {
-               Bet247xSportCountry sportcountry = new Bet247xSportCountry();
+               
                // Sports
                long sportID = int.Parse(element.Attribute("id").Value);
                // loop country
                foreach (XElement country in element.Nodes())
                {
+                   Bet247xSportCountry sportcountry = new Bet247xSportCountry();
                   XElement urlelements = country.XPathSelectElement("urls");
                   IEnumerable<XElement> LeagueElements = country.XPathSelectElements("leagues");
                  
@@ -245,13 +246,13 @@ namespace BetEx247.Plugin.DataManager
                        }
                    }
 
-                  
 
+                   sports[indexSport].Bet247xSportCountries.Add(sportcountry);
                }
 
 
 
-               sports[indexSport].Bet247xSportCountries.Add(sportcountry);
+               
                indexSport++;
 
            }

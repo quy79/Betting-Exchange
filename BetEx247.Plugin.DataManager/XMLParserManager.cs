@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Configuration;
 using System.IO;
 using BetEx247.Core.Common.Utils;
+using System.Threading;
 using System.Xml.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -192,6 +193,10 @@ namespace BetEx247.Plugin.DataManager
             {
               //  Bet247xSoccerLeague _bet247xSoccerLeague = new Bet247xSoccerLeague();
                 String _catogatry = element.Attribute("name").Value;
+				 if (_catogatry.Equals(""))
+                {
+                    continue;
+                }
                 SoccerLeagueService _soccerLeagueSrv = new SoccerLeagueService();
                 long leagueCountryID = 0;
                 SoccerLeague _soccerLeague = _soccerLeagueSrv.GoalServeSoccerLeague(bet247xSoccerCountry.ID, _catogatry);
@@ -204,10 +209,16 @@ namespace BetEx247.Plugin.DataManager
                     temp.CountryID = bet247xSoccerCountry.ID;
                     temp.ID = _soccerLeagueSrv.GoalServeSoccerLeagueMaxIdByCountry(temp.CountryID)+1;
                     temp.SportID = 1;
+					if(_catogatry.IndexOf(":")>0){
+                        temp.LeagueName_WebDisplay = _catogatry.Split(':')[1];
 
-                    temp.LeagueName_WebDisplay = _catogatry.Split(':')[1];
+						temp.LeagueName_Goalserve = _catogatry;
+                    }else{
+                        temp.LeagueName_WebDisplay = _catogatry;
 
                     temp.LeagueName_Goalserve = _catogatry;
+                    }
+                    
 
 
                     _soccerLeagueSrv.Insert(temp);
@@ -235,6 +246,12 @@ namespace BetEx247.Plugin.DataManager
 
                        String _startDate = _matchDetail.Attribute("formatted_date").Value;
                        String _startTime = _matchDetail.Attribute("time").Value;
+
+                       String _matchStatus = "";
+                       if (_matchDetail.Attribute("status") != null)
+                       {
+                           _matchStatus = _matchDetail.Attribute("status").Value;
+                       }
                        int year, month,day, hours, minute;
                        year = int.Parse(_startDate.Split('.')[2]);
                        month = int.Parse(_startDate.Split('.')[1]);
@@ -244,11 +261,15 @@ namespace BetEx247.Plugin.DataManager
 
                        // if past date ignore
                        DateTime passedDate = new DateTime(year, month, day, hours, minute, 0);
-
-                       if (passedDate.Millisecond< DateTime.Now.Millisecond)
+                       int dateCompare = DateTime.Compare(passedDate, DateTime.Now);
+                       if (dateCompare <= 0)
                        {
                            continue;
                        }
+                       //if (passedDate.Millisecond< DateTime.Now.Millisecond)
+                       //{
+                       //    continue;
+                       //}
 
                        DateTime _marketCloseTime = new DateTime(year, month, day, hours, minute, 0); //formatted_date="27.10.2012" time="17:00"
                        _marketCloseTime=_marketCloseTime.AddMinutes(-5);
@@ -264,7 +285,15 @@ namespace BetEx247.Plugin.DataManager
                        SoccerMatchService _soccerMatchSvr = new SoccerMatchService();
                        SoccerLeague _tempSoccerLeague = (SoccerLeague)bet247xSoccerCountry.Bet247xSoccerLeagues[indexLeague];
                        SoccerMatch _tempSoccerMatch = _soccerMatchSvr.SoccerMatch(_tempSoccerLeague.ID, _bet247xSoccerMatch.HomeTeam, _bet247xSoccerMatch.AwayTeam, (DateTime)_bet247xSoccerMatch.StartDateTime);
-                       _bet247xSoccerMatch.MatchStatus = "";// Not stated
+                       _bet247xSoccerMatch.MatchStatus = "";// Not stated Postp.
+
+                       if (_matchStatus.Equals("Postp."))
+                       {
+                           _bet247xSoccerMatch.MatchStatus = "Postponed";
+                       } if (_matchStatus.Equals("Cancelled"))
+                       {
+                           _bet247xSoccerMatch.MatchStatus = "Cancelled";
+                       }
                        _bet247xSoccerMatch.SportID = _tempSoccerLeague.SportID;
                        _bet247xSoccerMatch.CountryID = _tempSoccerLeague.CountryID;
                        _bet247xSoccerMatch.MarketCloseTime = _marketCloseTime;
@@ -598,6 +627,8 @@ namespace BetEx247.Plugin.DataManager
                 try
                 {
                    // System.IO.File.Delete(sFullPath);
+                    Thread delfileThead = new Thread(deleteFeed);
+                    delfileThead.Start(sFullPath);
                 }
                 catch (System.IO.IOException e)
                 {
@@ -757,7 +788,10 @@ namespace BetEx247.Plugin.DataManager
                     try
                     {
                        // System.IO.File.Delete(sFullPath);
+                        Thread delfileThead = new Thread(deleteFeed);
+                        delfileThead.Start(sFullPath);
                     }
+                         
                     catch (System.IO.IOException e)
                     {
                         Console.WriteLine(e.Message);
@@ -1021,6 +1055,10 @@ namespace BetEx247.Plugin.DataManager
             {
                 //  Bet247xSoccerLeague _bet247xSoccerLeague = new Bet247xSoccerLeague();
                 String _catogatry = element.Attribute("name").Value;
+                if (_catogatry.Equals(""))
+                {
+                    continue;
+                }
                 SportLeagueService _sportLeagueSrv = new SportLeagueService();
                 long leagueCountryID = 0;
                 SportLeague _sportLeague = _sportLeagueSrv.GoalServeSportLeague(bet247xSportCountry.ID, _catogatry);
@@ -1033,8 +1071,12 @@ namespace BetEx247.Plugin.DataManager
                     temp.CountryID = (int)bet247xSportCountry.ID;
                     temp.ID = _sportLeagueSrv.GoalServeSportLeagueMaxIdByCountry(temp.CountryID) + 1;
                     temp.SportID = 1;
-
-                    temp.LeagueName= _catogatry.Split(':')[1];
+                    if(_catogatry.IndexOf(":")>0){
+                        temp.LeagueName = _catogatry.Split(':')[1];
+                    }else{
+                        temp.LeagueName = _catogatry;
+                    }
+                   
 
                    // temp.LeagueName = _catogatry;
 
@@ -1063,7 +1105,12 @@ namespace BetEx247.Plugin.DataManager
                         // IEnumerable<XElement> _localteamElements = _matchDetail.XPathSelectElements("localteam");
                         XElement _localteamElement = _matchDetail.XPathSelectElement("localteam");
                         _bet247xSportMatch.LeagueID = (int)leagueCountryID;
-
+                        String _matchStatus = "";
+                        if (_matchDetail.Attribute("status")!=null)
+                        {
+                            _matchStatus = _matchDetail.Attribute("status").Value;
+                        }
+                       
                         String _startDate = _matchDetail.Attribute("formatted_date").Value;
                         String _startTime = _matchDetail.Attribute("time").Value;
                         int year, month, day, hours, minute;
@@ -1076,10 +1123,15 @@ namespace BetEx247.Plugin.DataManager
                         // if past date ignore
                         DateTime passedDate = new DateTime(year, month, day, hours, minute, 0);
 
-                        if (passedDate.Millisecond < DateTime.Now.Millisecond)
-                        {
-                            continue;
-                        }
+                        int dateCompare = DateTime.Compare(passedDate, DateTime.Now);
+                         if (dateCompare <= 0)
+                         {
+                             continue;
+                         }
+                        //if (passedDate.Ticks < DateTime.Now.Millisecond)
+                        //{
+                            
+                        //}
 
                         DateTime _marketCloseTime = new DateTime(year, month, day, hours, minute, 0); //formatted_date="27.10.2012" time="17:00"
                         _marketCloseTime = _marketCloseTime.AddMinutes(-5);
@@ -1096,6 +1148,13 @@ namespace BetEx247.Plugin.DataManager
                         SportLeague _tempSportLeague = (SportLeague)bet247xSportCountry.Bet247xSportLeagues[indexLeague];
                         SportsMatch _tempSportsMatch = _sportMatchSvr.SportMatch(_tempSportLeague.ID, _bet247xSportMatch.HomeTeam, _bet247xSportMatch.AwayTeam, (DateTime)_bet247xSportMatch.StartDateTime);
                         _bet247xSportMatch.MatchStatus = "";// Not stated
+                        if (_matchStatus.Equals("Postp."))
+                        {
+                            _bet247xSportMatch.MatchStatus = "Postponed";
+                        } if (_matchStatus.Equals("Cancelled"))
+                        {
+                            _bet247xSportMatch.MatchStatus = "Cancelled";
+                        }
                         _bet247xSportMatch.MatchName = "";
                         _bet247xSportMatch.SportID = _tempSportLeague.SportID;
                         _bet247xSportMatch.CountryID = _tempSportLeague.CountryID;
@@ -1396,6 +1455,8 @@ namespace BetEx247.Plugin.DataManager
                 try
                 {
                     // System.IO.File.Delete(sFullPath);
+                    Thread delfileThead = new Thread(deleteFeed);
+                    delfileThead.Start(sFullPath);
                 }
                 catch (System.IO.IOException e)
                 {
@@ -1406,7 +1467,15 @@ namespace BetEx247.Plugin.DataManager
 
         }
 
-
+        void deleteFeed(object filename)
+        {
+            Thread.Sleep(2000);
+            try
+            {
+                String path = filename.ToString();
+                System.IO.File.Delete(path);
+            }catch{}
+        }
         #endregion
     }
 
