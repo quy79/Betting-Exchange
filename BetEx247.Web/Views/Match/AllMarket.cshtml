@@ -2,7 +2,9 @@
 @{
     ViewBag.Title = "Match Markets";
     Layout = null;
-    SoccerMatch match = ViewBag.Match;    
+    SoccerMatch match = ViewBag.Match;
+    SoccerLeague league = ViewBag.League;
+    SoccerCountry country = ViewBag.Countries;
 }
 <style>
     #tblcommon
@@ -54,13 +56,14 @@
 </style>
 <div id="contentbox" class="clearfix">
     <h1 class="sports_header">
-        Premier League Coupons</h1>
+        @league.LeagueName_WebDisplay Coupons
+        </h1>
     <div class="alt_content bdr_btm">
         <div class="event_wrap">
             <div class="soccer-heading">
                 <div class="headerExtra couponTitle">
                     Soccer<br>
-                    <span class="couponDate">Colombia</span>
+                    <span class="couponDate">@country.Country</span>
                 </div>
             </div>
             <p>

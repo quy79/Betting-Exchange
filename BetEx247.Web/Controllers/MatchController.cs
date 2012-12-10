@@ -42,10 +42,23 @@ namespace BetEx247.Web.Controllers
             List<Soccer_DrawNoBet> drawOdds = IoC.Resolve<IGuiService>().getSoccerDrawNoBet(gid);
             List<Soccer_MatchOdds> matchOdds = IoC.Resolve<IGuiService>().getSoccerMatchOdd(gid);
             SoccerMatch match = IoC.Resolve<IGuiService>().getSoccerMatch(gid);
+            if (match.SportID == 1 || match.SportID == null)
+            {
+                SoccerCountry country = IoC.Resolve<IGuiService>().GetCountryByCountry(match.SportID);
+                ViewBag.Countries = country;
+            }
+            else
+            {
+                SportCountry country = IoC.Resolve<IGuiService>().GetCountryByCountry(match.CountryID, match.SportID);
+                ViewBag.Countries = country;
+            }
+
+            SoccerLeague league = IoC.Resolve<IGuiService>().GetSoccerLeague(match.LeagueID, match.CountryID, match.SportID);
 
             ViewBag.MatchOdd = matchOdds;
             ViewBag.DrawNoBetOdd = drawOdds;
             ViewBag.Match = match;
+            ViewBag.League = league;            
                         
             return View();
         }
