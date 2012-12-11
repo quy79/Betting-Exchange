@@ -1,6 +1,8 @@
 ﻿@using System.Data;
 @using BetEx247.Data.Model;
 @using BetEx247.Core;
+@using BetEx247.Core.Common.Extensions;
+@using BetEx247.Core.Common.Utils;
 @{
     Layout = null;
     DataTable statement = new DataTable();
@@ -66,16 +68,21 @@
        {
                 <tr>
                     <td>
-                        @item["StatementTime"]
+                        @Html.Raw(item["StatementTime"].ToString().ToDateTime().ToString("yyyy-MM-dd"))
                     </td>
                     <td>
-                        @item["BetId"]
+                        @item["BetId"].ToString().SubStringAtEnd3(7, "", "-")
                     </td>
                     <td>
-                        @item["BetId"]
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@item["StartDateTime"].ToString().ToDateTime().ToShortDateString() &nbsp;
+                        @item["StartDateTime"].ToString().ToDateTime().ToShortTimeString() </div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item["HomeTeam"] v @item["AwayTeam"]</div>
                     </td>
                     <td>
-                        @item["Selection"]
+                        @item["MarketID"]
                     </td>
                     <td>
                         @{
@@ -90,22 +97,19 @@
                         }
                     </td>
                     <td>
-                        @item["Stake"]
+                        @CommonHelper.FormatMoney(item["Stake"].ToString().ToDecimal())
                     </td>
                     <td>
-                        @item["Odds"]
+                        @CommonHelper.FormatMoney(item["Odds"].ToString().ToDecimal())
                     </td>
                     <td>
                         @item["Type_Result"]
+                    </td>                      
+                    <td>
+                        @CommonHelper.FormatMoney(@item["NetProfit"].ToString().ToDecimal())
                     </td>
                     <td>
-                        @item["Amount"]
-                    </td>
-                    <td>
-                        @item["NetProfit"]
-                    </td>
-                    <td>
-                        @item["Commission"]
+                        @CommonHelper.FormatMoney(@item["Commission"].ToString().ToDecimal())
                     </td>
                 </tr>
        }
@@ -303,16 +307,21 @@
        {
                 <tr>
                     <td>
-                        @item["StatementTime"]
+                        @item["StatementTime"].ToString().ToDateTime().ToString("yyyy-MM-dd")
                     </td>
                     <td>
-                        @item["BetId"]
+                        @item["BetId"].ToString().SubStringAtEnd3(7, "", "-")
                     </td>
                     <td>
-                        @item["BetId"]
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@item["StartDateTime"].ToString().ToDateTime().ToShortDateString() &nbsp;
+                        @item["StartDateTime"].ToString().ToDateTime().ToShortTimeString() </div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item["HomeTeam"] v @item["AwayTeam"]</div>
                     </td>
                     <td>
-                        @item["Selection"]
+                        @item["MarketID"]
                     </td>
                     <td>
                         @{
@@ -327,10 +336,10 @@
                         }
                     </td>
                     <td>
-                        @item["Stake"]
+                        @CommonHelper.FormatMoney(item["Stake"].ToString().ToDecimal())
                     </td>
                     <td>
-                        @item["Odds"]
+                        @CommonHelper.FormatMoney(item["Odds"].ToString().ToDecimal())
                     </td>
                     <td>
                         @item["Reason"]
@@ -339,7 +348,7 @@
                         @item["MarketAmountRefund"]
                     </td>
                     <td>
-                        @item["NetProfit"]
+                        @item["Type_Result"]
                     </td>
                 </tr>
        }

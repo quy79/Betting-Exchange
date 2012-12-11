@@ -336,6 +336,23 @@ namespace BetEx247.Core.Common.Extensions
             return returnStr;
         }
 
+        public static string SubStringAtEnd3(this string text, int numOfCharacter, string sAtEnd,string character)
+        {
+            string returnStr = "";
+            text = text.RemoveH2H3();
+            text = ReplaceLink(text).Trim();
+
+            if (numOfCharacter >= text.Length) returnStr = text;
+            else
+            {
+                string[] arr = text.Split(new char[] { character.ToCharArray()[0] });
+
+                returnStr = arr[arr.Length-1] + sAtEnd;
+            }
+
+            return returnStr;
+        }
+
         public static string Truncate(this string s, int length, bool atWord, bool addEllipsis)
         {
             // Return if the string is less than or equal to the truncation length
