@@ -925,15 +925,16 @@ namespace BetEx247.Core.Common.Utils
                     pathLocal = Constant.PlaceFolder.PINNACLESPORTS_FOLDER;
                     break;
             }
-            XmlTextReader rssReader = new XmlTextReader(sUrl.ToString());
-            XmlDocument rssDoc = new XmlDocument();
+          ///  XmlTextReader rssReader = new XmlTextReader(sUrl.ToString());
+           /// XmlDocument rssDoc = new XmlDocument();
 
             WebRequest wrGETURL;
             wrGETURL = WebRequest.Create(sUrl);
+            wrGETURL.Timeout = System.Threading.Timeout.Infinite;
 
-            Stream objStream;
-            objStream = wrGETURL.GetResponse().GetResponseStream();
-            StreamReader objReader = new StreamReader(objStream, Encoding.UTF8);
+            //Stream objStream;
+            //objStream = wrGETURL.GetResponse().GetResponseStream();
+            //StreamReader objReader = new StreamReader(objStream, Encoding.UTF8);
             WebResponse wr = wrGETURL.GetResponse();
             Stream receiveStream = wr.GetResponseStream();
             StreamReader reader = new StreamReader(receiveStream, Encoding.UTF8);
@@ -954,6 +955,7 @@ namespace BetEx247.Core.Common.Utils
             string folderPath = CommonHelper.CreateDirectory(pathLocal,"XML" /*"FeedData_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString()*/);
             string sFullPath = string.Format("{0}/{1}/{2}", CommonHelper.getLocalPath(), folderPath, fileName);
             contentSave.Save(sFullPath);
+            contentSave = null;
         }
 
         /// <summary>

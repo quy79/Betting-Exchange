@@ -796,8 +796,8 @@ namespace BetEx247.Plugin.DataManager
                 try
                 {
                     // System.IO.File.Delete(sFullPath);
-                    Thread delfileThead = new Thread(deleteFeed);
-                    delfileThead.Start(sFullPath);
+                    // Thread delfileThead = new Thread(deleteFeed);
+                    // delfileThead.Start(sFullPath);
                 }
 
                 catch (System.IO.IOException e)
@@ -1211,28 +1211,34 @@ namespace BetEx247.Plugin.DataManager
                                                 {
                                                     _Sports_MatchOddsTable.HomePrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
 
-                                                }catch(Exception){
+                                                }
+                                                catch (Exception)
+                                                {
 
                                                     _Sports_MatchOddsTable.HomePrice = 0;
                                                 }
-                                                
+
                                             }
                                             else if (oddName.Equals("X")) //(HomeWin price
                                             {
                                                 try
                                                 {
                                                     _Sports_MatchOddsTable.DrawPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
-                                                }catch(Exception){
+                                                }
+                                                catch (Exception)
+                                                {
                                                     _Sports_MatchOddsTable.DrawPrice = 0;
                                                 }
-                                                }
+                                            }
                                             else
                                             { //(HomeWin price
                                                 try
                                                 {
                                                     _Sports_MatchOddsTable.AwayPrice = decimal.Parse(_bookerOddElementDetail.Attribute("value").Value);
-                                                }catch(Exception){
-                                                    _Sports_MatchOddsTable.AwayPrice =0;
+                                                }
+                                                catch (Exception)
+                                                {
+                                                    _Sports_MatchOddsTable.AwayPrice = 0;
                                                 }
                                             }
                                             _bet247xSportMatch.Bet247xSportMatchOdds.Add(_Sports_MatchOddsTable);

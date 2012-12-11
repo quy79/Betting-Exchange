@@ -119,7 +119,8 @@ namespace BetEx247.Data.DAL.Sports
         {
             SportsMatch _obj = new SportsMatch();
 
-            _obj = _context.SportsMatches.Where(w => w.StartDateTime == SportsMatch.StartDateTime & w.AwayTeam == SportsMatch.AwayTeam & w.HomeTeam == SportsMatch.HomeTeam & w.SportID == SportsMatch.SportID & w.LeagueID == SportsMatch.LeagueID & w.CountryID == SportsMatch.CountryID).SingleOrDefault();
+           // _obj = _context.SportsMatches.Where(w => w.StartDateTime == SportsMatch.StartDateTime & w.AwayTeam == SportsMatch.AwayTeam & w.HomeTeam == SportsMatch.HomeTeam & w.SportID == SportsMatch.SportID & w.LeagueID == SportsMatch.LeagueID & w.CountryID == SportsMatch.CountryID).SingleOrDefault();
+            _obj = _context.SportsMatches.Where(w => w.AwayTeam == SportsMatch.AwayTeam & w.HomeTeam == SportsMatch.HomeTeam & w.SportID == SportsMatch.SportID & w.LeagueID == SportsMatch.LeagueID & w.CountryID == SportsMatch.CountryID).SingleOrDefault();
             if (_obj != null) // Update
             {
                 _obj = SportsMatch;

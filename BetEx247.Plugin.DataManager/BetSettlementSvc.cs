@@ -60,7 +60,7 @@ namespace BetEx247.Plugin.DataManager
                 // chuyen sang gio goalserve de so sanh (goalserve su dung GMT +0 cho data trong XML)							
                 int dateCompare = DateTime.Compare(goalserveDateTime, (DateTime)_soccermatch.MarketCloseTime);														// so sanh MarketCloseTime cua tran dau voi gio hien tai)		
 
-                if (_soccermatch.Settled == false)					// (mot so tran dau ta da settled = TRUE khi chay LOAI 1 roi, thi khong can xu ly)											
+               // if (_soccermatch.Settled == false)					// (mot so tran dau ta da settled = TRUE khi chay LOAI 1 roi, thi khong can xu ly)											
                 {
                     // lay ra nhung record nao trong table Soccer_MatchedBets nao thoa nhung dieu kien sau:	
                     SoccerMatchedBetsService _SMSvr = new SoccerMatchedBetsService();

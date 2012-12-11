@@ -175,7 +175,7 @@ namespace BetEx247.Services
                         }
                     }
 
-                    Thread.Sleep(15 * 60 * 1000);
+                    Thread.Sleep(30 * 60 * 1000);
                    
                 }
             }
