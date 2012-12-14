@@ -141,7 +141,7 @@
                                 </tr>
                                 <tr>
                                     <td width="20%">
-                                        @item.SubmitedTime
+                                        @CommonHelper.FormatDateTime(item.SubmitedTime)
                                     </td>
                                     <td width="20%">
                                         @item.MyEntrant
@@ -153,7 +153,16 @@
                                         USD @CommonHelper.FormatMoney(item.Stake)
                                     </td>
                                     <td width="10%" align="center">
-                                        @item.IsWon
+                                        @{
+                        if (item.IsWon)
+                        {
+                            @Html.Raw("Win")
+                        }
+                        else
+                        {
+                            @Html.Raw("Loss");
+                        }
+                                          }
                                     </td>
                                     <td width="20%">
                                         @{

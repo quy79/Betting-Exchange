@@ -52,7 +52,7 @@
                     exposure += item.Stake;
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ID)
@@ -60,65 +60,32 @@
                         <td>
                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                 color: #000;">
-                                @Html.DisplayFor(modelItem => item.StartDateTime)</div>
+                                @CommonHelper.FormatDateTime(item.StartDateTime)</div>
                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                 color: #000; font-weight: bold;">
-                                @Html.DisplayFor(modelItem => item.HomeTeam) v @Html.DisplayFor(modelItem => item.AwayTeam)</div>
+                                @item.HomeTeam v @item.AwayTeam</div>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                            @item.MarketID
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BL)
+                            @item.BL
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @CommonHelper.FormatMoney(item.Stake)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @CommonHelper.FormatMoney(item.Price)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetStatus)
+                            @item.BetStatus
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Exposure)
+                            @CommonHelper.FormatMoney(item.Exposure)
                         </td>
                     </tr>
                 }
-                @*<tr>
-                    <td>
-                        2012-10-30 17:35
-                    </td>
-                    <td>
-                        2983472349
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Manchester to win (FT)
-                    </td>
-                    <td>
-                        L
-                    </td>
-                    <td>
-                        50.00
-                    </td>
-                    <td>
-                        1.68
-                    </td>
-                    <td>
-                        <span class="won">Unsettled</span>
-                    </td>
-                    <td>
-                        84.00
-                    </td>
-                </tr>*@
+              
             </table>
         </div>
         <div id="dv-exposuretotal" style="clear: both; position: relative; text-align: right;

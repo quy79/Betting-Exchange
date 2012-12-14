@@ -1,6 +1,7 @@
 ﻿@using BetEx247.Data.Model;
 @using BetEx247.Core;
 @using BetEx247.Core.Common.Utils;
+@using BetEx247.Core.Common.Extensions;
 
 @model List<PSV_MYBET>
            
@@ -133,7 +134,7 @@
                                 </tr>
                                 <tr>
                                     <td width="20%">
-                                        @item.SubmitedTime
+                                        @CommonHelper.FormatDateTime(item.SubmitedTime)
                                     </td>
                                     <td width="20%">
                                         @item.MyEntrant
@@ -145,17 +146,26 @@
                                         USD @CommonHelper.FormatMoney(item.Stake)
                                     </td>
                                     <td width="10%" align="center">
-                                        @item.IsWon
+                                            @{
+                                   if (item.IsWon)
+                                   {
+                                        @Html.Raw("Win")
+                                   }
+                                   else
+                                   {
+                                        @Html.Raw("Loss");
+                                   }
+                                          }
                                     </td>
                                     <td width="20%">
                                         @{
                                    if (item.IsWon)
                                    {
-                                                @Html.Raw("USD " + @CommonHelper.FormatMoney(item.GrossProfit))
+                                                @Html.Raw("USD " + CommonHelper.FormatMoney(item.GrossProfit))
                                    }
                                    else
                                    {
-                                                @Html.Raw("-USD " + @CommonHelper.FormatMoney(item.GrossProfit))
+                                                @Html.Raw("-USD " + CommonHelper.FormatMoney(item.GrossProfit))
                                    }    
                                         }
                                         
@@ -172,9 +182,9 @@
 
 <input type="hidden" id="MatchedTurnover" name="MatchedTurnover" value="USD@{@MatchedTurnover}" />
 
-    String sCommissionpaid = Commissionpaid >= 0 ? "USD" + CommonHelper.FormatMoney(Commissionpaid) : "-USD" + CommonHelper.FormatMoney(Commissionpaid).Replace("-", "");
-    String sSettledGross = SettledGross>=0?"USD"+ CommonHelper.FormatMoney(SettledGross):"-USD"+CommonHelper.FormatMoney(SettledGross).Replace("-", "");
-    String sSettledNet = SettledNet>=0?"USD"+ CommonHelper.FormatMoney(SettledNet):"-USD"+CommonHelper.FormatMoney(SettledNet).Replace("-", "");
+                                                                        String sCommissionpaid = Commissionpaid >= 0 ? "USD" + CommonHelper.FormatMoney(Commissionpaid) : "-USD" + CommonHelper.FormatMoney(Commissionpaid).Replace("-", "");
+                                                                        String sSettledGross = SettledGross >= 0 ? "USD" + CommonHelper.FormatMoney(SettledGross) : "-USD" + CommonHelper.FormatMoney(SettledGross).Replace("-", "");
+                                                                        String sSettledNet = SettledNet >= 0 ? "USD" + CommonHelper.FormatMoney(SettledNet) : "-USD" + CommonHelper.FormatMoney(SettledNet).Replace("-", "");
 
 <input type="hidden" id="Commissionpaid" name="Commissionpaid" value="@sCommissionpaid" />
 <input type="hidden" id="SettledGross" name="SettledGross" value="@sSettledGross" />
@@ -195,7 +205,7 @@
     });
 </script>
 
-                               break;
+                                                         break;
         case (int)Constant.MyBetStatus.CANCELLEDBETS:
             <table class="gridtable">
                 <tr>
@@ -228,40 +238,44 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @item.ID.ToString().SubStringAtEnd3(7, "", "-")
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@CommonHelper.FormatDateTime(item.StartDateTime)</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item.HomeTeam v @item.AwayTeam</div>                      
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
+                            @Html.DisplayFor(modelItem => item.MarketID)
                         </td>                        
                         <td>
                             @{
-                    if (item.BL != null && item.BL == "B")
-                    {
+                            if (item.BL != null && item.BL=="B")
+                            {
                                 @Html.Raw("Bet")
-                    }
-                    else
-                    {
+                            }
+                            else
+                            {
                                 @Html.Raw("Lay")
-                    }
+                            }
                             }
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @CommonHelper.FormatMoney(item.Stake)
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @CommonHelper.FormatMoney(item.Price)
                         </td>
                          <td>
                             <span class="cancelled">Cancelled</span>
                         </td>
                     </tr>
-                }
+                }        
                
             </table>
                 break;
@@ -298,22 +312,29 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @item.ID.ToString().SubStringAtEnd3(7, "", "-")
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@CommonHelper.FormatDateTime(item.StartDateTime)</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item.HomeTeam v @item.AwayTeam</div>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
+                             @item.MarketID
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @item.BL
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @CommonHelper.FormatMoney(item.Stake)
+                        </td>
+                        <td>
+                            @CommonHelper.FormatMoney(item.Price)
                         </td>
                         <td>
                            <span class="cancelled">Lapsed</span>
@@ -361,34 +382,40 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @item.ID.ToString().SubStringAtEnd3(7, "", "-")
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@CommonHelper.FormatDateTime(item.StartDateTime)</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item.HomeTeam v @item.AwayTeam</div>
+
+                            
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
+                              @item.MarketID
                         </td>                         
                         <td>
                             @{
                     if (item.BL != null && item.BL == "B")
                     {
-                                @Html.Raw("Bet")
+                                @Html.Raw("B")
                     }
                     else
                     {
-                                @Html.Raw("Lay")
+                                @Html.Raw("L")
                     }
                             }
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @CommonHelper.FormatMoney(item.Stake)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @CommonHelper.FormatMoney(item.Price)
                         </td>                        
                         <td>
                             @{
@@ -403,13 +430,13 @@
                             }
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.NetProfit)
+                            @CommonHelper.FormatMoney(item.NetProfit)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Commission)
+                            @CommonHelper.FormatMoney(item.Commission)
                         </td>
                     </tr>
-                }                
+                }           
             </table>  
                 break;
         case (int)Constant.MyBetStatus.UNMATCHEDBETS:
@@ -446,34 +473,39 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @item.ID
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@CommonHelper.FormatDateTime(item.StartDateTime)</div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item.HomeTeam v @item.AwayTeam</div> 
+                            
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
+                            @item.MarketID
                         </td>                         
                         <td>
                             @{
-                    if (item.BL != null && item.BL == "B")
-                    {
-                                @Html.Raw("Bet")
-                    }
-                    else
-                    {
-                                @Html.Raw("Lay")
-                    }
+                            if (item.BL != null && item.BL=="B")
+                            {
+                                @Html.Raw("B")
+                            }
+                            else
+                            {
+                                @Html.Raw("L")
+                            }
                             }
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @item.Stake
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @item.Price
                         </td>
                          <td>
                             <span class="cancelled">Void</span>

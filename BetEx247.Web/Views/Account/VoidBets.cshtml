@@ -1,4 +1,5 @@
 ﻿@using BetEx247.Data.Model;
+@using BetEx247.Core.Common.Utils;
 
 @model List<PSV_MYBET>
 @{
@@ -52,22 +53,21 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @item.ID
                         </td>
                         <td>
                              <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                                    color: #000;">@Html.DisplayFor(modelItem => item.StartDateTime.Value.ToShortDateString()) &nbsp;
-                        @Html.DisplayFor(modelItem => item.StartDateTime.Value.ToShortTimeString()) </div>
+                                                    color: #000;">@CommonHelper.FormatDateTime(item.StartDateTime)</div>
                         <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                                     color: #000; font-weight: bold;">
-                                                    @Html.DisplayFor(modelItem => item.HomeTeam) v @Html.DisplayFor(modelItem => item.AwayTeam)</div> 
+                                                    @item.HomeTeam v @item.AwayTeam</div> 
                             
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                            @item.MarketID
                         </td>                         
                         <td>
                             @{
@@ -82,10 +82,10 @@
                             }
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @item.Stake
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @item.Price
                         </td>
                          <td>
                             <span class="cancelled">Void</span>

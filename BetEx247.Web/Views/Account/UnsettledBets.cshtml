@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
+﻿@using BetEx247.Core.Common.Utils;
+@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
 @{
     ViewBag.Title = "UnsettledBets";
     Layout = null;
@@ -43,7 +44,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ID)
@@ -51,96 +52,32 @@
                         <td>
                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                 color: #000;">
-                                @Html.DisplayFor(modelItem => item.StartDateTime)</div>
+                                @CommonHelper.FormatDateTime(item.StartDateTime)</div>
                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                 color: #000; font-weight: bold;">
-                                @Html.DisplayFor(modelItem => item.HomeTeam) v @Html.DisplayFor(modelItem => item.AwayTeam)</div>
+                                @item.HomeTeam v @item.AwayTeam</div>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                            @item.MarketID
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BL)
+                            @item.BL
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @CommonHelper.FormatMoney(item.Stake)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @CommonHelper.FormatMoney(item.Price)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BetStatus)
-                        </td>
-                    </tr>
-                }
-                @*<tr>
-                    <td>
-                        2012-10-30 17:35
-                    </td>
-                    <td>
-                        2983472349
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Total goals Over 2/2.5 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        50.00
-                    </td>
-                    <td>
-                        1.87
-                    </td>
-                    <td>
-                        <div class="actions">
-                            Matched ! (wait for settlement)
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2012-11-01 15:07
-                    </td>
-                    <td>
-                        23423424993
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Nov 1, 2012 14:21</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Jubilo Iwata fc v Cerezo Osaka FC</div>
-                    </td>
-                    <td>
-                        Jubilo Iwata fc v Cerezo Osaka FC: CRS 2-0 (FT)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        70.00
-                    </td>
-                    <td>
-                        2.15
-                    </td>
-                    <td>
-                        <div class="actions">
+                            <div class="actions">
                             <div class="actions">
                                 Matched ! (wait for settlement)
                             </div>
                         </div>
-                    </td>
-                </tr>*@
+                        </td>
+                    </tr>
+                }                  
             </table>
         </div>
         <div id="dv-exposuretotal" style="clear: both; position: relative; text-align: right;

@@ -28,7 +28,7 @@ AccountHistory = {
             betCategory = $("#selBetCategory").val();
         }
         var display = "";
-        if ($("#selDisplay")) {
+        if ($("#selDisplay").length>0) {
             display = $("#selDisplay").val();
         }
 
@@ -68,12 +68,12 @@ AccountHistory = {
             if (display != "") {
                 rptype = display;
                 this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
-            } else {
+            } else {                      
                 this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
             }
         } else { }
         //}
-    },
+    },     
 
     ui_doSearchPL: function () {
         var action = $('#txtaction').val();
@@ -112,8 +112,8 @@ AccountHistory = {
 
     ui_doPageChange: function (pageNo) {
         var action = $('#txtaction').val();
-        var rptype = $('#txtrpType').val();
-        this.server_getAllData(action, g_periodType, g_startDate, g_endDate, g_betCategory, g_displayType, pageNo, this.row, rptype)
+        //var rptype = $('#txtrpType').val();
+        this.server_getAllData(action, g_periodType, g_startDate, g_endDate, g_betCategory, g_displayType, pageNo, this.row, g_displayType)
     },
 
     ui_selPeriod: function () {

@@ -55,15 +55,14 @@
                 {
                     <tr>
                         <td>
-                            @item.SubmitedTime.Value.ToShortDateString()
+                            @CommonHelper.FormatDateTime(item.SubmitedTime)
                         </td>
                         <td>
                             @item.ID.ToString().SubStringAtEnd3(7, "", "-")
                         </td>
                          <td>
                              <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                                    color: #000;">@item.StartDateTime.Value.ToShortDateString() &nbsp;
-                        @item.StartDateTime.Value.ToShortTimeString() </div>
+                                                    color: #000;">@CommonHelper.FormatDateTime(item.StartDateTime)</div>
                         <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                                     color: #000; font-weight: bold;">
                                                     @item.HomeTeam v @item.AwayTeam</div>                      

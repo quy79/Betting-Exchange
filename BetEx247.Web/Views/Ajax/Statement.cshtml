@@ -69,15 +69,14 @@
        {
                 <tr>
                     <td>
-                        @Html.Raw(item["StatementTime"].ToString().ToDateTime().ToString("yyyy-MM-dd"))
+                        @CommonHelper.FormatDateTime(item["StatementTime"].ToString().ToDateTime())
                     </td>
                     <td>
                         @item["BetId"].ToString().SubStringAtEnd3(7, "", "-")
                     </td>
                     <td>
                         <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                                    color: #000;">@item["StartDateTime"].ToString().ToDateTime().ToShortDateString() &nbsp;
-                        @item["StartDateTime"].ToString().ToDateTime().ToShortTimeString() </div>
+                                                    color: #000;">@CommonHelper.FormatDateTime(@item["StartDateTime"].ToString().ToDateTime())</div>
                         <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                                     color: #000; font-weight: bold;">
                                                     @item["HomeTeam"] v @item["AwayTeam"]</div>
@@ -115,44 +114,7 @@
                 </tr>
        }
    }
-            }
-            @*<tr>
-                <td>
-                    2012-10-30
-                </td>
-                <td>
-                    e72da32
-                </td>
-                <td>
-                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                        color: #000;">
-                        Oct 19, 2012 17:30</div>
-                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                        color: #000; font-weight: bold;">
-                        Manchester Utd v Chelsea</div>
-                </td>
-                <td>
-                    Manchester Utd -1/2 (First Half)
-                </td>
-                <td>
-                    B
-                </td>
-                <td>
-                    20
-                </td>
-                <td>
-                    1.88
-                </td>
-                <td>
-                    <span class="lost">Lost</span>
-                </td>
-                <td>
-                    <span class="lost">-20.00</span>
-                </td>
-                <td>
-                    0.00
-                </td>
-            </tr>*@
+            }              
         </table>
     </div>
    break;
@@ -191,7 +153,7 @@
        {
                 <tr>
                     <td>
-                        @item.AddedDate
+                        @CommonHelper.FormatDateTime(item.AddedDate)
                     </td>
                     <td>
                         @item.ResponeTranId
@@ -313,21 +275,21 @@
        {
                 <tr>
                     <td>
-                        @item["StatementTime"].ToString().ToDateTime().ToString("yyyy-MM-dd")
+                        @CommonHelper.FormatDateTime(item["StatementTime"].ToString().ToDateTime())
                     </td>
                     <td>
                         @item["BetId"].ToString().SubStringAtEnd3(7, "", "-")
                     </td>
                     <td>
                         <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                                                    color: #000;">@item["StartDateTime"].ToString().ToDateTime().ToShortDateString() &nbsp;
-                        @item["StartDateTime"].ToString().ToDateTime().ToShortTimeString() </div>
+                                                    color: #000;">@CommonHelper.FormatDateTime(item["StartDateTime"].ToString().ToDateTime()) &nbsp;
+                        </div>
                         <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
                                                     color: #000; font-weight: bold;">
                                                     @item["HomeTeam"] v @item["AwayTeam"]</div>
                     </td>
                     <td>
-                        @item["MarketID"]
+                        @item["MarketID"].ToString().SubStringAtEnd3(7, "", "-")
                     </td>
                     <td>
                         @{
@@ -399,7 +361,7 @@
        {
                 <tr>
                     <td>
-                        @item.AddedDate
+                        @CommonHelper.FormatDateTime(item.AddedDate)
                     </td>
                     <td>
                         @item.ResponeTranId

@@ -49,6 +49,18 @@ namespace BetEx247.Core.Common.Utils
             }
         }
 
+        public static string FormatDateTime(DateTime? datetime)
+        {
+            if (datetime != null)
+            {
+                return datetime.Value.ToString("d/M/yyy HH:mm:ss");
+            }
+            else
+            {
+                return "#N/A";
+            }
+        }
+
         public static void DefineSearchDate(string period, string startDate, string endDate, ref DateTime start, ref DateTime end)
         {
             if (startDate == "" && endDate == "")
@@ -56,8 +68,11 @@ namespace BetEx247.Core.Common.Utils
                 end = DateTime.Now;
                 switch (period)
                 {
+                    case "Last24Hrs":
+                        start = end.AddDays(-1);
+                        break;
                     case "Last48Hrs":
-                        start = end.AddHours(-48);
+                        start = end.AddDays(-2);
                         break;
                     case "Last7Days":
                         start = end.AddDays(-7);
