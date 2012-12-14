@@ -1,4 +1,7 @@
-﻿@using BetEx247.Data.Model;
+﻿@using BetEx247.Core.Common.Extensions;
+@using BetEx247.Core.Common.Utils
+@using BetEx247.Data.Model;
+
 @model List<PSV_MYBET>
 @{
     ViewBag.Title = "CancelledBets";
@@ -52,16 +55,21 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @item.SubmitedTime.Value.ToShortDateString()
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @item.ID.ToString().SubStringAtEnd3(7, "", "-")
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@item.StartDateTime.Value.ToShortDateString() &nbsp;
+                        @item.StartDateTime.Value.ToShortTimeString() </div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item.HomeTeam v @item.AwayTeam</div>                      
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
+                            @Html.DisplayFor(modelItem => item.MarketID)
                         </td>                        
                         <td>
                             @{
@@ -76,47 +84,16 @@
                             }
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @CommonHelper.FormatMoney(item.Stake)
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @CommonHelper.FormatMoney(item.Price)
                         </td>
                          <td>
                             <span class="cancelled">Cancelled</span>
                         </td>
                     </tr>
-                }
-                @*<tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Total goals Over 2/2.5 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        100.00
-                    </td>
-                    <td>
-                        1.87
-                    </td>
-                    <td>
-                        <span class="cancelled">Cancelled</span>
-                    </td>
-                </tr>*@
+                }                          
             </table>
         </div>
     </div>

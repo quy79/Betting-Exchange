@@ -162,6 +162,10 @@ namespace BetEx247.Data.DAL
                 var list = dba.PSV_TRANSACTION.Where(w => w.MemberId == memberId && w.Type == convertType && w.AddedDate>=startDate && w.AddedDate<=endDate).ToList();
                 if (list != null)
                 {
+                    for (int i = 1; i < list.Count; i++)
+                    {
+                        list[i].Row = i;
+                    }
                     totalRow = list.Count;
                     return list.Where(w => w.Row >= from && w.Row <= to).ToList();
                 }

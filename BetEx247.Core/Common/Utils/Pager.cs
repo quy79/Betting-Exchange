@@ -376,12 +376,12 @@ namespace BetEx247.Core.Common.Utils
         {
             string html = String.Empty;               
             if (pagenum == 0 && PageNum > 1) //PREV button
-                html = String.Format("<a href=\"javascript:void(0)\" onclick=\"load_pg(24780,200,{0})\">{1}</a>", PageNum - 1, m_prevButton);
+                html = String.Format("<a href=\"javascript:void(0)\" onclick=\"AccountHistory.ui_doPageChange({0})\">{1}</a>", PageNum - 1, m_prevButton);
             else if ((pagenum == -1 || pagenum > TotalPages) && PageNum < TotalPages) //NEXT button
                 html = String.Format("<a href=\"javascript:void(0)\" onclick=\"load_pg(24780,200,{0})\">{1}</a>", PageNum + 1, m_nextButton);
             else if (pagenum >= 1 && pagenum <= TotalPages)
             {
-                html = (pagenum == PageNum ? "<span class=\"paging\">{0}</span>" : "<a href=\"javascript:void(0)\" onclick=\"load_pg(24780,200,{0})\">{0}</a>");
+                html = (pagenum == PageNum ? "<span class=\"paging\">{0}</span>" : "<a href=\"javascript:void(0)\" onclick=\"AccountHistory.ui_doPageChange({0})\">{0}</a>");
                 html = String.Format( html, pagenum);
             }              
 

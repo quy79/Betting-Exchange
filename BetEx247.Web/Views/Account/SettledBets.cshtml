@@ -1,4 +1,6 @@
-﻿@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
+﻿@using BetEx247.Core.Common.Extensions;
+@using BetEx247.Core.Common.Utils;
+@model IEnumerable<BetEx247.Data.Model.PSV_MYBET>
 @{
     ViewBag.Title = "SettledBets";
     Layout = null;
@@ -56,166 +58,62 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SubmitedTime)
+                            @item.SubmitedTime.Value.ToShortDateString()
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ID)
+                            @item.ID.ToString().SubStringAtEnd3(7, "", "-")
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@item.StartDateTime.Value.ToShortDateString() &nbsp;
+                        @item.StartDateTime.Value.ToShortTimeString() </div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @item.HomeTeam v @item.AwayTeam</div>
+
+                            
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
+                              @item.MarketID
                         </td>                         
                         <td>
                             @{
-                            if (item.BL != null && item.BL=="B")
-                            {
-                                @Html.Raw("Bet")
-                            }
-                            else
-                            {
-                                @Html.Raw("Lay")
-                            }
+                    if (item.BL != null && item.BL == "B")
+                    {
+                                @Html.Raw("B")
+                    }
+                    else
+                    {
+                                @Html.Raw("L")
+                    }
                             }
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Stake)
+                            @CommonHelper.FormatMoney(item.Stake)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Price)
+                            @CommonHelper.FormatMoney(item.Price)
                         </td>                        
                         <td>
                             @{
-                            if (item.IsWon)
-                            {
+                    if (item.IsWon)
+                    {
                                 @Html.Raw("Won")
-                            }
-                            else
-                            {
+                    }
+                    else
+                    {
                                 @Html.Raw("Loss")
-                            }
+                    }
                             }
                         </td>
                          <td>
-                            @Html.DisplayFor(modelItem => item.NetProfit)
+                            @CommonHelper.FormatMoney(item.NetProfit)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Commission)
+                            @CommonHelper.FormatMoney(item.Commission)
                         </td>
                     </tr>
-                }
-                @*<tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Manchester Utd -1
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        50
-                    </td>
-                    <td>
-                        2.05
-                    </td>
-                    <td>
-                        <span class="won">Won</span>
-                    </td>
-                    <td>
-                        <span class="won">+52.50</span>
-                    </td>
-                    <td>
-                        2.62
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Manchester Utd -1/2 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        20
-                    </td>
-                    <td>
-                        1.88
-                    </td>
-                    <td>
-                        <span class="lost">Lost</span>
-                    </td>
-                    <td>
-                        <span class="lost">-20.00</span>
-                    </td>
-                    <td>
-                        0.00
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Manchester Utd v Chelseas: 3-1 (FT)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        10
-                    </td>
-                    <td>
-                        2.17
-                    </td>
-                    <td>
-                        <span class="lost">Lost</span>
-                    </td>
-                    <td>
-                        <span class="lost">-10.00</span>
-                    </td>
-                    <td>
-                        0.00
-                    </td>
-                </tr>*@
+                }                    
             </table>
         </div>
     </div>

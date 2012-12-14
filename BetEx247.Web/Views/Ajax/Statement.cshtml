@@ -23,11 +23,12 @@
     switch (betDisplay)
     {
         case (int)Constant.StatementDisplayType.COMMISSIONS:
+    
+    <!--DIV COMMISSION-->
+    <div id="dv-commission" style="clear: both; position: relative;">
     <div class="account-box-result-heading">
         @Html.Partial("PaggerControl")
     </div>
-    <!--DIV COMMISSION-->
-    <div id="dv-commission" style="clear: both; position: relative;">
         <table class="gridtable">
             <tr>
                 <th>
@@ -82,7 +83,7 @@
                                                     @item["HomeTeam"] v @item["AwayTeam"]</div>
                     </td>
                     <td>
-                        @item["MarketID"]
+                        @item["MarketID"].ToString().SubStringAtEnd3(7, "", "-")
                     </td>
                     <td>
                         @{
@@ -156,11 +157,12 @@
     </div>
    break;
         case (int)Constant.StatementDisplayType.DEPOIST:
+    
+    <!--DIV DEPOSIT-->
+    <div id="dv-deposit" style="clear: both; position: relative;">
     <div class="account-box-result-heading">
         @Html.Partial("PaggerControl")
     </div>
-    <!--DIV DEPOSIT-->
-    <div id="dv-deposit" style="clear: both; position: relative;">
         <table class="gridtable">
             <tr>
                 <th>
@@ -206,7 +208,10 @@
                         @item.Name
                     </td>
                     <td>
-                        @item.Status
+                        @if(item.Status==20)
+                        {
+                            @Html.Raw("APPROVED")
+                        }
                     </td>
                 </tr>
        }
@@ -262,11 +267,12 @@
         case (int)Constant.StatementDisplayType.LOYALTYREFUND:
    break;
         case (int)Constant.StatementDisplayType.MARKETREFUND:
-    <div class="account-box-result-heading">
-        @Html.Partial("PaggerControl")
-    </div>
+   
     <!--DIV MARKET REFUND-->
     <div id="dv-marketrefund" style="clear: both; position: relative;">
+     <div class="account-box-result-heading">
+        @Html.Partial("PaggerControl")
+    </div>
         <table class="gridtable">
             <tr>
                 <th>
@@ -354,52 +360,17 @@
        }
    }
             }
-            @*<tr>
-                <td>
-                    2012-10-30
-                </td>
-                <td>
-                    e72da32
-                </td>
-                <td>
-                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                        color: #000;">
-                        Oct 19, 2012 17:30</div>
-                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                        color: #000; font-weight: bold;">
-                        Djokovic v Federer</div>
-                </td>
-                <td>
-                    Djokovic to win
-                </td>
-                <td>
-                    B
-                </td>
-                <td>
-                    50.00
-                </td>
-                <td>
-                    1.35
-                </td>
-                <td>
-                    This match has been postponed.
-                </td>
-                <td>
-                    50.00
-                </td>
-                <td>
-                    Transaction completed.
-                </td>
-            </tr>*@
+            
         </table>
     </div>
    break;
         case (int)Constant.StatementDisplayType.WITHDRAW:
-    <div class="account-box-result-heading">
-        @Html.Partial("PaggerControl")
-    </div>
+   
     <!--DIV WITHDRAWAL-->
     <div id="dv-withdrawal" style="clear: both; position: relative;">
+         <div class="account-box-result-heading">
+        @Html.Partial("PaggerControl")
+    </div>
         <table class="gridtable">
             <tr>
                 <th>
@@ -450,29 +421,7 @@
                 </tr>
        }
    }
-            }
-            @*<tr>
-                <td>
-                    2012-10-31 13:15
-                </td>
-                <td>
-                    343763453
-                </td>
-                <td>
-                    <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                        color: #000; font-weight: bold;">
-                        [Statement]: Withdrawal</div>
-                </td>
-                <td>
-                    USD 100.00
-                </td>
-                <td>
-                    Visa Card
-                </td>
-                <td>
-                    transaction completed
-                </td>
-            </tr>*@
+            }         
         </table>
     </div>
    break;

@@ -32,39 +32,70 @@ AccountHistory = {
             display = $("#selDisplay").val();
         }
 
-        if ($("#rowspage")) {
+        if ($("#rowspage").length > 0) {
             AccountHistory.row = $("#rowspage").val();
+        } else {
+            AccountHistory.row = 20;
         }
 
-        if (this.ValidateInput()) {
-            $("#dvAccountHistory").html(this.getLoadingTableHTML());
-            if ($("#rdoCustom").prop('checked')) {
-                period = "DateRange";
-                startDate = $("#txtStartDate").val();
-                endDate = $("#txtEndDate").val()
+        //if (this.ValidateInput()) {
+        $("#dvAccountHistory").html(this.getLoadingTableHTML());
+        if ($("#rdoCustom").prop('checked')) {
+            period = "DateRange";
+            startDate = $("#sd").val();
+            endDate = $("#ed").val()
+        }
+
+        if ($("#rdoCustom").prop('checked') && ($("#sd").val() == "" || $("#ed").val() == "")) {
+            alert('You must specify start date, end date !');
+            return;
+        }
+
+        $("#dvAccountHistory").html();
+        $("#dvAccountHistoryGroupedBets").html("");
+        $("#dvAccountHistoryGroupedAccounts").html("");
+        $("#dvAccountHistoryGroupedMisc").html("");
+        g_switchedViews = false;
+        g_startDate = startDate;
+        g_endDate = endDate;
+        g_displayType = display;
+        g_periodType = period;
+        g_betCategory = betCategory;
+
+        sResultID = "";
+        sShowWarning = true;
+        if (g_currentView == "All") {
+            if (display != "") {
+                rptype = display;
+                this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
+            } else {
+                this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
             }
-            $("#dvAccountHistory").html();
-            $("#dvAccountHistoryGroupedBets").html("");
-            $("#dvAccountHistoryGroupedAccounts").html("");
-            $("#dvAccountHistoryGroupedMisc").html("");
-            g_switchedViews = false;
-            g_startDate = startDate;
-            g_endDate = endDate;
-            g_displayType = display;
-            g_periodType = period;
-            g_betCategory = betCategory;
+        } else { }
+        //}
+    },
 
-            sResultID = "";
-            sShowWarning = true;
-            if (g_currentView == "All") {
-                if (display != "") {
-                    rptype = display;
-                    this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
-                } else {
-                    this.server_getAllData(action, period, startDate, endDate, betCategory, display, 1, this.row, rptype)
-                }
-            } else { }
+    ui_doSearchPL: function () {
+        var action = $('#txtaction').val();
+        var rptype = $('#txtrpType').val();
+        var period = $("#selPeriod") ? $("#selPeriod").val() : "";
+        var startDate = "";
+        var endDate = "";
+
+        //if (this.ValidateInput()) {
+        $("#dvAccountHistory").html(this.getLoadingTableHTML());
+        if ($("#rdoCustom").prop('checked')) {
+            period = "DateRange";
+            startDate = $("#sd").val();
+            endDate = $("#ed").val()
         }
+
+        if ($("#rdoCustom").prop('checked') && ($("#sd").val() == "" || $("#ed").val() == "")) {
+            alert('You must specify start date, end date !');
+            return;
+        }
+
+        this.server_getAllDataBL(action, period, startDate, endDate, rptype);
     },
 
     ui_doDisplayChange: function (displayType) {
@@ -102,6 +133,12 @@ AccountHistory = {
     server_getAllData: function (action, periodType, startDate, endDate, betCategory, displayType, pageNo, noOfPages, rptype) {
         //if (this.BeginProcessing()) {
         var surl = this.Url + '';
+        if (pageNo == "") {
+            pageNo = this.page;
+        }
+        if (noOfPages == null || noOfPages == "") {
+            noOfPages = this.row;
+        }
         $.ajax({
             url: this.Url + 'ajax/' + action,
             type: 'GET',
@@ -113,6 +150,19 @@ AccountHistory = {
         //}
     },
 
+    server_getAllDataBL: function (action, periodType, startDate, endDate, rptype) {
+        var surl = this.Url + '';
+
+        $.ajax({
+            url: this.Url + 'ajax/' + action,
+            type: 'GET',
+            data: { pr: periodType, sd: startDate, ed: endDate, type: rptype },
+            success: function (result) {
+                AccountHistory.server_receiveAllData(result, rptype);
+            }
+        });
+    },
+
     server_receiveAllData: function (data, action) {
         try {
             switch (action) {
@@ -121,6 +171,7 @@ AccountHistory = {
                 case "6":
                 case "7":
                 case "8":
+                case "betpl":
                     $("#dv-commission").html(data);
                     break;
                 case "13":
@@ -278,7 +329,7 @@ AccountHistory = {
     EndProcessing: function () { bMemberRequestProcessing = false; },
 
     ValidateInput: function () {
-        if ($("#rdoCustom").prop('checked')) return ValidateDateRange($("#txtStartDate").val(), 6);
+        if ($("#rdoCustom").prop('checked')) return this.ValidateDateRange($("#txtStartDate").val(), 6);
         return true
     },
 

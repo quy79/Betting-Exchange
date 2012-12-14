@@ -579,7 +579,7 @@ betex247 = {
                 break;
             case "sports-hockey":
             case "Hockey":
-                className = "Ice Hockey";
+                className = "sports-hockey";
                 break;
             case "Handball":
                 className = "sports-handball";

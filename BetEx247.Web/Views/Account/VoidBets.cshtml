@@ -58,20 +58,26 @@
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.MarketID)
+                             <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000;">@Html.DisplayFor(modelItem => item.StartDateTime.Value.ToShortDateString()) &nbsp;
+                        @Html.DisplayFor(modelItem => item.StartDateTime.Value.ToShortTimeString()) </div>
+                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
+                                                    color: #000; font-weight: bold;">
+                                                    @Html.DisplayFor(modelItem => item.HomeTeam) v @Html.DisplayFor(modelItem => item.AwayTeam)</div> 
+                            
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.SportName + " - " + item.LeagueName_WebDisplay)
+                            @Html.DisplayFor(modelItem => item.MarketID)
                         </td>                         
                         <td>
                             @{
                             if (item.BL != null && item.BL=="B")
                             {
-                                @Html.Raw("Bet")
+                                @Html.Raw("B")
                             }
                             else
                             {
-                                @Html.Raw("Lay")
+                                @Html.Raw("L")
                             }
                             }
                         </td>
@@ -86,37 +92,7 @@
                         </td>
                     </tr>
                 }
-                @*<tr>
-                    <td>
-                        2012-10-30
-                    </td>
-                    <td>
-                        e72da32
-                    </td>
-                    <td>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000;">
-                            Oct 19, 2012 17:30</div>
-                        <div style="width: 100%; clear: both; margin: 0 auto; text-align: left; padding-left: 0px;
-                            color: #000; font-weight: bold;">
-                            Manchester Utd v Chelsea</div>
-                    </td>
-                    <td>
-                        Total goals Over 2/2.5 (First Half)
-                    </td>
-                    <td>
-                        B
-                    </td>
-                    <td>
-                        100.00
-                    </td>
-                    <td>
-                        1.87
-                    </td>
-                    <td>
-                        <span class="cancelled">Void</span>
-                    </td>
-                </tr>*@
+                
             </table>
         </div>
     </div>

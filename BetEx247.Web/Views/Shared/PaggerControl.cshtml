@@ -1,11 +1,14 @@
 ﻿@using BetEx247.Core.Common.Utils;
 @{
     int i_Total = ViewBag.i_Total != null && ViewBag.i_Total != 0 ? ViewBag.i_Total : 0;
+    int total_Page=1;
     int PageSize = ViewBag.PageSize != null && ViewBag.PageSize != 0 ? ViewBag.PageSize : 20;
     int PageNum = ViewBag.PageNum != null && ViewBag.PageNum != 0 ? ViewBag.PageNum : 1;
     string displayPage = string.Empty;
     int currentRecord = 0;
     Pager Paginator = new Pager(i_Total, PageSize, PageNum, "");
+
+    total_Page = i_Total % PageSize > 0 ? i_Total / PageSize + 1 : i_Total / PageSize;
     if (Paginator != null)
     {
         displayPage = Paginator.DisplayPaging();
@@ -32,7 +35,7 @@
     <a title="201 - 400" href="javascript:{}" onclick="load_pg(24780,200,2)">»</a> <a
         title="24600 - 24780" href="javascript:{}" onclick="load_pg(24780,200,124)">».</a></div>*@
     <div class="PgCounter">
-        Page @currentRecord/@i_Total @Html.Raw(displayPage)
+        Page @PageNum/@total_Page @Html.Raw(displayPage)
     </div>
     }
 }

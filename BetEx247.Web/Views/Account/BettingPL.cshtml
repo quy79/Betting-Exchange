@@ -1,4 +1,6 @@
 ﻿@using BetEx247.Data.Model;
+@using BetEx247.Core.Common.Utils;
+
 @model List<PSV_MYBET>
 @{
     ViewBag.Title = "BettingPL";
@@ -93,7 +95,7 @@
                         }
                         else
                         {
-                            SettledGross -= item.NetProfit != null ? item.NetProfit.Value : 0;
+                            SettledNet -= item.NetProfit != null ? item.NetProfit.Value : 0;
                         }
                     <tr>
                         <td colspan="6" style="padding-left: 0px !important;">
@@ -148,13 +150,20 @@
                                         @item.BL
                                     </td>
                                     <td width="20%">
-                                        USD @item.Stake
+                                        USD @CommonHelper.FormatMoney(item.Stake)
                                     </td>
                                     <td width="10%" align="center">
                                         @item.IsWon
                                     </td>
                                     <td width="20%">
-                                        USD @item.GrossWinning
+                                        @{
+                                            if(item.IsWon){
+                                                @Html.Raw("USD "+ @CommonHelper.FormatMoney(item.GrossProfit))
+                                            }else{
+                                                @Html.Raw("-USD "+ @CommonHelper.FormatMoney(item.GrossProfit))
+                                            }    
+                                        }
+                                        
                                     </td>
                                 </tr>
                             </table>
@@ -165,14 +174,11 @@
                 }
                 
             </table>
-        </div>
-    </div>
-</div>
-<input type="hidden" id="MatchedTurnover" name="MatchedTurnover" value="USD@{@MatchedTurnover}" />
+            <input type="hidden" id="MatchedTurnover" name="MatchedTurnover" value="USD@{@MatchedTurnover}" />
 @{
-    String sCommissionpaid = @Commissionpaid >= 0 ? "USD" + @Commissionpaid : "-USD" + @Commissionpaid.ToString().Replace("-", "");
-    String sSettledGross = SettledGross>=0?"USD"+ @SettledGross:"-USD"+@SettledGross.ToString().Replace("-", "");
-    String sSettledNet = SettledNet>=0?"USD"+ @SettledNet:"-USD"+@SettledNet.ToString().Replace("-", "");
+    String sCommissionpaid = Commissionpaid >= 0 ? "USD" + @CommonHelper.FormatMoney(Commissionpaid) : "-USD" + @CommonHelper.FormatMoney(Commissionpaid).Replace("-", "");
+    String sSettledGross = SettledGross>=0?"USD"+ @CommonHelper.FormatMoney(SettledGross):"-USD"+@CommonHelper.FormatMoney(SettledGross).Replace("-", "");
+    String sSettledNet = SettledNet>=0?"USD"+ @CommonHelper.FormatMoney(SettledNet):"-USD"+@CommonHelper.FormatMoney(SettledNet).Replace("-", "");
 }
 <input type="hidden" id="Commissionpaid" name="Commissionpaid" value="@sCommissionpaid" />
 <input type="hidden" id="SettledGross" name="SettledGross" value="@sSettledGross" />
@@ -192,3 +198,6 @@
         $("#lbSettledNet").html(SettledNet);
     });
 </script>
+        </div>
+    </div>
+</div>

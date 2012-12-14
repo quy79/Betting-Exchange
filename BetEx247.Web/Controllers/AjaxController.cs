@@ -35,7 +35,7 @@ namespace BetEx247.Web.Controllers
 
             if (start != DateTime.MaxValue && end != DateTime.MaxValue)
             {
-                sb.Append(" and (t.StatementTime between '" + start + "' and '" + end + "') ");
+                sb.Append(" and (CONVERT(datetime,CONVERT(VARCHAR(10),t.StatementTime,101),101) between '" + start + "' and '" + end + "') ");
             }
 
             switch (betDisplay)
@@ -86,8 +86,8 @@ namespace BetEx247.Web.Controllers
             }
             else
             {
-                int outRow=0;
-                var lstStatement = IoC.Resolve<IBettingService>().GetTransaction(memberId,Int16.Parse(betDisplay.ToString()), pageNo,start,end, recordPerpage,ref outRow);
+                int outRow = 0;
+                var lstStatement = IoC.Resolve<IBettingService>().GetTransaction(memberId, Int16.Parse(betDisplay.ToString()), pageNo, start, end, recordPerpage, ref outRow);
                 ViewBag.TotalRow = outRow;
                 ViewBag.lstStatement = lstStatement;
                 ViewBag.i_Total = outRow;
@@ -111,6 +111,8 @@ namespace BetEx247.Web.Controllers
             int betCategory = HttpHelper.GetQueryStringInt(Constant.QueryString.BetCategory);
             int pageNo = HttpHelper.GetQueryStringInt(Constant.QueryString.PageNo);
             int recordPerpage = HttpHelper.GetQueryStringInt(Constant.QueryString.RecordPerPage);
+            pageNo = pageNo == 0 ? 1 : pageNo;
+            recordPerpage = recordPerpage == 0 ? 1000 : recordPerpage;
 
             StringBuilder sb = new StringBuilder();
 
@@ -118,7 +120,7 @@ namespace BetEx247.Web.Controllers
 
             if (start != DateTime.MaxValue && end != DateTime.MaxValue)
             {
-                sb.Append(" and (t.StatementTime between '" + start + "' and '" + end + "') ");
+                sb.Append(" and (CONVERT(datetime,CONVERT(VARCHAR(10),t.SubmitedTime,101),101) between '" + start + "' and '" + end + "') ");
             }
 
             if (betCategory > 0)
@@ -129,28 +131,28 @@ namespace BetEx247.Web.Controllers
             switch (reportType)
             {
                 case (int)Constant.MyBetStatus.BETTINGPL:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.BETTINGPL + " ");
+                    sb.Append(" and t.BetStatus='" + Constant.MyBetStatus.SETTLEDBETS.ToString() + "' ");
                     break;
                 case (int)Constant.MyBetStatus.CANCELLEDBETS:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.CANCELLEDBETS + " ");
+                    sb.Append(" and t.BetStatus='" + Constant.MyBetStatus.CANCELLEDBETS.ToString() + "' ");
                     break;
                 case (int)Constant.MyBetStatus.EXPOSURE:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.EXPOSURE + " ");
+                    sb.Append(" and t.BetStatus=" + Constant.MyBetStatus.EXPOSURE.ToString() + " ");
                     break;
                 case (int)Constant.MyBetStatus.LAPSEDBETS:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.LAPSEDBETS + " ");
+                    sb.Append(" and t.BetStatus='" + Constant.MyBetStatus.LAPSEDBETS.ToString() + "' ");
                     break;
                 case (int)Constant.MyBetStatus.SETTLEDBETS:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.SETTLEDBETS + " ");
+                    sb.Append(" and t.BetStatus='" + Constant.MyBetStatus.SETTLEDBETS.ToString() + "' ");
                     break;
                 case (int)Constant.MyBetStatus.UNMATCHEDBETS:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.UNMATCHEDBETS + " ");
+                    sb.Append(" and t.BetStatus='" + Constant.MyBetStatus.UNMATCHEDBETS.ToString() + "' ");
                     break;
                 case (int)Constant.MyBetStatus.UNSETTLEDBETS:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.UNSETTLEDBETS + " ");
+                    sb.Append(" and t.BetStatus='" + Constant.MyBetStatus.UNSETTLEDBETS.ToString() + "' ");
                     break;
                 case (int)Constant.MyBetStatus.VOIDBETS:
-                    sb.Append(" and t.BetStatusID=" + (int)Constant.MyBetStatus.VOIDBETS + " ");
+                    sb.Append(" and t.BetStatus='" + Constant.MyBetStatus.VOIDBETS.ToString() + "' ");
                     break;
             }
 

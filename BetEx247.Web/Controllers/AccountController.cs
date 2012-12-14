@@ -514,7 +514,7 @@ namespace BetEx247.Web.Controllers
         public ActionResult BettingPL()
         {
             long memberId = SessionManager.USER_ID;
-            var lstBettingPL = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.BETTINGPL.ToString());
+            var lstBettingPL = IoC.Resolve<IBettingService>().GetMyBetByType(memberId, Constant.MyBetStatus.SETTLEDBETS.ToString());
 
             var lstSportData = IoC.Resolve<IGuiService>().GetSportData();
             ViewBag.lstSportData = new SelectList(lstSportData, "ID", "SportName");
