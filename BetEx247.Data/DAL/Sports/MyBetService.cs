@@ -42,9 +42,10 @@ namespace BetEx247.Data.DAL.Sports
 
          public List<MyBet> MyBetsByMatch(SoccerMatch _soccerMatch)
          {
+             String id = _soccerMatch.ID.ToString();
              using (var dba = new BetEXDataContainer())
              {
-                 var mb = dba.MyBets.Where(w => w.MatchID == _soccerMatch.ID.ToString() & w.LeagueID == _soccerMatch.LeagueID & w.CountryID == _soccerMatch.CountryID & w.SportID == _soccerMatch.SportID).ToList();
+                 var mb = dba.MyBets.Where(w => w.MatchID == id & w.LeagueID == _soccerMatch.LeagueID & w.CountryID == _soccerMatch.CountryID & w.SportID == _soccerMatch.SportID).ToList();
 
                  return mb;
              }
@@ -64,7 +65,7 @@ namespace BetEx247.Data.DAL.Sports
          {
              using (var dba = new BetEXDataContainer())
              {
-                 var mb = dba.MyBets.Where(w => w.ID != ID & w.BL==bl &w.LeagueID==leagueID&w.CountryID==countryID&w.SportID==sportID ).SingleOrDefault();
+                 var mb = dba.MyBets.Where(w => w.ID == ID & w.BL==bl &w.LeagueID==leagueID&w.CountryID==countryID&w.SportID==sportID ).SingleOrDefault();
 
                  return mb;
              }
@@ -78,8 +79,25 @@ namespace BetEx247.Data.DAL.Sports
                  if (_mb != null)
                  {
 
-                     _mb = mb;
+                     _mb.BetStatus = mb.BetStatus;
+                     _mb.BL = mb.BL;
+                     _mb.CancelledTime = mb.CancelledTime;
+                     _mb.Commission = mb.Commission;
+                     _mb.Exposure = mb.Exposure;
+                     _mb.GrossProfit = mb.GrossProfit;
+                     _mb.GrossWinning = mb.GrossWinning;
+                     _mb.IsDraw = mb.IsDraw;
+                     _mb.IsWon = mb.IsWon;
+                     _mb.Liability = mb.Liability;
+                     _mb.MyEntrant = mb.MyEntrant;
+                     _mb.NetProfit = mb.NetProfit;
+                     _mb.Payouts = mb.Payouts;
+                     _mb.PointsRefunded = mb.PointsRefunded;
+                     _mb.Stake = mb.Stake;
+                     _mb.SubmitedTime = mb.SubmitedTime;
                      
+
+
                      dba.SaveChanges();
                      return true;
                  }

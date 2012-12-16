@@ -32,14 +32,17 @@ namespace BetEx247.Plugin.DataManager
 
                     foreach (MyBet mb in betMatch)
                     {
-                        mb.BetStatus = "UnMatched";
-                        _mbSvr.Update(mb);
+                        if (mb.BetStatus!=null && mb.BetStatus.IndexOf("UnMatched") >= 0)
+                        {
+                            mb.BetStatus = "Lapsed";
+                            _mbSvr.Update(mb);
+                        }
                     }
 
                     // cap nhat BetStatus cua nhung UnMatched Bets →　"Lapsed"	
 
                     _soccerMatch.Settled = true;
-                    _soccerMatch.MatchStatus = "Lapsed";
+                   // _soccerMatch.MatchStatus = "Lapsed";
                     _srv.Update4Settle(_soccerMatch);
 
                 }
@@ -98,6 +101,10 @@ namespace BetEx247.Plugin.DataManager
                         BetSettlement BetSettle = new BetSettlement(_soccermatch, BackBet, LayBet);
                         //Chi can goi ham DoSettle() la ta da tien hanh Settle cho Bet duoc roi !														
                         BetSettle.DoSettle();
+                        // Setle finish=> Set flag = true
+                        _soccermatch.Settled = true;
+                        _srv.Update4Settle(_soccermatch);
+
 
                     }  // end Soccer_MatchedBetsList  For loop															
                 }

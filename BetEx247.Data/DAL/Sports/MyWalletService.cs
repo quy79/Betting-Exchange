@@ -66,7 +66,10 @@ namespace BetEx247.Data.DAL.Sports
                  if (_sport != null)
                  {
 
-                     _sport = wallet;
+                     _sport.Available = wallet.Available;
+                     _sport.Balance = wallet.Balance;
+                     _sport.Exposure = wallet.Exposure;
+                     _sport.UpdatedTime = DateTime.Now;
                      
                      dba.SaveChanges();
                      return true;

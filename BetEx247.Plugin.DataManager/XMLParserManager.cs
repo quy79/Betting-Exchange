@@ -86,11 +86,11 @@ namespace BetEx247.Plugin.DataManager
                 {
                     element.SetValue("No");
                     doc.Save(Constant.SourceXML.MASTERXMLSOURCE + "\\update.xml");
-                    masterTableManager.updateFromXML = false;
+                    masterTableManager.updateFromXML = true;
                 }
                 else
                 {
-                    masterTableManager.updateFromXML = true;
+                    masterTableManager.updateFromXML = false;
                 }
                 //If initiated then return.
                 if (masterTableManager.sports.Count > 0)

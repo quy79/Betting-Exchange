@@ -51,18 +51,23 @@ namespace BetEx247.Services
         {
             base.OnStart(args);
             // Sleep here for Debugging purpose
-           Thread.Sleep(20 * 1000);
+          // Thread.Sleep(20 * 1000);
+
+            Trace.Listeners.Add(new TextWriterTraceListener("c:/bet247x.log"));
+            Trace.AutoFlush = true;
+            Trace.Indent();
+            Trace.Flush();
             db.initConnection();
             //  while ( true)
             {
-                Debug.WriteLine("OnStart: start refresh data");
+                Trace.WriteLine("OnStart: start refresh data");
 
                 Thread t = new Thread(mainThread);
                 t.Start();
 
               // SportsDataRenderManager renderMgr = new SportsDataRenderManager();
                 //List<Bet247xSport> list = renderMgr.refreshData();
-                Debug.WriteLine("OnStart:end onstart");
+                Trace.WriteLine("OnStart:end onstart");
             }
         }
 
@@ -115,7 +120,10 @@ namespace BetEx247.Services
 
                 }
             }
-            catch { }
+            catch (Exception e){
+                Trace.WriteLine("mainThread:" + e.StackTrace);
+                Trace.WriteLine("mainThread:" + e.Message);
+            }
 
         }
 
@@ -203,18 +211,31 @@ namespace BetEx247.Services
         protected void ParseThread(object country)
         {
            lock(this){
-            Bet247xSoccerCountry _bet247xSoccerCountry = (Bet247xSoccerCountry)country;
-            mgr.SoccerGoalServeParser(ref _bet247xSoccerCountry);
+               try
+               {
+                   Bet247xSoccerCountry _bet247xSoccerCountry = (Bet247xSoccerCountry)country;
+                   mgr.SoccerGoalServeParser(ref _bet247xSoccerCountry);
+               } catch(Exception e){
+                   Trace.WriteLine("ParseThread:" + e.StackTrace);
+                   Trace.WriteLine("ParseThread:" + e.Message);
+
+               }
         }
 
         }
 
         protected void ParseSportThread(object country)
         {
-            lock (this)
-            {
+            lock (this){
+            
+                try{
                 Bet247xSportCountry _bet247xSoccerCountry = (Bet247xSportCountry)country;
                 mgr.SoccerGoalServeOtherSportParser(ref _bet247xSoccerCountry);
+                }catch(Exception e){
+                     Trace.WriteLine("ParseSportThread:" + e.StackTrace);
+                     Trace.WriteLine("ParseSportThread:" + e.Message);
+                }
+        
             }
         }
         protected void checkUpdateOddsThread()
@@ -229,7 +250,13 @@ namespace BetEx247.Services
 
                    // Thread Thread = new Thread(ParseThread);
                     //Thread.Start(_bet247xSoccerCountry);
-                    mgr.SoccerGoalServeParser(ref _bet247xSoccerCountry);
+                    try
+                    {
+                        mgr.SoccerGoalServeParser(ref _bet247xSoccerCountry);
+                    }catch(Exception e){
+                        Trace.WriteLine("checkUpdateOddsThread:" + e.StackTrace);
+                        Trace.WriteLine("checkUpdateOddsThread:" + e.Message);
+                    }
                     // urlBetClick = _bet247xSoccerCountry.Betclick_OddsFeed;
                    // DateTime lastestTime = DateTime.Now;
                     // if (currentTime.Minute - lastestTime.Minute)
@@ -244,7 +271,16 @@ namespace BetEx247.Services
 
                        // Thread Thread = new Thread(ParseSportThread);
                        // Thread.Start(_bet247xSoccerCountry);
-                        mgr.SoccerGoalServeOtherSportParser(ref _bet247xSoccerCountry);
+                        try
+                        {
+                            mgr.SoccerGoalServeOtherSportParser(ref _bet247xSoccerCountry);
+                        }
+                        catch (Exception e)
+                        {
+                            Trace.WriteLine("checkUpdateOddsThread:" + e.StackTrace);
+                            Trace.WriteLine("checkUpdateOddsThread:" + e.Message);
+                        }
+                       
                         // urlBetClick = _bet247xSoccerCountry.Betclick_OddsFeed;
                         // DateTime lastestTime = DateTime.Now;
                         // if (currentTime.Minute - lastestTime.Minute)
@@ -260,8 +296,13 @@ namespace BetEx247.Services
             SportsDataRenderManager Mgr = new SportsDataRenderManager();
             while (true)
             {
-                
-                Mgr.CollectInfoToSerialize();
+                try
+                {
+                    Mgr.CollectInfoToSerialize();
+                } catch(Exception e){
+                    Trace.WriteLine("checkResheshDataThread:" + e.StackTrace);
+                    Trace.WriteLine("checkResheshDataThread:" + e.Message);
+                }
 
                 Thread.Sleep(60 * 1000);
             }
@@ -278,9 +319,11 @@ namespace BetEx247.Services
                    _betSettleSvr.doSetle4Type1();
                     _betSettleSvr.doSetle4Type2();
                 }catch(Exception ee){
+                    Trace.WriteLine("DoSettleThread:"+ee.StackTrace);
+                    Trace.WriteLine("DoSettleThread:"+ee.Message);
                 }
 
-                Thread.Sleep(5*60 * 1000); // 5 minutes
+                Thread.Sleep(1*60 * 1000); // 5 minutes
             }
         }
 

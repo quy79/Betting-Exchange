@@ -71,7 +71,7 @@ namespace BetEx247.Plugin.DataManager.Settle
 
                 SoccerMatchOddsService _soccerMatchOddsSvr = new SoccerMatchOddsService();
                 Soccer_MatchOdds _soccerMatchOdds = new Soccer_MatchOdds();
-                List<Soccer_MatchOdds> _SoccerMatchOddsesList = _soccerMatchOddsSvr.SoccerMatchOddses((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, Guid.Parse(BackBetObj.MatchID));
+                List<Soccer_MatchOdds> _SoccerMatchOddsesList = _soccerMatchOddsSvr.SoccerMatchOddses((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, BackBetObj.MatchID);
                 _soccerMatchOdds = _SoccerMatchOddsesList[0];
 
 
@@ -172,7 +172,7 @@ namespace BetEx247.Plugin.DataManager.Settle
             else if (BackBetObj.OddsTable.Equals("[dbo].[Soccer_TotalGoalsOU]"))
             {
                 SoccerTotalGoalsOUService _soccerTotalGoalOUSvr = new SoccerTotalGoalsOUService();
-                List<Soccer_TotalGoalsOU> _soccerTotalGoalsOUs = _soccerTotalGoalOUSvr.SoccerTotalGoalsOUs((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, Guid.Parse(BackBetObj.MatchID));
+                List<Soccer_TotalGoalsOU> _soccerTotalGoalsOUs = _soccerTotalGoalOUSvr.SoccerTotalGoalsOUs((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, BackBetObj.MatchID);
 
                 Soccer_TotalGoalsOU _soccerTotalGoalsOU = _soccerTotalGoalsOUs[0];
 
@@ -183,11 +183,11 @@ namespace BetEx247.Plugin.DataManager.Settle
                 int TotalGoals = 0;		//tong so ban thang 											
                 if ((int)_soccerTotalGoalsOU.Period == (int)Soccer_Periods.FT)
                 {								// Neu day la keo Over/Under 90 phut FT					
-                    TotalGoals = (int)SoccerMatchObj.HomeTeam_FTGoals + (int)SoccerMatchObj.HomeTeam_FTGoals;
+                    TotalGoals = SoccerMatchObj.HomeTeam_FTGoals==null?0:(int)SoccerMatchObj.HomeTeam_FTGoals + SoccerMatchObj.AwayTeam_FTGoals==null?0:(int)SoccerMatchObj.AwayTeam_FTGoals;
                 }
                 else if ((int)_soccerTotalGoalsOU.Period == (int)Soccer_Periods.T1stHalf)
                 {								// Neu day la keo Over/Under 45 phut hiep mot					
-                    TotalGoals = (int)SoccerMatchObj.HomeTeam_1stHalfGoals + (int)SoccerMatchObj.AwayTeam_1stHalfGoals;
+                    TotalGoals = SoccerMatchObj.HomeTeam_1stHalfGoals==null?0:(int)SoccerMatchObj.HomeTeam_1stHalfGoals + SoccerMatchObj.AwayTeam_1stHalfGoals==null?0:(int)SoccerMatchObj.AwayTeam_1stHalfGoals;
                 }
 
 
@@ -270,15 +270,15 @@ namespace BetEx247.Plugin.DataManager.Settle
                 }
 
 
-
+            }
 
                   //Settle cho loai ca cuoc : Soccer AsianHandicap  (GIAI THUAT GAN GIONG NHU OVER/UNDER )		
-                else if (BackBetObj.OddsTable.Equals("[dbo].[Soccer_AsianHandicap]"))
+            else if (BackBetObj.OddsTable.Equals("[dbo].[Soccer_AsianHandicap]"))
                 {
                     SoccerAsianHandicapService _soccerHandicapSvr = new SoccerAsianHandicapService();
 
 
-                    List<Soccer_AsianHandicap> _soccerAsianHandicaps = _soccerHandicapSvr.SoccerAsianHandicaps((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, Guid.Parse(BackBetObj.MatchID));
+                    List<Soccer_AsianHandicap> _soccerAsianHandicaps = _soccerHandicapSvr.SoccerAsianHandicaps((long)BackBetObj.SportID, (long)BackBetObj.CountryID, (long)BackBetObj.LeagueID, BackBetObj.MatchID);
 
                     Soccer_AsianHandicap _soccerAsianHandicap = _soccerAsianHandicaps[0];
 
@@ -512,7 +512,7 @@ namespace BetEx247.Plugin.DataManager.Settle
 
 
 
-            }
+            
         }
 
 
@@ -554,7 +554,7 @@ namespace BetEx247.Plugin.DataManager.Settle
 
             foreach (MyBet _mb in _mybetList)
             {
-                TotalExposures += Convert.ToDouble(_mb.Exposure);
+                TotalExposures += _mb.Exposure==null?0:Convert.ToDouble(_mb.Exposure);
             }
             //BetExposuresList = SELECT Exposure FROM [dbo].[MyBets] WHERE [dbo].[MyBets].[ID] <> _myBet.ID		
 
@@ -563,9 +563,9 @@ namespace BetEx247.Plugin.DataManager.Settle
             //TotalExposures += Exposure;	
             //}		
             // Update Wallet Balance		
-            _myWallet.Balance = _myWallet.Balance + _myBet.NetProfit - Convert.ToDecimal(TotalExposures);
+            _myWallet.Balance = (_myWallet.Balance == null ? 0 : _myWallet.Balance) + (_myBet.NetProfit == null ? 0 : _myBet.NetProfit) - Convert.ToDecimal(TotalExposures);
             // Update Wallet Available		
-            _myWallet.Available = _myWallet.Balance - Convert.ToDecimal(TotalExposures);
+            _myWallet.Available = (_myWallet.Balance==null?0:_myWallet.Balance) - Convert.ToDecimal(TotalExposures);
 
             //update lai table [dbo].[MyWallet]		
             _myWalletSvr.Update(_myWallet);
@@ -603,7 +603,7 @@ namespace BetEx247.Plugin.DataManager.Settle
 
                 //_memberBack.UpdatePoints();	
                 BackBetObj.PointsRefunded = BackBetObj.Exposure * Convert.ToDecimal(MaximumMarketRate) * (1 - _memberBack.DiscountRate / 100);
-                _memberBack.TotalPoints = (int)(_memberBack.TotalPoints + BackBetObj.PointsRefunded);
+                _memberBack.TotalPoints = (int)(_memberBack.TotalPoints + BackBetObj.PointsRefunded == null ? 0 : BackBetObj.PointsRefunded);
 
                 //Update DiscountRate bang function : UpdateDiscountRate() duoc xay dung san trong class Member	
                 //(can cu va bang tham chieu ben phai !)	
@@ -639,7 +639,7 @@ namespace BetEx247.Plugin.DataManager.Settle
 
                 //_memberLay.UpdatePoints();	
                 LayBetObj.PointsRefunded = BackBetObj.Exposure * Convert.ToDecimal(MaximumMarketRate) * (1 - _memberLay.DiscountRate / 100);
-                _memberLay.TotalPoints = (long)(_memberLay.TotalPoints + LayBetObj.PointsRefunded);
+                _memberLay.TotalPoints = (long)(_memberLay.TotalPoints + LayBetObj.PointsRefunded == null ? 0 : LayBetObj.PointsRefunded);
 
                 //Update DiscountRate bang function : UpdateDiscountRate() duoc xay dung san trong class Member	
                 //(can cu va bang tham chieu ben phai !)	
@@ -693,8 +693,8 @@ namespace BetEx247.Plugin.DataManager.Settle
 
 
                 // _memberLay.UpdatePoints();
-                BackBetObj.PointsRefunded = BackBetObj.Exposure * Convert.ToDecimal(MaximumMarketRate) * (1 - _memberBack.DiscountRate / 100);
-                _memberLay.TotalPoints = (long)(_memberLay.TotalPoints + LayBetObj.PointsRefunded);
+                BackBetObj.PointsRefunded = BackBetObj.Exposure == null ? 0 : BackBetObj.Exposure * Convert.ToDecimal(MaximumMarketRate) * (1 - _memberBack.DiscountRate / 100);
+                _memberLay.TotalPoints = (long)(_memberLay.TotalPoints + LayBetObj.PointsRefunded == null ? 0 : LayBetObj.PointsRefunded);
 
                 //Update DiscountRate bang function : UpdateDiscountRate() duoc xay dung san trong class Member	
                 //(can cu va bang tham chieu ben phai !)	
@@ -731,7 +731,7 @@ namespace BetEx247.Plugin.DataManager.Settle
 
                 // _memberBack.UpdatePoints();
 
-                BackBetObj.PointsRefunded = BackBetObj.Exposure * Convert.ToDecimal(MaximumMarketRate) * (1 - _memberBack.DiscountRate / 100);
+                BackBetObj.PointsRefunded = BackBetObj.Exposure == null ? 0 : BackBetObj.Exposure * Convert.ToDecimal(MaximumMarketRate) * (1 - _memberBack.DiscountRate / 100);
                 _memberBack.TotalPoints = (long)(_memberBack.TotalPoints + BackBetObj.PointsRefunded);
                 //      [dbo].[Members].[TotalPoints] = [dbo].[Members].[TotalPoints] + BackBetObj.PointsRefunded;
 
